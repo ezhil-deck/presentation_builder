@@ -1,0 +1,20 @@
+{
+  "name": "@pb/engine",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Compose content + Mood + layouts into a Deck; text fit from font metrics.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "jest --config ../../jest.config.cjs --rootDir ../.. packages/engine/"
+  },
+  "dependencies": {
+    "@pb/layouts": "*",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "yaml": "^2.9.1"
+  }
+}

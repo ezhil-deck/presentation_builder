@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://presentations.ai/pb/schemas/layout.v1.2.json",
+  "title": "Layout v1 (instance)",
+  "description": "A whole-slide layout: a tree of boxes with content slots and capacities, on the 1920x1080 canvas. Layouts are JS modules in packages/layouts that take Mood.geometry (+ a content summary) and RETURN an instance of this schema with frames already in px - so a layout can react to margins, title-zone height and node count without a template language. The composer picks a layout by kind + capacity fit, binds content to slots, then the fitter sizes text.",
+  "type": "object",
+  "required": ["schema", "id", "kind", "boxes", "slots"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "layout/1" },
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$", "description": "e.g. bullets-left-image-right" },
+    "kind": { "$ref": "#/$defs/kind" },
+    "name": { "type": "string" },
+    "version": { "type": "integer" },
+    "tags": { "type": "array", "items": { "type": "string" }, "description": "picker hints: dense, airy, image-heavy, two-tone, ..." },
+    "surface": { "type": "object", "properties": { "prefer": { "enum": ["default", "alt", "accent", "dark", "any"] }, "allow": { "type": "array", "items": { "type": "string" } } } },
+    "footer": { "enum": ["show", "hide", "mood"], "default": "mood" },
+    "logo": { "enum": ["large", "small", "none", "mood"], "default": "mood" },
+    "decor": { "type": "object", "properties": { "allow": { "type": "boolean" }, "zones": { "type": "array", "items": { "$ref": "#/$defs/frame" }, "description": "content-free frames where a decor element may sit" } } },
+
+    "boxes": {
+      "type": "array",
+      "description": "Flat list; `parent` makes the tree. Frames are absolute canvas px (children too).",
+      "items": {
+        "type": "object",
+        "required": ["id", "frame"],
+        "properties": {
+          "id": { "type": "string" }, "parent": { "type": "string" },
+          "frame": { "$ref": "#/$defs/frame" },
+          "role": { "enum": ["title", "subtitle", "eyebrow", "body", "list", "image", "chart", "table", "kpis", "quote", "attribution", "logo", "footer", "number", "shape", "divider", "decor", "group"] },
+          "slot": { "type": "string", "description": "slot id this box renders (omit for pure shapes/groups)" },
+          "shape": { "type": "object", "properties": { "kind": { "enum": ["rect", "ellipse", "line"] }, "fill": { "type": "string" }, "stroke": { "type": "string" }, "radius": { "type": "string" } }, "description": "token refs into the Mood, never literal colours" },
+          "align": { "type": "object", "properties": { "h": { "enum": ["left", "center", "right"] }, "v": { "enum": ["top", "middle", "bottom"] } } },
+          "z": { "type": "integer" },
+          "flow": { "type": "object", "description": "for repeated children (cards, kpis, bullets): how items are laid inside this box", "properties": { "direction": { "enum": ["row", "column", "grid"] }, "gap": { "type": "string", "description": "spacing token" }, "columns": { "type": "integer" }, "itemLayout": { "type": "string", "description": "sub-layout id for each item (e.g. card-icon-top)" } } }
+        }
+      }
+    },
+
+    "slots": {
+      "type": "array",
+      "description": "What content this layout accepts. The picker matches Content blocks to slots by type and capacity.",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "box"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "enum": ["text", "richtext", "list", "cards", "image", "images", "people", "chart", "table", "kpis", "quote", "steps", "timeline", "logos", "number"] },
+          "box": { "type": "string", "description": "box id" },
+          "role": { "type": "string", "description": "typography role for text slots (display, h1, body ...)" },
+          "required": { "type": "boolean", "default": true },
+          "capacity": {
+            "type": "object",
+            "properties": {
+              "minItems": { "type": "integer" }, "maxItems": { "type": "integer" },
+              "maxChars": { "type": "integer", "description": "at the role's default size; the fitter may step down to role.fit.min" },
+              "maxLines": { "type": "integer" }, "maxCharsPerItem": { "type": "integer" }, "maxLevels": { "type": "integer" },
+              "aspect": { "type": "string", "description": "images: preferred w:h" }, "maxRows": { "type": "integer" }, "maxCols": { "type": "integer" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "kind": { "enum": ["cover", "section", "agenda", "bullets", "two-column", "diagram", "chart", "table", "kpi", "image", "image-text", "quote", "cta", "text", "cards", "timeline", "steps", "logos", "team", "comparison", "blank"] },
+    "frame": { "type": "object", "required": ["x", "y", "w", "h"], "properties": { "x": { "type": "number" }, "y": { "type": "number" }, "w": { "type": "number" }, "h": { "type": "number" } } }
+  }
+}

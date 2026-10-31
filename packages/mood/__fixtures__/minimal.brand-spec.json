@@ -1,0 +1,64 @@
+{
+  "schema": "brand-spec/1",
+  "id": "minimal",
+  "name": "Minimal",
+  "logos": {
+    "variants": { "full": { "file": "assets/logo.svg", "mime": "image/svg+xml", "width": 120, "height": 32 } }
+  },
+  "colors": { "primary": "#0A7C59" },
+  "surfaces": [
+    {
+      "id": "paper",
+      "bg": "#FAFAF7",
+      "text": "#1A1A1A",
+      "heading": "#1A1A1A",
+      "accent": "#0A7C59",
+      "tone": "light"
+    },
+    { "id": "ink", "bg": "#111827", "text": "#F9FAFB", "heading": "#FFFFFF", "accent": "#34D399" }
+  ],
+  "backgrounds": { "default": { "type": "solid", "surface": "paper" } },
+  "typography": {
+    "faces": {
+      "heading": {
+        "family": "Fixture Sans",
+        "files": [
+          { "file": "assets/fonts/FixtureSans.woff2", "format": "woff2", "weight": "700", "style": "normal" }
+        ],
+        "variable": false,
+        "metrics": {
+          "unitsPerEm": 1000,
+          "ascent": 0.92,
+          "descent": -0.24,
+          "lineGap": 0,
+          "capHeight": 0.7,
+          "xHeight": 0.5,
+          "avgCharWidth": 0.52
+        }
+      },
+      "body": {
+        "family": "Fixture Sans",
+        "files": [
+          { "file": "assets/fonts/FixtureSans.woff2", "format": "woff2", "weight": "400", "style": "normal" }
+        ],
+        "variable": false
+      }
+    },
+    "roles": {
+      "display": { "face": "heading", "size": 72, "weight": 700, "lineHeight": 1.1 },
+      "h1": { "face": "heading", "size": 48, "weight": 700, "lineHeight": 1.15 },
+      "h2": { "face": "heading", "size": 32, "weight": 700, "lineHeight": 1.2 },
+      "h3": { "face": "heading", "size": 24, "weight": 700, "lineHeight": 1.25 },
+      "body": { "face": "body", "size": 20, "weight": 400, "lineHeight": 1.4 },
+      "caption": { "face": "body", "size": 14, "weight": 400, "lineHeight": 1.3 }
+    }
+  },
+  "layout": {
+    "canvas": { "width": 1920, "height": 1080 },
+    "margins": { "top": 96, "right": 120, "bottom": 96, "left": 120 },
+    "spacing": [32, 8, 16],
+    "radiusScale": { "none": 0, "sm": 2 }
+  },
+  "provenance": {},
+  "questions": []
+}

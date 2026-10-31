@@ -1,0 +1,873 @@
+{
+  "schema": "deck/1",
+  "id": "fixture-two-slides",
+  "title": "Fixture deck",
+  "engineVersion": "0.0.0-fixture",
+  "canvas": {
+    "width": 1920,
+    "height": 1080
+  },
+  "source": {
+    "brandId": "fixture"
+  },
+  "fonts": [
+    {
+      "family": "Tiny",
+      "fallback": "sans-serif",
+      "files": [
+        {
+          "file": "fonts/Tiny-Regular.ttf",
+          "format": "truetype",
+          "weight": "400",
+          "style": "normal"
+        }
+      ],
+      "metrics": {
+        "ascent": 0.8,
+        "descent": -0.2,
+        "lineGap": 0
+      }
+    },
+    {
+      "family": "TinyText",
+      "fallback": "sans-serif",
+      "files": [
+        {
+          "file": "fonts/Tiny-Regular.ttf",
+          "weight": "400",
+          "style": "normal"
+        }
+      ]
+    }
+  ],
+  "assets": {
+    "a-photo": {
+      "file": "photo.png",
+      "mime": "image/png",
+      "width": 8,
+      "height": 6
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "kind": "cover",
+      "layoutId": "cover/1",
+      "surfaceId": "page",
+      "background": {
+        "type": "gradient",
+        "gradient": {
+          "type": "linear",
+          "angle": 135,
+          "stops": [
+            {
+              "color": "#FFFFFF",
+              "at": 0
+            },
+            {
+              "color": "#E0DCFF",
+              "at": 1
+            }
+          ]
+        }
+      },
+      "elements": [
+        {
+          "id": "title",
+          "type": "text",
+          "role": "title",
+          "z": 30,
+          "frame": {
+            "x": 120,
+            "y": 160,
+            "w": 1200,
+            "h": 300
+          },
+          "text": {
+            "font": {
+              "family": "Tiny",
+              "size": 60,
+              "weight": 400,
+              "lineHeight": 1.2,
+              "letterSpacing": 0,
+              "case": "none",
+              "color": "#111111",
+              "role": "h1"
+            },
+            "align": "left",
+            "valign": "top",
+            "paragraphs": [
+              {
+                "runs": [
+                  {
+                    "text": "Brand "
+                  },
+                  {
+                    "text": "bold",
+                    "bold": true
+                  },
+                  {
+                    "text": " title that wraps over three lines"
+                  }
+                ]
+              }
+            ],
+            "lines": [
+              {
+                "paragraph": 0,
+                "x": 0,
+                "y": 54,
+                "width": 456,
+                "runs": [
+                  {
+                    "text": "Brand ",
+                    "run": 0,
+                    "x": 0,
+                    "width": 171
+                  },
+                  {
+                    "text": "bold",
+                    "run": 1,
+                    "x": 171,
+                    "width": 120
+                  },
+                  {
+                    "text": " title",
+                    "run": 2,
+                    "x": 291,
+                    "width": 165
+                  }
+                ]
+              },
+              {
+                "paragraph": 0,
+                "x": 0,
+                "y": 126,
+                "width": 420,
+                "runs": [
+                  {
+                    "text": "that wraps over",
+                    "run": 2,
+                    "x": 0,
+                    "width": 420
+                  }
+                ]
+              },
+              {
+                "paragraph": 0,
+                "x": 0,
+                "y": 198,
+                "width": 315,
+                "runs": [
+                  {
+                    "text": "three lines",
+                    "run": 2,
+                    "x": 0,
+                    "width": 315
+                  }
+                ]
+              }
+            ],
+            "fit": {
+              "requestedSize": 60,
+              "appliedSize": 60,
+              "overflow": false,
+              "steps": 0
+            }
+          }
+        },
+        {
+          "id": "photo",
+          "type": "image",
+          "role": "image",
+          "z": 30,
+          "frame": {
+            "x": 1400,
+            "y": 160,
+            "w": 400,
+            "h": 300
+          },
+          "style": {
+            "radius": 16
+          },
+          "image": {
+            "asset": "a-photo",
+            "fit": "cover",
+            "alt": "Two colour block"
+          }
+        },
+        {
+          "id": "bar",
+          "type": "shape",
+          "role": "decor",
+          "z": 20,
+          "frame": {
+            "x": 120,
+            "y": 520,
+            "w": 600,
+            "h": 40
+          },
+          "style": {
+            "fill": "#533AFD",
+            "radius": 8,
+            "opacity": 0.9
+          },
+          "shape": {
+            "kind": "rect"
+          }
+        },
+        {
+          "id": "rule",
+          "type": "shape",
+          "role": "decor",
+          "z": 20,
+          "frame": {
+            "x": 120,
+            "y": 620,
+            "w": 1680,
+            "h": 0
+          },
+          "style": {
+            "stroke": {
+              "color": "#50617A",
+              "width": 2
+            }
+          },
+          "shape": {
+            "kind": "line"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "kind": "chart",
+      "layoutId": "chart/1",
+      "surfaceId": "light",
+      "background": {
+        "type": "solid",
+        "color": "#F8FAFD"
+      },
+      "elements": [
+        {
+          "id": "chart",
+          "type": "chart",
+          "role": "chart",
+          "z": 30,
+          "frame": {
+            "x": 120,
+            "y": 160,
+            "w": 1000,
+            "h": 700
+          },
+          "chart": {
+            "chartType": "column",
+            "categories": ["2024", "2025", "2026"],
+            "series": [
+              {
+                "name": "Revenue",
+                "values": [40, 70, 100],
+                "color": "#533AFD"
+              },
+              {
+                "name": "Cost",
+                "values": [30, 50, 90],
+                "color": "#F44BCC"
+              }
+            ],
+            "unit": "%",
+            "style": {
+              "barRadius": 4,
+              "font": {
+                "family": "Tiny",
+                "size": 18,
+                "weight": 400,
+                "color": "#50617A"
+              }
+            },
+            "geometry": {
+              "plot": {
+                "x": 80,
+                "y": 20,
+                "w": 900,
+                "h": 560
+              },
+              "bars": [
+                {
+                  "x": 120,
+                  "y": 356,
+                  "w": 100,
+                  "h": 224,
+                  "series": 0,
+                  "category": 0
+                },
+                {
+                  "x": 420,
+                  "y": 188,
+                  "w": 100,
+                  "h": 392,
+                  "series": 0,
+                  "category": 1
+                },
+                {
+                  "x": 720,
+                  "y": 20,
+                  "w": 100,
+                  "h": 560,
+                  "series": 0,
+                  "category": 2
+                },
+                {
+                  "x": 240,
+                  "y": 412,
+                  "w": 100,
+                  "h": 168,
+                  "series": 1,
+                  "category": 0
+                },
+                {
+                  "x": 540,
+                  "y": 300,
+                  "w": 100,
+                  "h": 280,
+                  "series": 1,
+                  "category": 1
+                },
+                {
+                  "x": 840,
+                  "y": 76,
+                  "w": 100,
+                  "h": 504,
+                  "series": 1,
+                  "category": 2
+                }
+              ],
+              "lines": [
+                {
+                  "x1": 80,
+                  "y1": 580,
+                  "x2": 980,
+                  "y2": 580,
+                  "color": "#E5EDF5",
+                  "width": 1
+                },
+                {
+                  "x1": 80,
+                  "y1": 300,
+                  "x2": 980,
+                  "y2": 300,
+                  "color": "#E5EDF5",
+                  "width": 1
+                },
+                {
+                  "x1": 80,
+                  "y1": 20,
+                  "x2": 980,
+                  "y2": 20,
+                  "color": "#E5EDF5",
+                  "width": 1
+                }
+              ],
+              "ticks": {
+                "x": [
+                  {
+                    "pos": 230,
+                    "label": "2024"
+                  },
+                  {
+                    "pos": 530,
+                    "label": "2025"
+                  },
+                  {
+                    "pos": 830,
+                    "label": "2026"
+                  }
+                ],
+                "y": [
+                  {
+                    "pos": 580,
+                    "label": "0"
+                  },
+                  {
+                    "pos": 300,
+                    "label": "50"
+                  },
+                  {
+                    "pos": 20,
+                    "label": "100"
+                  }
+                ]
+              },
+              "labels": [
+                {
+                  "x": 770,
+                  "y": 12,
+                  "text": "100%",
+                  "anchor": "middle",
+                  "color": "#061B31"
+                }
+              ],
+              "legend": [
+                {
+                  "x": 80,
+                  "y": 640,
+                  "text": "Revenue",
+                  "color": "#533AFD"
+                },
+                {
+                  "x": 300,
+                  "y": 640,
+                  "text": "Cost",
+                  "color": "#F44BCC"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "table",
+          "type": "table",
+          "role": "table",
+          "z": 30,
+          "frame": {
+            "x": 1200,
+            "y": 160,
+            "w": 600,
+            "h": 240
+          },
+          "table": {
+            "header": ["Plan", "Seats", "Price"],
+            "rows": [
+              ["Starter", "5", "10 USD"],
+              ["Team", "20", "40 USD"]
+            ],
+            "colWidths": [240, 180, 180],
+            "rowHeights": [80, 80, 80],
+            "align": ["left", "right", "right"],
+            "style": {
+              "header": {
+                "fill": "#0D1738"
+              },
+              "rows": {
+                "fill": "#FFFFFF",
+                "altFill": "#F8FAFD"
+              },
+              "firstColumn": {
+                "fill": "#E5EDF5"
+              },
+              "border": {
+                "color": "#E5EDF5",
+                "width": 1
+              },
+              "radius": 8
+            },
+            "cells": [
+              [
+                {
+                  "font": {
+                    "family": "Tiny",
+                    "size": 24,
+                    "weight": 400,
+                    "lineHeight": 1.2,
+                    "color": "#FFFFFF"
+                  },
+                  "paragraphs": [
+                    {
+                      "runs": [
+                        {
+                          "text": "Plan"
+                        }
+                      ]
+                    }
+                  ],
+                  "lines": [
+                    {
+                      "paragraph": 0,
+                      "x": 24,
+                      "y": 47.2,
+                      "width": 50.4,
+                      "runs": [
+                        {
+                          "text": "Plan",
+                          "run": 0,
+                          "x": 0,
+                          "width": 50.4
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "font": {
+                    "family": "Tiny",
+                    "size": 24,
+                    "weight": 400,
+                    "lineHeight": 1.2,
+                    "color": "#FFFFFF"
+                  },
+                  "paragraphs": [
+                    {
+                      "runs": [
+                        {
+                          "text": "Seats"
+                        }
+                      ]
+                    }
+                  ],
+                  "lines": [
+                    {
+                      "paragraph": 0,
+                      "x": 24,
+                      "y": 47.2,
+                      "width": 62.4,
+                      "runs": [
+                        {
+                          "text": "Seats",
+                          "run": 0,
+                          "x": 0,
+                          "width": 62.4
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "font": {
+                    "family": "Tiny",
+                    "size": 24,
+                    "weight": 400,
+                    "lineHeight": 1.2,
+                    "color": "#FFFFFF"
+                  },
+                  "paragraphs": [
+                    {
+                      "runs": [
+                        {
+                          "text": "Price"
+                        }
+                      ]
+                    }
+                  ],
+                  "lines": [
+                    {
+                      "paragraph": 0,
+                      "x": 24,
+                      "y": 47.2,
+                      "width": 62.4,
+                      "runs": [
+                        {
+                          "text": "Price",
+                          "run": 0,
+                          "x": 0,
+                          "width": 62.4
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "font": {
+                    "family": "Tiny",
+                    "size": 24,
+                    "weight": 400,
+                    "lineHeight": 1.2,
+                    "color": "#061B31"
+                  },
+                  "paragraphs": [
+                    {
+                      "runs": [
+                        {
+                          "text": "Starter"
+                        }
+                      ]
+                    }
+                  ],
+                  "lines": [
+                    {
+                      "paragraph": 0,
+                      "x": 24,
+                      "y": 47.2,
+                      "width": 86.4,
+                      "runs": [
+                        {
+                          "text": "Starter",
+                          "run": 0,
+                          "x": 0,
+                          "width": 86.4
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "font": {
+                    "family": "Tiny",
+                    "size": 24,
+                    "weight": 400,
+                    "lineHeight": 1.2,
+                    "color": "#061B31"
+                  },
+                  "paragraphs": [
+                    {
+                      "runs": [
+                        {
+                          "text": "5"
+                        }
+                      ]
+                    }
+                  ],
+                  "lines": [
+                    {
+                      "paragraph": 0,
+                      "x": 24,
+                      "y": 47.2,
+                      "width": 13.2,
+                      "runs": [
+                        {
+                          "text": "5",
+                          "run": 0,
+                          "x": 0,
+                          "width": 13.2
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "font": {
+                    "family": "Tiny",
+                    "size": 24,
+                    "weight": 400,
+                    "lineHeight": 1.2,
+                    "color": "#061B31"
+                  },
+                  "paragraphs": [
+                    {
+                      "runs": [
+                        {
+                          "text": "10 USD"
+                        }
+                      ]
+                    }
+                  ],
+                  "lines": [
+                    {
+                      "paragraph": 0,
+                      "x": 24,
+                      "y": 47.2,
+                      "width": 75.6,
+                      "runs": [
+                        {
+                          "text": "10 USD",
+                          "run": 0,
+                          "x": 0,
+                          "width": 75.6
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "font": {
+                    "family": "Tiny",
+                    "size": 24,
+                    "weight": 400,
+                    "lineHeight": 1.2,
+                    "color": "#061B31"
+                  },
+                  "paragraphs": [
+                    {
+                      "runs": [
+                        {
+                          "text": "Team"
+                        }
+                      ]
+                    }
+                  ],
+                  "lines": [
+                    {
+                      "paragraph": 0,
+                      "x": 24,
+                      "y": 47.2,
+                      "width": 50.4,
+                      "runs": [
+                        {
+                          "text": "Team",
+                          "run": 0,
+                          "x": 0,
+                          "width": 50.4
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "font": {
+                    "family": "Tiny",
+                    "size": 24,
+                    "weight": 400,
+                    "lineHeight": 1.2,
+                    "color": "#061B31"
+                  },
+                  "paragraphs": [
+                    {
+                      "runs": [
+                        {
+                          "text": "20"
+                        }
+                      ]
+                    }
+                  ],
+                  "lines": [
+                    {
+                      "paragraph": 0,
+                      "x": 24,
+                      "y": 47.2,
+                      "width": 26.4,
+                      "runs": [
+                        {
+                          "text": "20",
+                          "run": 0,
+                          "x": 0,
+                          "width": 26.4
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "font": {
+                    "family": "Tiny",
+                    "size": 24,
+                    "weight": 400,
+                    "lineHeight": 1.2,
+                    "color": "#061B31"
+                  },
+                  "paragraphs": [
+                    {
+                      "runs": [
+                        {
+                          "text": "40 USD"
+                        }
+                      ]
+                    }
+                  ],
+                  "lines": [
+                    {
+                      "paragraph": 0,
+                      "x": 24,
+                      "y": 47.2,
+                      "width": 75.6,
+                      "runs": [
+                        {
+                          "text": "40 USD",
+                          "run": 0,
+                          "x": 0,
+                          "width": 75.6
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "id": "notes",
+          "type": "text",
+          "role": "body",
+          "z": 30,
+          "frame": {
+            "x": 1200,
+            "y": 480,
+            "w": 600,
+            "h": 120
+          },
+          "text": {
+            "font": {
+              "family": "TinyText",
+              "size": 30,
+              "weight": 400,
+              "lineHeight": 1.4,
+              "color": "#333333",
+              "ascent": 0.8,
+              "descent": -0.2,
+              "role": "bullet"
+            },
+            "paragraphs": [
+              {
+                "runs": [
+                  {
+                    "text": "First point"
+                  }
+                ],
+                "level": 0,
+                "bullet": {
+                  "glyph": "•",
+                  "indent": 30
+                }
+              },
+              {
+                "runs": [
+                  {
+                    "text": "Second point"
+                  }
+                ],
+                "level": 0,
+                "bullet": {
+                  "glyph": "•",
+                  "indent": 30
+                }
+              }
+            ],
+            "lines": [
+              {
+                "paragraph": 0,
+                "x": 40,
+                "y": 30,
+                "width": 160.5,
+                "runs": [
+                  {
+                    "text": "First point",
+                    "run": 0,
+                    "x": 0,
+                    "width": 160.5
+                  }
+                ],
+                "bullet": {
+                  "text": "•",
+                  "x": 10,
+                  "width": 12
+                }
+              },
+              {
+                "paragraph": 1,
+                "x": 40,
+                "y": 72,
+                "width": 175.5,
+                "runs": [
+                  {
+                    "text": "Second point",
+                    "run": 0,
+                    "x": 0,
+                    "width": 175.5
+                  }
+                ],
+                "bullet": {
+                  "text": "•",
+                  "x": 10,
+                  "width": 12
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://presentations.ai/pb/schemas/brand-spec.v1.2.json",
+  "title": "BrandSpec v1",
+  "description": "The normalised brand as the rules consume it. Produced by packages/brand from a Brand Presentation Spec input (schemas/input/). Data stays clean; where every value came from is in the `provenance` sidecar (JSON-pointer -> origin). Values the input does not give are NOT filled in: they are listed in `questions` and the pointer is absent.",
+  "type": "object",
+  "required": ["schema", "id", "name", "colors", "surfaces", "typography", "layout", "provenance", "questions"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "brand-spec/1" },
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "name": { "type": "string" },
+    "tagline": { "type": "string" },
+    "input": {
+      "type": "object",
+      "description": "What was read: file, its declared version, content hash.",
+      "properties": { "file": { "type": "string" }, "version": { "type": "string" }, "sha256": { "type": "string" } }
+    },
+
+    "logos": {
+      "type": "object",
+      "description": "Logo variants resolved to files under the brand folder, plus the usage rules.",
+      "properties": {
+        "variants": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/asset" },
+          "description": "keys: full | mark | monoDark | monoLight | wordmark | ..."
+        },
+        "onSurface": { "type": "object", "additionalProperties": { "type": "string" }, "description": "surface id -> variant key" },
+        "height": { "type": "number" }, "heightLarge": { "type": "number", "description": "answers.json /brand/logoRules/heightLarge (D5): logo height where a layout shows it large" }, "minHeight": { "type": "number" }, "clearSpace": { "type": "number" },
+        "position": { "$ref": "#/$defs/placement" },
+        "perLayout": { "type": "object", "additionalProperties": { "enum": ["large", "small", "none"] } },
+        "forbidOnSurfaces": { "type": "array", "items": { "type": "string" } },
+        "noFilter": { "type": "boolean" }
+      }
+    },
+
+    "colors": {
+      "type": "object",
+      "required": ["primary"],
+      "properties": {
+        "primary": { "$ref": "#/$defs/color" }, "secondary": { "$ref": "#/$defs/color" },
+        "accent": { "$ref": "#/$defs/color" }, "tertiary": { "$ref": "#/$defs/color" },
+        "neutrals": { "type": "array", "items": { "$ref": "#/$defs/color" }, "description": "light -> dark, as given" },
+        "semantic": { "type": "object", "properties": { "success": { "$ref": "#/$defs/color" }, "warning": { "$ref": "#/$defs/color" }, "error": { "$ref": "#/$defs/color" }, "info": { "$ref": "#/$defs/color" } } },
+        "chart": { "type": "array", "items": { "$ref": "#/$defs/color" }, "description": "categorical series order" },
+        "chartMuted": { "$ref": "#/$defs/color" },
+        "chartSequential": { "type": "array", "items": { "$ref": "#/$defs/color" } },
+        "named": { "type": "object", "additionalProperties": { "$ref": "#/$defs/color" }, "description": "brand-named extras (gradient stops, tints)" },
+        "gradients": { "type": "object", "properties": { "policy": { "enum": ["none", "text-only", "accents-only", "backgrounds", "everywhere"], "description": "the input enum (none = the brand does not use gradients)" }, "definitions": { "type": "object", "additionalProperties": { "$ref": "#/$defs/gradient" } }, "usage": { "type": "array", "items": { "type": "object" } } } }
+      }
+    },
+
+    "surfaces": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Every background the brand allows text on, with the colour roles ON that surface. Order = the brand's preference.",
+      "items": {
+        "type": "object",
+        "required": ["id", "bg", "text"],
+        "properties": {
+          "id": { "type": "string" },
+          "bg": { "$ref": "#/$defs/color" }, "text": { "$ref": "#/$defs/color" }, "textMuted": { "$ref": "#/$defs/color" },
+          "heading": { "$ref": "#/$defs/color" }, "accent": { "$ref": "#/$defs/color" },
+          "card": { "$ref": "#/$defs/color" }, "cardText": { "$ref": "#/$defs/color" }, "border": { "$ref": "#/$defs/color" },
+          "logo": { "type": "string", "description": "logo variant key" },
+          "tone": { "enum": ["light", "dark"], "description": "derived from bg luminance when not given" }
+        }
+      }
+    },
+
+    "backgrounds": {
+      "type": "object",
+      "properties": {
+        "default": { "$ref": "#/$defs/background" },
+        "variants": { "type": "object", "additionalProperties": { "$ref": "#/$defs/background" } },
+        "rhythm": { "type": "array", "items": { "type": "string" }, "description": "surface/variant ids in the order the brand cycles them" }
+      }
+    },
+
+    "typography": {
+      "type": "object",
+      "required": ["faces", "roles"],
+      "properties": {
+        "faces": {
+          "type": "object",
+          "description": "keys: heading | body | mono | accent ...",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["family"],
+            "properties": {
+              "family": { "type": "string" },
+              "files": { "type": "array", "items": { "$ref": "#/$defs/fontFile" }, "description": "resolved font files; empty when the brand only names a system/web family" },
+              "weights": { "type": "array", "items": { "type": "integer" } },
+              "variable": { "type": "boolean" },
+              "fallback": { "type": "string" },
+              "embeddable": { "type": "boolean" },
+              "license": { "type": "string" },
+              "metrics": { "type": "object", "description": "read from the first file by packages/brand/fonts: unitsPerEm, ascent, descent, lineGap, capHeight, xHeight, avgCharWidth (per 1 em), widths (codepoint -> advance per 1 em) for U+0020..U+00FF", "properties": { "unitsPerEm": { "type": "integer" }, "ascent": { "type": "number" }, "descent": { "type": "number" }, "lineGap": { "type": "number" }, "capHeight": { "type": "number" }, "xHeight": { "type": "number" }, "avgCharWidth": { "type": "number" }, "widths": { "type": "object", "additionalProperties": { "type": "number" } }, "file": { "type": "string" } } }
+            }
+          }
+        },
+        "roles": {
+          "type": "object",
+          "description": "keys: display | h1 | h2 | h3 | body | bodySmall | caption | eyebrow | stat | quote | button | label ...",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["face", "size"],
+            "properties": {
+              "face": { "type": "string" }, "size": { "type": "number", "description": "px on the 1920x1080 canvas (BR-NORMALIZE D3: input sizes scaled by typography.sizeUnits + slideScale)" },
+              "weight": { "type": "integer" }, "lineHeight": { "type": "number" }, "letterSpacing": { "type": "number", "description": "em" },
+              "case": { "enum": ["none", "sentence", "upper", "lower", "title"] }, "color": { "type": "string", "description": "as given: a surface role name (text|heading|accent|textMuted) or a literal hex" }
+            }
+          }
+        },
+        "alignment": { "type": "object", "properties": { "title": { "$ref": "#/$defs/halign" }, "body": { "$ref": "#/$defs/halign" } } },
+        "bullets": { "type": "object", "properties": { "glyph": { "type": "string" }, "color": { "type": "string" }, "indent": { "type": "number" }, "gap": { "type": "number" }, "nested": { "oneOf": [{ "type": "string" }, { "type": "array", "items": { "type": "string" } }] } } },
+        "limits": { "type": "object", "properties": { "maxWordsPerSlide": { "type": "integer" }, "maxCharsPerLine": { "type": "integer" }, "maxTitleChars": { "type": "integer" }, "minBodySize": { "type": "number", "description": "canvas px (scaled like role sizes, D3)" } } },
+        "sizeUnits": { "enum": ["site", "slide"], "description": "as given (D3): slide = sizes as given; site = every size x slideScale; absent (legacy) = sizes <= 40 x slideScale" },
+        "slideScale": { "type": "number", "description": "as given (D3)" },
+        "scriptFallbacks": { "type": "object", "additionalProperties": { "type": "string" }, "description": "fallback family per script (cjk, arabic, devanagari, ...), typography level (D2)" }
+      }
+    },
+
+    "layout": {
+      "type": "object",
+      "required": ["margins"],
+      "properties": {
+        "canvas": { "type": "object", "properties": { "width": { "const": 1920 }, "height": { "const": 1080 } } },
+        "margins": { "$ref": "#/$defs/edges" }, "safeArea": { "$ref": "#/$defs/edges" },
+        "grid": { "type": "object", "properties": { "columns": { "type": "integer" }, "gutter": { "type": "number" } } },
+        "spacing": { "type": "array", "items": { "type": "number" }, "description": "spacing scale, px" },
+        "radiusScale": { "type": "object", "additionalProperties": { "type": "number" } },
+        "shadowScale": { "type": "object", "additionalProperties": { "oneOf": [{ "type": "string", "description": "CSS box-shadow" }, { "type": "object", "properties": { "x": { "type": "number" }, "y": { "type": "number" }, "blur": { "type": "number" }, "spread": { "type": "number" }, "color": { "$ref": "#/$defs/colorOrRef" }, "opacity": { "type": "number" } } }] } },
+        "titleZone": { "type": "object", "properties": { "y": { "type": "number" }, "height": { "type": "number" }, "align": { "$ref": "#/$defs/halign" } } },
+        "sectionHeader": { "type": "object" },
+        "footer": {
+          "type": "object",
+          "properties": {
+            "show": { "type": "boolean" }, "pageNumber": { "type": "boolean" }, "pageNumberFormat": { "type": "string" },
+            "date": { "type": "boolean" }, "text": { "type": "string" }, "logo": { "type": "boolean" },
+            "position": { "$ref": "#/$defs/placement" }, "style": { "type": "string", "description": "typography role" },
+            "hideOn": { "type": "array", "items": { "type": "string" }, "description": "layout kinds" }
+          }
+        }
+      }
+    },
+
+    "components": {
+      "type": "object",
+      "description": "Brand-given component looks. Each is free-form tokens as the input gives them; the Mood rules read named keys.",
+      "properties": {
+        "cards": { "type": "object" }, "chip": { "type": "object" }, "callout": { "type": "object" }, "quote": { "type": "object" },
+        "divider": { "type": "object" }, "steps": { "type": "object" }, "timeline": { "type": "object" }, "arrow": { "type": "object" },
+        "button": { "type": "object" }, "buttonSecondary": { "type": "object" }, "avatar": { "type": "object" }, "logoWall": { "type": "object" },
+        "icons": { "type": "object", "properties": { "set": { "type": "string" }, "style": { "enum": ["line", "filled", "duotone", "solid", "outline", "custom"] }, "color": { "type": "string" }, "size": { "type": "number" }, "container": { "type": "object" }, "files": { "type": "array", "description": "BR-ICONS (E5): when customPath is a folder, every image file in it; <name>-white|-light|-dark.<ext> is a variant of <name>.<ext>, not its own icon", "items": { "$ref": "#/$defs/asset", "required": ["file", "name", "variants"], "properties": { "name": { "type": "string", "description": "the file path inside the icon folder without its extension" }, "variants": { "type": "object", "description": "variant -> file", "propertyNames": { "enum": ["white", "light", "dark"] }, "additionalProperties": { "type": "string" } } } } } } }
+      },
+      "additionalProperties": { "type": "object" }
+    },
+
+    "charts": { "type": "object", "description": "palette ref, gridlines, axes, dataLabels, legend, bar/line/pie/donut/kpi style as given" },
+    "tables": { "type": "object", "description": "header, rows, firstColumn, align, radius, maxRows, maxCols as given" },
+
+    "imagery": {
+      "type": "object",
+      "properties": {
+        "direction": { "type": "object" }, "treatments": { "type": "object" }, "perLayout": { "type": "object" },
+        "textOverImage": { "type": "object" }, "crop": { "type": "object" }, "maxPerSlide": { "type": "integer" },
+        "samples": { "type": "array", "items": { "$ref": "#/$defs/asset" } },
+        "masks": { "type": "object" }
+      }
+    },
+
+    "decor": {
+      "type": "object",
+      "description": "Brand-supplied decorative elements (textures, shapes, patterns). Only what the brand gives; nothing invented.",
+      "properties": {
+        "elements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id"],
+            "description": "file-based elements carry `file`; drawn elements (rule, textGradient, word, ...) carry `type` + their draw keys, copied verbatim. Every other key the brand gives (anchor, tile, scale, align, blend, ...) is kept as given (E3).",
+            "additionalProperties": true,
+            "properties": {
+              "id": { "type": "string" }, "type": { "enum": ["shape", "pattern", "texture", "illustration", "rule", "frame", "badge", "sticker", "watermark", "textGradient", "actionIcon", "word"] },
+              "file": { "type": "string" }, "layer": { "enum": ["behind", "front"] }, "colorable": { "type": "boolean" },
+              "box": { "$ref": "#/$defs/frame" }, "opacity": { "type": "number" }, "placement": { "oneOf": [{ "$ref": "#/$defs/placement" }, { "type": "array", "items": { "$ref": "#/$defs/placement" } }] },
+              "allowedOn": { "type": "array", "items": { "type": "string" } }, "surfaces": { "type": "array", "items": { "type": "string" } },
+              "frequency": { "enum": ["always", "often", "sometimes", "rare"] },
+              "animated": { "type": "string", "description": "an animated version of `file` (animated WebP / GIF, same framing), path relative to the brand folder; checked by BR-ASSET (E3)" },
+              "video": { "type": "string", "description": "a video version of the element, path relative to the brand folder; checked by BR-ASSET (E3)" }
+            }
+          }
+        },
+        "illustrationStyle": { "type": "object" }, "maxElementsPerSlide": { "type": "integer" }
+      }
+    },
+
+    "composition": {
+      "type": "object",
+      "properties": {
+        "density": { "enum": ["sparse", "balanced", "dense"] }, "maxAccentsPerSlide": { "type": "integer" },
+        "minWhitespace": { "type": "number" }, "maxElementsPerSlide": { "type": "integer" },
+        "titleEverySlide": { "type": "boolean" }, "sectionDividers": { "type": "boolean" },
+        "openingSequence": { "type": "array", "items": { "type": "string" } }, "closingSequence": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "brandLayouts": {
+      "type": "array",
+      "description": "Layout hints the brand gives per slide kind (background, logo size, title style, footer). Hints for the layout picker, never geometry.",
+      "items": { "type": "object", "required": ["id"], "properties": { "id": { "type": "string" }, "background": { "type": "string" }, "surface": { "type": "string" }, "logo": { "type": "string" }, "titleStyle": { "type": "string" }, "footer": { "type": "boolean" } } }
+    },
+
+    "voice": { "type": "object", "properties": { "tone": { "type": "array", "items": { "type": "string" } }, "titleCase": { "type": "string" }, "language": { "type": "string" }, "personality": { "type": "string" }, "punctuation": { "type": "object" }, "examples": { "type": "array", "items": { "type": "string" } } } },
+    "motion": { "type": "object", "properties": { "transition": { "type": "string" }, "build": { "type": "string" }, "duration": { "type": "number", "description": "ms" }, "easing": { "type": "string" }, "stagger": { "type": "number", "description": "ms" } } },
+    "rules": { "type": "array", "items": { "type": "object", "required": ["id", "type"], "properties": { "id": { "type": "string" }, "type": { "type": "string" }, "value": {}, "severity": { "enum": ["error", "warn", "warning"] } } } },
+    "accessibility": { "type": "object", "properties": { "minContrastBody": { "type": "number" }, "minContrastLarge": { "type": "number" }, "minFontSize": { "type": "number" }, "colorBlindSafeCharts": { "type": "boolean" } } },
+    "locale": { "type": "object", "properties": { "rtl": { "type": "boolean" }, "mirrorLayouts": { "type": "boolean" }, "numberFormat": { "type": "string" }, "dateFormat": { "type": "string" }, "currency": { "type": "string" } } },
+    "export": { "type": "object" },
+
+    "unreferencedAssets": {
+      "type": "array",
+      "description": "BR-ASSET inventory (E6): files under assets/ that no BrandSpec value or referenced folder names (font files excluded); never used for design, listed for the brand author",
+      "items": { "type": "object", "required": ["file", "size"], "additionalProperties": false, "properties": { "file": { "type": "string", "description": "path relative to the brand folder" }, "size": { "type": "integer", "description": "bytes" } } }
+    },
+
+    "provenance": {
+      "type": "object",
+      "description": "JSON pointer (into this document) -> where the value came from.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["source"],
+        "properties": {
+          "source": { "enum": ["given", "derived", "answered"] },
+          "from": { "type": "string", "description": "given: the input pointer read. derived: the rule id. answered: the answers.json key = the input JSON pointer the answer was written to (the question's `pointer`)" },
+          "signal": { "type": "string", "description": "derived only: the brand value(s) the rule used" },
+          "inputProvenance": { "type": "object", "description": "the input's own provenance block, when present" }
+        }
+      }
+    },
+    "questions": {
+      "type": "array",
+      "description": "Values the rules need and the input does not give. Answered by a person in <brand-dir>/answers.json as { \"<pointer>\": value }, where pointer is the question's `pointer` into the INPUT (D5), then re-read.",
+      "items": {
+        "type": "object",
+        "required": ["id", "pointer", "question"],
+        "properties": {
+          "id": { "type": "string" }, "pointer": { "type": "string", "description": "JSON pointer into the input where the answer goes" }, "question": { "type": "string" },
+          "neededBy": { "type": "array", "items": { "type": "string" }, "description": "rule ids" },
+          "options": { "type": "array", "items": {} }, "severity": { "enum": ["blocking", "optional"] }
+        }
+      }
+    },
+    "warnings": { "type": "array", "items": { "type": "object", "properties": { "pointer": { "type": "string" }, "message": { "type": "string" } } } }
+  },
+
+  "$defs": {
+    "color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$" },
+    "colorOrRef": { "type": "string", "pattern": "^(#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?|[A-Za-z][A-Za-z0-9_-]*(\\.[A-Za-z0-9_-]+)*)$", "description": "a hex colour or a role name (bg, text, accent, primary, neutral.200, custom.<name>, ...)" },
+    "halign": { "enum": ["left", "center", "right"] },
+    "anchor": { "enum": ["top-left", "top-center", "top-right", "center-left", "center", "center-right", "bottom-left", "bottom-center", "bottom-right"] },
+    "placement": { "enum": ["top-left", "top-center", "top-right", "center-left", "center", "center-right", "bottom-left", "bottom-center", "bottom-right", "under-title", "full-bleed"] },
+    "edges": { "type": "object", "required": ["top", "right", "bottom", "left"], "properties": { "top": { "type": "number" }, "right": { "type": "number" }, "bottom": { "type": "number" }, "left": { "type": "number" } } },
+    "frame": { "type": "object", "required": ["x", "y", "w", "h"], "properties": { "x": { "type": "number" }, "y": { "type": "number" }, "w": { "type": "number" }, "h": { "type": "number" } } },
+    "asset": { "type": "object", "required": ["file"], "properties": { "file": { "type": "string", "description": "path relative to the brand folder" }, "mime": { "type": "string" }, "width": { "type": "integer" }, "height": { "type": "integer" }, "sha256": { "type": "string" }, "tags": { "type": "array", "items": { "type": "string" } } } },
+    "fontFile": { "type": "object", "required": ["file"], "properties": { "file": { "type": "string" }, "format": { "enum": ["woff2", "woff", "ttf", "otf"] }, "weight": { "type": "string", "description": "e.g. 400 or '1 1000' for variable" }, "style": { "enum": ["normal", "italic"] } } },
+    "gradient": { "type": "object", "properties": { "type": { "enum": ["linear", "radial", "conic", "mesh"] }, "angle": { "type": "number" }, "stops": { "type": "array", "items": { "$ref": "#/$defs/gradientStop" } } } },
+    "gradientStop": { "type": "object", "properties": { "color": { "$ref": "#/$defs/colorOrRef" }, "at": { "type": "number" } } },
+    "background": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["solid", "linear-gradient", "radial-gradient", "mesh-gradient", "image", "pattern", "video", "gradient"] }, "surface": { "type": "string" }, "color": { "$ref": "#/$defs/colorOrRef" },
+        "gradient": { "type": "string" }, "image": { "type": "string" }, "imageFit": { "enum": ["cover", "contain", "tile"] },
+        "stops": { "type": "array", "items": { "$ref": "#/$defs/gradientStop" } },
+        "overlay": { "$ref": "#/$defs/colorOrRef" }, "overlayOpacity": { "type": "number" }
+      }
+    }
+  }
+}

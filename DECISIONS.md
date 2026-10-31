@@ -1,0 +1,35 @@
+# Decisions (dated, one line each; details in docs/PLAN-draft.md)
+
+- 2026-10-30 Owner: new app, fresh codebase; v5 / pitchdeckdoclist / design_assets are references and ideas only.
+- 2026-10-30 Owner: input = brand JSON (+ assets) now; brand kit / website / logo ingest later (no PDF without AI).
+- 2026-10-30 Owner: no AI anywhere in the pipeline.
+- 2026-10-30 Owner: output = a fixed showcase deck per brand AND decks from user content (Markdown).
+- 2026-10-30 Owner: stack = same as pitchdeckdoclist (JS/JSX, React 18, webpack 5, Babel, Tailwind 3, Puppeteer, Node 24).
+- 2026-10-30 Owner: one renderer owned by this app; moods need not load in pitchdeckdoclist; own output (PDF, editable PPTX, PNG).
+- 2026-10-30 Owner: generator + editor; editing like pitchdeckdoclist, done a better way; the renderer is the editor canvas.
+- 2026-10-30 Owner: references are inspiration only; new, simpler layout + token model (no preset conversion, no v5 port).
+- 2026-10-30 Owner: governance = rules in code + golden tests, approval per PR, this file as the only log.
+- 2026-10-30 Owner: new brands only; corporate moods untouched.
+- 2026-10-30 Owner: Fable thinks/plans, Opus implements.
+- 2026-10-30 Owner: PDF + editable PPTX → every element is an absolute box; engine does its own line breaking.
+- 2026-10-30 Owner: text fit from font metrics by rule (step down, re-layout, never crop).
+- 2026-10-30 Owner: ~12 layouts (one per kind) for the first showcase.
+- 2026-10-30 Owner: CLI in P1–P2, local web UI in P3; user decks from Markdown + optional outline JSON.
+- 2026-10-30 Owner: editor v1 = text edit, move/resize/align, slide ops, layout swap, live mood/surface/font switch, image/chart/table edit.
+- 2026-10-30 Owner: persistence = local files, single user. Rules while editing: warn, never block. Present mode in P6.
+- 2026-10-30 P0 started: schemas v1 (brand-spec, mood, layout, content, deck), repo scaffold, golden set = the 10 brands in brand-mood-creator/inputs, showcase.md.
+- 2026-10-30 P1 rules spec written (docs/P1-rules.md §A–C); packages/brand + packages/mood built against it.
+- 2026-10-30 Reconciliation D1–D13 (docs/P1-rules.md §D): unknown input keys warn, wrong values error; BrandSpec enums mirror the input schema; role sizes converted to canvas px by sizeUnits/slideScale; brand role colour wins over the meaning table; questions and answers share input pointers; surface role order default → accent(primary|accent) → dark/alt; spacing by quantile index; stat→kpi, imageText→image-text; exit 2 = needs answers. Schemas bumped to v1.1.
+- 2026-10-30 P1 built: 10/10 golden brands derive; hdfc-2 blocked on two missing font files (correct per D6); snapshots in golden/expected. Owner review pending.
+- 2026-10-30 Owner approved E1 (BR-TONE v2: surface tone from the brand's own text colour) and E2 (dead decor elements kept as unused + warning) after reviewing the 10 Moods (docs/P1-rules.md §E).
+- 2026-10-30 Owner (review of akgmedia): animated WebGL elements and on-disk assets were being dropped → E3 every brand-given element key kept (animated/anchor/...), E4 always/often elements with no layouts become a question, E5 icon directory = icon set with -white variants, E6 unreferenced assets inventoried (docs/P1-rules.md §E3–E6). Schemas brand-spec + mood at v1.2.
+- 2026-10-31 P2 started: docs/P2-spec.md (content grammar, layout conventions, fit formula, compose order, renderer/export contracts); content schema v1.1 adds the columns block.
+- 2026-10-31 P2 integrated: `pb build` renders the 24-slide showcase for all 10 golden brands (PNG/PDF/sheet), 505 tests; decks snapshotted. Integration decisions F1–F10 and the added rules G6 a–d (contrast guard, text-over-image overlay, text clear of decor, tile scale) are applied pending the owner's confirmation (docs/P2-spec.md §7–8).
+- 2026-10-31 G1–G5 (docs/P2-spec.md §8): `content` is a category in the brand layout vocabulary; brand colour names resolve; custom radius names kept; every brand style is a Mood role; deck schema formalises fonts metrics / image tile+scale.
+- 2026-10-31 G7 (rhythm wins over the content-category surface) and G8 (sub-4px style sizes are multipliers, not roles) after the G1 re-render showed decks collapsing to one surface.
+- 2026-10-31 G9: rhythm steps that name a background variant carry its background. Deck schema v1.2 (image.animated). Proposals PR-1..4 built behind --proposals for the owner's before/after review.
+- 2026-10-31 Night run closed: P2 built + reviewed, G1–G9 applied, PR-1..4 rendered behind --proposals; 2 render tests fail only while the display sleeps (Chrome screenshot hang) — pass with caffeinate -d.
+- 2026-10-31 Owner approved PR-1..3 ("Approve PR-1..3"): fit-up (R-FITUP), avatar initials (R-AVATAR) and logo chips (R-LOGOCHIP) are rules of every build (docs/P2-spec.md §9), engine 0.3.0, the 10 golden decks re-snapshotted. PR-4 stays behind --proposals; PR-5 open.
+- 2026-10-31 P3 started (owner: "Start P3"): spec docs/P3-spec.md (checks Report v1, pb diff, review UI on 8100, sign-off in out/<id>/review.json); decisions P3-D1..D4 proposed, applied unless the owner objects.
+- 2026-10-31 P3 built: @pb/checks Report v1 (14 checks) in every build, `pb check`, `pb diff`, review UI on 8100 with live renderer, answers and sign-off; `pb build` now writes questions.json + mood.html too (mood.html links files relative to its folder). hdfc-2 is the only brand with `fail` (missing Lato / PT Serif files). Awaiting the owner's review and P3-D1..D4 confirmation.
+- 2026-10-31 Owner confirmed P3-D1..D4 ("Confirm P3-D1..D4"): no PNG goldens in git (CI diffs deck JSON, pixel diff local); contrast = WCAG AA unless the brand's accessibility block sets its own; sign-off in out/<id>/review.json; blocking questions are a `fail` in the report.

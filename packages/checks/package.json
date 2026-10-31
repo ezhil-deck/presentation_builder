@@ -1,0 +1,15 @@
+{
+  "name": "@pb/checks",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Rule checks over BrandSpec / Mood / Deck producing a report.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./files": "./src/files.js"
+  },
+  "dependencies": {
+    "@pb/engine": "*"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@pb/layouts",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Layout catalogue (box trees with content slots and capacity).",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "dependencies": {
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1"
+  },
+  "scripts": {
+    "test": "jest --config ../../jest.config.cjs --rootDir ../.. packages/layouts/",
+    "preview": "node scripts/preview.js"
+  }
+}

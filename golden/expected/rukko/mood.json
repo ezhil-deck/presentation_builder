@@ -1,0 +1,2973 @@
+{
+  "brandHash": "4fe0aa827acf152e01c6c71684d6f283d1d146259bb9f0f3e1abcc7a9011ecc9",
+  "brandId": "rukko",
+  "charts": {
+    "axes": {
+      "color": "textMuted",
+      "font": "meta",
+      "labelColor": "#9A9A9A",
+      "line": true,
+      "lineColor": "#8E0000",
+      "show": true
+    },
+    "bar": {
+      "gap": 0.3,
+      "orientation": "vertical",
+      "radius": 0
+    },
+    "dataLabels": {
+      "font": "label",
+      "format": "compact",
+      "position": "outside",
+      "show": true
+    },
+    "donut": {
+      "centerLabel": true,
+      "innerRadius": 0.6
+    },
+    "font": "meta",
+    "gridlines": {
+      "axis": "y",
+      "color": "border",
+      "show": true,
+      "style": "solid"
+    },
+    "highlight": {
+      "highlight": "accent",
+      "others": "chartMuted"
+    },
+    "legend": {
+      "marker": "square",
+      "position": "top",
+      "show": true
+    },
+    "line": {
+      "areaOpacity": 0,
+      "markers": false,
+      "smooth": false,
+      "width": 5
+    },
+    "palette": "categorical",
+    "pie": {
+      "gap": 0,
+      "labels": "outside",
+      "startAngle": -90
+    }
+  },
+  "components": {
+    "arrow": {
+      "tokens": {
+        "color": "accent",
+        "curve": "straight",
+        "head": "filled",
+        "stroke": 4
+      },
+      "variant": "default"
+    },
+    "avatar": {
+      "tokens": {
+        "border.style": "none",
+        "border.width": 0,
+        "mask": "square",
+        "placeholder": "initials",
+        "size": 96
+      },
+      "variant": "default"
+    },
+    "button": {
+      "tokens": {
+        "border.style": "none",
+        "border.width": 0,
+        "fill": "#FF2A2A",
+        "font": "button",
+        "icon.glyph": "→",
+        "icon.side": "right",
+        "onSurface.black.fill": "#FF2A2A",
+        "onSurface.black.text": "#0B0B0B",
+        "onSurface.red.fill": "#0B0B0B",
+        "onSurface.red.text": "#FF2A2A",
+        "padding.0": 18,
+        "padding.1": 30,
+        "radius": "none",
+        "text": "#0B0B0B"
+      },
+      "variant": "default"
+    },
+    "buttonSecondary": {
+      "tokens": {
+        "border.color": "#FF2A2A",
+        "border.style": "solid",
+        "border.width": 3,
+        "fill": "transparent",
+        "font": "button",
+        "onSurface.black.border.color": "#FF2A2A",
+        "onSurface.black.border.style": "solid",
+        "onSurface.black.border.width": 3,
+        "onSurface.black.fill": "transparent",
+        "onSurface.black.text": "#FF2A2A",
+        "onSurface.red.border.color": "#0B0B0B",
+        "onSurface.red.border.style": "solid",
+        "onSurface.red.border.width": 3,
+        "onSurface.red.fill": "transparent",
+        "onSurface.red.text": "#0B0B0B",
+        "padding.0": 15,
+        "padding.1": 27,
+        "radius": "none",
+        "text": "#FF2A2A"
+      },
+      "variant": "default"
+    },
+    "callout": {
+      "tokens": {
+        "accentBar.color": "accent",
+        "accentBar.side": "left",
+        "accentBar.width": 8,
+        "fill": "card",
+        "icon": true,
+        "padding": 24,
+        "radius": "none"
+      },
+      "variant": "default"
+    },
+    "card": {
+      "tokens": {
+        "backdropBlur": 0,
+        "bodyRole": "bodySmall",
+        "border.color": "accent",
+        "border.sides": "top",
+        "border.style": "solid",
+        "border.width": 8,
+        "fill": "card",
+        "fillOpacity": 1,
+        "padding": 32,
+        "radius": "none",
+        "shadow": "none",
+        "titleRole": "h3"
+      },
+      "variant": "flat"
+    },
+    "chip": {
+      "tokens": {
+        "border.style": "none",
+        "border.width": 0,
+        "fill": "accent",
+        "font": "chip",
+        "padding.0": 8,
+        "padding.1": 14,
+        "radius": "none",
+        "text": "bg",
+        "weight": 800
+      },
+      "variant": "default"
+    },
+    "icon": {
+      "tokens": {
+        "color": "accent",
+        "container.container": "none",
+        "container.size": 44,
+        "semantic.error": "x",
+        "semantic.info": "info",
+        "semantic.success": "check",
+        "semantic.warning": "triangle-alert",
+        "set": "rukko",
+        "size": 24,
+        "strokeWidth": 0
+      },
+      "variant": "solid"
+    },
+    "kpi": {
+      "tokens": {
+        "deltaColors.down": "textMuted",
+        "deltaColors.flat": "textMuted",
+        "deltaColors.up": "textMuted",
+        "labelStyle": "statLabel",
+        "separator": "bar",
+        "sparkline": false
+      },
+      "variant": "stat"
+    },
+    "quote": {
+      "tokens": {
+        "align": "left",
+        "attributionFont": "personRole",
+        "avatar": "none",
+        "font": "quote",
+        "markColor": "accent",
+        "markStyle": "none"
+      },
+      "variant": "default"
+    },
+    "steps": {
+      "tokens": {
+        "activeColor": "accent",
+        "inactiveColor": "border",
+        "line": true,
+        "lineStyle": "solid",
+        "marker": "square-number",
+        "orientation": "horizontal"
+      },
+      "variant": "default"
+    },
+    "timeline": {
+      "tokens": {
+        "alternate": false,
+        "lineColor": "border",
+        "marker": "square"
+      },
+      "variant": "default"
+    }
+  },
+  "composition": {
+    "closing": [
+      "cta"
+    ],
+    "density": "balanced",
+    "layoutHints": {
+      "agenda": {
+        "background": "default",
+        "surface": "black",
+        "titleRole": "h1"
+      },
+      "bullets": {
+        "background": "default",
+        "logo": "small",
+        "surface": "black",
+        "titleRole": "h1"
+      },
+      "cards": {
+        "background": "default",
+        "surface": "black",
+        "titleRole": "h1"
+      },
+      "chart": {
+        "background": "default",
+        "surface": "black",
+        "titleRole": "h1"
+      },
+      "cover": {
+        "background": "red",
+        "footer": false,
+        "logo": "large",
+        "surface": "red",
+        "titleRole": "display"
+      },
+      "cta": {
+        "background": "red",
+        "footer": false,
+        "logo": "large",
+        "surface": "red",
+        "titleRole": "display"
+      },
+      "image": {
+        "background": "speed",
+        "logo": "none",
+        "surface": "black",
+        "titleRole": "display"
+      },
+      "image-text": {
+        "background": "default",
+        "surface": "black",
+        "titleRole": "h1"
+      },
+      "kpi": {
+        "background": "default",
+        "surface": "black",
+        "titleRole": "h1"
+      },
+      "logos": {
+        "background": "default",
+        "logo": "small",
+        "surface": "black",
+        "titleRole": "h1"
+      },
+      "quote": {
+        "background": "red",
+        "surface": "red",
+        "titleRole": "quote"
+      },
+      "section": {
+        "background": "default",
+        "footer": false,
+        "logo": "small",
+        "surface": "black",
+        "titleRole": "display"
+      },
+      "steps": {
+        "background": "default",
+        "logo": "small",
+        "surface": "black",
+        "titleRole": "h1"
+      },
+      "table": {
+        "background": "default",
+        "logo": "small",
+        "surface": "black",
+        "titleRole": "h1"
+      },
+      "team": {
+        "background": "default",
+        "logo": "small",
+        "surface": "black",
+        "titleRole": "h1"
+      },
+      "text": {
+        "background": "default",
+        "logo": "small",
+        "surface": "black",
+        "titleRole": "h1"
+      },
+      "timeline": {
+        "background": "default",
+        "logo": "small",
+        "surface": "black",
+        "titleRole": "h1"
+      },
+      "two-column": {
+        "background": "default",
+        "surface": "black",
+        "titleRole": "h1"
+      }
+    },
+    "maxAccentsPerSlide": 2,
+    "maxElementsPerSlide": 6,
+    "minWhitespace": 0.3,
+    "opening": [
+      "cover",
+      "agenda"
+    ],
+    "sectionDividers": true,
+    "titleEverySlide": true
+  },
+  "decor": {
+    "elements": [
+      {
+        "allowedOn": [
+          "agenda",
+          "bullets",
+          "two-column",
+          "cards",
+          "chart",
+          "image-text",
+          "kpi",
+          "text",
+          "steps",
+          "timeline",
+          "table",
+          "team",
+          "logos"
+        ],
+        "color": "accent",
+        "frequency": "always",
+        "id": "titleBar",
+        "length": 120,
+        "placement": "under-title",
+        "thickness": 12,
+        "type": "rule"
+      },
+      {
+        "allowedOn": [
+          "agenda",
+          "bullets",
+          "two-column",
+          "cards",
+          "chart",
+          "image-text",
+          "kpi",
+          "text",
+          "steps",
+          "timeline",
+          "table",
+          "team",
+          "logos"
+        ],
+        "box": {
+          "h": 200,
+          "w": 200,
+          "x": 1720,
+          "y": 0
+        },
+        "file": "assets/elements/corner-cut.svg",
+        "frequency": "always",
+        "id": "cornerCut",
+        "layer": "behind",
+        "opacity": 1,
+        "previewSurface": "black",
+        "surfaces": [
+          "black"
+        ],
+        "type": "shape"
+      },
+      {
+        "allowedOn": [
+          "section"
+        ],
+        "box": {
+          "h": 720,
+          "w": 640,
+          "x": 1280,
+          "y": 0
+        },
+        "file": "assets/elements/cut-red.svg",
+        "frequency": "always",
+        "id": "cutRed",
+        "layer": "behind",
+        "opacity": 1,
+        "previewSurface": "black",
+        "surfaces": [
+          "black"
+        ],
+        "type": "illustration"
+      },
+      {
+        "allowedOn": [
+          "cover",
+          "cta"
+        ],
+        "anchor": "fixed",
+        "box": {
+          "h": 720,
+          "w": 640,
+          "x": 1280,
+          "y": 0
+        },
+        "file": "assets/elements/cut-black.svg",
+        "frequency": "always",
+        "id": "cutBlack",
+        "layer": "behind",
+        "opacity": 1,
+        "previewSurface": "red",
+        "surfaces": [
+          "red"
+        ],
+        "type": "illustration"
+      },
+      {
+        "allowedOn": [
+          "quote"
+        ],
+        "box": {
+          "h": 400,
+          "w": 520,
+          "x": 1400,
+          "y": 680
+        },
+        "file": "assets/elements/halftone-black.svg",
+        "frequency": "always",
+        "id": "halftoneBlack",
+        "layer": "behind",
+        "opacity": 1,
+        "previewSurface": "red",
+        "surfaces": [
+          "red"
+        ],
+        "type": "pattern"
+      }
+    ],
+    "imagery": {
+      "crop": {
+        "defaultRatio": "16:9",
+        "focus": "center"
+      },
+      "mask": "square",
+      "textOverImage": {
+        "gradient": false,
+        "minContrast": 4.5,
+        "opacity": 0.45,
+        "overlay": "#0B0B0B"
+      },
+      "treatment": "none"
+    },
+    "maxPerSlide": 2
+  },
+  "engineVersion": "0.0.0",
+  "footer": {
+    "hideOn": [
+      "cover",
+      "section",
+      "cta",
+      "image"
+    ],
+    "items": [
+      "logo"
+    ],
+    "position": "bottom-left",
+    "role": "meta",
+    "show": true,
+    "split": false,
+    "text": ""
+  },
+  "geometry": {
+    "canvas": {
+      "height": 1080,
+      "width": 1920
+    },
+    "density": "balanced",
+    "grid": {
+      "columns": 12,
+      "gutter": 16
+    },
+    "margins": {
+      "bottom": 104,
+      "left": 96,
+      "right": 96,
+      "top": 104
+    },
+    "safeArea": {
+      "bottom": 48,
+      "left": 48,
+      "right": 48,
+      "top": 48
+    },
+    "spacing": {
+      "lg": 48,
+      "md": 24,
+      "sm": 12,
+      "xl": 96,
+      "xs": 4
+    },
+    "titleZone": {
+      "align": "left",
+      "height": 150,
+      "y": 104
+    }
+  },
+  "id": "rukko",
+  "logo": {
+    "clearSpace": 16,
+    "height": {
+      "small": 32
+    },
+    "perKind": {
+      "bullets": "small",
+      "cover": "large",
+      "cta": "large",
+      "image": "none",
+      "logos": "small",
+      "section": "small",
+      "steps": "small",
+      "table": "small",
+      "team": "small",
+      "text": "small",
+      "timeline": "small"
+    },
+    "perSurface": {
+      "black": "full",
+      "red": "monoDark"
+    },
+    "position": "bottom-left",
+    "variants": {
+      "full": {
+        "file": "assets/logo.svg",
+        "height": 96,
+        "width": 362
+      },
+      "icon": {
+        "file": "assets/logo-icon.svg",
+        "height": 96,
+        "width": 96
+      },
+      "monoDark": {
+        "file": "assets/logo-black.svg",
+        "height": 96,
+        "width": 362
+      },
+      "monoLight": {
+        "file": "assets/logo-mono-light.svg",
+        "height": 96,
+        "width": 362
+      },
+      "reverse": {
+        "file": "assets/logo-black.svg",
+        "height": 96,
+        "width": 362
+      }
+    }
+  },
+  "motion": {
+    "build": "wipe",
+    "duration": 180,
+    "easing": "cubic-bezier(.7,0,.2,1)",
+    "family": "crisp",
+    "stagger": 40,
+    "transition": "wipe"
+  },
+  "name": "Rukko",
+  "palette": {
+    "brand": {
+      "accent": "#FF2A2A",
+      "primary": "#0B0B0B",
+      "secondary": "#8E0000",
+      "tertiary": "#9A9A9A"
+    },
+    "chart": {
+      "categorical": [
+        "#FF2A2A",
+        "#9A9A9A",
+        "#8E0000",
+        "#EDEDED"
+      ],
+      "highlight": "#FF2A2A",
+      "muted": "#8E0000",
+      "sequential": [
+        "#8E0000",
+        "#FF2A2A"
+      ]
+    },
+    "perKind": {
+      "agenda": "black",
+      "bullets": "black",
+      "cards": "black",
+      "chart": "black",
+      "cover": "red",
+      "cta": "red",
+      "image": "black",
+      "image-text": "black",
+      "kpi": "black",
+      "quote": "red",
+      "section": "black",
+      "two-column": "black"
+    },
+    "rhythm": [
+      "black",
+      "black",
+      "red",
+      "black",
+      "black",
+      "black"
+    ],
+    "semantic": {
+      "error": "#8E0000",
+      "info": "#9A9A9A",
+      "success": "#EDEDED",
+      "warning": "#FF9A9A"
+    },
+    "surfaces": [
+      {
+        "accent": "#FF2A2A",
+        "background": {
+          "speed": {
+            "image": "assets/img/hero-speed-lines.jpg",
+            "imageFit": "cover",
+            "overlay": "#0B0B0B",
+            "overlayGradient": false,
+            "overlayOpacity": 0.3,
+            "surface": "black",
+            "type": "image"
+          }
+        },
+        "bg": "#0B0B0B",
+        "border": "#8E0000",
+        "card": "#0B0B0B",
+        "cardText": "#EDEDED",
+        "chart": [
+          "#FF2A2A",
+          "#9A9A9A",
+          "#8E0000",
+          "#EDEDED"
+        ],
+        "contrast": {
+          "accent": 5.26,
+          "heading": 16.81,
+          "text": 16.81
+        },
+        "heading": "#EDEDED",
+        "id": "black",
+        "logoVariant": "full",
+        "role": "default",
+        "text": "#EDEDED",
+        "textMuted": "#9A9A9A",
+        "tone": "dark"
+      },
+      {
+        "accent": "#0B0B0B",
+        "bg": "#FF2A2A",
+        "border": "#0B0B0B",
+        "card": "#0B0B0B",
+        "cardText": "#EDEDED",
+        "chart": [
+          "#0B0B0B",
+          "#8E0000"
+        ],
+        "contrast": {
+          "accent": 5.26,
+          "heading": 5.26,
+          "text": 5.26
+        },
+        "heading": "#0B0B0B",
+        "id": "red",
+        "logoVariant": "monoDark",
+        "role": "accent",
+        "text": "#0B0B0B",
+        "textMuted": "#0B0B0B",
+        "tone": "light"
+      }
+    ]
+  },
+  "provenance": {
+    "/charts": {
+      "from": [
+        "/charts"
+      ],
+      "note": "copied as given (kpi -> components.kpi)",
+      "rule": "MD-CHARTS-TABLES"
+    },
+    "/charts/highlight": {
+      "from": [
+        "/charts/highlightMode"
+      ],
+      "note": "highlightMode -> highlight",
+      "rule": "MD-CHARTS-TABLES"
+    },
+    "/charts/palette": {
+      "from": [
+        "/charts/palette"
+      ],
+      "note": "charts.palette \"chart\" -> categorical",
+      "rule": "MD-CHARTS-TABLES"
+    },
+    "/components/arrow": {
+      "from": [
+        "/components/arrow"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/avatar": {
+      "from": [
+        "/components/avatar"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/button": {
+      "from": [
+        "/components/button"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/buttonSecondary": {
+      "from": [
+        "/components/buttonSecondary"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/callout": {
+      "from": [
+        "/components/callout"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/card": {
+      "from": [
+        "/components/cards/style"
+      ],
+      "note": "variant <- style.kind; tokens <- fill, radius, shadow, padding, border, titleStyle (titleRole), bodyStyle (bodyRole), fillOpacity, backdropBlur",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/chip": {
+      "from": [
+        "/components/chip"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/icon": {
+      "from": [
+        "/components/icons"
+      ],
+      "note": "variant <- style; tokens = the rest, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/kpi": {
+      "from": [
+        "/charts/kpi"
+      ],
+      "note": "variant <- style; tokens = the rest, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/quote": {
+      "from": [
+        "/components/quote"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/steps": {
+      "from": [
+        "/components/steps"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/timeline": {
+      "from": [
+        "/components/timeline"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/composition/closing": {
+      "from": [
+        "/composition/closingSequence"
+      ],
+      "note": "layout ids -> kinds (kind map)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/density": {
+      "from": [
+        "/composition/density"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/agenda": {
+      "from": [
+        "/brandLayouts/1"
+      ],
+      "note": "layout \"agenda\" -> kind \"agenda\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/bullets": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "layout \"content\" -> kind \"bullets\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/cards": {
+      "from": [
+        "/brandLayouts/5"
+      ],
+      "note": "layout \"cards\" -> kind \"cards\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/chart": {
+      "from": [
+        "/brandLayouts/7"
+      ],
+      "note": "layout \"chart\" -> kind \"chart\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/cover": {
+      "from": [
+        "/brandLayouts/0"
+      ],
+      "note": "layout \"title\" -> kind \"cover\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/cta": {
+      "from": [
+        "/brandLayouts/11"
+      ],
+      "note": "layout \"closing\" -> kind \"cta\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/image": {
+      "from": [
+        "/brandLayouts/9"
+      ],
+      "note": "layout \"imageBleed\" -> kind \"image\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/image-text": {
+      "from": [
+        "/brandLayouts/8"
+      ],
+      "note": "layout \"imageText\" -> kind \"image-text\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/kpi": {
+      "from": [
+        "/brandLayouts/6"
+      ],
+      "note": "layout \"stat\" -> kind \"kpi\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/logos": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"logos\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/quote": {
+      "from": [
+        "/brandLayouts/10"
+      ],
+      "note": "layout \"quote\" -> kind \"quote\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/section": {
+      "from": [
+        "/brandLayouts/2"
+      ],
+      "note": "layout \"section\" -> kind \"section\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/steps": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"steps\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/table": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"table\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/team": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"team\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/text": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"text\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/timeline": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"timeline\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/two-column": {
+      "from": [
+        "/brandLayouts/4"
+      ],
+      "note": "layout \"twoColumn\" -> kind \"two-column\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/maxAccentsPerSlide": {
+      "from": [
+        "/composition/maxAccentsPerSlide"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/maxElementsPerSlide": {
+      "from": [
+        "/composition/maxElementsPerSlide"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/minWhitespace": {
+      "from": [
+        "/composition/minWhitespace"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/opening": {
+      "from": [
+        "/composition/openingSequence"
+      ],
+      "note": "layout ids -> kinds (kind map)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/sectionDividers": {
+      "from": [
+        "/composition/sectionDividers"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/titleEverySlide": {
+      "from": [
+        "/composition/titleEverySlide"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/decor/elements/0": {
+      "from": [
+        "/decor/elements/0"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds; allowedOn via content: the brand names no layout for kinds \"text\", \"steps\", \"timeline\", \"table\", \"team\", \"logos\", so its \"content\" layout applies (G1)",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/1": {
+      "from": [
+        "/decor/elements/1"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds; allowedOn via content: the brand names no layout for kinds \"text\", \"steps\", \"timeline\", \"table\", \"team\", \"logos\", so its \"content\" layout applies (G1)",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/2": {
+      "from": [
+        "/decor/elements/2"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/3": {
+      "from": [
+        "/decor/elements/3"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/4": {
+      "from": [
+        "/decor/elements/4"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds",
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/crop": {
+      "from": [
+        "/imagery/crop"
+      ],
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/mask": {
+      "from": [
+        "/imagery/masks/default"
+      ],
+      "note": "the brand's default mask",
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/textOverImage": {
+      "from": [
+        "/imagery/textOverImage"
+      ],
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/treatment": {
+      "from": [
+        "/imagery/treatments/default"
+      ],
+      "note": "the brand's default treatment",
+      "rule": "MD-DECOR"
+    },
+    "/decor/maxPerSlide": {
+      "from": [
+        "/decor/maxElementsPerSlide"
+      ],
+      "rule": "MD-DECOR"
+    },
+    "/footer/hideOn": {
+      "from": [
+        "/layout/footer/hideOn"
+      ],
+      "note": "layout ids -> kinds (kind map)",
+      "rule": "MD-FOOTER"
+    },
+    "/footer/items": {
+      "from": [
+        "/layout/footer/logo"
+      ],
+      "note": "order logo, text, pageNumber, date by the footer booleans (text: non-empty)",
+      "rule": "MD-FOOTER"
+    },
+    "/footer/position": {
+      "from": [
+        "/layout/footer/position"
+      ],
+      "rule": "MD-FOOTER"
+    },
+    "/footer/role": {
+      "from": [
+        "/layout/footer/style"
+      ],
+      "rule": "MD-FOOTER"
+    },
+    "/footer/show": {
+      "from": [
+        "/layout/footer/show"
+      ],
+      "rule": "MD-FOOTER"
+    },
+    "/footer/split": {
+      "from": [
+        "/layout/footer/split"
+      ],
+      "note": "split (logo at one edge, text + number at the other) copied; not a band",
+      "rule": "MD-FOOTER"
+    },
+    "/footer/text": {
+      "from": [
+        "/layout/footer/text"
+      ],
+      "rule": "MD-FOOTER"
+    },
+    "/geometry/canvas": {
+      "from": [
+        "/layout/canvas"
+      ],
+      "note": "fixed 1920x1080 canvas (BR-NORMALIZE rejects any other input size)",
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/density": {
+      "from": [
+        "/composition/density"
+      ],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/grid": {
+      "from": [
+        "/layout/grid"
+      ],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/margins": {
+      "from": [
+        "/layout/margins"
+      ],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/safeArea": {
+      "from": [
+        "/layout/safeArea"
+      ],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/spacing": {
+      "from": [
+        "/layout/spacing"
+      ],
+      "note": "sorted ascending; xs..xl = indices round((n-1) x 0, .25, .5, .75, 1) (D9)",
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/titleZone": {
+      "from": [
+        "/layout/titleZone"
+      ],
+      "rule": "MD-GEOMETRY"
+    },
+    "/logo/clearSpace": {
+      "from": [
+        "/logos/clearSpace"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/height/small": {
+      "from": [
+        "/logos/height"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/bullets": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "layout \"content\" -> kind \"bullets\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/cover": {
+      "from": [
+        "/logos/perLayout/title"
+      ],
+      "note": "layout \"title\" -> kind \"cover\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/cta": {
+      "from": [
+        "/logos/perLayout/closing"
+      ],
+      "note": "layout \"closing\" -> kind \"cta\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/image": {
+      "from": [
+        "/logos/perLayout/imageBleed"
+      ],
+      "note": "layout \"imageBleed\" -> kind \"image\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/logos": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"logos\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/section": {
+      "from": [
+        "/logos/perLayout/section"
+      ],
+      "note": "layout \"section\" -> kind \"section\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/steps": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"steps\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/table": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"table\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/team": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"team\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/text": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"text\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/timeline": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"timeline\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perSurface/black": {
+      "from": [
+        "/logos/onSurface/black"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/perSurface/red": {
+      "from": [
+        "/logos/onSurface/red"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/position": {
+      "from": [
+        "/logos/position"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/full": {
+      "from": [
+        "/logos/variants/full"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/icon": {
+      "from": [
+        "/logos/variants/icon"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/monoDark": {
+      "from": [
+        "/logos/variants/monoDark"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/monoLight": {
+      "from": [
+        "/logos/variants/monoLight"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/reverse": {
+      "from": [
+        "/logos/variants/reverse"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/motion/build": {
+      "from": [
+        "/motion/build"
+      ],
+      "rule": "MD-MOTION"
+    },
+    "/motion/duration": {
+      "from": [
+        "/motion/duration"
+      ],
+      "rule": "MD-MOTION"
+    },
+    "/motion/easing": {
+      "from": [
+        "/motion/easing"
+      ],
+      "rule": "MD-MOTION"
+    },
+    "/motion/family": {
+      "from": [
+        "/motion/transition",
+        "/motion/duration"
+      ],
+      "note": "transition wipe, duration 180",
+      "rule": "MD-MOTION"
+    },
+    "/motion/stagger": {
+      "from": [
+        "/motion/stagger"
+      ],
+      "rule": "MD-MOTION"
+    },
+    "/motion/transition": {
+      "from": [
+        "/motion/transition"
+      ],
+      "rule": "MD-MOTION"
+    },
+    "/name": {
+      "from": [
+        "/name"
+      ],
+      "rule": "ASSEMBLY"
+    },
+    "/palette/brand/accent": {
+      "from": [
+        "/colors/accent"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/brand/primary": {
+      "from": [
+        "/colors/primary"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/brand/secondary": {
+      "from": [
+        "/colors/secondary"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/brand/tertiary": {
+      "from": [
+        "/colors/tertiary"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/chart/categorical": {
+      "from": [
+        "/colors/chart"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/chart/highlight": {
+      "from": [
+        "/colors/accent"
+      ],
+      "note": "charts.highlightMode.color not given: colors.accent",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/chart/muted": {
+      "from": [
+        "/colors/chartMuted"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/chart/sequential": {
+      "from": [
+        "/colors/chartSequential"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/agenda": {
+      "from": [
+        "/brandLayouts/1/id",
+        "/brandLayouts/1/surface"
+      ],
+      "note": "layout \"agenda\" -> kind \"agenda\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/bullets": {
+      "from": [
+        "/brandLayouts/3/id",
+        "/brandLayouts/3/surface"
+      ],
+      "note": "layout \"content\" -> kind \"bullets\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/cards": {
+      "from": [
+        "/brandLayouts/5/id",
+        "/brandLayouts/5/surface"
+      ],
+      "note": "layout \"cards\" -> kind \"cards\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/chart": {
+      "from": [
+        "/brandLayouts/7/id",
+        "/brandLayouts/7/surface"
+      ],
+      "note": "layout \"chart\" -> kind \"chart\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/cover": {
+      "from": [
+        "/brandLayouts/0/id",
+        "/brandLayouts/0/surface"
+      ],
+      "note": "layout \"title\" -> kind \"cover\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/cta": {
+      "from": [
+        "/brandLayouts/11/id",
+        "/brandLayouts/11/surface"
+      ],
+      "note": "layout \"closing\" -> kind \"cta\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/image": {
+      "from": [
+        "/brandLayouts/9/id",
+        "/brandLayouts/9/surface"
+      ],
+      "note": "layout \"imageBleed\" -> kind \"image\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/image-text": {
+      "from": [
+        "/brandLayouts/8/id",
+        "/brandLayouts/8/surface"
+      ],
+      "note": "layout \"imageText\" -> kind \"image-text\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/kpi": {
+      "from": [
+        "/brandLayouts/6/id",
+        "/brandLayouts/6/surface"
+      ],
+      "note": "layout \"stat\" -> kind \"kpi\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/quote": {
+      "from": [
+        "/brandLayouts/10/id",
+        "/brandLayouts/10/surface"
+      ],
+      "note": "layout \"quote\" -> kind \"quote\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/section": {
+      "from": [
+        "/brandLayouts/2/id",
+        "/brandLayouts/2/surface"
+      ],
+      "note": "layout \"section\" -> kind \"section\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/two-column": {
+      "from": [
+        "/brandLayouts/4/id",
+        "/brandLayouts/4/surface"
+      ],
+      "note": "layout \"twoColumn\" -> kind \"two-column\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/rhythm": {
+      "from": [
+        "/backgrounds/rhythm/0",
+        "/backgrounds/rhythm/1",
+        "/backgrounds/rhythm/2",
+        "/backgrounds/rhythm/3",
+        "/backgrounds/rhythm/4",
+        "/backgrounds/rhythm/5"
+      ],
+      "note": "variant ids mapped to their surface; \"default\" to backgrounds.default.surface",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/semantic": {
+      "from": [
+        "/colors/semantic"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0": {
+      "from": [
+        "/surfaces/0"
+      ],
+      "note": "surface colour roles copied as given (logo -> logoVariant)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0/background/speed": {
+      "from": [
+        "/backgrounds/variants/speed"
+      ],
+      "note": "variant.surface = \"black\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0/contrast": {
+      "from": [
+        "/surfaces/0/bg",
+        "/surfaces/0/text",
+        "/surfaces/0/heading",
+        "/surfaces/0/accent"
+      ],
+      "note": "WCAG contrast ratio vs bg",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0/role": {
+      "from": [
+        "/backgrounds/default/surface"
+      ],
+      "note": "backgrounds.default.surface = \"black\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0/tone": {
+      "from": [
+        "/surfaces/0/tone"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1": {
+      "from": [
+        "/surfaces/1"
+      ],
+      "note": "surface colour roles copied as given (logo -> logoVariant)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1/contrast": {
+      "from": [
+        "/surfaces/1/bg",
+        "/surfaces/1/text",
+        "/surfaces/1/heading",
+        "/surfaces/1/accent"
+      ],
+      "note": "WCAG contrast ratio vs bg",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1/role": {
+      "from": [
+        "/surfaces/1/bg",
+        "/colors/accent"
+      ],
+      "note": "bg #FF2A2A equals colors.accent",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1/tone": {
+      "from": [
+        "/surfaces/1/tone"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/shape/borderWidth": {
+      "from": [
+        "/components/cards/style/border/width"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/divider": {
+      "from": [
+        "/components/divider"
+      ],
+      "note": "thickness -> weight; style \"solid\" is a line style -> line (kept as lineStyle)",
+      "rule": "MD-SHAPE"
+    },
+    "/shape/language": {
+      "from": [
+        "/layout/radiusScale/none",
+        "/layout/radiusScale/sm",
+        "/layout/radiusScale/md",
+        "/layout/radiusScale/lg"
+      ],
+      "note": "largest named radius 0 (none, sm, md, lg; pill/full excluded): <=2 sharp, <=16 soft, else round",
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/lg": {
+      "from": [
+        "/layout/radiusScale/lg"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/md": {
+      "from": [
+        "/layout/radiusScale/md"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/none": {
+      "from": [
+        "/layout/radiusScale/none"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/pill": {
+      "from": [
+        "/layout/radiusScale/pill"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/sm": {
+      "from": [
+        "/layout/radiusScale/sm"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/shadow/none": {
+      "from": [
+        "/layout/shadowScale/none"
+      ],
+      "note": "parsed to {x,y,blur,spread,color}",
+      "rule": "MD-SHAPE"
+    },
+    "/tables": {
+      "from": [
+        "/tables"
+      ],
+      "note": "copied as given",
+      "rule": "MD-CHARTS-TABLES"
+    },
+    "/type/align": {
+      "from": [
+        "/typography/alignment"
+      ],
+      "rule": "MD-TYPE"
+    },
+    "/type/bullets": {
+      "from": [
+        "/typography/bullets",
+        "/typography/bullets/char"
+      ],
+      "note": "bullets.char read as the glyph",
+      "rule": "MD-TYPE"
+    },
+    "/type/faces/body": {
+      "from": [
+        "/typography/faces/body"
+      ],
+      "note": "family, files, fallback, variable, metrics copied as given",
+      "rule": "MD-TYPE"
+    },
+    "/type/faces/heading": {
+      "from": [
+        "/typography/faces/heading"
+      ],
+      "note": "family, files, fallback, variable, metrics copied as given",
+      "rule": "MD-TYPE"
+    },
+    "/type/limits": {
+      "from": [
+        "/typography/limits"
+      ],
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/accordion": {
+      "from": [
+        "/typography/roles/accordion"
+      ],
+      "note": "brand style \"accordion\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/accordion/color": {
+      "from": [],
+      "note": "brand style \"accordion\" gives no colour: surface role text (G4: no meaning read from the style's name)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/accordion/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/body": {
+      "from": [
+        "/typography/roles/body"
+      ],
+      "note": "brand role \"body\" (chain: body)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/body/color": {
+      "from": [],
+      "note": "brand style \"body\" gives no colour: meaning of the \"body\" role, surface role text",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/body/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodyLarge": {
+      "from": [
+        "/typography/roles/bodyLarge"
+      ],
+      "note": "brand style \"bodyLarge\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodyLarge/color": {
+      "from": [
+        "/typography/roles/bodyLarge/color"
+      ],
+      "note": "brand style \"bodyLarge\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodyLarge/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodySmall": {
+      "from": [
+        "/typography/roles/bodySmall"
+      ],
+      "note": "brand role \"bodySmall\" (chain: bodySmall)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodySmall/color": {
+      "from": [
+        "/typography/roles/bodySmall/color"
+      ],
+      "note": "brand style \"bodySmall\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodySmall/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bullet": {
+      "from": [
+        "/typography/roles/body"
+      ],
+      "note": "brand role \"body\" (chain: body)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bullet/color": {
+      "from": [],
+      "note": "brand style \"body\" gives no colour: meaning of the \"bullet\" role, surface role text",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bullet/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/button": {
+      "from": [
+        "/typography/roles/button"
+      ],
+      "note": "brand role \"button\" (chain: button)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/button/color": {
+      "from": [],
+      "note": "brand style \"button\" gives no colour: meaning of the \"button\" role, surface role text",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/button/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/caption": {
+      "from": [
+        "/typography/roles/caption"
+      ],
+      "note": "brand role \"caption\" (chain: caption > footnote > meta)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/caption/color": {
+      "from": [
+        "/typography/roles/caption/color"
+      ],
+      "note": "brand style \"caption\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/caption/fit": {
+      "from": [
+        "/typography/roles/caption/size",
+        "/typography/limits/minBodySize"
+      ],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/cardQuote": {
+      "from": [
+        "/typography/roles/cardQuote"
+      ],
+      "note": "brand style \"cardQuote\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/cardQuote/color": {
+      "from": [],
+      "note": "brand style \"cardQuote\" gives no colour: surface role text (G4: no meaning read from the style's name)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/cardQuote/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/chartLabel": {
+      "from": [
+        "/typography/roles/caption"
+      ],
+      "note": "brand role \"caption\" (chain: chartLabel > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/chartLabel/color": {
+      "from": [
+        "/typography/roles/caption/color"
+      ],
+      "note": "brand style \"caption\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/chartLabel/fit": {
+      "from": [
+        "/typography/roles/caption/size",
+        "/typography/limits/minBodySize"
+      ],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/chip": {
+      "from": [
+        "/typography/roles/chip"
+      ],
+      "note": "brand style \"chip\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/chip/color": {
+      "from": [],
+      "note": "brand style \"chip\" gives no colour: surface role text (G4: no meaning read from the style's name)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/chip/fit": {
+      "from": [
+        "/typography/roles/chip/size",
+        "/typography/limits/minBodySize"
+      ],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/display": {
+      "from": [
+        "/typography/roles/display"
+      ],
+      "note": "brand role \"display\" (chain: display)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/display/color": {
+      "from": [],
+      "note": "brand style \"display\" gives no colour: meaning of the \"display\" role, surface role heading",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/display/fit": {
+      "from": [
+        "/typography/roles/h1/size"
+      ],
+      "note": "next smaller heading \"h1\" (brand \"h1\")",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/displayAccent": {
+      "from": [
+        "/typography/roles/displayAccent"
+      ],
+      "note": "brand style \"displayAccent\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/displayAccent/color": {
+      "from": [
+        "/typography/roles/displayAccent/color"
+      ],
+      "note": "brand style \"displayAccent\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/displayAccent/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/eyebrow": {
+      "from": [
+        "/typography/roles/eyebrow"
+      ],
+      "note": "brand role \"eyebrow\" (chain: eyebrow > label)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/eyebrow/color": {
+      "from": [
+        "/typography/roles/eyebrow/color"
+      ],
+      "note": "brand style \"eyebrow\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/eyebrow/fit": {
+      "from": [
+        "/typography/roles/eyebrow/size",
+        "/typography/limits/minBodySize"
+      ],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footer": {
+      "from": [
+        "/typography/roles/meta",
+        "/layout/footer/style"
+      ],
+      "note": "brand role \"meta\" (chain: meta > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footer/color": {
+      "from": [
+        "/typography/roles/meta/color"
+      ],
+      "note": "brand style \"meta\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footer/fit": {
+      "from": [
+        "/typography/roles/meta/size",
+        "/typography/limits/minBodySize"
+      ],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footnote": {
+      "from": [
+        "/typography/roles/footnote"
+      ],
+      "note": "brand style \"footnote\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footnote/color": {
+      "from": [
+        "/typography/roles/footnote/color"
+      ],
+      "note": "brand style \"footnote\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footnote/fit": {
+      "from": [
+        "/typography/roles/footnote/size",
+        "/typography/limits/minBodySize"
+      ],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h1": {
+      "from": [
+        "/typography/roles/h1"
+      ],
+      "note": "brand role \"h1\" (chain: h1)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h1/color": {
+      "from": [],
+      "note": "brand style \"h1\" gives no colour: meaning of the \"h1\" role, surface role heading",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h1/fit": {
+      "from": [
+        "/typography/roles/h2/size"
+      ],
+      "note": "next smaller heading \"h2\" (brand \"h2\")",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h1Accent": {
+      "from": [
+        "/typography/roles/h1Accent"
+      ],
+      "note": "brand style \"h1Accent\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h1Accent/color": {
+      "from": [
+        "/typography/roles/h1Accent/color"
+      ],
+      "note": "brand style \"h1Accent\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h1Accent/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h2": {
+      "from": [
+        "/typography/roles/h2"
+      ],
+      "note": "brand role \"h2\" (chain: h2)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h2/color": {
+      "from": [],
+      "note": "brand style \"h2\" gives no colour: meaning of the \"h2\" role, surface role heading",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h2/fit": {
+      "from": [
+        "/typography/roles/h3/size"
+      ],
+      "note": "next smaller heading \"h3\" (brand \"h3\")",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h3": {
+      "from": [
+        "/typography/roles/h3"
+      ],
+      "note": "brand role \"h3\" (chain: h3 > cardTitle)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h3/color": {
+      "from": [],
+      "note": "brand style \"h3\" gives no colour: meaning of the \"h3\" role, surface role heading",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h3/fit": {
+      "from": [
+        "/typography/roles/body/size"
+      ],
+      "note": "next smaller heading \"body\" (brand \"body\")",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/index": {
+      "from": [
+        "/typography/roles/index"
+      ],
+      "note": "brand style \"index\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/index/color": {
+      "from": [
+        "/typography/roles/index/color"
+      ],
+      "note": "brand style \"index\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/index/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/label": {
+      "from": [
+        "/typography/roles/label"
+      ],
+      "note": "brand style \"label\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/label/color": {
+      "from": [],
+      "note": "brand style \"label\" gives no colour: surface role text (G4: no meaning read from the style's name)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/label/fit": {
+      "from": [
+        "/typography/roles/label/size",
+        "/typography/limits/minBodySize"
+      ],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/link": {
+      "from": [
+        "/typography/roles/link"
+      ],
+      "note": "brand style \"link\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/link/color": {
+      "from": [
+        "/typography/roles/link/color"
+      ],
+      "note": "brand style \"link\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/link/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/meta": {
+      "from": [
+        "/typography/roles/meta"
+      ],
+      "note": "brand style \"meta\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/meta/color": {
+      "from": [
+        "/typography/roles/meta/color"
+      ],
+      "note": "brand style \"meta\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/meta/fit": {
+      "from": [
+        "/typography/roles/meta/size",
+        "/typography/limits/minBodySize"
+      ],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/personName": {
+      "from": [
+        "/typography/roles/personName"
+      ],
+      "note": "brand style \"personName\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/personName/color": {
+      "from": [
+        "/typography/roles/personName/color"
+      ],
+      "note": "brand style \"personName\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/personName/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/personRole": {
+      "from": [
+        "/typography/roles/personRole"
+      ],
+      "note": "brand style \"personRole\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/personRole/color": {
+      "from": [
+        "/typography/roles/personRole/color"
+      ],
+      "note": "brand style \"personRole\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/personRole/fit": {
+      "from": [
+        "/typography/roles/personRole/size",
+        "/typography/limits/minBodySize"
+      ],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quote": {
+      "from": [
+        "/typography/roles/quote"
+      ],
+      "note": "brand role \"quote\" (chain: quote)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quote/color": {
+      "from": [
+        "/typography/roles/quote/color"
+      ],
+      "note": "brand style \"quote\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quote/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quoteAttribution": {
+      "from": [
+        "/typography/roles/personRole"
+      ],
+      "note": "brand role \"personRole\" (chain: personRole > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quoteAttribution/color": {
+      "from": [
+        "/typography/roles/personRole/color"
+      ],
+      "note": "brand style \"personRole\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quoteAttribution/fit": {
+      "from": [
+        "/typography/roles/personRole/size",
+        "/typography/limits/minBodySize"
+      ],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/stat": {
+      "from": [
+        "/typography/roles/stat"
+      ],
+      "note": "brand role \"stat\" (chain: stat > factValue)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/stat/color": {
+      "from": [
+        "/typography/roles/stat/color"
+      ],
+      "note": "brand style \"stat\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/stat/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/statLabel": {
+      "from": [
+        "/typography/roles/statLabel"
+      ],
+      "note": "brand role \"statLabel\" (chain: statLabel > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/statLabel/color": {
+      "from": [
+        "/typography/roles/statLabel/color"
+      ],
+      "note": "brand style \"statLabel\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/statLabel/fit": {
+      "from": [
+        "/typography/roles/statLabel/size",
+        "/typography/limits/minBodySize"
+      ],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tab": {
+      "from": [
+        "/typography/roles/tab"
+      ],
+      "note": "brand style \"tab\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tab/color": {
+      "from": [],
+      "note": "brand style \"tab\" gives no colour: surface role text (G4: no meaning read from the style's name)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tab/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableCell": {
+      "from": [
+        "/typography/roles/tableCell"
+      ],
+      "note": "brand role \"tableCell\" (chain: tableCell > bodySmall)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableCell/color": {
+      "from": [
+        "/typography/roles/tableCell/color"
+      ],
+      "note": "brand style \"tableCell\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableCell/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableHead": {
+      "from": [
+        "/typography/roles/tableHead"
+      ],
+      "note": "brand style \"tableHead\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableHead/color": {
+      "from": [
+        "/typography/roles/tableHead/color"
+      ],
+      "note": "brand style \"tableHead\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableHead/fit": {
+      "from": [
+        "/typography/roles/tableHead/size",
+        "/typography/limits/minBodySize"
+      ],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableHeader": {
+      "from": [
+        "/typography/roles/tableHead"
+      ],
+      "note": "brand role \"tableHead\" (chain: tableHead > tableHeader > label > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableHeader/color": {
+      "from": [
+        "/typography/roles/tableHead/color"
+      ],
+      "note": "brand style \"tableHead\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableHeader/fit": {
+      "from": [
+        "/typography/roles/tableHead/size",
+        "/typography/limits/minBodySize"
+      ],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/voice/language": {
+      "from": [
+        "/voice/language"
+      ],
+      "rule": "MD-VOICE"
+    },
+    "/voice/rtl": {
+      "from": [
+        "/locale/rtl"
+      ],
+      "rule": "MD-VOICE"
+    },
+    "/voice/titleCase": {
+      "from": [
+        "/voice/titleCase"
+      ],
+      "rule": "MD-VOICE"
+    }
+  },
+  "schema": "mood/1",
+  "shape": {
+    "borderWidth": 8,
+    "divider": {
+      "color": "border",
+      "length": "full",
+      "lineStyle": "solid",
+      "style": "line",
+      "weight": 2
+    },
+    "language": "sharp",
+    "radius": {
+      "lg": 0,
+      "md": 0,
+      "none": 0,
+      "pill": 0,
+      "sm": 0
+    },
+    "shadow": {
+      "none": {
+        "blur": 0,
+        "color": "#000000",
+        "opacity": 0,
+        "spread": 0,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "tables": {
+    "align": {
+      "header": "right",
+      "number": "right",
+      "text": "left"
+    },
+    "checkIcon": {
+      "color": "accent",
+      "emptyGlyph": "—",
+      "glyph": "check",
+      "size": 18
+    },
+    "firstColumn": {
+      "bold": false
+    },
+    "header": {
+      "case": "upper",
+      "fill": "#FF2A2A",
+      "font": "tableHead",
+      "text": "#0B0B0B",
+      "weight": 800
+    },
+    "highlightColumn": {
+      "fill": "#8E0000",
+      "index": 2,
+      "label": "Crew pick",
+      "text": "#EDEDED"
+    },
+    "maxCols": 6,
+    "maxRows": 8,
+    "radius": 0,
+    "rows": {
+      "border": "border",
+      "borderStyle": "horizontal",
+      "font": "tableCell",
+      "minHeight": 52,
+      "padding": 16,
+      "striped": false
+    }
+  },
+  "type": {
+    "align": {
+      "body": "left",
+      "sectionTitle": "left",
+      "title": "left"
+    },
+    "bullets": {
+      "color": "accent",
+      "glyph": "■",
+      "indent": 32,
+      "maxDepth": 2,
+      "maxPerSlide": 4,
+      "nested": [
+        "—"
+      ]
+    },
+    "faces": {
+      "body": {
+        "fallback": "Arial, \"Helvetica Neue\", sans-serif",
+        "family": "Archivo",
+        "files": [
+          {
+            "file": "assets/fonts/google/Archivo-normal-100-900-latin.woff2",
+            "format": "woff2",
+            "style": "normal",
+            "weight": "100 900"
+          },
+          {
+            "file": "assets/fonts/google/Archivo-italic-100-900-latin.woff2",
+            "format": "woff2",
+            "style": "italic",
+            "weight": "100 900"
+          }
+        ],
+        "metrics": {
+          "ascent": 0.878,
+          "avgCharWidth": 0.496142,
+          "capHeight": 0.686,
+          "descent": -0.21,
+          "file": "assets/fonts/google/Archivo-normal-100-900-latin.woff2",
+          "instance": {
+            "name": "Regular",
+            "wght": 400
+          },
+          "lineGap": 0,
+          "unitsPerEm": 1000,
+          "xHeight": 0.526
+        },
+        "variable": true
+      },
+      "heading": {
+        "fallback": "Impact, \"Arial Narrow\", sans-serif",
+        "family": "Anton",
+        "files": [
+          {
+            "file": "assets/fonts/google/Anton-normal-400-400-latin.woff2",
+            "format": "woff2",
+            "style": "normal",
+            "weight": "400"
+          }
+        ],
+        "metrics": {
+          "ascent": 1.17627,
+          "avgCharWidth": 0.455303,
+          "capHeight": 0.859375,
+          "descent": -0.329102,
+          "file": "assets/fonts/google/Anton-normal-400-400-latin.woff2",
+          "lineGap": 0,
+          "unitsPerEm": 2048,
+          "xHeight": 0.732422
+        },
+        "variable": false
+      }
+    },
+    "limits": {
+      "maxCharsPerLine": 60,
+      "maxTitleChars": 36,
+      "maxWordsPerSlide": 36,
+      "minBodySize": 18.62
+    },
+    "roles": {
+      "accordion": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "letterSpacing": 0.01,
+        "lineHeight": 1.3,
+        "size": 23.94,
+        "weight": 800
+      },
+      "body": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "lineHeight": 1.5,
+        "size": 21.28,
+        "weight": 400
+      },
+      "bodyLarge": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "lineHeight": 1.45,
+        "size": 26.6,
+        "weight": 400
+      },
+      "bodySmall": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "lineHeight": 1.45,
+        "size": 18.62,
+        "weight": 400
+      },
+      "bullet": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "lineHeight": 1.5,
+        "size": 21.28,
+        "weight": 400
+      },
+      "button": {
+        "case": "upper",
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "letterSpacing": 0.08,
+        "lineHeight": 1,
+        "size": 19.95,
+        "weight": 800
+      },
+      "caption": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 15.96,
+          "step": 2
+        },
+        "lineHeight": 1.4,
+        "size": 15.96,
+        "weight": 600
+      },
+      "cardQuote": {
+        "case": "upper",
+        "color": "text",
+        "face": "heading",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "letterSpacing": 0.005,
+        "lineHeight": 1.08,
+        "size": 37.24,
+        "weight": 400
+      },
+      "chartLabel": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 15.96,
+          "step": 2
+        },
+        "lineHeight": 1.4,
+        "size": 15.96,
+        "weight": 600
+      },
+      "chip": {
+        "case": "upper",
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 15.96,
+          "step": 2
+        },
+        "letterSpacing": 0.1,
+        "lineHeight": 1.2,
+        "size": 15.96,
+        "weight": 800
+      },
+      "display": {
+        "case": "upper",
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 92,
+          "step": 2
+        },
+        "letterSpacing": 0.005,
+        "lineHeight": 0.9,
+        "size": 156,
+        "weight": 400
+      },
+      "displayAccent": {
+        "case": "upper",
+        "color": "accent",
+        "face": "heading",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "letterSpacing": 0.005,
+        "lineHeight": 0.9,
+        "size": 156,
+        "weight": 400
+      },
+      "eyebrow": {
+        "case": "upper",
+        "color": "accent",
+        "face": "body",
+        "fit": {
+          "min": 17.29,
+          "step": 2
+        },
+        "letterSpacing": 0.14,
+        "lineHeight": 1.2,
+        "size": 17.29,
+        "weight": 800
+      },
+      "footer": {
+        "case": "upper",
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 14.63,
+          "step": 2
+        },
+        "letterSpacing": 0.1,
+        "lineHeight": 1.4,
+        "size": 14.63,
+        "weight": 600
+      },
+      "footnote": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 14.63,
+          "step": 2
+        },
+        "lineHeight": 1.4,
+        "size": 14.63,
+        "weight": 400
+      },
+      "h1": {
+        "case": "upper",
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 45.22,
+          "step": 2
+        },
+        "letterSpacing": 0.005,
+        "lineHeight": 0.94,
+        "size": 92,
+        "weight": 400
+      },
+      "h1Accent": {
+        "case": "upper",
+        "color": "accent",
+        "face": "heading",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "letterSpacing": 0.005,
+        "lineHeight": 0.94,
+        "size": 92,
+        "weight": 400
+      },
+      "h2": {
+        "case": "upper",
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 33.25,
+          "step": 2
+        },
+        "letterSpacing": 0.005,
+        "lineHeight": 1,
+        "size": 45.22,
+        "weight": 400
+      },
+      "h3": {
+        "case": "upper",
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 21.28,
+          "step": 2
+        },
+        "letterSpacing": 0.01,
+        "lineHeight": 1.04,
+        "size": 33.25,
+        "weight": 400
+      },
+      "index": {
+        "color": "accent",
+        "face": "heading",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "letterSpacing": 0.01,
+        "lineHeight": 1,
+        "size": 53.2,
+        "weight": 400
+      },
+      "label": {
+        "case": "upper",
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 15.96,
+          "step": 2
+        },
+        "letterSpacing": 0.1,
+        "lineHeight": 1.3,
+        "size": 15.96,
+        "weight": 800
+      },
+      "link": {
+        "case": "upper",
+        "color": "accent",
+        "face": "body",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "letterSpacing": 0.06,
+        "lineHeight": 1.3,
+        "size": 19.95,
+        "weight": 800
+      },
+      "meta": {
+        "case": "upper",
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 14.63,
+          "step": 2
+        },
+        "letterSpacing": 0.1,
+        "lineHeight": 1.4,
+        "size": 14.63,
+        "weight": 600
+      },
+      "personName": {
+        "case": "upper",
+        "color": "heading",
+        "face": "body",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "letterSpacing": 0.06,
+        "lineHeight": 1.3,
+        "size": 18.62,
+        "weight": 800
+      },
+      "personRole": {
+        "case": "upper",
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 15.96,
+          "step": 2
+        },
+        "letterSpacing": 0.1,
+        "lineHeight": 1.4,
+        "size": 15.96,
+        "weight": 800
+      },
+      "quote": {
+        "case": "upper",
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "letterSpacing": 0.005,
+        "lineHeight": 1.04,
+        "size": 60,
+        "weight": 400
+      },
+      "quoteAttribution": {
+        "case": "upper",
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 15.96,
+          "step": 2
+        },
+        "letterSpacing": 0.1,
+        "lineHeight": 1.4,
+        "size": 15.96,
+        "weight": 800
+      },
+      "stat": {
+        "color": "accent",
+        "face": "heading",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "letterSpacing": 0,
+        "lineHeight": 0.9,
+        "size": 150,
+        "weight": 400
+      },
+      "statLabel": {
+        "case": "upper",
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 17.29,
+          "step": 2
+        },
+        "letterSpacing": 0.08,
+        "lineHeight": 1.3,
+        "size": 17.29,
+        "weight": 800
+      },
+      "tab": {
+        "case": "upper",
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "letterSpacing": 0.08,
+        "lineHeight": 1.2,
+        "size": 19.95,
+        "weight": 800
+      },
+      "tableCell": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 18.62,
+          "step": 2
+        },
+        "lineHeight": 1.4,
+        "size": 18.62,
+        "weight": 400
+      },
+      "tableHead": {
+        "case": "upper",
+        "color": "heading",
+        "face": "body",
+        "fit": {
+          "min": 15.96,
+          "step": 2
+        },
+        "letterSpacing": 0.1,
+        "lineHeight": 1.3,
+        "size": 15.96,
+        "weight": 800
+      },
+      "tableHeader": {
+        "case": "upper",
+        "color": "heading",
+        "face": "body",
+        "fit": {
+          "min": 15.96,
+          "step": 2
+        },
+        "letterSpacing": 0.1,
+        "lineHeight": 1.3,
+        "size": 15.96,
+        "weight": 800
+      }
+    }
+  },
+  "voice": {
+    "language": "en-US",
+    "rtl": false,
+    "titleCase": "sentence"
+  },
+  "warnings": [
+    {
+      "message": "style \"caption\" (15.96) is below typography.limits.minBodySize (18.62): fit.min = own size",
+      "pointer": "/typography/roles/caption/size",
+      "rule": "MD-TYPE"
+    },
+    {
+      "message": "style \"eyebrow\" (17.29) is below typography.limits.minBodySize (18.62): fit.min = own size",
+      "pointer": "/typography/roles/eyebrow/size",
+      "rule": "MD-TYPE"
+    },
+    {
+      "message": "style \"statLabel\" (17.29) is below typography.limits.minBodySize (18.62): fit.min = own size",
+      "pointer": "/typography/roles/statLabel/size",
+      "rule": "MD-TYPE"
+    },
+    {
+      "message": "style \"personRole\" (15.96) is below typography.limits.minBodySize (18.62): fit.min = own size",
+      "pointer": "/typography/roles/personRole/size",
+      "rule": "MD-TYPE"
+    },
+    {
+      "message": "style \"tableHead\" (15.96) is below typography.limits.minBodySize (18.62): fit.min = own size",
+      "pointer": "/typography/roles/tableHead/size",
+      "rule": "MD-TYPE"
+    },
+    {
+      "message": "style \"meta\" (14.63) is below typography.limits.minBodySize (18.62): fit.min = own size",
+      "pointer": "/typography/roles/meta/size",
+      "rule": "MD-TYPE"
+    },
+    {
+      "message": "style \"label\" (15.96) is below typography.limits.minBodySize (18.62): fit.min = own size",
+      "pointer": "/typography/roles/label/size",
+      "rule": "MD-TYPE"
+    },
+    {
+      "message": "style \"footnote\" (14.63) is below typography.limits.minBodySize (18.62): fit.min = own size",
+      "pointer": "/typography/roles/footnote/size",
+      "rule": "MD-TYPE"
+    },
+    {
+      "message": "style \"chip\" (15.96) is below typography.limits.minBodySize (18.62): fit.min = own size",
+      "pointer": "/typography/roles/chip/size",
+      "rule": "MD-TYPE"
+    }
+  ]
+}

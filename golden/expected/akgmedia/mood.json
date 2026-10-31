@@ -1,0 +1,2925 @@
+{
+  "brandHash": "25d1cdc21bfd41c8f41dbf4bcafe64d8e6cb22d8792f474762c0fed975e62d9a",
+  "brandId": "akgmedia",
+  "charts": {
+    "axes": {
+      "color": "text",
+      "font": "caption",
+      "labelColor": "text",
+      "line": true,
+      "lineColor": "text",
+      "show": true
+    },
+    "background": "transparent",
+    "bar": {
+      "gap": 0.4,
+      "orientation": "vertical",
+      "radius": 0
+    },
+    "border": {
+      "style": "none",
+      "width": 0
+    },
+    "dataLabels": {
+      "font": "caption",
+      "format": "raw",
+      "position": "outside",
+      "show": true
+    },
+    "donut": {
+      "centerLabel": true,
+      "innerRadius": 0.65
+    },
+    "font": "caption",
+    "gridlines": {
+      "show": false
+    },
+    "legend": {
+      "marker": "circle",
+      "position": "bottom",
+      "show": true
+    },
+    "line": {
+      "areaOpacity": 0,
+      "markers": false,
+      "smooth": false,
+      "width": 2
+    },
+    "palette": "categorical",
+    "pie": {
+      "gap": 0,
+      "labels": "legend",
+      "startAngle": -90
+    }
+  },
+  "components": {
+    "button": {
+      "tokens": {
+        "border.color": "text",
+        "border.style": "solid",
+        "border.width": 1,
+        "fill": "text",
+        "font": "button",
+        "padding.0": 12,
+        "padding.1": 22,
+        "radius": "pill",
+        "text": "bg"
+      },
+      "variant": "default"
+    },
+    "buttonSecondary": {
+      "tokens": {
+        "border.color": "text",
+        "border.style": "solid",
+        "border.width": 1,
+        "fill": "transparent",
+        "font": "button",
+        "padding.0": 12,
+        "padding.1": 22,
+        "radius": "pill",
+        "text": "text"
+      },
+      "variant": "default"
+    },
+    "callout": {
+      "tokens": {
+        "fill": "card",
+        "icon": false,
+        "padding.0": 24,
+        "padding.1": 28,
+        "radius": 0
+      },
+      "variant": "default"
+    },
+    "card": {
+      "tokens": {
+        "bodyRole": "bodySmall",
+        "border.style": "none",
+        "border.width": 0,
+        "fill": "card",
+        "padding": 28,
+        "radius": "none",
+        "shadow": "none",
+        "titleRole": "h3"
+      },
+      "variant": "filled"
+    },
+    "chip": {
+      "tokens": {
+        "border.color": "text",
+        "border.style": "solid",
+        "border.width": 1,
+        "fill": "transparent",
+        "font": "label",
+        "padding.0": 12,
+        "padding.1": 18,
+        "radius": "pill",
+        "text": "text"
+      },
+      "variant": "default"
+    },
+    "icon": {
+      "items": [
+        {
+          "file": "assets/icons/icon-bolt.png",
+          "name": "icon-bolt",
+          "variants": {
+            "white": "assets/icons/icon-bolt-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/icon-burst-lines.png",
+          "name": "icon-burst-lines",
+          "variants": {
+            "white": "assets/icons/icon-burst-lines-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/icon-sparkles.png",
+          "name": "icon-sparkles",
+          "variants": {
+            "white": "assets/icons/icon-sparkles-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/icon-starburst.png",
+          "name": "icon-starburst",
+          "variants": {
+            "white": "assets/icons/icon-starburst-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/line-arrow-box.png",
+          "name": "line-arrow-box",
+          "variants": {
+            "white": "assets/icons/line-arrow-box-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/line-blocks.png",
+          "name": "line-blocks",
+          "variants": {
+            "white": "assets/icons/line-blocks-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/line-cube-frame.png",
+          "name": "line-cube-frame",
+          "variants": {
+            "white": "assets/icons/line-cube-frame-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/line-cubes.png",
+          "name": "line-cubes",
+          "variants": {
+            "white": "assets/icons/line-cubes-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/line-eye.png",
+          "name": "line-eye",
+          "variants": {
+            "white": "assets/icons/line-eye-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/line-eye-small.png",
+          "name": "line-eye-small",
+          "variants": {
+            "white": "assets/icons/line-eye-small-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/line-globe.png",
+          "name": "line-globe",
+          "variants": {
+            "white": "assets/icons/line-globe-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/line-golden-spiral.png",
+          "name": "line-golden-spiral",
+          "variants": {
+            "white": "assets/icons/line-golden-spiral-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/line-layers.png",
+          "name": "line-layers",
+          "variants": {
+            "white": "assets/icons/line-layers-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/line-quote.png",
+          "name": "line-quote",
+          "variants": {
+            "white": "assets/icons/line-quote-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/line-rings.png",
+          "name": "line-rings",
+          "variants": {
+            "white": "assets/icons/line-rings-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/line-speech.png",
+          "name": "line-speech",
+          "variants": {
+            "white": "assets/icons/line-speech-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/line-sphere-cut.png",
+          "name": "line-sphere-cut",
+          "variants": {
+            "white": "assets/icons/line-sphere-cut-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/line-stairs.png",
+          "name": "line-stairs",
+          "variants": {
+            "white": "assets/icons/line-stairs-white.png"
+          }
+        },
+        {
+          "file": "assets/icons/line-torus.png",
+          "name": "line-torus",
+          "variants": {
+            "white": "assets/icons/line-torus-white.png"
+          }
+        }
+      ],
+      "tokens": {
+        "color": "text",
+        "container.container": "none",
+        "customPath": "assets/icons/",
+        "set": "custom",
+        "size": 72,
+        "strokeWidth": 2
+      },
+      "variant": "line"
+    },
+    "kpi": {
+      "tokens": {
+        "deltaColors.down": "semantic.error",
+        "deltaColors.flat": "textMuted",
+        "deltaColors.up": "semantic.success",
+        "labelStyle": "eyebrow",
+        "sparkline": true
+      },
+      "variant": "stat"
+    },
+    "quote": {
+      "tokens": {
+        "align": "left",
+        "attributionFont": "label",
+        "font": "quote",
+        "markStyle": "none"
+      },
+      "variant": "default"
+    },
+    "steps": {
+      "tokens": {
+        "activeColor": "text",
+        "inactiveColor": "text",
+        "line": true,
+        "lineStyle": "solid",
+        "marker": "circle-number",
+        "orientation": "horizontal"
+      },
+      "variant": "default"
+    },
+    "timeline": {
+      "tokens": {
+        "alternate": false,
+        "lineColor": "text",
+        "marker": "circle"
+      },
+      "variant": "default"
+    }
+  },
+  "composition": {
+    "closing": [
+      "cta"
+    ],
+    "density": "balanced",
+    "layoutHints": {
+      "agenda": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "bullets": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "cards": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "chart": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "cover": {
+        "background": "black",
+        "footer": false,
+        "logo": "large",
+        "surface": "black",
+        "titleRole": "display"
+      },
+      "cta": {
+        "background": "black",
+        "footer": false,
+        "logo": "large",
+        "surface": "black",
+        "titleRole": "display"
+      },
+      "image-text": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "kpi": {
+        "background": "snow",
+        "logo": "none",
+        "surface": "snow",
+        "titleRole": "h1"
+      },
+      "logos": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "quote": {
+        "background": "pink",
+        "logo": "none",
+        "surface": "pink",
+        "titleRole": "quote"
+      },
+      "section": {
+        "background": "ultramarine",
+        "footer": false,
+        "logo": "none",
+        "surface": "ultramarine",
+        "titleRole": "display"
+      },
+      "steps": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "table": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "team": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "text": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "timeline": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "two-column": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      }
+    },
+    "maxAccentsPerSlide": 1,
+    "maxElementsPerSlide": 6,
+    "minWhitespace": 0.3,
+    "opening": [
+      "cover",
+      "agenda"
+    ],
+    "sectionDividers": true,
+    "titleEverySlide": true
+  },
+  "decor": {
+    "elements": [
+      {
+        "allowedOn": [
+          "bullets",
+          "two-column",
+          "image-text",
+          "agenda",
+          "chart",
+          "text",
+          "steps",
+          "timeline",
+          "table",
+          "team",
+          "logos"
+        ],
+        "color": "text",
+        "colorable": false,
+        "frequency": "always",
+        "id": "headingRule",
+        "layer": "front",
+        "placement": "under-title",
+        "thickness": 2,
+        "type": "rule"
+      },
+      {
+        "allowedOn": [
+          "cover"
+        ],
+        "anchor": "fixed",
+        "box": {
+          "h": 562,
+          "w": 680,
+          "x": 1150,
+          "y": 250
+        },
+        "colorable": false,
+        "file": "assets/illustrations/3d-rings-iridescent.png",
+        "frequency": "always",
+        "id": "ringsTitle",
+        "layer": "behind",
+        "opacity": 1,
+        "surfaces": [
+          "black"
+        ],
+        "type": "illustration"
+      },
+      {
+        "allowedOn": [
+          "cover",
+          "cta"
+        ],
+        "anchor": "fixed",
+        "box": {
+          "h": 119,
+          "w": 120,
+          "x": 1060,
+          "y": 150
+        },
+        "colorable": false,
+        "file": "assets/icons/icon-sparkles-white.png",
+        "frequency": "often",
+        "id": "sparklesTitle",
+        "layer": "front",
+        "opacity": 1,
+        "surfaces": [
+          "black"
+        ],
+        "type": "sticker"
+      },
+      {
+        "allowedOn": [
+          "section"
+        ],
+        "box": {
+          "h": 538,
+          "w": 540,
+          "x": 1260,
+          "y": 270
+        },
+        "colorable": false,
+        "file": "assets/illustrations/3d-swirl-sphere.png",
+        "frequency": "always",
+        "id": "swirlSection",
+        "layer": "behind",
+        "opacity": 1,
+        "surfaces": [
+          "ultramarine"
+        ],
+        "type": "illustration"
+      },
+      {
+        "allowedOn": [
+          "cta"
+        ],
+        "box": {
+          "h": 411,
+          "w": 620,
+          "x": 1180,
+          "y": 330
+        },
+        "colorable": false,
+        "file": "assets/icons/line-globe-white.png",
+        "frequency": "always",
+        "id": "globeClosing",
+        "layer": "behind",
+        "opacity": 1,
+        "surfaces": [
+          "black"
+        ],
+        "type": "illustration"
+      },
+      {
+        "allowedOn": [
+          "quote"
+        ],
+        "box": {
+          "h": 119,
+          "w": 120,
+          "x": 1680,
+          "y": 120
+        },
+        "colorable": false,
+        "file": "assets/icons/icon-sparkles.png",
+        "frequency": "often",
+        "id": "sparkleQuote",
+        "layer": "front",
+        "opacity": 1,
+        "surfaces": [
+          "pink"
+        ],
+        "type": "sticker"
+      },
+      {
+        "allowedOn": [
+          "cover"
+        ],
+        "anchor": "fixed",
+        "animated": "assets/illustrations/akg-3d-c3-anim.webp",
+        "box": {
+          "h": 257,
+          "w": 261,
+          "x": 1659,
+          "y": 823
+        },
+        "colorable": false,
+        "file": "assets/illustrations/akg-3d-c3.png",
+        "frequency": "always",
+        "id": "webglFlower",
+        "layer": "front",
+        "opacity": 1,
+        "surfaces": [
+          "black"
+        ],
+        "type": "illustration"
+      },
+      {
+        "allowedOn": [],
+        "animated": "assets/illustrations/akg-3d-c0-anim.webp",
+        "colorable": false,
+        "file": "assets/illustrations/akg-3d-c0.png",
+        "frequency": "often",
+        "id": "webglCross",
+        "layer": "front",
+        "opacity": 1,
+        "type": "illustration",
+        "unused": true
+      },
+      {
+        "allowedOn": [],
+        "animated": "assets/illustrations/akg-3d-c1-anim.webp",
+        "colorable": false,
+        "file": "assets/illustrations/akg-3d-c1.png",
+        "frequency": "often",
+        "id": "webglSpiral",
+        "layer": "front",
+        "opacity": 1,
+        "type": "illustration",
+        "unused": true
+      },
+      {
+        "allowedOn": [],
+        "animated": "assets/illustrations/akg-3d-c4-anim.webp",
+        "colorable": false,
+        "file": "assets/illustrations/akg-3d-c4.png",
+        "frequency": "often",
+        "id": "webglKnot",
+        "layer": "front",
+        "opacity": 1,
+        "type": "illustration",
+        "unused": true
+      }
+    ],
+    "imagery": {
+      "crop": {
+        "defaultRatio": "1:1",
+        "focus": "center"
+      },
+      "mask": "rect",
+      "textOverImage": {
+        "direction": "none",
+        "gradient": false,
+        "minContrast": 4.5,
+        "opacity": 0,
+        "overlay": "transparent"
+      },
+      "treatment": "none"
+    },
+    "maxPerSlide": 3
+  },
+  "engineVersion": "0.0.0",
+  "footer": {
+    "hideOn": [
+      "cover",
+      "section",
+      "cta"
+    ],
+    "items": [],
+    "position": "bottom-right",
+    "role": "meta",
+    "show": false,
+    "text": ""
+  },
+  "geometry": {
+    "canvas": {
+      "height": 1080,
+      "width": 1920
+    },
+    "density": "balanced",
+    "grid": {
+      "columns": 12,
+      "gutter": 40
+    },
+    "margins": {
+      "bottom": 64,
+      "left": 80,
+      "right": 80,
+      "top": 70
+    },
+    "safeArea": {
+      "bottom": 40,
+      "left": 40,
+      "right": 40,
+      "top": 40
+    },
+    "spacing": {
+      "lg": 32,
+      "md": 24,
+      "sm": 12,
+      "xl": 64,
+      "xs": 4
+    },
+    "titleZone": {
+      "align": "left",
+      "height": 200,
+      "y": 70
+    }
+  },
+  "id": "akgmedia",
+  "logo": {
+    "clearSpace": 16,
+    "height": {
+      "small": 48
+    },
+    "perKind": {
+      "bullets": "none",
+      "cover": "large",
+      "cta": "large",
+      "logos": "none",
+      "section": "none",
+      "steps": "none",
+      "table": "none",
+      "team": "none",
+      "text": "none",
+      "timeline": "none"
+    },
+    "perSurface": {
+      "black": "monoLight",
+      "pink": "full",
+      "snow": "full",
+      "ultramarine": "monoLight",
+      "white": "full"
+    },
+    "position": "top-left",
+    "variants": {
+      "full": {
+        "file": "assets/logos/akg-wordmark-black.png",
+        "height": 667,
+        "width": 2290
+      },
+      "monoDark": {
+        "file": "assets/logos/akg-wordmark-black.png",
+        "height": 667,
+        "width": 2290
+      },
+      "monoLight": {
+        "file": "assets/logos/akg-wordmark-white.png",
+        "height": 667,
+        "width": 2290
+      },
+      "reverse": {
+        "file": "assets/logos/akg-wordmark-white.png",
+        "height": 667,
+        "width": 2290
+      },
+      "wordmark": {
+        "file": "assets/logos/akg-wordmark-black.png",
+        "height": 667,
+        "width": 2290
+      }
+    }
+  },
+  "motion": {
+    "build": "none",
+    "duration": 300,
+    "easing": "ease-out",
+    "family": "soft",
+    "stagger": 80,
+    "transition": "fade"
+  },
+  "name": "AKG Media",
+  "palette": {
+    "brand": {
+      "accent": "#3900F4",
+      "primary": "#3900F4",
+      "secondary": "#FFBFED",
+      "tertiary": "#E9FACA"
+    },
+    "chart": {
+      "categorical": [
+        "#3900F4",
+        "#000000",
+        "#FFBFED",
+        "#E9FACA"
+      ],
+      "highlight": "#3900F4",
+      "muted": "#E9FACA",
+      "sequential": [
+        "#E9FACA",
+        "#FFBFED",
+        "#3900F4",
+        "#000000"
+      ]
+    },
+    "perKind": {
+      "agenda": "white",
+      "bullets": "white",
+      "cards": "white",
+      "chart": "white",
+      "cover": "black",
+      "cta": "black",
+      "image-text": "white",
+      "kpi": "snow",
+      "quote": "pink",
+      "section": "ultramarine",
+      "two-column": "white"
+    },
+    "rhythm": [
+      "black",
+      "white",
+      "white",
+      "ultramarine",
+      "white",
+      "snow",
+      "pink",
+      "black"
+    ],
+    "semantic": {
+      "error": "#000000",
+      "info": "#3900F4",
+      "success": "#3900F4",
+      "warning": "#FFBFED"
+    },
+    "surfaces": [
+      {
+        "accent": "#3900F4",
+        "bg": "#FFFFFF",
+        "border": "#000000",
+        "card": "#E9FACA",
+        "cardText": "#000000",
+        "contrast": {
+          "accent": 8.47,
+          "heading": 21,
+          "text": 21
+        },
+        "heading": "#000000",
+        "id": "white",
+        "logoVariant": "full",
+        "role": "default",
+        "text": "#000000",
+        "textMuted": "#000000",
+        "tone": "light"
+      },
+      {
+        "accent": "#FFBFED",
+        "bg": "#000000",
+        "border": "#FFFFFF",
+        "card": "#3900F4",
+        "cardText": "#FFFFFF",
+        "contrast": {
+          "accent": 13.93,
+          "heading": 21,
+          "text": 21
+        },
+        "heading": "#FFFFFF",
+        "id": "black",
+        "logoVariant": "monoLight",
+        "role": "dark",
+        "text": "#FFFFFF",
+        "textMuted": "#FFFFFF",
+        "tone": "dark"
+      },
+      {
+        "accent": "#3900F4",
+        "bg": "#E9FACA",
+        "border": "#000000",
+        "card": "#FFFFFF",
+        "cardText": "#000000",
+        "contrast": {
+          "accent": 7.66,
+          "heading": 18.99,
+          "text": 18.99
+        },
+        "heading": "#000000",
+        "id": "snow",
+        "logoVariant": "full",
+        "role": "alt",
+        "text": "#000000",
+        "textMuted": "#000000",
+        "tone": "light"
+      },
+      {
+        "accent": "#E9FACA",
+        "bg": "#3900F4",
+        "border": "#FFFFFF",
+        "card": "#E9FACA",
+        "cardText": "#000000",
+        "contrast": {
+          "accent": 7.66,
+          "heading": 8.47,
+          "text": 8.47
+        },
+        "heading": "#FFFFFF",
+        "id": "ultramarine",
+        "logoVariant": "monoLight",
+        "role": "accent",
+        "text": "#FFFFFF",
+        "textMuted": "#FFFFFF",
+        "tone": "dark"
+      },
+      {
+        "accent": "#3900F4",
+        "bg": "#FFBFED",
+        "border": "#000000",
+        "card": "#FFFFFF",
+        "cardText": "#000000",
+        "contrast": {
+          "accent": 5.62,
+          "heading": 13.93,
+          "text": 13.93
+        },
+        "heading": "#000000",
+        "id": "pink",
+        "logoVariant": "full",
+        "role": "alt",
+        "text": "#000000",
+        "textMuted": "#000000",
+        "tone": "light"
+      }
+    ]
+  },
+  "provenance": {
+    "/charts": {
+      "from": [
+        "/charts"
+      ],
+      "note": "copied as given (kpi -> components.kpi)",
+      "rule": "MD-CHARTS-TABLES"
+    },
+    "/charts/palette": {
+      "from": [
+        "/charts/palette"
+      ],
+      "note": "charts.palette \"chart\" -> categorical",
+      "rule": "MD-CHARTS-TABLES"
+    },
+    "/components/button": {
+      "from": [
+        "/components/button"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/buttonSecondary": {
+      "from": [
+        "/components/buttonSecondary"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/callout": {
+      "from": [
+        "/components/callout"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/card": {
+      "from": [
+        "/components/cards/style"
+      ],
+      "note": "variant <- style.kind; tokens <- fill, radius, shadow, padding, border, titleStyle (titleRole), bodyStyle (bodyRole), fillOpacity, backdropBlur",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/chip": {
+      "from": [
+        "/components/chip"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/icon": {
+      "from": [
+        "/components/icons"
+      ],
+      "note": "variant <- style; tokens = the rest, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/icon/items": {
+      "from": [
+        "/components/icons/files"
+      ],
+      "note": "the brand's icon set (BR-ICONS, E5): {name, file, variants}",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/kpi": {
+      "from": [
+        "/charts/kpi"
+      ],
+      "note": "variant <- style; tokens = the rest, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/quote": {
+      "from": [
+        "/components/quote"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/steps": {
+      "from": [
+        "/components/steps"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/timeline": {
+      "from": [
+        "/components/timeline"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/composition/closing": {
+      "from": [
+        "/composition/closingSequence"
+      ],
+      "note": "layout ids -> kinds (kind map)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/density": {
+      "from": [
+        "/composition/density"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/agenda": {
+      "from": [
+        "/brandLayouts/1"
+      ],
+      "note": "layout \"agenda\" -> kind \"agenda\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/bullets": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "layout \"content\" -> kind \"bullets\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/cards": {
+      "from": [
+        "/brandLayouts/5"
+      ],
+      "note": "layout \"cards\" -> kind \"cards\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/chart": {
+      "from": [
+        "/brandLayouts/7"
+      ],
+      "note": "layout \"chart\" -> kind \"chart\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/cover": {
+      "from": [
+        "/brandLayouts/0"
+      ],
+      "note": "layout \"title\" -> kind \"cover\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/cta": {
+      "from": [
+        "/brandLayouts/10"
+      ],
+      "note": "layout \"closing\" -> kind \"cta\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/image-text": {
+      "from": [
+        "/brandLayouts/8"
+      ],
+      "note": "layout \"imageText\" -> kind \"image-text\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/kpi": {
+      "from": [
+        "/brandLayouts/6"
+      ],
+      "note": "layout \"stat\" -> kind \"kpi\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/logos": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"logos\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/quote": {
+      "from": [
+        "/brandLayouts/9"
+      ],
+      "note": "layout \"quote\" -> kind \"quote\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/section": {
+      "from": [
+        "/brandLayouts/2"
+      ],
+      "note": "layout \"section\" -> kind \"section\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/steps": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"steps\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/table": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"table\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/team": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"team\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/text": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"text\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/timeline": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"timeline\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/two-column": {
+      "from": [
+        "/brandLayouts/4"
+      ],
+      "note": "layout \"twoColumn\" -> kind \"two-column\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/maxAccentsPerSlide": {
+      "from": [
+        "/composition/maxAccentsPerSlide"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/maxElementsPerSlide": {
+      "from": [
+        "/composition/maxElementsPerSlide"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/minWhitespace": {
+      "from": [
+        "/composition/minWhitespace"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/opening": {
+      "from": [
+        "/composition/openingSequence"
+      ],
+      "note": "layout ids -> kinds (kind map)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/sectionDividers": {
+      "from": [
+        "/composition/sectionDividers"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/titleEverySlide": {
+      "from": [
+        "/composition/titleEverySlide"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/decor/elements/0": {
+      "from": [
+        "/decor/elements/0"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds; allowedOn via content: the brand names no layout for kinds \"text\", \"steps\", \"timeline\", \"table\", \"team\", \"logos\", so its \"content\" layout applies (G1)",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/1": {
+      "from": [
+        "/decor/elements/1"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/2": {
+      "from": [
+        "/decor/elements/2"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/3": {
+      "from": [
+        "/decor/elements/3"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/4": {
+      "from": [
+        "/decor/elements/4"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/5": {
+      "from": [
+        "/decor/elements/5"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/6": {
+      "from": [
+        "/decor/elements/6"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/7": {
+      "from": [
+        "/decor/elements/7"
+      ],
+      "note": "every brand-given key copied as given; unused until answered: frequency often with no allowed layouts (question decor.webglCross.allowedOn)",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/8": {
+      "from": [
+        "/decor/elements/8"
+      ],
+      "note": "every brand-given key copied as given; unused until answered: frequency often with no allowed layouts (question decor.webglSpiral.allowedOn)",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/9": {
+      "from": [
+        "/decor/elements/9"
+      ],
+      "note": "every brand-given key copied as given; unused until answered: frequency often with no allowed layouts (question decor.webglKnot.allowedOn)",
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/crop": {
+      "from": [
+        "/imagery/crop"
+      ],
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/mask": {
+      "from": [
+        "/imagery/masks/default"
+      ],
+      "note": "the brand's default mask",
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/textOverImage": {
+      "from": [
+        "/imagery/textOverImage"
+      ],
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/treatment": {
+      "from": [
+        "/imagery/treatments/default"
+      ],
+      "note": "the brand's default treatment",
+      "rule": "MD-DECOR"
+    },
+    "/decor/maxPerSlide": {
+      "from": [
+        "/decor/maxElementsPerSlide"
+      ],
+      "rule": "MD-DECOR"
+    },
+    "/footer/hideOn": {
+      "from": [
+        "/layout/footer/hideOn"
+      ],
+      "note": "layout ids -> kinds (kind map)",
+      "rule": "MD-FOOTER"
+    },
+    "/footer/items": {
+      "from": [
+        "/layout/footer"
+      ],
+      "note": "order logo, text, pageNumber, date by the footer booleans (text: non-empty)",
+      "rule": "MD-FOOTER"
+    },
+    "/footer/position": {
+      "from": [
+        "/layout/footer/position"
+      ],
+      "rule": "MD-FOOTER"
+    },
+    "/footer/role": {
+      "from": [
+        "/layout/footer/style"
+      ],
+      "rule": "MD-FOOTER"
+    },
+    "/footer/show": {
+      "from": [
+        "/layout/footer/show"
+      ],
+      "rule": "MD-FOOTER"
+    },
+    "/footer/text": {
+      "from": [
+        "/layout/footer/text"
+      ],
+      "rule": "MD-FOOTER"
+    },
+    "/geometry/canvas": {
+      "from": [
+        "/layout/canvas"
+      ],
+      "note": "fixed 1920x1080 canvas (BR-NORMALIZE rejects any other input size)",
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/density": {
+      "from": [
+        "/composition/density"
+      ],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/grid": {
+      "from": [
+        "/layout/grid"
+      ],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/margins": {
+      "from": [
+        "/layout/margins"
+      ],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/safeArea": {
+      "from": [
+        "/layout/safeArea"
+      ],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/spacing": {
+      "from": [
+        "/layout/spacing"
+      ],
+      "note": "sorted ascending; xs..xl = indices round((n-1) x 0, .25, .5, .75, 1) (D9)",
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/titleZone": {
+      "from": [
+        "/layout/titleZone"
+      ],
+      "rule": "MD-GEOMETRY"
+    },
+    "/logo/clearSpace": {
+      "from": [
+        "/logos/clearSpace"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/height/small": {
+      "from": [
+        "/logos/height"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/bullets": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "layout \"content\" -> kind \"bullets\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/cover": {
+      "from": [
+        "/logos/perLayout/title"
+      ],
+      "note": "layout \"title\" -> kind \"cover\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/cta": {
+      "from": [
+        "/logos/perLayout/closing"
+      ],
+      "note": "layout \"closing\" -> kind \"cta\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/logos": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"logos\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/section": {
+      "from": [
+        "/logos/perLayout/section"
+      ],
+      "note": "layout \"section\" -> kind \"section\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/steps": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"steps\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/table": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"table\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/team": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"team\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/text": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"text\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/timeline": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"timeline\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perSurface/black": {
+      "from": [
+        "/logos/onSurface/black"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/perSurface/pink": {
+      "from": [
+        "/logos/onSurface/pink"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/perSurface/snow": {
+      "from": [
+        "/logos/onSurface/snow"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/perSurface/ultramarine": {
+      "from": [
+        "/logos/onSurface/ultramarine"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/perSurface/white": {
+      "from": [
+        "/logos/onSurface/white"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/position": {
+      "from": [
+        "/logos/position"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/full": {
+      "from": [
+        "/logos/variants/full"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/monoDark": {
+      "from": [
+        "/logos/variants/monoDark"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/monoLight": {
+      "from": [
+        "/logos/variants/monoLight"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/reverse": {
+      "from": [
+        "/logos/variants/reverse"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/wordmark": {
+      "from": [
+        "/logos/variants/wordmark"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/motion/build": {
+      "from": [
+        "/motion/build"
+      ],
+      "rule": "MD-MOTION"
+    },
+    "/motion/duration": {
+      "from": [
+        "/motion/duration"
+      ],
+      "rule": "MD-MOTION"
+    },
+    "/motion/easing": {
+      "from": [
+        "/motion/easing"
+      ],
+      "rule": "MD-MOTION"
+    },
+    "/motion/family": {
+      "from": [
+        "/motion/transition",
+        "/motion/duration"
+      ],
+      "note": "transition fade, duration 300",
+      "rule": "MD-MOTION"
+    },
+    "/motion/stagger": {
+      "from": [
+        "/motion/stagger"
+      ],
+      "rule": "MD-MOTION"
+    },
+    "/motion/transition": {
+      "from": [
+        "/motion/transition"
+      ],
+      "rule": "MD-MOTION"
+    },
+    "/name": {
+      "from": [
+        "/name"
+      ],
+      "rule": "ASSEMBLY"
+    },
+    "/palette/brand/accent": {
+      "from": [
+        "/colors/accent"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/brand/primary": {
+      "from": [
+        "/colors/primary"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/brand/secondary": {
+      "from": [
+        "/colors/secondary"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/brand/tertiary": {
+      "from": [
+        "/colors/tertiary"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/chart/categorical": {
+      "from": [
+        "/colors/chart"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/chart/highlight": {
+      "from": [
+        "/colors/accent"
+      ],
+      "note": "charts.highlightMode.color not given: colors.accent",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/chart/muted": {
+      "from": [
+        "/colors/chartMuted"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/chart/sequential": {
+      "from": [
+        "/colors/chartSequential"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/agenda": {
+      "from": [
+        "/brandLayouts/1/id",
+        "/brandLayouts/1/surface"
+      ],
+      "note": "layout \"agenda\" -> kind \"agenda\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/bullets": {
+      "from": [
+        "/brandLayouts/3/id",
+        "/brandLayouts/3/surface"
+      ],
+      "note": "layout \"content\" -> kind \"bullets\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/cards": {
+      "from": [
+        "/brandLayouts/5/id",
+        "/brandLayouts/5/surface"
+      ],
+      "note": "layout \"cards\" -> kind \"cards\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/chart": {
+      "from": [
+        "/brandLayouts/7/id",
+        "/brandLayouts/7/surface"
+      ],
+      "note": "layout \"chart\" -> kind \"chart\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/cover": {
+      "from": [
+        "/brandLayouts/0/id",
+        "/brandLayouts/0/surface"
+      ],
+      "note": "layout \"title\" -> kind \"cover\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/cta": {
+      "from": [
+        "/brandLayouts/10/id",
+        "/brandLayouts/10/surface"
+      ],
+      "note": "layout \"closing\" -> kind \"cta\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/image-text": {
+      "from": [
+        "/brandLayouts/8/id",
+        "/brandLayouts/8/surface"
+      ],
+      "note": "layout \"imageText\" -> kind \"image-text\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/kpi": {
+      "from": [
+        "/brandLayouts/6/id",
+        "/brandLayouts/6/surface"
+      ],
+      "note": "layout \"stat\" -> kind \"kpi\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/quote": {
+      "from": [
+        "/brandLayouts/9/id",
+        "/brandLayouts/9/surface"
+      ],
+      "note": "layout \"quote\" -> kind \"quote\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/section": {
+      "from": [
+        "/brandLayouts/2/id",
+        "/brandLayouts/2/surface"
+      ],
+      "note": "layout \"section\" -> kind \"section\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/two-column": {
+      "from": [
+        "/brandLayouts/4/id",
+        "/brandLayouts/4/surface"
+      ],
+      "note": "layout \"twoColumn\" -> kind \"two-column\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/rhythm": {
+      "from": [
+        "/backgrounds/rhythm/0",
+        "/backgrounds/rhythm/1",
+        "/backgrounds/rhythm/2",
+        "/backgrounds/rhythm/3",
+        "/backgrounds/rhythm/4",
+        "/backgrounds/rhythm/5",
+        "/backgrounds/rhythm/6",
+        "/backgrounds/rhythm/7"
+      ],
+      "note": "variant ids mapped to their surface; \"default\" to backgrounds.default.surface",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/semantic": {
+      "from": [
+        "/colors/semantic"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0": {
+      "from": [
+        "/surfaces/0"
+      ],
+      "note": "surface colour roles copied as given (logo -> logoVariant)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0/contrast": {
+      "from": [
+        "/surfaces/0/bg",
+        "/surfaces/0/text",
+        "/surfaces/0/heading",
+        "/surfaces/0/accent"
+      ],
+      "note": "WCAG contrast ratio vs bg",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0/role": {
+      "from": [
+        "/backgrounds/default/surface"
+      ],
+      "note": "backgrounds.default.surface = \"white\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0/tone": {
+      "from": [
+        "/surfaces/0/tone"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1": {
+      "from": [
+        "/surfaces/1"
+      ],
+      "note": "surface colour roles copied as given (logo -> logoVariant)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1/contrast": {
+      "from": [
+        "/surfaces/1/bg",
+        "/surfaces/1/text",
+        "/surfaces/1/heading",
+        "/surfaces/1/accent"
+      ],
+      "note": "WCAG contrast ratio vs bg",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1/role": {
+      "from": [
+        "/surfaces/1/bg",
+        "/surfaces/0/bg"
+      ],
+      "note": "tone dark opposite to the default surface's light",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1/tone": {
+      "from": [
+        "/surfaces/1/tone"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/2": {
+      "from": [
+        "/surfaces/2"
+      ],
+      "note": "surface colour roles copied as given (logo -> logoVariant)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/2/contrast": {
+      "from": [
+        "/surfaces/2/bg",
+        "/surfaces/2/text",
+        "/surfaces/2/heading",
+        "/surfaces/2/accent"
+      ],
+      "note": "WCAG contrast ratio vs bg",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/2/role": {
+      "from": [
+        "/surfaces/2/bg",
+        "/surfaces/0/bg"
+      ],
+      "note": "same tone (light) as the default surface",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/2/tone": {
+      "from": [
+        "/surfaces/2/tone"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/3": {
+      "from": [
+        "/surfaces/3"
+      ],
+      "note": "surface colour roles copied as given (logo -> logoVariant)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/3/contrast": {
+      "from": [
+        "/surfaces/3/bg",
+        "/surfaces/3/text",
+        "/surfaces/3/heading",
+        "/surfaces/3/accent"
+      ],
+      "note": "WCAG contrast ratio vs bg",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/3/role": {
+      "from": [
+        "/surfaces/3/bg",
+        "/colors/primary"
+      ],
+      "note": "bg #3900F4 equals colors.primary",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/3/tone": {
+      "from": [
+        "/surfaces/3/tone"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/4": {
+      "from": [
+        "/surfaces/4"
+      ],
+      "note": "surface colour roles copied as given (logo -> logoVariant)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/4/contrast": {
+      "from": [
+        "/surfaces/4/bg",
+        "/surfaces/4/text",
+        "/surfaces/4/heading",
+        "/surfaces/4/accent"
+      ],
+      "note": "WCAG contrast ratio vs bg",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/4/role": {
+      "from": [
+        "/surfaces/4/bg",
+        "/surfaces/0/bg"
+      ],
+      "note": "same tone (light) as the default surface",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/4/tone": {
+      "from": [
+        "/surfaces/4/tone"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/shape/borderWidth": {
+      "from": [
+        "/components/cards/style/border/width"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/divider": {
+      "from": [
+        "/components/divider"
+      ],
+      "note": "thickness -> weight; style \"solid\" is a line style -> line (kept as lineStyle)",
+      "rule": "MD-SHAPE"
+    },
+    "/shape/language": {
+      "from": [
+        "/layout/radiusScale/none",
+        "/layout/radiusScale/sm",
+        "/layout/radiusScale/md",
+        "/layout/radiusScale/lg"
+      ],
+      "note": "largest named radius 0 (none, sm, md, lg; pill/full excluded): <=2 sharp, <=16 soft, else round",
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/button": {
+      "from": [
+        "/layout/radiusScale/button"
+      ],
+      "note": "brand step kept under its own name",
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/lg": {
+      "from": [
+        "/layout/radiusScale/lg"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/md": {
+      "from": [
+        "/layout/radiusScale/md"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/none": {
+      "from": [
+        "/layout/radiusScale/none"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/pill": {
+      "from": [
+        "/layout/radiusScale/pill"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/sm": {
+      "from": [
+        "/layout/radiusScale/sm"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/tile": {
+      "from": [
+        "/layout/radiusScale/tile"
+      ],
+      "note": "brand step kept under its own name",
+      "rule": "MD-SHAPE"
+    },
+    "/shape/shadow/none": {
+      "from": [
+        "/layout/shadowScale/none"
+      ],
+      "note": "parsed to {x,y,blur,spread,color}",
+      "rule": "MD-SHAPE"
+    },
+    "/tables": {
+      "from": [
+        "/tables"
+      ],
+      "note": "copied as given",
+      "rule": "MD-CHARTS-TABLES"
+    },
+    "/type/align": {
+      "from": [
+        "/typography/alignment"
+      ],
+      "rule": "MD-TYPE"
+    },
+    "/type/bullets": {
+      "from": [
+        "/typography/bullets",
+        "/typography/bullets/char"
+      ],
+      "note": "bullets.char read as the glyph",
+      "rule": "MD-TYPE"
+    },
+    "/type/faces/body": {
+      "from": [
+        "/typography/faces/body"
+      ],
+      "note": "family, files, fallback, variable, metrics copied as given",
+      "rule": "MD-TYPE"
+    },
+    "/type/faces/heading": {
+      "from": [
+        "/typography/faces/heading"
+      ],
+      "note": "family, files, fallback, variable, metrics copied as given",
+      "rule": "MD-TYPE"
+    },
+    "/type/limits": {
+      "from": [
+        "/typography/limits"
+      ],
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/body": {
+      "from": [
+        "/typography/roles/body"
+      ],
+      "note": "brand role \"body\" (chain: body)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/body/color": {
+      "from": [
+        "/typography/roles/body/color"
+      ],
+      "note": "brand style \"body\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/body/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodyLarge": {
+      "from": [
+        "/typography/roles/bodyLarge"
+      ],
+      "note": "brand style \"bodyLarge\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodyLarge/color": {
+      "from": [
+        "/typography/roles/bodyLarge/color"
+      ],
+      "note": "brand style \"bodyLarge\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodyLarge/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodySmall": {
+      "from": [
+        "/typography/roles/bodySmall"
+      ],
+      "note": "brand role \"bodySmall\" (chain: bodySmall)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodySmall/color": {
+      "from": [
+        "/typography/roles/bodySmall/color"
+      ],
+      "note": "brand style \"bodySmall\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodySmall/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bullet": {
+      "from": [
+        "/typography/roles/body"
+      ],
+      "note": "brand role \"body\" (chain: body)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bullet/color": {
+      "from": [
+        "/typography/roles/body/color"
+      ],
+      "note": "brand style \"body\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bullet/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/button": {
+      "from": [
+        "/typography/roles/button"
+      ],
+      "note": "brand role \"button\" (chain: button)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/button/color": {
+      "from": [],
+      "note": "brand style \"button\" gives no colour: meaning of the \"button\" role, surface role text",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/button/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/caption": {
+      "from": [
+        "/typography/roles/caption"
+      ],
+      "note": "brand role \"caption\" (chain: caption > footnote > meta)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/caption/color": {
+      "from": [
+        "/typography/roles/caption/color"
+      ],
+      "note": "brand style \"caption\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/caption/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/chartLabel": {
+      "from": [
+        "/typography/roles/caption"
+      ],
+      "note": "brand role \"caption\" (chain: chartLabel > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/chartLabel/color": {
+      "from": [
+        "/typography/roles/caption/color"
+      ],
+      "note": "brand style \"caption\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/chartLabel/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/display": {
+      "from": [
+        "/typography/roles/display"
+      ],
+      "note": "brand role \"display\" (chain: display)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/display/color": {
+      "from": [
+        "/typography/roles/display/color"
+      ],
+      "note": "brand style \"display\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/display/fit": {
+      "from": [
+        "/typography/roles/h1/size"
+      ],
+      "note": "next smaller heading \"h1\" (brand \"h1\")",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/eyebrow": {
+      "from": [
+        "/typography/roles/eyebrow"
+      ],
+      "note": "brand role \"eyebrow\" (chain: eyebrow > label)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/eyebrow/color": {
+      "from": [
+        "/typography/roles/eyebrow/color"
+      ],
+      "note": "brand style \"eyebrow\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/eyebrow/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footer": {
+      "from": [
+        "/typography/roles/meta",
+        "/layout/footer/style"
+      ],
+      "note": "brand role \"meta\" (chain: meta > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footer/color": {
+      "from": [
+        "/typography/roles/meta/color"
+      ],
+      "note": "brand style \"meta\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footer/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footnote": {
+      "from": [
+        "/typography/roles/footnote"
+      ],
+      "note": "brand style \"footnote\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footnote/color": {
+      "from": [
+        "/typography/roles/footnote/color"
+      ],
+      "note": "brand style \"footnote\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footnote/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h1": {
+      "from": [
+        "/typography/roles/h1"
+      ],
+      "note": "brand role \"h1\" (chain: h1)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h1/color": {
+      "from": [
+        "/typography/roles/h1/color"
+      ],
+      "note": "brand style \"h1\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h1/fit": {
+      "from": [
+        "/typography/roles/h2/size"
+      ],
+      "note": "next smaller heading \"h2\" (brand \"h2\")",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h2": {
+      "from": [
+        "/typography/roles/h2"
+      ],
+      "note": "brand role \"h2\" (chain: h2)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h2/color": {
+      "from": [
+        "/typography/roles/h2/color"
+      ],
+      "note": "brand style \"h2\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h2/fit": {
+      "from": [
+        "/typography/roles/h2/size",
+        "/typography/roles/h3/size"
+      ],
+      "note": "next heading \"h3\" is larger: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h3": {
+      "from": [
+        "/typography/roles/h3"
+      ],
+      "note": "brand role \"h3\" (chain: h3 > cardTitle)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h3/color": {
+      "from": [
+        "/typography/roles/h3/color"
+      ],
+      "note": "brand style \"h3\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h3/fit": {
+      "from": [
+        "/typography/roles/body/size"
+      ],
+      "note": "next smaller heading \"body\" (brand \"body\")",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/label": {
+      "from": [
+        "/typography/roles/label"
+      ],
+      "note": "brand style \"label\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/label/color": {
+      "from": [
+        "/typography/roles/label/color"
+      ],
+      "note": "brand style \"label\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/label/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/meta": {
+      "from": [
+        "/typography/roles/meta"
+      ],
+      "note": "brand style \"meta\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/meta/color": {
+      "from": [
+        "/typography/roles/meta/color"
+      ],
+      "note": "brand style \"meta\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/meta/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quote": {
+      "from": [
+        "/typography/roles/quote"
+      ],
+      "note": "brand role \"quote\" (chain: quote)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quote/color": {
+      "from": [
+        "/typography/roles/quote/color"
+      ],
+      "note": "brand style \"quote\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quote/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quoteAttribution": {
+      "from": [
+        "/typography/roles/caption"
+      ],
+      "note": "brand role \"caption\" (chain: personRole > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quoteAttribution/color": {
+      "from": [
+        "/typography/roles/caption/color"
+      ],
+      "note": "brand style \"caption\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quoteAttribution/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/stat": {
+      "from": [
+        "/typography/roles/stat"
+      ],
+      "note": "brand role \"stat\" (chain: stat > factValue)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/stat/color": {
+      "from": [
+        "/typography/roles/stat/color"
+      ],
+      "note": "brand style \"stat\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/stat/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/statLabel": {
+      "from": [
+        "/typography/roles/caption"
+      ],
+      "note": "brand role \"caption\" (chain: statLabel > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/statLabel/color": {
+      "from": [
+        "/typography/roles/caption/color"
+      ],
+      "note": "brand style \"caption\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/statLabel/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/swatchValue": {
+      "from": [
+        "/typography/roles/swatchValue"
+      ],
+      "note": "brand style \"swatchValue\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/swatchValue/color": {
+      "from": [
+        "/typography/roles/swatchValue/color"
+      ],
+      "note": "brand style \"swatchValue\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/swatchValue/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableCell": {
+      "from": [
+        "/typography/roles/bodySmall"
+      ],
+      "note": "brand role \"bodySmall\" (chain: tableCell > bodySmall)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableCell/color": {
+      "from": [
+        "/typography/roles/bodySmall/color"
+      ],
+      "note": "brand style \"bodySmall\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableCell/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableHeader": {
+      "from": [
+        "/typography/roles/label"
+      ],
+      "note": "brand role \"label\" (chain: tableHead > tableHeader > label > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableHeader/color": {
+      "from": [
+        "/typography/roles/label/color"
+      ],
+      "note": "brand style \"label\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableHeader/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/voice/language": {
+      "from": [
+        "/voice/language"
+      ],
+      "rule": "MD-VOICE"
+    },
+    "/voice/rtl": {
+      "from": [
+        "/locale/rtl"
+      ],
+      "rule": "MD-VOICE"
+    },
+    "/voice/titleCase": {
+      "from": [
+        "/voice/titleCase"
+      ],
+      "rule": "MD-VOICE"
+    }
+  },
+  "schema": "mood/1",
+  "shape": {
+    "borderWidth": 0,
+    "divider": {
+      "color": "text",
+      "length": "full",
+      "lineStyle": "solid",
+      "style": "line",
+      "weight": 2
+    },
+    "language": "sharp",
+    "radius": {
+      "button": 999,
+      "lg": 0,
+      "md": 0,
+      "none": 0,
+      "pill": 999,
+      "sm": 0,
+      "tile": 0
+    },
+    "shadow": {
+      "none": {
+        "blur": 0,
+        "color": "#000000",
+        "opacity": 0,
+        "spread": 0,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "tables": {
+    "align": {
+      "header": "left",
+      "number": "left",
+      "text": "left"
+    },
+    "firstColumn": {
+      "bold": false
+    },
+    "header": {
+      "case": "none",
+      "fill": "#000000",
+      "font": "label",
+      "text": "#FFFFFF",
+      "weight": 400
+    },
+    "maxCols": 5,
+    "maxRows": 7,
+    "radius": 0,
+    "rows": {
+      "border": "#000000",
+      "borderStyle": "horizontal",
+      "font": "body",
+      "minHeight": 56,
+      "padding": 16,
+      "striped": false
+    }
+  },
+  "type": {
+    "align": {
+      "body": "left",
+      "title": "left"
+    },
+    "bullets": {
+      "color": "text",
+      "glyph": "✦",
+      "indent": 36,
+      "maxDepth": 2,
+      "maxPerSlide": 6,
+      "nested": [
+        "–"
+      ]
+    },
+    "faces": {
+      "body": {
+        "fallback": "Apercu Mono Pro, ui-monospace, Menlo, monospace",
+        "family": "DM Mono",
+        "files": [
+          {
+            "file": "assets/fonts/google/DMMono-normal-300-300-latin.woff2",
+            "format": "woff2",
+            "style": "normal",
+            "weight": "300"
+          },
+          {
+            "file": "assets/fonts/google/DMMono-normal-400-400-latin.woff2",
+            "format": "woff2",
+            "style": "normal",
+            "weight": "400"
+          },
+          {
+            "file": "assets/fonts/google/DMMono-normal-500-500-latin.woff2",
+            "format": "woff2",
+            "style": "normal",
+            "weight": "500"
+          },
+          {
+            "file": "assets/fonts/google/DMMono-italic-300-300-latin.woff2",
+            "format": "woff2",
+            "style": "italic",
+            "weight": "300"
+          },
+          {
+            "file": "assets/fonts/google/DMMono-italic-400-400-latin.woff2",
+            "format": "woff2",
+            "style": "italic",
+            "weight": "400"
+          },
+          {
+            "file": "assets/fonts/google/DMMono-italic-500-500-latin.woff2",
+            "format": "woff2",
+            "style": "italic",
+            "weight": "500"
+          }
+        ],
+        "metrics": {
+          "ascent": 0.992,
+          "avgCharWidth": 0.6,
+          "capHeight": 0.7,
+          "descent": -0.31,
+          "file": "assets/fonts/google/DMMono-normal-300-300-latin.woff2",
+          "lineGap": 0,
+          "unitsPerEm": 1000,
+          "xHeight": 0.496
+        },
+        "variable": false
+      },
+      "heading": {
+        "fallback": "Rale Grotesk, Helvetica Neue, Arial, sans-serif",
+        "family": "Inter Tight",
+        "files": [
+          {
+            "file": "assets/fonts/google/InterTight-normal-100-900-latin.woff2",
+            "format": "woff2",
+            "style": "normal",
+            "weight": "100 900"
+          },
+          {
+            "file": "assets/fonts/google/InterTight-italic-100-900-latin.woff2",
+            "format": "woff2",
+            "style": "italic",
+            "weight": "100 900"
+          }
+        ],
+        "metrics": {
+          "ascent": 0.96875,
+          "avgCharWidth": 0.486028,
+          "capHeight": 0.727539,
+          "descent": -0.241211,
+          "file": "assets/fonts/google/InterTight-normal-100-900-latin.woff2",
+          "instance": {
+            "name": "default",
+            "wght": 400
+          },
+          "lineGap": 0,
+          "unitsPerEm": 2048,
+          "xHeight": 0.545898
+        },
+        "variable": true
+      }
+    },
+    "limits": {
+      "maxCharsPerLine": 60,
+      "maxTitleChars": 60,
+      "maxWordsPerSlide": 40,
+      "minBodySize": 14
+    },
+    "roles": {
+      "body": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1.39,
+        "size": 25,
+        "weight": 400
+      },
+      "bodyLarge": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1.39,
+        "size": 25,
+        "weight": 400
+      },
+      "bodySmall": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1.5,
+        "size": 18,
+        "weight": 400
+      },
+      "bullet": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1.39,
+        "size": 25,
+        "weight": 400
+      },
+      "button": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1,
+        "size": 16,
+        "weight": 400
+      },
+      "caption": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1.4,
+        "size": 16,
+        "weight": 400
+      },
+      "chartLabel": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1.4,
+        "size": 16,
+        "weight": 400
+      },
+      "display": {
+        "case": "upper",
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 79,
+          "step": 2
+        },
+        "letterSpacing": 0.015,
+        "lineHeight": 1.12,
+        "size": 79,
+        "weight": 500
+      },
+      "eyebrow": {
+        "case": "none",
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1,
+        "size": 16,
+        "weight": 400
+      },
+      "footer": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1.2,
+        "size": 16,
+        "weight": 400
+      },
+      "footnote": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1.3,
+        "size": 16,
+        "weight": 400
+      },
+      "h1": {
+        "case": "upper",
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 29,
+          "step": 2
+        },
+        "letterSpacing": 0.015,
+        "lineHeight": 1.12,
+        "size": 79,
+        "weight": 500
+      },
+      "h2": {
+        "case": "upper",
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 29,
+          "step": 2
+        },
+        "lineHeight": 1.38,
+        "size": 29,
+        "weight": 400
+      },
+      "h3": {
+        "case": "upper",
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 25,
+          "step": 2
+        },
+        "lineHeight": 1.15,
+        "size": 30,
+        "weight": 700
+      },
+      "label": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1,
+        "size": 16,
+        "weight": 400
+      },
+      "meta": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1.2,
+        "size": 16,
+        "weight": 400
+      },
+      "quote": {
+        "case": "upper",
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.15,
+        "size": 52,
+        "weight": 500
+      },
+      "quoteAttribution": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1.4,
+        "size": 16,
+        "weight": 400
+      },
+      "stat": {
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.015,
+        "lineHeight": 1,
+        "size": 120,
+        "weight": 500
+      },
+      "statLabel": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1.4,
+        "size": 16,
+        "weight": 400
+      },
+      "swatchValue": {
+        "color": "text",
+        "face": "heading",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.67,
+        "size": 18,
+        "weight": 400
+      },
+      "tableCell": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1.5,
+        "size": 18,
+        "weight": 400
+      },
+      "tableHeader": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.07,
+        "lineHeight": 1,
+        "size": 16,
+        "weight": 400
+      }
+    }
+  },
+  "voice": {
+    "language": "en-GB",
+    "rtl": false,
+    "titleCase": "upper"
+  },
+  "warnings": [
+    {
+      "message": "\"h2\" (29) is smaller than the next heading \"h3\" (30): fit.min = own size",
+      "pointer": "/typography/roles/h2/size",
+      "rule": "MD-TYPE"
+    }
+  ]
+}

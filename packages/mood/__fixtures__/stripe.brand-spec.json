@@ -1,0 +1,1571 @@
+{
+  "schema": "brand-spec/1",
+  "id": "stripe",
+  "name": "Stripe",
+  "tagline": "Build what matters",
+  "input": {
+    "file": "stripe.json",
+    "version": "1.4.0",
+    "sha256": "a9ec4240d3afc2fa96b758183ea85b520c212221144f3f5e581e615499ceca87"
+  },
+  "logos": {
+    "variants": {
+      "full": {
+        "file": "assets/logo.svg",
+        "mime": "image/svg+xml",
+        "width": 60,
+        "height": 25
+      },
+      "monoDark": {
+        "file": "assets/logo.svg",
+        "mime": "image/svg+xml",
+        "width": 60,
+        "height": 25
+      },
+      "monoLight": {
+        "file": "assets/logo-light.svg",
+        "mime": "image/svg+xml",
+        "width": 60,
+        "height": 25
+      }
+    },
+    "onSurface": {
+      "page": "monoDark",
+      "light": "monoDark",
+      "navy": "monoLight"
+    },
+    "height": 28,
+    "minHeight": 18,
+    "clearSpace": 24,
+    "position": "bottom-left",
+    "perLayout": {
+      "title": "large",
+      "closing": "large",
+      "content": "small"
+    },
+    "forbidOnSurfaces": [],
+    "noFilter": true
+  },
+  "colors": {
+    "primary": "#533AFD",
+    "secondary": "#0D1738",
+    "accent": "#533AFD",
+    "tertiary": "#F44BCC",
+    "neutrals": ["#FFFFFF", "#F8FAFD", "#E5EDF5", "#64748D", "#50617A", "#061B31"],
+    "semantic": {
+      "success": "#15BE53",
+      "warning": "#FFCF5E",
+      "error": "#DF1B41",
+      "info": "#533AFD"
+    },
+    "chart": ["#7F7DFC", "#533AFD", "#F44BCC", "#FFCF5E", "#839BC8"],
+    "chartMuted": "#E5EDF5",
+    "chartSequential": ["#E0DCFF", "#B2A6FE", "#533AFD", "#3A29B1", "#211765"],
+    "named": {
+      "lavender": "#E2E4FF",
+      "gradPurple": "#7F7DFC",
+      "gradPink": "#F44BCC",
+      "gradGold": "#FFCF5E",
+      "gradMagenta": "#F363F3"
+    },
+    "gradients": {
+      "policy": "none",
+      "definitions": {},
+      "usage": []
+    }
+  },
+  "surfaces": [
+    {
+      "id": "page",
+      "bg": "#FFFFFF",
+      "text": "#061B31",
+      "textMuted": "#50617A",
+      "heading": "#061B31",
+      "accent": "#533AFD",
+      "card": "#FFFFFF",
+      "cardText": "#061B31",
+      "border": "#E5EDF5",
+      "logo": "monoDark",
+      "tone": "light"
+    },
+    {
+      "id": "light",
+      "bg": "#F8FAFD",
+      "text": "#061B31",
+      "textMuted": "#50617A",
+      "heading": "#061B31",
+      "accent": "#533AFD",
+      "card": "#FFFFFF",
+      "cardText": "#061B31",
+      "border": "#E5EDF5",
+      "logo": "monoDark",
+      "tone": "light"
+    },
+    {
+      "id": "navy",
+      "bg": "#0D1738",
+      "text": "#FFFFFF",
+      "textMuted": "#839BC8",
+      "heading": "#FFFFFF",
+      "accent": "#7F7DFC",
+      "card": "#1A2651",
+      "cardText": "#FFFFFF",
+      "border": "#2B3A6B",
+      "logo": "monoLight",
+      "tone": "dark"
+    }
+  ],
+  "backgrounds": {
+    "default": {
+      "type": "solid",
+      "surface": "page",
+      "color": "bg"
+    },
+    "variants": {
+      "light": {
+        "type": "solid",
+        "surface": "light",
+        "color": "bg"
+      },
+      "navy": {
+        "type": "solid",
+        "surface": "navy",
+        "color": "bg"
+      },
+      "heroRibbon": {
+        "type": "image",
+        "surface": "page",
+        "image": "assets/art-hero-slide.png",
+        "imageFit": "cover",
+        "overlay": "#FFFFFF",
+        "overlayOpacity": 0
+      }
+    },
+    "rhythm": ["page", "light", "page", "navy", "page", "light"]
+  },
+  "typography": {
+    "faces": {
+      "heading": {
+        "family": "Sohne",
+        "files": [
+          {
+            "file": "assets/fonts/Sohne-var.woff2",
+            "format": "woff2",
+            "weight": "1 1000",
+            "style": "normal"
+          }
+        ],
+        "weights": [300, 400, 425, 500],
+        "variable": true,
+        "fallback": "Helvetica Neue, Arial, sans-serif",
+        "embeddable": true,
+        "license": "Söhne (Klim Type Foundry), licensed to Stripe and served by stripe.com (b.stripecdn.com); embedded for the brand guide only, not for redistribution"
+      },
+      "body": {
+        "family": "Sohne",
+        "files": [
+          {
+            "file": "assets/fonts/Sohne-var.woff2",
+            "format": "woff2",
+            "weight": "1 1000",
+            "style": "normal"
+          }
+        ],
+        "weights": [300, 400, 425, 500],
+        "variable": true,
+        "fallback": "Helvetica Neue, Arial, sans-serif",
+        "embeddable": true,
+        "license": "Söhne (Klim Type Foundry), licensed to Stripe and served by stripe.com (b.stripecdn.com); embedded for the brand guide only, not for redistribution"
+      },
+      "mono": {
+        "family": "SourceCodePro",
+        "files": [
+          {
+            "file": "assets/fonts/SourceCodePro-Medium.woff2",
+            "format": "woff2",
+            "weight": "500",
+            "style": "normal"
+          }
+        ],
+        "weights": [500, 700],
+        "variable": false,
+        "fallback": "SFMono-Regular, Menlo, monospace",
+        "embeddable": true,
+        "license": "Source Code Pro (Adobe, SIL Open Font License), as served by stripe.com"
+      }
+    },
+    "roles": {
+      "display": {
+        "face": "heading",
+        "size": 80,
+        "weight": 300,
+        "lineHeight": 1.15,
+        "letterSpacing": -0.02,
+        "case": "none"
+      },
+      "displayAccent": {
+        "face": "heading",
+        "size": 80,
+        "weight": 300,
+        "lineHeight": 1.15,
+        "letterSpacing": -0.02,
+        "color": "#64748D"
+      },
+      "h1": {
+        "face": "heading",
+        "size": 56,
+        "weight": 300,
+        "lineHeight": 1.1,
+        "letterSpacing": -0.02,
+        "case": "none"
+      },
+      "h1Accent": {
+        "face": "heading",
+        "size": 56,
+        "weight": 300,
+        "lineHeight": 1.1,
+        "letterSpacing": -0.02,
+        "color": "#64748D"
+      },
+      "h2": {
+        "face": "heading",
+        "size": 36.4,
+        "weight": 300,
+        "lineHeight": 1.12,
+        "letterSpacing": -0.01
+      },
+      "h3": {
+        "face": "heading",
+        "size": 22.4,
+        "weight": 400,
+        "lineHeight": 1.4
+      },
+      "body": {
+        "face": "body",
+        "size": 22.4,
+        "weight": 300,
+        "lineHeight": 1.4,
+        "color": "textMuted"
+      },
+      "bodySmall": {
+        "face": "body",
+        "size": 19.6,
+        "weight": 400,
+        "lineHeight": 1.4,
+        "color": "textMuted"
+      },
+      "caption": {
+        "face": "body",
+        "size": 16.8,
+        "weight": 300,
+        "lineHeight": 1.33,
+        "color": "textMuted"
+      },
+      "eyebrow": {
+        "face": "body",
+        "size": 19.6,
+        "weight": 400,
+        "lineHeight": 1.4,
+        "case": "none",
+        "color": "textMuted"
+      },
+      "stat": {
+        "face": "heading",
+        "size": 72,
+        "weight": 300,
+        "lineHeight": 1,
+        "letterSpacing": -0.02,
+        "color": "heading"
+      },
+      "quote": {
+        "face": "heading",
+        "size": 36.4,
+        "weight": 300,
+        "lineHeight": 1.12,
+        "color": "textMuted"
+      },
+      "button": {
+        "face": "body",
+        "size": 22.4,
+        "weight": 400,
+        "lineHeight": 1.2
+      },
+      "link": {
+        "face": "body",
+        "size": 22.4,
+        "weight": 400,
+        "lineHeight": 1,
+        "color": "accent"
+      },
+      "statFact": {
+        "face": "heading",
+        "size": 33.6,
+        "weight": 500,
+        "lineHeight": 1.33,
+        "letterSpacing": 0.004,
+        "color": "#635BFF"
+      },
+      "statFactLabel": {
+        "face": "body",
+        "size": 21,
+        "weight": 300,
+        "lineHeight": 1.6,
+        "color": "#425466"
+      },
+      "personName": {
+        "face": "heading",
+        "size": 21,
+        "weight": 425,
+        "lineHeight": 1.6,
+        "letterSpacing": 0.013,
+        "color": "#0A2540"
+      },
+      "personRole": {
+        "face": "body",
+        "size": 21,
+        "weight": 300,
+        "lineHeight": 1.6,
+        "letterSpacing": 0.013,
+        "color": "#425466"
+      }
+    },
+    "alignment": {
+      "title": "left",
+      "body": "left"
+    },
+    "bullets": {
+      "char": "•",
+      "color": "accent",
+      "indent": 28,
+      "maxPerSlide": 5,
+      "maxDepth": 1
+    },
+    "limits": {
+      "maxWordsPerSlide": 40,
+      "maxCharsPerLine": 60,
+      "maxTitleChars": 60,
+      "minBodySize": 19.6
+    },
+    "slideScale": 1.4,
+    "scriptFallbacks": {
+      "cjk": "Noto Sans CJK",
+      "arabic": "Noto Sans Arabic",
+      "devanagari": "Noto Sans Devanagari"
+    }
+  },
+  "layout": {
+    "canvas": {
+      "width": 1920,
+      "height": 1080
+    },
+    "margins": {
+      "top": 80,
+      "right": 138,
+      "bottom": 80,
+      "left": 138
+    },
+    "safeArea": {
+      "top": 40,
+      "right": 40,
+      "bottom": 40,
+      "left": 40
+    },
+    "grid": {
+      "columns": 12,
+      "gutter": 24
+    },
+    "spacing": [4, 8, 12, 16, 24, 32, 48, 64],
+    "radiusScale": {
+      "none": 0,
+      "xs": 4,
+      "sm": 6,
+      "md": 8,
+      "lg": 12,
+      "pill": 9999,
+      "button": 4,
+      "tile": 6
+    },
+    "titleZone": {
+      "y": 80,
+      "height": 120,
+      "align": "left"
+    },
+    "sectionHeader": {
+      "pattern": "stacked",
+      "maxWidth": 0.6
+    },
+    "footer": {
+      "show": true,
+      "pageNumber": true,
+      "pageNumberFormat": "{n}",
+      "date": false,
+      "text": "",
+      "logo": true,
+      "position": "bottom-right",
+      "style": "caption",
+      "hideOn": ["title", "closing", "section"]
+    },
+    "shadowScale": {
+      "none": {
+        "x": 0,
+        "y": 0,
+        "blur": 0,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0
+      },
+      "card": {
+        "x": 0,
+        "y": 15,
+        "blur": 35,
+        "spread": 0,
+        "color": "#3C4257",
+        "opacity": 0.08
+      }
+    }
+  },
+  "components": {
+    "cards": {
+      "style": {
+        "kind": "outlined",
+        "radius": "tile",
+        "border": {
+          "width": 1,
+          "style": "solid",
+          "color": "#E5EDF5",
+          "sides": "all"
+        },
+        "fill": "card",
+        "shadow": "none",
+        "padding": 24,
+        "titleStyle": "h2",
+        "bodyStyle": "body",
+        "innerRadius": "auto"
+      },
+      "variants": {
+        "promo": {
+          "radius": "tile",
+          "border": {
+            "width": 0,
+            "style": "none"
+          },
+          "fill": "#F8FAFD",
+          "shadow": "none"
+        },
+        "stat": {
+          "radius": "md",
+          "border": {
+            "width": 0,
+            "style": "none"
+          },
+          "fill": "transparent",
+          "shadow": "none"
+        },
+        "plain": {
+          "radius": "none",
+          "border": {
+            "width": 0,
+            "style": "none"
+          },
+          "fill": "transparent",
+          "shadow": "none",
+          "padding": 0
+        }
+      },
+      "perSurface": {},
+      "arrangements": ["horizontal", "vertical", "grid-2x2", "grid-3", "bento"],
+      "defaults": {
+        "arrangement": "horizontal",
+        "gap": 16,
+        "maxPerRow": 4,
+        "maxPerSlide": 6,
+        "equalHeight": true,
+        "overflow": "split"
+      },
+      "alignment": {
+        "text": "left"
+      },
+      "internalLayout": "icon-top",
+      "icon": {
+        "container": "rounded",
+        "size": 40,
+        "fill": "transparent",
+        "color": "#533AFD",
+        "border": {
+          "width": 1,
+          "style": "solid",
+          "color": "#D6D9FC"
+        },
+        "style": "filled",
+        "files": [
+          "assets/icons/get-to-market-faster.svg",
+          "assets/icons/grow-new-lines-of-revenue.svg",
+          "assets/icons/manage-platform-risk.svg",
+          "assets/icons/professional-services.svg",
+          "assets/icons/stripe-certified-experts.svg",
+          "assets/icons/support-plans.svg",
+          "assets/icons/see-what-you-ll-pay.svg",
+          "assets/icons/start-building.svg"
+        ],
+        "filesInContainer": true,
+        "fileScale": 0.6
+      },
+      "divider": false,
+      "numberStyle": "01",
+      "actionIcon": {
+        "name": "maximize-2",
+        "size": 20,
+        "position": "top-right",
+        "color": "accent"
+      },
+      "recipes": [
+        {
+          "id": "st-bento",
+          "name": "image-bottom-card",
+          "kind": "feature",
+          "blocks": [
+            {
+              "type": "title",
+              "x": 6,
+              "y": 4,
+              "w": 76,
+              "h": 10,
+              "style": "h2"
+            },
+            {
+              "type": "image",
+              "x": 0,
+              "y": 17,
+              "w": 100,
+              "h": 83,
+              "bleed": true
+            }
+          ],
+          "arrangement": "column",
+          "aspect": 0.59,
+          "columns": 3,
+          "gap": 16,
+          "action": "icon",
+          "textAlign": "left",
+          "count": 6
+        },
+        {
+          "id": "st-stat",
+          "name": "stat-card",
+          "kind": "stat",
+          "variant": "stat",
+          "blocks": [
+            {
+              "type": "stat",
+              "x": 10,
+              "y": 22,
+              "w": 80,
+              "h": 28,
+              "style": "stat",
+              "color": "#061B31"
+            },
+            {
+              "type": "body",
+              "x": 10,
+              "y": 58,
+              "w": 80,
+              "h": 24,
+              "style": "body",
+              "color": "#061B31"
+            }
+          ],
+          "arrangement": "column",
+          "aspect": 1.68,
+          "columns": 4,
+          "gap": 0,
+          "action": "none",
+          "textAlign": "center",
+          "count": 4
+        },
+        {
+          "id": "st-feature",
+          "name": "charm-icon-feature",
+          "kind": "feature",
+          "variant": "plain",
+          "blocks": [
+            {
+              "type": "icon",
+              "x": 0,
+              "y": 0,
+              "w": 10,
+              "h": 25
+            },
+            {
+              "type": "title",
+              "x": 0,
+              "y": 35,
+              "w": 92,
+              "h": 13,
+              "style": "h3"
+            },
+            {
+              "type": "body",
+              "x": 0,
+              "y": 48,
+              "w": 92,
+              "h": 30,
+              "style": "body"
+            },
+            {
+              "type": "link",
+              "x": 0,
+              "y": 85,
+              "w": 60,
+              "h": 13,
+              "style": "link",
+              "chevron": true
+            }
+          ],
+          "arrangement": "column",
+          "aspect": 2.5,
+          "columns": 3,
+          "gap": 32,
+          "action": "link",
+          "actionGlyph": "chevron-right",
+          "textAlign": "left",
+          "count": 3,
+          "iconBeside": false
+        },
+        {
+          "id": "st-fact",
+          "name": "accented-fact",
+          "kind": "stat",
+          "variant": "plain",
+          "blocks": [
+            {
+              "type": "panel",
+              "x": 0,
+              "y": 2,
+              "w": 0.4,
+              "h": 30,
+              "fill": "#635BFF"
+            },
+            {
+              "type": "stat",
+              "x": 6,
+              "y": 0,
+              "w": 88,
+              "h": 36,
+              "style": "statFact"
+            },
+            {
+              "type": "body",
+              "x": 6,
+              "y": 42,
+              "w": 80,
+              "h": 54,
+              "style": "statFactLabel"
+            }
+          ],
+          "arrangement": "column",
+          "aspect": 3.1,
+          "columns": 4,
+          "gap": 0,
+          "action": "none",
+          "textAlign": "left",
+          "count": 4
+        },
+        {
+          "id": "st-leader",
+          "name": "leader-portrait-card",
+          "kind": "team",
+          "variant": "plain",
+          "blocks": [
+            {
+              "type": "image",
+              "x": 3,
+              "y": 0,
+              "w": 76,
+              "h": 66,
+              "radius": 8
+            },
+            {
+              "type": "panel",
+              "x": 3,
+              "y": 72.5,
+              "w": 0.4,
+              "h": 5,
+              "fill": "#635BFF"
+            },
+            {
+              "type": "title",
+              "x": 9,
+              "y": 71,
+              "w": 88,
+              "h": 8,
+              "style": "personName"
+            },
+            {
+              "type": "body",
+              "x": 9,
+              "y": 80,
+              "w": 88,
+              "h": 16,
+              "style": "personRole"
+            }
+          ],
+          "arrangement": "column",
+          "aspect": 0.87,
+          "columns": 5,
+          "gap": 0,
+          "action": "none",
+          "textAlign": "left",
+          "count": 5,
+          "imageTags": ["team"]
+        }
+      ]
+    },
+    "chip": {
+      "radius": "button",
+      "fill": "#E2E4FF",
+      "text": "#533AFD",
+      "font": "bodySmall",
+      "padding": [4, 10],
+      "border": {
+        "style": "none"
+      }
+    },
+    "callout": {
+      "fill": "card",
+      "accentBar": {
+        "side": "left",
+        "width": 4,
+        "color": "accent"
+      },
+      "icon": true,
+      "radius": "sm",
+      "padding": 16
+    },
+    "quote": {
+      "markStyle": "none",
+      "font": "quote",
+      "attributionFont": "body",
+      "align": "center"
+    },
+    "divider": {
+      "thickness": 1,
+      "color": "border",
+      "length": "full",
+      "style": "solid"
+    },
+    "steps": {
+      "marker": "circle-number",
+      "line": true,
+      "lineStyle": "solid",
+      "activeColor": "#533AFD",
+      "inactiveColor": "#E5EDF5",
+      "orientation": "vertical"
+    },
+    "timeline": {
+      "marker": "circle",
+      "lineColor": "#E5EDF5",
+      "alternate": false
+    },
+    "arrow": {
+      "stroke": 2,
+      "head": "filled",
+      "color": "textMuted",
+      "curve": "straight"
+    },
+    "button": {
+      "radius": "button",
+      "fill": "#533AFD",
+      "text": "#FFFFFF",
+      "font": "button",
+      "padding": [16, 24],
+      "border": {
+        "style": "none"
+      }
+    },
+    "avatar": {
+      "mask": "square",
+      "radius": 8,
+      "size": 206,
+      "border": {
+        "width": 0,
+        "style": "none"
+      },
+      "placeholder": "silhouette"
+    },
+    "buttonSecondary": {
+      "radius": "button",
+      "fill": "#FFFFFF",
+      "text": "#533AFD",
+      "font": "button",
+      "padding": [16, 24],
+      "border": {
+        "style": "none"
+      }
+    },
+    "logoWall": {
+      "logos": [
+        {
+          "file": "assets/logos/home-w0-01.svg",
+          "name": "OpenAI",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-02.svg",
+          "name": "Amazon",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-03.svg",
+          "name": "Nvidia",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-04.svg",
+          "name": "Ford",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-05.svg",
+          "name": "Coinbase",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-06.svg",
+          "name": "Google",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-07.svg",
+          "name": "Shopify",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-08.svg",
+          "name": "Mindbody",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-09.svg",
+          "name": "MetLife",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-10.svg",
+          "name": "Ramp",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-11.svg",
+          "name": "Marriott",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-12.svg",
+          "name": "Figma",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-13.svg",
+          "name": "WooCommerce",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-14.svg",
+          "name": "Vercel",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-15.svg",
+          "name": "Uber",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-16.svg",
+          "name": "Anthropic",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-17.svg",
+          "name": "Brightwheel",
+          "w": 142,
+          "h": 34
+        },
+        {
+          "file": "assets/logos/home-w0-18.svg",
+          "name": "Cursor",
+          "w": 142,
+          "h": 34
+        }
+      ],
+      "arrangement": "grid",
+      "height": 45,
+      "gap": 40,
+      "opacity": 1,
+      "treatment": "original",
+      "boxed": false,
+      "dividers": false,
+      "labelStyle": "eyebrow",
+      "align": "center"
+    },
+    "ctaChevron": {
+      "enabled": true,
+      "path": "M9.5 6.5 15 12l-5.5 5.5",
+      "strokeWidth": 2.2,
+      "iconSize": 0.8,
+      "color": "accent",
+      "buttons": true
+    },
+    "icons": {
+      "set": "custom",
+      "customPath": "assets/icons/",
+      "color": "#533AFD",
+      "size": 24,
+      "container": {
+        "container": "rounded",
+        "size": 40,
+        "fill": "transparent",
+        "border": {
+          "width": 1,
+          "style": "solid",
+          "color": "#D6D9FC"
+        }
+      },
+      "style": "filled"
+    }
+  },
+  "charts": {
+    "palette": "chart",
+    "highlightMode": {
+      "highlight": "accent",
+      "others": "chartMuted"
+    },
+    "font": "caption",
+    "gridlines": {
+      "show": false,
+      "color": "border",
+      "style": "solid",
+      "axis": "y"
+    },
+    "axes": {
+      "show": true,
+      "line": false,
+      "font": "caption",
+      "color": "textMuted"
+    },
+    "dataLabels": {
+      "show": false
+    },
+    "legend": {
+      "position": "top",
+      "marker": "circle"
+    },
+    "bar": {
+      "radius": 1,
+      "gap": 0.47,
+      "orientation": "vertical"
+    },
+    "line": {
+      "width": 2,
+      "markers": false,
+      "smooth": true,
+      "areaOpacity": 0.1
+    },
+    "pie": {
+      "startAngle": -90,
+      "gap": 2,
+      "labels": "outside"
+    },
+    "donut": {
+      "innerRadius": 0.65,
+      "centerLabel": true
+    },
+    "kpi": {
+      "style": "stat",
+      "labelStyle": "eyebrow",
+      "deltaColors": {
+        "up": "semantic.success",
+        "down": "semantic.error",
+        "flat": "textMuted"
+      },
+      "sparkline": true
+    },
+    "background": "card",
+    "border": {
+      "width": 1,
+      "style": "solid",
+      "color": "border"
+    },
+    "radius": 6
+  },
+  "tables": {
+    "header": {
+      "fill": "#FFFFFF",
+      "text": "#061B31",
+      "font": "caption",
+      "weight": 400,
+      "case": "none"
+    },
+    "rows": {
+      "striped": false,
+      "border": "#E5EDF5",
+      "borderStyle": "horizontal",
+      "padding": 12,
+      "font": "bodySmall",
+      "minHeight": 44
+    },
+    "firstColumn": {
+      "bold": true
+    },
+    "align": {
+      "text": "left",
+      "number": "left",
+      "header": "left"
+    },
+    "radius": 6,
+    "maxRows": 6,
+    "maxCols": 5
+  },
+  "imagery": {
+    "direction": {
+      "subjects": ["people collaborating", "product in use", "abstract architecture"],
+      "mood": "bright, optimistic, natural light",
+      "avoid": ["stock handshake", "clip art", "staged smiles"]
+    },
+    "source": {
+      "stock": "unsplash",
+      "aiGenerated": false,
+      "brandLibrary": ["assets/photos/*"]
+    },
+    "treatments": {
+      "default": "natural",
+      "options": {
+        "natural": {
+          "saturation": 1,
+          "contrast": 1,
+          "brightness": 1
+        }
+      }
+    },
+    "perLayout": {
+      "title": "tint",
+      "imageText": "none",
+      "quote": "duotone"
+    },
+    "textOverImage": {
+      "overlay": "primary",
+      "opacity": 0.55,
+      "gradient": true,
+      "minContrast": 4.5
+    },
+    "crop": {
+      "defaultRatio": "16:9",
+      "focus": "faces"
+    },
+    "maxPerSlide": 3,
+    "samples": [
+      {
+        "file": "assets/vis-payments.png",
+        "alt": "Payments: terminal + checkout",
+        "w": 1632,
+        "h": 1123,
+        "aspect": 1.45,
+        "kind": "product-ui",
+        "tags": ["card", "wide", "hero", "side"],
+        "radius": 6
+      },
+      {
+        "file": "assets/vis-billing.png",
+        "alt": "Billing: plan + usage chart",
+        "w": 800,
+        "h": 1123,
+        "aspect": 0.71,
+        "kind": "product-ui",
+        "tags": ["card", "tall"],
+        "radius": 6
+      },
+      {
+        "file": "assets/vis-agentic.png",
+        "alt": "Agentic commerce chat",
+        "w": 800,
+        "h": 1123,
+        "aspect": 0.71,
+        "kind": "product-ui",
+        "tags": ["card", "tall"],
+        "radius": 6
+      },
+      {
+        "file": "assets/vis-issuing.png",
+        "alt": "Issuing: gradient card",
+        "w": 800,
+        "h": 1123,
+        "aspect": 0.71,
+        "kind": "product-ui",
+        "tags": ["card", "tall"],
+        "radius": 6
+      },
+      {
+        "file": "assets/vis-crypto.png",
+        "alt": "Stablecoins globe",
+        "w": 800,
+        "h": 1123,
+        "aspect": 0.71,
+        "kind": "product-ui",
+        "tags": ["card", "tall"],
+        "radius": 6
+      },
+      {
+        "file": "assets/vis-connect.png",
+        "alt": "Connect dashboard",
+        "w": 1725,
+        "h": 846,
+        "aspect": 2.04,
+        "kind": "product-ui",
+        "tags": ["card", "wide", "side"],
+        "radius": 6
+      },
+      {
+        "file": "assets/team/patrick-collison.jpg",
+        "alt": "Patrick Collison, Co-founder and CEO",
+        "w": 400,
+        "h": 400,
+        "aspect": 1,
+        "kind": "photo-people",
+        "tags": ["leader-portrait"],
+        "radius": 8,
+        "page": "/newsroom/information"
+      },
+      {
+        "file": "assets/team/john-collison.jpg",
+        "alt": "John Collison, Co-founder and President",
+        "w": 400,
+        "h": 400,
+        "aspect": 1,
+        "kind": "photo-people",
+        "tags": ["leader-portrait"],
+        "radius": 8,
+        "page": "/newsroom/information"
+      },
+      {
+        "file": "assets/team/will-gaybrick.jpg",
+        "alt": "Will Gaybrick, President, Technology and Business",
+        "w": 400,
+        "h": 400,
+        "aspect": 1,
+        "kind": "photo-people",
+        "tags": ["leader-portrait"],
+        "radius": 8,
+        "page": "/newsroom/information"
+      },
+      {
+        "file": "assets/team/trish-walsh.jpg",
+        "alt": "Trish Walsh, General Counsel",
+        "w": 400,
+        "h": 400,
+        "aspect": 1,
+        "kind": "photo-people",
+        "tags": ["leader-portrait"],
+        "radius": 8,
+        "page": "/newsroom/information"
+      },
+      {
+        "file": "assets/team/eileen-omara.jpg",
+        "alt": "Eileen O'Mara, Vice Chair",
+        "w": 541,
+        "h": 541,
+        "aspect": 1,
+        "kind": "photo-people",
+        "tags": ["leader-portrait"],
+        "radius": 8,
+        "page": "/newsroom/information"
+      },
+      {
+        "file": "assets/photos/hertz.jpg",
+        "alt": "Aerial view of a street intersection whose crosswalks form the Stripe parallelogram",
+        "w": 1632,
+        "h": 703,
+        "aspect": 2.32,
+        "kind": "photo-product",
+        "tags": ["card", "wide", "hero", "story"],
+        "radius": 6,
+        "page": "/"
+      },
+      {
+        "file": "assets/photos/urbn.jpg",
+        "alt": "Clothing boutique whose window frame forms the Stripe parallelogram",
+        "w": 1632,
+        "h": 703,
+        "aspect": 2.32,
+        "kind": "photo-product",
+        "tags": ["card", "wide", "hero", "story"],
+        "radius": 6,
+        "page": "/"
+      },
+      {
+        "file": "assets/photos/instacart.jpg",
+        "alt": "Grocery delivery bag on a door stoop, shaped like the Stripe parallelogram",
+        "w": 1632,
+        "h": 703,
+        "aspect": 2.32,
+        "kind": "photo-product",
+        "tags": ["card", "wide", "hero", "story"],
+        "radius": 6,
+        "page": "/"
+      },
+      {
+        "file": "assets/photos/lemonde.jpg",
+        "alt": "Parisian newspaper kiosk whose yellow window frame forms the Stripe parallelogram",
+        "w": 1632,
+        "h": 703,
+        "aspect": 2.32,
+        "kind": "photo-product",
+        "tags": ["card", "wide", "hero", "story"],
+        "radius": 6,
+        "page": "/"
+      }
+    ],
+    "masks": {
+      "default": "card",
+      "options": {
+        "card": {
+          "type": "rect",
+          "radius": "tile"
+        },
+        "portrait": {
+          "type": "rect",
+          "radius": 8
+        },
+        "none": {
+          "type": "rect",
+          "radius": 0
+        }
+      },
+      "perLayout": {
+        "team": "portrait",
+        "imageText": "card",
+        "title": "none"
+      }
+    }
+  },
+  "decor": {
+    "elements": [
+      {
+        "id": "rays",
+        "type": "texture",
+        "file": "assets/decor/rays.png",
+        "layer": "behind",
+        "colorable": false,
+        "box": {
+          "x": 0,
+          "y": 560,
+          "w": 1920,
+          "h": 520
+        },
+        "opacity": 0.85,
+        "placement": "bottom-center",
+        "allowedOn": ["section", "closing"],
+        "surfaces": ["navy"],
+        "frequency": "often"
+      },
+      {
+        "id": "dotGrid",
+        "type": "pattern",
+        "file": "assets/decor/dot-grid.svg",
+        "layer": "behind",
+        "colorable": false,
+        "box": {
+          "x": 1000,
+          "y": 0,
+          "w": 920,
+          "h": 1080
+        },
+        "tile": true,
+        "scale": 10,
+        "opacity": 0.9,
+        "allowedOn": ["section", "closing"],
+        "surfaces": ["navy"],
+        "frequency": "often"
+      }
+    ],
+    "illustrationStyle": {
+      "type": "flat",
+      "palette": "chart"
+    },
+    "maxElementsPerSlide": 2
+  },
+  "composition": {
+    "maxAccentsPerSlide": 1,
+    "minWhitespace": 0.3,
+    "maxElementsPerSlide": 6,
+    "density": "balanced",
+    "titleEverySlide": true,
+    "sectionDividers": true,
+    "openingSequence": ["title", "agenda"],
+    "closingSequence": ["closing"]
+  },
+  "brandLayouts": [
+    {
+      "id": "title",
+      "background": "heroRibbon",
+      "logo": "large",
+      "titleStyle": "display",
+      "elements": [],
+      "footer": false,
+      "surface": "page"
+    },
+    {
+      "id": "agenda",
+      "background": "default",
+      "titleStyle": "h1",
+      "surface": "page"
+    },
+    {
+      "id": "section",
+      "background": "navy",
+      "logo": "none",
+      "titleStyle": "display",
+      "elements": [],
+      "footer": false,
+      "surface": "navy"
+    },
+    {
+      "id": "content",
+      "background": "default",
+      "titleStyle": "h1",
+      "elements": [],
+      "surface": "page"
+    },
+    {
+      "id": "twoColumn",
+      "background": "default",
+      "titleStyle": "h1",
+      "columns": 2,
+      "surface": "page"
+    },
+    {
+      "id": "cards",
+      "background": "default",
+      "titleStyle": "h1",
+      "arrangements": ["horizontal", "grid-2x2", "grid-3"],
+      "surface": "page"
+    },
+    {
+      "id": "stat",
+      "background": "default",
+      "surface": "page",
+      "titleStyle": "h1",
+      "maxStats": 4,
+      "titleAlign": "center"
+    },
+    {
+      "id": "chart",
+      "background": "default",
+      "titleStyle": "h1",
+      "surface": "page"
+    },
+    {
+      "id": "imageText",
+      "background": "default",
+      "titleStyle": "h1",
+      "imageSide": "left",
+      "imageMask": "card",
+      "surface": "page"
+    },
+    {
+      "id": "imageBleed",
+      "background": "default",
+      "titleStyle": "display",
+      "imageSide": "bleed",
+      "logo": "none",
+      "surface": "page"
+    },
+    {
+      "id": "quote",
+      "background": "light",
+      "titleStyle": "quote",
+      "surface": "light"
+    },
+    {
+      "id": "team",
+      "background": "default",
+      "titleStyle": "h1",
+      "imageMask": "portrait",
+      "surface": "page"
+    },
+    {
+      "id": "closing",
+      "background": "navy",
+      "logo": "large",
+      "titleStyle": "display",
+      "footer": false,
+      "surface": "navy"
+    }
+  ],
+  "voice": {
+    "tone": ["precise", "ambitious", "understated"],
+    "titleCase": "sentence",
+    "language": "en",
+    "personality": "engineering-grade calm: long two-tone statements, light 300 weight, figures as proof",
+    "vocabulary": {
+      "prefer": ["infrastructure", "businesses", "revenue", "global"],
+      "avoid": []
+    },
+    "punctuation": {
+      "oxfordComma": false,
+      "titlePeriods": true,
+      "exclamation": false
+    },
+    "examples": [
+      "Financial infrastructure to grow your revenue.",
+      "Flexible solutions for every business model.",
+      "The backbone of global commerce",
+      "Powering businesses of all sizes."
+    ]
+  },
+  "motion": {
+    "transition": "fade",
+    "build": "none",
+    "duration": 300,
+    "easing": "ease-out",
+    "stagger": 80
+  },
+  "accessibility": {
+    "minContrastBody": 4.5,
+    "minContrastLarge": 3,
+    "minFontSize": 14,
+    "colorBlindSafeCharts": true,
+    "altText": true
+  },
+  "locale": {
+    "rtl": false,
+    "mirrorLayouts": false,
+    "numberFormat": "en-US",
+    "dateFormat": "MMMM d, yyyy",
+    "currency": "USD"
+  },
+  "export": {
+    "targets": ["pptx", "pdf", "html"],
+    "embedFonts": true,
+    "pptxFontFallback": {
+      "Sohne": "Helvetica Neue",
+      "SourceCodePro": "SFMono-Regular"
+    },
+    "pptxSafeShadows": true,
+    "gradientFallback": "native",
+    "nativeCharts": true,
+    "rasterizeElements": false,
+    "dpi": 150
+  },
+  "rules": [
+    {
+      "id": "contrast-body",
+      "type": "minContrast",
+      "value": 4.5,
+      "severity": "error"
+    },
+    {
+      "id": "fonts-only",
+      "type": "fontWhitelist",
+      "severity": "error"
+    },
+    {
+      "id": "colors-only",
+      "type": "colorWhitelist",
+      "severity": "error"
+    },
+    {
+      "id": "no-overflow",
+      "type": "textOverflow",
+      "severity": "error"
+    },
+    {
+      "id": "logo-space",
+      "type": "logoClearSpace",
+      "severity": "warning"
+    },
+    {
+      "id": "one-accent",
+      "type": "maxCount",
+      "target": "accentColor",
+      "value": 1,
+      "severity": "warning"
+    },
+    {
+      "id": "site-logo-colours",
+      "type": "text",
+      "severity": "warning",
+      "text": "The wordmark comes in three colours only: slate or blurple on light backgrounds, white on dark. Never another colour."
+    }
+  ],
+  "provenance": {
+    "/backgrounds/default": {
+      "source": "given",
+      "from": "/backgrounds/default"
+    },
+    "/backgrounds/rhythm": {
+      "source": "given",
+      "from": "/backgrounds/rhythm/sequence"
+    },
+    "/colors/primary": {
+      "source": "given",
+      "from": "/colors/primary"
+    },
+    "/layout/footer": {
+      "source": "given",
+      "from": "/layout/footer"
+    },
+    "/layout/margins": {
+      "source": "given",
+      "from": "/layout/margins"
+    },
+    "/motion": {
+      "source": "given",
+      "from": "/motion"
+    },
+    "/name": {
+      "source": "given",
+      "from": "/brand/name"
+    },
+    "/surfaces/0/tone": {
+      "source": "derived",
+      "from": "BR-TONE",
+      "signal": "surfaces/0/bg"
+    },
+    "/surfaces/1/tone": {
+      "source": "derived",
+      "from": "BR-TONE",
+      "signal": "surfaces/1/bg"
+    },
+    "/surfaces/2/tone": {
+      "source": "derived",
+      "from": "BR-TONE",
+      "signal": "surfaces/2/bg"
+    },
+    "/typography/roles/display": {
+      "source": "given",
+      "from": "/typography/styles/display"
+    }
+  },
+  "questions": [],
+  "warnings": [
+    {
+      "pointer": "/typography/sizeUnits",
+      "message": "text sizes scaled to canvas px (x1.4, D3); paddings and indents (cards.style.padding, component paddings, bullets.indent/gap) are kept as given"
+    }
+  ]
+}

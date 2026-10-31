@@ -1,0 +1,9 @@
+node_modules/
+# generated output; the folder itself is kept via .gitkeep
+/out/*
+!/out/.gitkeep
+golden/brands/
+dist/
+.cache/
+*.log
+.DS_Store

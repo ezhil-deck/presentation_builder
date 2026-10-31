@@ -1,0 +1,141 @@
+{
+  "id": "mini",
+  "version": "1.4.0",
+  "meta": { "source": "manual", "notes": "hand-written test fixture" },
+  "brand": {
+    "name": "Mini",
+    "tagline": "Small but complete",
+    "logos": { "full": "assets/logo.svg", "monoLight": "assets/logo-white.png" },
+    "logoRules": {
+      "position": "bottom-left",
+      "height": 32,
+      "clearSpace": 16,
+      "onSurface": { "page": "full", "ink": "monoLight" },
+      "bleed": false,
+      "provenance": { "source": "fixture logo page", "inferred": false }
+    }
+  },
+  "colors": {
+    "primary": "#1A1A2E",
+    "accent": "#E94560",
+    "secondary": "#0F3460",
+    "neutrals": ["#FFFFFF", "#D0D0D8", "#1A1A2E"],
+    "chart": ["#E94560", "#0F3460", "#16213E"],
+    "custom": { "glow": "#FFB4C2" }
+  },
+  "surfaces": [
+    {
+      "id": "page",
+      "role": "page",
+      "bg": "#FFFFFF",
+      "text": "#1A1A2E",
+      "heading": "#1A1A2E",
+      "accent": "#E94560"
+    },
+    {
+      "id": "ink",
+      "bg": "#1A1A2E",
+      "text": "#FFFFFF",
+      "textMuted": "#D0D0D8",
+      "heading": "#FFFFFF",
+      "accent": "#E94560"
+    }
+  ],
+  "backgrounds": {
+    "default": {
+      "type": "solid",
+      "surface": "page",
+      "provenance": { "source": "fixture cover page", "inferred": false }
+    },
+    "variants": { "ink": { "type": "solid", "surface": "ink" } },
+    "rhythm": { "sequence": ["page", "ink"], "darkEvery": 3 }
+  },
+  "typography": {
+    "fonts": {
+      "heading": {
+        "family": "Tiny",
+        "source": "file",
+        "url": "assets/fonts/Tiny-Regular.ttf",
+        "weight": 400,
+        "weights": [400],
+        "fallback": "Arial, sans-serif"
+      },
+      "body": {
+        "family": "Tiny",
+        "source": "file",
+        "files": [{ "url": "assets/fonts/Tiny-Regular.ttf", "weight": 400, "style": "normal" }],
+        "liveFamily": "Tiny Web"
+      }
+    },
+    "styles": {
+      "display": { "font": "heading", "size": 96, "weight": 400, "lineHeight": 1.0, "case": "upper" },
+      "h1": {
+        "font": "heading",
+        "size": 64,
+        "weight": 400,
+        "lineHeight": 1.1,
+        "letterSpacing": -0.01,
+        "provenance": { "source": "fixture type page", "inferred": false }
+      },
+      "h2": { "font": "heading", "size": 48, "lineHeight": 1.15 },
+      "h3": { "font": "heading", "size": 36, "lineHeight": 1.2 },
+      "body": { "font": "body", "size": 28, "lineHeight": 1.4, "color": "text" },
+      "caption": { "font": "body", "size": 20, "lineHeight": 1.3, "case": "none" }
+    },
+    "alignment": { "title": "left", "body": "left" },
+    "bullets": { "char": "•", "indent": 24 },
+    "limits": { "maxWordsPerSlide": 60, "minBodySize": 22 },
+    "slideScale": 1
+  },
+  "layout": {
+    "aspect": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "margins": { "top": 80, "right": 120, "bottom": 80, "left": 120 },
+    "grid": { "columns": 12, "gutter": 24 },
+    "spacing": [8, 16, 24, 32, 48],
+    "radiusScale": { "none": 0, "md": 8 },
+    "footer": {
+      "show": true,
+      "pageNumber": true,
+      "logo": true,
+      "position": "bottom-left",
+      "style": "caption",
+      "hideOn": ["title"]
+    }
+  },
+  "components": { "chip": { "radius": 999, "fill": "accent", "text": "#FFFFFF" } },
+  "icons": { "set": "custom", "customPath": "assets/icons/", "style": "line", "color": "accent", "size": 24 },
+  "assets": {
+    "elements": [
+      {
+        "id": "corner",
+        "type": "shape",
+        "file": "assets/decor/corner.svg",
+        "placement": "top-right",
+        "box": { "x": 1720, "y": 0, "w": 200, "h": 120 },
+        "layer": "behind",
+        "frequency": "often"
+      },
+      {
+        "id": "glow",
+        "type": "illustration",
+        "file": "assets/decor/glow.svg",
+        "animated": "assets/decor/glow-anim.webp",
+        "anchor": "fixed",
+        "box": { "x": 1600, "y": 760, "w": 160, "h": 160 },
+        "layer": "front",
+        "frequency": "rare",
+        "allowedOn": ["title"]
+      }
+    ],
+    "maxElementsPerSlide": 1
+  },
+  "layouts": [{ "id": "title", "surface": "ink", "logo": "large", "titleStyle": "display", "footer": false }],
+  "composition": { "density": "balanced", "titleEverySlide": true },
+  "voice": { "tone": ["plain"], "language": "en" },
+  "motion": { "transition": "fade", "duration": 300 },
+  "rules": [{ "id": "no-gradients", "type": "forbid", "severity": "error", "text": "no gradients" }],
+  "accessibility": { "minContrastBody": 4.5 },
+  "locale": { "rtl": false }
+}

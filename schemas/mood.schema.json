@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://presentations.ai/pb/schemas/mood.v1.3.json",
+  "title": "Mood v1",
+  "description": "Every design decision the engine needs, derived from ONE BrandSpec by the rules in packages/mood. ~10 groups of decisions, all data, all readable and overridable. Deterministic: same BrandSpec + same engine version = identical Mood. `provenance` says which rule produced each decision and from which brand values; a decision with no brand signal is never invented (R: no defaults) - it is absent and the engine's layout must cope or ask.",
+  "type": "object",
+  "required": ["schema", "id", "brandId", "engineVersion", "palette", "type", "geometry", "shape", "logo", "footer", "provenance"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "mood/1" },
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "brandId": { "type": "string" },
+    "brandHash": { "type": "string", "description": "sha256 of the BrandSpec this was derived from" },
+    "engineVersion": { "type": "string" },
+    "name": { "type": "string" },
+    "overrides": { "type": "array", "items": { "type": "string" }, "description": "JSON pointers a person overrode by hand (kept on re-derive)" },
+
+    "palette": {
+      "type": "object",
+      "required": ["surfaces", "rhythm"],
+      "properties": {
+        "surfaces": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "tone", "bg", "text", "heading", "accent"],
+            "properties": {
+              "id": { "type": "string" }, "role": { "enum": ["default", "alt", "accent", "dark", "image"] }, "tone": { "enum": ["light", "dark"] },
+              "bg": { "$ref": "#/$defs/color" }, "text": { "$ref": "#/$defs/color" }, "textMuted": { "$ref": "#/$defs/color" }, "heading": { "$ref": "#/$defs/color" },
+              "accent": { "$ref": "#/$defs/color" }, "accent2": { "$ref": "#/$defs/color" }, "card": { "$ref": "#/$defs/color" }, "cardText": { "$ref": "#/$defs/color" },
+              "border": { "$ref": "#/$defs/color" }, "divider": { "$ref": "#/$defs/color" }, "logoVariant": { "type": "string" },
+              "chart": { "type": "array", "items": { "$ref": "#/$defs/color" }, "description": "per-surface categorical override when the brand gives one" },
+              "background": { "type": "object", "description": "non-solid background: gradient / image / pattern spec (from BrandSpec.backgrounds)" },
+              "contrast": { "type": "object", "properties": { "text": { "type": "number" }, "heading": { "type": "number" }, "accent": { "type": "number" } }, "description": "computed WCAG ratios vs bg" }
+            }
+          }
+        },
+        "brand": { "type": "object", "description": "the brand colours by name (colors.*), so tokens may say primary | secondary | accent | tertiary (G2)", "properties": { "primary": { "$ref": "#/$defs/color" }, "secondary": { "$ref": "#/$defs/color" }, "accent": { "$ref": "#/$defs/color" }, "tertiary": { "$ref": "#/$defs/color" } }, "additionalProperties": false },
+        "rhythm": { "type": "array", "items": { "type": "string" }, "description": "surface ids in deck order; the composer cycles this" },
+        "perKind": { "type": "object", "additionalProperties": { "type": "string" }, "description": "layout kind -> surface id (cover, section, cta, ...); kinds the brand names no layout for take its content layout's (G1)" },
+        "semantic": { "type": "object", "additionalProperties": { "$ref": "#/$defs/color" } },
+        "chart": { "type": "object", "properties": { "categorical": { "type": "array", "items": { "$ref": "#/$defs/color" } }, "sequential": { "type": "array", "items": { "$ref": "#/$defs/color" } }, "muted": { "$ref": "#/$defs/color" }, "highlight": { "$ref": "#/$defs/color" } } },
+        "gradients": { "type": "object", "additionalProperties": { "type": "object" } }
+      }
+    },
+
+    "type": {
+      "type": "object",
+      "required": ["faces", "roles"],
+      "properties": {
+        "faces": { "type": "object", "additionalProperties": { "type": "object", "required": ["family"], "properties": { "family": { "type": "string" }, "files": { "type": "array", "items": { "type": "object" } }, "fallback": { "type": "string" }, "variable": { "type": "boolean" }, "metrics": { "type": "object", "description": "unitsPerEm, ascender, descender, capHeight, xHeight, avgCharWidth - read from the font file" } } } },
+        "roles": {
+          "type": "object",
+          "description": "the canonical roles display | h1 | h2 | h3 | body | bodySmall | caption | eyebrow | stat | statLabel | quote | quoteAttribution | bullet | tableHeader | tableCell | chartLabel | footer | button, plus every brand style under its own name (G4)",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["face", "size", "weight", "lineHeight"],
+            "properties": {
+              "face": { "type": "string" }, "size": { "type": "number" }, "weight": { "type": "integer" }, "lineHeight": { "type": "number" },
+              "letterSpacing": { "type": "number" }, "case": { "enum": ["none", "sentence", "upper", "lower", "title"] }, "color": { "type": "string", "description": "the brand style's own colour when given (a surface role name or a literal hex, D4), else the role's meaning: text|heading|textMuted" },
+              "fit": { "type": "object", "required": ["min"], "properties": { "min": { "type": "number" }, "step": { "type": "number" } }, "description": "how far the fitter may step this role down" }
+            }
+          }
+        },
+        "align": { "type": "object", "properties": { "title": { "enum": ["left", "center", "right"] }, "body": { "enum": ["left", "center", "right"] } } },
+        "bullets": { "type": "object", "properties": { "glyph": { "type": "string" }, "color": { "type": "string" }, "indent": { "type": "number" }, "gap": { "type": "number" } } },
+        "limits": { "type": "object", "properties": { "maxCharsPerLine": { "type": "integer" }, "maxTitleChars": { "type": "integer" }, "maxWordsPerSlide": { "type": "integer" }, "minBodySize": { "type": "number" } } }
+      }
+    },
+
+    "geometry": {
+      "type": "object",
+      "required": ["canvas", "margins"],
+      "properties": {
+        "canvas": { "type": "object", "properties": { "width": { "const": 1920 }, "height": { "const": 1080 } } },
+        "margins": { "$ref": "#/$defs/edges" }, "safeArea": { "$ref": "#/$defs/edges" },
+        "grid": { "type": "object", "properties": { "columns": { "type": "integer" }, "gutter": { "type": "number" } } },
+        "spacing": { "type": "object", "properties": { "xs": { "type": "number" }, "sm": { "type": "number" }, "md": { "type": "number" }, "lg": { "type": "number" }, "xl": { "type": "number" } } },
+        "titleZone": { "type": "object", "properties": { "y": { "type": "number" }, "height": { "type": "number" } } },
+        "density": { "enum": ["sparse", "balanced", "dense"] }
+      }
+    },
+
+    "shape": {
+      "type": "object",
+      "properties": {
+        "radius": { "type": "object", "properties": { "none": { "const": 0 }, "sm": { "type": "number" }, "md": { "type": "number" }, "lg": { "type": "number" }, "pill": { "type": "number" } }, "additionalProperties": { "type": "number" }, "description": "canonical steps + every brand radiusScale step under its own name (tile, button, ...; G3)" },
+        "borderWidth": { "type": "number" },
+        "shadow": { "type": "object", "additionalProperties": { "$ref": "#/$defs/shadow" } },
+        "language": { "enum": ["sharp", "soft", "round"], "description": "derived from radius scale; drives card/chip/button corners" },
+        "divider": { "type": "object", "properties": { "style": { "enum": ["line", "none", "accent-bar"] }, "weight": { "type": "number" }, "color": { "type": "string" } } }
+      }
+    },
+
+    "components": {
+      "type": "object",
+      "description": "Variant + tokens per component. Each `variant` is an enum the renderer implements; tokens reference surface roles / shape scale by name so a surface switch re-colours everything.",
+      "properties": {
+        "card": { "$ref": "#/$defs/component" }, "chip": { "$ref": "#/$defs/component" }, "callout": { "$ref": "#/$defs/component" }, "quote": { "$ref": "#/$defs/component" },
+        "button": { "$ref": "#/$defs/component" }, "kpi": { "$ref": "#/$defs/component" }, "steps": { "$ref": "#/$defs/component" }, "timeline": { "$ref": "#/$defs/component" },
+        "avatar": { "$ref": "#/$defs/component" }, "logoWall": { "$ref": "#/$defs/component" }, "icon": { "$ref": "#/$defs/component" }, "number": { "$ref": "#/$defs/component" }
+      },
+      "additionalProperties": { "$ref": "#/$defs/component" }
+    },
+
+    "charts": {
+      "type": "object",
+      "properties": {
+        "palette": { "enum": ["categorical", "sequential", "mono"] }, "highlight": { "type": "object" },
+        "gridlines": { "type": "object", "properties": { "show": { "type": "boolean" }, "color": { "type": "string" }, "weight": { "type": "number" } } },
+        "axes": { "type": "object" }, "dataLabels": { "type": "object" }, "legend": { "type": "object" },
+        "bar": { "type": "object", "properties": { "radius": { "type": "number" }, "gap": { "type": "number" } } }, "line": { "type": "object" }, "pie": { "type": "object" }, "donut": { "type": "object" }
+      }
+    },
+    "tables": {
+      "type": "object",
+      "properties": {
+        "header": { "type": "object", "properties": { "bg": { "type": "string" }, "text": { "type": "string" }, "role": { "type": "string" } } },
+        "rows": { "type": "object", "properties": { "stripe": { "type": "boolean" }, "stripeColor": { "type": "string" }, "border": { "type": "string" }, "height": { "type": "number" } } },
+        "firstColumn": { "type": "object" }, "radius": { "oneOf": [{ "type": "number" }, { "type": "string", "description": "a radius step name" }, { "type": "object", "description": "per corner {tl,tr,br,bl}" }] }, "maxRows": { "type": "integer" }, "maxCols": { "type": "integer" }
+      }
+    },
+
+    "logo": {
+      "type": "object",
+      "required": ["variants"],
+      "properties": {
+        "variants": { "type": "object", "additionalProperties": { "type": "object", "required": ["file"], "properties": { "file": { "type": "string" }, "width": { "type": "number" }, "height": { "type": "number" } } } },
+        "perSurface": { "type": "object", "additionalProperties": { "type": "string" } },
+        "perKind": { "type": "object", "additionalProperties": { "enum": ["large", "small", "none"] } },
+        "height": { "type": "object", "properties": { "large": { "type": "number" }, "small": { "type": "number" } } },
+        "clearSpace": { "type": "number" }, "position": { "type": "string" }
+      }
+    },
+
+    "footer": {
+      "type": "object",
+      "required": ["show"],
+      "properties": {
+        "show": { "type": "boolean" }, "items": { "type": "array", "items": { "enum": ["logo", "pageNumber", "text", "date"] } },
+        "pageNumberFormat": { "type": "string" }, "text": { "type": "string" }, "position": { "type": "string" }, "role": { "type": "string" },
+        "band": { "type": "object", "properties": { "show": { "type": "boolean" }, "height": { "type": "number" }, "bg": { "type": "string" } } },
+        "hideOn": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "decor": {
+      "type": "object",
+      "description": "Only brand-supplied elements, with where the composer may place them.",
+      "properties": {
+        "elements": { "type": "array", "items": { "type": "object", "required": ["id"], "description": "file-based elements carry `file`; drawn elements (no file) carry `type` + their draw keys as the brand gives them; every other brand-given key is carried verbatim (E3)", "additionalProperties": true, "properties": { "id": { "type": "string" }, "type": { "type": "string" }, "file": { "type": "string" }, "layer": { "enum": ["behind", "front"] }, "box": { "type": "object" }, "opacity": { "type": "number" }, "placement": { "oneOf": [{ "type": "string" }, { "type": "array", "items": { "type": "string" } }] }, "allowedOn": { "type": "array", "items": { "type": "string" } }, "surfaces": { "type": "array", "items": { "type": "string" } }, "frequency": { "enum": ["always", "often", "sometimes", "rare"] }, "colorable": { "type": "boolean" }, "unused": { "type": "boolean", "description": "true when allowedOn is missing or empty: kept, never placed (E2); for frequency always|often a question asks for allowedOn (E4)" }, "animated": { "type": "string", "description": "animated version of file: what the HTML renderer / present mode show; PDF/PPTX use file (E3)" }, "video": { "type": "string", "description": "video version of the element (E3)" } } } },
+        "maxPerSlide": { "type": "integer" },
+        "imagery": { "type": "object", "properties": { "treatment": { "type": "string" }, "mask": { "type": "string" }, "textOverImage": { "type": "object" }, "crop": { "type": "object" } } }
+      }
+    },
+
+    "composition": {
+      "type": "object",
+      "properties": {
+        "density": { "enum": ["sparse", "balanced", "dense"] }, "maxAccentsPerSlide": { "type": "integer" }, "minWhitespace": { "type": "number" },
+        "maxElementsPerSlide": { "type": "integer" }, "titleEverySlide": { "type": "boolean" }, "sectionDividers": { "type": "boolean" },
+        "opening": { "type": "array", "items": { "type": "string" } }, "closing": { "type": "array", "items": { "type": "string" } },
+        "layoutHints": { "type": "object", "additionalProperties": { "type": "object" }, "description": "kind -> {surface, logo, titleRole, footer} from BrandSpec.brandLayouts" }
+      }
+    },
+
+    "motion": {
+      "type": "object",
+      "properties": { "family": { "enum": ["crisp", "soft", "calm", "neutral"] }, "transition": { "type": "string" }, "build": { "type": "string" }, "duration": { "type": "number", "description": "ms" }, "easing": { "type": "string" }, "stagger": { "type": "number", "description": "ms" } }
+    },
+
+    "voice": { "type": "object", "properties": { "titleCase": { "type": "string" }, "language": { "type": "string" }, "rtl": { "type": "boolean" } } },
+
+    "provenance": {
+      "type": "object",
+      "description": "JSON pointer (into this Mood) -> rule + brand pointers it read.",
+      "additionalProperties": { "type": "object", "required": ["rule"], "properties": { "rule": { "type": "string" }, "from": { "type": "array", "items": { "type": "string" } }, "note": { "type": "string" } } }
+    },
+    "warnings": { "type": "array", "items": { "type": "object", "properties": { "rule": { "type": "string" }, "pointer": { "type": "string" }, "message": { "type": "string" } } } }
+  },
+
+  "$defs": {
+    "color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$" },
+    "edges": { "type": "object", "required": ["top", "right", "bottom", "left"], "properties": { "top": { "type": "number" }, "right": { "type": "number" }, "bottom": { "type": "number" }, "left": { "type": "number" } } },
+    "shadow": { "type": "object", "properties": { "x": { "type": "number" }, "y": { "type": "number" }, "blur": { "type": "number" }, "spread": { "type": "number" }, "color": { "type": "string" } } },
+    "component": {
+      "type": "object",
+      "required": ["variant"],
+      "properties": {
+        "variant": { "type": "string", "description": "renderer-implemented enum, e.g. card: filled|outlined|flat|elevated; chip: pill|square|underline; quote: bar|marks|plain; kpi: plain|card|accent-number" },
+        "tokens": { "type": "object", "description": "named refs: fill:'card', text:'cardText', border:'border', radius:'md', shadow:'sm', padding:'md', accent:'accent' ...", "additionalProperties": { "type": ["string", "number", "boolean"] } },
+        "items": { "type": "array", "items": { "type": "object" }, "description": "a list the component shows, as given (logoWall: the brand's logos {file, name, w, h}; D12; icon: the brand's icon set {name, file, variants}, E5)" }
+      }
+    }
+  }
+}

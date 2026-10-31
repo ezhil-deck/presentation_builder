@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://presentations.ai/pb/schemas/deck.v1.2.json",
+  "title": "Deck v1",
+  "description": "THE document. Every element is an absolute box on the 1920x1080 canvas with fully resolved styling (literal colours, px sizes) and, for text, the lines the fitter computed. It is what the editor edits, the HTML renderer paints, the PDF/PPTX writers read, and what is saved. Nothing in here needs the Mood or Layout to render - they are kept as references so 'switch mood' / 'swap layout' can re-compose from `source`.",
+  "type": "object",
+  "required": ["schema", "id", "engineVersion", "canvas", "slides"],
+  "properties": {
+    "schema": { "const": "deck/1" },
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "engineVersion": { "type": "string" },
+    "canvas": { "type": "object", "required": ["width", "height"], "properties": { "width": { "const": 1920 }, "height": { "const": 1080 } } },
+    "source": {
+      "type": "object",
+      "description": "what this deck was composed from; the editor re-composes from here",
+      "properties": {
+        "brandId": { "type": "string" }, "moodId": { "type": "string" }, "moodHash": { "type": "string" },
+        "contentRef": { "type": "string", "description": "path to content.json / .md" }, "contentHash": { "type": "string" }
+      }
+    },
+    "fonts": { "type": "array", "description": "every face used, with files, so renderers embed them", "items": { "type": "object", "required": ["family"], "properties": { "family": { "type": "string" }, "files": { "type": "array", "items": { "type": "object" } }, "fallback": { "type": "string" }, "metrics": { "type": "object", "description": "vertical metrics (em) the fitter used, so renderers put each baseline where the fitter did", "required": ["ascent", "descent"], "properties": { "ascent": { "type": "number" }, "descent": { "type": "number" } } } } } },
+    "assets": { "type": "object", "description": "asset id -> {file, mime, w, h}; elements reference ids, never paths", "additionalProperties": { "type": "object", "required": ["file"], "properties": { "file": { "type": "string" }, "mime": { "type": "string" }, "width": { "type": "integer" }, "height": { "type": "integer" } } } },
+
+    "slides": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "background", "elements"],
+        "properties": {
+          "id": { "type": "string" },
+          "layoutId": { "type": "string" }, "kind": { "type": "string" }, "surfaceId": { "type": "string" },
+          "contentSlideId": { "type": "string" },
+          "background": {
+            "type": "object", "required": ["type"],
+            "properties": { "type": { "enum": ["solid", "gradient", "image"] }, "color": { "$ref": "#/$defs/color" }, "gradient": { "$ref": "#/$defs/gradient" }, "asset": { "type": "string" }, "fit": { "enum": ["cover", "contain", "tile"] }, "overlay": { "$ref": "#/$defs/color" }, "overlayOpacity": { "type": "number" } }
+          },
+          "elements": { "type": "array", "items": { "$ref": "#/$defs/element" } },
+          "notes": { "type": "string" },
+          "transition": { "type": "object", "properties": { "name": { "type": "string" }, "duration": { "type": "integer" } } },
+          "warnings": { "type": "array", "items": { "$ref": "#/$defs/warning" } }
+        }
+      }
+    },
+    "warnings": { "type": "array", "items": { "$ref": "#/$defs/warning" } }
+  },
+
+  "$defs": {
+    "color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$" },
+    "frame": { "type": "object", "required": ["x", "y", "w", "h"], "properties": { "x": { "type": "number" }, "y": { "type": "number" }, "w": { "type": "number" }, "h": { "type": "number" }, "rotation": { "type": "number" } } },
+    "gradient": { "type": "object", "required": ["stops"], "properties": { "type": { "enum": ["linear", "radial"] }, "angle": { "type": "number" }, "stops": { "type": "array", "items": { "type": "object", "required": ["color", "at"], "properties": { "color": { "$ref": "#/$defs/color" }, "at": { "type": "number" } } } } } },
+    "shadow": { "type": "object", "properties": { "x": { "type": "number" }, "y": { "type": "number" }, "blur": { "type": "number" }, "spread": { "type": "number" }, "color": { "$ref": "#/$defs/color" }, "opacity": { "type": "number" } } },
+    "warning": { "type": "object", "required": ["check", "message"], "properties": { "check": { "type": "string" }, "elementId": { "type": "string" }, "message": { "type": "string" }, "severity": { "enum": ["error", "warn", "info"] }, "fix": { "type": "object", "description": "a command the editor can apply (one-click fix)", "properties": { "command": { "type": "string" }, "args": { "type": "object" } } } } },
+
+    "style": {
+      "type": "object",
+      "description": "resolved look of a box; all literal",
+      "properties": {
+        "fill": { "oneOf": [{ "$ref": "#/$defs/color" }, { "$ref": "#/$defs/gradient" }] },
+        "stroke": { "type": "object", "properties": { "color": { "$ref": "#/$defs/color" }, "width": { "type": "number" }, "dash": { "type": "array", "items": { "type": "number" } } } },
+        "radius": { "type": "number" }, "opacity": { "type": "number" }, "shadow": { "$ref": "#/$defs/shadow" },
+        "padding": { "type": "object", "properties": { "top": { "type": "number" }, "right": { "type": "number" }, "bottom": { "type": "number" }, "left": { "type": "number" } } }
+      }
+    },
+
+    "run": {
+      "type": "object",
+      "description": "a styled span inside a paragraph",
+      "required": ["text"],
+      "properties": { "text": { "type": "string" }, "bold": { "type": "boolean" }, "italic": { "type": "boolean" }, "color": { "$ref": "#/$defs/color" }, "link": { "type": "string" } }
+    },
+    "paragraph": {
+      "type": "object",
+      "required": ["runs"],
+      "properties": {
+        "runs": { "type": "array", "items": { "$ref": "#/$defs/run" } },
+        "level": { "type": "integer", "description": "list nesting level, 0 = none" }, "bullet": { "type": "object", "properties": { "glyph": { "type": "string" }, "ordered": { "type": "boolean" }, "color": { "$ref": "#/$defs/color" }, "indent": { "type": "number" } } },
+        "spaceBefore": { "type": "number" }, "spaceAfter": { "type": "number" }, "align": { "enum": ["left", "center", "right", "justify"] }
+      }
+    },
+    "line": {
+      "type": "object",
+      "description": "one laid-out line (fitter output); renderers place lines exactly here so HTML and PPTX agree",
+      "required": ["paragraph", "y", "x", "width", "runs"],
+      "properties": { "paragraph": { "type": "integer" }, "x": { "type": "number" }, "y": { "type": "number", "description": "baseline, relative to the element frame" }, "width": { "type": "number" }, "runs": { "type": "array", "items": { "type": "object", "required": ["text", "x", "width"], "properties": { "text": { "type": "string" }, "run": { "type": "integer" }, "x": { "type": "number" }, "width": { "type": "number" } } } } }
+    },
+
+    "element": {
+      "type": "object",
+      "required": ["id", "type", "frame"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "enum": ["text", "image", "shape", "line", "chart", "table", "group"] },
+        "frame": { "$ref": "#/$defs/frame" }, "z": { "type": "integer" },
+        "role": { "type": "string", "description": "layout box role (title, body, logo, footer, decor, ...)" },
+        "slot": { "type": "string" }, "layoutBox": { "type": "string" },
+        "locked": { "type": "boolean" }, "name": { "type": "string" },
+        "style": { "$ref": "#/$defs/style" },
+        "text": {
+          "type": "object",
+          "required": ["paragraphs", "font"],
+          "properties": {
+            "paragraphs": { "type": "array", "items": { "$ref": "#/$defs/paragraph" } },
+            "font": { "type": "object", "required": ["family", "size", "weight", "lineHeight", "color"], "properties": { "family": { "type": "string" }, "size": { "type": "number" }, "weight": { "type": "integer" }, "lineHeight": { "type": "number" }, "letterSpacing": { "type": "number" }, "case": { "enum": ["none", "upper", "lower", "title"] }, "color": { "$ref": "#/$defs/color" }, "role": { "type": "string" } } },
+            "align": { "enum": ["left", "center", "right", "justify"] }, "valign": { "enum": ["top", "middle", "bottom"] },
+            "fit": { "type": "object", "description": "fitter output: the role's size, the size applied (stepped down, or up by the fit-up rule), the block height", "properties": { "requestedSize": { "type": "number" }, "appliedSize": { "type": "number" }, "height": { "type": "number" }, "overflow": { "type": "boolean" }, "steps": { "type": "integer", "description": "step-downs taken" }, "upSteps": { "type": "integer", "description": "fit-up rule: steps taken up the brand's role ladder" }, "upRole": { "type": "string", "description": "fit-up rule: the role whose size / lineHeight the text took" } } },
+            "lines": { "type": "array", "items": { "$ref": "#/$defs/line" } },
+            "autofit": { "type": "boolean", "description": "editor: re-run the fitter after edits (default true)" }
+          }
+        },
+        "image": { "type": "object", "required": ["asset"], "properties": { "asset": { "type": "string" }, "fit": { "enum": ["cover", "contain", "fill"] }, "crop": { "type": "object", "properties": { "x": { "type": "number" }, "y": { "type": "number" }, "w": { "type": "number" }, "h": { "type": "number" } } }, "mask": { "type": "string" }, "alt": { "type": "string" }, "tint": { "$ref": "#/$defs/color" }, "tile": { "type": "boolean", "description": "repeat the asset across the frame instead of fitting it" }, "scale": { "type": "number", "description": "tile only: multiplier of the asset's own pixel size" }, "animated": { "type": "string", "description": "asset id of an animated version of `asset` (same framing): used by the HTML renderer with the animated option (present mode); PDF / PNG / PPTX use `asset`" } } },
+        "shape": { "type": "object", "required": ["kind"], "properties": { "kind": { "enum": ["rect", "ellipse", "line", "polygon", "path"] }, "points": { "type": "array", "items": { "type": "array", "items": { "type": "number" } } }, "path": { "type": "string" } } },
+        "lineProps": { "type": "object", "properties": { "x2": { "type": "number" }, "y2": { "type": "number" }, "arrowStart": { "type": "boolean" }, "arrowEnd": { "type": "boolean" } } },
+        "chart": {
+          "type": "object", "required": ["chartType", "series"],
+          "properties": {
+            "chartType": { "enum": ["bar", "column", "stackedBar", "line", "area", "pie", "donut", "scatter"] },
+            "categories": { "type": "array", "items": { "type": "string" } },
+            "series": { "type": "array", "items": { "type": "object", "required": ["name", "values"], "properties": { "name": { "type": "string" }, "values": { "type": "array", "items": { "type": "number" } }, "color": { "$ref": "#/$defs/color" } } } },
+            "unit": { "type": "string" }, "highlight": { "type": "integer" },
+            "style": { "type": "object", "properties": { "gridlines": { "type": "object" }, "axes": { "type": "object" }, "dataLabels": { "type": "object" }, "legend": { "type": "object" }, "barRadius": { "type": "number" }, "barGap": { "type": "number" }, "lineWidth": { "type": "number" }, "font": { "type": "object" } } },
+            "geometry": { "type": "object", "description": "fitter output: plot area, tick positions, bar rects - so PPTX-native and HTML charts share one layout", "properties": { "plot": { "$ref": "#/$defs/frame" } } }
+          }
+        },
+        "table": {
+          "type": "object", "required": ["rows"],
+          "properties": {
+            "header": { "type": "array", "items": { "type": "string" } },
+            "rows": { "type": "array", "items": { "type": "array", "items": { "type": "string" } } },
+            "colWidths": { "type": "array", "items": { "type": "number" } }, "rowHeights": { "type": "array", "items": { "type": "number" } },
+            "align": { "type": "array", "items": { "enum": ["left", "center", "right"] } },
+            "style": { "type": "object", "properties": { "header": { "type": "object" }, "rows": { "type": "object" }, "firstColumn": { "type": "object" }, "border": { "type": "object" }, "font": { "type": "object" }, "radius": { "type": "number" } } },
+            "cells": { "type": "array", "description": "fitter output per cell: lines + applied size", "items": { "type": "array", "items": { "type": "object" } } }
+          }
+        },
+        "children": { "type": "array", "items": { "$ref": "#/$defs/element" }, "description": "group only" }
+      }
+    }
+  }
+}

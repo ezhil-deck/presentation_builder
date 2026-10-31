@@ -1,0 +1,6564 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/brand-presentation-spec/1.4.0",
+  "title": "Brand Presentation Spec",
+  "description": "Master schema describing everything needed to generate brand-accurate presentations. Colors reference roles (e.g. 'accent', 'surface.card') or hex values. Sizes are in px at the slide's native resolution unless noted.",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "brand",
+    "colors",
+    "surfaces",
+    "typography",
+    "layout"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable identifier for the brand spec."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semver. Bump whenever the shape or values change so old decks stay reproducible."
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "manual",
+            "pptx",
+            "website",
+            "pdf",
+            "figma",
+            "mixed"
+          ]
+        },
+        "sourceUrl": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "brand": {
+      "type": "object",
+      "required": [
+        "name",
+        "logos"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "tagline": {
+          "type": "string"
+        },
+        "logos": {
+          "type": "object",
+          "description": "Paths or URLs to logo files. SVG preferred.",
+          "additionalProperties": false,
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "icon": {
+              "type": "string"
+            },
+            "wordmark": {
+              "type": "string"
+            },
+            "monoLight": {
+              "type": "string",
+              "description": "Single-color light version for dark backgrounds."
+            },
+            "monoDark": {
+              "type": "string",
+              "description": "Single-color dark version for light backgrounds."
+            },
+            "reverse": {
+              "type": "string",
+              "description": "a logo made for dark backgrounds, drawn as-is (no white filter)"
+            }
+          }
+        },
+        "logoRules": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "position": {
+              "$ref": "#/$defs/placement"
+            },
+            "height": {
+              "type": "number"
+            },
+            "minHeight": {
+              "type": "number"
+            },
+            "clearSpace": {
+              "type": "number",
+              "description": "Minimum empty space around the logo, in px."
+            },
+            "onSurface": {
+              "type": "object",
+              "description": "Which logo variant to use on each surface id.",
+              "additionalProperties": {
+                "$ref": "#/$defs/logoVariant"
+              }
+            },
+            "perLayout": {
+              "type": "object",
+              "description": "Logo size per layout id: large, small, or none.",
+              "additionalProperties": {
+                "type": "string",
+                "enum": [
+                  "large",
+                  "small",
+                  "none"
+                ]
+              }
+            },
+            "forbidOnSurfaces": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "bleed": {
+              "type": "boolean"
+            },
+            "noFilter": {
+              "type": "boolean"
+            },
+            "perLayoutPosition": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        }
+      }
+    },
+    "colors": {
+      "type": "object",
+      "required": [
+        "primary",
+        "accent"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "primary": {
+          "$ref": "#/$defs/hex"
+        },
+        "secondary": {
+          "$ref": "#/$defs/hex"
+        },
+        "tertiary": {
+          "$ref": "#/$defs/hex"
+        },
+        "accent": {
+          "$ref": "#/$defs/hex",
+          "description": "Highlight color used sparingly for emphasis."
+        },
+        "neutrals": {
+          "type": "array",
+          "description": "Ordered light to dark, 5 to 11 steps.",
+          "items": {
+            "$ref": "#/$defs/hex"
+          },
+          "minItems": 3
+        },
+        "semantic": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "success": {
+              "$ref": "#/$defs/hex"
+            },
+            "warning": {
+              "$ref": "#/$defs/hex"
+            },
+            "error": {
+              "$ref": "#/$defs/hex"
+            },
+            "info": {
+              "$ref": "#/$defs/hex"
+            },
+            "onSurface": {
+              "type": "object",
+              "description": "Per-surface state colours ({surfaceId: {success, warning, error, info}}): on that surface the state takes this colour instead of the base one (Vaelmont: a lighter error on the dark surface).",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "success": {
+                    "$ref": "#/$defs/hex"
+                  },
+                  "warning": {
+                    "$ref": "#/$defs/hex"
+                  },
+                  "error": {
+                    "$ref": "#/$defs/hex"
+                  },
+                  "info": {
+                    "$ref": "#/$defs/hex"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "chart": {
+          "type": "array",
+          "description": "Categorical palette in fixed series order.",
+          "items": {
+            "$ref": "#/$defs/hex"
+          },
+          "minItems": 3
+        },
+        "chartMuted": {
+          "$ref": "#/$defs/hex",
+          "description": "Color for de-emphasized series in highlight mode."
+        },
+        "chartSequential": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/hex"
+          }
+        },
+        "chartDiverging": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/hex"
+          }
+        },
+        "custom": {
+          "type": "object",
+          "description": "Extra named colors, referenced as 'custom.<name>'.",
+          "additionalProperties": {
+            "$ref": "#/$defs/hex"
+          }
+        },
+        "sectionAccents": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/colorRef"
+          },
+          "description": "one accent per site section, by section name (HK Airport: Flights mint, Relax & Fun #0040FF, About Us corporate blue); shown on the palette page, applied to layouts through layouts[].accent"
+        },
+        "semanticStyle": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "How a state is drawn: 'outline' = an outlined box on the page with the glyph in the state colour, never a fill (Rukko's error); 'fill' (default) = a filled swatch with an on-fill glyph. width: the outline in px (default 3).",
+          "properties": {
+            "success": {
+              "enum": [
+                "fill",
+                "outline"
+              ]
+            },
+            "warning": {
+              "enum": [
+                "fill",
+                "outline"
+              ]
+            },
+            "error": {
+              "enum": [
+                "fill",
+                "outline"
+              ]
+            },
+            "info": {
+              "enum": [
+                "fill",
+                "outline"
+              ]
+            },
+            "width": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "surfaces": {
+      "type": "array",
+      "description": "Background + safe-foreground pairings. Every slide uses exactly one surface, which guarantees contrast.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "bg",
+          "text"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "bg": {
+            "$ref": "#/$defs/hex"
+          },
+          "text": {
+            "$ref": "#/$defs/hex"
+          },
+          "textMuted": {
+            "$ref": "#/$defs/hex"
+          },
+          "heading": {
+            "$ref": "#/$defs/hex",
+            "description": "Heading color if different from text."
+          },
+          "accent": {
+            "$ref": "#/$defs/hex"
+          },
+          "card": {
+            "$ref": "#/$defs/hex"
+          },
+          "cardText": {
+            "$ref": "#/$defs/hex"
+          },
+          "border": {
+            "$ref": "#/$defs/hex"
+          },
+          "logo": {
+            "$ref": "#/$defs/logoVariant"
+          },
+          "chart": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/hex"
+            },
+            "description": "Override chart palette for this surface."
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "page",
+              "section",
+              "brand",
+              "footer",
+              "nav"
+            ],
+            "description": "footer/nav-only surfaces are not used for slides"
+          }
+        }
+      }
+    },
+    "backgrounds": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "default": {
+          "$ref": "#/$defs/background"
+        },
+        "variants": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/background"
+          }
+        },
+        "perLayout": {
+          "type": "object",
+          "description": "layout id -> 'default' or a variant name.",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "rhythm": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "darkEvery": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Insert a dark/brand surface every N slides. 0 = never."
+            },
+            "maxConsecutiveSame": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "sequence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "surface ids in the order sections appear on the site (drives slide background rotation)"
+            }
+          }
+        }
+      }
+    },
+    "typography": {
+      "type": "object",
+      "required": [
+        "fonts",
+        "styles"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "fonts": {
+          "type": "object",
+          "required": [
+            "heading",
+            "body"
+          ],
+          "additionalProperties": {
+            "$ref": "#/$defs/font"
+          },
+          "properties": {
+            "heading": {
+              "$ref": "#/$defs/font"
+            },
+            "body": {
+              "$ref": "#/$defs/font"
+            },
+            "mono": {
+              "$ref": "#/$defs/font"
+            },
+            "display": {
+              "$ref": "#/$defs/font"
+            }
+          }
+        },
+        "scriptFallbacks": {
+          "type": "object",
+          "description": "Fallback families per script, e.g. cjk, arabic, devanagari, cyrillic.",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "styles": {
+          "type": "object",
+          "required": [
+            "display",
+            "h1",
+            "body"
+          ],
+          "additionalProperties": {
+            "$ref": "#/$defs/textStyle"
+          },
+          "properties": {
+            "display": {
+              "$ref": "#/$defs/textStyle"
+            },
+            "h1": {
+              "$ref": "#/$defs/textStyle"
+            },
+            "h2": {
+              "$ref": "#/$defs/textStyle"
+            },
+            "h3": {
+              "$ref": "#/$defs/textStyle"
+            },
+            "body": {
+              "$ref": "#/$defs/textStyle"
+            },
+            "bodySmall": {
+              "$ref": "#/$defs/textStyle"
+            },
+            "caption": {
+              "$ref": "#/$defs/textStyle"
+            },
+            "eyebrow": {
+              "$ref": "#/$defs/textStyle"
+            },
+            "stat": {
+              "$ref": "#/$defs/textStyle"
+            },
+            "quote": {
+              "$ref": "#/$defs/textStyle"
+            },
+            "code": {
+              "$ref": "#/$defs/textStyle"
+            }
+          }
+        },
+        "alignment": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "title": {
+              "$ref": "#/$defs/hAlign"
+            },
+            "body": {
+              "$ref": "#/$defs/hAlign"
+            },
+            "sectionTitle": {
+              "$ref": "#/$defs/hAlign"
+            }
+          }
+        },
+        "bullets": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "char": {
+              "type": "string"
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "indent": {
+              "type": "number"
+            },
+            "nested": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Bullet chars for nested levels."
+            },
+            "maxPerSlide": {
+              "type": "integer"
+            },
+            "maxDepth": {
+              "type": "integer"
+            }
+          }
+        },
+        "limits": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "maxWordsPerSlide": {
+              "type": "integer"
+            },
+            "maxCharsPerLine": {
+              "type": "integer"
+            },
+            "maxTitleChars": {
+              "type": "integer"
+            },
+            "minBodySize": {
+              "type": "number",
+              "description": "Smallest allowed body font size after auto-fit."
+            }
+          }
+        },
+        "autoFit": {
+          "type": "string",
+          "enum": [
+            "shrink",
+            "split",
+            "truncate",
+            "none"
+          ]
+        },
+        "slideScale": {
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 3,
+          "description": "Multiplier applied by renderers to text styles of 40px or smaller (body, captions, eyebrows, small headings) so sizes measured on the website read at slide viewing distance. Site px \u00d7 slideScale = slide px. Typical: layout.width / 1440 \u00d7 1.15."
+        },
+        "sizeUnits": {
+          "type": "string",
+          "enum": [
+            "site",
+            "slide"
+          ],
+          "description": "Units of typography.styles[].size. 'slide': every size is already slide px and is used as-is (no slideScale). 'site': every size is site px and is multiplied by slideScale, large ones too. Unset: the legacy rule, sizes of 40 or less are scaled and larger ones are used as-is. Set it explicitly: agents that stored slide px under the legacy rule got type about 33% too large (MSC, Landmark, HPE)."
+        },
+        "titleEndMark": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "size": {
+              "type": "number",
+              "description": "em"
+            },
+            "shape": {
+              "type": "string",
+              "enum": [
+                "square",
+                "circle"
+              ]
+            }
+          }
+        },
+        "accentPerStyle": {
+          "type": "boolean",
+          "description": "display headlines use displayAccent and h1 headlines h1Accent (default: the first accent style found serves both)"
+        }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "required": [
+        "aspect"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "aspect": {
+          "type": "string",
+          "enum": [
+            "16:9",
+            "4:3",
+            "16:10",
+            "1:1",
+            "9:16"
+          ]
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        },
+        "margins": {
+          "$ref": "#/$defs/box"
+        },
+        "safeArea": {
+          "$ref": "#/$defs/box"
+        },
+        "grid": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "columns": {
+              "type": "integer"
+            },
+            "gutter": {
+              "type": "number"
+            },
+            "rows": {
+              "type": "integer"
+            },
+            "rowGap": {
+              "type": "number"
+            }
+          }
+        },
+        "spacing": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "Spacing scale, e.g. [4,8,12,16,24,32,48,64]."
+        },
+        "radiusScale": {
+          "type": "object",
+          "description": "Named radii shared by cards, images, buttons, chips, chart bars (e.g. tile: 4 for marketing tiles that differ from product UI).",
+          "additionalProperties": {
+            "type": "number"
+          }
+        },
+        "shadowScale": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/shadow"
+          }
+        },
+        "titleZone": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "y": {
+              "type": "number"
+            },
+            "height": {
+              "type": "number"
+            },
+            "align": {
+              "$ref": "#/$defs/hAlign"
+            }
+          }
+        },
+        "footer": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "show": {
+              "type": "boolean"
+            },
+            "pageNumber": {
+              "type": "boolean"
+            },
+            "pageNumberFormat": {
+              "type": "string",
+              "description": "e.g. '{n}', '{n} / {total}'."
+            },
+            "date": {
+              "type": "boolean"
+            },
+            "text": {
+              "type": "string"
+            },
+            "logo": {
+              "type": "boolean"
+            },
+            "position": {
+              "$ref": "#/$defs/placement"
+            },
+            "style": {
+              "type": "string",
+              "description": "Text style id."
+            },
+            "hideOn": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Layout ids."
+            },
+            "split": {
+              "type": "boolean",
+              "description": "logo at one edge, text + page number at the other"
+            },
+            "inset": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "left": {
+                  "type": "number"
+                },
+                "right": {
+                  "type": "number"
+                },
+                "bottom": {
+                  "type": "number"
+                }
+              }
+            },
+            "numberWeight": {
+              "type": "integer"
+            },
+            "numberColor": {
+              "$ref": "#/$defs/colorRef"
+            }
+          }
+        },
+        "sectionHeader": {
+          "$ref": "#/$defs/sectionHeader"
+        },
+        "contentFrame": {
+          "type": "array",
+          "description": "a box drawn behind the slide content (e.g. a white rounded frame), per surface; box in slide px",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "box",
+              "variant"
+            ],
+            "properties": {
+              "box": {
+                "$ref": "#/$defs/rect"
+              },
+              "variant": {
+                "type": "string",
+                "description": "cards.variants key giving fill/border/radius"
+              },
+              "surfaces": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "exceptLayouts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "provenance": {
+                "$ref": "#/$defs/provenance"
+              },
+              "layouts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "only these layouts"
+              }
+            }
+          }
+        },
+        "header": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "a band above the title on content slides (e.g. '06 / 10' left, a running title right)",
+          "properties": {
+            "left": {
+              "type": "string",
+              "description": "'counter' or literal text"
+            },
+            "right": {
+              "type": "string"
+            },
+            "style": {
+              "type": "string"
+            },
+            "y": {
+              "type": "number"
+            },
+            "inset": {
+              "type": "object",
+              "additionalProperties": false,
+              "description": "without fill: text inset from the slide edges; with fill: the band floats inside the slide at these offsets (Education Victoria's inset rounded nav bar)",
+              "properties": {
+                "top": {
+                  "type": "number"
+                },
+                "left": {
+                  "type": "number"
+                },
+                "right": {
+                  "type": "number"
+                }
+              }
+            },
+            "counterFormat": {
+              "type": "string",
+              "description": "e.g. '{nn} / {tt}'"
+            },
+            "hideOn": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            },
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "text": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "height": {
+              "type": "number"
+            },
+            "rule": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "color": {
+                  "$ref": "#/$defs/colorRef"
+                },
+                "height": {
+                  "type": "number"
+                }
+              }
+            },
+            "radius": {
+              "$ref": "#/$defs/radius",
+              "description": "filled header band corner radius (a floating bar)"
+            },
+            "logo": {
+              "type": "string",
+              "description": "a brand.logos key or an asset file drawn at the left of the filled band (the white wordmark in the site nav bar)"
+            },
+            "logoHeight": {
+              "type": "number",
+              "description": "header logo height, px"
+            },
+            "padX": {
+              "type": "number",
+              "description": "inner side padding of a floating (inset) band, px (default 32)"
+            }
+          }
+        }
+      }
+    },
+    "cards": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "style": {
+          "$ref": "#/$defs/cardStyle"
+        },
+        "variants": {
+          "type": "object",
+          "description": "Named card style overrides, e.g. 'outlined', 'filled', 'glass'.",
+          "additionalProperties": {
+            "$ref": "#/$defs/cardStyle"
+          }
+        },
+        "perSurface": {
+          "type": "object",
+          "description": "surface id -> partial card style override.",
+          "additionalProperties": {
+            "$ref": "#/$defs/cardStyle"
+          }
+        },
+        "arrangements": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "horizontal",
+              "vertical",
+              "grid-2x2",
+              "grid-3",
+              "grid-4",
+              "grid-2x3",
+              "bento",
+              "stagger",
+              "list"
+            ]
+          }
+        },
+        "defaults": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "arrangement": {
+              "type": "string"
+            },
+            "gap": {
+              "type": "number"
+            },
+            "maxPerRow": {
+              "type": "integer"
+            },
+            "maxPerSlide": {
+              "type": "integer"
+            },
+            "equalHeight": {
+              "type": "boolean"
+            },
+            "minHeight": {
+              "type": "number"
+            },
+            "overflow": {
+              "type": "string",
+              "enum": [
+                "shrink",
+                "split",
+                "truncate"
+              ]
+            }
+          }
+        },
+        "alignment": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "content": {
+              "$ref": "#/$defs/align2d"
+            },
+            "text": {
+              "$ref": "#/$defs/hAlign"
+            }
+          }
+        },
+        "internalLayout": {
+          "$ref": "#/$defs/cardInternalLayout"
+        },
+        "icon": {
+          "$ref": "#/$defs/iconContainer"
+        },
+        "divider": {
+          "type": "boolean"
+        },
+        "numberStyle": {
+          "type": "string",
+          "enum": [
+            "none",
+            "01",
+            "1",
+            "1.",
+            "circle",
+            "big-faded",
+            "roman"
+          ]
+        },
+        "hoverEffect": {
+          "type": "string",
+          "description": "For web/HTML output only."
+        },
+        "alternates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/cardInternalLayout"
+          },
+          "description": "other internal layouts the brand uses regularly"
+        },
+        "actionIcon": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "externalName": {
+              "type": "string"
+            },
+            "size": {
+              "type": "number"
+            },
+            "position": {
+              "$ref": "#/$defs/placement"
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            }
+          }
+        },
+        "recipes": {
+          "type": "array",
+          "description": "Recurring card compositions observed on the brand site, in order of frequency. The renderer builds cards from these instead of a single internal layout. A recipe may carry icon { container, color, fill, size, files, filesOnDark, filesOnLight }, overriding cards.icon for its icon blocks.",
+          "items": {
+            "$ref": "#/$defs/cardRecipe"
+          }
+        }
+      }
+    },
+    "charts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "palette": {
+          "type": "string",
+          "description": "'chart' or a custom palette key."
+        },
+        "highlightMode": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "highlight": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "others": {
+              "$ref": "#/$defs/colorRef"
+            }
+          }
+        },
+        "font": {
+          "type": "string"
+        },
+        "gridlines": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "show": {
+              "type": "boolean"
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "style": {
+              "type": "string",
+              "enum": [
+                "solid",
+                "dashed",
+                "dotted"
+              ]
+            },
+            "axis": {
+              "type": "string",
+              "enum": [
+                "x",
+                "y",
+                "both"
+              ]
+            }
+          }
+        },
+        "axes": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "show": {
+              "type": "boolean"
+            },
+            "line": {
+              "type": "boolean"
+            },
+            "font": {
+              "type": "string"
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "lineColor": {
+              "type": "string",
+              "description": "The axis line colour (Rukko dark red); falls back to axes.color."
+            },
+            "labelColor": {
+              "type": "string",
+              "description": "The tick and category label colour; falls back to axes.color."
+            }
+          }
+        },
+        "dataLabels": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "show": {
+              "type": "boolean"
+            },
+            "position": {
+              "type": "string",
+              "enum": [
+                "inside",
+                "outside",
+                "end",
+                "center",
+                "top"
+              ]
+            },
+            "format": {
+              "type": "string",
+              "description": "compact | percent | currency | raw | ICU pattern"
+            },
+            "font": {
+              "type": "string"
+            }
+          }
+        },
+        "legend": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "show": {
+              "type": "boolean"
+            },
+            "position": {
+              "type": "string",
+              "enum": [
+                "top",
+                "bottom",
+                "left",
+                "right",
+                "none"
+              ]
+            },
+            "marker": {
+              "type": "string",
+              "enum": [
+                "square",
+                "circle",
+                "line"
+              ]
+            }
+          }
+        },
+        "bar": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "radius": {
+              "type": "number"
+            },
+            "gap": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "orientation": {
+              "type": "string",
+              "enum": [
+                "vertical",
+                "horizontal"
+              ]
+            },
+            "stackedGap": {
+              "type": "number"
+            }
+          }
+        },
+        "line": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "width": {
+              "type": "number"
+            },
+            "markers": {
+              "type": "boolean"
+            },
+            "markerSize": {
+              "type": "number"
+            },
+            "smooth": {
+              "type": "boolean"
+            },
+            "areaOpacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        "pie": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "startAngle": {
+              "type": "number"
+            },
+            "gap": {
+              "type": "number"
+            },
+            "labels": {
+              "type": "string",
+              "enum": [
+                "inside",
+                "outside",
+                "legend"
+              ]
+            }
+          }
+        },
+        "donut": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "innerRadius": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "centerLabel": {
+              "type": "boolean"
+            }
+          }
+        },
+        "kpi": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "style": {
+              "type": "string"
+            },
+            "labelStyle": {
+              "type": "string"
+            },
+            "deltaColors": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "up": {
+                  "$ref": "#/$defs/colorRef"
+                },
+                "down": {
+                  "$ref": "#/$defs/colorRef"
+                },
+                "flat": {
+                  "$ref": "#/$defs/colorRef"
+                }
+              }
+            },
+            "sparkline": {
+              "type": "boolean"
+            },
+            "separator": {
+              "enum": [
+                "none",
+                "rule",
+                "bar"
+              ],
+              "description": "Separator between KPI figures beside charts and in the KPI signature: none, a rule between, or a bar on top."
+            }
+          }
+        },
+        "background": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "border": {
+          "$ref": "#/$defs/border"
+        },
+        "radius": {
+          "$ref": "#/$defs/radius"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "tables": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "header": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "text": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "font": {
+              "type": "string"
+            },
+            "weight": {
+              "type": "integer"
+            },
+            "case": {
+              "$ref": "#/$defs/textCase"
+            },
+            "size": {
+              "type": "number"
+            },
+            "cellGap": {
+              "type": "object",
+              "description": "Gaps between header cells (Lowe's 2px white): { width, color }.",
+              "properties": {
+                "width": {
+                  "type": "number"
+                },
+                "color": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "rows": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "striped": {
+              "type": "boolean"
+            },
+            "stripeFill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "border": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "borderStyle": {
+              "type": "string",
+              "enum": [
+                "none",
+                "horizontal",
+                "all",
+                "outer"
+              ]
+            },
+            "padding": {
+              "type": "number"
+            },
+            "font": {
+              "type": "string"
+            },
+            "minHeight": {
+              "type": "number"
+            }
+          }
+        },
+        "firstColumn": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "bold": {
+              "type": "boolean"
+            },
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            }
+          }
+        },
+        "align": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "$ref": "#/$defs/hAlign"
+            },
+            "number": {
+              "$ref": "#/$defs/hAlign"
+            },
+            "header": {
+              "$ref": "#/$defs/hAlign"
+            }
+          }
+        },
+        "radius": {
+          "$ref": "#/$defs/radius"
+        },
+        "maxRows": {
+          "type": "integer"
+        },
+        "maxCols": {
+          "type": "integer"
+        },
+        "highlightColumn": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "index": {
+              "type": "integer"
+            },
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "text": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        },
+        "checkIcon": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "glyph": {
+              "type": "string",
+              "enum": [
+                "check",
+                "check-circle",
+                "dot",
+                "text"
+              ]
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "size": {
+              "type": "number"
+            },
+            "emptyGlyph": {
+              "type": "string"
+            }
+          }
+        },
+        "groupRows": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "font": {
+              "type": "string"
+            },
+            "case": {
+              "$ref": "#/$defs/textCase"
+            }
+          }
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "columnRules": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "color": {
+              "type": "string"
+            },
+            "width": {
+              "type": "number"
+            }
+          },
+          "description": "Vertical rules between table columns (TresVista: white 1px)."
+        }
+      }
+    },
+    "imagery": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "direction": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "subjects": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "mood": {
+              "type": "string"
+            },
+            "lighting": {
+              "type": "string"
+            },
+            "composition": {
+              "type": "string"
+            },
+            "avoid": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "stock": {
+              "type": "string"
+            },
+            "aiGenerated": {
+              "type": "boolean"
+            },
+            "aiPromptSuffix": {
+              "type": "string",
+              "description": "Appended to image generation prompts to keep style consistent."
+            },
+            "brandLibrary": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "treatments": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "default": {
+              "type": "string"
+            },
+            "options": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/imageTreatment"
+              }
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "perLayout": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "layout id -> treatment name."
+        },
+        "textOverImage": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "overlay": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "gradient": {
+              "type": "boolean"
+            },
+            "minContrast": {
+              "type": "number"
+            },
+            "direction": {
+              "type": "string",
+              "enum": [
+                "top",
+                "bottom",
+                "left",
+                "right",
+                "none"
+              ],
+              "description": "where the overlay is darkest"
+            }
+          }
+        },
+        "crop": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "defaultRatio": {
+              "type": "string"
+            },
+            "focus": {
+              "type": "string",
+              "enum": [
+                "faces",
+                "center",
+                "smart",
+                "top",
+                "bottom"
+              ]
+            }
+          }
+        },
+        "maxPerSlide": {
+          "type": "integer"
+        },
+        "samples": {
+          "type": "array",
+          "description": "Images observed on the brand site (downloaded to brands/assets/<brand>/), with alt text and a classified kind",
+          "items": {
+            "type": "object",
+            "required": [
+              "file"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "file": {
+                "type": "string"
+              },
+              "sourceUrl": {
+                "type": "string"
+              },
+              "alt": {
+                "type": "string"
+              },
+              "w": {
+                "type": "number"
+              },
+              "h": {
+                "type": "number"
+              },
+              "aspect": {
+                "type": "number"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "photo-people",
+                  "photo-product",
+                  "product-ui",
+                  "illustration",
+                  "abstract",
+                  "logo",
+                  "icon",
+                  "unknown"
+                ],
+                "description": "optional; left unknown unless textual evidence is explicit"
+              },
+              "radius": {
+                "$ref": "#/$defs/radius"
+              },
+              "page": {
+                "type": "string"
+              },
+              "provenance": {
+                "$ref": "#/$defs/provenance"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "free tags: alt/filename tokens, hero|card|section:<kind>, wide|square|tall, page letter, transparent. Reserved: leader-portrait / named-person / group / logo-bearing (never in a generic or placeholder-named slot; only a slot that asks for the exact tag), contain-only / framed / cutout (drawn with object-fit contain, never cover-cropped)."
+              }
+            }
+          }
+        }
+      }
+    },
+    "masks": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "default": {
+          "type": "string"
+        },
+        "options": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/mask"
+          }
+        },
+        "perLayout": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "frame": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "border": {
+              "$ref": "#/$defs/border"
+            },
+            "shadow": {
+              "type": "string",
+              "description": "shadowScale key or 'none'."
+            },
+            "padding": {
+              "type": "number",
+              "description": "Inner padding to create a matte effect."
+            },
+            "offsetShape": {
+              "type": "object",
+              "description": "A duplicate shape behind the image, offset, filled with a color.",
+              "additionalProperties": false,
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "color": {
+                  "$ref": "#/$defs/colorRef"
+                },
+                "offset": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 2,
+                  "maxItems": 2
+                }
+              }
+            }
+          }
+        },
+        "collage": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "layouts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "gap": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "icons": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "set": {
+          "type": "string",
+          "description": "lucide | phosphor | material | heroicons | custom"
+        },
+        "customPath": {
+          "type": "string"
+        },
+        "style": {
+          "type": "string",
+          "enum": [
+            "line",
+            "filled",
+            "duotone",
+            "solid"
+          ]
+        },
+        "strokeWidth": {
+          "type": "number"
+        },
+        "color": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "size": {
+          "type": "number"
+        },
+        "container": {
+          "$ref": "#/$defs/iconContainer"
+        },
+        "semantic": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "success": {
+              "type": "string"
+            },
+            "warning": {
+              "type": "string"
+            },
+            "error": {
+              "type": "string"
+            },
+            "info": {
+              "type": "string"
+            }
+          },
+          "description": "A glyph per state colour (renderer icon names: check, triangle-alert, x, info), drawn with colors.semantic wherever the guide shows that state, so the state never rests on colour alone (Stria: error \u2715)."
+        }
+      }
+    },
+    "assets": {
+      "type": "object",
+      "description": "Decorative brand devices: shapes, patterns, textures, illustrations, accent rules.",
+      "additionalProperties": false,
+      "properties": {
+        "elements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/designElement"
+          }
+        },
+        "illustrationStyle": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "flat",
+                "line",
+                "3d",
+                "isometric",
+                "hand-drawn",
+                "none"
+              ]
+            },
+            "palette": {
+              "type": "string"
+            },
+            "library": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "maxElementsPerSlide": {
+          "type": "integer"
+        }
+      }
+    },
+    "components": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "chip": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "radius": {
+              "$ref": "#/$defs/radius"
+            },
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "text": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "font": {
+              "type": "string"
+            },
+            "padding": {
+              "$ref": "#/$defs/padding"
+            },
+            "border": {
+              "$ref": "#/$defs/border"
+            },
+            "weight": {
+              "type": "number",
+              "description": "chip/tag label weight (default 500)"
+            },
+            "icon": {
+              "type": "object",
+              "additionalProperties": false,
+              "description": "a glyph before (or after) the chip label (Henkel tag icon)",
+              "properties": {
+                "glyph": {
+                  "type": "string"
+                },
+                "side": {
+                  "type": "string",
+                  "enum": [
+                    "left",
+                    "right"
+                  ]
+                },
+                "color": {
+                  "$ref": "#/$defs/colorRef"
+                },
+                "path": {
+                  "type": "string",
+                  "description": "icon as an SVG path in a 0\u201324 viewBox, stroked in the chip text colour"
+                }
+              }
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "callout": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "border": {
+              "$ref": "#/$defs/border"
+            },
+            "accentBar": {
+              "$ref": "#/$defs/accentBar"
+            },
+            "icon": {
+              "type": "boolean"
+            },
+            "radius": {
+              "$ref": "#/$defs/radius"
+            },
+            "padding": {
+              "$ref": "#/$defs/padding"
+            }
+          }
+        },
+        "quote": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "markStyle": {
+              "type": "string",
+              "enum": [
+                "none",
+                "large-accent",
+                "inline",
+                "bar"
+              ]
+            },
+            "font": {
+              "type": "string"
+            },
+            "attributionFont": {
+              "type": "string"
+            },
+            "align": {
+              "$ref": "#/$defs/hAlign"
+            },
+            "avatar": {
+              "type": "string",
+              "description": "author photo shape: a masks.options name, or \"avatar\" to follow components.avatar (radius / mask); default circle"
+            },
+            "markColor": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "color": {
+              "description": "quote text colour (role or hex); default typography.styles.quote.color, else heading"
+            }
+          }
+        },
+        "divider": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "thickness": {
+              "type": "number"
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "length": {
+              "type": "string",
+              "description": "full | short | number px"
+            },
+            "style": {
+              "type": "string",
+              "enum": [
+                "solid",
+                "dashed",
+                "dotted",
+                "gradient"
+              ]
+            },
+            "gradient": {
+              "type": "string",
+              "description": "A gradients.definitions key: the divider is drawn in that gradient, left \u2192 right."
+            }
+          }
+        },
+        "steps": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "marker": {
+              "type": "string",
+              "enum": [
+                "circle-number",
+                "square-number",
+                "dot",
+                "icon",
+                "chevron"
+              ]
+            },
+            "line": {
+              "type": "boolean"
+            },
+            "lineStyle": {
+              "type": "string",
+              "enum": [
+                "solid",
+                "dashed"
+              ]
+            },
+            "activeColor": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "inactiveColor": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "orientation": {
+              "type": "string",
+              "enum": [
+                "horizontal",
+                "vertical"
+              ]
+            }
+          }
+        },
+        "timeline": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "marker": {
+              "type": "string"
+            },
+            "lineColor": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "alternate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "arrow": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "stroke": {
+              "type": "number"
+            },
+            "head": {
+              "type": "string",
+              "enum": [
+                "filled",
+                "open",
+                "none"
+              ]
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "curve": {
+              "type": "string",
+              "enum": [
+                "straight",
+                "curved",
+                "elbow"
+              ]
+            }
+          }
+        },
+        "button": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "radius": {
+              "$ref": "#/$defs/radius"
+            },
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "text": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "font": {
+              "type": "string"
+            },
+            "padding": {
+              "$ref": "#/$defs/padding"
+            },
+            "border": {
+              "$ref": "#/$defs/border"
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            },
+            "icon": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "glyph": {
+                      "type": "string"
+                    },
+                    "side": {
+                      "type": "string",
+                      "enum": [
+                        "left",
+                        "right"
+                      ]
+                    },
+                    "fill": {
+                      "$ref": "#/$defs/colorRef"
+                    },
+                    "color": {
+                      "$ref": "#/$defs/colorRef"
+                    },
+                    "detached": {
+                      "type": "boolean",
+                      "description": "draw the glyph in its own round disc beside the pill (Omnicom \u2197 disc at the top right), filled with fill or the button fill"
+                    },
+                    "size": {
+                      "type": "number",
+                      "description": "detached disc diameter, slide px"
+                    },
+                    "offset": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "description": "detached disc [x, y] offset from the pill's right edge / top, px (negative x overlaps)"
+                    }
+                  }
+                },
+                {
+                  "type": "boolean",
+                  "const": false
+                },
+                {
+                  "type": "string",
+                  "const": "none"
+                }
+              ],
+              "description": "an icon inside the button, or beside it as a separate disc false or 'none': this button draws no icon (overrides the component's icon)."
+            },
+            "keepFill": {
+              "type": "boolean",
+              "description": "never swap the button fill for contrast with the page (a pale brand pill that is the real button, e.g. MSC yellow)"
+            },
+            "onSurface": {
+              "type": "object",
+              "description": "Per-surface override of this button: { <surfaceId>: { fill, text, border } }. Wins over the automatic contrast swap on that surface (HPE: a dark pill on light surfaces, a white pill on dark).",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "fill": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  },
+                  "border": {
+                    "type": "object"
+                  },
+                  "icon": {
+                    "type": "string",
+                    "description": "icon / arrow colour on that surface"
+                  },
+                  "arrow": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "badge": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "shape": {
+              "type": "string"
+            },
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "text": {
+              "$ref": "#/$defs/colorRef"
+            }
+          }
+        },
+        "pager": {
+          "type": "object",
+          "description": "carousel slide indicator seen on the site (handle on a track, dots, bars or 01 / 04); drawn on the guide's small-parts page and on the listed layouts",
+          "properties": {
+            "style": {
+              "type": "string",
+              "enum": [
+                "track",
+                "dots",
+                "bars",
+                "numbers",
+                "segments",
+                "tabs"
+              ]
+            },
+            "color": {
+              "type": "string",
+              "description": "active handle / dot colour (role or hex)"
+            },
+            "track": {
+              "type": "string",
+              "description": "inactive / track colour (role or hex); default: color at trackOpacity"
+            },
+            "trackOpacity": {
+              "type": "number"
+            },
+            "width": {
+              "type": "number",
+              "description": "track width px"
+            },
+            "handleWidth": {
+              "type": "number"
+            },
+            "height": {
+              "type": "number"
+            },
+            "size": {
+              "type": "number",
+              "description": "dot diameter or bar width px"
+            },
+            "activeWidth": {
+              "type": "number",
+              "description": "active dot/bar stretches to this width (pill dots)"
+            },
+            "gap": {
+              "type": "number"
+            },
+            "radius": {},
+            "outline": {
+              "type": "boolean",
+              "description": "inactive dots drawn as rings"
+            },
+            "font": {
+              "type": "string",
+              "description": "type style for style=numbers"
+            },
+            "layouts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "layouts that show the pager (e.g. title)"
+            },
+            "position": {
+              "type": "string",
+              "enum": [
+                "bottom-left",
+                "bottom-right",
+                "bottom-center"
+              ]
+            },
+            "bottom": {
+              "type": "number"
+            },
+            "provenance": {},
+            "arrows": {
+              "type": "object",
+              "additionalProperties": false,
+              "description": "round prev/next arrow buttons beside the pager (Omnicom white \u2190 \u2192 discs)",
+              "properties": {
+                "size": {
+                  "type": "number",
+                  "description": "disc diameter px"
+                },
+                "fill": {
+                  "$ref": "#/$defs/colorRef"
+                },
+                "color": {
+                  "$ref": "#/$defs/colorRef"
+                },
+                "border": {
+                  "$ref": "#/$defs/colorRef"
+                },
+                "gap": {
+                  "type": "number"
+                },
+                "pagerGap": {
+                  "type": "number",
+                  "description": "gap between arrows and pager when drawn together"
+                },
+                "strokeWidth": {
+                  "type": "number"
+                },
+                "position": {
+                  "type": "string",
+                  "enum": [
+                    "bottom-left",
+                    "bottom-right"
+                  ],
+                  "description": "on slides: draw the arrows at this edge, apart from the pager"
+                }
+              }
+            },
+            "previewSurface": {
+              "type": "string",
+              "description": "surface id the guide draws the pager preview on (a white track needs a dark or photo ground: Landmark, Omnicom)"
+            },
+            "progress": {
+              "type": "number",
+              "description": "segments: % filled of the running segment"
+            },
+            "labels": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "tabs: the tab labels"
+            },
+            "labelColor": {
+              "$ref": "#/$defs/colorRef",
+              "description": "tabs: label colour"
+            },
+            "barWidth": {
+              "type": "number",
+              "description": "tabs: the active bar width px (default the tab width)"
+            }
+          },
+          "additionalProperties": false
+        },
+        "progress": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "track": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "height": {
+              "type": "number"
+            },
+            "radius": {
+              "$ref": "#/$defs/radius"
+            },
+            "position": {
+              "type": "string",
+              "enum": [
+                "bottom",
+                "top"
+              ]
+            },
+            "hideOn": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "avatar": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "mask": {
+              "type": "string"
+            },
+            "size": {
+              "type": "number"
+            },
+            "border": {
+              "$ref": "#/$defs/border"
+            },
+            "radius": {
+              "description": "team / people photo corner radius (number, radiusScale key or {tl,tr,br,bl}); wins over mask",
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object"
+                }
+              ]
+            },
+            "provenance": {},
+            "placeholder": {
+              "enum": [
+                "silhouette",
+                "initials"
+              ],
+              "description": "Neutral portrait drawn when a people slot has no brand person photo (or the name is invented): a head-and-shoulders silhouette (default) or the person's initials in the heading font, in the accent over a soft tint."
+            }
+          }
+        },
+        "buttonSecondary": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "radius": {
+              "$ref": "#/$defs/radius"
+            },
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "text": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "font": {
+              "type": "string"
+            },
+            "padding": {
+              "$ref": "#/$defs/padding"
+            },
+            "border": {
+              "$ref": "#/$defs/border"
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            },
+            "shadow": {
+              "description": "shadowScale key or shadow object: an elevated secondary button (Education Victoria \"Back to top \u2191\")",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/$defs/shadow"
+                }
+              ]
+            },
+            "icon": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "glyph": {
+                      "type": "string"
+                    },
+                    "side": {
+                      "type": "string",
+                      "enum": [
+                        "left",
+                        "right"
+                      ]
+                    },
+                    "fill": {
+                      "$ref": "#/$defs/colorRef"
+                    },
+                    "color": {
+                      "$ref": "#/$defs/colorRef"
+                    },
+                    "detached": {
+                      "type": "boolean",
+                      "description": "draw the glyph in its own round disc beside the pill (Omnicom \u2197 disc at the top right), filled with fill or the button fill"
+                    },
+                    "size": {
+                      "type": "number",
+                      "description": "detached disc diameter, slide px"
+                    },
+                    "offset": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "description": "detached disc [x, y] offset from the pill's right edge / top, px (negative x overlaps)"
+                    }
+                  }
+                },
+                {
+                  "type": "boolean",
+                  "const": false
+                },
+                {
+                  "type": "string",
+                  "const": "none"
+                }
+              ],
+              "description": "an icon inside the button, or beside it as a separate disc false or 'none': this button draws no icon (overrides the component's icon)."
+            },
+            "onSurface": {
+              "type": "object",
+              "description": "Per-surface override of this button: { <surfaceId>: { fill, text, border } }. Wins over the automatic contrast swap on that surface (HPE: a dark pill on light surfaces, a white pill on dark).",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "fill": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  },
+                  "border": {
+                    "type": "object"
+                  },
+                  "icon": {
+                    "type": "string",
+                    "description": "icon / arrow colour on that surface"
+                  },
+                  "arrow": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "logoWall": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "customer/partner logo row or grid as it appears on the site",
+          "properties": {
+            "logos": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "file"
+                ],
+                "properties": {
+                  "file": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "w": {
+                    "type": "number"
+                  },
+                  "h": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "arrangement": {
+              "type": "string",
+              "enum": [
+                "row",
+                "grid"
+              ]
+            },
+            "height": {
+              "type": "number",
+              "description": "logo height in slide px"
+            },
+            "gap": {
+              "type": "number"
+            },
+            "opacity": {
+              "type": "number"
+            },
+            "treatment": {
+              "type": "string",
+              "enum": [
+                "mono-light",
+                "mono-dark",
+                "original",
+                "grayscale"
+              ]
+            },
+            "boxed": {
+              "type": "boolean"
+            },
+            "box": {
+              "type": "object"
+            },
+            "dividers": {
+              "type": "boolean"
+            },
+            "label": {
+              "type": "string"
+            },
+            "labelStyle": {
+              "type": "string"
+            },
+            "align": {
+              "$ref": "#/$defs/hAlign"
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            },
+            "show": {
+              "type": "boolean",
+              "description": "false: the brand has no client logos to show; the guide skips the client-list / logo-wall pages"
+            }
+          }
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "the brand's tag/label system: category pills (colour per category), topic pills, filter chips",
+          "properties": {
+            "style": {
+              "type": "string",
+              "description": "text style for tag labels"
+            },
+            "radius": {
+              "$ref": "#/$defs/radius"
+            },
+            "height": {
+              "type": "number"
+            },
+            "padding": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            "categories": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "fill": {
+                    "$ref": "#/$defs/colorRef"
+                  },
+                  "text": {
+                    "$ref": "#/$defs/colorRef"
+                  },
+                  "border": {
+                    "$ref": "#/$defs/colorRef"
+                  }
+                }
+              }
+            },
+            "topic": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "fill": {
+                  "$ref": "#/$defs/colorRef"
+                },
+                "text": {
+                  "$ref": "#/$defs/colorRef"
+                },
+                "border": {
+                  "$ref": "#/$defs/colorRef"
+                }
+              }
+            },
+            "filterActive": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "fill": {
+                  "$ref": "#/$defs/colorRef"
+                },
+                "text": {
+                  "$ref": "#/$defs/colorRef"
+                },
+                "border": {
+                  "$ref": "#/$defs/colorRef"
+                }
+              }
+            },
+            "filterIdle": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "fill": {
+                  "$ref": "#/$defs/colorRef"
+                },
+                "text": {
+                  "$ref": "#/$defs/colorRef"
+                },
+                "border": {
+                  "$ref": "#/$defs/colorRef"
+                }
+              }
+            },
+            "metaSeparator": {
+              "type": "string"
+            },
+            "footerStyle": {
+              "type": "string"
+            },
+            "actionGlyph": {
+              "type": "string"
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            },
+            "border": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "width": {
+                  "type": "number",
+                  "description": "px edge width of every tag pill (default 1); the colour comes from each category's border"
+                }
+              },
+              "description": "The tag pills' edge (Tumbletown 3px stickers)."
+            },
+            "borderWidth": {
+              "type": "number",
+              "description": "Shorthand for border.width (px)."
+            }
+          }
+        },
+        "linkBar": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "width": {
+              "type": "number"
+            },
+            "height": {
+              "type": "number"
+            },
+            "gap": {
+              "type": "number"
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "textColor": {
+              "$ref": "#/$defs/colorRef"
+            }
+          }
+        },
+        "ctaChevron": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "the chevron / arrow drawn after links and (unless buttons: false) buttons",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "glyph": {
+              "type": "string"
+            },
+            "titles": {
+              "type": "boolean",
+              "description": "chevron after card titles"
+            },
+            "buttons": {
+              "type": "boolean",
+              "description": "false keeps it off buttons"
+            },
+            "leading": {
+              "type": "boolean",
+              "description": "a circled chevron before the link text"
+            },
+            "leadingStyle": {
+              "type": "string",
+              "enum": [
+                "outline",
+                "filled",
+                "plain"
+              ]
+            },
+            "underline": {
+              "type": "boolean"
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef",
+              "description": "link arrow colour in card link blocks"
+            },
+            "trailing": {
+              "type": "boolean",
+              "description": "a filled disc with the glyph after the link text (MSC \"READ MORE \u25cf\u203a\")"
+            },
+            "discFill": {
+              "$ref": "#/$defs/colorRef",
+              "description": "trailing disc fill"
+            },
+            "discColor": {
+              "$ref": "#/$defs/colorRef",
+              "description": "glyph colour inside the trailing disc"
+            },
+            "discSize": {
+              "type": "number",
+              "description": "trailing disc diameter, slide px"
+            },
+            "discGap": {
+              "type": "number",
+              "description": "gap between text and disc, px"
+            },
+            "textColor": {
+              "$ref": "#/$defs/colorRef",
+              "description": "link text colour with trailing: true (default text)"
+            },
+            "file": {
+              "type": "string",
+              "description": "brand icon file drawn instead of the glyph (e.g. an exit-arrow SVG)"
+            },
+            "fileOnDark": {
+              "type": "string",
+              "description": "icon file used on dark grounds"
+            },
+            "path": {
+              "type": "string",
+              "description": "icon drawn instead of the glyph: an SVG path in a 0\u201324 viewBox, stroked in the link colour (Aditya Birla's exit arrow redrawn from the site icon)"
+            },
+            "strokeWidth": {
+              "type": "number"
+            },
+            "iconSize": {
+              "type": "number",
+              "description": "path icon size in em (default 1.15)"
+            },
+            "parts": {
+              "type": "array",
+              "description": "a glyph in coloured parts, e.g. [{text:\"/\"},{text:\" \u203a\",color:\"#FF3162\"}] (Bayer slash + magenta chevron)",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "$ref": "#/$defs/colorRef"
+                  }
+                }
+              }
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "tabs": {
+          "type": "object",
+          "description": "tab strip seen on the site (underline / segmented / pill / text)",
+          "properties": {
+            "style": {
+              "type": "string",
+              "enum": [
+                "underline",
+                "segmented",
+                "pill",
+                "text"
+              ]
+            },
+            "font": {
+              "type": "string"
+            },
+            "gap": {
+              "type": "number"
+            },
+            "radius": {},
+            "padding": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            "active": {
+              "type": "object",
+              "properties": {
+                "fill": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "bar": {
+                  "type": "string"
+                },
+                "barHeight": {
+                  "type": "number"
+                },
+                "weight": {
+                  "type": "number"
+                }
+              }
+            },
+            "idle": {
+              "type": "object",
+              "properties": {
+                "fill": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "border": {
+                  "type": "string"
+                }
+              }
+            },
+            "track": {
+              "type": "object",
+              "properties": {
+                "fill": {
+                  "type": "string"
+                },
+                "height": {
+                  "type": "number"
+                },
+                "radius": {}
+              }
+            },
+            "provenance": {}
+          },
+          "additionalProperties": false
+        },
+        "accordion": {
+          "type": "object",
+          "description": "accordion rows seen on the site",
+          "properties": {
+            "font": {
+              "type": "string"
+            },
+            "rule": {
+              "type": "string"
+            },
+            "ruleTop": {
+              "type": "boolean"
+            },
+            "icon": {
+              "type": "string"
+            },
+            "iconOpen": {
+              "type": "string"
+            },
+            "iconColor": {
+              "type": "string"
+            },
+            "iconSize": {
+              "type": "number"
+            },
+            "disc": {
+              "type": "object",
+              "properties": {
+                "size": {
+                  "type": "number"
+                },
+                "fill": {
+                  "type": "string"
+                },
+                "border": {
+                  "type": "string"
+                }
+              }
+            },
+            "fill": {
+              "type": "string"
+            },
+            "radius": {},
+            "inset": {
+              "type": "number"
+            },
+            "provenance": {}
+          },
+          "additionalProperties": false
+        },
+        "buttonOutline": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "radius": {
+              "$ref": "#/$defs/radius"
+            },
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "text": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "font": {
+              "type": "string"
+            },
+            "padding": {
+              "$ref": "#/$defs/padding"
+            },
+            "border": {
+              "$ref": "#/$defs/border"
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            },
+            "shadow": {
+              "description": "shadowScale key or shadow object: an elevated secondary button (Education Victoria \"Back to top \u2191\")",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/$defs/shadow"
+                }
+              ]
+            },
+            "icon": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "glyph": {
+                      "type": "string"
+                    },
+                    "side": {
+                      "type": "string",
+                      "enum": [
+                        "left",
+                        "right"
+                      ]
+                    },
+                    "fill": {
+                      "$ref": "#/$defs/colorRef"
+                    },
+                    "color": {
+                      "$ref": "#/$defs/colorRef"
+                    },
+                    "detached": {
+                      "type": "boolean",
+                      "description": "draw the glyph in its own round disc beside the pill (Omnicom \u2197 disc at the top right), filled with fill or the button fill"
+                    },
+                    "size": {
+                      "type": "number",
+                      "description": "detached disc diameter, slide px"
+                    },
+                    "offset": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "description": "detached disc [x, y] offset from the pill's right edge / top, px (negative x overlaps)"
+                    }
+                  }
+                },
+                {
+                  "type": "boolean",
+                  "const": false
+                },
+                {
+                  "type": "string",
+                  "const": "none"
+                }
+              ],
+              "description": "an icon inside the button, or beside it as a separate disc false or 'none': this button draws no icon (overrides the component's icon)."
+            },
+            "onSurface": {
+              "type": "object",
+              "description": "Per-surface override of this button: { <surfaceId>: { fill, text, border } }. Wins over the automatic contrast swap on that surface (HPE: a dark pill on light surfaces, a white pill on dark).",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "fill": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  },
+                  "border": {
+                    "type": "object"
+                  },
+                  "icon": {
+                    "type": "string",
+                    "description": "icon / arrow colour on that surface"
+                  },
+                  "arrow": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "description": "A named extra button (buttonOutline): same fields as components.button, drawn on the small-parts page and wherever a recipe names it."
+        },
+        "buttonCta": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "radius": {
+              "$ref": "#/$defs/radius"
+            },
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "text": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "font": {
+              "type": "string"
+            },
+            "padding": {
+              "$ref": "#/$defs/padding"
+            },
+            "border": {
+              "$ref": "#/$defs/border"
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            },
+            "shadow": {
+              "description": "shadowScale key or shadow object: an elevated secondary button (Education Victoria \"Back to top \u2191\")",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/$defs/shadow"
+                }
+              ]
+            },
+            "icon": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "glyph": {
+                      "type": "string"
+                    },
+                    "side": {
+                      "type": "string",
+                      "enum": [
+                        "left",
+                        "right"
+                      ]
+                    },
+                    "fill": {
+                      "$ref": "#/$defs/colorRef"
+                    },
+                    "color": {
+                      "$ref": "#/$defs/colorRef"
+                    },
+                    "detached": {
+                      "type": "boolean",
+                      "description": "draw the glyph in its own round disc beside the pill (Omnicom \u2197 disc at the top right), filled with fill or the button fill"
+                    },
+                    "size": {
+                      "type": "number",
+                      "description": "detached disc diameter, slide px"
+                    },
+                    "offset": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "description": "detached disc [x, y] offset from the pill's right edge / top, px (negative x overlaps)"
+                    }
+                  }
+                },
+                {
+                  "type": "boolean",
+                  "const": false
+                },
+                {
+                  "type": "string",
+                  "const": "none"
+                }
+              ],
+              "description": "an icon inside the button, or beside it as a separate disc false or 'none': this button draws no icon (overrides the component's icon)."
+            },
+            "onSurface": {
+              "type": "object",
+              "description": "Per-surface override of this button: { <surfaceId>: { fill, text, border } }. Wins over the automatic contrast swap on that surface (HPE: a dark pill on light surfaces, a white pill on dark).",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "fill": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  },
+                  "border": {
+                    "type": "object"
+                  },
+                  "icon": {
+                    "type": "string",
+                    "description": "icon / arrow colour on that surface"
+                  },
+                  "arrow": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "description": "A named extra button (buttonCta): same fields as components.button, drawn on the small-parts page and wherever a recipe names it."
+        },
+        "team": {
+          "type": "object",
+          "description": "Team slides.",
+          "properties": {
+            "linkLabel": {
+              "type": "string",
+              "description": "The link wording under a person (\"Read Bio\", \"View profile\"); the glyph comes from ctaChevron / the recipe's actionGlyph."
+            },
+            "show": {
+              "type": "boolean",
+              "description": "false: the brand shows no people (e.g. a children's brand); the guide skips the Team option pages and quotes carry no face"
+            }
+          }
+        }
+      }
+    },
+    "layouts": {
+      "type": "array",
+      "description": "Slide master layouts. Tokens drive most; 'template' is the escape hatch for hand-built slides.",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "background": {
+            "type": "string",
+            "description": "'default' or a backgrounds.variants key."
+          },
+          "surface": {
+            "type": "string"
+          },
+          "logo": {
+            "type": "string",
+            "enum": [
+              "large",
+              "small",
+              "none"
+            ]
+          },
+          "titleStyle": {
+            "type": "string"
+          },
+          "titleAlign": {
+            "$ref": "#/$defs/hAlign"
+          },
+          "arrangements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "imageSide": {
+            "type": "string",
+            "enum": [
+              "left",
+              "right",
+              "top",
+              "bottom",
+              "bleed"
+            ]
+          },
+          "imageMask": {
+            "type": "string"
+          },
+          "imageTreatment": {
+            "type": "string"
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "assets.elements ids allowed here."
+          },
+          "maxStats": {
+            "type": "integer"
+          },
+          "columns": {
+            "type": "integer"
+          },
+          "footer": {
+            "type": "boolean"
+          },
+          "template": {
+            "type": "object",
+            "description": "Hand-built template with named content slots.",
+            "additionalProperties": false,
+            "properties": {
+              "file": {
+                "type": "string"
+              },
+              "format": {
+                "type": "string",
+                "enum": [
+                  "svg",
+                  "html",
+                  "pptx-layout",
+                  "figma"
+                ]
+              },
+              "slots": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "type"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "title",
+                        "subtitle",
+                        "body",
+                        "image",
+                        "chart",
+                        "logo",
+                        "stat",
+                        "cards",
+                        "table",
+                        "quote",
+                        "footer",
+                        "custom"
+                      ]
+                    },
+                    "box": {
+                      "$ref": "#/$defs/rect"
+                    },
+                    "style": {
+                      "type": "string"
+                    },
+                    "maxChars": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              },
+              "regions": {
+                "type": "array",
+                "maxItems": 3,
+                "description": "Compound layout (id 'compound'): the brand's own combined slide (a PPTX table-and-list layout): its blocks in order, with their share of the content width (w, %) \u2014 or of the height (h, %) when the regions are stacked. Content with the same region count uses these proportions unless it sets its own split.",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "kind"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "enum": [
+                        "table",
+                        "list",
+                        "paragraph",
+                        "chart",
+                        "line",
+                        "kpi",
+                        "cards",
+                        "quote",
+                        "image"
+                      ]
+                    },
+                    "w": {
+                      "type": "number",
+                      "description": "% of the content width"
+                    },
+                    "h": {
+                      "type": "number",
+                      "description": "% of the content height (stacked regions)"
+                    },
+                    "fill": {
+                      "type": "string",
+                      "description": "A solid region in this colour (a palette role or hex), its text in the palette ink that reads on it: TresVista's navy Conclusion bar."
+                    },
+                    "title": {
+                      "type": "string",
+                      "description": "A fixed region heading (e.g. 'Conclusion')."
+                    },
+                    "hPx": {
+                      "type": "number",
+                      "description": "A stacked region's fixed height in px (TresVista's 79px Conclusion bar); the other regions share the rest."
+                    }
+                  }
+                }
+              },
+              "split": {
+                "type": "string",
+                "enum": [
+                  "1:1",
+                  "2:1",
+                  "1:2",
+                  "1:1:1",
+                  "rows"
+                ],
+                "description": "Compound layout default split when the content gives none."
+              }
+            }
+          },
+          "titleLayout": {
+            "$ref": "#/$defs/sectionHeader"
+          },
+          "titleMeta": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "label/value columns on the title slide (e.g. SPEAKERS \u00b7 DATE) under a hairline",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "x": {
+                "type": "number",
+                "description": "start as a fraction of the title card width"
+              },
+              "hairline": {
+                "$ref": "#/$defs/colorRef"
+              },
+              "labelStyle": {
+                "type": "string"
+              },
+              "labelColor": {
+                "$ref": "#/$defs/colorRef"
+              },
+              "valueStyle": {
+                "type": "string"
+              },
+              "valueColor": {
+                "$ref": "#/$defs/colorRef"
+              },
+              "provenance": {
+                "$ref": "#/$defs/provenance"
+              }
+            }
+          },
+          "header": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "per-layout override of layout.header (label / band colour)",
+            "properties": {
+              "left": {
+                "type": "string"
+              },
+              "right": {
+                "type": "string"
+              },
+              "fill": {
+                "$ref": "#/$defs/colorRef"
+              },
+              "text": {
+                "$ref": "#/$defs/colorRef"
+              }
+            }
+          },
+          "textSide": {
+            "type": "string",
+            "enum": [
+              "left",
+              "right"
+            ]
+          },
+          "logoPosition": {
+            "type": "string"
+          },
+          "textPosition": {
+            "type": "string",
+            "enum": [
+              "top",
+              "center",
+              "bottom"
+            ],
+            "description": "title/cover slide: vertical position of the text block"
+          },
+          "subtitleStyle": {
+            "type": "string",
+            "description": "title layout: typography style for the subtitle (default body), e.g. a highlighted lead"
+          },
+          "accent": {
+            "$ref": "#/$defs/colorRef",
+            "description": "this layout's accent, overriding its surface accent (a section colour)"
+          },
+          "textMaxWidth": {
+            "type": "number",
+            "description": "title layout: headline and subtitle width, a fraction of the content box (\u2264 1) or px \u2014 keeps text on the free side of a split hero (Henkel)"
+          },
+          "subtitleInFrame": {
+            "type": "boolean",
+            "description": "title layout with a layout.contentFrame: the subtitle sits inside the frame under the headline (BAT glass panel)"
+          },
+          "divider": {
+            "type": "string",
+            "enum": [
+              "rule",
+              "none",
+              "panel"
+            ],
+            "description": "Compound layout (id 'compound'): what separates its regions: a 1px border-colour rule, nothing, or each region in the card panel."
+          },
+          "textBox": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "w": {
+                "type": "number"
+              }
+            },
+            "description": "Closing (or other text-led) layout: the text block's own position in slide px, as on the template (TresVista closing x 617, y 553)."
+          },
+          "composition": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "A cover / divider built from parts so a user photo can take the photo's place: the brand device drawn over the photo area, the logo at its measured box. Used when the slide's preset carries a photo; otherwise the layout's background is used as is.",
+            "properties": {
+              "device": {
+                "type": "string",
+                "description": "id of the assets.elements entry that is the composition's device (bands, frames) without the photo"
+              },
+              "overlays": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "ids of assets.elements drawn over the photo only (under the device), each with its own opacity / blend (a tint band multiplied over the photo); never drawn without a photo"
+              },
+              "photoArea": {
+                "type": "array",
+                "minItems": 3,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "description": "polygon [[x,y],...] in slide px (layout.width x layout.height) where the photo shows, under the device"
+              },
+              "logo": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "variant": {
+                    "type": "string"
+                  },
+                  "box": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      },
+                      "w": {
+                        "type": "number"
+                      },
+                      "h": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y",
+                      "w",
+                      "h"
+                    ]
+                  }
+                },
+                "required": [
+                  "variant",
+                  "box"
+                ]
+              },
+              "provenance": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "photoArea"
+            ]
+          }
+        }
+      }
+    },
+    "composition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "maxAccentsPerSlide": {
+          "type": "integer"
+        },
+        "minWhitespace": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Fraction of slide area that stays empty."
+        },
+        "maxElementsPerSlide": {
+          "type": "integer"
+        },
+        "density": {
+          "type": "string",
+          "enum": [
+            "sparse",
+            "balanced",
+            "dense"
+          ]
+        },
+        "titleEverySlide": {
+          "type": "boolean"
+        },
+        "sectionDividers": {
+          "type": "boolean"
+        },
+        "openingSequence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Layout ids, e.g. ['title','agenda']."
+        },
+        "closingSequence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tone": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "titleCase": {
+          "$ref": "#/$defs/textCase"
+        },
+        "language": {
+          "type": "string"
+        },
+        "personality": {
+          "type": "string"
+        },
+        "vocabulary": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "prefer": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "avoid": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "punctuation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "oxfordComma": {
+              "type": "boolean"
+            },
+            "titlePeriods": {
+              "type": "boolean"
+            },
+            "exclamation": {
+              "type": "boolean"
+            }
+          }
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sampleCopy": {
+          "type": "object",
+          "description": "The brand's own wording for the style guide's neutral sample copy (renderer/deck.js CONTENT), for brands whose audience the default business copy does not fit (a kids' brand: classroom copy). Same shape as CONTENT, partial: only the keys given change. Deep-merged over the sample (objects merge key by key, arrays replace whole arrays), for the guide build only; the originals are restored after each build and presenter content is never affected. cards.items ([icon, title, body, eyebrow?] rows: icon may be a brand icon file path; the optional 4th entry is the card's eyebrow and pill) also re-word the recipe cards, and the tiles when tiles is not given. A list of rows shorter than the sample's is cycled to the sample's length (the guide draws fixed counts). Keys: eyebrow, title [line1, line2], subtitle, agenda [..], section [number, title, subtitle], twoColumn {h, p, bullets [[icon, text]], link}, cards {h, items [[icon, title, body]]}, tiles {h, items}, stats {h, items [[value, label, delta]]}, chart {h, bars [[label, number]], kpis}, line {h, months, series [[name, [numbers]]], kpis}, table / tableCompare {h, head, rows}, quote {text, name, role, logos}, imageBleed {eyebrow, h}, steps {h, items [[title, body]]}, roadmap {h, items [[date, title, status]]}, team {h, people [[photo, name, role]]}, caseStudies {h, items [[company, text, value, caption]]}, closing {h, p, cta, link}. Extra guide-only keys: quote2 {text, name, role} (the second sample testimonial), headDemo [title, body] (the section-header demo), sigTable {head, rows} (the signature table: rows [label, value, delta, bool, status]). Guide-only extra keys: quote2 {text, name, role}, headDemo [title, body], sigTable, chips [..], tabs [..], accordion [[title, body]]. Headings (every *.h, title lines, headDemo[0]) accept *accent words* between asterisks (the accent style) and _words_ between underscores (the accent colour, italic), and an h may be [lead, tail] (tail in the accent).",
+          "additionalProperties": true,
+          "properties": {
+            "cards": {
+              "type": "object",
+              "properties": {
+                "h": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "A heading: a string, or [lead, tail] where the tail is drawn in the style's accent (typography.styles.<style>Accent). In either form, *words* between asterisks are drawn in the accent anywhere in the line ('Meet the *humans* behind it'). _words_ between underscores are drawn in the accent colour, italic, for that heading only."
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "stats": {
+              "type": "object",
+              "properties": {
+                "h": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "A heading: a string, or [lead, tail] where the tail is drawn in the style's accent (typography.styles.<style>Accent). In either form, *words* between asterisks are drawn in the accent anywhere in the line ('Meet the *humans* behind it'). _words_ between underscores are drawn in the accent colour, italic, for that heading only."
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "quote": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "logos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "logosLabel": {
+                  "type": "string",
+                  "description": "The logo strip's label (for example \"Sectors we machine for\"); with sampleCopy and no label, the strip has none."
+                }
+              }
+            },
+            "tabs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Tab labels for the small-parts page (up to 4)."
+            },
+            "accordion": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "description": "Accordion rows [title, body] for the small-parts page; the first row is drawn open with its body."
+            },
+            "compoundSamples": {
+              "type": "array",
+              "maxItems": 4,
+              "description": "Guide-only: up to four compound samples ({h, split, regions}) for the 'Compound slides' page, in the presenter's compound content shape.",
+              "items": {
+                "type": "object"
+              }
+            },
+            "tiles": {
+              "type": "object",
+              "properties": {
+                "h": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "A heading: a string, or [lead, tail] where the tail is drawn in the style's accent (typography.styles.<style>Accent). In either form, *words* between asterisks are drawn in the accent anywhere in the line ('Meet the *humans* behind it'). _words_ between underscores are drawn in the accent colour, italic, for that heading only."
+                }
+              }
+            },
+            "steps": {
+              "type": "object",
+              "properties": {
+                "h": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "A heading: a string, or [lead, tail] where the tail is drawn in the style's accent (typography.styles.<style>Accent). In either form, *words* between asterisks are drawn in the accent anywhere in the line ('Meet the *humans* behind it'). _words_ between underscores are drawn in the accent colour, italic, for that heading only."
+                }
+              }
+            },
+            "caseStudies": {
+              "type": "object",
+              "properties": {
+                "h": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "A heading: a string, or [lead, tail] where the tail is drawn in the style's accent (typography.styles.<style>Accent). In either form, *words* between asterisks are drawn in the accent anywhere in the line ('Meet the *humans* behind it'). _words_ between underscores are drawn in the accent colour, italic, for that heading only."
+                }
+              }
+            },
+            "team": {
+              "type": "object",
+              "properties": {
+                "h": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "A heading: a string, or [lead, tail] where the tail is drawn in the style's accent (typography.styles.<style>Accent). In either form, *words* between asterisks are drawn in the accent anywhere in the line ('Meet the *humans* behind it'). _words_ between underscores are drawn in the accent colour, italic, for that heading only."
+                },
+                "people": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "description": "[photo, name, role, quip?]: the optional 4th entry is the person's quip (drawn in a recipe's body / quip block; the role keeps its own line)."
+                }
+              }
+            },
+            "chart": {
+              "type": "object",
+              "properties": {
+                "h": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "A heading: a string, or [lead, tail] where the tail is drawn in the style's accent (typography.styles.<style>Accent). In either form, *words* between asterisks are drawn in the accent anywhere in the line ('Meet the *humans* behind it'). _words_ between underscores are drawn in the accent colour, italic, for that heading only."
+                }
+              }
+            },
+            "line": {
+              "type": "object",
+              "properties": {
+                "h": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "A heading: a string, or [lead, tail] where the tail is drawn in the style's accent (typography.styles.<style>Accent). In either form, *words* between asterisks are drawn in the accent anywhere in the line ('Meet the *humans* behind it'). _words_ between underscores are drawn in the accent colour, italic, for that heading only."
+                }
+              }
+            },
+            "table": {
+              "type": "object",
+              "properties": {
+                "h": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "A heading: a string, or [lead, tail] where the tail is drawn in the style's accent (typography.styles.<style>Accent). In either form, *words* between asterisks are drawn in the accent anywhere in the line ('Meet the *humans* behind it'). _words_ between underscores are drawn in the accent colour, italic, for that heading only."
+                }
+              }
+            },
+            "tableCompare": {
+              "type": "object",
+              "properties": {
+                "h": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "A heading: a string, or [lead, tail] where the tail is drawn in the style's accent (typography.styles.<style>Accent). In either form, *words* between asterisks are drawn in the accent anywhere in the line ('Meet the *humans* behind it'). _words_ between underscores are drawn in the accent colour, italic, for that heading only."
+                }
+              }
+            },
+            "roadmap": {
+              "type": "object",
+              "properties": {
+                "h": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "A heading: a string, or [lead, tail] where the tail is drawn in the style's accent (typography.styles.<style>Accent). In either form, *words* between asterisks are drawn in the accent anywhere in the line ('Meet the *humans* behind it'). _words_ between underscores are drawn in the accent colour, italic, for that heading only."
+                }
+              }
+            },
+            "closing": {
+              "type": "object",
+              "properties": {
+                "h": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "A heading: a string, or [lead, tail] where the tail is drawn in the style's accent (typography.styles.<style>Accent). In either form, *words* between asterisks are drawn in the accent anywhere in the line ('Meet the *humans* behind it'). _words_ between underscores are drawn in the accent colour, italic, for that heading only."
+                }
+              }
+            },
+            "imageBleed": {
+              "type": "object",
+              "properties": {
+                "h": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "A heading: a string, or [lead, tail] where the tail is drawn in the style's accent (typography.styles.<style>Accent). In either form, *words* between asterisks are drawn in the accent anywhere in the line ('Meet the *humans* behind it'). _words_ between underscores are drawn in the accent colour, italic, for that heading only."
+                }
+              }
+            },
+            "twoColumn": {
+              "type": "object",
+              "properties": {
+                "h": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "A heading: a string, or [lead, tail] where the tail is drawn in the style's accent (typography.styles.<style>Accent). In either form, *words* between asterisks are drawn in the accent anywhere in the line ('Meet the *humans* behind it'). _words_ between underscores are drawn in the accent colour, italic, for that heading only."
+                }
+              }
+            },
+            "variants": {
+              "type": "object",
+              "properties": {
+                "h": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "A heading: a string, or [lead, tail] where the tail is drawn in the style's accent (typography.styles.<style>Accent). In either form, *words* between asterisks are drawn in the accent anywhere in the line ('Meet the *humans* behind it'). _words_ between underscores are drawn in the accent colour, italic, for that heading only."
+                }
+              }
+            },
+            "recipeItems": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "type": "object"
+                    }
+                  ]
+                }
+              },
+              "description": "Guide-only: a card recipe's own sample copy, keyed by cards.recipes[].id: rows [icon, title, body, eyebrow/tag?] (like cards.items) or objects {icon, title, body, eyebrow, badge, stat, statCaption, button}. Recipes without an entry take cards.items; a kind 'pricing' recipe without one takes extensions.review.pricing.plans."
+            }
+          }
+        }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "description": "Machine-checkable constraints plus free-text rules for LLM/human review.",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "minContrast",
+              "forbid",
+              "require",
+              "maxCount",
+              "fontWhitelist",
+              "colorWhitelist",
+              "textOverflow",
+              "logoClearSpace",
+              "text"
+            ]
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "error",
+              "warning"
+            ]
+          },
+          "text": {
+            "type": "string",
+            "description": "Human-readable rule; required when type = 'text'."
+          }
+        }
+      }
+    },
+    "references": {
+      "type": "array",
+      "description": "Real brand slides used as few-shot examples and regression targets.",
+      "items": {
+        "type": "object",
+        "required": [
+          "image"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "image": {
+            "type": "string"
+          },
+          "layout": {
+            "type": "string"
+          },
+          "surface": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "export": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "targets": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "pptx",
+              "pdf",
+              "html",
+              "png",
+              "keynote",
+              "gslides"
+            ]
+          }
+        },
+        "embedFonts": {
+          "type": "boolean"
+        },
+        "pptxFontFallback": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "pptxSafeShadows": {
+          "type": "boolean",
+          "description": "Replace blur/backdrop effects with PowerPoint-compatible equivalents."
+        },
+        "gradientFallback": {
+          "type": "string",
+          "enum": [
+            "native",
+            "image",
+            "solid"
+          ]
+        },
+        "nativeCharts": {
+          "type": "boolean"
+        },
+        "rasterizeElements": {
+          "type": "boolean"
+        },
+        "dpi": {
+          "type": "integer"
+        }
+      }
+    },
+    "locale": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rtl": {
+          "type": "boolean"
+        },
+        "mirrorLayouts": {
+          "type": "boolean"
+        },
+        "numberFormat": {
+          "type": "string"
+        },
+        "dateFormat": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "currencyPosition": {
+          "enum": [
+            "before",
+            "after"
+          ],
+          "description": "Where the currency sign sits on figures, overriding the numberFormat locale (\"57.30\u20ac\" = after)."
+        }
+      }
+    },
+    "accessibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "minContrastBody": {
+          "type": "number"
+        },
+        "minContrastLarge": {
+          "type": "number"
+        },
+        "minFontSize": {
+          "type": "number"
+        },
+        "colorBlindSafeCharts": {
+          "type": "boolean"
+        },
+        "altText": {
+          "type": "boolean"
+        }
+      }
+    },
+    "motion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "transition": {
+          "type": "string",
+          "enum": [
+            "none",
+            "fade",
+            "push",
+            "wipe",
+            "morph",
+            "zoom"
+          ]
+        },
+        "build": {
+          "type": "string",
+          "enum": [
+            "none",
+            "fade",
+            "rise",
+            "wipe",
+            "scale"
+          ]
+        },
+        "duration": {
+          "type": "number",
+          "description": "ms"
+        },
+        "easing": {
+          "type": "string"
+        },
+        "stagger": {
+          "type": "number",
+          "description": "ms between staggered items."
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Vendor-specific or experimental fields. Namespaced keys recommended. research: { sources, confidence, inferred }, liveSiteObservations: per-area notes verified against computed styles.",
+      "additionalProperties": true
+    },
+    "gradients": {
+      "type": "object",
+      "description": "How the brand uses gradients. Every use must trace to an observed CSS rule or asset; otherwise provenance.inferred=true and the renderer ignores it by default.",
+      "additionalProperties": false,
+      "properties": {
+        "policy": {
+          "type": "string",
+          "enum": [
+            "none",
+            "text-only",
+            "accents-only",
+            "backgrounds",
+            "everywhere"
+          ],
+          "description": "summary of allowed use; none = brand does not use gradients (e.g. Uber)"
+        },
+        "definitions": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/gradientDef"
+          }
+        },
+        "usage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/gradientUse"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "hex": {
+      "type": "string",
+      "pattern": "^#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$"
+    },
+    "colorRef": {
+      "description": "A hex color or a role reference such as 'accent', 'primary', 'text', 'textMuted', 'card', 'border', 'bg', 'neutral.200', 'semantic.success', 'custom.<name>'.",
+      "type": "string",
+      "minLength": 1
+    },
+    "logoVariant": {
+      "type": "string",
+      "enum": [
+        "full",
+        "icon",
+        "wordmark",
+        "monoLight",
+        "monoDark",
+        "none"
+      ]
+    },
+    "hAlign": {
+      "type": "string",
+      "enum": [
+        "left",
+        "center",
+        "right",
+        "justify"
+      ]
+    },
+    "vAlign": {
+      "type": "string",
+      "enum": [
+        "top",
+        "center",
+        "bottom"
+      ]
+    },
+    "align2d": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "h": {
+          "$ref": "#/$defs/hAlign"
+        },
+        "v": {
+          "$ref": "#/$defs/vAlign"
+        }
+      }
+    },
+    "textCase": {
+      "type": "string",
+      "enum": [
+        "none",
+        "sentence",
+        "title",
+        "upper",
+        "lower"
+      ]
+    },
+    "placement": {
+      "type": "string",
+      "enum": [
+        "top-left",
+        "top-center",
+        "top-right",
+        "center-left",
+        "center",
+        "center-right",
+        "bottom-left",
+        "bottom-center",
+        "bottom-right",
+        "under-title",
+        "full-bleed"
+      ]
+    },
+    "box": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "top": {
+          "type": "number"
+        },
+        "right": {
+          "type": "number"
+        },
+        "bottom": {
+          "type": "number"
+        },
+        "left": {
+          "type": "number"
+        }
+      }
+    },
+    "rect": {
+      "type": "object",
+      "required": [
+        "x",
+        "y",
+        "w",
+        "h"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "w": {
+          "type": "number"
+        },
+        "h": {
+          "type": "number"
+        }
+      }
+    },
+    "padding": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 4
+        }
+      ]
+    },
+    "radius": {
+      "description": "A radiusScale key, a number, or per-corner values.",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tl": {
+              "type": "number"
+            },
+            "tr": {
+              "type": "number"
+            },
+            "br": {
+              "type": "number"
+            },
+            "bl": {
+              "type": "number"
+            }
+          }
+        }
+      ]
+    },
+    "border": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "width": {
+          "type": "number"
+        },
+        "style": {
+          "type": "string",
+          "enum": [
+            "solid",
+            "dashed",
+            "dotted",
+            "none"
+          ]
+        },
+        "color": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "sides": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "all",
+                "none",
+                "top",
+                "right",
+                "bottom",
+                "left",
+                "horizontal",
+                "vertical"
+              ]
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "top",
+                  "right",
+                  "bottom",
+                  "left"
+                ]
+              }
+            }
+          ]
+        },
+        "between": {
+          "type": "boolean",
+          "description": "with sides: the rules sit between cards only \u2014 the first column drops its left rule (last column its right, first row its top) (Landmark stats band)"
+        },
+        "double": {
+          "type": "boolean",
+          "description": "A second line inside the border (a double frame), in the border's width and colour."
+        },
+        "gap": {
+          "type": "number",
+          "description": "px between the outer border and the inner line of a double border (default 4)."
+        }
+      }
+    },
+    "shadow": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "blur": {
+          "type": "number"
+        },
+        "spread": {
+          "type": "number"
+        },
+        "color": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "opacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "accentBar": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "side": {
+          "type": "string",
+          "enum": [
+            "top",
+            "right",
+            "bottom",
+            "left",
+            "none"
+          ]
+        },
+        "width": {
+          "type": "number"
+        },
+        "color": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "radius": {
+          "type": "boolean",
+          "description": "Follow the card radius."
+        }
+      }
+    },
+    "fill": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/colorRef"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "solid",
+                "linear-gradient",
+                "radial-gradient",
+                "none"
+              ]
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "angle": {
+              "type": "number"
+            },
+            "stops": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/gradientStop"
+              }
+            },
+            "opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        }
+      ]
+    },
+    "gradientStop": {
+      "type": "object",
+      "required": [
+        "color",
+        "at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "color": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "at": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "background": {
+      "type": "object",
+      "required": [
+        "type",
+        "surface"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "solid",
+            "linear-gradient",
+            "radial-gradient",
+            "mesh-gradient",
+            "image",
+            "pattern",
+            "video",
+            "gradient"
+          ]
+        },
+        "surface": {
+          "type": "string",
+          "description": "Surface id whose foreground colors are safe on this background."
+        },
+        "color": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "angle": {
+          "type": "number"
+        },
+        "stops": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/gradientStop"
+          }
+        },
+        "center": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "image": {
+          "type": "string"
+        },
+        "imageFit": {
+          "type": "string",
+          "enum": [
+            "cover",
+            "contain",
+            "tile"
+          ]
+        },
+        "overlay": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "overlayOpacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "overlayGradient": {
+          "type": "boolean"
+        },
+        "pattern": {
+          "type": "string",
+          "description": "assets.elements id of type pattern."
+        },
+        "patternOpacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "elements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "assets.elements ids placed on this background."
+        },
+        "blur": {
+          "type": "number"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "gradient": {
+          "type": "string",
+          "description": "gradients.definitions key when type=gradient"
+        },
+        "overlayDirection": {
+          "type": "string",
+          "enum": [
+            "top",
+            "bottom",
+            "left",
+            "right"
+          ]
+        },
+        "radius": {
+          "description": "image backgrounds only: corner radius of the photo box (number or {tl,tr,br,bl}); the page colour shows in the corners",
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tl": {
+                  "type": "number"
+                },
+                "tr": {
+                  "type": "number"
+                },
+                "br": {
+                  "type": "number"
+                },
+                "bl": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "inset": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 4,
+          "maxItems": 4,
+          "description": "image backgrounds only: [top,right,bottom,left] px inset of the photo box from the slide edge"
+        },
+        "pageSurface": {
+          "type": "string",
+          "description": "surface whose bg shows around a framed image background (default: backgrounds.default.surface)"
+        },
+        "imagePosition": {
+          "type": "string",
+          "description": "CSS background-position of the photo, e.g. \"70% 30%\" or \"right center\" (photo focus: Henkel 150 YEARS lettering)"
+        },
+        "overlayExtent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "image background with overlayDirection: the scrim covers only this fraction of the slide from that edge (BAT: navy 95% over the top 22%)"
+        }
+      }
+    },
+    "font": {
+      "type": "object",
+      "required": [
+        "family"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "family": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "google",
+            "adobe",
+            "system",
+            "file",
+            "url"
+          ]
+        },
+        "file": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "fallback": {
+          "type": "string"
+        },
+        "weights": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "license": {
+          "type": "string"
+        },
+        "embeddable": {
+          "type": "boolean"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "liveFamily": {
+          "type": "string",
+          "description": "family the live site renders when it differs from the guideline family"
+        },
+        "stretch": {
+          "type": "number",
+          "minimum": 25,
+          "maximum": 200,
+          "description": "font width axis in % (wdth) requested from Google and set as font-stretch: a width variant stand-in, e.g. Archivo 125 for a licensed Extended face"
+        },
+        "italic": {
+          "type": "boolean",
+          "description": "request the family's real italic from Google Fonts (only when the family has one)"
+        },
+        "files": {
+          "type": "array",
+          "description": "Several font files for one family: one @font-face per file at its real weight and style (a bold file declared as bold, so bold labels don't draw regular). Takes precedence over url.",
+          "items": {
+            "type": "object",
+            "required": [
+              "url"
+            ],
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "weight": {
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "description": "e.g. 400, 700, or a range \"100 900\" for a variable file"
+              },
+              "style": {
+                "enum": [
+                  "normal",
+                  "italic"
+                ]
+              }
+            }
+          }
+        },
+        "weight": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "The real weight of the single file in url (e.g. 400). The browser then synthesises bold from it, as the site does (a Roman-only brand font). Unset: the file is declared as 100-900."
+        },
+        "style": {
+          "enum": [
+            "normal",
+            "italic"
+          ],
+          "description": "The style of the single file in url."
+        }
+      }
+    },
+    "textStyle": {
+      "type": "object",
+      "required": [
+        "font",
+        "size"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "font": {
+          "type": "string",
+          "description": "Key in typography.fonts."
+        },
+        "size": {
+          "type": "number"
+        },
+        "minSize": {
+          "type": "number"
+        },
+        "weight": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 900
+        },
+        "italic": {
+          "type": "boolean"
+        },
+        "lineHeight": {
+          "type": "number"
+        },
+        "letterSpacing": {
+          "type": "number",
+          "description": "em"
+        },
+        "case": {
+          "$ref": "#/$defs/textCase"
+        },
+        "color": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "align": {
+          "$ref": "#/$defs/hAlign"
+        },
+        "underline": {
+          "type": "boolean"
+        },
+        "maxLines": {
+          "type": "integer"
+        },
+        "paragraphSpacing": {
+          "type": "number"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "colorBySurface": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/colorRef"
+          },
+          "description": "the style colour per surface id, e.g. { deep: \"#2DBECD\" } \u2014 a title that is green on one surface and cyan on another (Merck)"
+        },
+        "textShadow": {
+          "type": "string",
+          "description": "CSS text-shadow for the style, e.g. \"0 0 30px rgba(0,0,0,.5), 0 0 5px #000000\" (HK Airport hero slogan with no scrim); no double quotes"
+        },
+        "highlight": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "inline highlight box behind each line of the text (box-decoration-break), the Victorian Government Ripple device",
+          "properties": {
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "padding": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 2,
+              "maxItems": 2,
+              "description": "[y, x] px"
+            },
+            "radius": {
+              "$ref": "#/$defs/radius"
+            }
+          }
+        },
+        "unitFont": {
+          "type": "string",
+          "description": "For a figure style (stat): the unit after the number (\u00b5m, %, days) is set in this face \u2014 a typography.styles name (its family, weight, tracking and case) or a typography.fonts key. Stria: mono units beside the grotesk figure."
+        }
+      }
+    },
+    "cardStyle": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "flat",
+            "outlined",
+            "elevated",
+            "filled",
+            "glass",
+            "accent"
+          ]
+        },
+        "radius": {
+          "$ref": "#/$defs/radius"
+        },
+        "border": {
+          "$ref": "#/$defs/border"
+        },
+        "accentBar": {
+          "$ref": "#/$defs/accentBar"
+        },
+        "topStrip": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "height": {
+              "type": "number"
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            }
+          }
+        },
+        "fill": {
+          "$ref": "#/$defs/fill"
+        },
+        "fillOpacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "backdropBlur": {
+          "type": "number"
+        },
+        "shadow": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/$defs/shadow"
+            }
+          ]
+        },
+        "padding": {
+          "$ref": "#/$defs/padding"
+        },
+        "textColor": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "titleStyle": {
+          "type": "string"
+        },
+        "bodyStyle": {
+          "type": "string"
+        },
+        "innerRadius": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "match",
+            "none"
+          ],
+          "description": "Radius of images inside the card. auto = outer minus padding."
+        },
+        "actionIcon": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "externalName": {
+              "type": "string"
+            },
+            "size": {
+              "type": "number"
+            },
+            "position": {
+              "$ref": "#/$defs/placement"
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            }
+          }
+        },
+        "header": {
+          "type": "string",
+          "enum": [
+            "none",
+            "logo",
+            "image",
+            "eyebrow"
+          ]
+        },
+        "statBand": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "statStyle": {
+              "type": "string"
+            },
+            "captionStyle": {
+              "type": "string"
+            },
+            "position": {
+              "type": "string",
+              "enum": [
+                "top",
+                "bottom"
+              ]
+            }
+          }
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "eyebrowColor": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "iconFill": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "iconColor": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "clipPath": {
+          "type": "string",
+          "description": "CSS clip-path, e.g. a slanted panel 'polygon(0 0,100% 0,92% 100%,0 100%)'"
+        },
+        "titleColor": {
+          "$ref": "#/$defs/colorRef",
+          "description": "card title colour for this variant (Henkel: yellow title on the navy card, pale green on teal)"
+        }
+      }
+    },
+    "cardInternalLayout": {
+      "type": "string",
+      "enum": [
+        "icon-top",
+        "icon-left",
+        "number-top",
+        "number-left",
+        "image-top",
+        "image-bleed",
+        "image-left",
+        "title-only",
+        "stat",
+        "icon-bottom-left",
+        "image-left-eyebrow"
+      ]
+    },
+    "iconContainer": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "container": {
+          "type": "string",
+          "enum": [
+            "none",
+            "circle",
+            "square",
+            "rounded",
+            "squircle"
+          ]
+        },
+        "size": {
+          "type": "number"
+        },
+        "fill": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "color": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "border": {
+          "$ref": "#/$defs/border"
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "brand pictogram/icon files used in place of the built-in line icons"
+        },
+        "filesOnDark": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "white copies of files, used on dark cards and surfaces (MSC pictograms on photos and the stats band)"
+        },
+        "filesInContainer": {
+          "type": "boolean",
+          "description": "draw the brand icon files inside the container shape (fill, container) instead of bare (HK Airport white glyphs on coral discs)"
+        },
+        "fileScale": {
+          "type": "number",
+          "description": "glyph size inside the container, fraction of the container (default 0.62)"
+        },
+        "provenance": {},
+        "font": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "brand pictograms from an icon font: the font file is embedded and glyphs are drawn in turn (Intel site-global-icons)",
+          "properties": {
+            "family": {
+              "type": "string"
+            },
+            "file": {
+              "type": "string",
+              "description": "local font file (woff2/woff/ttf)"
+            },
+            "glyphs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "the glyph characters (e.g. private-use code points) in order"
+            }
+          }
+        },
+        "stroke": {
+          "type": "number",
+          "description": "icon stroke width for line icons"
+        },
+        "style": {
+          "type": "string",
+          "enum": [
+            "line",
+            "filled"
+          ],
+          "description": "filled: with no container the icon sits on a filled shape"
+        },
+        "ring": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "an outlined ring container instead of a filled one",
+          "properties": {
+            "width": {
+              "type": "number"
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            }
+          }
+        },
+        "filesOnLight": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "icon files for light surfaces (e.g. black set); filesOnDark for dark"
+        },
+        "filesBySurface": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "description": "Icon files per surface id ({surfaceId: [files]}), drawn on that surface (the card's own fill surface first, else the slide's); wins over filesOnDark / filesOnLight. Without it, the dark set is used where white reads better than the ink (a signal red takes the ink set)."
+        }
+      }
+    },
+    "imageTreatment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "saturation": {
+          "type": "number"
+        },
+        "contrast": {
+          "type": "number"
+        },
+        "brightness": {
+          "type": "number"
+        },
+        "blur": {
+          "type": "number"
+        },
+        "duotone": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "dark": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "light": {
+              "$ref": "#/$defs/colorRef"
+            }
+          }
+        },
+        "tint": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "blend": {
+              "type": "string",
+              "enum": [
+                "normal",
+                "multiply",
+                "screen",
+                "overlay",
+                "soft-light"
+              ]
+            }
+          }
+        },
+        "gradientFade": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "direction": {
+              "type": "string",
+              "enum": [
+                "to-left",
+                "to-right",
+                "to-top",
+                "to-bottom"
+              ]
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "start": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        "grain": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "vignette": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "mask": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "rect",
+            "ellipse",
+            "polygon",
+            "svg",
+            "text"
+          ]
+        },
+        "radius": {
+          "$ref": "#/$defs/radius"
+        },
+        "points": {
+          "type": "string",
+          "description": "Polygon points as percentages: 'x,y x,y ...'."
+        },
+        "file": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string",
+          "description": "Inline SVG path in a 0-100 viewBox."
+        },
+        "aspect": {
+          "type": "string"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "flipOnRtl": {
+          "type": "boolean"
+        }
+      }
+    },
+    "designElement": {
+      "type": "object",
+      "required": [
+        "id",
+        "type"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "shape",
+            "pattern",
+            "texture",
+            "illustration",
+            "rule",
+            "frame",
+            "badge",
+            "sticker",
+            "watermark",
+            "textGradient",
+            "actionIcon",
+            "word"
+          ]
+        },
+        "file": {
+          "type": "string"
+        },
+        "anchor": {
+          "type": "string",
+          "enum": ["fixed", "free"],
+          "description": "fixed: the element stays at its box (devices, frames, edge peeks, corner cuts); free: decorative characters / accents the cover rule may move to balance the slide (C-LAYOUT-012 balance engine). Absent = fixed"
+        },
+        "animated": {
+          "type": "string",
+          "description": "an animated version of file (animated WebP / GIF, same framing): the app shows it in the present window only (.presentViewClass .widgetView), the static file everywhere else"
+        },
+        "path": {
+          "type": "string"
+        },
+        "colorable": {
+          "type": "boolean",
+          "description": "Can be recolored to a token."
+        },
+        "color": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "placement": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/placement"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/placement"
+              }
+            }
+          ]
+        },
+        "box": {
+          "$ref": "#/$defs/rect"
+        },
+        "scale": {
+          "type": "number"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "opacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "blend": {
+          "type": "string",
+          "enum": [
+            "normal",
+            "multiply",
+            "screen",
+            "overlay",
+            "soft-light"
+          ]
+        },
+        "tile": {
+          "type": "boolean"
+        },
+        "length": {
+          "type": "number"
+        },
+        "thickness": {
+          "type": "number"
+        },
+        "allowedOn": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Layout ids."
+        },
+        "surfaces": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "layer": {
+          "type": "string",
+          "enum": [
+            "behind",
+            "front"
+          ]
+        },
+        "frequency": {
+          "type": "string",
+          "enum": [
+            "always",
+            "often",
+            "rare"
+          ]
+        },
+        "angle": {
+          "type": "number"
+        },
+        "stops": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/gradientStop"
+          }
+        },
+        "appliesTo": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "text style names a textGradient applies to"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "fade": {
+          "type": "boolean",
+          "description": "rule fades from its colour to transparent (left \u2192 right)"
+        },
+        "align": {
+          "type": "string",
+          "enum": [
+            "left",
+            "center",
+            "right"
+          ],
+          "description": "rule under the title: alignment (centre under centred titles)"
+        },
+        "radius": {
+          "description": "rule corner radius",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "solid": {
+          "type": "boolean",
+          "description": "flat colour fill (bars, bands, blocks) instead of the soft radial fill for blobs"
+        },
+        "hard": {
+          "type": "boolean",
+          "description": "stops are hard-edged bands (each colour runs from the previous stop to its own at), not a blend \u2014 a multi-colour bar drawn from stops without an SVG file (BAT spectrum bar)"
+        },
+        "previewSurface": {
+          "type": "string",
+          "description": "surface id the Design elements page draws this element on (white line art needs a dark ground: NTT DATA, Sysco)"
+        },
+        "text": {
+          "type": "string",
+          "description": "type word: the text drawn (a giant background word)"
+        },
+        "style": {
+          "type": "string",
+          "description": "type word: typography style for the face (default display)"
+        },
+        "size": {
+          "type": "number",
+          "description": "type word: font size px"
+        },
+        "endTick": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "height": {
+              "type": "number",
+              "description": "px, default 10"
+            },
+            "width": {
+              "type": "number",
+              "description": "px, default the rule thickness"
+            }
+          },
+          "description": "A rule's short upright tick at its right end, in the rule colour (Stria's red rule)."
+        },
+        "gradient": {
+          "type": "string",
+          "description": "A rule drawn as a gradient: a gradients.definitions key, laid left \u2192 right (Vaelmont's gold-foil rule)."
+        },
+        "inset": {
+          "type": "number",
+          "description": "For a frame or crop-mark element: px from the slide edge to its inner line. Text on a full-bleed layout that draws it (imageBleed) keeps inside it: inset + a gap, never less than the margins (default 64)."
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "Where this value was observed, e.g. \"ibm.com live CSS\", \"carbon-docs\", \"brand PDF p.12\", \"screenshot\""
+        },
+        "selector": {
+          "type": "string"
+        },
+        "inferred": {
+          "type": "boolean",
+          "description": "true when derived rather than observed; inferred values must not be layout defaults"
+        },
+        "verifiedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "gradientDef": {
+      "type": "object",
+      "required": [
+        "type",
+        "stops"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "linear",
+            "radial",
+            "conic",
+            "mesh"
+          ]
+        },
+        "angle": {
+          "type": "number"
+        },
+        "center": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "percent x,y for radial/conic"
+        },
+        "shape": {
+          "type": "string",
+          "enum": [
+            "circle",
+            "ellipse"
+          ]
+        },
+        "size": {
+          "type": "string",
+          "description": "radial size, e.g. \"60% 70%\" or \"closest-side\""
+        },
+        "stops": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/gradientStop"
+          }
+        },
+        "points": {
+          "type": "array",
+          "description": "mesh only: per-stop positions as [x%,y%]",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "blur": {
+          "type": "number",
+          "description": "px blur when used as a glow"
+        },
+        "opacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "blend": {
+          "type": "string",
+          "enum": [
+            "normal",
+            "multiply",
+            "screen",
+            "overlay",
+            "soft-light",
+            "plus-lighter"
+          ]
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "gradientUse": {
+      "type": "object",
+      "required": [
+        "gradient",
+        "as"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "gradient": {
+          "type": "string",
+          "description": "key in gradients.definitions"
+        },
+        "as": {
+          "type": "string",
+          "enum": [
+            "text",
+            "background",
+            "glow",
+            "overlay",
+            "fill",
+            "border",
+            "divider",
+            "chartSeries"
+          ],
+          "description": "text = background-clip:text on headings; background = full slide; glow = blurred blob placed on the slide; overlay = scrim over photos; fill = buttons/stat numbers/meters; border = gradient stroke; divider = rule; chartSeries = area/bar fills"
+        },
+        "on": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "layouts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "surfaces": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "styles": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "text style names for as=text"
+            },
+            "components": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "placement": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/placement"
+            },
+            {
+              "$ref": "#/$defs/rect"
+            }
+          ]
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "scale": {
+          "type": "number"
+        },
+        "frequency": {
+          "type": "string",
+          "enum": [
+            "always",
+            "often",
+            "rare"
+          ]
+        },
+        "maxPerSlide": {
+          "type": "integer"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "cardBlock": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "image",
+            "icon",
+            "eyebrow",
+            "title",
+            "body",
+            "link",
+            "button",
+            "badge",
+            "stat",
+            "logo",
+            "divider",
+            "tags",
+            "meta",
+            "footer",
+            "panel",
+            "rating"
+          ]
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "w": {
+          "type": "number"
+        },
+        "h": {
+          "type": "number"
+        },
+        "align": {
+          "$ref": "#/$defs/hAlign"
+        },
+        "aspect": {
+          "type": "number",
+          "description": "image aspect ratio w/h"
+        },
+        "bleed": {
+          "type": "boolean",
+          "description": "image runs to the card edges"
+        },
+        "style": {
+          "type": "string",
+          "description": "text style name for text blocks"
+        },
+        "radius": {
+          "$ref": "#/$defs/radius"
+        },
+        "fill": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "color": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "fade": {
+          "type": "boolean"
+        },
+        "thickness": {
+          "type": "number"
+        },
+        "opacity": {
+          "type": "number"
+        },
+        "blur": {
+          "type": "number"
+        },
+        "boldFirst": {
+          "type": "boolean"
+        },
+        "fill2": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "text2": {
+          "type": "string"
+        },
+        "chevron": {
+          "type": "boolean"
+        },
+        "overlay": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "overlayOpacity": {
+          "type": "number"
+        },
+        "fills": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/colorRef"
+          },
+          "description": "panel fill per card, cycling"
+        },
+        "file": {
+          "type": "string"
+        },
+        "brand": {
+          "type": "boolean"
+        },
+        "mask": {
+          "type": "string",
+          "description": "masks.options key (type svg with a file) On a panel block: the panel is cut to that mask (its path, else its SVG file, stretched to the panel)."
+        },
+        "overlayFrom": {
+          "type": "number",
+          "description": "image overlay fades in from this % (top\u2192bottom)"
+        },
+        "lead": {
+          "type": "string",
+          "description": "glyph before a title, e.g. '\u2192'"
+        },
+        "gradient": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "angle": {
+              "type": "number"
+            },
+            "stops": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "color": {
+                    "$ref": "#/$defs/colorRef"
+                  },
+                  "at": {
+                    "type": "number"
+                  },
+                  "opacity": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "unitScale": {
+          "type": "number"
+        },
+        "anchor": {
+          "type": "string",
+          "enum": [
+            "top",
+            "bottom"
+          ]
+        },
+        "weight": {
+          "type": "integer"
+        },
+        "chevronPos": {
+          "type": "string",
+          "enum": [
+            "inline",
+            "end"
+          ]
+        },
+        "chevronColor": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "stack": {
+          "type": "boolean"
+        },
+        "maxSize": {
+          "type": "number"
+        },
+        "text1": {
+          "type": "string"
+        },
+        "value": {
+          "type": "number",
+          "description": "rating block: stars filled (e.g. 4.5)"
+        },
+        "max": {
+          "type": "number",
+          "description": "rating block: number of stars"
+        },
+        "size": {
+          "type": "number",
+          "description": "rating block: star size px"
+        },
+        "gap": {
+          "type": "number"
+        },
+        "offColor": {
+          "type": "string",
+          "description": "rating block: empty-star colour"
+        },
+        "count": {
+          "type": "boolean",
+          "description": "rating block: show the review count"
+        },
+        "countText": {
+          "type": "string"
+        },
+        "countColor": {
+          "type": "string"
+        },
+        "overlayDir": {
+          "type": "string",
+          "enum": [
+            "top",
+            "bottom",
+            "left",
+            "right"
+          ]
+        },
+        "fit": {
+          "type": "string",
+          "enum": [
+            "cover",
+            "contain"
+          ]
+        },
+        "chevronGlyph": {
+          "type": "string",
+          "description": "glyph after the title (\u2192, \u203a, \u2197)"
+        },
+        "label": {
+          "type": "string",
+          "description": "button block label"
+        },
+        "layer": {
+          "type": "string",
+          "enum": [
+            "back",
+            "front"
+          ],
+          "description": "panel block: 'front' draws it over the photo (a band on the image)"
+        },
+        "icon": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "glyph": {
+                  "type": "string"
+                },
+                "side": {
+                  "type": "string",
+                  "enum": [
+                    "left",
+                    "right"
+                  ]
+                },
+                "fill": {
+                  "$ref": "#/$defs/colorRef"
+                },
+                "color": {
+                  "$ref": "#/$defs/colorRef"
+                }
+              }
+            },
+            {
+              "type": "boolean",
+              "const": false
+            },
+            {
+              "type": "string",
+              "const": "none"
+            }
+          ],
+          "description": "button block: this recipe's own button icon, drawn with drawButtons (Landmark \"KNOW MORE \u2197\") false or 'none': this button draws no icon (overrides the component's icon)."
+        },
+        "padding": {
+          "$ref": "#/$defs/padding",
+          "description": "button block: this recipe's own button padding (site px, scaled like components.button.padding)"
+        },
+        "variant": {
+          "enum": [
+            "primary",
+            "secondary",
+            "outline",
+            "cta"
+          ],
+          "description": "For type 'button': which button component draws it (components.button / buttonSecondary / buttonOutline / buttonCta, with its onSurface)."
+        },
+        "path": {
+          "type": "string",
+          "description": "A panel's own outline as an SVG path in a 0\u2013100 box (stretched to the panel), so a stat panel can be a true blob. Wins over mask and radius."
+        },
+        "keep": {
+          "type": "boolean",
+          "description": "A body block's line is essential (default true for a second body block, the caption / statCaption line such as Personaas' fact \u2192 Personaas pairing): on recipe pages the card grows, other rows give up room, the recipe gets its own page with one row of cards, and only as the last resort is the line dropped. false: the line is optional and goes first when the card cannot hold its text."
+        }
+      }
+    },
+    "cardRecipe": {
+      "type": "object",
+      "required": [
+        "id",
+        "blocks"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "variant": {
+          "type": "string",
+          "description": "cards.variants key for the box style; default cards.style"
+        },
+        "blocks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/cardBlock"
+          },
+          "description": "ordered composition, geometry in percent of the card box"
+        },
+        "arrangement": {
+          "type": "string",
+          "enum": [
+            "row",
+            "column"
+          ]
+        },
+        "aspect": {
+          "type": "number",
+          "description": "card w/h"
+        },
+        "columns": {
+          "type": "integer"
+        },
+        "gap": {
+          "type": "number"
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "none",
+            "link",
+            "button",
+            "icon"
+          ]
+        },
+        "textAlign": {
+          "$ref": "#/$defs/hAlign"
+        },
+        "count": {
+          "type": "integer",
+          "description": "occurrences observed"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "feature",
+            "case_study",
+            "pricing",
+            "blog",
+            "stat",
+            "team",
+            "listing",
+            "other",
+            "testimonial",
+            "list"
+          ],
+          "description": "what the card is used for on the site (Jev); maps recipes to slide types"
+        },
+        "textOverImage": {
+          "type": "boolean",
+          "description": "Text blocks sit on the image (e.g. white title over an illustration) instead of being moved below it."
+        },
+        "orientation": {
+          "type": "string",
+          "enum": [
+            "horizontal",
+            "vertical",
+            "square"
+          ],
+          "description": "card shape on the site; derived from aspect when absent (>1.15 horizontal, <0.87 vertical)"
+        },
+        "gridLayout": {
+          "type": "string",
+          "enum": [
+            "row",
+            "grid",
+            "list"
+          ],
+          "description": "how the cards sit together on the site: one row, a multi-row grid, or a single-column list of wide rows; derived from columns/count/aspect when absent"
+        },
+        "cycleVariants": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "cards.variants keys applied card by card in a grid (e.g. alternating tile colours)"
+        },
+        "surface": {
+          "type": "string",
+          "description": "surface this card composition sits on (guide shows it there)"
+        },
+        "iconBeside": {
+          "type": "boolean",
+          "description": "flowing card: icon beside the title even when the body runs full width"
+        },
+        "actionPosition": {
+          "type": "string",
+          "enum": [
+            "bottom-right",
+            "bottom-center",
+            "bottom-left"
+          ]
+        },
+        "actionColor": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "actionSize": {
+          "type": "number"
+        },
+        "actionBox": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "size": {
+              "type": "number"
+            },
+            "border": {
+              "type": "number"
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "radius": {
+              "$ref": "#/$defs/radius"
+            },
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            }
+          }
+        },
+        "imageTags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "only use imagery.samples with one of these tags"
+        },
+        "flow": {
+          "type": "boolean",
+          "description": "false keeps the observed % boxes instead of the flowing photo-card layout"
+        },
+        "actionGlyph": {
+          "type": "string",
+          "description": "icon name for the card action (arrow-right, arrow-up-right, chevron-right \u2026)"
+        },
+        "drawButtons": {
+          "type": "boolean",
+          "description": "draw the recipe's button blocks as components.button (the site's card always ends in a button)"
+        },
+        "sharedImage": {
+          "type": "boolean",
+          "description": "one photo spans the whole row of cards, each card showing its slice (MSC solutions panel); the photo is the largest sample with the recipe imageTags"
+        },
+        "icon": {
+          "type": "object",
+          "description": "per-recipe icon style, overriding cards.icon (container, color, fill, size, files, filesOnDark, filesOnLight, stroke, style)",
+          "properties": {
+            "container": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            },
+            "fill": {
+              "type": "string"
+            },
+            "size": {
+              "type": "number"
+            },
+            "files": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "filesOnDark": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "filesOnLight": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "stroke": {
+              "type": "number"
+            },
+            "style": {
+              "type": "string"
+            },
+            "ring": {},
+            "provenance": {}
+          },
+          "additionalProperties": false
+        },
+        "linkLabel": {
+          "type": "string",
+          "description": "This recipe's link wording, overriding the sample (\"Read Bio\")."
+        },
+        "rowHeight": {
+          "type": "number",
+          "description": "List recipes: a fixed row height in slide px (BASF link rows), instead of the aspect-derived height."
+        }
+      }
+    },
+    "sectionHeader": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "how a slide/section heading sits against its intro text, measured on the site (review-layout.js)",
+      "properties": {
+        "pattern": {
+          "type": "string",
+          "enum": [
+            "stacked",
+            "split",
+            "centered"
+          ]
+        },
+        "maxWidth": {
+          "type": "number",
+          "description": "heading width as a fraction of the content column"
+        },
+        "splitAt": {
+          "type": "number",
+          "description": "split: where the intro column starts, fraction of the content column"
+        },
+        "eyebrow": {
+          "type": "boolean"
+        },
+        "eyebrowStyle": {
+          "type": "string"
+        },
+        "introStyle": {
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "eyebrowMarker": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "a small block before the eyebrow text",
+          "properties": {
+            "w": {
+              "type": "number"
+            },
+            "h": {
+              "type": "number"
+            },
+            "color": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "shape": {
+              "type": "string",
+              "enum": [
+                "rect",
+                "circle"
+              ],
+              "description": "circle: a round dot marker"
+            },
+            "gap": {
+              "type": "number",
+              "description": "px between marker and text"
+            }
+          }
+        },
+        "eyebrowText": {
+          "type": "string",
+          "description": "eyebrow text for guide pages; {page} is replaced by the page's component name"
+        },
+        "eyebrowRules": {
+          "type": "boolean",
+          "description": "thin rules above and below the eyebrow"
+        },
+        "link": {
+          "type": "string",
+          "description": "right-aligned link beside the heading, e.g. 'Show all'"
+        },
+        "linkColor": {
+          "$ref": "#/$defs/colorRef"
+        },
+        "linkUnderline": {
+          "type": "boolean"
+        },
+        "linkGlyph": {
+          "type": "string"
+        },
+        "linkWeight": {
+          "type": "integer"
+        },
+        "eyebrowPill": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "the eyebrow on a soft pill (Omnicom: grey blur fading out to the right)",
+          "properties": {
+            "fill": {
+              "$ref": "#/$defs/colorRef"
+            },
+            "radius": {
+              "$ref": "#/$defs/radius"
+            },
+            "padding": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "[y, x] px"
+            },
+            "fade": {
+              "type": "string",
+              "enum": [
+                "none",
+                "right"
+              ]
+            },
+            "fadeLength": {
+              "type": "number",
+              "description": "px the fade runs past the text"
+            },
+            "blur": {
+              "type": "number",
+              "description": "px blur on the pill edge"
+            }
+          }
+        },
+        "twoTone": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "last",
+                "half"
+              ]
+            }
+          ],
+          "description": "guide page titles split two-tone: the last word (true / last) or second half set in the h1 accent style (Henkel compressed + extended, Landmark grey + blue)"
+        }
+      }
+    }
+  }
+}

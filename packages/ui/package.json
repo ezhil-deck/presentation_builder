@@ -1,0 +1,35 @@
+{
+  "name": "@pb/ui",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Local editor / review web app.",
+  "type": "module",
+  "main": "./src/index.js",
+  "scripts": {
+    "dev": "webpack serve --config webpack.config.cjs --mode development",
+    "build": "webpack --config webpack.config.cjs --mode production",
+    "serve": "node server.js --port 8100",
+    "api": "node server.js --api-only --port 8101"
+  },
+  "dependencies": {
+    "@pb/renderer": "*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/react": "^16.3.3",
+    "autoprefixer": "^10.4.20",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "jest-environment-jsdom": "^29.7.0",
+    "postcss": "^8.4.49",
+    "postcss-loader": "^8.1.1",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^3.4.17",
+    "webpack": "^5.99.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.2.0"
+  }
+}

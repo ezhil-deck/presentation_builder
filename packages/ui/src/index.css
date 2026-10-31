@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Tailwind's preflight is off (tailwind.config.cjs): the slides painted live by @pb/renderer must look exactly as
+ * in the export, which has no CSS reset. This is the reset for the UI chrome only - zero specificity (:where) so
+ * utilities win, and never inside a .slide.
+ */
+html,
+body {
+  margin: 0;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+:where(.pb-ui *:not(.slide, .slide *)),
+:where(.pb-ui *:not(.slide, .slide *))::before,
+:where(.pb-ui *:not(.slide, .slide *))::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e5e5;
+}
+:where(.pb-ui :is(h1, h2, h3, p, dl, dd, pre, ul):not(.slide *)) {
+  margin: 0;
+}
+:where(.pb-ui ul:not(.slide *)) {
+  list-style: none;
+  padding: 0;
+}
+:where(.pb-ui :is(button, input, select, textarea):not(.slide *)) {
+  font: inherit;
+  color: inherit;
+}
+:where(.pb-ui button:not(.slide *)) {
+  background: transparent;
+  cursor: pointer;
+}
+:where(.pb-ui a:not(.slide *)) {
+  color: inherit;
+  text-decoration: inherit;
+}
+:where(.pb-ui table:not(.slide *)) {
+  border-collapse: collapse;
+}

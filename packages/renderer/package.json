@@ -1,0 +1,19 @@
+{
+  "name": "@pb/renderer",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Paints a Deck to HTML (plain JS + React.createElement, no JSX).",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./components": "./src/components.js"
+  },
+  "scripts": {
+    "test": "jest --config ../../jest.config.cjs --rootDir ../.. packages/renderer/"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

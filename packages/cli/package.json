@@ -1,0 +1,26 @@
+{
+  "name": "@pb/cli",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The pb command: brand folder -> BrandSpec -> Mood -> Deck -> HTML / PDF / PNG + report.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "bin": {
+    "pb": "./bin/pb.js"
+  },
+  "dependencies": {
+    "@pb/brand": "*",
+    "@pb/checks": "*",
+    "@pb/engine": "*",
+    "@pb/export": "*",
+    "@pb/layouts": "*",
+    "@pb/mood": "*",
+    "@pb/renderer": "*",
+    "commander": "^12.1.0",
+    "pixelmatch": "^5.3.0",
+    "pngjs": "^7.0.0"
+  }
+}

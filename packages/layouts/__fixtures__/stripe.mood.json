@@ -1,0 +1,1977 @@
+{
+  "brandHash": "4ca8f3769c9be57520ea7139fefb08b6a26f3c78c0dcb1ce0360b9bd5378806e",
+  "brandId": "stripe",
+  "charts": {
+    "axes": {
+      "color": "textMuted",
+      "font": "caption",
+      "line": false,
+      "show": true
+    },
+    "background": "card",
+    "bar": {
+      "gap": 0.47,
+      "orientation": "vertical",
+      "radius": 1
+    },
+    "border": {
+      "color": "border",
+      "style": "solid",
+      "width": 1
+    },
+    "dataLabels": {
+      "show": false
+    },
+    "donut": {
+      "centerLabel": true,
+      "innerRadius": 0.65
+    },
+    "font": "caption",
+    "gridlines": {
+      "axis": "y",
+      "color": "border",
+      "show": false,
+      "style": "solid"
+    },
+    "highlight": {
+      "highlight": "accent",
+      "others": "chartMuted"
+    },
+    "legend": {
+      "marker": "circle",
+      "position": "top"
+    },
+    "line": {
+      "areaOpacity": 0.1,
+      "markers": false,
+      "smooth": true,
+      "width": 2
+    },
+    "palette": "categorical",
+    "pie": {
+      "gap": 2,
+      "labels": "outside",
+      "startAngle": -90
+    },
+    "radius": 6
+  },
+  "components": {
+    "arrow": {
+      "tokens": {
+        "color": "textMuted",
+        "curve": "straight",
+        "head": "filled",
+        "stroke": 2
+      },
+      "variant": "default"
+    },
+    "avatar": {
+      "tokens": {
+        "border.style": "none",
+        "border.width": 0,
+        "mask": "square",
+        "placeholder": "silhouette",
+        "radius": 8,
+        "size": 206
+      },
+      "variant": "default"
+    },
+    "button": {
+      "tokens": {
+        "border.style": "none",
+        "fill": "#533AFD",
+        "font": "button",
+        "padding.0": 16,
+        "padding.1": 24,
+        "radius": "button",
+        "text": "#FFFFFF"
+      },
+      "variant": "default"
+    },
+    "buttonSecondary": {
+      "tokens": {
+        "border.style": "none",
+        "fill": "#FFFFFF",
+        "font": "button",
+        "padding.0": 16,
+        "padding.1": 24,
+        "radius": "button",
+        "text": "#533AFD"
+      },
+      "variant": "default"
+    },
+    "callout": {
+      "tokens": {
+        "accentBar.color": "accent",
+        "accentBar.side": "left",
+        "accentBar.width": 4,
+        "fill": "card",
+        "icon": true,
+        "padding": 16,
+        "radius": "sm"
+      },
+      "variant": "default"
+    },
+    "card": {
+      "tokens": {
+        "bodyRole": "body",
+        "border.color": "#E5EDF5",
+        "border.sides": "all",
+        "border.style": "solid",
+        "border.width": 1,
+        "fill": "card",
+        "padding": 24,
+        "radius": "tile",
+        "shadow": "none",
+        "titleRole": "h2"
+      },
+      "variant": "outlined"
+    },
+    "chip": {
+      "tokens": {
+        "border.style": "none",
+        "fill": "#E2E4FF",
+        "font": "bodySmall",
+        "padding.0": 4,
+        "padding.1": 10,
+        "radius": "button",
+        "text": "#533AFD"
+      },
+      "variant": "default"
+    },
+    "ctaChevron": {
+      "tokens": {
+        "buttons": true,
+        "color": "accent",
+        "enabled": true,
+        "iconSize": 0.8,
+        "path": "M9.5 6.5 15 12l-5.5 5.5",
+        "strokeWidth": 2.2
+      },
+      "variant": "default"
+    },
+    "icon": {
+      "items": [
+        {
+          "file": "assets/icons/get-to-market-faster.svg",
+          "name": "get-to-market-faster",
+          "variants": {}
+        },
+        {
+          "file": "assets/icons/grow-new-lines-of-revenue.svg",
+          "name": "grow-new-lines-of-revenue",
+          "variants": {}
+        },
+        {
+          "file": "assets/icons/manage-platform-risk.svg",
+          "name": "manage-platform-risk",
+          "variants": {}
+        },
+        {
+          "file": "assets/icons/professional-services.svg",
+          "name": "professional-services",
+          "variants": {}
+        },
+        {
+          "file": "assets/icons/see-what-you-ll-pay.svg",
+          "name": "see-what-you-ll-pay",
+          "variants": {}
+        },
+        {
+          "file": "assets/icons/start-building.svg",
+          "name": "start-building",
+          "variants": {}
+        },
+        {
+          "file": "assets/icons/stripe-certified-experts.svg",
+          "name": "stripe-certified-experts",
+          "variants": {}
+        },
+        {
+          "file": "assets/icons/support-plans.svg",
+          "name": "support-plans",
+          "variants": {}
+        }
+      ],
+      "tokens": {
+        "color": "#533AFD",
+        "container.border.color": "#D6D9FC",
+        "container.border.style": "solid",
+        "container.border.width": 1,
+        "container.container": "rounded",
+        "container.fill": "transparent",
+        "container.size": 40,
+        "customPath": "assets/icons/",
+        "set": "custom",
+        "size": 24
+      },
+      "variant": "filled"
+    },
+    "kpi": {
+      "tokens": {
+        "deltaColors.down": "semantic.error",
+        "deltaColors.flat": "textMuted",
+        "deltaColors.up": "semantic.success",
+        "labelStyle": "eyebrow",
+        "sparkline": true
+      },
+      "variant": "stat"
+    },
+    "logoWall": {
+      "items": [
+        {
+          "file": "assets/logos/home-w0-01.svg",
+          "h": 34,
+          "name": "OpenAI",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-02.svg",
+          "h": 34,
+          "name": "Amazon",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-03.svg",
+          "h": 34,
+          "name": "Nvidia",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-04.svg",
+          "h": 34,
+          "name": "Ford",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-05.svg",
+          "h": 34,
+          "name": "Coinbase",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-06.svg",
+          "h": 34,
+          "name": "Google",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-07.svg",
+          "h": 34,
+          "name": "Shopify",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-08.svg",
+          "h": 34,
+          "name": "Mindbody",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-09.svg",
+          "h": 34,
+          "name": "MetLife",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-10.svg",
+          "h": 34,
+          "name": "Ramp",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-11.svg",
+          "h": 34,
+          "name": "Marriott",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-12.svg",
+          "h": 34,
+          "name": "Figma",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-13.svg",
+          "h": 34,
+          "name": "WooCommerce",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-14.svg",
+          "h": 34,
+          "name": "Vercel",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-15.svg",
+          "h": 34,
+          "name": "Uber",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-16.svg",
+          "h": 34,
+          "name": "Anthropic",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-17.svg",
+          "h": 34,
+          "name": "Brightwheel",
+          "w": 142
+        },
+        {
+          "file": "assets/logos/home-w0-18.svg",
+          "h": 34,
+          "name": "Cursor",
+          "w": 142
+        }
+      ],
+      "tokens": {
+        "align": "center",
+        "arrangement": "grid",
+        "boxed": false,
+        "dividers": false,
+        "gap": 40,
+        "height": 45,
+        "labelStyle": "eyebrow",
+        "opacity": 1,
+        "treatment": "original"
+      },
+      "variant": "default"
+    },
+    "quote": {
+      "tokens": {
+        "align": "center",
+        "attributionFont": "body",
+        "font": "quote",
+        "markStyle": "none"
+      },
+      "variant": "default"
+    },
+    "steps": {
+      "tokens": {
+        "activeColor": "#533AFD",
+        "inactiveColor": "#E5EDF5",
+        "line": true,
+        "lineStyle": "solid",
+        "marker": "circle-number",
+        "orientation": "vertical"
+      },
+      "variant": "default"
+    },
+    "timeline": {
+      "tokens": {
+        "alternate": false,
+        "lineColor": "#E5EDF5",
+        "marker": "circle"
+      },
+      "variant": "default"
+    }
+  },
+  "composition": {
+    "closing": ["cta"],
+    "density": "balanced",
+    "layoutHints": {
+      "agenda": {
+        "background": "default",
+        "surface": "page",
+        "titleRole": "h1"
+      },
+      "bullets": {
+        "background": "default",
+        "surface": "page",
+        "titleRole": "h1"
+      },
+      "cards": {
+        "background": "default",
+        "surface": "page",
+        "titleRole": "h1"
+      },
+      "chart": {
+        "background": "default",
+        "surface": "page",
+        "titleRole": "h1"
+      },
+      "cover": {
+        "background": "heroRibbon",
+        "footer": false,
+        "logo": "large",
+        "surface": "page",
+        "titleRole": "display"
+      },
+      "cta": {
+        "background": "navy",
+        "footer": false,
+        "logo": "large",
+        "surface": "navy",
+        "titleRole": "display"
+      },
+      "image": {
+        "background": "default",
+        "logo": "none",
+        "surface": "page",
+        "titleRole": "display"
+      },
+      "image-text": {
+        "background": "default",
+        "surface": "page",
+        "titleRole": "h1"
+      },
+      "kpi": {
+        "background": "default",
+        "surface": "page",
+        "titleRole": "h1"
+      },
+      "quote": {
+        "background": "light",
+        "surface": "light",
+        "titleRole": "quote"
+      },
+      "section": {
+        "background": "navy",
+        "footer": false,
+        "logo": "none",
+        "surface": "navy",
+        "titleRole": "display"
+      },
+      "team": {
+        "background": "default",
+        "surface": "page",
+        "titleRole": "h1"
+      },
+      "two-column": {
+        "background": "default",
+        "surface": "page",
+        "titleRole": "h1"
+      }
+    },
+    "maxAccentsPerSlide": 1,
+    "maxElementsPerSlide": 6,
+    "minWhitespace": 0.3,
+    "opening": ["cover", "agenda"],
+    "sectionDividers": true,
+    "titleEverySlide": true
+  },
+  "decor": {
+    "elements": [
+      {
+        "allowedOn": ["section", "cta"],
+        "box": {
+          "h": 520,
+          "w": 1920,
+          "x": 0,
+          "y": 560
+        },
+        "colorable": false,
+        "file": "assets/decor/rays.png",
+        "frequency": "often",
+        "id": "rays",
+        "layer": "behind",
+        "opacity": 0.85,
+        "placement": "bottom-center",
+        "surfaces": ["navy"],
+        "type": "texture"
+      },
+      {
+        "allowedOn": ["section", "cta"],
+        "box": {
+          "h": 1080,
+          "w": 920,
+          "x": 1000,
+          "y": 0
+        },
+        "colorable": false,
+        "file": "assets/decor/dot-grid.svg",
+        "frequency": "often",
+        "id": "dotGrid",
+        "layer": "behind",
+        "opacity": 0.9,
+        "scale": 10,
+        "surfaces": ["navy"],
+        "tile": true,
+        "type": "pattern"
+      }
+    ],
+    "imagery": {
+      "crop": {
+        "defaultRatio": "16:9",
+        "focus": "faces"
+      },
+      "mask": "card",
+      "textOverImage": {
+        "gradient": true,
+        "minContrast": 4.5,
+        "opacity": 0.55,
+        "overlay": "primary"
+      },
+      "treatment": "natural"
+    },
+    "maxPerSlide": 2
+  },
+  "engineVersion": "0.0.0",
+  "footer": {
+    "hideOn": ["cover", "cta", "section"],
+    "items": ["logo", "pageNumber"],
+    "pageNumberFormat": "{n}",
+    "position": "bottom-right",
+    "role": "caption",
+    "show": true,
+    "text": ""
+  },
+  "geometry": {
+    "canvas": {
+      "height": 1080,
+      "width": 1920
+    },
+    "density": "balanced",
+    "grid": {
+      "columns": 12,
+      "gutter": 24
+    },
+    "margins": {
+      "bottom": 80,
+      "left": 138,
+      "right": 138,
+      "top": 80
+    },
+    "safeArea": {
+      "bottom": 40,
+      "left": 40,
+      "right": 40,
+      "top": 40
+    },
+    "spacing": {
+      "lg": 32,
+      "md": 24,
+      "sm": 12,
+      "xl": 64,
+      "xs": 4
+    },
+    "titleZone": {
+      "align": "left",
+      "height": 120,
+      "y": 80
+    }
+  },
+  "id": "stripe",
+  "logo": {
+    "clearSpace": 24,
+    "height": {
+      "small": 28
+    },
+    "perKind": {
+      "bullets": "small",
+      "cover": "large",
+      "cta": "large"
+    },
+    "perSurface": {
+      "light": "monoDark",
+      "navy": "monoLight",
+      "page": "monoDark"
+    },
+    "position": "bottom-left",
+    "variants": {
+      "full": {
+        "file": "assets/logo.svg",
+        "height": 25,
+        "width": 60
+      },
+      "monoDark": {
+        "file": "assets/logo.svg",
+        "height": 25,
+        "width": 60
+      },
+      "monoLight": {
+        "file": "assets/logo-light.svg",
+        "height": 25,
+        "width": 60
+      }
+    }
+  },
+  "motion": {
+    "build": "none",
+    "duration": 300,
+    "easing": "ease-out",
+    "family": "soft",
+    "stagger": 80,
+    "transition": "fade"
+  },
+  "name": "Stripe",
+  "palette": {
+    "chart": {
+      "categorical": ["#7F7DFC", "#533AFD", "#F44BCC", "#FFCF5E", "#839BC8"],
+      "highlight": "#533AFD",
+      "muted": "#E5EDF5",
+      "sequential": ["#E0DCFF", "#B2A6FE", "#533AFD", "#3A29B1", "#211765"]
+    },
+    "perKind": {
+      "agenda": "page",
+      "bullets": "page",
+      "cards": "page",
+      "chart": "page",
+      "cover": "page",
+      "cta": "navy",
+      "image": "page",
+      "image-text": "page",
+      "kpi": "page",
+      "quote": "light",
+      "section": "navy",
+      "team": "page",
+      "two-column": "page"
+    },
+    "rhythm": ["page", "light", "page", "navy", "page", "light"],
+    "semantic": {
+      "error": "#DF1B41",
+      "info": "#533AFD",
+      "success": "#15BE53",
+      "warning": "#FFCF5E"
+    },
+    "surfaces": [
+      {
+        "accent": "#533AFD",
+        "background": {
+          "heroRibbon": {
+            "image": "assets/art-hero-slide.png",
+            "imageFit": "cover",
+            "overlay": "#FFFFFF",
+            "overlayOpacity": 0,
+            "surface": "page",
+            "type": "image"
+          }
+        },
+        "bg": "#FFFFFF",
+        "border": "#E5EDF5",
+        "card": "#FFFFFF",
+        "cardText": "#061B31",
+        "contrast": {
+          "accent": 6.19,
+          "heading": 17.37,
+          "text": 17.37
+        },
+        "heading": "#061B31",
+        "id": "page",
+        "logoVariant": "monoDark",
+        "role": "default",
+        "text": "#061B31",
+        "textMuted": "#50617A",
+        "tone": "light"
+      },
+      {
+        "accent": "#533AFD",
+        "bg": "#F8FAFD",
+        "border": "#E5EDF5",
+        "card": "#FFFFFF",
+        "cardText": "#061B31",
+        "contrast": {
+          "accent": 5.92,
+          "heading": 16.61,
+          "text": 16.61
+        },
+        "heading": "#061B31",
+        "id": "light",
+        "logoVariant": "monoDark",
+        "role": "alt",
+        "text": "#061B31",
+        "textMuted": "#50617A",
+        "tone": "light"
+      },
+      {
+        "accent": "#7F7DFC",
+        "bg": "#0D1738",
+        "border": "#2B3A6B",
+        "card": "#1A2651",
+        "cardText": "#FFFFFF",
+        "contrast": {
+          "accent": 5.22,
+          "heading": 17.55,
+          "text": 17.55
+        },
+        "heading": "#FFFFFF",
+        "id": "navy",
+        "logoVariant": "monoLight",
+        "role": "dark",
+        "text": "#FFFFFF",
+        "textMuted": "#839BC8",
+        "tone": "dark"
+      }
+    ]
+  },
+  "provenance": {
+    "/charts": {
+      "from": ["/charts"],
+      "note": "copied as given (kpi -> components.kpi)",
+      "rule": "MD-CHARTS-TABLES"
+    },
+    "/charts/highlight": {
+      "from": ["/charts/highlightMode"],
+      "note": "highlightMode -> highlight",
+      "rule": "MD-CHARTS-TABLES"
+    },
+    "/charts/palette": {
+      "from": ["/charts/palette"],
+      "note": "charts.palette \"chart\" -> categorical",
+      "rule": "MD-CHARTS-TABLES"
+    },
+    "/components/arrow": {
+      "from": ["/components/arrow"],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/avatar": {
+      "from": ["/components/avatar"],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/button": {
+      "from": ["/components/button"],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/buttonSecondary": {
+      "from": ["/components/buttonSecondary"],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/callout": {
+      "from": ["/components/callout"],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/card": {
+      "from": ["/components/cards/style"],
+      "note": "variant <- style.kind; tokens <- fill, radius, shadow, padding, border, titleStyle (titleRole), bodyStyle (bodyRole), fillOpacity, backdropBlur",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/chip": {
+      "from": ["/components/chip"],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/ctaChevron": {
+      "from": ["/components/ctaChevron"],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/icon": {
+      "from": ["/components/icons"],
+      "note": "variant <- style; tokens = the rest, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/icon/items": {
+      "from": ["/components/icons/files"],
+      "note": "the brand's icon set (BR-ICONS, E5): {name, file, variants}",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/kpi": {
+      "from": ["/charts/kpi"],
+      "note": "variant <- style; tokens = the rest, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/logoWall": {
+      "from": ["/components/logoWall"],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/logoWall/items": {
+      "from": ["/components/logoWall/logos"],
+      "note": "logos copied as given (D12)",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/quote": {
+      "from": ["/components/quote"],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/steps": {
+      "from": ["/components/steps"],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/timeline": {
+      "from": ["/components/timeline"],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/composition/closing": {
+      "from": ["/composition/closingSequence"],
+      "note": "layout ids -> kinds (kind map)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/density": {
+      "from": ["/composition/density"],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/agenda": {
+      "from": ["/brandLayouts/1"],
+      "note": "layout \"agenda\" -> kind \"agenda\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/bullets": {
+      "from": ["/brandLayouts/3"],
+      "note": "layout \"content\" -> kind \"bullets\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/cards": {
+      "from": ["/brandLayouts/5"],
+      "note": "layout \"cards\" -> kind \"cards\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/chart": {
+      "from": ["/brandLayouts/7"],
+      "note": "layout \"chart\" -> kind \"chart\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/cover": {
+      "from": ["/brandLayouts/0"],
+      "note": "layout \"title\" -> kind \"cover\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/cta": {
+      "from": ["/brandLayouts/12"],
+      "note": "layout \"closing\" -> kind \"cta\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/image": {
+      "from": ["/brandLayouts/9"],
+      "note": "layout \"imageBleed\" -> kind \"image\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/image-text": {
+      "from": ["/brandLayouts/8"],
+      "note": "layout \"imageText\" -> kind \"image-text\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/kpi": {
+      "from": ["/brandLayouts/6"],
+      "note": "layout \"stat\" -> kind \"kpi\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/quote": {
+      "from": ["/brandLayouts/10"],
+      "note": "layout \"quote\" -> kind \"quote\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/section": {
+      "from": ["/brandLayouts/2"],
+      "note": "layout \"section\" -> kind \"section\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/team": {
+      "from": ["/brandLayouts/11"],
+      "note": "layout \"team\" -> kind \"team\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/two-column": {
+      "from": ["/brandLayouts/4"],
+      "note": "layout \"twoColumn\" -> kind \"two-column\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/maxAccentsPerSlide": {
+      "from": ["/composition/maxAccentsPerSlide"],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/maxElementsPerSlide": {
+      "from": ["/composition/maxElementsPerSlide"],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/minWhitespace": {
+      "from": ["/composition/minWhitespace"],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/opening": {
+      "from": ["/composition/openingSequence"],
+      "note": "layout ids -> kinds (kind map)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/sectionDividers": {
+      "from": ["/composition/sectionDividers"],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/titleEverySlide": {
+      "from": ["/composition/titleEverySlide"],
+      "rule": "MD-COMPOSITION"
+    },
+    "/decor/elements/0": {
+      "from": ["/decor/elements/0"],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/1": {
+      "from": ["/decor/elements/1"],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds",
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/crop": {
+      "from": ["/imagery/crop"],
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/mask": {
+      "from": ["/imagery/masks/default"],
+      "note": "the brand's default mask",
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/textOverImage": {
+      "from": ["/imagery/textOverImage"],
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/treatment": {
+      "from": ["/imagery/treatments/default"],
+      "note": "the brand's default treatment",
+      "rule": "MD-DECOR"
+    },
+    "/decor/maxPerSlide": {
+      "from": ["/decor/maxElementsPerSlide"],
+      "rule": "MD-DECOR"
+    },
+    "/footer/hideOn": {
+      "from": ["/layout/footer/hideOn"],
+      "note": "layout ids -> kinds (kind map)",
+      "rule": "MD-FOOTER"
+    },
+    "/footer/items": {
+      "from": ["/layout/footer/logo", "/layout/footer/pageNumber"],
+      "note": "order logo, text, pageNumber, date by the footer booleans (text: non-empty)",
+      "rule": "MD-FOOTER"
+    },
+    "/footer/pageNumberFormat": {
+      "from": ["/layout/footer/pageNumberFormat"],
+      "rule": "MD-FOOTER"
+    },
+    "/footer/position": {
+      "from": ["/layout/footer/position"],
+      "rule": "MD-FOOTER"
+    },
+    "/footer/role": {
+      "from": ["/layout/footer/style"],
+      "rule": "MD-FOOTER"
+    },
+    "/footer/show": {
+      "from": ["/layout/footer/show"],
+      "rule": "MD-FOOTER"
+    },
+    "/footer/text": {
+      "from": ["/layout/footer/text"],
+      "rule": "MD-FOOTER"
+    },
+    "/geometry/canvas": {
+      "from": ["/layout/canvas"],
+      "note": "fixed 1920x1080 canvas (BR-NORMALIZE rejects any other input size)",
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/density": {
+      "from": ["/composition/density"],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/grid": {
+      "from": ["/layout/grid"],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/margins": {
+      "from": ["/layout/margins"],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/safeArea": {
+      "from": ["/layout/safeArea"],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/spacing": {
+      "from": ["/layout/spacing"],
+      "note": "sorted ascending; xs..xl = indices round((n-1) x 0, .25, .5, .75, 1) (D9)",
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/titleZone": {
+      "from": ["/layout/titleZone"],
+      "rule": "MD-GEOMETRY"
+    },
+    "/logo/clearSpace": {
+      "from": ["/logos/clearSpace"],
+      "rule": "MD-LOGO"
+    },
+    "/logo/height/small": {
+      "from": ["/logos/height"],
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/bullets": {
+      "from": ["/logos/perLayout/content"],
+      "note": "layout \"content\" -> kind \"bullets\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/cover": {
+      "from": ["/logos/perLayout/title"],
+      "note": "layout \"title\" -> kind \"cover\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/cta": {
+      "from": ["/logos/perLayout/closing"],
+      "note": "layout \"closing\" -> kind \"cta\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perSurface/light": {
+      "from": ["/logos/onSurface/light"],
+      "rule": "MD-LOGO"
+    },
+    "/logo/perSurface/navy": {
+      "from": ["/logos/onSurface/navy"],
+      "rule": "MD-LOGO"
+    },
+    "/logo/perSurface/page": {
+      "from": ["/logos/onSurface/page"],
+      "rule": "MD-LOGO"
+    },
+    "/logo/position": {
+      "from": ["/logos/position"],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/full": {
+      "from": ["/logos/variants/full"],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/monoDark": {
+      "from": ["/logos/variants/monoDark"],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/monoLight": {
+      "from": ["/logos/variants/monoLight"],
+      "rule": "MD-LOGO"
+    },
+    "/motion/build": {
+      "from": ["/motion/build"],
+      "rule": "MD-MOTION"
+    },
+    "/motion/duration": {
+      "from": ["/motion/duration"],
+      "rule": "MD-MOTION"
+    },
+    "/motion/easing": {
+      "from": ["/motion/easing"],
+      "rule": "MD-MOTION"
+    },
+    "/motion/family": {
+      "from": ["/motion/transition", "/motion/duration"],
+      "note": "transition fade, duration 300",
+      "rule": "MD-MOTION"
+    },
+    "/motion/stagger": {
+      "from": ["/motion/stagger"],
+      "rule": "MD-MOTION"
+    },
+    "/motion/transition": {
+      "from": ["/motion/transition"],
+      "rule": "MD-MOTION"
+    },
+    "/name": {
+      "from": ["/name"],
+      "rule": "ASSEMBLY"
+    },
+    "/palette/chart/categorical": {
+      "from": ["/colors/chart"],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/chart/highlight": {
+      "from": ["/colors/accent"],
+      "note": "charts.highlightMode.color not given: colors.accent",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/chart/muted": {
+      "from": ["/colors/chartMuted"],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/chart/sequential": {
+      "from": ["/colors/chartSequential"],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/agenda": {
+      "from": ["/brandLayouts/1/id", "/brandLayouts/1/surface"],
+      "note": "layout \"agenda\" -> kind \"agenda\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/bullets": {
+      "from": ["/brandLayouts/3/id", "/brandLayouts/3/surface"],
+      "note": "layout \"content\" -> kind \"bullets\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/cards": {
+      "from": ["/brandLayouts/5/id", "/brandLayouts/5/surface"],
+      "note": "layout \"cards\" -> kind \"cards\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/chart": {
+      "from": ["/brandLayouts/7/id", "/brandLayouts/7/surface"],
+      "note": "layout \"chart\" -> kind \"chart\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/cover": {
+      "from": ["/brandLayouts/0/id", "/brandLayouts/0/surface"],
+      "note": "layout \"title\" -> kind \"cover\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/cta": {
+      "from": ["/brandLayouts/12/id", "/brandLayouts/12/surface"],
+      "note": "layout \"closing\" -> kind \"cta\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/image": {
+      "from": ["/brandLayouts/9/id", "/brandLayouts/9/surface"],
+      "note": "layout \"imageBleed\" -> kind \"image\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/image-text": {
+      "from": ["/brandLayouts/8/id", "/brandLayouts/8/surface"],
+      "note": "layout \"imageText\" -> kind \"image-text\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/kpi": {
+      "from": ["/brandLayouts/6/id", "/brandLayouts/6/surface"],
+      "note": "layout \"stat\" -> kind \"kpi\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/quote": {
+      "from": ["/brandLayouts/10/id", "/brandLayouts/10/surface"],
+      "note": "layout \"quote\" -> kind \"quote\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/section": {
+      "from": ["/brandLayouts/2/id", "/brandLayouts/2/surface"],
+      "note": "layout \"section\" -> kind \"section\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/team": {
+      "from": ["/brandLayouts/11/id", "/brandLayouts/11/surface"],
+      "note": "layout \"team\" -> kind \"team\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/two-column": {
+      "from": ["/brandLayouts/4/id", "/brandLayouts/4/surface"],
+      "note": "layout \"twoColumn\" -> kind \"two-column\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/rhythm": {
+      "from": [
+        "/backgrounds/rhythm/0",
+        "/backgrounds/rhythm/1",
+        "/backgrounds/rhythm/2",
+        "/backgrounds/rhythm/3",
+        "/backgrounds/rhythm/4",
+        "/backgrounds/rhythm/5"
+      ],
+      "note": "variant ids mapped to their surface; \"default\" to backgrounds.default.surface",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/semantic": {
+      "from": ["/colors/semantic"],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0": {
+      "from": ["/surfaces/0"],
+      "note": "surface colour roles copied as given (logo -> logoVariant)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0/background/heroRibbon": {
+      "from": ["/backgrounds/variants/heroRibbon"],
+      "note": "variant.surface = \"page\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0/contrast": {
+      "from": ["/surfaces/0/bg", "/surfaces/0/text", "/surfaces/0/heading", "/surfaces/0/accent"],
+      "note": "WCAG contrast ratio vs bg",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0/role": {
+      "from": ["/backgrounds/default/surface"],
+      "note": "backgrounds.default.surface = \"page\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0/tone": {
+      "from": ["/surfaces/0/tone"],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1": {
+      "from": ["/surfaces/1"],
+      "note": "surface colour roles copied as given (logo -> logoVariant)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1/contrast": {
+      "from": ["/surfaces/1/bg", "/surfaces/1/text", "/surfaces/1/heading", "/surfaces/1/accent"],
+      "note": "WCAG contrast ratio vs bg",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1/role": {
+      "from": ["/surfaces/1/bg", "/surfaces/0/bg"],
+      "note": "same tone (light) as the default surface",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1/tone": {
+      "from": ["/surfaces/1/tone"],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/2": {
+      "from": ["/surfaces/2"],
+      "note": "surface colour roles copied as given (logo -> logoVariant)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/2/contrast": {
+      "from": ["/surfaces/2/bg", "/surfaces/2/text", "/surfaces/2/heading", "/surfaces/2/accent"],
+      "note": "WCAG contrast ratio vs bg",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/2/role": {
+      "from": ["/surfaces/2/bg", "/surfaces/0/bg"],
+      "note": "tone dark opposite to the default surface's light",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/2/tone": {
+      "from": ["/surfaces/2/tone"],
+      "rule": "MD-PALETTE"
+    },
+    "/shape/borderWidth": {
+      "from": ["/components/cards/style/border/width"],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/divider": {
+      "from": ["/components/divider"],
+      "note": "thickness -> weight; style \"solid\" is a line style -> line (kept as lineStyle)",
+      "rule": "MD-SHAPE"
+    },
+    "/shape/language": {
+      "from": [
+        "/layout/radiusScale/none",
+        "/layout/radiusScale/xs",
+        "/layout/radiusScale/sm",
+        "/layout/radiusScale/md",
+        "/layout/radiusScale/lg"
+      ],
+      "note": "largest named radius 12 (none, xs, sm, md, lg; pill/full excluded): <=2 sharp, <=16 soft, else round",
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/lg": {
+      "from": ["/layout/radiusScale/lg"],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/md": {
+      "from": ["/layout/radiusScale/md"],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/none": {
+      "from": ["/layout/radiusScale/none"],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/pill": {
+      "from": ["/layout/radiusScale/pill"],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/sm": {
+      "from": ["/layout/radiusScale/sm"],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/shadow/card": {
+      "from": ["/layout/shadowScale/card"],
+      "note": "parsed to {x,y,blur,spread,color}",
+      "rule": "MD-SHAPE"
+    },
+    "/shape/shadow/none": {
+      "from": ["/layout/shadowScale/none"],
+      "note": "parsed to {x,y,blur,spread,color}",
+      "rule": "MD-SHAPE"
+    },
+    "/tables": {
+      "from": ["/tables"],
+      "note": "copied as given",
+      "rule": "MD-CHARTS-TABLES"
+    },
+    "/type/align": {
+      "from": ["/typography/alignment"],
+      "rule": "MD-TYPE"
+    },
+    "/type/bullets": {
+      "from": ["/typography/bullets", "/typography/bullets/char"],
+      "note": "bullets.char read as the glyph",
+      "rule": "MD-TYPE"
+    },
+    "/type/faces/body": {
+      "from": ["/typography/faces/body"],
+      "note": "family, files, fallback, variable, metrics copied as given",
+      "rule": "MD-TYPE"
+    },
+    "/type/faces/heading": {
+      "from": ["/typography/faces/heading"],
+      "note": "family, files, fallback, variable, metrics copied as given",
+      "rule": "MD-TYPE"
+    },
+    "/type/faces/mono": {
+      "from": ["/typography/faces/mono"],
+      "note": "family, files, fallback, variable, metrics copied as given",
+      "rule": "MD-TYPE"
+    },
+    "/type/limits": {
+      "from": ["/typography/limits"],
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/body": {
+      "from": ["/typography/roles/body"],
+      "note": "brand role \"body\" (chain: body)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/body/color": {
+      "from": ["/typography/roles/body/color"],
+      "note": "brand style \"body\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/body/fit": {
+      "from": ["/typography/limits/minBodySize"],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodySmall": {
+      "from": ["/typography/roles/bodySmall"],
+      "note": "brand role \"bodySmall\" (chain: bodySmall)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodySmall/color": {
+      "from": ["/typography/roles/bodySmall/color"],
+      "note": "brand style \"bodySmall\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodySmall/fit": {
+      "from": ["/typography/limits/minBodySize"],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bullet": {
+      "from": ["/typography/roles/body"],
+      "note": "brand role \"body\" (chain: body)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bullet/color": {
+      "from": ["/typography/roles/body/color"],
+      "note": "brand style \"body\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bullet/fit": {
+      "from": ["/typography/limits/minBodySize"],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/button": {
+      "from": ["/typography/roles/button"],
+      "note": "brand role \"button\" (chain: button)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/button/color": {
+      "from": [],
+      "note": "brand style \"button\" gives no colour: meaning of the \"button\" role, surface role text",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/button/fit": {
+      "from": ["/typography/limits/minBodySize"],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/caption": {
+      "from": ["/typography/roles/caption"],
+      "note": "brand role \"caption\" (chain: caption > footnote > meta)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/caption/color": {
+      "from": ["/typography/roles/caption/color"],
+      "note": "brand style \"caption\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/caption/fit": {
+      "from": ["/typography/roles/caption/size", "/typography/limits/minBodySize"],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/chartLabel": {
+      "from": ["/typography/roles/caption"],
+      "note": "brand role \"caption\" (chain: chartLabel > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/chartLabel/color": {
+      "from": ["/typography/roles/caption/color"],
+      "note": "brand style \"caption\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/chartLabel/fit": {
+      "from": ["/typography/roles/caption/size", "/typography/limits/minBodySize"],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/display": {
+      "from": ["/typography/roles/display"],
+      "note": "brand role \"display\" (chain: display)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/display/color": {
+      "from": [],
+      "note": "brand style \"display\" gives no colour: meaning of the \"display\" role, surface role heading",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/display/fit": {
+      "from": ["/typography/roles/h1/size"],
+      "note": "next smaller heading \"h1\" (brand \"h1\")",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/eyebrow": {
+      "from": ["/typography/roles/eyebrow"],
+      "note": "brand role \"eyebrow\" (chain: eyebrow > label)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/eyebrow/color": {
+      "from": ["/typography/roles/eyebrow/color"],
+      "note": "brand style \"eyebrow\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/eyebrow/fit": {
+      "from": ["/typography/limits/minBodySize"],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footer": {
+      "from": ["/typography/roles/caption", "/layout/footer/style"],
+      "note": "brand role \"caption\" (chain: caption > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footer/color": {
+      "from": ["/typography/roles/caption/color"],
+      "note": "brand style \"caption\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footer/fit": {
+      "from": ["/typography/roles/caption/size", "/typography/limits/minBodySize"],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h1": {
+      "from": ["/typography/roles/h1"],
+      "note": "brand role \"h1\" (chain: h1)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h1/color": {
+      "from": [],
+      "note": "brand style \"h1\" gives no colour: meaning of the \"h1\" role, surface role heading",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h1/fit": {
+      "from": ["/typography/roles/h2/size"],
+      "note": "next smaller heading \"h2\" (brand \"h2\")",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h2": {
+      "from": ["/typography/roles/h2"],
+      "note": "brand role \"h2\" (chain: h2)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h2/color": {
+      "from": [],
+      "note": "brand style \"h2\" gives no colour: meaning of the \"h2\" role, surface role heading",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h2/fit": {
+      "from": ["/typography/roles/h3/size"],
+      "note": "next smaller heading \"h3\" (brand \"h3\")",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h3": {
+      "from": ["/typography/roles/h3"],
+      "note": "brand role \"h3\" (chain: h3 > cardTitle)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h3/color": {
+      "from": [],
+      "note": "brand style \"h3\" gives no colour: meaning of the \"h3\" role, surface role heading",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h3/fit": {
+      "from": ["/typography/roles/body/size"],
+      "note": "next smaller heading \"body\" (brand \"body\")",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quote": {
+      "from": ["/typography/roles/quote"],
+      "note": "brand role \"quote\" (chain: quote)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quote/color": {
+      "from": ["/typography/roles/quote/color"],
+      "note": "brand style \"quote\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quote/fit": {
+      "from": ["/typography/limits/minBodySize"],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quoteAttribution": {
+      "from": ["/typography/roles/personRole"],
+      "note": "brand role \"personRole\" (chain: personRole > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quoteAttribution/color": {
+      "from": ["/typography/roles/personRole/color"],
+      "note": "brand style \"personRole\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quoteAttribution/fit": {
+      "from": ["/typography/limits/minBodySize"],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/stat": {
+      "from": ["/typography/roles/stat"],
+      "note": "brand role \"stat\" (chain: stat > factValue)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/stat/color": {
+      "from": ["/typography/roles/stat/color"],
+      "note": "brand style \"stat\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/stat/fit": {
+      "from": ["/typography/limits/minBodySize"],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/statLabel": {
+      "from": ["/typography/roles/caption"],
+      "note": "brand role \"caption\" (chain: statLabel > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/statLabel/color": {
+      "from": ["/typography/roles/caption/color"],
+      "note": "brand style \"caption\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/statLabel/fit": {
+      "from": ["/typography/roles/caption/size", "/typography/limits/minBodySize"],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableCell": {
+      "from": ["/typography/roles/bodySmall"],
+      "note": "brand role \"bodySmall\" (chain: tableCell > bodySmall)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableCell/color": {
+      "from": ["/typography/roles/bodySmall/color"],
+      "note": "brand style \"bodySmall\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableCell/fit": {
+      "from": ["/typography/limits/minBodySize"],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableHeader": {
+      "from": ["/typography/roles/caption"],
+      "note": "brand role \"caption\" (chain: tableHead > tableHeader > label > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableHeader/color": {
+      "from": ["/typography/roles/caption/color"],
+      "note": "brand style \"caption\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableHeader/fit": {
+      "from": ["/typography/roles/caption/size", "/typography/limits/minBodySize"],
+      "note": "size below minBodySize: min = own size",
+      "rule": "MD-TYPE"
+    },
+    "/voice/language": {
+      "from": ["/voice/language"],
+      "rule": "MD-VOICE"
+    },
+    "/voice/rtl": {
+      "from": ["/locale/rtl"],
+      "rule": "MD-VOICE"
+    },
+    "/voice/titleCase": {
+      "from": ["/voice/titleCase"],
+      "rule": "MD-VOICE"
+    }
+  },
+  "schema": "mood/1",
+  "shape": {
+    "borderWidth": 1,
+    "divider": {
+      "color": "border",
+      "length": "full",
+      "lineStyle": "solid",
+      "style": "line",
+      "weight": 1
+    },
+    "language": "soft",
+    "radius": {
+      "lg": 12,
+      "md": 8,
+      "none": 0,
+      "pill": 9999,
+      "sm": 6
+    },
+    "shadow": {
+      "card": {
+        "blur": 35,
+        "color": "#3C4257",
+        "opacity": 0.08,
+        "spread": 0,
+        "x": 0,
+        "y": 15
+      },
+      "none": {
+        "blur": 0,
+        "color": "#000000",
+        "opacity": 0,
+        "spread": 0,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "tables": {
+    "align": {
+      "header": "left",
+      "number": "left",
+      "text": "left"
+    },
+    "firstColumn": {
+      "bold": true
+    },
+    "header": {
+      "case": "none",
+      "fill": "#FFFFFF",
+      "font": "caption",
+      "text": "#061B31",
+      "weight": 400
+    },
+    "maxCols": 5,
+    "maxRows": 6,
+    "radius": 6,
+    "rows": {
+      "border": "#E5EDF5",
+      "borderStyle": "horizontal",
+      "font": "bodySmall",
+      "minHeight": 44,
+      "padding": 12,
+      "striped": false
+    }
+  },
+  "type": {
+    "align": {
+      "body": "left",
+      "title": "left"
+    },
+    "bullets": {
+      "color": "accent",
+      "glyph": "•",
+      "indent": 28,
+      "maxDepth": 1,
+      "maxPerSlide": 5
+    },
+    "faces": {
+      "body": {
+        "fallback": "Helvetica Neue, Arial, sans-serif",
+        "family": "Sohne",
+        "files": [
+          {
+            "file": "assets/fonts/Sohne-var.woff2",
+            "format": "woff2",
+            "style": "normal",
+            "weight": "1 1000"
+          }
+        ],
+        "metrics": {
+          "ascent": 1.04,
+          "avgCharWidth": 0.506577,
+          "capHeight": 0.718,
+          "descent": -0.234,
+          "file": "assets/fonts/Sohne-var.woff2",
+          "instance": {
+            "name": "default",
+            "wght": 280.800003
+          },
+          "lineGap": 0,
+          "unitsPerEm": 1000,
+          "xHeight": 0.523
+        },
+        "variable": true
+      },
+      "heading": {
+        "fallback": "Helvetica Neue, Arial, sans-serif",
+        "family": "Sohne",
+        "files": [
+          {
+            "file": "assets/fonts/Sohne-var.woff2",
+            "format": "woff2",
+            "style": "normal",
+            "weight": "1 1000"
+          }
+        ],
+        "metrics": {
+          "ascent": 1.04,
+          "avgCharWidth": 0.506577,
+          "capHeight": 0.718,
+          "descent": -0.234,
+          "file": "assets/fonts/Sohne-var.woff2",
+          "instance": {
+            "name": "default",
+            "wght": 280.800003
+          },
+          "lineGap": 0,
+          "unitsPerEm": 1000,
+          "xHeight": 0.523
+        },
+        "variable": true
+      },
+      "mono": {
+        "fallback": "SFMono-Regular, Menlo, monospace",
+        "family": "SourceCodePro",
+        "files": [
+          {
+            "file": "assets/fonts/SourceCodePro-Medium.woff2",
+            "format": "woff2",
+            "style": "normal",
+            "weight": "500"
+          }
+        ],
+        "metrics": {
+          "ascent": 0.984,
+          "avgCharWidth": 0.6,
+          "capHeight": 0.66,
+          "descent": -0.273,
+          "file": "assets/fonts/SourceCodePro-Medium.woff2",
+          "lineGap": 0,
+          "unitsPerEm": 1000,
+          "xHeight": 0.48
+        },
+        "variable": false
+      }
+    },
+    "limits": {
+      "maxCharsPerLine": 60,
+      "maxTitleChars": 60,
+      "maxWordsPerSlide": 40,
+      "minBodySize": 19.6
+    },
+    "roles": {
+      "body": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 19.6,
+          "step": 2
+        },
+        "lineHeight": 1.4,
+        "size": 22.4,
+        "weight": 300
+      },
+      "bodySmall": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 19.6,
+          "step": 2
+        },
+        "lineHeight": 1.4,
+        "size": 19.6,
+        "weight": 400
+      },
+      "bullet": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 19.6,
+          "step": 2
+        },
+        "lineHeight": 1.4,
+        "size": 22.4,
+        "weight": 300
+      },
+      "button": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 19.6,
+          "step": 2
+        },
+        "lineHeight": 1.2,
+        "size": 22.4,
+        "weight": 400
+      },
+      "caption": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 16.8,
+          "step": 2
+        },
+        "lineHeight": 1.33,
+        "size": 16.8,
+        "weight": 300
+      },
+      "chartLabel": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 16.8,
+          "step": 2
+        },
+        "lineHeight": 1.33,
+        "size": 16.8,
+        "weight": 300
+      },
+      "display": {
+        "case": "none",
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 56,
+          "step": 2
+        },
+        "letterSpacing": -0.02,
+        "lineHeight": 1.15,
+        "size": 80,
+        "weight": 300
+      },
+      "eyebrow": {
+        "case": "none",
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 19.6,
+          "step": 2
+        },
+        "lineHeight": 1.4,
+        "size": 19.6,
+        "weight": 400
+      },
+      "footer": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 16.8,
+          "step": 2
+        },
+        "lineHeight": 1.33,
+        "size": 16.8,
+        "weight": 300
+      },
+      "h1": {
+        "case": "none",
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 36.4,
+          "step": 2
+        },
+        "letterSpacing": -0.02,
+        "lineHeight": 1.1,
+        "size": 56,
+        "weight": 300
+      },
+      "h2": {
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 22.4,
+          "step": 2
+        },
+        "letterSpacing": -0.01,
+        "lineHeight": 1.12,
+        "size": 36.4,
+        "weight": 300
+      },
+      "h3": {
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 22.4,
+          "step": 2
+        },
+        "lineHeight": 1.4,
+        "size": 22.4,
+        "weight": 400
+      },
+      "quote": {
+        "color": "textMuted",
+        "face": "heading",
+        "fit": {
+          "min": 19.6,
+          "step": 2
+        },
+        "lineHeight": 1.12,
+        "size": 36.4,
+        "weight": 300
+      },
+      "quoteAttribution": {
+        "color": "#425466",
+        "face": "body",
+        "fit": {
+          "min": 19.6,
+          "step": 2
+        },
+        "letterSpacing": 0.013,
+        "lineHeight": 1.6,
+        "size": 21,
+        "weight": 300
+      },
+      "stat": {
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 19.6,
+          "step": 2
+        },
+        "letterSpacing": -0.02,
+        "lineHeight": 1,
+        "size": 72,
+        "weight": 300
+      },
+      "statLabel": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 16.8,
+          "step": 2
+        },
+        "lineHeight": 1.33,
+        "size": 16.8,
+        "weight": 300
+      },
+      "tableCell": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 19.6,
+          "step": 2
+        },
+        "lineHeight": 1.4,
+        "size": 19.6,
+        "weight": 400
+      },
+      "tableHeader": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 16.8,
+          "step": 2
+        },
+        "lineHeight": 1.33,
+        "size": 16.8,
+        "weight": 300
+      }
+    }
+  },
+  "voice": {
+    "language": "en",
+    "rtl": false,
+    "titleCase": "sentence"
+  },
+  "warnings": [
+    {
+      "message": "style \"caption\" (16.8) is below typography.limits.minBodySize (19.6): fit.min = own size",
+      "pointer": "/typography/roles/caption/size",
+      "rule": "MD-TYPE"
+    }
+  ]
+}

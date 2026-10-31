@@ -1,0 +1,2966 @@
+{
+  "brandHash": "c429ab32a640362b5380a1685cc4d9ebe9b7a1cb54675a5a1fb1d1395d24a69d",
+  "brandId": "hdfc-2",
+  "charts": {
+    "axes": {
+      "color": "text",
+      "font": "label",
+      "labelColor": "text",
+      "line": true,
+      "lineColor": "#B1B3B6",
+      "show": true
+    },
+    "background": "transparent",
+    "bar": {
+      "gap": 0.35,
+      "orientation": "vertical",
+      "radius": 0
+    },
+    "border": {
+      "style": "none",
+      "width": 0
+    },
+    "dataLabels": {
+      "font": "label",
+      "format": "raw",
+      "position": "outside",
+      "show": true
+    },
+    "donut": {
+      "centerLabel": true,
+      "innerRadius": 0.65
+    },
+    "font": "label",
+    "gridlines": {
+      "color": "#E6E7E7",
+      "show": true,
+      "style": "solid"
+    },
+    "legend": {
+      "marker": "square",
+      "position": "bottom",
+      "show": true
+    },
+    "line": {
+      "areaOpacity": 0,
+      "markers": true,
+      "smooth": false,
+      "width": 3
+    },
+    "palette": "categorical",
+    "pie": {
+      "gap": 2,
+      "labels": "legend",
+      "startAngle": -90
+    }
+  },
+  "components": {
+    "button": {
+      "tokens": {
+        "fill": "#E81B23",
+        "font": "button",
+        "icon.glyph": "play",
+        "icon.side": "right",
+        "padding.0": 14,
+        "padding.1": 28,
+        "radius": 3,
+        "text": "#FFFFFF"
+      },
+      "variant": "default"
+    },
+    "buttonSecondary": {
+      "tokens": {
+        "border.color": "#004B8D",
+        "border.style": "solid",
+        "border.width": 1,
+        "fill": "transparent",
+        "font": "button",
+        "padding.0": 14,
+        "padding.1": 28,
+        "radius": 3,
+        "text": "#004B8D"
+      },
+      "variant": "default"
+    },
+    "callout": {
+      "tokens": {
+        "border.color": "#004B8D",
+        "border.style": "solid",
+        "border.width": 1,
+        "fill": "#E6E7E7",
+        "icon": false,
+        "padding.0": 28,
+        "padding.1": 32,
+        "radius": 0
+      },
+      "variant": "default"
+    },
+    "card": {
+      "tokens": {
+        "bodyRole": "bodySmall",
+        "border.color": "#004B8D",
+        "border.style": "solid",
+        "border.width": 1,
+        "fill": "#FFFFFF",
+        "padding": 32,
+        "radius": 0,
+        "shadow": "none",
+        "titleRole": "h2"
+      },
+      "variant": "outlined"
+    },
+    "chip": {
+      "tokens": {
+        "border.color": "#004B8D",
+        "border.style": "solid",
+        "border.width": 1,
+        "fill": "transparent",
+        "font": "eyebrow",
+        "padding.0": 8,
+        "padding.1": 18,
+        "radius": "pill",
+        "text": "#004B8D"
+      },
+      "variant": "default"
+    },
+    "icon": {
+      "tokens": {
+        "color": "#004B8D",
+        "container.border.color": "#B1B3B6",
+        "container.border.style": "solid",
+        "container.border.width": 2,
+        "container.container": "circle",
+        "set": "lucide",
+        "size": 64,
+        "strokeWidth": 2
+      },
+      "variant": "line"
+    },
+    "kpi": {
+      "tokens": {
+        "deltaColors.down": "semantic.error",
+        "deltaColors.flat": "textMuted",
+        "deltaColors.up": "semantic.success",
+        "labelStyle": "eyebrow",
+        "sparkline": true
+      },
+      "variant": "stat"
+    },
+    "quote": {
+      "tokens": {
+        "align": "left",
+        "attributionFont": "eyebrow",
+        "font": "quote",
+        "markColor": "#ED1C24",
+        "markStyle": "large-accent"
+      },
+      "variant": "default"
+    },
+    "steps": {
+      "tokens": {
+        "activeColor": "#00AEEF",
+        "inactiveColor": "#00AEEF",
+        "line": false,
+        "lineStyle": "solid",
+        "marker": "chevron",
+        "orientation": "horizontal"
+      },
+      "variant": "default"
+    },
+    "timeline": {
+      "tokens": {
+        "alternate": false,
+        "lineColor": "#B1B3B6",
+        "marker": "dot"
+      },
+      "variant": "default"
+    }
+  },
+  "composition": {
+    "closing": [
+      "cta"
+    ],
+    "density": "balanced",
+    "layoutHints": {
+      "agenda": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "bullets": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "cards": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "chart": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "cover": {
+        "background": "cover",
+        "footer": false,
+        "logo": "none",
+        "surface": "blue",
+        "titleRole": "display"
+      },
+      "cta": {
+        "background": "starfield",
+        "footer": false,
+        "logo": "large",
+        "surface": "deep",
+        "titleRole": "closingTitle"
+      },
+      "image": {
+        "background": "hero",
+        "logo": "none",
+        "surface": "blue",
+        "titleRole": "h1"
+      },
+      "image-text": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "kpi": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "logos": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "quote": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "quote"
+      },
+      "section": {
+        "background": "sectionBands",
+        "footer": false,
+        "logo": "small",
+        "surface": "blue",
+        "titleRole": "display"
+      },
+      "steps": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "table": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "team": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "text": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "timeline": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      },
+      "two-column": {
+        "background": "default",
+        "logo": "none",
+        "surface": "white",
+        "titleRole": "h1"
+      }
+    },
+    "maxAccentsPerSlide": 1,
+    "maxElementsPerSlide": 6,
+    "minWhitespace": 0.3,
+    "opening": [
+      "cover",
+      "agenda"
+    ],
+    "sectionDividers": true,
+    "titleEverySlide": true
+  },
+  "decor": {
+    "elements": [
+      {
+        "allowedOn": [
+          "bullets",
+          "two-column",
+          "cards",
+          "kpi",
+          "chart",
+          "image-text",
+          "agenda",
+          "quote",
+          "text",
+          "steps",
+          "timeline",
+          "table",
+          "team",
+          "logos"
+        ],
+        "box": {
+          "h": 175,
+          "w": 1920,
+          "x": 0,
+          "y": 0
+        },
+        "colorable": false,
+        "file": "assets/elements/header-strip.svg",
+        "frequency": "always",
+        "id": "headerStrip",
+        "layer": "behind",
+        "opacity": 1,
+        "surfaces": [
+          "white"
+        ],
+        "type": "frame"
+      },
+      {
+        "allowedOn": [],
+        "box": {
+          "h": 175,
+          "w": 1282,
+          "x": 0,
+          "y": 0
+        },
+        "colorable": false,
+        "file": "assets/elements/header-band.svg",
+        "frequency": "always",
+        "id": "headerBand",
+        "layer": "behind",
+        "opacity": 1,
+        "previewSurface": "white",
+        "type": "shape",
+        "unused": true
+      },
+      {
+        "allowedOn": [
+          "bullets",
+          "two-column",
+          "cards",
+          "kpi",
+          "chart",
+          "image-text",
+          "agenda",
+          "quote",
+          "text",
+          "steps",
+          "timeline",
+          "table",
+          "team",
+          "logos"
+        ],
+        "color": "#ED1C24",
+        "colorable": false,
+        "frequency": "always",
+        "id": "leadRule",
+        "layer": "front",
+        "length": 91,
+        "opacity": 1,
+        "placement": "under-title",
+        "thickness": 2,
+        "type": "rule"
+      },
+      {
+        "align": "right",
+        "allowedOn": [
+          "cover"
+        ],
+        "color": "#ED1C24",
+        "colorable": false,
+        "frequency": "always",
+        "id": "coverRule",
+        "layer": "front",
+        "length": 80,
+        "opacity": 1,
+        "placement": "under-title",
+        "thickness": 5,
+        "type": "rule"
+      },
+      {
+        "allowedOn": [],
+        "box": {
+          "h": 1,
+          "w": 1750,
+          "x": 85,
+          "y": 998
+        },
+        "color": "#231F20",
+        "colorable": true,
+        "frequency": "always",
+        "id": "footerRule",
+        "layer": "behind",
+        "opacity": 1,
+        "previewSurface": "white",
+        "solid": true,
+        "type": "shape",
+        "unused": true
+      },
+      {
+        "allowedOn": [
+          "section"
+        ],
+        "anchor": "fixed",
+        "box": {
+          "h": 1080,
+          "w": 1920,
+          "x": 0,
+          "y": 0
+        },
+        "colorable": false,
+        "file": "assets/elements/cover-bands.svg",
+        "frequency": "always",
+        "id": "coverBands",
+        "layer": "behind",
+        "opacity": 1,
+        "surfaces": [
+          "blue"
+        ],
+        "type": "shape"
+      },
+      {
+        "allowedOn": [],
+        "anchor": "fixed",
+        "blend": "multiply",
+        "box": {
+          "h": 1080,
+          "w": 1920,
+          "x": 0,
+          "y": 0
+        },
+        "colorable": false,
+        "file": "assets/elements/cover-tint.svg",
+        "frequency": "always",
+        "id": "coverTint",
+        "layer": "behind",
+        "opacity": 1,
+        "type": "shape",
+        "unused": true
+      },
+      {
+        "allowedOn": [],
+        "box": {
+          "h": 103,
+          "w": 34,
+          "x": 236,
+          "y": 37
+        },
+        "colorable": false,
+        "file": "assets/elements/title-slash.svg",
+        "frequency": "always",
+        "id": "titleSlash",
+        "layer": "behind",
+        "opacity": 1,
+        "previewSurface": "blue",
+        "type": "sticker",
+        "unused": true
+      }
+    ],
+    "imagery": {
+      "crop": {
+        "defaultRatio": "3:2",
+        "focus": "center"
+      },
+      "mask": "rect",
+      "textOverImage": {
+        "direction": "left",
+        "gradient": true,
+        "minContrast": 4.5,
+        "opacity": 0.7,
+        "overlay": "#004B8D"
+      },
+      "treatment": "none"
+    },
+    "maxPerSlide": 4
+  },
+  "engineVersion": "0.0.0",
+  "footer": {
+    "hideOn": [
+      "cover",
+      "section",
+      "cta"
+    ],
+    "items": [
+      "text",
+      "pageNumber"
+    ],
+    "pageNumberFormat": "{n}",
+    "position": "bottom-left",
+    "role": "footnote",
+    "show": true,
+    "text": "Investments in securities market are subject to market risks, read all the related documents carefully before investing."
+  },
+  "geometry": {
+    "canvas": {
+      "height": 1080,
+      "width": 1920
+    },
+    "density": "balanced",
+    "grid": {
+      "columns": 12,
+      "gutter": 40
+    },
+    "margins": {
+      "bottom": 100,
+      "left": 85,
+      "right": 85,
+      "top": 226
+    },
+    "safeArea": {
+      "bottom": 40,
+      "left": 40,
+      "right": 40,
+      "top": 40
+    },
+    "spacing": {
+      "lg": 32,
+      "md": 24,
+      "sm": 12,
+      "xl": 64,
+      "xs": 4
+    },
+    "titleZone": {
+      "align": "left",
+      "height": 160,
+      "y": 226
+    }
+  },
+  "id": "hdfc-2",
+  "logo": {
+    "clearSpace": 18,
+    "height": {
+      "small": 72
+    },
+    "perKind": {
+      "agenda": "none",
+      "bullets": "none",
+      "cards": "none",
+      "chart": "none",
+      "cover": "none",
+      "cta": "large",
+      "image": "none",
+      "image-text": "none",
+      "kpi": "none",
+      "logos": "none",
+      "quote": "none",
+      "section": "small",
+      "steps": "none",
+      "table": "none",
+      "team": "none",
+      "text": "none",
+      "timeline": "none",
+      "two-column": "none"
+    },
+    "perSurface": {
+      "blue": "monoLight",
+      "deep": "monoLight",
+      "white": "full"
+    },
+    "position": "top-right",
+    "variants": {
+      "full": {
+        "file": "assets/logos/hdfcsec-logo-full.png",
+        "height": 492,
+        "width": 2506
+      },
+      "icon": {
+        "file": "assets/logos/hdfcsec-mark.svg",
+        "height": 107,
+        "width": 107
+      },
+      "monoDark": {
+        "file": "assets/logos/hdfcsec-logo-bw.png",
+        "height": 438,
+        "width": 1843
+      },
+      "monoLight": {
+        "file": "assets/logos/hdfcsec-logo-reverse.png",
+        "height": 361,
+        "width": 1809
+      },
+      "reverse": {
+        "file": "assets/logos/hdfcsec-logo-reverse.png",
+        "height": 361,
+        "width": 1809
+      },
+      "wordmark": {
+        "file": "assets/logos/hdfcsec-logotype.svg",
+        "height": 174,
+        "width": 652
+      }
+    }
+  },
+  "motion": {
+    "build": "none",
+    "duration": 300,
+    "easing": "ease-out",
+    "family": "soft",
+    "stagger": 80,
+    "transition": "fade"
+  },
+  "name": "HDFC securities",
+  "palette": {
+    "brand": {
+      "accent": "#ED1C24",
+      "primary": "#004B8D",
+      "secondary": "#ED1C24",
+      "tertiary": "#00AEEF"
+    },
+    "chart": {
+      "categorical": [
+        "#004B8D",
+        "#00AEEF",
+        "#ED1C24",
+        "#F9AE1D",
+        "#6DCFF6",
+        "#F0675E",
+        "#55C5D6",
+        "#09529E"
+      ],
+      "highlight": "#ED1C24",
+      "muted": "#B1B3B6",
+      "sequential": [
+        "#6DCFF6",
+        "#00AEEF",
+        "#09529E",
+        "#004B8D",
+        "#002354"
+      ]
+    },
+    "perKind": {
+      "agenda": "white",
+      "bullets": "white",
+      "cards": "white",
+      "chart": "white",
+      "cover": "blue",
+      "cta": "deep",
+      "image": "blue",
+      "image-text": "white",
+      "kpi": "white",
+      "quote": "white",
+      "section": "blue",
+      "two-column": "white"
+    },
+    "rhythm": [
+      "blue",
+      "white",
+      "white",
+      "blue",
+      "white",
+      "white",
+      "white",
+      "deep"
+    ],
+    "rhythmBackgrounds": {
+      "0": "cover",
+      "3": "sectionBands",
+      "7": "starfield"
+    },
+    "semantic": {
+      "error": "#5E0000",
+      "info": "#00AEEF",
+      "success": "#2B9746",
+      "warning": "#F9AE1D"
+    },
+    "surfaces": [
+      {
+        "accent": "#E81B23",
+        "bg": "#FFFFFF",
+        "border": "#B1B3B6",
+        "card": "#FFFFFF",
+        "cardText": "#2D2E2D",
+        "contrast": {
+          "accent": 4.55,
+          "heading": 8.78,
+          "text": 13.63
+        },
+        "heading": "#004B8D",
+        "id": "white",
+        "logoVariant": "full",
+        "role": "default",
+        "text": "#2D2E2D",
+        "textMuted": "#5A5A5D",
+        "tone": "light"
+      },
+      {
+        "accent": "#6DCFF6",
+        "background": {
+          "cover": {
+            "image": "assets/backgrounds/cover-art.jpg",
+            "imageFit": "cover",
+            "surface": "blue",
+            "type": "image"
+          },
+          "hero": {
+            "image": "assets/images/cover-businessman-chart.jpeg",
+            "imageFit": "cover",
+            "overlay": "#004B8D",
+            "overlayDirection": "right",
+            "overlayGradient": true,
+            "overlayOpacity": 0.75,
+            "surface": "blue",
+            "type": "image"
+          }
+        },
+        "bg": "#004B8D",
+        "border": "#6DCFF6",
+        "card": "#FFFFFF",
+        "cardText": "#2D2E2D",
+        "contrast": {
+          "accent": 4.98,
+          "heading": 8.78,
+          "text": 8.78
+        },
+        "heading": "#FFFFFF",
+        "id": "blue",
+        "logoVariant": "monoLight",
+        "role": "accent",
+        "text": "#FFFFFF",
+        "textMuted": "#FFFFFF",
+        "tone": "dark"
+      },
+      {
+        "accent": "#6DCFF6",
+        "background": {
+          "starfield": {
+            "image": "assets/backgrounds/starfield-blue.jpg",
+            "imageFit": "cover",
+            "surface": "deep",
+            "type": "image"
+          }
+        },
+        "bg": "#002354",
+        "border": "#6DCFF6",
+        "card": "#004B8D",
+        "cardText": "#FFFFFF",
+        "contrast": {
+          "accent": 8.7,
+          "heading": 8.7,
+          "text": 15.35
+        },
+        "heading": "#6DCFF6",
+        "id": "deep",
+        "logoVariant": "monoLight",
+        "role": "dark",
+        "text": "#FFFFFF",
+        "textMuted": "#FFFFFF",
+        "tone": "dark"
+      }
+    ]
+  },
+  "provenance": {
+    "/charts": {
+      "from": [
+        "/charts"
+      ],
+      "note": "copied as given (kpi -> components.kpi)",
+      "rule": "MD-CHARTS-TABLES"
+    },
+    "/charts/palette": {
+      "from": [
+        "/charts/palette"
+      ],
+      "note": "charts.palette \"chart\" -> categorical",
+      "rule": "MD-CHARTS-TABLES"
+    },
+    "/components/button": {
+      "from": [
+        "/components/button"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/buttonSecondary": {
+      "from": [
+        "/components/buttonSecondary"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/callout": {
+      "from": [
+        "/components/callout"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/card": {
+      "from": [
+        "/components/cards/style"
+      ],
+      "note": "variant <- style.kind; tokens <- fill, radius, shadow, padding, border, titleStyle (titleRole), bodyStyle (bodyRole), fillOpacity, backdropBlur",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/chip": {
+      "from": [
+        "/components/chip"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/icon": {
+      "from": [
+        "/components/icons"
+      ],
+      "note": "variant <- style; tokens = the rest, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/kpi": {
+      "from": [
+        "/charts/kpi"
+      ],
+      "note": "variant <- style; tokens = the rest, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/quote": {
+      "from": [
+        "/components/quote"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/steps": {
+      "from": [
+        "/components/steps"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/components/timeline": {
+      "from": [
+        "/components/timeline"
+      ],
+      "note": "no style|kind|variant key: variant \"default\"; tokens = the block, flattened",
+      "rule": "MD-COMPONENTS"
+    },
+    "/composition/closing": {
+      "from": [
+        "/composition/closingSequence"
+      ],
+      "note": "layout ids -> kinds (kind map)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/density": {
+      "from": [
+        "/composition/density"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/agenda": {
+      "from": [
+        "/brandLayouts/1"
+      ],
+      "note": "layout \"agenda\" -> kind \"agenda\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/bullets": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "layout \"content\" -> kind \"bullets\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/cards": {
+      "from": [
+        "/brandLayouts/5"
+      ],
+      "note": "layout \"cards\" -> kind \"cards\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/chart": {
+      "from": [
+        "/brandLayouts/7"
+      ],
+      "note": "layout \"chart\" -> kind \"chart\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/cover": {
+      "from": [
+        "/brandLayouts/0"
+      ],
+      "note": "layout \"title\" -> kind \"cover\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/cta": {
+      "from": [
+        "/brandLayouts/11"
+      ],
+      "note": "layout \"closing\" -> kind \"cta\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/image": {
+      "from": [
+        "/brandLayouts/9"
+      ],
+      "note": "layout \"imageBleed\" -> kind \"image\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/image-text": {
+      "from": [
+        "/brandLayouts/8"
+      ],
+      "note": "layout \"imageText\" -> kind \"image-text\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/kpi": {
+      "from": [
+        "/brandLayouts/6"
+      ],
+      "note": "layout \"stat\" -> kind \"kpi\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/logos": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"logos\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/quote": {
+      "from": [
+        "/brandLayouts/10"
+      ],
+      "note": "layout \"quote\" -> kind \"quote\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/section": {
+      "from": [
+        "/brandLayouts/2"
+      ],
+      "note": "layout \"section\" -> kind \"section\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/steps": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"steps\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/table": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"table\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/team": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"team\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/text": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"text\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/timeline": {
+      "from": [
+        "/brandLayouts/3"
+      ],
+      "note": "via content: the brand names no layout for kind \"timeline\", so its \"content\" layout applies (G1)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/layoutHints/two-column": {
+      "from": [
+        "/brandLayouts/4"
+      ],
+      "note": "layout \"twoColumn\" -> kind \"two-column\"; titleStyle -> titleRole",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/maxAccentsPerSlide": {
+      "from": [
+        "/composition/maxAccentsPerSlide"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/maxElementsPerSlide": {
+      "from": [
+        "/composition/maxElementsPerSlide"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/minWhitespace": {
+      "from": [
+        "/composition/minWhitespace"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/opening": {
+      "from": [
+        "/composition/openingSequence"
+      ],
+      "note": "layout ids -> kinds (kind map)",
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/sectionDividers": {
+      "from": [
+        "/composition/sectionDividers"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/composition/titleEverySlide": {
+      "from": [
+        "/composition/titleEverySlide"
+      ],
+      "rule": "MD-COMPOSITION"
+    },
+    "/decor/elements/0": {
+      "from": [
+        "/decor/elements/0"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds; allowedOn via content: the brand names no layout for kinds \"text\", \"steps\", \"timeline\", \"table\", \"team\", \"logos\", so its \"content\" layout applies (G1)",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/1": {
+      "from": [
+        "/decor/elements/1"
+      ],
+      "note": "every brand-given key copied as given; unused until answered: frequency always with no allowed layouts (question decor.headerBand.allowedOn)",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/2": {
+      "from": [
+        "/decor/elements/2"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds; allowedOn via content: the brand names no layout for kinds \"text\", \"steps\", \"timeline\", \"table\", \"team\", \"logos\", so its \"content\" layout applies (G1)",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/3": {
+      "from": [
+        "/decor/elements/3"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/4": {
+      "from": [
+        "/decor/elements/4"
+      ],
+      "note": "every brand-given key copied as given; unused until answered: frequency always with no allowed layouts (question decor.footerRule.allowedOn)",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/5": {
+      "from": [
+        "/decor/elements/5"
+      ],
+      "note": "every brand-given key copied as given; allowedOn: layout ids -> kinds",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/6": {
+      "from": [
+        "/decor/elements/6"
+      ],
+      "note": "every brand-given key copied as given; unused until answered: frequency always with no allowed layouts (question decor.coverTint.allowedOn)",
+      "rule": "MD-DECOR"
+    },
+    "/decor/elements/7": {
+      "from": [
+        "/decor/elements/7"
+      ],
+      "note": "every brand-given key copied as given; unused until answered: frequency always with no allowed layouts (question decor.titleSlash.allowedOn)",
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/crop": {
+      "from": [
+        "/imagery/crop"
+      ],
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/mask": {
+      "from": [
+        "/imagery/masks/default"
+      ],
+      "note": "the brand's default mask",
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/textOverImage": {
+      "from": [
+        "/imagery/textOverImage"
+      ],
+      "rule": "MD-DECOR"
+    },
+    "/decor/imagery/treatment": {
+      "from": [
+        "/imagery/treatments/default"
+      ],
+      "note": "the brand's default treatment",
+      "rule": "MD-DECOR"
+    },
+    "/decor/maxPerSlide": {
+      "from": [
+        "/decor/maxElementsPerSlide"
+      ],
+      "rule": "MD-DECOR"
+    },
+    "/footer/hideOn": {
+      "from": [
+        "/layout/footer/hideOn"
+      ],
+      "note": "layout ids -> kinds (kind map)",
+      "rule": "MD-FOOTER"
+    },
+    "/footer/items": {
+      "from": [
+        "/layout/footer/text",
+        "/layout/footer/pageNumber"
+      ],
+      "note": "order logo, text, pageNumber, date by the footer booleans (text: non-empty)",
+      "rule": "MD-FOOTER"
+    },
+    "/footer/pageNumberFormat": {
+      "from": [
+        "/layout/footer/pageNumberFormat"
+      ],
+      "rule": "MD-FOOTER"
+    },
+    "/footer/position": {
+      "from": [
+        "/layout/footer/position"
+      ],
+      "rule": "MD-FOOTER"
+    },
+    "/footer/role": {
+      "from": [
+        "/layout/footer/style"
+      ],
+      "rule": "MD-FOOTER"
+    },
+    "/footer/show": {
+      "from": [
+        "/layout/footer/show"
+      ],
+      "rule": "MD-FOOTER"
+    },
+    "/footer/text": {
+      "from": [
+        "/layout/footer/text"
+      ],
+      "rule": "MD-FOOTER"
+    },
+    "/geometry/canvas": {
+      "from": [
+        "/layout/canvas"
+      ],
+      "note": "fixed 1920x1080 canvas (BR-NORMALIZE rejects any other input size)",
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/density": {
+      "from": [
+        "/composition/density"
+      ],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/grid": {
+      "from": [
+        "/layout/grid"
+      ],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/margins": {
+      "from": [
+        "/layout/margins"
+      ],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/safeArea": {
+      "from": [
+        "/layout/safeArea"
+      ],
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/spacing": {
+      "from": [
+        "/layout/spacing"
+      ],
+      "note": "sorted ascending; xs..xl = indices round((n-1) x 0, .25, .5, .75, 1) (D9)",
+      "rule": "MD-GEOMETRY"
+    },
+    "/geometry/titleZone": {
+      "from": [
+        "/layout/titleZone"
+      ],
+      "rule": "MD-GEOMETRY"
+    },
+    "/logo/clearSpace": {
+      "from": [
+        "/logos/clearSpace"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/height/small": {
+      "from": [
+        "/logos/height"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/agenda": {
+      "from": [
+        "/logos/perLayout/agenda"
+      ],
+      "note": "layout \"agenda\" -> kind \"agenda\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/bullets": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "layout \"content\" -> kind \"bullets\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/cards": {
+      "from": [
+        "/logos/perLayout/cards"
+      ],
+      "note": "layout \"cards\" -> kind \"cards\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/chart": {
+      "from": [
+        "/logos/perLayout/chart"
+      ],
+      "note": "layout \"chart\" -> kind \"chart\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/cover": {
+      "from": [
+        "/logos/perLayout/title"
+      ],
+      "note": "layout \"title\" -> kind \"cover\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/cta": {
+      "from": [
+        "/logos/perLayout/closing"
+      ],
+      "note": "layout \"closing\" -> kind \"cta\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/image": {
+      "from": [
+        "/logos/perLayout/imageBleed"
+      ],
+      "note": "layout \"imageBleed\" -> kind \"image\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/image-text": {
+      "from": [
+        "/logos/perLayout/imageText"
+      ],
+      "note": "layout \"imageText\" -> kind \"image-text\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/kpi": {
+      "from": [
+        "/logos/perLayout/stat"
+      ],
+      "note": "layout \"stat\" -> kind \"kpi\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/logos": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"logos\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/quote": {
+      "from": [
+        "/logos/perLayout/quote"
+      ],
+      "note": "layout \"quote\" -> kind \"quote\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/section": {
+      "from": [
+        "/logos/perLayout/section"
+      ],
+      "note": "layout \"section\" -> kind \"section\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/steps": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"steps\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/table": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"table\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/team": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"team\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/text": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"text\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/timeline": {
+      "from": [
+        "/logos/perLayout/content"
+      ],
+      "note": "via content: the brand names no layout for kind \"timeline\", so its \"content\" layout applies (G1)",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perKind/two-column": {
+      "from": [
+        "/logos/perLayout/twoColumn"
+      ],
+      "note": "layout \"twoColumn\" -> kind \"two-column\"",
+      "rule": "MD-LOGO"
+    },
+    "/logo/perSurface/blue": {
+      "from": [
+        "/logos/onSurface/blue"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/perSurface/deep": {
+      "from": [
+        "/logos/onSurface/deep"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/perSurface/white": {
+      "from": [
+        "/logos/onSurface/white"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/position": {
+      "from": [
+        "/logos/position"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/full": {
+      "from": [
+        "/logos/variants/full"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/icon": {
+      "from": [
+        "/logos/variants/icon"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/monoDark": {
+      "from": [
+        "/logos/variants/monoDark"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/monoLight": {
+      "from": [
+        "/logos/variants/monoLight"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/reverse": {
+      "from": [
+        "/logos/variants/reverse"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/logo/variants/wordmark": {
+      "from": [
+        "/logos/variants/wordmark"
+      ],
+      "rule": "MD-LOGO"
+    },
+    "/motion/build": {
+      "from": [
+        "/motion/build"
+      ],
+      "rule": "MD-MOTION"
+    },
+    "/motion/duration": {
+      "from": [
+        "/motion/duration"
+      ],
+      "rule": "MD-MOTION"
+    },
+    "/motion/easing": {
+      "from": [
+        "/motion/easing"
+      ],
+      "rule": "MD-MOTION"
+    },
+    "/motion/family": {
+      "from": [
+        "/motion/transition",
+        "/motion/duration"
+      ],
+      "note": "transition fade, duration 300",
+      "rule": "MD-MOTION"
+    },
+    "/motion/stagger": {
+      "from": [
+        "/motion/stagger"
+      ],
+      "rule": "MD-MOTION"
+    },
+    "/motion/transition": {
+      "from": [
+        "/motion/transition"
+      ],
+      "rule": "MD-MOTION"
+    },
+    "/name": {
+      "from": [
+        "/name"
+      ],
+      "rule": "ASSEMBLY"
+    },
+    "/palette/brand/accent": {
+      "from": [
+        "/colors/accent"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/brand/primary": {
+      "from": [
+        "/colors/primary"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/brand/secondary": {
+      "from": [
+        "/colors/secondary"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/brand/tertiary": {
+      "from": [
+        "/colors/tertiary"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/chart/categorical": {
+      "from": [
+        "/colors/chart"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/chart/highlight": {
+      "from": [
+        "/colors/accent"
+      ],
+      "note": "charts.highlightMode.color not given: colors.accent",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/chart/muted": {
+      "from": [
+        "/colors/chartMuted"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/chart/sequential": {
+      "from": [
+        "/colors/chartSequential"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/agenda": {
+      "from": [
+        "/brandLayouts/1/id",
+        "/brandLayouts/1/surface"
+      ],
+      "note": "layout \"agenda\" -> kind \"agenda\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/bullets": {
+      "from": [
+        "/brandLayouts/3/id",
+        "/brandLayouts/3/surface"
+      ],
+      "note": "layout \"content\" -> kind \"bullets\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/cards": {
+      "from": [
+        "/brandLayouts/5/id",
+        "/brandLayouts/5/surface"
+      ],
+      "note": "layout \"cards\" -> kind \"cards\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/chart": {
+      "from": [
+        "/brandLayouts/7/id",
+        "/brandLayouts/7/surface"
+      ],
+      "note": "layout \"chart\" -> kind \"chart\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/cover": {
+      "from": [
+        "/brandLayouts/0/id",
+        "/brandLayouts/0/surface"
+      ],
+      "note": "layout \"title\" -> kind \"cover\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/cta": {
+      "from": [
+        "/brandLayouts/11/id",
+        "/brandLayouts/11/surface"
+      ],
+      "note": "layout \"closing\" -> kind \"cta\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/image": {
+      "from": [
+        "/brandLayouts/9/id",
+        "/brandLayouts/9/surface"
+      ],
+      "note": "layout \"imageBleed\" -> kind \"image\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/image-text": {
+      "from": [
+        "/brandLayouts/8/id",
+        "/brandLayouts/8/surface"
+      ],
+      "note": "layout \"imageText\" -> kind \"image-text\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/kpi": {
+      "from": [
+        "/brandLayouts/6/id",
+        "/brandLayouts/6/surface"
+      ],
+      "note": "layout \"stat\" -> kind \"kpi\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/quote": {
+      "from": [
+        "/brandLayouts/10/id",
+        "/brandLayouts/10/surface"
+      ],
+      "note": "layout \"quote\" -> kind \"quote\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/section": {
+      "from": [
+        "/brandLayouts/2/id",
+        "/brandLayouts/2/surface"
+      ],
+      "note": "layout \"section\" -> kind \"section\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/perKind/two-column": {
+      "from": [
+        "/brandLayouts/4/id",
+        "/brandLayouts/4/surface"
+      ],
+      "note": "layout \"twoColumn\" -> kind \"two-column\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/rhythm": {
+      "from": [
+        "/backgrounds/rhythm/0",
+        "/backgrounds/variants/cover/surface",
+        "/backgrounds/rhythm/1",
+        "/backgrounds/default/surface",
+        "/backgrounds/rhythm/2",
+        "/backgrounds/rhythm/3",
+        "/backgrounds/variants/sectionBands/surface",
+        "/backgrounds/rhythm/4",
+        "/backgrounds/rhythm/5",
+        "/backgrounds/rhythm/6",
+        "/backgrounds/rhythm/7",
+        "/backgrounds/variants/starfield/surface"
+      ],
+      "note": "variant ids mapped to their surface; \"default\" to backgrounds.default.surface",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/rhythmBackgrounds/0": {
+      "from": [
+        "/backgrounds/rhythm/0",
+        "/backgrounds/variants/cover"
+      ],
+      "note": "rhythm step 0 names background variant \"cover\" (G9)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/rhythmBackgrounds/3": {
+      "from": [
+        "/backgrounds/rhythm/3",
+        "/backgrounds/variants/sectionBands"
+      ],
+      "note": "rhythm step 3 names background variant \"sectionBands\" (G9)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/rhythmBackgrounds/7": {
+      "from": [
+        "/backgrounds/rhythm/7",
+        "/backgrounds/variants/starfield"
+      ],
+      "note": "rhythm step 7 names background variant \"starfield\" (G9)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/semantic": {
+      "from": [
+        "/colors/semantic"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0": {
+      "from": [
+        "/surfaces/0"
+      ],
+      "note": "surface colour roles copied as given (logo -> logoVariant)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0/contrast": {
+      "from": [
+        "/surfaces/0/bg",
+        "/surfaces/0/text",
+        "/surfaces/0/heading",
+        "/surfaces/0/accent"
+      ],
+      "note": "WCAG contrast ratio vs bg",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0/role": {
+      "from": [
+        "/backgrounds/default/surface"
+      ],
+      "note": "backgrounds.default.surface = \"white\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/0/tone": {
+      "from": [
+        "/surfaces/0/tone"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1": {
+      "from": [
+        "/surfaces/1"
+      ],
+      "note": "surface colour roles copied as given (logo -> logoVariant)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1/background/cover": {
+      "from": [
+        "/backgrounds/variants/cover"
+      ],
+      "note": "variant.surface = \"blue\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1/background/hero": {
+      "from": [
+        "/backgrounds/variants/hero"
+      ],
+      "note": "variant.surface = \"blue\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1/contrast": {
+      "from": [
+        "/surfaces/1/bg",
+        "/surfaces/1/text",
+        "/surfaces/1/heading",
+        "/surfaces/1/accent"
+      ],
+      "note": "WCAG contrast ratio vs bg",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1/role": {
+      "from": [
+        "/surfaces/1/bg",
+        "/colors/primary"
+      ],
+      "note": "bg #004B8D equals colors.primary",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/1/tone": {
+      "from": [
+        "/surfaces/1/tone"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/2": {
+      "from": [
+        "/surfaces/2"
+      ],
+      "note": "surface colour roles copied as given (logo -> logoVariant)",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/2/background/starfield": {
+      "from": [
+        "/backgrounds/variants/starfield"
+      ],
+      "note": "variant.surface = \"deep\"",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/2/contrast": {
+      "from": [
+        "/surfaces/2/bg",
+        "/surfaces/2/text",
+        "/surfaces/2/heading",
+        "/surfaces/2/accent"
+      ],
+      "note": "WCAG contrast ratio vs bg",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/2/role": {
+      "from": [
+        "/surfaces/2/bg",
+        "/surfaces/0/bg"
+      ],
+      "note": "tone dark opposite to the default surface's light",
+      "rule": "MD-PALETTE"
+    },
+    "/palette/surfaces/2/tone": {
+      "from": [
+        "/surfaces/2/tone"
+      ],
+      "rule": "MD-PALETTE"
+    },
+    "/shape/borderWidth": {
+      "from": [
+        "/components/cards/style/border/width"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/divider": {
+      "from": [
+        "/components/divider"
+      ],
+      "note": "thickness -> weight; style \"solid\" is a line style -> line (kept as lineStyle)",
+      "rule": "MD-SHAPE"
+    },
+    "/shape/language": {
+      "from": [
+        "/layout/radiusScale/none",
+        "/layout/radiusScale/xs",
+        "/layout/radiusScale/sm",
+        "/layout/radiusScale/md",
+        "/layout/radiusScale/lg"
+      ],
+      "note": "largest named radius 6 (none, xs, sm, md, lg; pill/full excluded): <=2 sharp, <=16 soft, else round",
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/button": {
+      "from": [
+        "/layout/radiusScale/button"
+      ],
+      "note": "brand step kept under its own name",
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/lg": {
+      "from": [
+        "/layout/radiusScale/lg"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/md": {
+      "from": [
+        "/layout/radiusScale/md"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/none": {
+      "from": [
+        "/layout/radiusScale/none"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/pill": {
+      "from": [
+        "/layout/radiusScale/pill"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/sm": {
+      "from": [
+        "/layout/radiusScale/sm"
+      ],
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/tile": {
+      "from": [
+        "/layout/radiusScale/tile"
+      ],
+      "note": "brand step kept under its own name",
+      "rule": "MD-SHAPE"
+    },
+    "/shape/radius/xs": {
+      "from": [
+        "/layout/radiusScale/xs"
+      ],
+      "note": "brand step kept under its own name",
+      "rule": "MD-SHAPE"
+    },
+    "/shape/shadow/none": {
+      "from": [
+        "/layout/shadowScale/none"
+      ],
+      "note": "parsed to {x,y,blur,spread,color}",
+      "rule": "MD-SHAPE"
+    },
+    "/tables": {
+      "from": [
+        "/tables"
+      ],
+      "note": "copied as given",
+      "rule": "MD-CHARTS-TABLES"
+    },
+    "/type/align": {
+      "from": [
+        "/typography/alignment"
+      ],
+      "rule": "MD-TYPE"
+    },
+    "/type/bullets": {
+      "from": [
+        "/typography/bullets",
+        "/typography/bullets/char"
+      ],
+      "note": "bullets.char read as the glyph",
+      "rule": "MD-TYPE"
+    },
+    "/type/faces/body": {
+      "from": [
+        "/typography/faces/body"
+      ],
+      "note": "family, files, fallback, variable, metrics copied as given",
+      "rule": "MD-TYPE"
+    },
+    "/type/faces/data": {
+      "from": [
+        "/typography/faces/data"
+      ],
+      "note": "family, files, fallback, variable, metrics copied as given",
+      "rule": "MD-TYPE"
+    },
+    "/type/faces/heading": {
+      "from": [
+        "/typography/faces/heading"
+      ],
+      "note": "family, files, fallback, variable, metrics copied as given",
+      "rule": "MD-TYPE"
+    },
+    "/type/faces/page": {
+      "from": [
+        "/typography/faces/page"
+      ],
+      "note": "family, files, fallback, variable, metrics copied as given",
+      "rule": "MD-TYPE"
+    },
+    "/type/faces/tagline": {
+      "from": [
+        "/typography/faces/tagline"
+      ],
+      "note": "family, files, fallback, variable, metrics copied as given",
+      "rule": "MD-TYPE"
+    },
+    "/type/limits": {
+      "from": [
+        "/typography/limits"
+      ],
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/body": {
+      "from": [
+        "/typography/roles/body"
+      ],
+      "note": "brand role \"body\" (chain: body)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/body/color": {
+      "from": [
+        "/typography/roles/body/color"
+      ],
+      "note": "brand style \"body\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/body/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodyLarge": {
+      "from": [
+        "/typography/roles/bodyLarge"
+      ],
+      "note": "brand style \"bodyLarge\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodyLarge/color": {
+      "from": [
+        "/typography/roles/bodyLarge/color"
+      ],
+      "note": "brand style \"bodyLarge\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodyLarge/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodySmall": {
+      "from": [
+        "/typography/roles/bodySmall"
+      ],
+      "note": "brand role \"bodySmall\" (chain: bodySmall)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodySmall/color": {
+      "from": [
+        "/typography/roles/bodySmall/color"
+      ],
+      "note": "brand style \"bodySmall\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bodySmall/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bullet": {
+      "from": [
+        "/typography/roles/body"
+      ],
+      "note": "brand role \"body\" (chain: body)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bullet/color": {
+      "from": [
+        "/typography/roles/body/color"
+      ],
+      "note": "brand style \"body\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/bullet/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/button": {
+      "from": [
+        "/typography/roles/button"
+      ],
+      "note": "brand role \"button\" (chain: button)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/button/color": {
+      "from": [
+        "/typography/roles/button/color"
+      ],
+      "note": "brand style \"button\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/button/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/caption": {
+      "from": [
+        "/typography/roles/caption"
+      ],
+      "note": "brand role \"caption\" (chain: caption > footnote > meta)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/caption/color": {
+      "from": [
+        "/typography/roles/caption/color"
+      ],
+      "note": "brand style \"caption\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/caption/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/chartLabel": {
+      "from": [
+        "/typography/roles/caption"
+      ],
+      "note": "brand role \"caption\" (chain: chartLabel > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/chartLabel/color": {
+      "from": [
+        "/typography/roles/caption/color"
+      ],
+      "note": "brand style \"caption\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/chartLabel/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/closingTitle": {
+      "from": [
+        "/typography/roles/closingTitle"
+      ],
+      "note": "brand style \"closingTitle\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/closingTitle/color": {
+      "from": [
+        "/typography/roles/closingTitle/color"
+      ],
+      "note": "brand style \"closingTitle\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/closingTitle/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/disclaimer": {
+      "from": [
+        "/typography/roles/disclaimer"
+      ],
+      "note": "brand style \"disclaimer\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/disclaimer/color": {
+      "from": [
+        "/typography/roles/disclaimer/color"
+      ],
+      "note": "brand style \"disclaimer\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/disclaimer/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/disclaimerHead": {
+      "from": [
+        "/typography/roles/disclaimerHead"
+      ],
+      "note": "brand style \"disclaimerHead\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/disclaimerHead/color": {
+      "from": [
+        "/typography/roles/disclaimerHead/color"
+      ],
+      "note": "brand style \"disclaimerHead\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/disclaimerHead/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/display": {
+      "from": [
+        "/typography/roles/display"
+      ],
+      "note": "brand role \"display\" (chain: display)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/display/color": {
+      "from": [
+        "/typography/roles/display/color"
+      ],
+      "note": "brand style \"display\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/display/fit": {
+      "from": [
+        "/typography/roles/h1/size"
+      ],
+      "note": "next smaller heading \"h1\" (brand \"h1\")",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/eyebrow": {
+      "from": [
+        "/typography/roles/eyebrow"
+      ],
+      "note": "brand role \"eyebrow\" (chain: eyebrow > label)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/eyebrow/color": {
+      "from": [
+        "/typography/roles/eyebrow/color"
+      ],
+      "note": "brand style \"eyebrow\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/eyebrow/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/factValue": {
+      "from": [
+        "/typography/roles/factValue"
+      ],
+      "note": "brand style \"factValue\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/factValue/color": {
+      "from": [
+        "/typography/roles/factValue/color"
+      ],
+      "note": "brand style \"factValue\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/factValue/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footer": {
+      "from": [
+        "/typography/roles/footnote",
+        "/layout/footer/style"
+      ],
+      "note": "brand role \"footnote\" (chain: footnote > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footer/color": {
+      "from": [
+        "/typography/roles/footnote/color"
+      ],
+      "note": "brand style \"footnote\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footer/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footnote": {
+      "from": [
+        "/typography/roles/footnote"
+      ],
+      "note": "brand style \"footnote\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footnote/color": {
+      "from": [
+        "/typography/roles/footnote/color"
+      ],
+      "note": "brand style \"footnote\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/footnote/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h1": {
+      "from": [
+        "/typography/roles/h1"
+      ],
+      "note": "brand role \"h1\" (chain: h1)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h1/color": {
+      "from": [
+        "/typography/roles/h1/color"
+      ],
+      "note": "brand style \"h1\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h1/fit": {
+      "from": [
+        "/typography/roles/h2/size"
+      ],
+      "note": "next smaller heading \"h2\" (brand \"h2\")",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h2": {
+      "from": [
+        "/typography/roles/h2"
+      ],
+      "note": "brand role \"h2\" (chain: h2)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h2/color": {
+      "from": [
+        "/typography/roles/h2/color"
+      ],
+      "note": "brand style \"h2\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h2/fit": {
+      "from": [
+        "/typography/roles/h3/size"
+      ],
+      "note": "next smaller heading \"h3\" (brand \"h3\")",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h3": {
+      "from": [
+        "/typography/roles/h3"
+      ],
+      "note": "brand role \"h3\" (chain: h3 > cardTitle)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h3/color": {
+      "from": [
+        "/typography/roles/h3/color"
+      ],
+      "note": "brand style \"h3\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/h3/fit": {
+      "from": [
+        "/typography/roles/body/size"
+      ],
+      "note": "next smaller heading \"body\" (brand \"body\")",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/label": {
+      "from": [
+        "/typography/roles/label"
+      ],
+      "note": "brand style \"label\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/label/color": {
+      "from": [
+        "/typography/roles/label/color"
+      ],
+      "note": "brand style \"label\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/label/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quote": {
+      "from": [
+        "/typography/roles/quote"
+      ],
+      "note": "brand role \"quote\" (chain: quote)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quote/color": {
+      "from": [
+        "/typography/roles/quote/color"
+      ],
+      "note": "brand style \"quote\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quote/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quoteAttribution": {
+      "from": [
+        "/typography/roles/caption"
+      ],
+      "note": "brand role \"caption\" (chain: personRole > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quoteAttribution/color": {
+      "from": [
+        "/typography/roles/caption/color"
+      ],
+      "note": "brand style \"caption\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/quoteAttribution/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/stat": {
+      "from": [
+        "/typography/roles/stat"
+      ],
+      "note": "brand role \"stat\" (chain: stat > factValue)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/stat/color": {
+      "from": [
+        "/typography/roles/stat/color"
+      ],
+      "note": "brand style \"stat\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/stat/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/statLabel": {
+      "from": [
+        "/typography/roles/caption"
+      ],
+      "note": "brand role \"caption\" (chain: statLabel > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/statLabel/color": {
+      "from": [
+        "/typography/roles/caption/color"
+      ],
+      "note": "brand style \"caption\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/statLabel/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableCell": {
+      "from": [
+        "/typography/roles/bodySmall"
+      ],
+      "note": "brand role \"bodySmall\" (chain: tableCell > bodySmall)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableCell/color": {
+      "from": [
+        "/typography/roles/bodySmall/color"
+      ],
+      "note": "brand style \"bodySmall\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableCell/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableHeader": {
+      "from": [
+        "/typography/roles/label"
+      ],
+      "note": "brand role \"label\" (chain: tableHead > tableHeader > label > caption)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableHeader/color": {
+      "from": [
+        "/typography/roles/label/color"
+      ],
+      "note": "brand style \"label\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tableHeader/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tagline": {
+      "from": [
+        "/typography/roles/tagline"
+      ],
+      "note": "brand style \"tagline\" under its own name (G4)",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tagline/color": {
+      "from": [
+        "/typography/roles/tagline/color"
+      ],
+      "note": "brand style \"tagline\" gives its colour",
+      "rule": "MD-TYPE"
+    },
+    "/type/roles/tagline/fit": {
+      "from": [
+        "/typography/limits/minBodySize"
+      ],
+      "note": "body-like role: typography.limits.minBodySize",
+      "rule": "MD-TYPE"
+    },
+    "/voice/language": {
+      "from": [
+        "/voice/language"
+      ],
+      "rule": "MD-VOICE"
+    },
+    "/voice/rtl": {
+      "from": [
+        "/locale/rtl"
+      ],
+      "rule": "MD-VOICE"
+    },
+    "/voice/titleCase": {
+      "from": [
+        "/voice/titleCase"
+      ],
+      "rule": "MD-VOICE"
+    }
+  },
+  "schema": "mood/1",
+  "shape": {
+    "borderWidth": 1,
+    "divider": {
+      "color": "#231F20",
+      "length": "full",
+      "lineStyle": "solid",
+      "style": "line",
+      "weight": 1
+    },
+    "language": "soft",
+    "radius": {
+      "button": 3,
+      "lg": 6,
+      "md": 6,
+      "none": 0,
+      "pill": 999,
+      "sm": 3,
+      "tile": 6,
+      "xs": 2
+    },
+    "shadow": {
+      "none": {
+        "blur": 0,
+        "color": "#000000",
+        "opacity": 0,
+        "spread": 0,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "tables": {
+    "align": {
+      "header": "left",
+      "number": "left",
+      "text": "left"
+    },
+    "firstColumn": {
+      "bold": true
+    },
+    "header": {
+      "case": "none",
+      "fill": "transparent",
+      "font": "label",
+      "text": "#004B8D",
+      "weight": 400
+    },
+    "maxCols": 5,
+    "maxRows": 7,
+    "radius": 0,
+    "rows": {
+      "border": "#6DCFF6",
+      "borderStyle": "horizontal",
+      "font": "label",
+      "minHeight": 60,
+      "padding": 18,
+      "striped": false
+    }
+  },
+  "type": {
+    "align": {
+      "body": "left",
+      "title": "left"
+    },
+    "bullets": {
+      "color": "#E81B23",
+      "glyph": "•",
+      "indent": 23,
+      "maxDepth": 2,
+      "maxPerSlide": 6,
+      "nested": [
+        "-"
+      ]
+    },
+    "faces": {
+      "body": {
+        "fallback": "Calibri, Arial, sans-serif",
+        "family": "Montserrat",
+        "files": [
+          {
+            "file": "assets/fonts/google/Montserrat-normal-100-900-latin.woff2",
+            "format": "woff2",
+            "style": "normal",
+            "weight": "100 900"
+          },
+          {
+            "file": "assets/fonts/google/Montserrat-italic-100-900-latin.woff2",
+            "format": "woff2",
+            "style": "italic",
+            "weight": "100 900"
+          }
+        ],
+        "metrics": {
+          "ascent": 0.968,
+          "avgCharWidth": 0.573902,
+          "capHeight": 0.7,
+          "descent": -0.251,
+          "file": "assets/fonts/google/Montserrat-normal-100-900-latin.woff2",
+          "instance": {
+            "name": "Regular",
+            "wght": 400
+          },
+          "lineGap": 0,
+          "unitsPerEm": 1000,
+          "xHeight": 0.517
+        },
+        "variable": true
+      },
+      "data": {
+        "fallback": "Calibri, Arial, sans-serif",
+        "family": "Lato",
+        "files": [],
+        "variable": false
+      },
+      "heading": {
+        "fallback": "Calibri, Arial, sans-serif",
+        "family": "Montserrat",
+        "files": [
+          {
+            "file": "assets/fonts/google/Montserrat-normal-100-900-latin.woff2",
+            "format": "woff2",
+            "style": "normal",
+            "weight": "100 900"
+          },
+          {
+            "file": "assets/fonts/google/Montserrat-italic-100-900-latin.woff2",
+            "format": "woff2",
+            "style": "italic",
+            "weight": "100 900"
+          }
+        ],
+        "metrics": {
+          "ascent": 0.968,
+          "avgCharWidth": 0.573902,
+          "capHeight": 0.7,
+          "descent": -0.251,
+          "file": "assets/fonts/google/Montserrat-normal-100-900-latin.woff2",
+          "instance": {
+            "name": "Regular",
+            "wght": 400
+          },
+          "lineGap": 0,
+          "unitsPerEm": 1000,
+          "xHeight": 0.517
+        },
+        "variable": true
+      },
+      "page": {
+        "fallback": "Arial, sans-serif",
+        "family": "Roboto",
+        "files": [
+          {
+            "file": "assets/fonts/google/Roboto-normal-100-900-latin.woff2",
+            "format": "woff2",
+            "style": "normal",
+            "weight": "100 900"
+          },
+          {
+            "file": "assets/fonts/google/Roboto-italic-100-900-latin.woff2",
+            "format": "woff2",
+            "style": "italic",
+            "weight": "100 900"
+          }
+        ],
+        "metrics": {
+          "ascent": 0.927734,
+          "avgCharWidth": 0.499211,
+          "capHeight": 0.710938,
+          "descent": -0.244141,
+          "file": "assets/fonts/google/Roboto-normal-100-900-latin.woff2",
+          "instance": {
+            "name": "default",
+            "wght": 400
+          },
+          "lineGap": 0,
+          "unitsPerEm": 2048,
+          "xHeight": 0.52832
+        },
+        "variable": true
+      },
+      "tagline": {
+        "fallback": "Sitka Small, Georgia, serif",
+        "family": "PT Serif",
+        "files": [],
+        "variable": false
+      }
+    },
+    "limits": {
+      "maxCharsPerLine": 60,
+      "maxTitleChars": 60,
+      "maxWordsPerSlide": 40,
+      "minBodySize": 14
+    },
+    "roles": {
+      "body": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.32,
+        "size": 27,
+        "weight": 400
+      },
+      "bodyLarge": {
+        "color": "heading",
+        "face": "page",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.32,
+        "size": 36,
+        "weight": 500
+      },
+      "bodySmall": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.32,
+        "size": 23,
+        "weight": 400
+      },
+      "bullet": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.32,
+        "size": 27,
+        "weight": 400
+      },
+      "button": {
+        "color": "#FFFFFF",
+        "face": "heading",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1,
+        "size": 26,
+        "weight": 500
+      },
+      "caption": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.3,
+        "size": 20,
+        "weight": 400
+      },
+      "chartLabel": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.3,
+        "size": 20,
+        "weight": 400
+      },
+      "closingTitle": {
+        "color": "#FFFFFF",
+        "face": "page",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.2,
+        "size": 44,
+        "weight": 500
+      },
+      "disclaimer": {
+        "color": "#5A5A5D",
+        "face": "page",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.3,
+        "size": 17,
+        "weight": 400
+      },
+      "disclaimerHead": {
+        "color": "#5A5A5D",
+        "face": "page",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.2,
+        "size": 25,
+        "weight": 400
+      },
+      "display": {
+        "case": "upper",
+        "color": "heading",
+        "face": "page",
+        "fit": {
+          "min": 68,
+          "step": 2
+        },
+        "lineHeight": 1.2,
+        "size": 82,
+        "weight": 900
+      },
+      "eyebrow": {
+        "case": "upper",
+        "color": "heading",
+        "face": "page",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.3,
+        "size": 21,
+        "weight": 700
+      },
+      "factValue": {
+        "case": "upper",
+        "color": "text",
+        "face": "heading",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.2,
+        "size": 34,
+        "weight": 700
+      },
+      "footer": {
+        "color": "#333333",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.3,
+        "size": 18,
+        "weight": 400
+      },
+      "footnote": {
+        "color": "#333333",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.3,
+        "size": 18,
+        "weight": 400
+      },
+      "h1": {
+        "case": "sentence",
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 36,
+          "step": 2
+        },
+        "lineHeight": 1.2,
+        "size": 68,
+        "weight": 700
+      },
+      "h2": {
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 27,
+          "step": 2
+        },
+        "lineHeight": 1.3,
+        "size": 36,
+        "weight": 600
+      },
+      "h3": {
+        "color": "#E81B23",
+        "face": "page",
+        "fit": {
+          "min": 27,
+          "step": 2
+        },
+        "lineHeight": 1.33,
+        "size": 27,
+        "weight": 500
+      },
+      "label": {
+        "color": "text",
+        "face": "data",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.32,
+        "size": 25,
+        "weight": 400
+      },
+      "quote": {
+        "color": "heading",
+        "face": "page",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.3,
+        "size": 44,
+        "weight": 700
+      },
+      "quoteAttribution": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.3,
+        "size": 20,
+        "weight": 400
+      },
+      "stat": {
+        "color": "heading",
+        "face": "heading",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.1,
+        "size": 72,
+        "weight": 700
+      },
+      "statLabel": {
+        "color": "textMuted",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.3,
+        "size": 20,
+        "weight": 400
+      },
+      "tableCell": {
+        "color": "text",
+        "face": "body",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.32,
+        "size": 23,
+        "weight": 400
+      },
+      "tableHeader": {
+        "color": "text",
+        "face": "data",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "lineHeight": 1.32,
+        "size": 25,
+        "weight": 400
+      },
+      "tagline": {
+        "color": "text",
+        "face": "tagline",
+        "fit": {
+          "min": 14,
+          "step": 2
+        },
+        "letterSpacing": 0.06,
+        "lineHeight": 1.2,
+        "size": 48,
+        "weight": 700
+      }
+    }
+  },
+  "voice": {
+    "language": "en-IN",
+    "rtl": false,
+    "titleCase": "sentence"
+  },
+  "warnings": []
+}
