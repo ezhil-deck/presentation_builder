@@ -58,9 +58,9 @@ describe('@pb/cli', () => {
     const deck = readJson(out, 'deck.json');
     expect(deck.schema).toBe('deck/1');
     expect(deck.source.brandId).toBe('mini');
-    expect(deck.slides).toHaveLength(24);
+    expect(deck.slides).toHaveLength(38); // showcase v2 (golden since 2026-11-02)
     const report = readJson(out, 'report.json');
-    expect(report).toMatchObject({ kind: 'BuildReport', brandId: 'mini', counts: { slides: 24 } });
+    expect(report).toMatchObject({ kind: 'BuildReport', brandId: 'mini', counts: { slides: 38 } });
     expect(report.slides[0]).toMatchObject({ index: 1, kind: 'cover', layoutId: 'cover' });
     expect(report.slides[0].sizes[0]).toMatchObject({
       requested: expect.any(Number),
@@ -73,17 +73,17 @@ describe('@pb/cli', () => {
     );
     const html = readFileSync(join(out, 'deck.html'), 'utf8');
     expect(html).toMatch(/^<!doctype html>/);
-    expect((html.match(/<section class="slide"/g) ?? []).length).toBe(24);
+    expect((html.match(/<section class="slide"/g) ?? []).length).toBe(38);
     expect(r.exitCode).toBe(EXIT.OK);
   });
 
   it('runBuild() --png --pdf: slides/NN.png per slide, one PDF page per slide, sheet.png 4 per row at 480 px', async () => {
     const r = await runBuild(ok.dir, { out, png: true, pdf: true, cacheDir: null });
-    expect(r.report.counts).toMatchObject({ slides: 24, pngs: 24, pdfPages: 24 });
-    expect(existsSync(join(out, 'slides', '24.png'))).toBe(true);
+    expect(r.report.counts).toMatchObject({ slides: 38, pngs: 38, pdfPages: 38 });
+    expect(existsSync(join(out, 'slides', '38.png'))).toBe(true);
     const sheet = readFileSync(join(out, 'sheet.png'));
     expect(sheet.readUInt32BE(16)).toBe(4 * 480 + 5 * 16); // width: 4 thumbnails + gaps
-    expect(sheet.readUInt32BE(20)).toBeGreaterThan(6 * 270); // 6 rows of thumbnails
+    expect(sheet.readUInt32BE(20)).toBeGreaterThan(10 * 270); // 10 rows of thumbnails
   }, 120000);
 
   it('runBuild() --snapshot writes deck.json into the expected folder, byte-identical on a second run', async () => {

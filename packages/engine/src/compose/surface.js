@@ -23,11 +23,23 @@ export function surfaceFor(i, slide, mood, state = createSurfaceState(), layout)
   const surfaces = mood.palette?.surfaces ?? [];
   const byId = (id) => surfaces.find((s) => s.id === id);
   state.step = null;
+  // a pinned surface (content `surface`, the Studio's per-slide override) replaces this slide's surface only: the
+  // rhythm still counts this slide as it would unpinned, so the other slides keep their surfaces
+  const natural = naturalSurface(i, slide, mood, state, layout);
   if (slide.surface) {
     const s = byId(slide.surface);
-    if (s) return s;
+    if (s) {
+      state.step = null;
+      return s;
+    }
     state.warn?.('surface', `slide ${i + 1}: pinned surface "${slide.surface}" is not in the Mood`);
   }
+  return natural;
+}
+
+function naturalSurface(i, slide, mood, state, layout) {
+  const surfaces = mood.palette?.surfaces ?? [];
+  const byId = (id) => surfaces.find((s) => s.id === id);
   const kinds = [...new Set([slide.kind, slide.layoutKind].filter(Boolean))];
   for (const k of kinds) {
     const id = mood.palette?.perKind?.[k];

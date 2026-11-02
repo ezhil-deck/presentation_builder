@@ -1,5 +1,10 @@
 /**
- * Markdown -> Content (schemas/content.schema.json v1.1), P2-spec §1. Deterministic, no network, no AI.
+ * Markdown -> Content (schemas/content.schema.json v2.0), P2-spec §1 + docs/S2-content-v2.md. Deterministic, no
+ * network, no AI. A document written in the P2 grammar only is read exactly as before and stays `content/1` (so the
+ * golden decks keep their content hash); a document that uses any content/2 construct - a slide front (a YAML `---`
+ * fence right under the `# ` heading), a content/2 fence (points, items, subpoints, process, quotes, quote, compare,
+ * paragraph, image), a content/2 field in a shared fence, or `schema: content/2` in the front matter / options - is
+ * read as `content/2`: its P2 constructs are upgraded (upgrade.js) and every block is a content/2 block.
  *
  * Grammar notes where §1 leaves a choice (listed in the P2 report):
  * - one source line = one paragraph (a slide line is a line; consecutive lines are not joined);
@@ -9,6 +14,11 @@
  */
 import { parse as parseYaml } from 'yaml';
 import { validateBlock, validateContent } from '../validate.js';
+import { blockWarnings, slideWarnings } from './blocks.js';
+import { SHARED_FENCES, V2_FENCES, fenceBlockV2, sharedFenceIsV2 } from './fences.js';
+import { lowerSlide } from './lower.js';
+import { validateBlockV2 } from './schema.js';
+import { orderSlide, upgradeSlide } from './upgrade.js';
 
 const FENCE_TYPES = new Set(['cards', 'steps', 'timeline', 'kpis', 'chart', 'table', 'logos', 'people']);
 const LIST_RE = /^(\s*)([-*]|\d+[.)])\s+(.*)$/;
@@ -83,9 +93,9 @@ function buildList(lines) {
  * YAML as people write it in slides: a plain value that itself contains ": " (e.g. `text: a mood: palette`) is invalid
  * YAML. Strict parse first; on failure, retry once with such `key: value` scalars double-quoted. Returns {data, repaired}.
  */
-export function parseFenceYaml(raw) {
+export function parseFenceYaml(raw, options) {
   try {
-    return { data: parseYaml(raw), repaired: false };
+    return { data: parseYaml(raw, options), repaired: false };
   } catch (strictErr) {
     const fixed = raw
       .split('\n')
@@ -96,12 +106,15 @@ export function parseFenceYaml(raw) {
       })
       .join('\n');
     if (fixed === raw) throw strictErr;
-    return { data: parseYaml(fixed), repaired: true };
+    return { data: parseYaml(fixed, options), repaired: true };
   }
 }
 
-/** Slide body lines -> {kind, items: [{block} | {h2}]}. */
-function parseBody(lines, warn, slideNo) {
+/**
+ * Slide body lines -> {kind, items: [{block} | {h2}]}. `fenceHook(name, raw)` (content/2) builds a fence's item;
+ * without it the P2 fences are read as before.
+ */
+function parseBody(lines, warn, slideNo, fenceHook) {
   const items = [];
   let kind;
   let i = 0;
@@ -131,6 +144,10 @@ function parseBody(lines, warn, slideNo) {
       i += 1; // closing fence
       const name = fenceM[1];
       const raw = body.join('\n');
+      if (fenceHook) {
+        items.push(fenceHook(name, raw));
+        continue;
+      }
       if (FENCE_TYPES.has(name)) {
         try {
           const { data, repaired } = parseFenceYaml(raw);
@@ -174,9 +191,12 @@ function parseBody(lines, warn, slideNo) {
         parts.push(lines[i].trim().replace(/^>\s?/, ''));
         i += 1;
       }
+      // content/2: the attribution may also be the quote's last line (`> — Name, Role`, as Prettier writes it)
+      const inside = fenceHook && parts.length > 1 ? /^(?:—|--)\s*(.+)$/.exec(parts[parts.length - 1]) : null;
+      if (inside) parts.pop();
       const block = { type: 'quote', text: parts.join(' ').trim() };
       const next = i < lines.length ? lines[i].trim() : '';
-      const attrM = /^(?:—|--)\s*(.+)$/.exec(next);
+      const attrM = inside ?? /^(?:—|--)\s*(.+)$/.exec(next);
       if (attrM) {
         const attr = attrM[1].trim();
         const sep = [' · ', ', ']
@@ -187,7 +207,7 @@ function parseBody(lines, warn, slideNo) {
           block.attribution = attr.slice(0, sep.at).trim();
           block.role = attr.slice(sep.at + sep.s.length).trim();
         } else block.attribution = attr;
-        i += 1;
+        if (!inside) i += 1;
       }
       items.push({ block });
       continue;
@@ -243,16 +263,12 @@ function resolveDeep(value, brandSpec, missing) {
   return value;
 }
 
-/**
- * The slide kind when `slide.kind` is absent (P2-spec §1). `index` / `count` enable the position rules (first slide ->
- * cover; last slide with a `cta` block -> cta).
- */
-export function inferKind(slide, { index, count } = {}) {
-  const blocks = slide?.blocks ?? [];
+/** The P2 inference (P2-spec §1) on a v1-shaped block list; `skip` = block types that do not count (content/2: eyebrow). */
+function inferFromBlocks(blocks, { index, count, skip } = {}) {
   const has = (type) => blocks.some((b) => b.type === type);
   if (index === 0) return 'cover';
   if (count !== undefined && index === count - 1 && has('cta')) return 'cta';
-  const rest = blocks.filter((b) => b.type !== 'title');
+  const rest = blocks.filter((b) => b.type !== 'title' && !skip?.has(b.type));
   if (rest.length === 0) return 'text';
   if (rest.every((b) => b.type === 'subtitle')) return 'section';
   if (has('kpis')) return 'kpi';
@@ -271,8 +287,113 @@ export function inferKind(slide, { index, count } = {}) {
   return 'text';
 }
 
+const SECTION_SKIP = new Set(['eyebrow', 'number']);
+
+/**
+ * The slide kind when `slide.kind` is absent (P2-spec §1). `index` / `count` enable the position rules (first slide ->
+ * cover; last slide with a `cta` block -> cta). A content/2 slide is read through its aliases onto today's kinds
+ * (docs/S2-content-v2.md §5: points -> bullets, items / subpoints -> cards, process -> steps, quotes -> quote, people
+ * -> team, compare -> two-column, paragraph -> text, image -> image, or image-text with `treatment: side` or text);
+ * its label does not count against a section (title + subtitle [+ label, number]).
+ */
+export function inferKind(slide, { index, count } = {}) {
+  const lowered = lowerSlide(slide);
+  if (!lowered.changed) return inferFromBlocks(slide?.blocks ?? [], { index, count });
+  const kind = inferFromBlocks(lowered.slide.blocks, { index, count, skip: SECTION_SKIP });
+  const side = (slide.blocks ?? []).some((b) => b.type === 'image' && b.treatment === 'side');
+  return kind === 'image' && side ? 'image-text' : kind;
+}
+
+const FRONT_KEYS = new Set([
+  'label',
+  'subtitle',
+  'number',
+  'background',
+  'cta',
+  'kind',
+  'surface',
+  'layout',
+  'notes',
+  'decor',
+  'logo',
+]);
+
+/** The slide front (YAML mapping under the heading) -> {keys, kind}; failsafe YAML so "01" stays "01". */
+function readFront(lines, warn) {
+  if (!lines) return { keys: {} };
+  let data;
+  try {
+    data = parseFenceYaml(lines.join('\n'), { schema: 'failsafe' }).data;
+  } catch (err) {
+    warn(`slide front is not valid YAML (${err.message}): ignored`);
+    return { keys: {} };
+  }
+  if (data === null || data === undefined || data === '') return { keys: {} };
+  if (typeof data !== 'object' || Array.isArray(data)) {
+    warn('slide front must be a YAML mapping of slide keys: ignored');
+    return { keys: {} };
+  }
+  const keys = {};
+  for (const [k, v] of Object.entries(data)) {
+    if (k === 'title') {
+      warn('slide front "title" ignored: the "# " heading is the title');
+      continue;
+    }
+    if (!FRONT_KEYS.has(k)) {
+      warn(`slide front: unknown key "${k}" ignored`);
+      continue;
+    }
+    if (v === '' || v === null || v === undefined) continue;
+    if (k === 'decor' || k === 'logo') {
+      if (v === 'true' || v === 'false') keys[k] = v === 'true';
+      else warn(`slide front "${k}" must be true or false: ignored`);
+      continue;
+    }
+    if (typeof v === 'object') {
+      warn(`slide front "${k}" must be text: ignored`);
+      continue;
+    }
+    keys[k] = String(v);
+  }
+  return { keys };
+}
+
+/** Does this split document use any content/2 construct? (docs/S2-content-v2.md §1) */
+function usesV2(raw) {
+  for (const r of raw) {
+    if (r.front) return true;
+    let fence = null;
+    let body = [];
+    for (const line of r.lines) {
+      const t = line.trim();
+      if (fence === null) {
+        const m = /^```\s*([A-Za-z0-9_-]*)\s*$/.exec(t);
+        if (m) {
+          fence = m[1];
+          body = [];
+        }
+        continue;
+      }
+      if (t !== '```') {
+        body.push(line);
+        continue;
+      }
+      if (V2_FENCES.includes(fence)) return true;
+      if (SHARED_FENCES.includes(fence)) {
+        try {
+          if (sharedFenceIsV2(fence, parseFenceYaml(body.join('\n')).data)) return true;
+        } catch {
+          // invalid YAML: the version-specific reader reports it
+        }
+      }
+      fence = null;
+    }
+  }
+  return false;
+}
+
 /** md -> {content, warnings}. Throws only when the assembled Content fails its schema (a parser bug). */
-export function parseMarkdownResult(md, { brandSpec } = {}) {
+export function parseMarkdownResult(md, { brandSpec, schema } = {}) {
   const warnings = [];
   const warn = (slide, message, severity = 'warn') =>
     warnings.push({ check: 'content', severity, message, ...(slide ? { slide } : {}) });
@@ -282,6 +403,7 @@ export function parseMarkdownResult(md, { brandSpec } = {}) {
 
   let start = 0;
   let title;
+  let fmSchema;
   if (lines[0]?.trim() === '---') {
     const end = lines.indexOf('---', 1);
     const close = end > 0 ? end : lines.findIndex((l, k) => k > 0 && l.trim() === '---');
@@ -289,6 +411,7 @@ export function parseMarkdownResult(md, { brandSpec } = {}) {
       try {
         const fm = parseYaml(lines.slice(1, close).join('\n')) ?? {};
         if (typeof fm.title === 'string') title = fm.title;
+        if (typeof fm.schema === 'string') fmSchema = fm.schema;
       } catch (err) {
         warn(null, `front matter is not valid YAML (${err.message}): ignored`);
       }
@@ -296,17 +419,27 @@ export function parseMarkdownResult(md, { brandSpec } = {}) {
     }
   }
 
-  // split into slides at `# ` outside fences
+  // split into slides at `# ` outside fences; a `---` fence right under the heading is the slide front
   const raw = [];
   let cur = null;
   let inFence = false;
+  let front = null; // 'open' while reading a slide front
   for (const line of lines.slice(start)) {
     const t = line.trim();
+    if (front === 'open') {
+      if (t === '---') front = null;
+      else cur.front.push(line);
+      continue;
+    }
     if (!inFence && /^```/.test(t)) inFence = true;
     else if (inFence && t === '```') inFence = false;
     else if (!inFence && /^#\s+/.test(t)) {
-      cur = { title: t.replace(/^#\s+/, '').trim(), lines: [] };
+      cur = { title: t.replace(/^#\s+/, '').trim(), lines: [], front: null };
       raw.push(cur);
+      continue;
+    } else if (!inFence && cur && t === '---' && cur.front === null && cur.lines.every((l) => !l.trim())) {
+      cur.front = [];
+      front = 'open';
       continue;
     }
     if (!cur) {
@@ -315,33 +448,82 @@ export function parseMarkdownResult(md, { brandSpec } = {}) {
     }
     cur.lines.push(line);
   }
+  if (front === 'open')
+    warn(raw[raw.length - 1] ? `s${raw.length}` : null, 'slide front "---" is not closed');
+
+  const v2 = schema === 'content/2' || fmSchema === 'content/2' || usesV2(raw);
+
+  // placeholders: a block whose placeholder cannot be resolved is dropped (never left as literal braces)
+  const resolveBlock = (id, block) => {
+    const missing = [];
+    const value = resolveDeep(block, brandSpec, missing);
+    if (missing.length) {
+      warn(id, `${block.type} block dropped: unresolvable placeholder ${[...new Set(missing)].join(', ')}`);
+      return null;
+    }
+    return value;
+  };
 
   const slides = raw.map((r, index) => {
     const id = `s${index + 1}`;
-    const { kind, items } = parseBody(r.lines, (no, msg, sev) => warn(id, msg, sev), index + 1);
+    const v2Blocks = new WeakSet(); // blocks that are content/2 already (fences read by fenceBlockV2)
+    const fenceHook = v2
+      ? (name, body) => {
+          if (
+            !V2_FENCES.includes(name) &&
+            !SHARED_FENCES.includes(name) &&
+            !['cards', 'steps'].includes(name)
+          ) {
+            warn(id, `unknown fenced block "${name || '(none)'}": kept as a paragraph`);
+            return { block: { type: 'paragraph', text: body } };
+          }
+          try {
+            const { data, repaired } = parseFenceYaml(body, { schema: 'failsafe' });
+            if (repaired)
+              warn(id, `fenced block "${name}": values containing ": " were read as quoted strings`, 'info');
+            const block = fenceBlockV2(name, data, body, (m, s) => warn(id, m, s));
+            v2Blocks.add(block);
+            return { block };
+          } catch (err) {
+            if (name === 'paragraph') {
+              warn(
+                id,
+                `fenced block "paragraph" is not YAML text (${err.message}): read as plain text`,
+                'info',
+              );
+              const block = { type: 'paragraph', text: body.trim() };
+              v2Blocks.add(block);
+              return { block };
+            }
+            warn(
+              id,
+              `fenced block "${name}" is not valid YAML for its type (${err.message}): kept as a paragraph`,
+            );
+            return { block: { type: 'paragraph', text: body } };
+          }
+        }
+      : undefined;
+    const { kind, items } = parseBody(r.lines, (no, msg, sev) => warn(id, msg, sev), index + 1, fenceHook);
 
-    // placeholders: a block whose placeholder cannot be resolved is dropped (never left as literal braces)
-    const resolveBlock = (block) => {
-      const missing = [];
-      const value = resolveDeep(block, brandSpec, missing);
-      if (missing.length) {
-        warn(id, `${block.type} block dropped: unresolvable placeholder ${[...new Set(missing)].join(', ')}`);
-        return null;
-      }
-      return value;
+    const resolve = (block) => {
+      const out = resolveBlock(id, block);
+      if (out && v2Blocks.has(block)) v2Blocks.add(out);
+      return out;
     };
     const checkBlock = (block) => {
       if (!block) return null;
-      const errors = validateBlock(block);
+      const isV2 = v2Blocks.has(block);
+      const errors = isV2 ? validateBlockV2(block) : validateBlock(block);
       if (errors.length) {
-        warn(id, `${block.type} block dropped: not a valid content block (${errors[0].message})`);
+        const where = isV2 && errors[0].pointer ? `${errors[0].pointer} ` : '';
+        warn(id, `${block.type} block dropped: not a valid content block (${where}${errors[0].message})`);
         return null;
       }
       return block;
     };
 
     const blocks = [];
-    const titleBlock = checkBlock(resolveBlock({ type: 'title', text: r.title }));
+    const titleBlock = checkBlock(resolve({ type: 'title', text: r.title }));
     if (titleBlock) blocks.push(titleBlock);
 
     const h2Count = items.filter((it) => it.h2 !== undefined).length;
@@ -350,11 +532,11 @@ export function parseMarkdownResult(md, { brandSpec } = {}) {
       for (const it of items) {
         if (it.h2 !== undefined) {
           const col = { blocks: [] };
-          const resolved = resolveBlock({ type: 'subtitle', text: it.h2 });
+          const resolved = resolve({ type: 'subtitle', text: it.h2 });
           if (resolved) col.title = resolved.text;
           columns.push(col);
         } else {
-          const b = checkBlock(resolveBlock(it.block));
+          const b = checkBlock(resolve(it.block));
           if (!b) continue;
           if (columns.length) columns[columns.length - 1].blocks.push(b);
           else blocks.push(b);
@@ -363,27 +545,67 @@ export function parseMarkdownResult(md, { brandSpec } = {}) {
       blocks.push({ type: 'columns', items: columns });
     } else {
       for (const it of items) {
-        const b = checkBlock(
-          resolveBlock(it.h2 !== undefined ? { type: 'subtitle', text: it.h2 } : it.block),
-        );
+        const b = checkBlock(resolve(it.h2 !== undefined ? { type: 'subtitle', text: it.h2 } : it.block));
         if (b) blocks.push(b);
       }
     }
 
+    // content/2 slide front (resolved like a block; an unresolvable key is dropped)
+    const frontKeys = {};
+    if (v2 && r.front) {
+      const { keys } = readFront(r.front, (m, s) => warn(id, m, s));
+      for (const [k, v] of Object.entries(keys)) {
+        if (typeof v !== 'string') {
+          frontKeys[k] = v;
+          continue;
+        }
+        const missing = [];
+        const value = resolveDeep(v, brandSpec, missing);
+        if (missing.length)
+          warn(id, `slide key "${k}" dropped: unresolvable placeholder ${[...new Set(missing)].join(', ')}`);
+        else frontKeys[k] = value;
+      }
+    }
+    const slideKind = frontKeys.kind ?? kind;
+    delete frontKeys.kind;
+
     // the first plain paragraph on a cover / section / cta slide is its subtitle
-    const subtitleKind = kind ?? (index === 0 ? 'cover' : undefined);
-    if (SUBTITLE_KINDS.has(subtitleKind)) {
-      const first = blocks.find((b) => b.type === 'paragraph');
+    const subtitleKind = slideKind ?? (index === 0 ? 'cover' : undefined);
+    if (SUBTITLE_KINDS.has(subtitleKind) && frontKeys.subtitle === undefined) {
+      const first = blocks.find((b) => b.type === 'paragraph' && !v2Blocks.has(b));
       if (first) first.type = 'subtitle';
     }
 
-    const slide = { id, blocks };
-    if (kind) slide.kind = kind;
-    return slide;
+    if (!v2) {
+      const slide = { id, blocks };
+      if (kind) slide.kind = kind;
+      return slide;
+    }
+
+    const v1Slide = { id, ...(slideKind ? { kind: slideKind } : {}), blocks };
+    const upgraded = upgradeSlide(v1Slide, {
+      isV2: (b) => v2Blocks.has(b),
+      warn: (m, s) => warn(id, m, s),
+      keys: frontKeys,
+    });
+    upgraded.blocks = upgraded.blocks.filter((b) => {
+      const errors = validateBlockV2(b);
+      if (errors.length) {
+        warn(
+          id,
+          `${b.type} block dropped: not a valid content/2 block (${errors[0].pointer} ${errors[0].message})`,
+        );
+        return false;
+      }
+      for (const w of blockWarnings(b)) warn(id, w.message, w.severity);
+      return true;
+    });
+    for (const w of slideWarnings(upgraded)) warn(id, w.message, w.severity);
+    return orderSlide(upgraded);
   });
 
   if (!slides.length) throw new Error('parseMarkdown: no slides (a slide starts with "# Title")');
-  const content = { schema: 'content/1', ...(title ? { title } : {}), slides };
+  const content = { schema: v2 ? 'content/2' : 'content/1', ...(title ? { title } : {}), slides };
   const errors = validateContent(content);
   if (errors.length) {
     throw new Error(

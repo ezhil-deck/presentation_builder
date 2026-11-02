@@ -78,16 +78,19 @@ export function problems(layout, mood) {
 }
 
 describe('catalogue', () => {
-  it('has one LayoutDef per v1 kind, with id / kind / version 1 / tags / build', () => {
-    expect(catalogue.list().map((d) => d.kind)).toEqual(KINDS);
-    for (const d of catalogue.list()) {
+  it('has one default LayoutDef per v1 kind (first in list() and in forKind), with id / kind / version 1 / tags / build', () => {
+    const v1 = catalogue.list().slice(0, KINDS.length);
+    expect(v1.map((d) => d.kind)).toEqual(KINDS);
+    for (const d of v1) {
       expect(d).toMatchObject({ id: d.kind, kind: d.kind, version: 1 });
       expect(Array.isArray(d.tags)).toBe(true);
+      expect(typeof d.label).toBe('string');
       expect(typeof d.build).toBe('function');
       expect(catalogue.get(d.id)).toBe(d);
-      expect(catalogue.forKind(d.kind)).toEqual([d]);
+      expect(catalogue.forKind(d.kind)[0]).toBe(d);
     }
-    expect(layouts).toHaveLength(KINDS.length);
+    // S2.a slice 2 variants follow the 18 defaults (docs/S2-layouts.md)
+    expect(layouts.length).toBeGreaterThan(KINDS.length);
   });
 
   it('resolves the aliases diagram → steps, comparison → two-column, blank → text', () => {

@@ -4,15 +4,20 @@
  */
 import {
   CANVAS,
+  LINES,
+  bodyArea,
   bottom,
   contentFrame,
   footerBand,
   footerShown,
   frame,
   hint,
+  lineBox,
   logoBox,
   overlaps,
+  pickRole,
   right,
+  role,
   round,
   safe,
   sideOf,
@@ -95,7 +100,15 @@ export function createBuilder(def, ctx) {
   const b = {
     mood,
     kind: def.kind,
+    summary: ctx.summary ?? {},
+    /** px the title block grew by (a content/2 label above / subtitle under the title): the body area starts lower. */
+    grow: 0,
     content: contentFrame(mood.geometry),
+    /** The body area under the title block (bodyArea, moved down by what the title block grew). */
+    area() {
+      const a = bodyArea(mood);
+      return frame(a.x, a.y + b.grow, a.w, a.h - b.grow);
+    },
     box(id, f, props = {}) {
       boxes.push({ id, frame: round(f), ...props });
       return f;
@@ -176,10 +189,79 @@ export function createBuilder(def, ctx) {
 
 export { bottom, right, frame, safe };
 
-/** The standard content-slide title: titleBox(mood) with the hint's role (else h1). Returns the title frame. */
-export function standardTitle(b, kind) {
-  const f = titleBox(b.mood);
-  b.title(f, titleRoleFor(b.mood, kind, 'h1'));
+/**
+ * The content/2 slide keys a layout shows (docs/S2-layouts.md §5): `summary.keys` {label, subtitle, number, cta,
+ * background} of a content/2 slide (`summary.v2`), else {} - so no content/1 layout changes.
+ */
+export function slideKeys(summary) {
+  return summary?.v2 && summary.keys ? summary.keys : {};
+}
+
+/** The eyebrow role a slide label takes: `eyebrow` when the Mood defines it, else null (the label is not shown). */
+export const labelRole = (mood) => (role(mood, 'eyebrow') ? 'eyebrow' : null);
+
+/** The role of a subtitle under a content-slide title (signal: type.roles bodyLarge, else h3 as the cover's subtitle). */
+export const subtitleRole = (mood) => pickRole(mood, 'bodyLarge', 'h3');
+
+/**
+ * Lines a subtitle of `chars` characters takes at `roleName` across `w` px (the face's avgCharWidth, signal:
+ * type.faces metrics), 1–2; unknown metrics → the two-line budget (LINES.heading).
+ */
+export function subtitleLines(mood, roleName, chars, w) {
+  return Math.min(LINES.heading, estimateLines(mood, roleName, chars, w) ?? LINES.heading);
+}
+
+/**
+ * Lines a text of `chars` characters takes at `roleName` across `w` px, from the face's avgCharWidth (signal:
+ * type.faces metrics) with 15 % headroom (the average under-reads wide capitals / digits); null when unknown.
+ */
+export function estimateLines(mood, roleName, chars, w) {
+  const r = role(mood, roleName);
+  const avg = r ? mood?.type?.faces?.[r.face]?.metrics?.avgCharWidth : undefined;
+  if (!r || !avg || !(chars > 0) || !(w > 0)) return null;
+  return Math.max(1, Math.ceil((chars * avg * r.size * 1.15) / w));
+}
+
+/** The label box (eyebrow role, one line) at `y`; returns its height (0 when the Mood has no eyebrow role). */
+export function labelBox(b, x, y, w) {
+  const r = labelRole(b.mood);
+  if (!r) return 0;
+  const h = lineBox(b.mood, r, LINES.one);
+  b.box('label', frame(x, y, w, h), { role: 'eyebrow', slot: 'label', ...b.bodyAlign({ v: 'bottom' }) });
+  b.slot('label', 'text', 'label', { role: r });
+  return h;
+}
+
+/**
+ * The standard content-slide title: titleBox(mood) with the hint's role (else h1). Returns the title frame.
+ * A content/2 slide's `label` puts an eyebrow line above the title and its `subtitle` a line or two under it (unless
+ * the layout shows the subtitle itself: `{subtitle: false}`); the title zone grows by their height (`b.grow`,
+ * `b.area()`).
+ */
+export function standardTitle(b, kind, { subtitle = true, role: titleRole } = {}) {
+  const keys = slideKeys(b.summary);
+  const t = titleBox(b.mood);
+  const sm = space(b.mood, 'sm');
+  let y = t.y;
+  if (keys.label) {
+    const h = labelBox(b, t.x, y, t.w);
+    if (h) y += h + sm;
+  }
+  const f = frame(t.x, y, t.w, t.h);
+  b.title(f, titleRole ?? titleRoleFor(b.mood, kind, 'h1'));
+  y = bottom(f);
+  if (keys.subtitle && subtitle) {
+    const r = subtitleRole(b.mood);
+    const h = lineBox(b.mood, r, subtitleLines(b.mood, r, Number(b.summary.subtitleChars) || 0, t.w));
+    b.box('title-subtitle', frame(t.x, y + sm, t.w, h), {
+      role: 'subtitle',
+      slot: 'subtitle',
+      ...b.bodyAlign({ v: 'top' }),
+    });
+    b.slot('subtitle', 'text', 'title-subtitle', { role: r });
+    y += sm + h;
+  }
+  b.grow = y - bottom(t);
   return f;
 }
 
@@ -193,13 +275,13 @@ export function sideZone(b, textFrame, area, gap) {
  * A flow box for repeated items (P2-spec §2): `flow: {direction, gap:'md', columns:n, itemLayout}` + its slot with
  * capacity {minItems:1, maxItems}. `columns` = n for rows / grids, 1 for a column flow.
  */
-export function flowBox(b, { id, f, role, slotType, kind, n, itemLayout, direction = 'row' }) {
+export function flowBox(b, { id, f, role, slotType, kind, n, itemLayout, direction = 'row', maxItems }) {
   b.box(id, f, {
     role,
     slot: id,
     flow: { direction, gap: 'md', columns: direction === 'column' ? 1 : n, itemLayout },
   });
-  b.slot(id, slotType, id, { capacity: { minItems: 1, maxItems: MAX_ITEMS[kind] } });
+  b.slot(id, slotType, id, { capacity: { minItems: 1, maxItems: maxItems ?? MAX_ITEMS[kind] } });
 }
 
 /** Item frames a flow box will hold (gap = spacing.md, the flow's gap token), for lines drawn across items. */
@@ -213,4 +295,89 @@ export function flowCells(f, n, gap, direction = 'row') {
     for (let i = 0; i < n; i += 1) out.push(frame(f.x + i * (w + gap), f.y, w, f.h));
   }
   return out;
+}
+
+/**
+ * The content/2 blocks a summary describes (`summary.blocks`: [{type, nodes, shape?, title?, ordered?, fields[],
+ * icons[]}], set by the engine for content/2 slides only, `summary.v2`); [] for a content/1 slide, so no v1 layout
+ * changes for content/1 decks.
+ */
+export function v2Blocks(summary) {
+  return summary?.v2 && Array.isArray(summary.blocks) ? summary.blocks : [];
+}
+
+/** The first content/2 block of `type`, or null. */
+export function v2Block(summary, type) {
+  return v2Blocks(summary).find((x) => x.type === type) ?? null;
+}
+
+/** Node count of a summary block (0 when unknown). */
+export const nodesOf = (block) => Number(block?.nodes) || 0;
+
+/** Main blocks of a main + aside slide, most graphic first (PLAN-studio §3.2: the main slot). */
+export const MAIN_ORDER = Object.freeze(['process', 'chart', 'table', 'image', 'items', 'kpis', 'points']);
+/** Blocks that may sit in the aside slot (PLAN-studio §3.2). */
+export const ASIDE_TYPES = Object.freeze(['points', 'items', 'paragraph', 'kpis']);
+
+/**
+ * A two-block content/2 slide split into {main, aside, asideFirst} (main = the block earliest in MAIN_ORDER, the
+ * first one on a tie), or null when the slide is not one main + one aside block.
+ */
+export function mainAside(summary) {
+  const blocks = v2Blocks(summary);
+  if (blocks.length !== 2) return null;
+  const rank = (x) => {
+    const i = MAIN_ORDER.indexOf(x.type);
+    return i < 0 ? Infinity : i;
+  };
+  const mi = rank(blocks[1]) < rank(blocks[0]) ? 1 : 0;
+  const main = blocks[mi];
+  const aside = blocks[1 - mi];
+  if (!MAIN_ORDER.includes(main.type) || !ASIDE_TYPES.includes(aside.type)) return null;
+  return { main, aside, asideFirst: mi === 1 };
+}
+
+/** Main blocks a three-block slide can take (PLAN-studio §3.2: the graphic mains; docs/S2-layouts.md §8). */
+export const MAIN3_TYPES = Object.freeze(['process', 'chart', 'table', 'image']);
+
+/**
+ * A three-block content/2 slide split into {main, asides: [first, second] (in written order)}: the main is the block
+ * earliest in MAIN_ORDER (a process, chart, table or image), the other two are aside blocks (points / items /
+ * paragraph / kpis), not two paragraphs (one body box would take both). null otherwise.
+ */
+export function mainAsides(summary) {
+  const blocks = v2Blocks(summary);
+  if (blocks.length !== 3) return null;
+  const rank = (x) => {
+    const i = MAIN_ORDER.indexOf(x.type);
+    return i < 0 ? Infinity : i;
+  };
+  let mi = 0;
+  blocks.forEach((x, i) => {
+    if (rank(x) < rank(blocks[mi])) mi = i;
+  });
+  const main = blocks[mi];
+  const asides = blocks.filter((_, i) => i !== mi);
+  if (!MAIN3_TYPES.includes(main.type) || !asides.every((a) => ASIDE_TYPES.includes(a.type))) return null;
+  if (asides.every((a) => a.type === 'paragraph')) return null;
+  return { main, asides };
+}
+
+/**
+ * Item card fields for an `items` summary block (docs/S2-layouts.md §3): `item-card` is used when any item carries
+ * an icon, an image or a label; a sequence number is drawn when no item's icon resolves to the brand set and the
+ * brand's steps marker carries a number (components.steps.tokens.marker *-number). null → the v1 `card-title-text`.
+ */
+export function itemCardFields(mood, block, iconFileFn) {
+  if (!block) return null;
+  const f = new Set(block.fields ?? []);
+  if (!f.has('icon') && !f.has('image') && !f.has('label')) return null;
+  const icon = (block.icons ?? []).some((n) => iconFileFn(mood, n));
+  const marker = String(mood?.components?.steps?.tokens?.marker ?? '');
+  return {
+    image: f.has('image'),
+    icon,
+    label: f.has('label'),
+    number: !icon && marker.includes('number'),
+  };
 }

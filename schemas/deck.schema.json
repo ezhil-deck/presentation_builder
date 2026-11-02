@@ -114,7 +114,8 @@
         "chart": {
           "type": "object", "required": ["chartType", "series"],
           "properties": {
-            "chartType": { "enum": ["bar", "column", "stackedBar", "line", "area", "pie", "donut", "scatter"] },
+            "chartType": { "enum": ["bar", "column", "stackedBar", "line", "area", "pie", "donut", "scatter"], "description": "the native drawing the renderers / PPTX writer use" },
+            "form": { "enum": ["funnel", "waterfall", "radar", "gauge"], "description": "S2.a: the content's chart form when it is not a native type; drawn with the native type's geometry + the form's shapes (funnel→bar, waterfall→column, radar→line, gauge→donut)" },
             "categories": { "type": "array", "items": { "type": "string" } },
             "series": { "type": "array", "items": { "type": "object", "required": ["name", "values"], "properties": { "name": { "type": "string" }, "values": { "type": "array", "items": { "type": "number" } }, "color": { "$ref": "#/$defs/color" } } } },
             "unit": { "type": "string" }, "highlight": { "type": "integer" },

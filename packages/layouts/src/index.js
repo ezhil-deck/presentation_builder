@@ -18,7 +18,9 @@ export {
   spans,
   titleBox,
 } from './geometry.js';
-export { MAX_ITEMS, flowCells } from './common.js';
+export { MAX_ITEMS, flowCells, mainAside, v2Blocks } from './common.js';
+export { SHAPES, SHAPE_RANGES, processShape, shapeFits } from './shapes.js';
+export { iconFile, iconSize } from './icons.js';
 
 /** Every LayoutDef (kept for the engine stub, which imports `layouts`). */
 export const layouts = catalogue.list();

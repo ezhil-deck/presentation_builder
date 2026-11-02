@@ -4,6 +4,7 @@
  * resolve -> fit -> elements (z: decor-behind 10, shapes 20, text / images 30, logo 40, footer 50, decor-front 60;
  * the background is the slide's `background`) -> logo -> footer -> decor.
  */
+import { lowerSlide } from '../content/lower.js';
 import { inferKind } from '../content/parse.js';
 import { normalizeMetrics } from '../fit/metrics.js';
 import { stableStringify, sha1, sortKeys } from '../util/stable.js';
@@ -24,6 +25,7 @@ import {
 } from './proposals.js';
 import { FIT_UP_BOX_ROLES, FIT_UP_KINDS, applyFitUp } from './fitup.js';
 import { MIN_LITERAL_CONTRAST, contrastRatio, resolve } from './resolve.js';
+import { hugTitle, imageBackground, textOnBackground } from './keys.js';
 import { boxShapeElement, slotElements } from './slots.js';
 import { summarize } from './summary.js';
 import { backgroundFor, createSurfaceState, surfaceFor } from './surface.js';
@@ -242,7 +244,11 @@ export function composeDeck({
       layout,
     );
     const R = resolve(mood, surface, { warn: (c, m, s) => warn(c, m, s) });
-    const background = backgroundFor(kinds, surface, mood, R, assets, { rhythmStep: surfaceState.step });
+    // a content/2 background image (the `background` key, or an image block with treatment background)
+    const bgSrc = summary.v2 ? lowerSlide(cslide).background : undefined;
+    const background = bgSrc
+      ? imageBackground(bgSrc, surface, { mood, R, assets, warn: (c, m, s) => warn(c, m, s) })
+      : backgroundFor(kinds, surface, mood, R, assets, { rhythmStep: surfaceState.step });
     const note = (key, effect) =>
       effects.push({ proposal: PROPOSALS[key], key, slide: slideId, index: i + 1, ...effect });
     const ctx = {
@@ -256,13 +262,17 @@ export function composeDeck({
       proposals,
       kind,
       note,
+      layoutId: layout?.id,
     };
 
     const elements = [];
     // decor first: brand-boxed decor this slide shows narrows the text boxes it would sit under / over
-    const decor = layout
+    // (a content slide carrying `decor: false` - the Studio's per-slide override - gets none; the placement still
+    // runs so the brand's frequency count stays the same and the other slides keep their decor)
+    const placed = layout
       ? placeDecor({ kinds, surface, layout, mood, assets, warn: ctx.warn, state: decorState, slideId })
       : [];
+    const decor = cslide.decor !== false ? placed : [];
     if (layout) {
       const clear =
         proposals.titleClearOfDecor && kinds.some((k) => CLEAR_OF_DECOR_KINDS.has(k))
@@ -312,23 +322,27 @@ export function composeDeck({
         elements.push(...els);
       }
       applyFitUp(mains, ctx); // fit-up rule: recorded on each element's text.fit.upSteps / upRole
+      if (summary.v2) hugTitle(elements, ctx);
       textOverImage(elements, ctx);
+      textOnBackground(elements, background, ctx);
     }
 
     // logo (the footer's own logo stands in for a small slide logo)
     const showFooter = layout ? footerShown(kinds, layout, mood) : false;
-    const logo = layout
-      ? placeLogo({
-          kinds,
-          surface,
-          layout,
-          mood,
-          assets,
-          warn: ctx.warn,
-          slideId,
-          brandName: brandSpec?.name ?? mood.name,
-        })
-      : null;
+    // (a content slide carrying `logo: false` - the Studio's per-slide override - gets no slide logo)
+    const logo =
+      layout && cslide.logo !== false
+        ? placeLogo({
+            kinds,
+            surface,
+            layout,
+            mood,
+            assets,
+            warn: ctx.warn,
+            slideId,
+            brandName: brandSpec?.name ?? mood.name,
+          })
+        : null;
     if (logo && !(logo.size === 'small' && showFooter && (mood.footer?.items ?? []).includes('logo'))) {
       const clear = mood.logo?.clearSpace ?? 0;
       const f = logo.element.frame;

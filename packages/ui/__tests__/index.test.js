@@ -6,7 +6,9 @@ describe('@pb/ui', () => {
     expect(typeof App).toBe('function');
   });
 
-  it('renders the placeholder', () => {
-    expect(renderToStaticMarkup(<App />)).toContain('presentation_builder');
+  it('renders the Studio by default (the review console moved to #/review)', () => {
+    const html = renderToStaticMarkup(<App />);
+    expect(html).toContain('data-testid="studio"');
+    expect(html).toContain('Loading brands');
   });
 });

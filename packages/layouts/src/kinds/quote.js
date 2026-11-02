@@ -4,20 +4,9 @@
  * the layout default `center` (P2-spec §2); attribution (components.quote.tokens.attributionFont when the Mood
  * defines that role, else quoteAttribution) under it.
  */
-import { createBuilder } from '../common.js';
-import {
-  LINES,
-  bodyArea,
-  bottom,
-  frame,
-  gutter,
-  lineBox,
-  measure,
-  pickRole,
-  right,
-  space,
-  titleBox,
-} from '../geometry.js';
+import { createBuilder, standardTitle, v2Block } from '../common.js';
+import { quoteBlock } from './quotes.js';
+import { LINES, bottom, frame, gutter, lineBox, measure, pickRole, right, space } from '../geometry.js';
 
 export default {
   id: 'quote',
@@ -28,8 +17,8 @@ export default {
     const b = createBuilder(this, ctx);
     const { mood } = b;
     // The quote hint's titleRole names the quote's own role (below), so the slide title keeps h1.
-    b.title(titleBox(mood), pickRole(mood, 'h1'));
-    const area = bodyArea(mood);
+    standardTitle(b, 'quote', { role: pickRole(mood, 'h1') });
+    const area = b.area();
     const qt = mood.components?.quote?.tokens ?? {};
     const align = ['left', 'center', 'right'].includes(qt.align) ? qt.align : 'center';
     const qRole = pickRole(mood, mood.composition?.layoutHints?.quote?.titleRole, 'quote');
@@ -38,6 +27,14 @@ export default {
     const x = align === 'center' ? area.x + (area.w - w) / 2 : align === 'right' ? right(area) - w : area.x;
     const md = space(mood, 'md');
     const ah = lineBox(mood, aRole, LINES.label);
+    const g = gutter(mood);
+    // content/2: a quote with a label (eyebrow above it)
+    if ((v2Block(ctx.summary, 'quotes')?.fields ?? []).includes('label')) {
+      quoteBlock(b, frame(x, area.y, w, area.h), { label: true });
+      b.zone(frame(area.x, area.y, x - g - area.x, area.h));
+      b.zone(frame(x + w + g, area.y, right(area) - x - w - g, area.h));
+      return b.finish();
+    }
     const q = b.box('quote', frame(x, area.y, w, area.h - ah - md), {
       role: 'quote',
       slot: 'quote',
@@ -50,7 +47,6 @@ export default {
       align: { h: align, v: 'top' },
     });
     b.slot('attribution', 'text', 'attribution', { role: aRole });
-    const g = gutter(mood);
     b.zone(frame(area.x, area.y, x - g - area.x, area.h));
     b.zone(frame(x + w + g, area.y, right(area) - x - w - g, area.h));
     return b.finish();

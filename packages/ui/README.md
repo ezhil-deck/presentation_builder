@@ -1,4 +1,47 @@
-# @pb/ui — the review UI (P3-spec §C)
+# @pb/ui — the Studio + the review console
+
+The Studio (`#/`, docs/PLAN-studio.md S1) is the default screen: filmstrip · canvas · brand panel. The server composes
+(one engine, in Node, ST-1); the browser paints the Deck it returns with `@pb/renderer` and never runs a rule. The P3
+review console below stays reachable at `#/review`; its pages are also the Studio's drawers.
+
+## Studio
+
+- **Top bar**: brand switcher (a card per brand painting that brand's cover composed from the current content, logo
+  chip, name, three colour dots), content switcher (the showcase + `content/*.md`), slide counter, zoom fit / 50 /
+  100 %, Guides (margins, title zone, check outlines; off by default), Grid, Export (PDF / PNG slides / deck JSON +
+  HTML of the composed deck with its overrides → `out/<id>/studio/<content>/`; "Showcase build + PNG" = the P3 build),
+  ⋯ (Questions, Report, Diff, Checks, Mood drawers; Reconvert brand; Review console).
+- **Filmstrip**: the live slides scaled; the selected one ringed in the brand's accent. ← → ↑ ↓ PageUp / PageDown move
+  one slide (Cmd = first / last, Home / End), one wheel gesture over the canvas = one slide (fit mode), `G` = 4-up grid,
+  Esc closes a drawer / the grid.
+- **Brand panel**: Brand (logo, surfaces as tiles - a click sets this slide's surface -, heading / body faces, the
+  deck's rhythm, Mood), Slide (kind, layout picker with wireframes, surface, decor, logo, Reset slide), Checks (this
+  slide's items; hover = outline on the canvas; deck items). Every change = compose with the new overrides, then store
+  them; the canvas dims and the panel locks for the round trip; a failed compose keeps the previous deck.
+- Hash: `#/studio/<brand>/<content>/<n>` (kept current with `replaceState`).
+
+Studio API (`server/studio.js`, mounted by `server/index.js`):
+
+- `GET /api/studio/brands` — every `golden/brands/<id>/<id>.json` derived once (`deriveBrand`, kept in memory;
+  re-derived when the input or `answers.json` changes - mtime / size, then sha256): `[{id, name, ok, logo, colours,
+accent, surfaces, rhythm, fonts, geometry, questions: {blocking, total}, errors}]`. `GET /api/studio/brands/:id` adds
+  `questionsList` + the live `mood`; `POST /api/studio/brands/:id/reconvert` re-derives.
+- `GET /api/studio/contents` — `[{id, title, file}]`: `showcase` then `content/*.md` (README skipped).
+- `POST /api/studio/compose {brandId, contentId, overrides?}` → `{deck, warnings, checks (Report v1), report, overrides,
+ms}`; without `overrides` the stored file is used. Overrides = `{slides: {[contentSlideId]: {surface?, layout?,
+decor?: false, logo?: false}}}` (400 on unknown keys / types / layouts outside the catalogue).
+- `GET|PUT /api/studio/overrides/:contentId/:brandId` — `content/overrides/<contentId>.<brandId>.json` (ST-2).
+- `GET /api/studio/covers?contentId=` — every brand's first slide composed (`deck: null` + `error` when underivable).
+- `GET /api/studio/layouts?kind=&brandId=` — the catalogue's layouts for a kind (all without `kind`), built for that
+  brand's Mood: `[{id, kind, default, boxes: [{id, role, frame}]}]`.
+- `POST /api/studio/diff {brandId, contentId}` — the live deck vs `golden/expected/<id>/deck.json` (showcase only).
+- `POST /api/studio/export {brandId, contentId, pdf?, png?}` — deck.json, checks.json, overrides.json, deck.html (+
+  deck.pdf / slides) in `out/<brandId>/studio/<contentId>/` through the CLI's `runRender`.
+
+The server imports `@pb/cli`, `@pb/engine`, `@pb/layouts` and `@pb/checks` through the workspace links; they are not
+yet declared in this package.json (that needs an `npm install` to update package-lock.json).
+
+## Review console (P3-spec §C)
 
 A local, single-user web app to review the golden brands' showcase decks and sign them off. The slides are painted
 live by `@pb/renderer` (`@pb/renderer/components`); everything else shown comes from the files the CLI wrote in
@@ -43,7 +86,7 @@ deckHash }` (deckHash = sha256 of `deck.json`; the UI marks the sign-off stale w
 
 ## Pages (hash router)
 
-`#/` Brands · `#/b/<id>` Brand (Slides) · `#/b/<id>/<tab>` (`slides`, `checks`, `questions`, `mood`, `diff`, `report`) ·
+`#/review` Brands · `#/b/<id>` Brand (Slides) · `#/b/<id>/<tab>` (`slides`, `checks`, `questions`, `mood`, `diff`, `report`) ·
 `#/b/<id>/slides/<n>` slide n large (← → keys, Esc = grid; check items listed beside it and outlined on the canvas,
 one colour per severity; "PNG" shows `out/<id>/slides/NN.png` instead).
 

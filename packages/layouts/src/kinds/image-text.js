@@ -1,6 +1,6 @@
 /** Image beside text: 5+7 grid spans, image left (P2-spec §2); the text column takes an optional heading + body. */
 import { createBuilder, standardTitle } from '../common.js';
-import { LINES, bodyArea, frame, gutter, lineBox, pickRole, space, spans } from '../geometry.js';
+import { LINES, frame, gutter, lineBox, pickRole, space, spans } from '../geometry.js';
 
 export default {
   id: 'image-text',
@@ -10,8 +10,8 @@ export default {
   build(ctx) {
     const b = createBuilder(this, ctx);
     const { mood } = b;
-    standardTitle(b, 'image-text');
-    const area = bodyArea(mood);
+    standardTitle(b, 'image-text', { subtitle: false });
+    const area = b.area();
     const [left, rightCol] = spans(area, [5, 7], gutter(mood));
     b.box('image', left, { role: 'image', slot: 'image' });
     b.slot('image', 'image', 'image');

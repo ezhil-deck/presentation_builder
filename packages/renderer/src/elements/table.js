@@ -6,9 +6,10 @@ import { renderLines } from './lines.js';
  * Table element: absolutely positioned cells from `table.colWidths` / `table.rowHeights` (px, from the fitter).
  *
  * Grid rows = the header row (when `table.header` is present) followed by `table.rows`; `rowHeights` and
- * `cells` use the same indexing (header first). `cells[r][c] = {lines, font, paragraphs?}`: the fitted lines of
- * that cell, placed exactly like text (lines.js) relative to the cell's top-left. A cell with text but no lines is
- * left empty and flagged.
+ * `cells` use the same indexing (header first). `cells[r][c] = {lines, font, paragraphs?, fill?}`: the fitted lines
+ * of that cell, placed exactly like text (lines.js) relative to the cell's top-left; `fill` (a highlighted column)
+ * wins over the row fill. A cell with text but no lines is left empty and flagged. Graphic cells (content/2 rich
+ * cells: icons, rating dots, thumbnails, chips) are separate elements over the table; their cell text is ''.
  *
  * `table.style` (literals):
  *   header      {fill?, font?}            fill of the header row
@@ -59,6 +60,7 @@ export function TableElement(el, ctx, origin) {
           fill = bodyIndex % 2 === 1 && st.rows?.altFill ? st.rows.altFill : st.rows?.fill;
           rowFont = st.rows?.font;
         }
+        if (cell.fill) fill = cell.fill; // a cell's own fill (a highlighted column) wins over the row's
         const font = cell.font ?? rowFont ?? st.font;
         const text = row?.[c];
         const cellWarnings = [];

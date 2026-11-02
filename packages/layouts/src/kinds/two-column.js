@@ -4,7 +4,7 @@
  * (summary.columns ≥ 3) → equal columns across the body area.
  */
 import { createBuilder, normSummary, standardTitle } from '../common.js';
-import { LINES, bodyArea, columns, frame, gutter, lineBox, pickRole, space, spans } from '../geometry.js';
+import { LINES, columns, frame, gutter, lineBox, pickRole, space, spans } from '../geometry.js';
 
 function column(b, f, i, headRole, bodyRole, sm) {
   const hh = lineBox(b.mood, headRole, LINES.heading);
@@ -33,8 +33,8 @@ export default {
     const b = createBuilder(this, ctx);
     const { mood } = b;
     const s = normSummary(ctx.summary);
-    standardTitle(b, 'two-column');
-    const area = bodyArea(mood);
+    standardTitle(b, 'two-column', { subtitle: !(Math.max(2, s.columns) === 2 && s.hasImage) });
+    const area = b.area();
     const g = gutter(mood);
     const sm = space(mood, 'sm');
     const headRole = pickRole(mood, 'h2');

@@ -82,7 +82,7 @@ export default function BrandPage({ route }) {
     <div className="mx-auto max-w-[1600px] px-6 py-4">
       <header className="mb-3 space-y-2 border-b border-neutral-200 pb-3">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-          <a href="#/" className="text-xs text-neutral-500 hover:text-neutral-900">
+          <a href="#/review" className="text-xs text-neutral-500 hover:text-neutral-900">
             Brands /
           </a>
           <h1 className="text-base font-semibold text-neutral-900">{entry?.name ?? id}</h1>

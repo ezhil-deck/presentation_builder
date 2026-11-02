@@ -3,7 +3,7 @@
  * at the top (P2-spec §2); text column = the left two thirds, the right third (to the canvas edge) is a decor zone.
  * Logo / footer / surface from the cover hint; logo at mood.logo.position inside the safe area.
  */
-import { createBuilder, surfaceFromHint, titleRoleFor } from '../common.js';
+import { createBuilder, labelBox, slideKeys, surfaceFromHint, titleRoleFor } from '../common.js';
 import { CANVAS, LINES, bottom, frame, gutter, lineBox, space } from '../geometry.js';
 
 export default {
@@ -22,10 +22,15 @@ export default {
     // Right third is the decor zone (P2-spec §2 example); the text column ends one gutter before it.
     const textW = (2 / 3) * (c.w + g) - g;
     const zoneX = c.x + textW + g;
+    // a content/2 label: an eyebrow line above the title (the engine sets it on the title's first line)
+    const label = (y) => (slideKeys(ctx.summary).label ? labelBox(b, c.x, y, textW) : 0);
+    const sm = space(mood, 'sm');
     let top;
     if (titleRole === 'display') {
       top = c.y + c.h / 2; // lower half
-      b.title(frame(c.x, top, textW, bottom(c) - subH - md - top), titleRole, { v: 'bottom' });
+      const lh = label(top);
+      const ty = lh ? top + lh + sm : top;
+      b.title(frame(c.x, ty, textW, bottom(c) - subH - md - ty), titleRole, { v: 'bottom' });
       b.box('subtitle', frame(c.x, bottom(c) - subH, textW, subH), {
         role: 'subtitle',
         slot: 'subtitle',
@@ -33,9 +38,11 @@ export default {
       });
     } else {
       top = c.y;
+      const lh = label(top);
+      const ty = lh ? top + lh + sm : top;
       const th = lineBox(mood, titleRole, LINES.title);
-      b.title(frame(c.x, c.y, textW, th), titleRole, { v: 'top' });
-      b.box('subtitle', frame(c.x, c.y + th + md, textW, subH), {
+      b.title(frame(c.x, ty, textW, th), titleRole, { v: 'top' });
+      b.box('subtitle', frame(c.x, ty + th + md, textW, subH), {
         role: 'subtitle',
         slot: 'subtitle',
         ...b.bodyAlign({ v: 'top' }),
@@ -45,7 +52,9 @@ export default {
     b.zone(frame(zoneX, 0, CANVAS.w - zoneX, CANVAS.h));
     if (titleRole === 'display') b.zone(frame(0, 0, zoneX, top - md));
     else {
-      const yz = c.y + lineBox(mood, titleRole, LINES.title) + md + subH + md;
+      const lh =
+        slideKeys(ctx.summary).label && mood.type?.roles?.eyebrow ? lineBox(mood, 'eyebrow') + sm : 0;
+      const yz = c.y + lh + lineBox(mood, titleRole, LINES.title) + md + subH + md;
       b.zone(frame(0, yz, zoneX, CANVAS.h - yz));
     }
     return b.finish({ surface: surfaceFromHint(mood, 'cover') });

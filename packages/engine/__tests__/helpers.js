@@ -7,7 +7,10 @@ const readJson = (rel) => JSON.parse(readFileSync(join(ROOT, rel), 'utf8'));
 /** The stripe golden snapshot (in git; per-codepoint widths stripped, so measuring falls back to avgCharWidth). */
 export const stripeMood = () => readJson('golden/expected/stripe/mood.json');
 export const stripeBrandSpec = () => readJson('golden/expected/stripe/brand-spec.json');
-export const showcaseMd = () => readFileSync(join(ROOT, 'golden/showcase/showcase.md'), 'utf8');
+/** The v1 showcase (24 slides, content/1): the fixed document the rule tests are written against (slide ids s1..s24). */
+export const showcaseMd = () => readFileSync(join(ROOT, 'golden/showcase/showcase-v1.md'), 'utf8');
+/** The golden showcase (v2 since 2026-11-02, content/2): what `pb build` composes by default. */
+export const goldenShowcaseMd = () => readFileSync(join(ROOT, 'golden/showcase/showcase.md'), 'utf8');
 
 /** Synthetic metrics: every glyph 0.5 em, space 0.25 em, 'W' 1 em; ascent 0.9, descent -0.3. */
 export const METRICS = { ascent: 0.9, descent: -0.3, avgCharWidth: 0.5, widths: { 32: 0.25, 87: 1 } };

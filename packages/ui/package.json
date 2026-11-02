@@ -12,6 +12,10 @@
     "api": "node server.js --api-only --port 8101"
   },
   "dependencies": {
+    "@pb/checks": "*",
+    "@pb/cli": "*",
+    "@pb/engine": "*",
+    "@pb/layouts": "*",
     "@pb/renderer": "*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

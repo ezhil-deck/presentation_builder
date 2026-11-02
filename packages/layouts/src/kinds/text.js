@@ -1,6 +1,6 @@
 /** Title + one body text block. The body column is the comfortable measure of the body role; the rest is decor zone. */
 import { createBuilder, sideZone, standardTitle } from '../common.js';
-import { bodyArea, frame, gutter, measure, pickRole } from '../geometry.js';
+import { frame, gutter, measure, pickRole } from '../geometry.js';
 
 export default {
   id: 'text',
@@ -11,7 +11,7 @@ export default {
     const b = createBuilder(this, ctx);
     const { mood } = b;
     standardTitle(b, 'text');
-    const area = bodyArea(mood);
+    const area = b.area();
     const r = pickRole(mood, 'body');
     const f = b.box('body', frame(area.x, area.y, measure(mood, r, area.w), area.h), {
       role: 'body',

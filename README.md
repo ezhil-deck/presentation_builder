@@ -41,10 +41,12 @@ npm run cli -- build golden/brands/stripe --png   # out/stripe/{brand-spec,mood,
 npm run cli -- build golden/brands/stripe --out out/try
 npm run cli -- check out/stripe --brand golden/brands/stripe   # the checks of an existing build -> out/stripe/checks.json
 npm run cli -- diff out/stripe golden/expected/stripe          # JSON (+ pixel) diff of two builds
-npm run build:ui && npm run serve:ui          # the review UI: http://localhost:8100 (dev: npm run api:ui + npm run dev:ui)
+npm run build:ui && npm run serve:ui          # the Studio: http://localhost:8100 (review console at #/review; dev: npm run api:ui + npm run dev:ui)
 ```
 
-Status: P0–P2 built; P3 (checks report, `pb diff`, review UI with sign-off) built 2026-10-31 — see `docs/P3-spec.md`.
+Status: P0–P3 built; the Studio (slide preview + brand panel with live re-compose, `docs/PLAN-studio.md`) and the content
+grammar v2 (`docs/S2-content-v2.md`), its layouts (`docs/S2-layouts.md`) and showcase v2 (the 38-slide golden deck,
+approved 2026-11-02) built; next: the P4 editor on the Studio shell.
 `docs/PLAN-draft.md` has the roadmap and every owner decision.
 
 ## Rendering unattended (macOS)

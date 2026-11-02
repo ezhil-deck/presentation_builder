@@ -25,9 +25,10 @@ export function ChecksSummary({ summary }) {
 
 /**
  * The report's results: one row per check (status, id, title, signal, count), expandable to its items; filters
- * by status and by check. An item with a slide links to it.
+ * by status and by check. An item with a slide links to it (`slideHref(n)`, default the review console's slide page).
  */
-export default function ChecksTable({ id, checks }) {
+export default function ChecksTable({ id, checks, slideHref }) {
+  const linkFor = slideHref ?? ((n) => hrefFor({ id, tab: 'slides', slide: n }));
   const [status, setStatus] = useState('all');
   const [check, setCheck] = useState('all');
   const [open, setOpen] = useState(() => new Set());
@@ -129,10 +130,7 @@ export default function ChecksTable({ id, checks }) {
                         </td>
                         <td className="py-1 pr-3 font-mono text-neutral-500">
                           {it.index ? (
-                            <a
-                              className="text-indigo-700 hover:underline"
-                              href={hrefFor({ id, tab: 'slides', slide: it.index })}
-                            >
+                            <a className="text-indigo-700 hover:underline" href={linkFor(it.index)}>
                               slide {it.index}
                             </a>
                           ) : (

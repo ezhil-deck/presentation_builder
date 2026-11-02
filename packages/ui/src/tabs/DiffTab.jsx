@@ -1,17 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { api } from '../api.js';
 import { normaliseDiff } from '../lib/diff.js';
 import { hrefFor } from '../router.js';
 
 const show = (v) => (v === undefined ? '—' : typeof v === 'string' ? v : JSON.stringify(v));
 
-/** Diff tab: this build's deck vs the golden snapshot (golden/expected/<id>/deck.json), from the server's diff. */
-export default function DiffTab({ id, version }) {
+/**
+ * Diff tab: this build's deck vs the golden snapshot (golden/expected/<id>/deck.json), from the server's diff. The
+ * Studio passes `load` (its live deck vs the snapshot), `label` and `slideHref`.
+ */
+export default function DiffTab({ id, version, load, label, slideHref }) {
+  const loadRef = useRef(load);
+  loadRef.current = load;
+  const linkFor = slideHref ?? ((n) => hrefFor({ id, tab: 'slides', slide: n }));
   const [state, setState] = useState({ loading: true });
   useEffect(() => {
     let live = true;
     setState({ loading: true });
-    api.diff(id).then((r) => live && setState({ loading: false, ...r }));
+    (loadRef.current ? loadRef.current() : api.diff(id)).then(
+      (r) => live && setState({ loading: false, ...r }),
+    );
     return () => {
       live = false;
     };
@@ -30,7 +38,7 @@ export default function DiffTab({ id, version }) {
   return (
     <div className="space-y-3 text-xs">
       <p className="text-neutral-600">
-        golden/expected/{id}/deck.json → out/{id}/deck.json:{' '}
+        {label ?? `golden/expected/${id}/deck.json → out/${id}/deck.json`}:{' '}
         {d.identical ? (
           <span className="font-medium text-emerald-700" data-testid="diff-identical">
             identical
@@ -78,10 +86,7 @@ export default function DiffTab({ id, version }) {
               <tr key={s.key} className="border-b border-neutral-200 align-top" data-testid="diff-slide">
                 <td className="py-1 pr-3 font-mono">
                   {s.index ? (
-                    <a
-                      className="text-indigo-700 hover:underline"
-                      href={hrefFor({ id, tab: 'slides', slide: s.index })}
-                    >
+                    <a className="text-indigo-700 hover:underline" href={linkFor(s.index)}>
                       {s.key}
                     </a>
                   ) : (

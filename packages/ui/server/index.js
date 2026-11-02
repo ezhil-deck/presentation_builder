@@ -7,6 +7,7 @@ import { createReadStream, existsSync, readFileSync, readdirSync, statSync, writ
 import http from 'node:http';
 import { extname, join, resolve, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { StudioError, createStudio } from './studio.js';
 
 export const MIME = Object.freeze({
   png: 'image/png',
@@ -143,8 +144,10 @@ function reportFacts(report) {
  * - `repoRoot` (required): the folder holding out/, golden/brands/, golden/expected/ and packages/cli/bin/pb.js;
  * - `distDir`: the built UI to serve (default `<repoRoot>/packages/ui/dist`); `apiOnly` serves the API + files only;
  * - `spawn`: child_process.spawn replacement (tests); `loadDiff`: () => Promise<module with diffDecks> (tests);
- * - `nodeBin`: the node executable for builds (default process.execPath).
- * Returns an http.Server (not listening).
+ * - `nodeBin`: the node executable for builds (default process.execPath);
+ * - `studio`: the Studio (server/studio.js) to serve under /api/studio/ (default createStudio for this repo; `cacheDir`
+ *   is passed to it).
+ * Returns an http.Server (not listening) with `.studio`.
  */
 export function createServer(options = {}) {
   const { repoRoot, apiOnly = false, spawn = nodeSpawn, nodeBin = process.execPath } = options;
@@ -157,6 +160,7 @@ export function createServer(options = {}) {
   const loadDiff =
     options.loadDiff ?? (() => import(pathToFileURL(join(root, 'packages', 'cli', 'src', 'diff.js')).href));
   const builds = new Map();
+  const studio = options.studio ?? createStudio({ root, cacheDir: options.cacheDir, loadDiff });
 
   const outDir = (id) => join(outRoot, id);
   const brandDir = (id) => join(brandsRoot, id);
@@ -370,6 +374,91 @@ export function createServer(options = {}) {
     serveRootFile(res, distDir, pathname.slice(1));
   }
 
+  /** The Studio API (docs/PLAN-studio.md §2.1): brands, contents, compose, covers, layouts, overrides, diff, export. */
+  async function studioRoute(req, res, pathname) {
+    const method = req.method;
+    const read = method === 'GET' || method === 'HEAD';
+    const query = new URLSearchParams(req.url.split('?')[1] ?? '');
+    const parts = pathname
+      .slice('/api/studio/'.length)
+      .split('/')
+      .filter(Boolean)
+      .map((p) => {
+        try {
+          return decodeURIComponent(p);
+        } catch {
+          throw new HttpError(400, 'bad path encoding');
+        }
+      });
+    const [what, a, b] = parts;
+    const only = (ok) => {
+      if (!ok) throw new HttpError(405, 'method not allowed');
+    };
+    if (what === 'brands' && !a) {
+      only(read);
+      return sendJson(res, 200, studio.brands());
+    }
+    if (what === 'brands' && a && !b) {
+      only(read);
+      return sendJson(res, 200, studio.brandDetail(a));
+    }
+    if (what === 'brands' && a && b === 'reconvert') {
+      only(method === 'POST');
+      studio.brand(a, { force: true });
+      return sendJson(res, 200, studio.brandDetail(a));
+    }
+    if (what === 'contents' && !a) {
+      only(read);
+      return sendJson(res, 200, studio.contents());
+    }
+    if (what === 'compose' && !a) {
+      only(method === 'POST');
+      const body = await readBody(req);
+      return sendJson(
+        res,
+        200,
+        studio.compose({ brandId: body.brandId, contentId: body.contentId, overrides: body.overrides }),
+      );
+    }
+    if (what === 'covers' && !a) {
+      only(read);
+      return sendJson(res, 200, studio.covers(query.get('contentId') ?? 'showcase'));
+    }
+    if (what === 'layouts' && !a) {
+      only(read);
+      return sendJson(
+        res,
+        200,
+        studio.layouts({ kind: query.get('kind') || undefined, brandId: query.get('brandId') || undefined }),
+      );
+    }
+    if (what === 'overrides' && a && b && parts.length === 3) {
+      if (read) return sendJson(res, 200, studio.readOverrides(a, b));
+      only(method === 'PUT');
+      return sendJson(res, 200, studio.writeOverrides(a, b, await readBody(req)));
+    }
+    if (what === 'diff' && !a) {
+      only(method === 'POST');
+      const body = await readBody(req);
+      return sendJson(res, 200, await studio.diff(body));
+    }
+    if (what === 'export' && !a) {
+      only(method === 'POST');
+      const body = await readBody(req);
+      return sendJson(
+        res,
+        200,
+        await studio.exportDeck({
+          brandId: body.brandId,
+          contentId: body.contentId,
+          pdf: Boolean(body.pdf),
+          png: Boolean(body.png),
+        }),
+      );
+    }
+    throw new HttpError(404, 'not found');
+  }
+
   async function route(req, res) {
     const method = req.method;
     // The raw path (no WHATWG normalisation of "..", so traversal attempts are seen and refused).
@@ -441,19 +530,22 @@ export function createServer(options = {}) {
       return sendJson(res, 200, value);
     }
 
+    if (pathname.startsWith('/api/studio/')) return studioRoute(req, res, pathname);
     if (pathname.startsWith('/api/')) throw new HttpError(404, 'not found');
     if (apiOnly) throw new HttpError(404, 'not found (API-only server: the UI is served by webpack in dev)');
     if (!read) throw new HttpError(405, 'method not allowed');
     return serveDist(res, pathname);
   }
 
-  return http.createServer((req, res) => {
+  const server = http.createServer((req, res) => {
     route(req, res).catch((err) => {
-      const status = err instanceof HttpError ? err.status : 500;
+      const status = err instanceof HttpError || err instanceof StudioError ? err.status : 500;
       if (res.headersSent) return res.destroy();
       sendJson(res, status, { error: err.message });
     });
   });
+  server.studio = studio;
+  return server;
 }
 
 /** createServer(options) listening on `port` (default 8100) at `host` (default localhost). Resolves the server. */
@@ -463,6 +555,14 @@ export function startServer({ port = 8100, host = 'localhost', ...options } = {}
     server.once('error', fail);
     server.listen(port, host, () => {
       server.off('error', fail);
+      // derive every brand once, after the port is open (the Studio's brand cache, ~20 ms per brand)
+      setImmediate(() => {
+        try {
+          server.studio.warm();
+        } catch (err) {
+          console.error(`studio: warm-up failed: ${err.message}`);
+        }
+      });
       ok(server);
     });
   });

@@ -170,6 +170,15 @@ JSON, re-fit by the same rules, re-painted by the same renderer. What "better th
 - P3-D1..D4 confirmed 2026-10-31. Exit (§E) pending: the owner's sign-off per brand in the UI; warn findings accepted or
   turned into proposals (P3.x).
 
+### Direction change after the P3 review — 2026-10-31 (proposal: `docs/PLAN-studio.md`)
+The owner's review: the viewer is not good enough, the showcase content is too simple, the app must start from the slide
+preview with a brand panel and be designer-friendly. Proposed: **S1 Studio shell** (filmstrip · canvas · brand panel,
+live re-compose on brand / surface / layout change) then **S2 content model v2** (14 node-list block types + layouts +
+showcase v2, from the reference catalogue `docs/research/preset-content-catalogue.md`), then P4 editor on that shell.
+**Approved by the owner 2026-10-31 ("Approve S1 + S2")**. Status 2026-11-02: S1 built; S2 complete - grammar v2, 68
+layouts (`docs/S2-layouts.md`), showcase v2 approved as the golden deck (`golden/showcase/showcase.md`, 38 slides; v1 kept as
+`showcase-v1.md`), snapshots re-made. Next: P4 editor on the Studio shell (`docs/PLAN-studio.md` §6).
+
 ### P1 task list — Brand → Mood (as planned)
 - P1.1 `brand/read`: load folder, validate against `schemas/input`, resolve asset + font files, hash. Negative tests: missing file, bad colour.
 - P1.2 `brand/normalize`: input → BrandSpec with provenance for every pointer; `questions[]` for what the rules need and the input lacks; `answers.json` merge.

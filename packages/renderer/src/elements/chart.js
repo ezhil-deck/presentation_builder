@@ -19,6 +19,9 @@ import { elementProps } from './common.js';
  *             // scatter: one circle per point of radius `r` (flagged if absent)
  *     arcs:   [{cx, cy, r, r0, a0, a1, color, series?, category?}],
  *             // pie / donut sectors: degrees, 0 = 12 o'clock, clockwise; r0 = inner radius (0 or absent = pie)
+ *             // (a gauge: its track and value arcs)
+ *     polygons: [{points: [[x, y], ...], stroke?, width?, fill?, fillOpacity?, kind?, series?}],
+ *             // radar grid rings and series shapes: an SVG polygon (PPTX: a freeform) stroked / filled as given
  *     ticks:  {x: [{pos, label, x?, y?}], y: [{pos, label, x?, y?}]},
  *             // label baseline at (x, y) with the axis' anchor when given; otherwise (renderer fallback)
  *             //  x ticks: centred on `pos`, hanging from plot bottom + 0.5 × font size;
@@ -118,6 +121,24 @@ export function ChartElement(el, ctx, origin) {
       }),
     ),
   );
+
+  (g.polygons ?? []).forEach((p, i) => {
+    const pts = (p.points ?? []).map(([x, y]) => `${num(x)},${num(y)}`).join(' ');
+    if (!pts) return void warnings.push(`polygon ${i} without points`);
+    nodes.push(
+      h('polygon', {
+        key: `pg${i}`,
+        className: p.kind === 'series' ? 'pb-chart-shape' : 'pb-chart-grid',
+        'data-series': p.series,
+        points: pts,
+        fill: p.fill ? cssColor(p.fill) : 'none',
+        fillOpacity: typeof p.fillOpacity === 'number' ? num(p.fillOpacity) : undefined,
+        stroke: p.stroke ? cssColor(p.stroke) : undefined,
+        strokeWidth: p.stroke ? num(p.width ?? 1) : undefined,
+        strokeLinejoin: 'round',
+      }),
+    );
+  });
 
   (g.bars ?? []).forEach((b, i) => {
     const fill = cssColor(b.color) ?? seriesColor(b.series);
@@ -296,6 +317,7 @@ export function ChartElement(el, ctx, origin) {
   });
 
   const attrs = { 'data-chart-type': chart.chartType };
+  if (chart.form) attrs['data-chart-form'] = chart.form;
   if (plot) attrs['data-plot'] = [plot.x, plot.y, plot.w, plot.h].map(num).join(',');
   return h(
     'div',

@@ -3,8 +3,53 @@
  * tall, centred in the body area; without it the row fills the body area. Slot type `people` (layout schema v1.2,
  * P2-spec §7 F5): the engine binds the content's `people` block here.
  */
-import { createBuilder, flowBox, flowCells, flowCount, normSummary, standardTitle } from '../common.js';
-import { LINES, bodyArea, bottom, frame, lineBox, space } from '../geometry.js';
+import {
+  createBuilder,
+  flowBox,
+  flowCells,
+  flowCount,
+  nodesOf,
+  normSummary,
+  standardTitle,
+  v2Block,
+} from '../common.js';
+import { LINES, bottom, frame, lineBox, pickRole, space } from '../geometry.js';
+
+/** People per row in a grid: up to 4 in one row, else 3 (a 3 × 2 or 3 × 3 grid; catalogue: team up to 9). */
+export const peopleColumns = (n) => (n <= 4 ? Math.max(1, n) : 3);
+
+/**
+ * The content/2 team: the block's title (h3) and subtitle (body) above the grid (slots team-heading /
+ * team-subheading), then the people as `person-card` items, up to 9 in rows of peopleColumns(n).
+ */
+export function peopleGrid(b, block) {
+  const { mood } = b;
+  let area = b.area();
+  const sm = space(mood, 'sm');
+  for (const [part, on, r, lines] of [
+    ['heading', block.title, pickRole(mood, 'h3', 'body'), LINES.one],
+    ['subheading', block.subtitle, pickRole(mood, 'body'), LINES.label],
+  ]) {
+    if (!on) continue;
+    const h = lineBox(mood, r, lines);
+    const id = `team-${part}`;
+    b.box(id, frame(area.x, area.y, area.w, h), { role: 'subtitle', slot: id, ...b.bodyAlign({ v: 'top' }) });
+    b.slot(id, 'text', id, { role: r });
+    area = frame(area.x, area.y + h + sm, area.w, area.h - h - sm);
+  }
+  if (block.title || block.subtitle) area = frame(area.x, area.y + sm, area.w, area.h - sm);
+  const n = Math.min(9, nodesOf(block) || 3);
+  flowBox(b, {
+    id: 'team',
+    f: area,
+    role: 'group',
+    slotType: 'people',
+    kind: 'team',
+    n: peopleColumns(n),
+    itemLayout: 'person-card',
+    maxItems: 9,
+  });
+}
 
 export default {
   id: 'team',
@@ -16,7 +61,14 @@ export default {
     const { mood } = b;
     const n = flowCount('team', normSummary(ctx.summary));
     standardTitle(b, 'team');
-    const area = bodyArea(mood);
+    // content/2 people with a title / subtitle, a bio or more than four people: the person cards in a grid
+    const block = v2Block(ctx.summary, 'people');
+    const f2 = new Set(block?.fields ?? []);
+    if (block && (block.title || block.subtitle || f2.has('bio') || nodesOf(block) > 4)) {
+      peopleGrid(b, block);
+      return b.finish();
+    }
+    const area = b.area();
     const size = mood.components?.avatar?.tokens?.size;
     let f = area;
     if (typeof size === 'number') {

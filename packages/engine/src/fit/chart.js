@@ -8,8 +8,15 @@ import { deckFont } from '../compose/resolve.js';
 import { r2 } from '../util/stable.js';
 import { measure, ruleWidth } from './metrics.js';
 
-export const CARTESIAN = new Set(['column', 'bar', 'stackedBar', 'line', 'area', 'scatter']);
+export const CARTESIAN = new Set(['column', 'bar', 'stackedBar', 'line', 'area', 'scatter', 'waterfall']);
 export const RADIAL = new Set(['pie', 'donut']);
+/**
+ * Chart forms drawn from plain boxes and shapes (S2.a slice 3): funnel (centred bars narrowing), waterfall (floating
+ * bars + connectors), radar (polygons on an n-spoke grid), gauge (a half-ring arc + the value). The deck schema's
+ * `chartType` enum (schemas/deck.schema.json) names the native types only, so each form reports the native type it
+ * reads as (`chartType`) and its own name in `chart.form`; HTML paints the geometry either way.
+ */
+export const FORMS = Object.freeze({ funnel: 'bar', waterfall: 'column', radar: 'line', gauge: 'donut' });
 
 function niceNum(x, round) {
   if (x <= 0) return 1;
@@ -98,12 +105,16 @@ export function chartLayout(block, frame, mood, R, opts = {}) {
   const categories = block.categories ?? Array.from({ length: nCats }, (_, k) => String(k + 1));
   const colors = chartColors(block, mood, R);
   const radial = RADIAL.has(type);
+  // content/2 chart text: legend labels (else the series names), axis titles
+  const txt = block.text ?? {};
+  const single = type === 'funnel' || type === 'gauge';
+  if (single && series.length > 1) warn(`${type} chart shows the first series only (${series.length} given)`);
 
   // legend
   const legendCfg = mood.charts?.legend ?? {};
-  const legendLabels = radial ? categories : series.map((s) => s.name);
+  const legendLabels = radial ? categories : series.map((s, i) => txt.legend?.[i] ?? s.name);
   const legendColors = radial ? colors.categories : colors.series;
-  const wantLegend = radial || series.length > 1;
+  const wantLegend = !single && (radial || series.length > 1);
   let position = legendCfg.position ?? 'top';
   if (legendCfg.position === undefined && wantLegend)
     warn('charts.legend.position not given: legend placed on top');
@@ -160,6 +171,12 @@ export function chartLayout(block, frame, mood, R, opts = {}) {
   };
 
   const geometry = { legend, font: deckFont(font) };
+  const env = { font, size, m, L, baselineIn, centerBaseline, pad, gapMd, W, H, top, bottom, right, warn };
+  if (type === 'funnel') return funnelLayout(block, geometry, env, colors, categories, mood);
+  if (type === 'radar') return radarLayout(block, geometry, env, colors, categories, mood, R);
+  if (type === 'gauge') return gaugeLayout(block, geometry, env, mood, R);
+  for (const [k, t] of Object.entries({ xAxis: txt.xAxis, yAxis: txt.yAxis }))
+    if (t && (radial || !CARTESIAN.has(type))) warn(`chart.text.${k} not drawn: a ${type} chart has no axes`);
 
   if (radial) {
     const values = (series[0]?.values ?? []).map((v) => Math.max(0, v));
@@ -227,10 +244,46 @@ export function chartLayout(block, frame, mood, R, opts = {}) {
   // cartesian
   const horizontal = type === 'bar';
   const stacked = type === 'stackedBar';
+  const waterfall = type === 'waterfall';
+  const axesOn = mood.charts?.axes?.show !== false;
+  // axis titles (content/2 chart.text): the y title one label line above the plot, the x title one line under the
+  // category labels (chart label role)
+  const axisTitles = [];
+  if (axesOn && txt.yAxis) {
+    axisTitles.push({ text: txt.yAxis, x: 0, y: baselineIn(top), anchor: 'start' });
+    top += L + pad;
+  }
+  let xTitleTop = null;
+  if (axesOn && txt.xAxis) {
+    xTitleTop = bottom - L;
+    bottom = xTitleTop - pad;
+  }
+  // waterfall: the first value is the starting level, each next one a change (a bar floating from the running total
+  // before it to the total after it); a last value equal to the running total is the closing total (drawn from 0)
+  const running = [];
+  const levels = new Set();
+  if (waterfall) {
+    let c = 0;
+    for (let k = 0; k < nCats; k += 1) {
+      const v = Number(series[0]?.values[k]) || 0;
+      if (k === 0 || (k === nCats - 1 && nCats > 2 && Math.abs(v - c) < 1e-9)) {
+        running.push([0, v]);
+        levels.add(k);
+        c = v;
+      } else {
+        running.push([c, c + v]);
+        c += v;
+      }
+    }
+    if (series.length > 1) warn(`waterfall chart shows the first series only (${series.length} given)`);
+  }
   let lo = 0;
   let hi = 0;
   for (let k = 0; k < nCats; k += 1) {
-    if (stacked) {
+    if (waterfall) {
+      hi = Math.max(hi, ...running[k]);
+      lo = Math.min(lo, ...running[k]);
+    } else if (stacked) {
       let pos = 0;
       let neg = 0;
       for (const s of series) {
@@ -322,7 +375,48 @@ export function chartLayout(block, frame, mood, R, opts = {}) {
   });
 
   const colorOf = (i, k) => colors.categories?.[k] ?? colors.series[i];
-  if (type === 'column' || type === 'bar' || stacked) {
+  if (waterfall) {
+    // increases / decreases in the brand's delta colours (components.kpi.tokens deltaColors.up / down), else the
+    // series colour; a highlighted category keeps its highlight colour
+    const t = mood.components?.kpi?.tokens ?? {};
+    const up = R.color(t['deltaColors.up']);
+    const down = R.color(t['deltaColors.down']);
+    const gapRatio = typeof mood.charts?.bar?.gap === 'number' ? mood.charts.bar.gap : 0;
+    const barW = band * (1 - gapRatio);
+    const bars = [];
+    const connectors = [];
+    for (let k = 0; k < nCats; k += 1) {
+      const [from, to] = running[k];
+      const v = to - from;
+      const a = valuePos(Math.min(from, to));
+      const b = valuePos(Math.max(from, to));
+      const x0 = r2(plot.x + k * band + (band - barW) / 2);
+      const y0 = r2(b);
+      const delta = v >= 0 ? (up ?? colors.series[0]) : (down ?? colors.series[0]);
+      const color = colors.categories?.[k] ?? (levels.has(k) ? colors.series[0] : delta);
+      bars.push({
+        series: 0,
+        category: k,
+        value: series[0]?.values[k] ?? 0,
+        color,
+        x: x0,
+        y: y0,
+        w: r2(r2(x0 + barW) - x0),
+        h: r2(r2(a) - y0),
+      });
+      if (k < nCats - 1) {
+        const y = r2(valuePos(to));
+        connectors.push({
+          x1: r2(x0 + barW),
+          y1: y,
+          x2: r2(plot.x + (k + 1) * band + (band - barW) / 2),
+          y2: y,
+        });
+      }
+    }
+    geometry.bars = bars;
+    geometry.connectors = connectors;
+  } else if (type === 'column' || type === 'bar' || stacked) {
     const gapRatio = typeof mood.charts?.bar?.gap === 'number' ? mood.charts.bar.gap : 0;
     const groupW = band * (1 - gapRatio);
     const barW = stacked ? groupW : groupW / Math.max(1, series.length);
@@ -388,6 +482,212 @@ export function chartLayout(block, frame, mood, R, opts = {}) {
     w: r2(r2(plot.x + plot.w) - r2(plot.x)),
     h: r2(r2(plot.y + plot.h) - r2(plot.y)),
   };
+  if (xTitleTop !== null)
+    axisTitles.push({ text: txt.xAxis, x: plot.x + plot.w / 2, y: baselineIn(xTitleTop), anchor: 'middle' });
+  if (axisTitles.length) geometry.axisTitles = axisTitles.map((t) => ({ ...t, x: r2(t.x), y: r2(t.y) }));
+  return geometry;
+}
+
+/** The colour of category k of a single-series chart (a highlight → highlight / others, else the series colour). */
+const catColor = (colors, k) => colors.categories?.[k] ?? colors.series[0];
+
+/**
+ * Funnel: one centred bar per category, its width proportional to the value (the widest = the plot width), bands
+ * of equal height with the brand's bar gap (charts.bar.gap); the category name right-aligned left of the plot and
+ * the value after each bar.
+ */
+function funnelLayout(block, geometry, env, colors, categories, mood) {
+  const { font, pad, top, bottom, right, centerBaseline } = env;
+  const values = (block.series?.[0]?.values ?? []).map((v) => Math.max(0, Number(v) || 0));
+  const n = values.length;
+  const labelsW = categories.map((t) => measure(t, font));
+  const valueText = values.map((v, k) => formatValue(block.series[0].values[k], block.unit));
+  const valueW = valueText.map((t) => measure(t, font));
+  const left = Math.max(0, ...labelsW) + pad;
+  const rightRoom = Math.max(0, ...valueW) + pad;
+  const plot = { x: left, y: top, w: Math.max(0, right - left - rightRoom), h: Math.max(0, bottom - top) };
+  if (plot.w <= 0 || plot.h <= 0) env.warn('chart frame too small for the funnel and its labels');
+  const max = Math.max(0, ...values) || 1;
+  const band = plot.h / Math.max(1, n);
+  const gapRatio = typeof mood.charts?.bar?.gap === 'number' ? mood.charts.bar.gap : 0;
+  const barH = band * (1 - gapRatio);
+  const bars = [];
+  const labels = [];
+  values.forEach((v, k) => {
+    const w = (v / max) * plot.w;
+    const x = plot.x + (plot.w - w) / 2;
+    const y = plot.y + k * band + (band - barH) / 2;
+    const x0 = r2(x);
+    const y0 = r2(y);
+    bars.push({
+      series: 0,
+      category: k,
+      value: block.series[0].values[k],
+      color: catColor(colors, k),
+      x: x0,
+      y: y0,
+      w: r2(r2(x + w) - x0),
+      h: r2(r2(y + barH) - y0),
+    });
+    const mid = centerBaseline(plot.y + (k + 0.5) * band);
+    labels.push({
+      text: categories[k] ?? '',
+      x: r2(plot.x - pad - labelsW[k]),
+      y: r2(mid),
+      width: r2(labelsW[k]),
+    });
+    labels.push({ text: valueText[k], x: r2(x + w + pad), y: r2(mid), width: r2(valueW[k]) });
+  });
+  geometry.plot = { x: r2(plot.x), y: r2(plot.y), w: r2(plot.w), h: r2(plot.h) };
+  geometry.bars = bars;
+  geometry.formLabels = labels;
+  return geometry;
+}
+
+/** Engine angle (degrees, 0 = 3 o'clock, clockwise) → point on a circle. */
+const onCircle = (cx, cy, r, deg) => [
+  cx + r * Math.cos((deg * Math.PI) / 180),
+  cy + r * Math.sin((deg * Math.PI) / 180),
+];
+
+/**
+ * Radar: n spokes (one per category, the first at 12 o'clock, clockwise), a grid polygon per tick of a nice scale
+ * from 0, one polygon per series (its points on the spokes at value / scale max), the category labels outside the
+ * spoke ends. Grid and spokes in the gridline colour (charts.gridlines.color, else border), series stroked in their
+ * colour at charts.line.width and filled at charts.line.areaOpacity when > 0.
+ */
+function radarLayout(block, geometry, env, colors, categories, mood, R) {
+  const { font, pad, top, bottom, right, L, centerBaseline } = env;
+  const series = block.series ?? [];
+  const n = categories.length;
+  if (n < 3) env.warn(`radar chart needs at least 3 categories (has ${n})`);
+  const hi = Math.max(0, ...series.flatMap((s) => s.values.map((v) => Number(v) || 0)));
+  const scale = niceTicks(0, hi, 5);
+  const labelW = categories.map((t) => measure(t, font));
+  const roomX = Math.max(0, ...labelW) + pad;
+  const roomY = L + pad;
+  const plot = { x: 0, y: top, w: right, h: bottom - top };
+  const radius = Math.max(0, Math.min(plot.w / 2 - roomX, plot.h / 2 - roomY));
+  const cx = plot.x + plot.w / 2;
+  const cy = plot.y + plot.h / 2;
+  const angle = (k) => -90 + (k * 360) / Math.max(1, n);
+  const grid = R.color(mood.charts?.gridlines?.color ?? 'border');
+  const width = ruleWidth(mood);
+  const lw = typeof mood.charts?.line?.width === 'number' ? mood.charts.line.width : width;
+  const pt = ([x, y]) => [r2(x), r2(y)];
+  const polygons = [];
+  for (const t of scale.ticks) {
+    if (t <= 0) continue;
+    const r = (t / scale.max) * radius;
+    polygons.push({
+      kind: 'grid',
+      points: categories.map((_, k) => pt(onCircle(cx, cy, r, angle(k)))),
+      stroke: grid,
+      width,
+    });
+  }
+  const opacity = mood.charts?.line?.areaOpacity;
+  series.forEach((s, i) => {
+    const points = categories.map((_, k) =>
+      pt(onCircle(cx, cy, ((Number(s.values[k]) || 0) / scale.max) * radius, angle(k))),
+    );
+    const poly = { kind: 'series', series: i, points, stroke: colors.series[i], width: lw };
+    if (typeof opacity === 'number' && opacity > 0) {
+      poly.fill = colors.series[i];
+      poly.fillOpacity = opacity;
+    }
+    polygons.push(poly);
+  });
+  const spokes = categories.map((_, k) => {
+    const [x, y] = onCircle(cx, cy, radius, angle(k));
+    return { x1: r2(cx), y1: r2(cy), x2: r2(x), y2: r2(y), color: grid, width };
+  });
+  const labels = categories.map((t, k) => {
+    const a = angle(k);
+    const [x, y] = onCircle(cx, cy, radius + pad, a);
+    const c = Math.cos((a * Math.PI) / 180);
+    const s = Math.sin((a * Math.PI) / 180);
+    const lx = c > 0.15 ? x : c < -0.15 ? x - labelW[k] : x - labelW[k] / 2;
+    const ly = s < -0.9 ? y - L / 2 : s > 0.9 ? y + L / 2 : y;
+    return { text: t, x: r2(lx), y: r2(centerBaseline(ly)), width: r2(labelW[k]) };
+  });
+  geometry.plot = { x: r2(plot.x), y: r2(plot.y), w: r2(plot.w), h: r2(plot.h) };
+  geometry.center = { x: r2(cx), y: r2(cy) };
+  geometry.radius = r2(radius);
+  geometry.scale = scale;
+  geometry.polygons = polygons;
+  geometry.spokes = spokes;
+  geometry.formLabels = labels;
+  return geometry;
+}
+
+/**
+ * Gauge: values[0] on a half ring from 9 to 3 o'clock; the scale maximum is values[1], else 100 for a % unit, else
+ * the nice ceiling of the value (info). The track in the chart's muted colour (palette.chart.muted, else border), the
+ * value arc in the highlight colour (charts.highlight.highlight, else chart.0); ring thickness from
+ * charts.donut.innerRadius (none → a filled half disc, info). `valueBox` = where the composer sets the value (stat
+ * role): inside the ring, or under a filled half disc. The scale ends are labelled under the arc ends.
+ */
+function gaugeLayout(block, geometry, env, mood, R) {
+  const { font, pad, top, bottom, right, L, baselineIn } = env;
+  const vals = block.series?.[0]?.values ?? [];
+  const value = Number(vals[0]) || 0;
+  let max = Number(vals[1]);
+  if (!(max > 0)) {
+    max = block.unit === '%' ? 100 : niceTicks(0, Math.max(value, 1), 5).max;
+    env.warn(`gauge has no scale maximum (values[1]): ${formatValue(max, block.unit)} used`);
+  }
+  const ir = mood.charts?.donut?.innerRadius;
+  const ratio = typeof ir === 'number' ? (ir <= 1 ? ir : null) : null;
+  if (typeof ir !== 'number')
+    env.warn('charts.donut.innerRadius not given: gauge drawn as a filled half disc');
+  const statRole = mood.type?.roles?.stat;
+  const statL = statRole ? statRole.size * statRole.lineHeight : L;
+  const below = (ratio ? 0 : statL + pad) + L + pad; // value (filled disc only) + the scale end labels
+  const plot = { x: 0, y: top, w: right, h: bottom - top };
+  const radius = Math.max(0, Math.min(plot.w / 2, plot.h - below));
+  const inner = ratio ? radius * ratio : typeof ir === 'number' && ir > 1 ? Math.min(ir, radius) : 0;
+  const cx = plot.x + plot.w / 2;
+  const cy = plot.y + (plot.h - radius - below) / 2 + radius;
+  const share = Math.max(0, Math.min(1, value / max));
+  const track = R.color(mood.palette?.chart?.muted ? 'chartMuted' : 'border');
+  const fill = R.color(mood.charts?.highlight?.highlight ?? 'chart.0') ?? R.color('chart.0');
+  geometry.center = { x: r2(cx), y: r2(cy) };
+  geometry.radius = r2(radius);
+  geometry.innerRadius = r2(inner);
+  // renderer angles: 0 = 12 o'clock, clockwise
+  geometry.gaugeArcs = [
+    { a0: -90, a1: 90, color: track, kind: 'track' },
+    { a0: -90, a1: r2(-90 + 180 * share), color: fill, kind: 'value', value, max },
+  ];
+  const lo = formatValue(0, block.unit);
+  const hiT = formatValue(max, block.unit);
+  const ly = baselineIn(cy + (ratio ? pad : statL + pad * 2));
+  geometry.formLabels = [
+    {
+      text: lo,
+      x: r2(cx - radius + (radius - inner) / 2 - measure(lo, font) / 2),
+      y: r2(ly),
+      width: r2(measure(lo, font)),
+    },
+    {
+      text: hiT,
+      x: r2(cx + radius - (radius - inner) / 2 - measure(hiT, font) / 2),
+      y: r2(ly),
+      width: r2(measure(hiT, font)),
+    },
+  ];
+  const vb = ratio
+    ? {
+        x: cx - inner * 0.8,
+        y: cy - Math.min(statL, inner * 0.7),
+        w: inner * 1.6,
+        h: Math.min(statL, inner * 0.7),
+      }
+    : { x: cx - radius, y: cy + pad, w: 2 * radius, h: statL };
+  geometry.valueBox = { x: r2(vb.x), y: r2(vb.y), w: r2(vb.w), h: r2(vb.h) };
+  geometry.valueText = formatValue(value, block.unit);
+  geometry.plot = { x: r2(cx - radius), y: r2(cy - radius), w: r2(2 * radius), h: r2(radius) };
   return geometry;
 }
 
@@ -423,6 +723,31 @@ export function layoutChart(block, frame, mood, R, opts = {}) {
     textX: it.text.x,
     textY: it.text.y,
   }));
+
+  if (g.formLabels) {
+    // the drawn forms (funnel, radar, gauge): their own marks + labels, no axes
+    if (g.bars) out.bars = g.bars;
+    if (g.polygons) out.polygons = g.polygons;
+    if (g.spokes) out.lines = g.spokes;
+    if (g.gaugeArcs) {
+      out.arcs = g.gaugeArcs.map((a) => ({
+        cx: g.center.x,
+        cy: g.center.y,
+        r: g.radius,
+        r0: g.innerRadius,
+        a0: a.a0,
+        a1: a.a1,
+        color: a.color,
+        kind: a.kind,
+      }));
+      out.valueBox = g.valueBox;
+      out.valueText = g.valueText;
+    }
+    if (g.scale) out.scale = g.scale;
+    for (const l of g.formLabels) label(l.text, l.x, l.y);
+    out.labels = labels;
+    return out;
+  }
 
   if (g.arcs) {
     out.arcs = g.arcs.map((a) => ({
@@ -464,6 +789,11 @@ export function layoutChart(block, frame, mood, R, opts = {}) {
     if (horizontal) lines.push({ x1: zero.x, y1: p.y, x2: zero.x, y2: r2(p.y + p.h), color, width });
     else lines.push({ x1: p.x, y1: zero.y, x2: r2(p.x + p.w), y2: zero.y, color, width });
   }
+  if (g.connectors?.length) {
+    // waterfall connectors: from each bar's end level to the next bar (the axis line colour, else border)
+    const color = R.color(c.axes?.lineColor ?? c.axes?.color ?? 'border');
+    for (const l of g.connectors) lines.push({ ...l, color, width });
+  }
   out.lines = lines.map((l) => {
     if (l.dash) return l;
     const solid = { ...l };
@@ -494,6 +824,7 @@ export function layoutChart(block, frame, mood, R, opts = {}) {
       }
     }
     for (const l of g.categoryLabels) label(l.text, l.x, l.y);
+    for (const t of g.axisTitles ?? []) label(t.text, t.x, t.y, t.anchor);
   }
   if (g.bars) out.bars = g.bars;
   if (g.lines) out.points = g.lines.map((ln) => ln.points);
@@ -538,16 +869,18 @@ export function chartElement(block, frame, mood, R, opts = {}) {
   if (typeof c.line?.width === 'number') style.lineWidth = c.line.width;
   if (c.line?.smooth !== undefined) style.smooth = c.line.smooth;
   if (c.line?.areaOpacity !== undefined) style.areaOpacity = c.line.areaOpacity;
+  const form = FORMS[block.chartType];
   const chart = {
-    chartType: block.chartType,
+    chartType: form ?? block.chartType,
     series: (block.series ?? []).map((s, i) => ({
-      name: s.name,
+      name: block.text?.legend?.[i] ?? s.name,
       values: s.values,
       ...(colors.series[i] ? { color: colors.series[i] } : {}),
     })),
     style,
     geometry,
   };
+  if (form) chart.form = block.chartType;
   if (block.categories) chart.categories = block.categories;
   if (block.unit !== undefined) chart.unit = block.unit;
   if (block.highlight !== undefined) chart.highlight = block.highlight;

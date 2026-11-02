@@ -1,7 +1,7 @@
 import { inferKind, parseInline, parseMarkdown, parseMarkdownResult, validateContent } from '../src/index.js';
 import { showcaseMd, stripeBrandSpec } from './helpers.js';
 
-describe('parseMarkdown on golden/showcase/showcase.md (stripe BrandSpec)', () => {
+describe('parseMarkdown on golden/showcase/showcase-v1.md (stripe BrandSpec)', () => {
   const md = showcaseMd();
   const brandSpec = stripeBrandSpec();
   const { content, warnings } = parseMarkdownResult(md, { brandSpec });

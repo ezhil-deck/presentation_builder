@@ -19,8 +19,12 @@ function KeyValues({ title, obj }) {
   );
 }
 
-/** Report tab: the build report as the CLI wrote it (counts, ms, warnings, per-slide table). */
-export default function ReportTab({ id, report }) {
+/**
+ * Report tab: the build report as the CLI wrote it (counts, ms, warnings, per-slide table). `slideHref(n)` links a
+ * slide (default: the review console's slide page; the Studio passes its own).
+ */
+export default function ReportTab({ id, report, slideHref }) {
+  const linkFor = slideHref ?? ((n) => hrefFor({ id, tab: 'slides', slide: n }));
   if (!report) return <p className="text-sm text-neutral-500">Not built: no report.json for this brand.</p>;
   const warnings = report.warnings ?? [];
   const slides = report.slides ?? [];
@@ -98,10 +102,7 @@ export default function ReportTab({ id, report }) {
                 data-testid="report-slide"
               >
                 <td className="py-1 pr-3 text-right tabular-nums">
-                  <a
-                    className="text-indigo-700 hover:underline"
-                    href={hrefFor({ id, tab: 'slides', slide: s.index })}
-                  >
+                  <a className="text-indigo-700 hover:underline" href={linkFor(s.index)}>
                     {s.index}
                   </a>
                 </td>

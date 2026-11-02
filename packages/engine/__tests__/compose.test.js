@@ -538,3 +538,72 @@ describe('flow items (cards / steps / timeline / team / logos) with ad-hoc flow 
     }
   });
 });
+
+describe('per-slide overrides decor: false / logo: false (the Studio, PLAN-studio §2)', () => {
+  const withFlags = (id, flags) => ({
+    ...content,
+    slides: content.slides.map((s) => (s.id === id ? { ...s, ...flags } : s)),
+  });
+  const roles = (d, id) => d.slides.find((s) => s.id === id).elements.map((e) => e.role);
+
+  it('decor: false leaves that slide without decor; the other slides keep theirs', () => {
+    expect(roles(deck, 's3')).toContain('decor'); // the section slide carries the rays without the flag
+    const { deck: d } = composeDeck({
+      content: withFlags('s3', { decor: false }),
+      mood,
+      brandSpec,
+      catalogue,
+    });
+    expect(validateDeck(d)).toEqual([]);
+    expect(roles(d, 's3')).not.toContain('decor');
+    expect(d.slides.find((s) => s.id === 's3').elements.length).toBeGreaterThan(0);
+    // decor: true (or absent) is the default, not an override
+    const { deck: same } = composeDeck({
+      content: withFlags('s3', { decor: true }),
+      mood,
+      brandSpec,
+      catalogue,
+    });
+    expect(roles(same, 's3')).toContain('decor');
+  });
+
+  it('decor: false on one slide does not move decor onto other slides (the frequency count is unchanged)', () => {
+    const { deck: d } = composeDeck({
+      content: withFlags('s3', { decor: false }),
+      mood,
+      brandSpec,
+      catalogue,
+    });
+    const withDecor = (dk) =>
+      dk.slides.filter((s) => s.id !== 's3' && s.elements.some((e) => e.role === 'decor'));
+    expect(withDecor(d).map((s) => s.id)).toEqual(withDecor(deck).map((s) => s.id));
+  });
+
+  it('a pinned surface changes that slide only: the rhythm of the other slides is unchanged', () => {
+    const pinned = mood.palette.surfaces.find((s) => s.id !== deck.slides[3].surfaceId).id;
+    const { deck: d } = composeDeck({
+      content: withFlags('s4', { surface: pinned }),
+      mood,
+      brandSpec,
+      catalogue,
+    });
+    expect(d.slides[3].surfaceId).toBe(pinned);
+    const others = (dk) => dk.slides.filter((s) => s.id !== 's4').map((s) => [s.id, s.surfaceId]);
+    expect(others(d)).toEqual(others(deck));
+  });
+
+  it('logo: false leaves that slide without the slide logo; the other slides keep theirs', () => {
+    expect(roles(deck, 's1')).toContain('logo');
+    const { deck: d } = composeDeck({
+      content: withFlags('s1', { logo: false }),
+      mood,
+      brandSpec,
+      catalogue,
+    });
+    expect(validateDeck(d)).toEqual([]);
+    expect(roles(d, 's1')).not.toContain('logo');
+    const withLogo = (dk) =>
+      dk.slides.filter((s) => s.id !== 's1' && s.elements.some((e) => e.role === 'logo'));
+    expect(withLogo(d).map((s) => s.id)).toEqual(withLogo(deck).map((s) => s.id));
+  });
+});

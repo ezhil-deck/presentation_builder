@@ -29,7 +29,11 @@ describe('check variety', () => {
       ...run(['light', 'light']).map((s, i) => ({ ...s, id: `y${i}` })),
     ]);
     expect(check.run({ deck: d, mood: mood() })).toEqual({ status: 'pass', items: [] });
-    expect(check.run(golden('stripe')).status).toBe('pass');
+    // the golden stripe deck (showcase v2): its brand pins cards / kpi / chart / bullets to "page" (perKind), so the
+    // run of those kinds is a real finding - the check reports it with the run's length and the rhythm's limit
+    const g = check.run(golden('stripe'));
+    expect(['pass', 'warn']).toContain(g.status);
+    for (const item of g.items) expect(item.data.length).toBeGreaterThan(item.data.max);
   });
 
   it('skips when the rhythm names one surface or the brand gives one surface', () => {

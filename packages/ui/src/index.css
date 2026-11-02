@@ -51,3 +51,7 @@ body {
 :where(.pb-ui table:not(.slide *)) {
   border-collapse: collapse;
 }
+/* The Studio's chrome: bare buttons carry no UA padding (the 8 px grid comes from utilities). */
+:where(.pb-studio button:not(.slide *)) {
+  padding: 0;
+}

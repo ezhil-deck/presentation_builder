@@ -6,12 +6,27 @@
  * - slot.type kpis | chart | table | cards | steps | timeline | logos | quote | image take the first block of that type;
  *   'people' (layout schema v1.2) and 'images' take `people`;
  * - box.role 'attribution' takes the attribution (+ role) of the quote bound to the slide;
+ * - a slot `<flow>-heading` takes the group heading (`title`) of the block bound to slot `<flow>` (content/2 items);
+ *   likewise `<flow>-subheading` (its subtitle), `<flow>-caption`, `<flow>-label` and `<flow>-photo` (an image);
+ * - slot type 'number' takes the content/2 slide's `number` (section "01"); slot `action` takes its `cta` key;
  * - slots `col<N>-title` / `col<N>-body` take column N of the `columns` block (its title / its blocks). Without a
  *   columns block, columns are formed from the slide: blocks before the first subtitle -> column 1, the subtitle ->
  *   column 2's title, the rest -> column 2 (no subtitle: images -> column 1, the rest -> column 2), with an info.
  * Unbound required slots (schema default: required) and blocks no slot took are warnings.
+ * A content/2 slide binds through its aliases onto these blocks (content/lower.js, docs/S2-content-v2.md §5).
  */
+import { lowerSlide } from '../content/lower.js';
+
 const COL_RE = /^col(\d+)-(title|body)$/;
+const HEADING_RE = /^(.+)-(heading|subheading|caption|label|photo)$/;
+/** A `<flow>-<part>` slot shows this field of the block bound to slot `<flow>` (content/2, S2.a slices 2–3). */
+const PART_FIELD = {
+  heading: 'title',
+  subheading: 'subtitle',
+  caption: 'caption',
+  label: 'label',
+  photo: 'photo',
+};
 const TYPE_SLOT = {
   kpis: 'kpis',
   chart: 'chart',
@@ -24,8 +39,11 @@ const TYPE_SLOT = {
   image: 'image',
   people: 'people',
   images: 'people',
+  number: 'number',
 };
 const BODY_TYPES = new Set(['paragraph', 'list', 'cta']);
+/** content/2 slide keys lowered to title / eyebrow / subtitle / cta blocks (content/lower.js). */
+const SLIDE_KEYS = new Set(['title', 'label', 'number', 'subtitle', 'cta']);
 
 function inferColumns(blocks) {
   const sub = blocks.findIndex((b) => b.type === 'subtitle');
@@ -40,6 +58,10 @@ function inferColumns(blocks) {
 }
 
 export function bindSlots(slide, layout, { warn = () => {} } = {}) {
+  // content/2: bind the slide's aliases onto today's blocks; each field no v1 slot shows is one content warning
+  const lowered = lowerSlide(slide);
+  for (const n of lowered.notes) warn('content', n.message);
+  slide = lowered.slide;
   const pool = slide.blocks ?? [];
   const used = new Set();
   const boxes = new Map((layout.boxes ?? []).map((b) => [b.id, b]));
@@ -94,12 +116,17 @@ export function bindSlots(slide, layout, { warn = () => {} } = {}) {
       );
   }
 
+  // content/2: the slide's `cta` key is the action (button) of a layout that has one (the cta layout)
+  const action = (layout.slots ?? []).find((s) => s.id === 'action');
+  const ctaKey = action && take((x) => x.type === 'cta' && lowered.origin.get(x) === 'cta');
+  if (ctaKey) bindings.push({ slot: action, box: boxes.get(action.box), blocks: [ctaKey] });
+
   const deferred = [];
   for (const slot of layout.slots ?? []) {
-    if (COL_RE.test(slot.id)) continue;
+    if (COL_RE.test(slot.id) || (ctaKey && slot === action)) continue;
     const box = boxes.get(slot.box);
     const role = box?.role;
-    if (role === 'attribution') {
+    if (role === 'attribution' || HEADING_RE.test(slot.id)) {
       deferred.push(slot);
       continue;
     }
@@ -108,7 +135,9 @@ export function bindSlots(slide, layout, { warn = () => {} } = {}) {
       const b = take((x) => x.type === role);
       if (b) blocks = [b];
     } else if (TYPE_SLOT[slot.type]) {
-      const b = take((x) => x.type === TYPE_SLOT[slot.type]);
+      // a flow slot `compare` (the compare layouts) takes the compare block's columns
+      const want = slot.id === 'compare' ? 'columns' : TYPE_SLOT[slot.type];
+      const b = take((x) => x.type === want);
       if (b) blocks = [b];
     } else if (slot.type === 'list') {
       const b = take((x) => x.type === 'list');
@@ -120,13 +149,30 @@ export function bindSlots(slide, layout, { warn = () => {} } = {}) {
     else missing(slot);
   }
   for (const slot of deferred) {
+    const head = HEADING_RE.exec(slot.id);
+    if (head) {
+      const of = bindings.find((x) => x.slot.id === head[1])?.blocks[0];
+      const text = of?.[PART_FIELD[head[2]]];
+      if (typeof text === 'string' && text) {
+        const block =
+          head[2] === 'photo'
+            ? { type: 'image', src: text, ...(of.attribution ? { alt: of.attribution } : {}) }
+            : { type: 'paragraph', text };
+        bindings.push({ slot, box: boxes.get(slot.box), blocks: [block] });
+      } else missing(slot);
+      continue;
+    }
     const quote = bindings.flatMap((b) => b.blocks).find((b) => b.type === 'quote');
     const text = quote ? [quote.attribution, quote.role].filter(Boolean).join(', ') : '';
     if (text) bindings.push({ slot, box: boxes.get(slot.box), blocks: [{ type: 'paragraph', text }] });
     else missing(slot);
   }
   for (const b of pool) {
-    if (!used.has(b)) warn('binding', `${b.type} block has no slot in layout "${layout.id}": not shown`);
+    if (used.has(b)) continue;
+    const from = lowered.origin.get(b);
+    if (SLIDE_KEYS.has(from))
+      warn('content', `${from} not rendered on layout "${layout.id}" until S2.a layouts land`);
+    else warn('binding', `${from ?? b.type} block has no slot in layout "${layout.id}": not shown`);
   }
   // keep the layout's slot order
   const order = new Map((layout.slots ?? []).map((s, k) => [s.id, k]));

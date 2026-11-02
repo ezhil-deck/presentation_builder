@@ -1,5 +1,7 @@
 /** summarize(slide) -> what a layout needs to know about the content (P2-spec §3.1). Passed to layout.build(ctx). */
+import { blockNodes } from '../content/blocks.js';
 import { plainText } from '../content/inline.js';
+import { lowerSlide } from '../content/lower.js';
 
 const ITEM_TYPES = ['kpis', 'cards', 'steps', 'timeline', 'logos', 'people'];
 
@@ -55,12 +57,69 @@ function blockChars(b) {
   }
 }
 
+const has = (v) => v !== undefined && v !== null && v !== '';
+
 /**
- * summarize(slide, {kind, requestedKind, assetInfo}) ->
- * { kind, requestedKind, items, chars, blocks: {type: count}, hasTitle, hasSubtitle, hasImage, hasChart, hasTable,
- *   hasQuote, hasKpis, columns, listItems, listLevels, paragraphs, chartType, tableRows, tableCols, imageAspect }
+ * One content block as a layout sees it (docs/S2-layouts.md §1): {type, nodes, shape?, ordered?, title?, fields,
+ * icons, chars} - `fields` = the node fields any node carries, `icons` = the icon names the nodes ask for, `chars` =
+ * the longest text per node field (plain characters; layouts size boxes to it).
+ */
+export function describeBlock(b) {
+  const nodes =
+    b.type === 'kpis' || b.type === 'items' || b.type === 'process' || b.type === 'points'
+      ? (b.items ?? [])
+      : blockNodes(b);
+  const fields = new Set();
+  const icons = [];
+  const chars = {};
+  for (const n of nodes) {
+    if (!n || typeof n !== 'object' || Array.isArray(n)) continue;
+    for (const [k, v] of Object.entries(n)) {
+      if (has(v)) fields.add(k);
+      if (typeof v === 'string') chars[k] = Math.max(chars[k] ?? 0, plainText(v).length);
+    }
+    if (typeof n.icon === 'string' && n.icon) icons.push(n.icon);
+  }
+  // compare: a check on any row of any column is a field too (the compare layouts draw check marks)
+  if (
+    b.type === 'compare' &&
+    nodes.some((c) => (c?.items ?? []).some((it) => typeof it?.check === 'boolean'))
+  )
+    fields.add('check');
+  const out = { type: b.type, nodes: nodes.length, fields: [...fields].sort(), icons, chars };
+  if (typeof b.shape === 'string') out.shape = b.shape;
+  if (b.tiers) out.tiers = true;
+  // logos: the explicit rows (distinct `row` values) and the most logos in one row
+  if (b.type === 'logos' && nodes.some((n) => Number.isInteger(n?.row))) {
+    const per = new Map();
+    for (const n of nodes) per.set(n?.row ?? 0, (per.get(n?.row ?? 0) ?? 0) + 1);
+    out.rows = per.size;
+    out.perRow = Math.max(...per.values());
+  }
+  // compare: the most rows (features + items) any column carries (the compare layouts size to it)
+  if (b.type === 'compare')
+    out.rows = Math.max(0, ...nodes.map((c) => (c?.features?.length ?? 0) + (c?.items?.length ?? 0)));
+  if (b.nested) out.nested = true;
+  if (typeof b.treatment === 'string') out.treatment = b.treatment;
+  if (b.ordered) out.ordered = true;
+  if (typeof b.title === 'string' && b.title) out.title = true;
+  if (typeof b.subtitle === 'string' && b.subtitle) out.subtitle = true;
+  return out;
+}
+
+/**
+ * summarize(slide, {kind, requestedKind, assetInfo}) (content/1 or content/2 slide) ->
+ * { kind, requestedKind, v2, items, chars, blocks: [describeBlock(b) for the slide's blocks as written],
+ *   blockCounts: {type: count} (lowered), hasTitle, hasSubtitle, hasImage, hasChart, hasTable, hasQuote, hasKpis,
+ *   columns, listItems, listLevels, paragraphs, chartType, tableRows, tableCols, imageAspect }.
+ * `v2` is true for a content/2 slide: only then do layouts read `blocks` (a content/1 deck composes as before).
  */
 export function summarize(slide, { kind, requestedKind, assetInfo } = {}) {
+  // a content/2 slide is summarised through its aliases onto today's blocks (content/lower.js)
+  const written = slide?.blocks ?? [];
+  const original = slide;
+  const lowered = lowerSlide(slide);
+  slide = lowered.slide;
   const blocks = slide?.blocks ?? [];
   const counts = {};
   for (const b of blocks) counts[b.type] = (counts[b.type] ?? 0) + 1;
@@ -92,7 +151,9 @@ export function summarize(slide, { kind, requestedKind, assetInfo } = {}) {
     requestedKind: requestedKind ?? slide?.kind ?? null,
     items,
     chars: blocks.reduce((a, b) => a + blockChars(b), 0),
-    blocks: counts,
+    v2: lowered.changed,
+    blocks: written.map(describeBlock),
+    blockCounts: counts,
     hasTitle: !!counts.title,
     hasSubtitle: !!counts.subtitle,
     hasImage: !!image,
@@ -106,6 +167,14 @@ export function summarize(slide, { kind, requestedKind, assetInfo } = {}) {
     paragraphs: inner.filter((b) => b.type === 'paragraph').length,
     imageAspect,
   };
+  if (lowered.changed) {
+    // the content/2 slide keys a layout shows (docs/S2-layouts.md §5)
+    const keys = {};
+    for (const k of ['label', 'subtitle', 'number', 'cta']) if (has(original?.[k])) keys[k] = true;
+    if (lowered.background) keys.background = true;
+    summary.keys = keys;
+    if (keys.subtitle) summary.subtitleChars = plainText(original.subtitle).length;
+  }
   if (chart) summary.chartType = chart.chartType;
   if (table) {
     summary.tableRows = table.rows.length;
