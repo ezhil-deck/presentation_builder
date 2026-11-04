@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="la">
+  <head>
+    <meta charset="utf-8" />
+    <title>Section: number and title on a colour field (light and dark)</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #ffffff;
+      }
+      .slide {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #f0f0f0;
+        color: #2b2b2b;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .slide > * {
+        position: absolute;
+        margin: 0;
+      }
+      .k {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .t {
+        font-weight: 700;
+        line-height: 1.05;
+      }
+      .lg {
+        width: 208px;
+        height: 52px;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAA8CAYAAABYfzddAAAAqElEQVR42u3dQQqAIBBAURVPOQeca+pWaCmE2XsnsOSji4ZKAQAAAAAAAAAAYE+NiHH6IjOz2ip4al4BCBgQMCBgEDAgYEDAgIBBwICAAQHDf/XbHugL33bDjnU2wAkMrtCAgAEBg4ABAQMCBgQMAgYEDAgYBAwIGBAwIGAQMHCu6wb6/QgNJzAgYEDAgIBBwICAAQGDgAEBAwIGBAwAAAAAAAAAAPCeCYTOCkmo3g3iAAAAAElFTkSuQmCC)
+          left center/contain no-repeat;
+      }
+      .lg.large {
+        width: 420px;
+        height: 105px;
+      }
+      .inner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide"
+      data-template="section-number-field"
+      data-category="section-slide"
+      data-basis="Section ranges (anatomy F6 / F2 / F8): a large chapter numeral beside the title, title 69 px = 6.4 % H (section median 6.38), numeral 160 px = 2.3 x the title, 3 sizes at most (statement slides 1-3), the most open spacing of any category (6 % H gaps), left margin 80 px, the group centred in the field."
+    >
+      <div
+        data-role="background"
+        data-need="colour-field:light"
+        style="left: 0; top: 0; width: 1920px; height: 1080px; background: #e4e4e4"
+      ></div>
+      <div style="left: 80px; top: 250px; font-size: 160px; font-weight: 700; line-height: 1; color: #2b2b2b">
+        02
+      </div>
+      <div class="t" style="left: 80px; top: 475px; width: 1200px; font-size: 69px; color: #2b2b2b">
+        Duis aute irure dolor
+      </div>
+      <p
+        data-role="subtitle"
+        style="left: 80px; top: 612px; width: 1100px; font-size: 30px; line-height: 1.35; color: #4a4a4a"
+      >
+        In reprehenderit in voluptate velit esse cillum
+      </p>
+    </div>
+    <div
+      class="slide"
+      data-template="section-number-field"
+      data-category="section-slide"
+      data-basis="Section ranges (anatomy F6 / F2 / F8): a large chapter numeral beside the title, title 69 px = 6.4 % H (section median 6.38), numeral 160 px = 2.3 x the title, 3 sizes at most (statement slides 1-3), the most open spacing of any category (6 % H gaps), left margin 80 px, the group centred in the field."
+      data-option="dark"
+    >
+      <div
+        data-role="background"
+        data-need="colour-field:dark"
+        style="left: 0; top: 0; width: 1920px; height: 1080px; background: #303030"
+      ></div>
+      <div style="left: 80px; top: 250px; font-size: 160px; font-weight: 700; line-height: 1; color: #f2f2f2">
+        02
+      </div>
+      <div class="t" style="left: 80px; top: 475px; width: 1200px; font-size: 69px; color: #f2f2f2">
+        Duis aute irure dolor
+      </div>
+      <p
+        data-role="subtitle"
+        style="left: 80px; top: 612px; width: 1100px; font-size: 30px; line-height: 1.35; color: #cfcfcf"
+      >
+        In reprehenderit in voluptate velit esse cillum
+      </p>
+    </div>
+  </body>
+</html>

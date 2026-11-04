@@ -1,5 +1,5 @@
 /**
- * Collects the names the five schemas (+ the input format) give things: every `enum` and every string `const`, by
+ * Collects the names the five schemas (+ the input format, + the template record since V1) give things: every `enum` and every string `const`, by
  * JSON pointer path. maps.json maps each path's values to one vocabulary term, or excludes the path with its reason;
  * __tests__/maps.test.js collects the paths afresh from the schema files, so a schema that gains a name without a map
  * fails (D11, docs/PLAN-template-library.md §8).
@@ -13,6 +13,7 @@ export const SCHEMA_FILES = Object.freeze({
   mood: 'schemas/mood.schema.json',
   brand: 'schemas/brand-spec.schema.json',
   input: 'schemas/input/brand-presentation-spec.schema.json',
+  template: 'schemas/template.schema.json',
 });
 
 /** Every `enum` (its string values) and string `const` of a parsed schema: [{path: '#/...', values: [...]}]. */

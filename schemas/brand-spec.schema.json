@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://presentations.ai/pb/schemas/brand-spec.v1.3.json",
+  "$id": "https://presentations.ai/pb/schemas/brand-spec.v1.4.json",
   "title": "BrandSpec v1",
   "description": "The normalised brand as the rules consume it. Produced by packages/brand from a Brand Presentation Spec input (schemas/input/). Data stays clean; where every value came from is in the `provenance` sidecar (JSON-pointer -> origin). Values the input does not give are NOT filled in: they are listed in `questions` and the pointer is absent.",
   "type": "object",
@@ -225,6 +225,47 @@
       "type": "array",
       "description": "BR-ASSET inventory (E6): files under assets/ that no BrandSpec value or referenced folder names (font files excluded); never used for design, listed for the brand author",
       "items": { "type": "object", "required": ["file", "size"], "additionalProperties": false, "properties": { "file": { "type": "string", "description": "path relative to the brand folder" }, "size": { "type": "integer", "description": "bytes" } } }
+    },
+
+    "capabilities": {
+      "type": "array",
+      "description": "BR-CAPABILITIES (P1-rules §A, PLAN-template-library §3): what the brand can supply, derived from this BrandSpec and the files it names, in the element vocabulary. Keys: device:<id>, photo-area, overlay:<id>, text-zone, image:<kind>, cutout, colour-field:<surface id>, logo:<variant>, mask:<id>, component:<term>, angle, second-face, weight-contrast, type-ladder, composition, motion. Absent = the JSON cannot give it.",
+      "items": {
+        "type": "object",
+        "required": ["key", "term", "from", "files", "measured", "status", "why"],
+        "additionalProperties": false,
+        "properties": {
+          "key": { "type": "string" },
+          "term": { "type": ["string", "null"], "pattern": "^(E[1-4]:[a-z][a-z0-9-]*|unknown)$", "description": "the vocabulary term (namespace:term); unknown = an element the vocabulary has no term for; null = not an element (a brand rule: type ladder, composition, motion, angle)" },
+          "from": { "type": "array", "items": { "type": "string" }, "description": "BrandSpec pointers the capability rests on" },
+          "files": { "type": "array", "items": { "type": "string" }, "description": "brand-relative files it rests on" },
+          "given": { "type": "object", "description": "facts as given (layer, frequency, allowedOn, tags ...)" },
+          "measured": { "type": "object", "description": "numbers measured from the JSON and its files (boxes in % of the 1920x1080 canvas)" },
+          "status": { "enum": ["given", "offered"], "description": "offered = an input provenance under `from` says inferred: true without verifiedAt" },
+          "why": { "type": "string" }
+        }
+      }
+    },
+
+    "claims": {
+      "type": "array",
+      "description": "BR-CLAIMS (P1-rules §A): every value the JSON claims about one of its own files, compared with the file. pass null = not measured (reason in why). A failing claim adds an optional question claim.<id>.",
+      "items": {
+        "type": "object",
+        "required": ["id", "pointer", "claim", "measured", "pass", "why"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "pointer": { "type": "string", "description": "BrandSpec pointer of the claimed value" },
+          "inputPointer": { "type": "string", "description": "the input pointer (where an answer goes, D5)" },
+          "file": { "type": ["string", "null"] },
+          "claim": { "type": "object" },
+          "measured": { "type": "object" },
+          "pass": { "type": ["boolean", "null"] },
+          "tolerance": { "type": "object" },
+          "why": { "type": "string" }
+        }
+      }
     },
 
     "provenance": {

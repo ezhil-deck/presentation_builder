@@ -1035,7 +1035,7 @@
         "subject": {
           "id": "o68",
           "kind": "text",
-          "text": "HEADSPACE 7",
+          "text": "ACME 7",
           "sizePctH": 1.9,
           "bbox": [3, 96, 10, 98],
           "align": "left",
@@ -1053,7 +1053,7 @@
         "subject": {
           "id": "o69",
           "kind": "text",
-          "text": "HEADSPACE 7",
+          "text": "ACME 7",
           "sizePctH": 1.9,
           "bbox": [3, 96, 10, 98],
           "align": "left",

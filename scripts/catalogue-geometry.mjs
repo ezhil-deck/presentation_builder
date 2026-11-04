@@ -39,6 +39,54 @@ export const RULE_OPTS = Object.freeze({
   LABEL_MAX: 24,
 });
 const REGION_CAP = 400;
+
+/**
+ * V1 (docs/PLAN-template-library.md §9, the V0 geometry gap): the connector of a container, measured for EVERY
+ * container whatever its `data-type` (so the vocabulary's block chain can read the visible sequence sign without the
+ * hidden type). Pure: `lines` = the thin lines of the container's scope ({dir: 'h' | 'v', at, from, to} in px, already
+ * at least `ruleMin` long; lines inside another container left out), `itemBoxes` = the union box of each item's fields,
+ * `extent` = the container's extent; opts = {RULE_NEAR, RULE_IN} (RULE_OPTS). A line is ALONG the container when it
+ * overlaps the extent by half its length (or half the extent) and lies within RULE_NEAR px of it, as for `rules`.
+ * Returns null when no line runs along the container, else:
+ *   lines       the number of lines along it;
+ *   crossing    the greatest number of items one line crosses: items whose span along the line it covers by half or
+ *               more, counted at distinct places (16 px apart; a column of items under one rule is one place) - the
+ *               measure `rules.axis` uses on a roadmap / timeline;
+ *   orientation 'h' | 'v' of that line (of the longest line when none crosses an item);
+ *   inner       the line pieces inside items: lines crossing fewer than two places that lie within an item (more than
+ *               RULE_IN px inside its edges across the line) - ticks, a ruled baseline, sub-point hairlines.
+ * On a roadmap / timeline, `rules.axis` = crossing >= 2 or inner > 0 (the same two tests).
+ */
+export function measureConnector(lines, itemBoxes, extent, { RULE_NEAR, RULE_IN }) {
+  const over = (a0, a1, b0, b1) => Math.min(a1, b1) - Math.max(a0, b0);
+  const E = extent;
+  let along = 0;
+  let inner = 0;
+  let best = null;
+  for (const s of lines) {
+    const h = s.dir === 'h';
+    const [e0, e1, p0, p1] = h ? [E.x, E.x + E.w, E.y, E.y + E.h] : [E.y, E.y + E.h, E.x, E.x + E.w];
+    if (over(s.from, s.to, e0, e1) < 0.5 * Math.min(s.to - s.from, e1 - e0)) continue;
+    if (s.at < p0 - RULE_NEAR || s.at > p1 + RULE_NEAR) continue;
+    along += 1;
+    const span = (ib) => (h ? [ib.x, ib.x + ib.w] : [ib.y, ib.y + ib.h]);
+    const crossed = itemBoxes.filter((ib) => {
+      const [i0, i1] = span(ib);
+      return i1 > i0 && over(s.from, s.to, i0, i1) >= 0.5 * (i1 - i0);
+    });
+    const places = new Set(crossed.map((ib) => Math.round(span(ib)[0] / 16))).size;
+    const len = s.to - s.from;
+    if (!best || places > best.places || (places === best.places && len > best.len))
+      best = { places, len, dir: s.dir };
+    if (places >= 2) continue;
+    const start = (ib) => (h ? ib.y : ib.x);
+    const end = (ib) => (h ? ib.y + ib.h : ib.x + ib.w);
+    const touched = itemBoxes.filter((ib) => over(s.from, s.to, ...span(ib)) > 0);
+    if (touched.some((ib) => start(ib) < s.at - RULE_IN && end(ib) > s.at + RULE_IN)) inner += 1;
+  }
+  if (!along) return null;
+  return { lines: along, crossing: best.places, orientation: best.dir, inner };
+}
 /** Tolerance (px) of the containment and overlap checks: boxes are rounded to whole pixels, edges by half a pixel. */
 const TOL = 2;
 
@@ -130,6 +178,15 @@ export function validateGeometry(index, geometry) {
           for (const [k, v] of Object.entries(c.rules))
             if (!RULE_KEYS.includes(k) || typeof v !== 'boolean')
               p(`container ${c.c}: rules.${k} must be one of ${RULE_KEYS.join(' / ')} and a boolean`);
+        if (c.connector) {
+          const k = c.connector;
+          if (
+            ![k.lines, k.crossing, k.inner].every((n) => Number.isInteger(n) && n >= 0) ||
+            k.lines < 1 ||
+            !['h', 'v'].includes(k.orientation)
+          )
+            p(`container ${c.c}: connector must be {lines >= 1, crossing, orientation h / v, inner} or null`);
+        }
         if (c.numeral) {
           if (!inCanvas(c.numeral.box))
             p(`container ${c.c}: numeral box ${fmt(c.numeral.box)} is outside the canvas or empty`);
@@ -213,8 +270,11 @@ export function shellHtml({ styles, sprites }) {
 }
 
 /** Runs in the page: measures the slide in #host. Plain function (serialised by puppeteer), no closures. */
-function measureInPage(headerParts, regionCap, ruleOpts) {
+function measureInPage(headerParts, regionCap, ruleOpts, connectorSrc) {
   const { ruleMax, ruleMin, RULE_NEAR, RULE_IN, AXIS_TYPES, NO_NUMERAL_TYPES, LABEL_MAX } = ruleOpts;
+  // measureConnector (module scope, pure) arrives as its source: puppeteer serialises this function without closures
+  // eslint-disable-next-line no-new-func
+  const measureConnector = new Function(`return (${connectorSrc})`)();
   const slide = document.querySelector('#host > .slide');
   const S = slide.getBoundingClientRect();
   const box = (el) => {
@@ -537,6 +597,13 @@ function measureInPage(headerParts, regionCap, ruleOpts) {
       ruleTally[`${s.how} ${s.sel}`] = (ruleTally[`${s.how} ${s.sel}`] || 0) + 1;
     }
     rec.rules = axisType ? { ...r, axis } : r;
+    // V1: the connector, for every container whatever its type (the lines of its own scope, as above)
+    rec.connector = measureConnector(
+      ruleLines.filter((s) => !foreign(s.el, rec.c)).map(({ dir, at, from, to }) => ({ dir, at, from, to })),
+      itemBoxes,
+      E,
+      ruleOpts,
+    );
 
     if (NO_NUMERAL_TYPES.includes(rec.type) || !order.length) continue;
     // the numeral / year / label of the first item: a short unmarked text (or a block part of a field)
@@ -708,7 +775,13 @@ async function measureAll(figures, shell, onProgress) {
             document.getElementById('host').innerHTML = html;
             await document.fonts.ready;
           }, figures[i].html);
-          results[i] = await w.page.evaluate(measureInPage, HEADER_PARTS, REGION_CAP, RULE_OPTS);
+          results[i] = await w.page.evaluate(
+            measureInPage,
+            HEADER_PARTS,
+            REGION_CAP,
+            RULE_OPTS,
+            measureConnector.toString(),
+          );
           await paintedFonts(w.cdp, fonts);
           done += 1;
           onProgress(done);

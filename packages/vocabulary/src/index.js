@@ -92,3 +92,10 @@ export function confusables(term, namespace) {
     }
   return out;
 }
+export {
+  BARE_KEYS,
+  IMAGE_KINDS,
+  LOGO_VARIANTS,
+  isCapabilityKey,
+  parseCapabilityKey,
+} from './capabilities.js';

@@ -118,6 +118,7 @@ None: when fields = 0 - holds no field of its own: nothing to identify (the titl
 | 65 | `process.ordinals` | [process](#e3-process) | minItemFields >= 2; labelText matches `ordinal` | its items are labelled by step ordinals |
 | 70 | `subpoints.lists` | [subpoints](#e3-subpoints) | minItemFields >= 2; listItemShare >= 0.5 | half of its items or more explain their heading with two runs or more |
 | 80 | `compare.two-sides` | [compare](#e3-compare) | minItemFields >= 2; items = 2; itemsInRow; between; not numbered | exactly two items side by side with a rule between them, not numbered |
+| 85 | `process.connector` | [process](#e3-process) | minItemFields >= 2; (items >= 2 and connector.crossing >= items) or (connector.inner > 0); labelText | a connector line joins every item (one line crosses each of them) or runs through them in pieces, and the first item carries a label: a sequence. Period labels were already decided as timeline (timeline.periods), ordinals as process (process.ordinals); a sequence with any other label (01, a region) is a process. A frame rule over an unlabelled row (a comparison, a column list) is not a connector: the label is required (V1, the answer key: without it 3 lists and 3 column lists turn process) |
 | 90 | `items.heading-description` | [items](#e3-items) | minItemFields >= 2; items >= 1 | every item holds two texts or more (a heading and its description) |
 
 ### Chain `kind` (E3)
@@ -382,6 +383,7 @@ Maps from:
 - deck: `deck.element.type: line`, `deck.shape.kind: line`
 - layout: `layout.box.shape.kind: line`
 - brand: `brand.template.region.kind: line`
+- template: `template.element.primitive: line`
 
 Examples: yes - a 1 px hairline under a header; no - a 40 x 40 px square.
 
@@ -400,6 +402,7 @@ Not to be confused with:
 
 Maps from:
 - deck: `deck.element.type: text`
+- template: `template.element.primitive: text`
 
 Examples: yes - a title; no - a logo image of a word.
 
@@ -419,6 +422,7 @@ Not to be confused with:
 
 Maps from:
 - deck: `deck.element.type: image`
+- template: `template.element.primitive: image`
 
 Examples: yes - a photo; no - a filled rectangle.
 
@@ -440,6 +444,7 @@ Not to be confused with:
 Maps from:
 - deck: `deck.element.type: shape`
 - layout: `layout.box.role: shape`
+- template: `template.element.primitive: shape`
 
 Examples: yes - a card background; no - a hairline.
 
@@ -458,6 +463,7 @@ Not to be confused with:
 
 Maps from:
 - deck: `deck.element.type: chart`
+- template: `template.element.primitive: chart`
 
 Examples: yes - a bar chart element; no - a picture of a chart.
 
@@ -476,6 +482,7 @@ Not to be confused with:
 
 Maps from:
 - deck: `deck.element.type: table`
+- template: `template.element.primitive: table`
 
 Examples: yes - a 3 x 4 table element; no - three text boxes in a row.
 
@@ -497,6 +504,7 @@ Not to be confused with:
 Maps from:
 - deck: `deck.element.type: group`
 - layout: `layout.box.role: group`
+- template: `template.element.primitive: group`
 
 Examples: yes - a logo drawn as 12 paths; no - one rectangle.
 
@@ -527,6 +535,7 @@ Maps from:
 - content: `content.cell.type: number`
 - anatomy: `role: big-number`
 - catalogue: `data-f: value`
+- template: `template.element.role: big-number`, `template.emphasis.carrier: numeral`
 
 Examples: yes - "$504B" at 200 px over 30 px descriptions; no - "2 key findings" at title size (a heading).
 
@@ -555,6 +564,7 @@ Maps from:
 - brand: `brand.cardBlock.type: meta`, `brand.cardBlock.type: footer`
 - anatomy: `role: label`, `role: partner-label`
 - catalogue: `data-f: point`
+- template: `template.element.role: label`
 
 Examples: yes - "2024" under a bar of a column chart; no - a two-line description in a card.
 
@@ -576,6 +586,7 @@ Not to be confused with:
 
 Maps from:
 - catalogue: `data-f: bullet`
+- template: `template.element.role: bullet`
 
 Examples: yes - "Publish rates, fees and terms" in a ticked list; no - the description under a card heading.
 
@@ -600,6 +611,7 @@ Maps from:
 - content: `content.cell.type: heading`
 - anatomy: `role: heading`
 - catalogue: `data-f: heading`
+- template: `template.element.role: heading`
 
 Examples: yes - "Answers, not links" over its description in a card; no - the description under it.
 
@@ -629,6 +641,7 @@ Maps from:
 - content: `content.cell.type: text`
 - anatomy: `role: body`
 - catalogue: `data-f: body`
+- template: `template.element.role: body`
 
 Examples: yes - "Fintech revenue in 2025 passed half a trillion" under "$504B"; no - a heading.
 
@@ -650,6 +663,7 @@ Not to be confused with:
 Maps from:
 - brand: `brand.cardBlock.type: body`
 - catalogue: `data-f: description`
+- template: `template.element.role: description`
 
 Examples: yes - the two lines under a card heading; no - a lone paragraph block.
 
@@ -671,6 +685,7 @@ Not to be confused with:
 
 Maps from:
 - catalogue: `data-f: paragraph`
+- template: `template.element.role: paragraph`
 
 Examples: yes - a 3-line takeaway beside a chart; no - a description under a heading.
 
@@ -690,6 +705,7 @@ Not to be confused with:
 
 Maps from:
 - anatomy: `role: legal`
+- template: `template.element.role: legal`
 
 Examples: yes - "Copyright © 2025 Example Co. All rights reserved."; no - "Confidential" set as a 40 pt title.
 
@@ -711,6 +727,7 @@ Not to be confused with:
 Maps from:
 - anatomy: `role: source`
 - catalogue: `header: .src`
+- template: `template.element.role: source`, `template.mark.part: src`
 
 Examples: yes - "Source: Global Fintech Report 2026"; no - "Sources of growth" as a heading.
 
@@ -733,6 +750,7 @@ Not to be confused with:
 Maps from:
 - brand: `mood.footer.items: pageNumber`
 - anatomy: `role: page-number`
+- template: `template.element.role: page-number`
 
 Examples: yes - "12" bottom right on every page; no - "12%" at 80 pt.
 
@@ -756,8 +774,9 @@ Maps from:
 - brand: `mood.footer.items: text`, `brand.template.slot.type: footer`
 - anatomy: `role: footer`
 - catalogue: `header: .ft`
+- template: `template.element.role: footer-text`, `template.mark.part: ft`
 
-Examples: yes - "HEADSPACE 7" at the bottom left of every slide; no - a subtitle.
+Examples: yes - "ACME 7" (a caps brand word + the page number) at the bottom left of every slide; no - a subtitle.
 
 <a id="e2-date"></a>
 ### date
@@ -776,6 +795,7 @@ Not to be confused with:
 Maps from:
 - brand: `mood.footer.items: date`
 - anatomy: `role: date`
+- template: `template.element.role: date`
 
 Examples: yes - "January 2024" under a cover title; no - "In 2024 revenue doubled".
 
@@ -794,6 +814,7 @@ Not to be confused with:
 
 Maps from:
 - anatomy: `role: placeholder`
+- template: `template.element.role: placeholder`
 
 Examples: yes - "Click to add title"; no - "Add value to every client".
 
@@ -812,6 +833,7 @@ Not to be confused with:
 
 Maps from:
 - anatomy: `role: contact`
+- template: `template.element.role: contact`
 
 Examples: yes - "hello@brand.com"; no - a 40-word paragraph about contact centres.
 
@@ -831,6 +853,7 @@ Not to be confused with:
 
 Maps from:
 - anatomy: `role: authors`
+- template: `template.element.role: authors`
 
 Examples: yes - "Ana Lima, Ben Okafor, Chen Wei"; no - "Fast, cheap, and good enough".
 
@@ -847,6 +870,9 @@ Signal: text of quote glyphs only.
 Not to be confused with:
 - [decor](#e2-decor): a drawn quote shape is decor unless named
 - [body](#e2-body): a quote with its words
+
+Maps from:
+- template: `template.element.role: quote-mark`
 
 Examples: yes - "“" at 200 pt; no - "“Great product”".
 
@@ -867,6 +893,7 @@ Not to be confused with:
 
 Maps from:
 - layout: `layout.box.role: attribution`
+- template: `template.element.role: attribution`
 
 Examples: yes - "— Jane Doe, CEO" under “We moved faster”; no - "– faster growth" in a dash list.
 
@@ -886,6 +913,9 @@ Not to be confused with:
 - [eyebrow](#e2-eyebrow): an eyebrow sits above the title
 - [attribution](#e2-attribution): a caption describes an image
 
+Maps from:
+- template: `template.element.role: caption`
+
 Examples: yes - "Our Berlin office" under a photo; no - a title over a photo.
 
 <a id="e2-decor-word"></a>
@@ -904,6 +934,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.decor.type: word`
+- template: `template.element.role: decor-word`
 
 Examples: yes - "GROW" at 400 pt, 10 % opacity, behind the title; no - the title.
 
@@ -927,6 +958,7 @@ Maps from:
 - content: `content.v1.block.type: title`
 - anatomy: `role: title`
 - catalogue: `header: .t`
+- template: `template.element.role: title`, `template.mark.part: t`
 
 Examples: yes - the 56 px headline of a slide; no - a 200 px KPI value.
 
@@ -949,6 +981,7 @@ Maps from:
 - brand: `brand.template.slot.type: subtitle`
 - content: `content.v1.block.type: subtitle`
 - anatomy: `role: subtitle`
+- template: `template.element.role: subtitle`
 
 Examples: yes - "Key Insights Report" under a cover title; no - a source line at the bottom.
 
@@ -974,6 +1007,7 @@ Maps from:
 - content: `content.v1.block.type: eyebrow`
 - anatomy: `role: eyebrow`
 - catalogue: `header: .k`
+- template: `template.element.role: eyebrow`, `template.mark.part: k`
 
 Examples: yes - "SEARCH TO ANSWERS" over the title; no - the date under the title.
 
@@ -992,6 +1026,7 @@ Not to be confused with:
 Maps from:
 - brand: `brand.imagery.sample.kind: unknown`, `brand.template.slot.type: custom`
 - anatomy: `role: small-text`
+- template: `template.element.role: unknown`, `template.category: unknown`
 
 Examples: yes - a 12-word line at 80 % of body size with nothing beside it; no - a 3-word label.
 
@@ -1009,7 +1044,10 @@ Not to be confused with:
 - [decor](#e2-decor): decor holds no text and is not named by the brand; a device is named
 - [band](#e2-band): a band is a strip by geometry; a band the brand names is its device
 
-Examples: yes - hdfc-2 `coverBands` on the cover; no - an unnamed corner dot grid.
+Maps from:
+- template: `template.element.role: device`
+
+Examples: yes - a cover band element the brand's cover layout names as its `composition.device`; no - an unnamed corner dot grid.
 
 <a id="e2-background"></a>
 ### background
@@ -1027,6 +1065,7 @@ Not to be confused with:
 
 Maps from:
 - anatomy: `role: background`
+- template: `template.element.role: background`
 
 Examples: yes - a full-slide purple rectangle; no - a half-slide panel.
 
@@ -1048,6 +1087,7 @@ Not to be confused with:
 Maps from:
 - brand: `brand.imagery.sample.kind: abstract`
 - anatomy: `role: background-art`
+- template: `template.element.role: background-art`
 
 Examples: yes - a full-bleed photo behind the title; no - a half-slide photo.
 
@@ -1073,6 +1113,7 @@ Maps from:
 - brand: `mood.footer.items: logo`, `brand.imagery.sample.kind: logo`, `brand.template.slot.type: logo`
 - anatomy: `role: logo`, `role: footer-mark`
 - catalogue: `header: .lg`
+- template: `template.element.role: brand-logo`, `template.mark.part: lg`
 
 Examples: yes - the wordmark top left of a cover; no - a client logo under "Prepared for".
 
@@ -1093,6 +1134,7 @@ Not to be confused with:
 Maps from:
 - brand: `brand.cardBlock.type: logo`
 - anatomy: `role: partner-logo`
+- template: `template.element.role: partner-logo`
 
 Examples: yes - a client logo right of "Prepared for"; no - the brand wordmark alone in the top-left corner.
 
@@ -1113,6 +1155,7 @@ Not to be confused with:
 
 Maps from:
 - content: `content.cell.type: logo`
+- template: `template.element.role: logo-item`
 
 Examples: yes - the fourth of eight client logos in a 4 x 2 grid; no - a lone logo in a corner.
 
@@ -1136,6 +1179,7 @@ Maps from:
 - layout: `layout.box.role: chart`
 - brand: `brand.template.slot.type: chart`
 - anatomy: `role: chart-or-diagram`
+- template: `template.element.role: chart-exhibit`
 
 Examples: yes - a bar chart drawn as 24 paths with "12%" labels; no - a process diagram.
 
@@ -1155,6 +1199,7 @@ Not to be confused with:
 
 Maps from:
 - anatomy: `role: chart-or-diagram`
+- template: `template.element.role: diagram`
 
 Examples: yes - a 4-step cycle with node labels; no - a bar chart.
 
@@ -1176,6 +1221,7 @@ Not to be confused with:
 Maps from:
 - brand: `brand.decor.type: illustration`, `brand.imagery.sample.kind: illustration`
 - anatomy: `role: chart-or-diagram`
+- template: `template.element.role: illustration`
 
 Examples: yes - a line drawing of a city skyline; no - a labelled flow chart.
 
@@ -1195,6 +1241,7 @@ Not to be confused with:
 Maps from:
 - layout: `layout.box.role: table`
 - brand: `brand.template.slot.type: table`
+- template: `template.element.role: table-exhibit`
 
 Examples: yes - a 3 x 4 table; no - three cards in a row.
 
@@ -1214,6 +1261,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.decor.type: watermark`
+- template: `template.element.role: watermark`
 
 Examples: yes - the logo at 8 % opacity across the slide; no - the logo at full strength.
 
@@ -1233,6 +1281,7 @@ Not to be confused with:
 
 Maps from:
 - anatomy: `role: cutout`
+- template: `template.element.role: cutout`
 
 Examples: yes - a person cut out on the right of a cover; no - a rectangular photo.
 
@@ -1254,6 +1303,7 @@ Not to be confused with:
 
 Maps from:
 - anatomy: `role: hero-image`
+- template: `template.element.role: hero-image`
 
 Examples: yes - the right-half photo of a cover; no - a team headshot.
 
@@ -1273,6 +1323,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.components: avatar`
+- template: `template.element.role: avatar`
 
 Examples: yes - a 120 px round headshot; no - a square product shot.
 
@@ -1297,6 +1348,7 @@ Maps from:
 - brand: `brand.cardBlock.type: image`, `brand.imagery.sample.kind: photo-people`, `brand.imagery.sample.kind: photo-product`, `brand.imagery.sample.kind: product-ui`, `brand.template.slot.type: image`
 - content: `content.cell.type: image`
 - anatomy: `role: footer-mark`, `role: picture`
+- template: `template.element.role: picture`
 
 Examples: yes - a card photo; no - a 32 px icon.
 
@@ -1322,6 +1374,7 @@ Maps from:
 - brand: `brand.decor.type: actionIcon`, `brand.cardBlock.type: icon`, `brand.cardBlock.type: rating`, `brand.imagery.sample.kind: icon`, `brand.components: icons`, `brand.components: icon`
 - content: `content.cell.type: check`, `content.cell.type: rating`
 - anatomy: `role: footer-mark`, `role: icon`
+- template: `template.element.role: icon`
 
 Examples: yes - a 40 px line icon over a card heading; no - a card photo.
 
@@ -1340,6 +1393,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.decor.type: sticker`
+- template: `template.element.role: sticker`
 
 Examples: yes - a "NEW!" star rotated 12 degrees; no - a level "NEW" pill on a card corner.
 
@@ -1359,6 +1413,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.decor.type: badge`, `brand.cardBlock.type: badge`, `brand.components: badge`
+- template: `template.element.role: badge`
 
 Examples: yes - a "PRO" tag on the corner of a pricing card; no - a tilted sticker.
 
@@ -1380,6 +1435,7 @@ Not to be confused with:
 Maps from:
 - brand: `brand.cardBlock.type: tags`, `brand.components: chip`, `brand.components: tags`
 - content: `content.cell.type: chip`
+- template: `template.element.role: chip`
 
 Examples: yes - a "Fintech" tag pill; no - a "Learn more" button.
 
@@ -1400,6 +1456,7 @@ Not to be confused with:
 Maps from:
 - brand: `brand.cardBlock.type: link`, `brand.cardBlock.type: button`, `brand.components: button`, `brand.components: buttonSecondary`, `brand.components: buttonOutline`, `brand.components: buttonCta`, `brand.components: ctaChevron`
 - content: `content.v1.block.type: cta`
+- template: `template.element.role: button`
 
 Examples: yes - "Get started" on a filled pill; no - "Fintech" on a pill.
 
@@ -1419,6 +1476,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.components: callout`
+- template: `template.element.role: callout`
 
 Examples: yes - a speech-bubble note pointing at a chart peak; no - a card.
 
@@ -1438,6 +1496,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.components: pager`, `brand.components: progress`
+- template: `template.element.role: pager`
 
 Examples: yes - five dots bottom centre, the third filled; no - one page number.
 
@@ -1457,6 +1516,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.components: linkBar`, `brand.components: tabs`
+- template: `template.element.role: tabs`
 
 Examples: yes - "Overview | Pricing | FAQ" with Pricing underlined; no - three column headings.
 
@@ -1477,6 +1537,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.steps.marker: circle-number`, `brand.steps.marker: square-number`, `brand.steps.marker: dot`, `brand.steps.marker: icon`, `brand.steps.marker: chevron`
+- template: `template.element.role: marker`
 
 Examples: yes - "01" over a card heading; no - a lone dot in the background.
 
@@ -1497,6 +1558,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.components: arrow`
+- template: `template.element.role: connector`
 
 Examples: yes - the line through four timeline dots; no - a hairline between two columns.
 
@@ -1518,6 +1580,7 @@ Maps from:
 - layout: `layout.box.role: divider`
 - brand: `brand.cardBlock.type: divider`, `brand.gradient.use: divider`, `brand.components: divider`
 - anatomy: `role: footer-mark`, `role: rule`
+- template: `template.element.role: divider`
 
 Examples: yes - a vertical hairline between two text columns; no - a short accent bar under a title.
 
@@ -1540,6 +1603,7 @@ Maps from:
 - brand: `brand.decor.type: rule`, `brand.layout.divider: rule`
 - anatomy: `role: footer-mark`, `role: rule`
 - catalogue: `header: .r`
+- template: `template.element.role: rule`, `template.mark.part: r`
 
 Examples: yes - a 150 px accent rule under a title; no - a column divider.
 
@@ -1560,6 +1624,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.decor.type: frame`, `brand.gradient.use: border`
+- template: `template.element.role: frame`
 
 Examples: yes - a 2 px border around a photo; no - a filled card.
 
@@ -1579,6 +1644,7 @@ Not to be confused with:
 
 Maps from:
 - anatomy: `role: footer-mark`, `role: cut-shape`
+- template: `template.element.role: cut-shape`
 
 Examples: yes - a white wedge cut at 10 degrees across a cover; no - a rectangle.
 
@@ -1601,6 +1667,7 @@ Not to be confused with:
 
 Maps from:
 - anatomy: `role: footer-mark`, `role: band`
+- template: `template.element.role: band`
 
 Examples: yes - a 12 % H full-width colour strip at the bottom; no - a full-width strip holding the title (a panel).
 
@@ -1624,6 +1691,7 @@ Not to be confused with:
 Maps from:
 - brand: `brand.cardBlock.type: panel`, `brand.layout.divider: panel`
 - anatomy: `role: footer-mark`, `role: panel`
+- template: `template.element.role: panel`, `template.emphasis.carrier: colour-field`
 
 Examples: yes - a purple block holding the cover title; no - a small card.
 
@@ -1647,6 +1715,7 @@ Not to be confused with:
 Maps from:
 - brand: `brand.components: cards`, `brand.components: card`
 - anatomy: `role: footer-mark`, `role: card`
+- template: `template.element.role: card`
 
 Examples: yes - one of three feature cards; no - a half-slide panel.
 
@@ -1673,6 +1742,7 @@ Maps from:
 - layout: `layout.box.role: decor`
 - brand: `brand.decor.type: shape`, `brand.gradient.use: glow`
 - anatomy: `role: footer-mark`, `role: decor`
+- template: `template.element.role: decor`
 
 Examples: yes - a circle bottom right; no - a full-width strip.
 
@@ -1694,6 +1764,7 @@ Not to be confused with:
 
 Maps from:
 - catalogue: `data-f: row`
+- template: `template.element.structure: cell`
 
 Examples: yes - a table row "Fintechs | $504B | 22%"; no - a bullet line.
 
@@ -1715,6 +1786,7 @@ Maps from:
 - brand: `brand.template.region.kind: table`
 - content: `content.v2.block.type: table`, `content.v1.block.type: table`
 - catalogue: `data-type: table`
+- template: `template.element.structure: table-block`
 
 Examples: yes - a 4-column table of figures; no - three KPI tiles.
 
@@ -1737,6 +1809,7 @@ Maps from:
 - brand: `brand.cardRecipe.kind: stat`, `brand.template.region.kind: kpi`, `brand.components: kpi`
 - content: `content.v2.block.type: kpis`, `content.v1.block.type: kpis`
 - catalogue: `data-type: kpi_block`, `data-type: kpi_vb`
+- template: `template.element.structure: kpis`
 
 Examples: yes - three tiles "$504B / Global revenue / ..."; no - three cards with headings.
 
@@ -1760,6 +1833,7 @@ Maps from:
 - brand: `brand.template.region.kind: chart`, `brand.gradient.use: chartSeries`
 - content: `content.v2.block.type: chart`, `content.v1.block.type: chart`, `content.chart.chartType: column`, `content.chart.chartType: bar`, `content.chart.chartType: line`, `content.chart.chartType: area`, `content.chart.chartType: pie`, `content.chart.chartType: donut`, `content.chart.chartType: stacked`, `content.chart.chartType: grouped`, `content.chart.chartType: stacked%`, `content.chart.chartType: funnel`, `content.chart.chartType: waterfall`, `content.chart.chartType: scatter`, `content.chart.chartType: radar`, `content.chart.chartType: gauge`, `content.chart.chartType: stackedBar`
 - catalogue: `data-type: chart`
+- template: `template.element.structure: chart-block`
 
 Examples: yes - a column chart with "2024 / 2025" labels; no - a bullet list.
 
@@ -1782,6 +1856,7 @@ Maps from:
 - brand: `brand.template.region.kind: paragraph`
 - content: `content.v2.block.type: paragraph`, `content.v1.block.type: paragraph`
 - catalogue: `data-type: paragraph`
+- template: `template.element.structure: paragraph-block`
 
 Examples: yes - a 3-line takeaway; no - a 4-line list.
 
@@ -1805,6 +1880,7 @@ Maps from:
 - brand: `brand.cardRecipe.kind: list`, `brand.template.region.kind: list`
 - content: `content.v2.block.type: points`, `content.v1.block.type: list`
 - catalogue: `data-type: simple_list`
+- template: `template.element.structure: points`
 
 Examples: yes - four ticked action lines; no - three cards.
 
@@ -1825,6 +1901,7 @@ Maps from:
 - layout: `layout.box.role: quote`, `layout.slot.type: quote`
 - brand: `brand.cardRecipe.kind: testimonial`, `brand.template.slot.type: quote`, `brand.template.region.kind: quote`, `brand.components: quote`
 - content: `content.v2.block.type: quotes`, `content.v1.block.type: quote`
+- template: `template.element.structure: quotes`
 
 Examples: yes - two customer quotes with names; no - a paragraph.
 
@@ -1846,6 +1923,7 @@ Maps from:
 - layout: `layout.slot.type: people`
 - brand: `brand.cardRecipe.kind: team`, `brand.components: team`
 - content: `content.v2.block.type: people`, `content.v1.block.type: people`
+- template: `template.element.structure: people`
 
 Examples: yes - four team members; no - four feature cards.
 
@@ -1866,6 +1944,7 @@ Maps from:
 - layout: `layout.slot.type: logos`
 - brand: `brand.components: logoWall`
 - content: `content.v2.block.type: logos`, `content.v1.block.type: logos`
+- template: `template.element.structure: logos`
 
 Examples: yes - eight client logos; no - one photo.
 
@@ -1887,6 +1966,7 @@ Maps from:
 - layout: `layout.slot.type: image`, `layout.slot.type: images`
 - brand: `brand.template.region.kind: image`
 - content: `content.v2.block.type: image`, `content.v1.block.type: image`
+- template: `template.element.structure: image-block`
 
 Examples: yes - a two-photo collage; no - a team grid.
 
@@ -1910,28 +1990,31 @@ Maps from:
 - brand: `brand.components: timeline`
 - content: `content.v2.block.type: timeline`, `content.v1.block.type: timeline`
 - catalogue: `data-type: roadmap`, `data-type: timeline`, `data-type: timeline_with_list`
+- template: `template.element.structure: timeline`
 
 Examples: yes - "2024 Listings stall | 2025 Listings return"; no - "Step 1 Payments first | Step 2 ...".
 
 <a id="e3-process"></a>
 ### process (block)
 
-Steps in order, each labelled by an ordinal (Step 1, Phase 2, Stage 3) (content/2 `process`).
+Steps in order: each labelled by an ordinal (Step 1, Phase 2, Stage 3), or joined in sequence by a connector line (content/2 `process`).
 
 Identified when (in chain order):
 - `process.ordinals` (chain `block`, order 65): minItemFields >= 2; labelText matches `ordinal`. Why: its items are labelled by step ordinals.
+- `process.connector` (chain `block`, order 85): minItemFields >= 2; (items >= 2 and connector.crossing >= items) or (connector.inner > 0); labelText. Why: a connector line joins every item (one line crosses each of them) or runs through them in pieces, and the first item carries a label: a sequence. Period labels were already decided as timeline (timeline.periods), ordinals as process (process.ordinals); a sequence with any other label (01, a region) is a process. A frame rule over an unlabelled row (a comparison, a column list) is not a connector: the label is required (V1, the answer key: without it 3 lists and 3 column lists turn process).
 
-Signal: labelText matches `ordinal`.
+Signal: labelText matches `ordinal`; or connector.crossing = items (or connector.inner > 0) with a label on the first item.
 
 Not to be confused with:
 - [timeline](#e3-timeline): a timeline is labelled by dates
-- [items](#e3-items): items may be numbered 01 / 02 without being steps
+- [items](#e3-items): items may be numbered 01 / 02 without being steps; a connector line joining every labelled item makes them a sequence (a numbered row under one rule drawn as a list is not separable by any visible sign: L1-35)
 
 Maps from:
 - layout: `layout.slot.type: steps`
 - brand: `brand.components: steps`
 - content: `content.v2.block.type: process`, `content.v1.block.type: steps`, `content.process.shape: linear`, `content.process.shape: cycle`, `content.process.shape: funnel`, `content.process.shape: pyramid`, `content.process.shape: stack`, `content.process.shape: hub`, `content.process.shape: ladder`, `content.process.shape: quadrant`, `content.process.shape: venn`, `content.process.shape: tree`, `content.process.shape: converge`, `content.process.shape: diverge`
 - catalogue: `data-type: roadmap`
+- template: `template.element.structure: process`
 
 Examples: yes - "Step 1 Structured data | Step 2 Earned trust"; no - "2024 | 2025".
 
@@ -1952,6 +2035,7 @@ Not to be confused with:
 Maps from:
 - content: `content.v2.block.type: subpoints`
 - catalogue: `data-type: list_with_subpoints`
+- template: `template.element.structure: subpoints`
 
 Examples: yes - "Proven in workflows" with two ruled sub-lines; no - a heading with one description.
 
@@ -1973,6 +2057,7 @@ Not to be confused with:
 Maps from:
 - content: `content.v2.block.type: compare`
 - catalogue: `data-type: comparison`
+- template: `template.element.structure: compare`
 
 Examples: yes - "Digitally enhanced | AI-first operations" either side of a hairline; no - two numbered cards.
 
@@ -1993,13 +2078,14 @@ Not to be confused with:
 - [points](#e3-points): items have a heading + description each
 - [people](#e3-people): items hold no portrait
 - [timeline](#e3-timeline): items carry no period
-- [process](#e3-process): items may be numbered 01 / 02 without being steps
+- [process](#e3-process): items may be numbered 01 / 02 without being steps; a connector line joining every labelled item makes them a sequence (a numbered row under one rule drawn as a list is not separable by any visible sign: L1-35)
 
 Maps from:
 - layout: `layout.slot.type: cards`
 - brand: `brand.cardRecipe.kind: feature`, `brand.cardRecipe.kind: case_study`, `brand.cardRecipe.kind: pricing`, `brand.cardRecipe.kind: blog`, `brand.cardRecipe.kind: listing`, `brand.template.slot.type: cards`, `brand.template.region.kind: cards`
 - content: `content.v2.block.type: items`, `content.v1.block.type: cards`
 - catalogue: `data-type: list_with_description`, `data-type: multi_column_list`
+- template: `template.element.structure: items`
 
 Examples: yes - three cards "Answers, not links / ..."; no - a bullet list.
 
@@ -2018,6 +2104,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.placement: under-title`
+- template: `template.element.structure: header`
 
 Examples: yes - eyebrow + title + rule at the top; no - a card heading + description.
 
@@ -2035,6 +2122,9 @@ Not to be confused with:
 - [cell](#e3-cell): a cell has a row and a column
 - [gap-group](#e3-gap-group): a group is by proximity
 
+Maps from:
+- template: `template.element.structure: item`
+
 Examples: yes - a card heading + description; no - a whole block.
 
 <a id="e3-grid"></a>
@@ -2050,6 +2140,9 @@ Signal: rows >= 2, cols >= 2.
 Not to be confused with:
 - [column](#e3-column): one column
 - [band-zone](#e3-band-zone): one row
+
+Maps from:
+- template: `template.element.structure: grid`
 
 Examples: yes - a 2 x 2 card grid; no - three cards in a row.
 
@@ -2069,6 +2162,7 @@ Not to be confused with:
 
 Maps from:
 - content: `content.v1.block.type: columns`
+- template: `template.element.structure: column`
 
 Examples: yes - the left text column of a cover; no - a centred stack.
 
@@ -2084,6 +2178,9 @@ Signal: rows = 1, spansWidth.
 
 Not to be confused with:
 - [grid](#e3-grid): several rows
+
+Maps from:
+- template: `template.element.structure: band-zone`
 
 Examples: yes - a KPI row across the slide; no - a 2 x 2 grid.
 
@@ -2102,6 +2199,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.components: accordion`
+- template: `template.element.structure: stack`
 
 Examples: yes - a centred title + subtitle + button; no - a left-aligned column.
 
@@ -2117,6 +2215,9 @@ Signal: groupedByGap.
 
 Not to be confused with:
 - [item](#e3-item): an item is by index
+
+Maps from:
+- template: `template.element.structure: gap-group`
 
 Examples: yes - title + subtitle + date (a gap group); no - legal at the bottom.
 
@@ -2135,6 +2236,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.placement: top-left`, `brand.placement: top-center`, `brand.placement: top-right`, `brand.placement: center-left`, `brand.placement: center`, `brand.placement: center-right`, `brand.placement: bottom-left`, `brand.placement: bottom-center`, `brand.placement: bottom-right`, `brand.anchor: top-left`, `brand.anchor: top-center`, `brand.anchor: top-right`, `brand.anchor: center-left`, `brand.anchor: center`, `brand.anchor: center-right`, `brand.anchor: bottom-left`, `brand.anchor: bottom-center`, `brand.anchor: bottom-right`
+- template: `template.element.structure: zone`
 
 Examples: yes - the visual zone right of the text; no - a card.
 
@@ -2154,6 +2256,7 @@ Not to be confused with:
 Maps from:
 - layout: `layout.kind: cover`
 - anatomy: `category: cover`
+- template: `template.category: cover-slide`
 
 Examples: yes - page 1; no - page 5.
 
@@ -2173,6 +2276,7 @@ Not to be confused with:
 Maps from:
 - layout: `layout.kind: agenda`
 - anatomy: `category: agenda`
+- template: `template.category: agenda-slide`
 
 Examples: yes - "Agenda" on page 2; no - "Agenda" on page 30.
 
@@ -2194,6 +2298,7 @@ Not to be confused with:
 Maps from:
 - layout: `layout.kind: cta`
 - anatomy: `category: closing-contact`
+- template: `template.category: cta-slide`
 
 Examples: yes - "Thank you" + email on the last page; no - "Thanks to rising demand..." in body copy.
 
@@ -2214,6 +2319,7 @@ Not to be confused with:
 
 Maps from:
 - anatomy: `category: legal`
+- template: `template.category: legal-slide`
 
 Examples: yes - a disclaimer page; no - a closing page with a copyright line.
 
@@ -2234,6 +2340,7 @@ Not to be confused with:
 
 Maps from:
 - anatomy: `category: back-cover`
+- template: `template.category: back-cover-slide`
 
 Examples: yes - a logo on colour as the last page; no - a closing contact page.
 
@@ -2253,6 +2360,7 @@ Not to be confused with:
 Maps from:
 - layout: `layout.kind: quote`
 - anatomy: `category: quote`
+- template: `template.category: quote-slide`
 
 Examples: yes - "“We moved faster” — CEO"; no - a chart page.
 
@@ -2273,6 +2381,7 @@ Not to be confused with:
 Maps from:
 - layout: `layout.kind: section`
 - anatomy: `category: section-break`
+- template: `template.category: section-slide`
 
 Examples: yes - "02 Market" on a dark field; no - a 3-bullet slide.
 
@@ -2292,6 +2401,7 @@ Not to be confused with:
 Maps from:
 - layout: `layout.kind: kpi`
 - anatomy: `category: kpi`
+- template: `template.category: kpi-slide`
 
 Examples: yes - three KPI tiles; no - a bar chart.
 
@@ -2312,6 +2422,7 @@ Not to be confused with:
 Maps from:
 - layout: `layout.kind: chart`
 - anatomy: `category: chart`
+- template: `template.category: chart-slide`
 
 Examples: yes - a bar chart page; no - a KPI page.
 
@@ -2331,6 +2442,7 @@ Not to be confused with:
 Maps from:
 - layout: `layout.kind: table`
 - anatomy: `category: table`
+- template: `template.category: table-slide`
 
 Examples: yes - a comparison table; no - three cards.
 
@@ -2354,6 +2466,7 @@ Not to be confused with:
 Maps from:
 - layout: `layout.kind: text`
 - anatomy: `category: text-heavy`, `category: text`
+- template: `template.category: text-slide`
 
 Examples: yes - a 200-word page; no - a 3-card page.
 
@@ -2374,6 +2487,7 @@ Not to be confused with:
 Maps from:
 - layout: `layout.kind: cards`
 - anatomy: `category: modular-columns`
+- template: `template.category: cards-slide`
 
 Examples: yes - three pillar cards; no - a table.
 
@@ -2394,6 +2508,7 @@ Not to be confused with:
 Maps from:
 - layout: `layout.kind: team`
 - anatomy: `category: team-or-gallery`
+- template: `template.category: team-slide`
 
 Examples: yes - four headshots with names; no - one photo.
 
@@ -2414,6 +2529,7 @@ Not to be confused with:
 Maps from:
 - layout: `layout.kind: image-text`
 - anatomy: `category: image-text`
+- template: `template.category: image-text-slide`
 
 Examples: yes - a half-slide photo beside 3 bullets; no - a text page.
 
@@ -2432,6 +2548,7 @@ Not to be confused with:
 
 Maps from:
 - layout: `layout.kind: blank`
+- template: `template.category: blank-slide`
 
 Examples: yes - an empty page; no - a logo page.
 
@@ -2450,6 +2567,7 @@ Not to be confused with:
 
 Maps from:
 - layout: `layout.kind: bullets`
+- template: `template.category: bullets-slide`
 
 Examples: yes - five bullets under a title; no - a paragraph.
 
@@ -2468,6 +2586,7 @@ Not to be confused with:
 
 Maps from:
 - layout: `layout.kind: two-column`
+- template: `template.category: two-column-slide`
 
 Examples: yes - two text columns; no - three cards.
 
@@ -2486,6 +2605,7 @@ Not to be confused with:
 
 Maps from:
 - layout: `layout.kind: comparison`
+- template: `template.category: comparison-slide`
 
 Examples: yes - before / after columns; no - two text columns.
 
@@ -2504,6 +2624,7 @@ Not to be confused with:
 
 Maps from:
 - layout: `layout.kind: diagram`
+- template: `template.category: diagram-slide`
 
 Examples: yes - a 4-step cycle; no - a bar chart.
 
@@ -2522,6 +2643,7 @@ Not to be confused with:
 
 Maps from:
 - layout: `layout.kind: timeline`
+- template: `template.category: timeline-slide`
 
 Examples: yes - 2024 / 2025 / 2026 milestones; no - Step 1 / 2 / 3.
 
@@ -2540,6 +2662,7 @@ Not to be confused with:
 
 Maps from:
 - layout: `layout.kind: steps`
+- template: `template.category: steps-slide`
 
 Examples: yes - Step 1 / 2 / 3; no - 2024 / 2025.
 
@@ -2558,6 +2681,7 @@ Not to be confused with:
 
 Maps from:
 - layout: `layout.kind: logos`
+- template: `template.category: logos-slide`
 
 Examples: yes - eight client logos; no - four headshots.
 
@@ -2576,6 +2700,7 @@ Not to be confused with:
 
 Maps from:
 - layout: `layout.kind: image`
+- template: `template.category: image-slide`
 
 Examples: yes - a full-bleed photo with a caption; no - a photo beside bullets.
 
@@ -2596,6 +2721,7 @@ Not to be confused with:
 
 Maps from:
 - content: `content.image.treatment: device`
+- template: `template.element.treatment: device-frame`
 
 Examples: yes - a UI screenshot in a phone; no - a photo with a border.
 
@@ -2613,6 +2739,9 @@ Not to be confused with:
 - [clipped](#e4-clipped): a clip cuts by a shape, a cut-out by the subject
 - [hero-image](#e2-hero-image) (E2): a hero image is opaque
 
+Maps from:
+- template: `template.element.treatment: transparent`
+
 Examples: yes - a person on a transparent PNG; no - a rectangular photo.
 
 <a id="e4-clipped"></a>
@@ -2628,6 +2757,9 @@ Signal: mask != rect.
 Not to be confused with:
 - [transparent](#e4-transparent): transparent pixels
 - [side](#e4-side): a plain rectangle
+
+Maps from:
+- template: `template.element.treatment: clipped`
 
 Examples: yes - a photo in a circle; no - a rectangular photo.
 
@@ -2646,6 +2778,7 @@ Not to be confused with:
 
 Maps from:
 - content: `content.image.treatment: collage`
+- template: `template.element.treatment: collage`
 
 Examples: yes - three photos in a mosaic; no - one photo.
 
@@ -2665,6 +2798,7 @@ Not to be confused with:
 Maps from:
 - brand: `brand.gradient.use: background`
 - content: `content.image.treatment: background`
+- template: `template.element.treatment: background-image`
 
 Examples: yes - a tinted photo behind the title; no - a full-bleed photo alone.
 
@@ -2684,6 +2818,7 @@ Not to be confused with:
 
 Maps from:
 - content: `content.image.treatment: full`
+- template: `template.element.treatment: full`
 
 Examples: yes - a full-bleed photo slide; no - a half-slide photo.
 
@@ -2704,6 +2839,7 @@ Not to be confused with:
 
 Maps from:
 - content: `content.image.treatment: side`
+- template: `template.element.treatment: side`
 
 Examples: yes - the right half of a slide; no - a card photo.
 
@@ -2721,6 +2857,7 @@ Maps from:
 - deck: `deck.shape.kind: rect`
 - layout: `layout.box.shape.kind: rect`
 - brand: `brand.mask.type: rect`
+- template: `template.element.treatment: rect`
 
 Examples: yes - an image clipped to a rect; no - an unclipped image.
 
@@ -2738,6 +2875,7 @@ Maps from:
 - deck: `deck.shape.kind: ellipse`
 - layout: `layout.box.shape.kind: ellipse`
 - brand: `brand.mask.type: ellipse`
+- template: `template.element.treatment: ellipse`
 
 Examples: yes - an image clipped to a ellipse; no - an unclipped image.
 
@@ -2754,6 +2892,7 @@ Signal: outline = polygon.
 Maps from:
 - deck: `deck.shape.kind: polygon`
 - brand: `brand.mask.type: polygon`
+- template: `template.element.treatment: polygon`
 
 Examples: yes - an image clipped to a polygon; no - an unclipped image.
 
@@ -2770,6 +2909,7 @@ Signal: outline = svg.
 Maps from:
 - deck: `deck.shape.kind: path`
 - brand: `brand.mask.type: svg`
+- template: `template.element.treatment: svg`
 
 Examples: yes - an image clipped to a svg; no - an unclipped image.
 
@@ -2785,6 +2925,7 @@ Signal: outline = text.
 
 Maps from:
 - brand: `brand.mask.type: text`
+- template: `template.element.treatment: text-mask`
 
 Examples: yes - an image clipped to a text; no - an unclipped image.
 
@@ -2803,6 +2944,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.cardStyle.kind: glass`
+- template: `template.element.treatment: glass`
 
 Examples: yes - a frosted card on a photo; no - a solid card.
 
@@ -2821,6 +2963,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.cardStyle.kind: accent`
+- template: `template.element.treatment: accent`
 
 Examples: yes - a card with a 6 px left bar; no - a bordered card.
 
@@ -2839,6 +2982,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.cardStyle.kind: elevated`
+- template: `template.element.treatment: elevated`
 
 Examples: yes - a white card with a soft shadow; no - a flat card.
 
@@ -2858,6 +3002,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.cardStyle.kind: outlined`
+- template: `template.element.treatment: outlined`
 
 Examples: yes - a hairline-bordered card; no - a grey card.
 
@@ -2878,6 +3023,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.cardStyle.kind: filled`
+- template: `template.element.treatment: filled`
 
 Examples: yes - a grey card on white; no - a white card on white.
 
@@ -2897,6 +3043,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.cardStyle.kind: flat`
+- template: `template.element.treatment: flat`
 
 Examples: yes - a text group on the ground; no - a grey card.
 
@@ -2912,6 +3059,7 @@ Signal: paint = none.
 
 Maps from:
 - brand: `brand.fill.type: none`
+- template: `template.element.treatment: none`
 
 Examples: yes - a none fill; no - another paint.
 
@@ -2928,6 +3076,7 @@ Signal: paint = solid.
 Maps from:
 - deck: `deck.background.type: solid`
 - brand: `brand.background.type: solid`, `brand.fill.type: solid`
+- template: `template.element.treatment: solid`
 
 Examples: yes - a solid fill; no - another paint.
 
@@ -2944,6 +3093,7 @@ Signal: paint = linear.
 Maps from:
 - deck: `deck.gradient.type: linear`
 - brand: `brand.gradient.type: linear`, `brand.background.type: linear-gradient`, `brand.fill.type: linear-gradient`
+- template: `template.element.treatment: linear-gradient`
 
 Examples: yes - a linear-gradient fill; no - another paint.
 
@@ -2960,6 +3110,7 @@ Signal: paint = radial.
 Maps from:
 - deck: `deck.gradient.type: radial`
 - brand: `brand.gradient.type: radial`, `brand.background.type: radial-gradient`, `brand.fill.type: radial-gradient`
+- template: `template.element.treatment: radial-gradient`
 
 Examples: yes - a radial-gradient fill; no - another paint.
 
@@ -2975,6 +3126,7 @@ Signal: paint = conic.
 
 Maps from:
 - brand: `brand.gradient.type: conic`
+- template: `template.element.treatment: conic-gradient`
 
 Examples: yes - a conic-gradient fill; no - another paint.
 
@@ -2990,6 +3142,7 @@ Signal: paint = mesh.
 
 Maps from:
 - brand: `brand.gradient.type: mesh`, `brand.background.type: mesh-gradient`
+- template: `template.element.treatment: mesh-gradient`
 
 Examples: yes - a mesh-gradient fill; no - another paint.
 
@@ -3006,6 +3159,7 @@ Signal: paint = gradient.
 Maps from:
 - deck: `deck.background.type: gradient`
 - brand: `brand.decor.type: textGradient`, `brand.background.type: gradient`, `brand.gradient.use: fill`
+- template: `template.element.treatment: gradient`
 
 Examples: yes - a gradient fill; no - another paint.
 
@@ -3021,6 +3175,7 @@ Signal: paint = pattern.
 
 Maps from:
 - brand: `brand.decor.type: pattern`, `brand.background.type: pattern`
+- template: `template.element.treatment: pattern`
 
 Examples: yes - a pattern fill; no - another paint.
 
@@ -3036,6 +3191,7 @@ Signal: paint = texture.
 
 Maps from:
 - brand: `brand.decor.type: texture`
+- template: `template.element.treatment: texture`
 
 Examples: yes - a texture fill; no - another paint.
 
@@ -3052,6 +3208,7 @@ Signal: paint = image.
 Maps from:
 - deck: `deck.background.type: image`
 - brand: `brand.background.type: image`
+- template: `template.element.treatment: image-fill`
 
 Examples: yes - a image fill; no - another paint.
 
@@ -3067,6 +3224,7 @@ Signal: paint = video.
 
 Maps from:
 - brand: `brand.background.type: video`
+- template: `template.element.treatment: video`
 
 Examples: yes - a video fill; no - another paint.
 
@@ -3083,6 +3241,9 @@ Signal: faceDiffers.
 Not to be confused with:
 - [weight-run](#e4-weight-run): same face, heavier
 
+Maps from:
+- template: `template.element.treatment: face-run`
+
 Examples: yes - a serif word in a sans title; no - a bold word.
 
 <a id="e4-weight-run"></a>
@@ -3098,6 +3259,9 @@ Signal: weightDelta > 0.
 Not to be confused with:
 - [colour-run](#e4-colour-run): same weight, another colour
 - [face-run](#e4-face-run): same face, heavier
+
+Maps from:
+- template: `template.element.treatment: weight-run`, `template.emphasis.carrier: weight-run`
 
 Examples: yes - "social impact" in bold in a light title; no - a coloured word.
 
@@ -3116,6 +3280,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `brand.gradient.use: text`
+- template: `template.element.treatment: colour-run`
 
 Examples: yes - a purple keyword in a black title; no - a bold keyword.
 
@@ -3128,6 +3293,9 @@ Identified when (in chain order):
 - `angle.angle` (chain `angle`, order 1): angles. Why: a non-axis edge.
 
 Signal: angles.
+
+Maps from:
+- template: `template.element.treatment: angle`
 
 Examples: yes - a wedge at 10 degrees; no - a rectangle.
 
@@ -3146,6 +3314,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `mood.decor.layer: behind`, `brand.decor.layer: behind`, `brand.cardBlock.layer: back`
+- template: `template.element.treatment: behind`, `template.device.layer: behind`
 
 Examples: yes - a decor circle under the title; no - a sticker over the title.
 
@@ -3164,6 +3333,7 @@ Not to be confused with:
 
 Maps from:
 - brand: `mood.decor.layer: front`, `brand.decor.layer: front`, `brand.cardBlock.layer: front`
+- template: `template.element.treatment: front`, `template.device.layer: front`
 
 Examples: yes - a sticker over the title; no - a background photo.
 
@@ -3179,6 +3349,7 @@ Signal: bleedCount >= 1.
 
 Maps from:
 - brand: `brand.placement: full-bleed`
+- template: `template.element.treatment: bleed`
 
 Examples: yes - a photo to the right edge; no - an inset photo.
 
@@ -3194,6 +3365,7 @@ Signal: blend != normal.
 
 Maps from:
 - brand: `brand.blend: normal`, `brand.blend: multiply`, `brand.blend: screen`, `brand.blend: overlay`, `brand.blend: soft-light`, `brand.blend: plus-lighter`, `brand.gradient.use: overlay`
+- template: `template.element.treatment: blend`
 
 Examples: yes - a multiply tint over a photo; no - a normal overlay.
 
@@ -3210,12 +3382,13 @@ Signal: caps / caseTransform.
 Maps from:
 - deck: `deck.text.case: none`, `deck.text.case: upper`, `deck.text.case: lower`, `deck.text.case: title`
 - brand: `mood.type.case: none`, `mood.type.case: sentence`, `mood.type.case: upper`, `mood.type.case: lower`, `mood.type.case: title`, `brand.case: none`, `brand.case: sentence`, `brand.case: upper`, `brand.case: lower`, `brand.case: title`
+- template: `template.element.treatment: case`
 
 Examples: yes - an eyebrow in caps; no - a title as typed.
 
 ## The schema map (maps.json)
 
-Every enum value and string const of the five schemas + the input format, by path, maps to one term or the path is
+Every enum value and string const of the five schemas + the input format + the template record (V1), by path, maps to one term or the path is
 excluded with its reason (`__tests__/maps.test.js` collects the paths from the schema files, so a new name without a
 map fails).
 
@@ -3261,11 +3434,19 @@ map fails).
 | `brand.layout.divider` | `input:#/properties/layouts/items/properties/divider` | rule -> E2:rule; panel -> E2:panel; excluded: none (the absence of a divider names no thing) |
 | `brand.steps.marker` | `input:#/properties/components/properties/steps/properties/marker` | circle-number -> E2:marker; square-number -> E2:marker; dot -> E2:marker; icon -> E2:marker; chevron -> E2:marker. every steps marker style is the E2 marker (its glyph is a style of it) |
 | `brand.gradient.use` | `input:#/$defs/gradientUse/properties/as` | text -> E4:colour-run; background -> E4:background-image; glow -> E2:decor; overlay -> E4:blend; fill -> E4:gradient; border -> E2:frame; divider -> E2:divider; chartSeries -> E3:chart-block. where a gradient is used: on text it is a colour run; as a glow it is decor; on a border a frame; as an overlay a blend |
+| `template.element.role` | `template:#/$defs/role` | big-number -> E2:big-number; label -> E2:label; bullet -> E2:bullet; heading -> E2:heading; body -> E2:body; description -> E2:description; paragraph -> E2:paragraph; legal -> E2:legal; source -> E2:source; page-number -> E2:page-number; footer-text -> E2:footer-text; date -> E2:date; placeholder -> E2:placeholder; contact -> E2:contact; authors -> E2:authors; quote-mark -> E2:quote-mark; attribution -> E2:attribution; caption -> E2:caption; decor-word -> E2:decor-word; title -> E2:title; subtitle -> E2:subtitle; eyebrow -> E2:eyebrow; unknown -> E2:unknown; device -> E2:device; background -> E2:background; background-art -> E2:background-art; brand-logo -> E2:brand-logo; partner-logo -> E2:partner-logo; logo-item -> E2:logo-item; chart-exhibit -> E2:chart-exhibit; diagram -> E2:diagram; illustration -> E2:illustration; table-exhibit -> E2:table-exhibit; watermark -> E2:watermark; cutout -> E2:cutout; hero-image -> E2:hero-image; avatar -> E2:avatar; picture -> E2:picture; icon -> E2:icon; sticker -> E2:sticker; badge -> E2:badge; chip -> E2:chip; button -> E2:button; callout -> E2:callout; pager -> E2:pager; tabs -> E2:tabs; marker -> E2:marker; connector -> E2:connector; divider -> E2:divider; rule -> E2:rule; frame -> E2:frame; cut-shape -> E2:cut-shape; band -> E2:band; panel -> E2:panel; card -> E2:card; decor -> E2:decor. the element role IS the E2 term (the enum is the vocabulary) |
+| `template.category` | `template:#/$defs/category` | cover-slide -> E3:cover-slide; agenda-slide -> E3:agenda-slide; cta-slide -> E3:cta-slide; legal-slide -> E3:legal-slide; back-cover-slide -> E3:back-cover-slide; quote-slide -> E3:quote-slide; section-slide -> E3:section-slide; kpi-slide -> E3:kpi-slide; chart-slide -> E3:chart-slide; table-slide -> E3:table-slide; text-slide -> E3:text-slide; cards-slide -> E3:cards-slide; team-slide -> E3:team-slide; image-text-slide -> E3:image-text-slide; blank-slide -> E3:blank-slide; bullets-slide -> E3:bullets-slide; two-column-slide -> E3:two-column-slide; comparison-slide -> E3:comparison-slide; diagram-slide -> E3:diagram-slide; timeline-slide -> E3:timeline-slide; steps-slide -> E3:steps-slide; logos-slide -> E3:logos-slide; image-slide -> E3:image-slide; unknown -> E2:unknown. the category IS the E3 slide kind; unknown = no kind rule held (the vocabulary unknown) |
+| `template.element.primitive` | `template:#/$defs/primitive` | line -> E1:line; text -> E1:text; image -> E1:image; shape -> E1:shape; chart -> E1:chart; table -> E1:table; group -> E1:group |
+| `template.element.treatment` | `template:#/$defs/treatment`<br>`template:#/$defs/imageTreatment`<br>`template:#/$defs/mask` | device-frame -> E4:device-frame; transparent -> E4:transparent; clipped -> E4:clipped; collage -> E4:collage; background-image -> E4:background-image; full -> E4:full; side -> E4:side; rect -> E4:rect; ellipse -> E4:ellipse; polygon -> E4:polygon; svg -> E4:svg; text-mask -> E4:text-mask; glass -> E4:glass; accent -> E4:accent; elevated -> E4:elevated; outlined -> E4:outlined; filled -> E4:filled; flat -> E4:flat; none -> E4:none; solid -> E4:solid; linear-gradient -> E4:linear-gradient; radial-gradient -> E4:radial-gradient; conic-gradient -> E4:conic-gradient; mesh-gradient -> E4:mesh-gradient; gradient -> E4:gradient; pattern -> E4:pattern; texture -> E4:texture; image-fill -> E4:image-fill; video -> E4:video; face-run -> E4:face-run; weight-run -> E4:weight-run; colour-run -> E4:colour-run; angle -> E4:angle; behind -> E4:behind; front -> E4:front; bleed -> E4:bleed; blend -> E4:blend; case -> E4:case. an element treatment, an image treatment and a mask are E4 terms |
+| `template.element.structure` | `template:#/$defs/structure` | cell -> E3:cell; table-block -> E3:table-block; kpis -> E3:kpis; chart-block -> E3:chart-block; paragraph-block -> E3:paragraph-block; points -> E3:points; quotes -> E3:quotes; people -> E3:people; logos -> E3:logos; image-block -> E3:image-block; timeline -> E3:timeline; process -> E3:process; subpoints -> E3:subpoints; compare -> E3:compare; items -> E3:items; header -> E3:header; item -> E3:item; grid -> E3:grid; column -> E3:column; band-zone -> E3:band-zone; stack -> E3:stack; gap-group -> E3:gap-group; zone -> E3:zone |
+| `template.device.layer` | `template:#/properties/intent/properties/device/anyOf/1/properties/layer` | behind -> E4:behind; front -> E4:front |
+| `template.emphasis.carrier` | `template:#/properties/intent/properties/emphasis/properties/carrier` | weight-run -> E4:weight-run; colour-field -> E2:panel; numeral -> E2:big-number; excluded: size (a measured size ratio (title : body >= 3.5), not a thing on the slide). what carries a template emphasis: a run (E4), a panel holding text (E2), a big number (E2) |
+| `template.mark.part` | `template:#/$defs/element/properties/mark/properties/part` | k -> E2:eyebrow; t -> E2:title; r -> E2:rule; src -> E2:source; ft -> E2:footer-text; lg -> E2:brand-logo. the catalogue header part classes, as maps.catalogue.header |
 | `brand.components` | `brand:#/properties/components/properties`<br>`input:#/properties/components/properties`<br>`mood:#/properties/components/properties` | cards -> E2:card; card -> E2:card; chip -> E2:chip; callout -> E2:callout; quote -> E3:quotes; divider -> E2:divider; steps -> E3:process; timeline -> E3:timeline; arrow -> E2:connector; button -> E2:button; buttonSecondary -> E2:button; buttonOutline -> E2:button; buttonCta -> E2:button; ctaChevron -> E2:button; avatar -> E2:avatar; logoWall -> E3:logos; icons -> E2:icon; icon -> E2:icon; badge -> E2:badge; pager -> E2:pager; progress -> E2:pager; tags -> E2:chip; linkBar -> E2:tabs; tabs -> E2:tabs; accordion -> E3:stack; team -> E3:people; kpi -> E3:kpis; number -> E2:big-number. the `components` object's keys name components; a component that styles a whole block (quote, steps, timeline, logoWall, team, kpi) maps to its E3 block |
 
 Excluded paths (they name no kind of thing):
 
-- the schema id (a version string): `deck:#/properties/schema/const`, `layout:#/properties/schema/const`, `content:#/properties/schema`, `content:#/allOf/0/if/properties/schema/const`, `mood:#/properties/schema/const`, `brand:#/properties/schema/const`
+- the schema id (a version string): `deck:#/properties/schema/const`, `layout:#/properties/schema/const`, `content:#/properties/schema`, `content:#/allOf/0/if/properties/schema/const`, `mood:#/properties/schema/const`, `brand:#/properties/schema/const`, `template:#/properties/schema/const`
 - alignment: a parameter of a box, not a kind of thing: `deck:#/$defs/paragraph/properties/align`, `deck:#/$defs/element/properties/text/properties/align`, `deck:#/$defs/element/properties/text/properties/valign`, `deck:#/$defs/element/properties/table/properties/align/items`, `layout:#/properties/boxes/items/properties/align/properties/h`, `layout:#/properties/boxes/items/properties/align/properties/v`, `content:#/$defs/blockV1/oneOf/10/properties/align/items`, `content:#/$defs/table/properties/align/items`, `mood:#/properties/type/properties/align/properties/title`, `mood:#/properties/type/properties/align/properties/body`, `brand:#/$defs/halign`, `input:#/$defs/hAlign`, `input:#/$defs/vAlign`, `input:#/properties/layouts/items/properties/textSide`, `input:#/properties/layouts/items/properties/textPosition`, `input:#/$defs/designElement/properties/align`
 - image fit (cover / contain / fill / tile): how a picture is scaled into its box, a parameter; no test on a reference can tell it without the source file: `deck:#/properties/slides/items/properties/background/properties/fit`, `deck:#/$defs/element/properties/image/properties/fit`, `brand:#/$defs/background/properties/imageFit`, `input:#/$defs/background/properties/imageFit`, `input:#/$defs/cardBlock/properties/fit`
 - a report severity, not a thing on a slide: `deck:#/$defs/warning/properties/severity`, `brand:#/properties/rules/items/properties/severity`, `brand:#/properties/questions/items/properties/severity`, `input:#/properties/rules/items/properties/severity`
@@ -3289,6 +3470,12 @@ Excluded paths (they name no kind of thing):
 - a logo file variant (full / icon / wordmark / mono): which file of the E2 brand-logo: `input:#/$defs/logoVariant`
 - a check name of the brand rules (minContrast, forbid ...): `input:#/properties/rules/items/properties/type`
 - export / locale / motion / page settings: `input:#/properties/export/properties/targets/items`, `input:#/properties/export/properties/gradientFallback`, `input:#/properties/locale/properties/currencyPosition`, `input:#/properties/motion/properties/transition`, `input:#/properties/motion/properties/build`, `input:#/properties/layout/properties/aspect`
+- where a record comes from (catalogue / authored): provenance, not a thing: `template:#/properties/source/properties/kind`, `template:#/properties/provenance/properties/source`
+- a measured relation of the text and visual zones (anatomy measurements.md), not a thing: `template:#/properties/zones/properties/split`
+- a measured balance (which diagonal carries the weight), not a thing: `template:#/properties/balance/properties/diagonal/anyOf/1/properties/side`
+- a variant of one composition (mirrored, dark ...), not a thing on the slide: `template:#/properties/options/items/properties/kind`
+- a slide side (margins open, bleed), not a thing: `template:#/$defs/side`
+- a capability record status (given / offered): it names no element: `brand:#/properties/capabilities/items/properties/status`
 
 ## The catalogue answer key
 
@@ -3296,11 +3483,11 @@ Excluded paths (they name no kind of thing):
 (boxes, sizes, weights, lines, item grouping, classes, rules, numeral and the text read from the catalogue HTML are
 visible), compared with the map of the hidden mark (maps.json `catalogue`). `unknown` counts as a miss. Target 100 %.
 
-### E3 block type, per catalogue container type: 2012 / 2037 (98.8 %)
+### E3 block type, per catalogue container type: 2014 / 2037 (98.9 %)
 
 | mark | expected | hit / n | % | hits resolved to |
 |---|---|---|---|---|
-| `list_with_description` | E3:items | 103 / 108 | 95.4 | E3:items 103 |
+| `list_with_description` | E3:items | 102 / 108 | 94.4 | E3:items 102 |
 | `simple_list` | E3:points | 360 / 360 | 100 | E3:points 360 |
 | `paragraph` | E3:paragraph-block | 394 / 394 | 100 | E3:paragraph-block 394 |
 | `kpi_block` | E3:kpis | 420 / 420 | 100 | E3:kpis 420 |
@@ -3308,7 +3495,7 @@ visible), compared with the map of the hidden mark (maps.json `catalogue`). `unk
 | `list_with_subpoints` | E3:subpoints | 84 / 84 | 100 | E3:subpoints 84 |
 | `multi_column_list` | E3:items | 34 / 36 | 94.4 | E3:items 34 |
 | `comparison` | E3:compare | 15 / 18 | 83.3 | E3:compare 15 |
-| `roadmap` | E3:timeline or E3:process | 42 / 54 | 77.8 | E3:timeline 19, E3:process 23 |
+| `roadmap` | E3:timeline or E3:process | 45 / 54 | 83.3 | E3:timeline 19, E3:process 26 |
 | `timeline` | E3:timeline | 54 / 54 | 100 | E3:timeline 54 |
 | `table` | E3:table-block | 28 / 28 | 100 | E3:table-block 28 |
 | `timeline_with_list` | E3:timeline | 12 / 12 | 100 | E3:timeline 12 |
@@ -3318,15 +3505,16 @@ visible), compared with the map of the hidden mark (maps.json `catalogue`). `unk
 `roadmap` accepts E3:timeline or E3:process; each record resolved to:
 
 - E3:timeline (19): L18-1/c1, L18-7/c1, L18-2/c1, L18-9/c1, L18-10/c1, L18-6/c1, L18-22/c1, L18-18/c1, L18-13/c1, L18-19/c1, L18-26/c1, L31-1/c1, L31-2/c1, L31-5/c1, L31-3/c1, L31-6/c1, L31-10/c1, L31-11/c1, L31-17/c1
-- E3:process (23): L18-8/c1, L18-4/c1, L18-5/c1, L18-12/c1, L18-14/c1, L18-20/c1, L18-16/c1, L18-24/c1, L18-17/c1, L18-23/c1, L18-32/c1, L18-28/c1, L18-34/c1, L18-30/c1, L18-36/c1, L18-27/c1, L18-33/c1, L18-29/c1, L18-35/c1, L31-8/c1, L31-9/c1, L31-16/c1, L31-15/c1
+- E3:process (26): L18-8/c1, L18-4/c1, L18-5/c1, L18-12/c1, L18-14/c1, L18-20/c1, L18-16/c1, L18-24/c1, L18-15/c1, L18-21/c1, L18-17/c1, L18-23/c1, L18-32/c1, L18-28/c1, L18-34/c1, L18-30/c1, L18-36/c1, L18-25/c1, L18-27/c1, L18-33/c1, L18-29/c1, L18-35/c1, L31-8/c1, L31-9/c1, L31-16/c1, L31-15/c1
 
 Misses:
 
-- **roadmap -> E3:items (items.heading-description)**: 12 (L18-3, L18-11, L18-15, L18-21, L18-25, L18-31, L31-4, L31-12, L31-7, L31-14, L31-18, L31-13). The roadmap is labelled 01 / 1 / a region / nothing: nothing visible marks a sequence (no period, no step word). The line joining its items is recorded by the geometry (`rules.axis`) only for containers typed roadmap / timeline, so it is not read: it would leak the hidden type. Gap for V1: measure the axis / connector for every container (scripts/catalogue-geometry.mjs), then a connector through the items is the visible sequence sign.
+- **roadmap -> E3:items (items.heading-description)**: 9 (L18-3, L18-11, L18-31, L31-4, L31-12, L31-7, L31-14, L31-18, L31-13). The roadmap is labelled 01 / 1 / a region / nothing and no line joins its items: nothing visible marks a sequence (no period, no step word, no connector). The connector is measured for every container since V1 (geometry `connector`, scripts/catalogue-geometry.mjs) and decides the roadmaps whose one line crosses every labelled item (process.connector); these nine are drawn as rows (numbered, or unlabelled on L31-12) with a rule between each (7), numbered columns with no line (1) or cards with their own top rules (1), each exactly as the catalogue draws a numbered list (12 list / column-list containers are numbered alike).
 - **list_with_description -> E3:compare (compare.two-sides)**: 5 (L1-2, L1-6, L2-3, L2-6, L24-5). Two items side by side with a rule between them and no numbering: drawn exactly as the catalogue draws a comparison. No visible test separates them.
 - **comparison -> E3:items (items.heading-description)**: 3 (L15-9, L15-5, L15-11). A comparison drawn as two stacked items, or side by side without a rule between, or labelled with a period ("2022 to 2024"): no visible contrast mark.
 - **chart -> -:unknown (none)**: 2 (L8-53, L11-6). Its bar labels mix label (6 words or fewer) and bullet (7 words or more), so no block rule holds (every field a label / every field a bullet).
 - **multi_column_list -> E3:compare (compare.two-sides)**: 2 (L28-2, L28-6). As above: two columns side by side with a rule between.
+- **list_with_description -> E3:process (process.connector)**: 1 (L1-35). Four numbered items in a row joined by one line between the numerals and the text: drawn exactly as a roadmap (the connector rule takes it). No visible test separates them.
 - **chart -> E3:points (points.bullets)**: 1 (L7-8). The chart's figures sit in unmarked item elements outside its marked element (the block's own text is read from the marked element), so its labels show no data labels and read as bullets.
 
 ### E2 field role, per catalogue field: 10490 / 10520 (99.7 %)

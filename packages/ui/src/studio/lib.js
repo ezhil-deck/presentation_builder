@@ -99,3 +99,76 @@ export function countSeverities(items) {
   for (const it of items ?? []) if (c[it.severity] !== undefined) c[it.severity] += 1;
   return c;
 }
+
+// ---------- the brand's capabilities, claims and unverified fields (BR-CAPABILITIES / BR-CLAIMS, V2) ----------
+
+/** The capability families in the panel's order (mirrors @pb/brand FAMILIES; the browser bundle cannot import it). */
+export const CAPABILITY_FAMILIES = Object.freeze([
+  ['devices', 'Devices'],
+  ['photo-areas', 'Photo areas'],
+  ['imagery', 'Imagery'],
+  ['colour-fields', 'Colour fields'],
+  ['type', 'Type'],
+  ['logos', 'Logos'],
+  ['components', 'Components'],
+  ['shape', 'Shape'],
+  ['composition', 'Composition'],
+]);
+
+/** The family of a capability key (as @pb/brand familyOf). */
+export function capabilityFamily(key) {
+  if (key.startsWith('device:')) return 'devices';
+  if (key === 'photo-area' || key === 'text-zone' || key.startsWith('overlay:')) return 'photo-areas';
+  if (key.startsWith('image:') || key === 'cutout' || key.startsWith('mask:')) return 'imagery';
+  if (key.startsWith('colour-field:')) return 'colour-fields';
+  if (['type-ladder', 'second-face', 'weight-contrast'].includes(key)) return 'type';
+  if (key.startsWith('logo:')) return 'logos';
+  if (key.startsWith('component:')) return 'components';
+  if (key === 'angle' || key.startsWith('angle:')) return 'shape';
+  return 'composition';
+}
+
+/** Capabilities grouped by family, in the panel's order; empty families left out: [{family, label, items}]. */
+export function groupCapabilities(capabilities) {
+  const by = new Map(CAPABILITY_FAMILIES.map(([f]) => [f, []]));
+  for (const c of capabilities ?? []) by.get(capabilityFamily(c.key))?.push(c);
+  return CAPABILITY_FAMILIES.filter(([f]) => by.get(f).length).map(([family, label]) => ({
+    family,
+    label,
+    items: by.get(family),
+  }));
+}
+
+/** Claim counts: { pass, fail, skip } (pass null = skipped). */
+export function claimCounts(claims) {
+  const c = { pass: 0, fail: 0, skip: 0 };
+  for (const cl of claims ?? []) c[cl.pass === true ? 'pass' : cl.pass === false ? 'fail' : 'skip'] += 1;
+  return c;
+}
+
+/** The pill status of a claim: pass / fail / skip. */
+export const claimStatus = (claim) => (claim.pass === true ? 'pass' : claim.pass === false ? 'fail' : 'skip');
+
+const short = (v) => {
+  if (v === null || v === undefined) return '—';
+  if (typeof v === 'number') return String(v);
+  if (typeof v === 'string' || typeof v === 'boolean') return String(v);
+  const s = JSON.stringify(v);
+  return s.length > 60 ? `${s.slice(0, 57)}…` : s;
+};
+
+/** "k v · k v" of a claim's claimed or measured object (numbers first, long values cut). */
+export function claimFacts(obj) {
+  return Object.entries(obj ?? {})
+    .sort(([, a], [, b]) => (typeof a === 'number' ? 0 : 1) - (typeof b === 'number' ? 0 : 1))
+    .map(([k, v]) => `${k} ${short(v)}`)
+    .join(' · ');
+}
+
+/** Every BrandSpec pointer whose input provenance says inferred: true and gives no verifiedAt (sorted). */
+export function unverifiedFields(spec) {
+  return Object.entries(spec?.provenance ?? {})
+    .filter(([, p]) => p?.inputProvenance?.inferred === true && !p.inputProvenance.verifiedAt)
+    .map(([k]) => k)
+    .sort();
+}

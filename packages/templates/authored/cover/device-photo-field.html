@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="la">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cover: device over a photo area, text in the colour field</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #ffffff;
+      }
+      .slide {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #f0f0f0;
+        color: #2b2b2b;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .slide > * {
+        position: absolute;
+        margin: 0;
+      }
+      .k {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .t {
+        font-weight: 700;
+        line-height: 1.05;
+      }
+      .lg {
+        width: 208px;
+        height: 52px;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAA8CAYAAABYfzddAAAAqElEQVR42u3dQQqAIBBAURVPOQeca+pWaCmE2XsnsOSji4ZKAQAAAAAAAAAAYE+NiHH6IjOz2ip4al4BCBgQMCBgEDAgYEDAgIBBwICAAQHDf/XbHugL33bDjnU2wAkMrtCAgAEBg4ABAQMCBgQMAgYEDAgYBAwIGBAwIGAQMHCu6wb6/QgNJzAgYEDAgIBBwICAAQGDgAEBAwIGBAwAAAAAAAAAAPCeCYTOCkmo3g3iAAAAAElFTkSuQmCC)
+          left center/contain no-repeat;
+      }
+      .lg.large {
+        width: 420px;
+        height: 105px;
+      }
+      .inner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide"
+      data-template="cover-device-photo-field"
+      data-category="cover-slide"
+      data-basis="Cover ranges (anatomy F2 / F3 / F5 / F8): title 72 px = 6.7 % H (cover median 6.68, p10-p90 4.44-11.1), title : subtitle 2.3 (covers 2.3, 1.34-5.5), logo 52 px = 0.72 x the title size (median 0.72), a 48 px = 4.4 % H gap inside the text group (cover 4.4), left margin 80 px = 4.2 % W (cover 4.17), picture about 47 % of the area (covers 37.8, sections 42.2), one slant angle on every cut (angled cuts on 27 % of covers: an angle only from the brand shape signal)."
+    >
+      <div
+        data-role="background"
+        data-need="colour-field:dark"
+        style="left: 0; top: 0; width: 1920px; height: 1080px; background: #353535"
+      ></div>
+      <img
+        data-role="hero-image"
+        data-need="image:photo-people"
+        data-treatment="clipped"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAFoCAIAAACpDbWmAAAESUlEQVR42u3cW07DMBCGUX7kNVTpnrPPtFkFT7ygCsrFJGOf88ylHvxpAqrIuq4vQE2vRgACBgQMCBgEDAgYEDAgYBAwIGBAwCBgQMCAgAEBg4ABAQMCBgQMAgYEDAgYBAwIGBAwIGAQMCBgQMCAgEHAgIABAYOAAQEDfbUkpgA2MCBgQMAgYEDAgIABAYOAAQEDAgYBAwIGBAwIGAQMCBgQMCBgEDAgYEDAIGBAwICAAQGDgAEBAwIGBAwCBgQMCBgEDAgYEDDwSEtiCmADAwIGBAwCBgQMCBgQMAgYEDAgYBAwIGBAwICAQcCAgAEBA++aEQxj3/fnP/hyuZiYgClT7Oefq2cBU6DbL7+mkgVMmW6VLGAGSffhN5WxgCmWrowFTPl0ZSxgyqcr45PzRg71jvYKbWCEYRXbwAy91qxiAVO7BA17hJbuCEfwOG0Dq9dZELAb70QCxl13LgEz3S3XsIDV64w8qyUxBf6WS2UDD+h+vzspAnannRcBu81OLWBAwBaRsyNgN9gEBAwIGMvHHAQMCNjaMQ0BAwK2cMwEAQMCtmpMRsCAgAEBe0o0HwEDAgYE7PnQlBAwCBgQMCBgEDC/528zZiVgQMAgYEDAgIABAYOAAQEDAgYBA/W0JKbA/3PxbGAQMCBgQMCFLctiCGYlYEDAIGBAwICAT8/fZkxJwICAQcB4PjQfAQMCBgTsKdFkBAwI2KoxEwQMAsbCMQ0BAwK2dswBAYOAsXxMQMBusLMjYEDAFpFTCxi32XkF7E47KQIGAWM1OaOAmfF+q1fAGnYuBOyuO5GAcePVe2bNCA6/97fbTbr8MOAkpnCs6/W6bVvRV+7H5xGakiWo1yM0H3sosYqlawNTtQ312sCUXMXSFTAlM5augCmZsXQFTMmMpStguhTVtWTdCph6JetWwBz8C+q3elasgDl1z8zAGzlAwICAAQGDgAEBAwIGBAxjme6NHEX/+xTPm+oNLTYwCBgQMCBgEDAgYEDAgIBBwICAAQGDgAEBAwIGBAzDa0lMgZFMdaVtYBAwIGBAwCBgQMCAgAEBg4ABAQMCBgEDAgYEDAgYBAwIGBAwIGAQMCBgQMAgYEDAgIABAYOAAQEDAgYEDAIGBAwIGAQMCBjorCUxBUYy1ZW2gUHAgIABAYOAAQEDAgYEDAIGBAwIGAQMCBgQMCBgEDAgYEDAgIBBwICAAQGDgAEBAwIGBAwCBgQMCBgQMAgYEDAgYBAwIGCgs5bEFBjJVFfaBgYBAwIGBAwCBgQMCBgQMAgYEDAgYBAwIGBAwICAQcCAgAEBAwIGAQMCBgQMAgYEDAgYEDAIGBAwIGBAwCBgQMCAgEHAgICBzloSU2AkU11pGxgEDAgYEDAIGBAwIGBAwCBgQMCAgEHAgIABAQMCBgEDAgYEDAgYBAwIGBAwCBgQMCBgQMAgYEDAgIABAYOAAQEDAgYBAwIGOnsDH7bX5YuxxSYAAAAASUVORK5CYII="
+        alt=""
+        style="
+          left: 0;
+          top: 0;
+          width: 1061px;
+          height: 1080px;
+          object-fit: cover;
+          clip-path: polygon(0 0, 100% 0, 69.84% 100%, 0 100%);
+        "
+      />
+      <div
+        data-need="photo-area"
+        style="
+          left: 0;
+          top: 0;
+          width: 1061px;
+          height: 1080px;
+          box-sizing: border-box;
+          border: 3px solid #9a9a9a;
+          clip-path: polygon(0 0, 100% 0, 69.84% 100%, 0 100%);
+        "
+      ></div>
+      <div
+        data-need="overlay:any"
+        data-need-optional
+        style="
+          left: 600px;
+          top: 0;
+          width: 240px;
+          height: 600px;
+          background: #5e5e5e;
+          clip-path: polygon(75% 0, 100% 0, 25% 100%, 0 100%);
+        "
+      ></div>
+      <div
+        data-role="device"
+        data-need="device:shape"
+        style="
+          left: 541px;
+          top: 0;
+          width: 520px;
+          height: 1080px;
+          background: #6e6e6e;
+          clip-path: polygon(61.35% 0, 100% 0, 38.65% 100%, 0 100%);
+        "
+      ></div>
+      <span class="lg" data-role="brand-logo" data-need="logo:any" style="left: 1632px; top: 96px"></span>
+      <div class="k" style="left: 1100px; top: 618px; width: 740px; text-align: right; color: #c8c8c8">
+        Ultricies vitae
+      </div>
+      <div
+        class="t"
+        data-need="text-zone"
+        data-need-optional
+        style="left: 1100px; top: 670px; width: 740px; font-size: 72px; text-align: right; color: #f2f2f2"
+      >
+        Dolor sit amet consectetur
+      </div>
+      <p
+        data-role="subtitle"
+        style="
+          left: 1100px;
+          top: 869px;
+          width: 740px;
+          font-size: 31px;
+          line-height: 1.35;
+          text-align: right;
+          color: #d6d6d6;
+        "
+      >
+        Sed do eiusmod tempor ut labore
+      </p>
+    </div>
+  </body>
+</html>

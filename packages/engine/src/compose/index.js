@@ -29,6 +29,7 @@ import { MIN_LITERAL_CONTRAST, contrastRatio, resolve } from './resolve.js';
 import { hugTitle, imageBackground, textOnBackground } from './keys.js';
 import { boxShapeElement, slotElements } from './slots.js';
 import { summarize } from './summary.js';
+import { TEMPLATE_KINDS, bindTemplate } from './templateBind.js';
 import { backgroundFor, createSurfaceState, surfaceFor } from './surface.js';
 
 const r4 = (v) => Math.round(v * 10000) / 10000;
@@ -222,6 +223,8 @@ export function composeDeck({
   const surfaceState = createSurfaceState();
   const decorState = createDecorState();
   const families = new Set();
+  // PR-6: templates and imagery samples bound so far in the deck (the variety tie-break, the sample rotation)
+  const templateUsed = { templates: new Map(), samples: new Map() };
   const slides = content.slides ?? [];
   const total = slides.length;
   let boldWarned = false;
@@ -242,18 +245,20 @@ export function composeDeck({
     // kinds this slide answers to, most specific first: the kind as written (when known) and the catalogue kind
     const kinds = norm.known ? [...new Set([requested, kind])] : [kind];
     const summary = summarize(cslide, { kind, requestedKind: requested, assetInfo: assets.info });
-    const layout = pick(requested, summary, mood, catalogue, {
+    let layout = pick(requested, summary, mood, catalogue, {
       warn: (c, m, s) => warn(c, m, s),
-      layoutId: cslide.layout,
+      // PR-6: a pinned template (`tpl-<id>`) is the binding's pin, not a catalogue layout
+      layoutId:
+        proposals.templateBinding && String(cslide.layout ?? '').startsWith('tpl-')
+          ? undefined
+          : cslide.layout,
       options: {
         catalogue: catalogueOn,
         used: catalogueUsed,
       },
     });
     // a catalogue layout (C3): the slide records its catalogue id
-    const catDef = layout?.id?.startsWith('cat-') ? catalogue.get(layout.id) : null;
-    if (catDef?.catalogue)
-      catalogueUsed.set(catDef.catalogue, (catalogueUsed.get(catDef.catalogue) ?? 0) + 1);
+    let catDef = layout?.id?.startsWith('cat-') ? catalogue.get(layout.id) : null;
     // the catalogue log row (C3 / C4): how the slide matched, one row per slide
     let slideKey = null;
     let slideShape = null;
@@ -272,7 +277,7 @@ export function composeDeck({
         : catalogue.combinationShape(catDef.record.combination) === slideShape
           ? 'combination'
           : 'none';
-    catalogueLog.push({
+    const logRow = {
       slide: slideId,
       index: i + 1,
       layoutId: layout?.id ?? null,
@@ -280,7 +285,8 @@ export function composeDeck({
       key: catDef?.key ?? null,
       slideKey,
       match,
-    });
+    };
+    catalogueLog.push(logRow);
 
     const surface = surfaceFor(
       i,
@@ -292,9 +298,39 @@ export function composeDeck({
     const R = resolve(mood, surface, { warn: (c, m, s) => warn(c, m, s) });
     // a content/2 background image (the `background` key, or an image block with treatment background)
     const bgSrc = summary.v2 ? lowerSlide(cslide).background : undefined;
-    const background = bgSrc
+    let background = bgSrc
       ? imageBackground(bgSrc, surface, { mood, R, assets, warn: (c, m, s) => warn(c, m, s) })
       : backgroundFor(kinds, surface, mood, R, assets, { rhythmStep: surfaceState.step });
+    // PR-6 template binding (proposal): the slide is drawn from the authored template the brand fills best
+    let bound = null;
+    let unbound = null;
+    if (proposals.templateBinding && brandSpec?.capabilities && layout && TEMPLATE_KINDS.has(kind)) {
+      const res = bindTemplate({
+        kind,
+        kinds,
+        cslide,
+        summary,
+        surface,
+        mood,
+        brandSpec,
+        R,
+        assets,
+        slideId,
+        warn: (c, m, s) => warn(c, m, s),
+        used: templateUsed,
+        background,
+      });
+      if (res?.none && res.nearest) unbound = res.nearest;
+      if (res && !res.none) {
+        bound = res;
+        layout = res.layout;
+        catDef = null;
+        Object.assign(logRow, { layoutId: layout.id, catalogue: null, key: null, match: 'none' });
+        if (res.background) background = res.background;
+      }
+    }
+    if (catDef?.catalogue)
+      catalogueUsed.set(catDef.catalogue, (catalogueUsed.get(catDef.catalogue) ?? 0) + 1);
     const note = (key, effect) =>
       effects.push({ proposal: PROPOSALS[key], key, slide: slideId, index: i + 1, ...effect });
     const ctx = {
@@ -317,13 +353,15 @@ export function composeDeck({
     const placed = layout
       ? placeDecor({ kinds, surface, layout, mood, assets, warn: ctx.warn, state: decorState, slideId })
       : [];
-    const decor = cslide.decor !== false ? placed : [];
+    const decor =
+      cslide.decor !== false ? (bound ? placed.filter((d) => !bound.deviceIds.has(d.name)) : placed) : [];
     if (layout) {
       const clear =
         proposals.titleClearOfDecor && kinds.some((k) => CLEAR_OF_DECOR_KINDS.has(k))
           ? { frontBoxed, content: contentFrame(mood), narrowed: new Set() }
           : null;
       const lay = avoidDecor(layout, decor, mood, ctx.warn, clear);
+      if (bound) elements.push(...bound.pre);
       for (const box of lay.boxes ?? []) {
         if (box.shape && !box.slot && !(lay.slots ?? []).some((s) => s.box === box.id)) {
           elements.push(boxShapeElement(box, ctx));
@@ -371,6 +409,7 @@ export function composeDeck({
       }
       applyFitUp(mains, ctx); // fit-up rule: recorded on each element's text.fit.upSteps / upRole
       if (summary.v2) hugTitle(elements, ctx);
+      if (bound) bound.post(elements, ctx);
       textOverImage(elements, ctx);
       textOnBackground(elements, background, ctx);
     }
@@ -379,18 +418,22 @@ export function composeDeck({
     const showFooter = layout ? footerShown(kinds, layout, mood) : false;
     // (a content slide carrying `logo: false` - the Studio's per-slide override - gets no slide logo)
     const logo =
-      layout && cslide.logo !== false
-        ? placeLogo({
-            kinds,
-            surface,
-            layout,
-            mood,
-            assets,
-            warn: ctx.warn,
-            slideId,
-            brandName: brandSpec?.name ?? mood.name,
-          })
-        : null;
+      layout && cslide.logo !== false && bound?.logo !== undefined
+        ? bound.logo.element
+          ? bound.logo
+          : null
+        : layout && cslide.logo !== false
+          ? placeLogo({
+              kinds,
+              surface,
+              layout,
+              mood,
+              assets,
+              warn: ctx.warn,
+              slideId,
+              brandName: brandSpec?.name ?? mood.name,
+            })
+          : null;
     if (logo && !(logo.size === 'small' && showFooter && (mood.footer?.items ?? []).includes('logo'))) {
       const clear = mood.logo?.clearSpace ?? 0;
       const f = logo.element.frame;
@@ -410,21 +453,22 @@ export function composeDeck({
       elements.push(logo.element);
     }
     if (layout) {
-      elements.push(
-        ...footerElements({
-          kinds,
-          layout,
-          mood,
-          R,
-          assets,
-          warn: ctx.warn,
-          slideId,
-          number: i + 1,
-          total,
-          meta: content.meta,
-          said: decorState.said,
-        }),
-      );
+      const footer = footerElements({
+        kinds,
+        layout,
+        mood,
+        R,
+        assets,
+        warn: ctx.warn,
+        slideId,
+        number: i + 1,
+        total,
+        meta: content.meta,
+        said: decorState.said,
+      });
+      // PR-6: a template photo keeps clear of the brand's boxed decor on this slide and of the footer
+      if (bound) bound.clearPhoto(elements, [...decor, ...footer], ctx);
+      elements.push(...footer);
       elements.push(...decor);
     }
 
@@ -470,6 +514,31 @@ export function composeDeck({
     };
     if (requested !== kind) slide.requestedKind = requested;
     if (catDef?.catalogue) slide.source = { catalogue: catDef.catalogue };
+    if (unbound)
+      // the slide differs from the default build by its `template` info alone: recorded, so every changed slide is
+      note('templateBinding', {
+        template: null,
+        nearest: unbound.template.id,
+        unmet: [
+          ...unbound.needs.filter((n) => !n.met && !n.optional).map((n) => n.key),
+          ...unbound.content.why,
+        ],
+      });
+    if (bound) {
+      slide.source = {
+        template: bound.template.id,
+        score: bound.candidate.score,
+        binding: bound.entries,
+      };
+      if (bound.backgroundWhy) slide.source.backgroundWhy = bound.backgroundWhy;
+      note('templateBinding', {
+        template: bound.template.id,
+        score: bound.candidate.score,
+        bound: bound.entries.filter((e) => e.status === 'bound').length,
+        leftOut: bound.entries.filter((e) => e.status === 'left out').length,
+        needs: bound.candidate.needs.map((n) => `${n.key}${n.optional ? '?' : ''}${n.met ? '' : ' unmet'}`),
+      });
+    }
     if (cslide.notes) slide.notes = cslide.notes;
     if (mood.motion?.transition) {
       slide.transition = { name: mood.motion.transition };

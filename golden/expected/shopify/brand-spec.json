@@ -3628,6 +3628,2905 @@
       "size": 54971
     }
   ],
+  "claims": [
+    {
+      "id": "sample.0",
+      "pointer": "/imagery/samples/0",
+      "inputPointer": "/imagery/samples/0",
+      "file": "assets/img/photo-1.webp",
+      "claim": {
+        "w": 1920,
+        "h": 1080,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 1920,
+        "height": 1080,
+        "aspect": 1.778,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-1.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.1",
+      "pointer": "/imagery/samples/1",
+      "inputPointer": "/imagery/samples/1",
+      "file": "assets/img/photo-16.webp",
+      "claim": {
+        "w": 2090,
+        "h": 1742,
+        "aspect": 1.2
+      },
+      "measured": {
+        "width": 2090,
+        "height": 1742,
+        "aspect": 1.2,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-16.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.2",
+      "pointer": "/imagery/samples/2",
+      "inputPointer": "/imagery/samples/2",
+      "file": "assets/img/photo-10.webp",
+      "claim": {
+        "w": 2520,
+        "h": 1416,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 2520,
+        "height": 1416,
+        "aspect": 1.78,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-10.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.3",
+      "pointer": "/imagery/samples/3",
+      "inputPointer": "/imagery/samples/3",
+      "file": "assets/img/photo-11.webp",
+      "claim": {
+        "w": 2520,
+        "h": 1416,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 2520,
+        "height": 1416,
+        "aspect": 1.78,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-11.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.4",
+      "pointer": "/imagery/samples/4",
+      "inputPointer": "/imagery/samples/4",
+      "file": "assets/img/photo-12.webp",
+      "claim": {
+        "w": 2520,
+        "h": 1416,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 2520,
+        "height": 1416,
+        "aspect": 1.78,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-12.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.5",
+      "pointer": "/imagery/samples/5",
+      "inputPointer": "/imagery/samples/5",
+      "file": "assets/img/photo-17.webp",
+      "claim": {
+        "w": 2000,
+        "h": 865,
+        "aspect": 2.31
+      },
+      "measured": {
+        "width": 2000,
+        "height": 865,
+        "aspect": 2.312,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-17.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.6",
+      "pointer": "/imagery/samples/6",
+      "inputPointer": "/imagery/samples/6",
+      "file": "assets/img/photo-15.webp",
+      "claim": {
+        "w": 1200,
+        "h": 1152,
+        "aspect": 1.04
+      },
+      "measured": {
+        "width": 1200,
+        "height": 1152,
+        "aspect": 1.042,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-15.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.7",
+      "pointer": "/imagery/samples/7",
+      "inputPointer": "/imagery/samples/7",
+      "file": "assets/img/photo-19.webp",
+      "claim": {
+        "w": 1022,
+        "h": 1022,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 1022,
+        "height": 1022,
+        "aspect": 1,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-19.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.8",
+      "pointer": "/imagery/samples/8",
+      "inputPointer": "/imagery/samples/8",
+      "file": "assets/img/photo-18.webp",
+      "claim": {
+        "w": 1303,
+        "h": 733,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 1303,
+        "height": 733,
+        "aspect": 1.778,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-18.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.9",
+      "pointer": "/imagery/samples/9",
+      "inputPointer": "/imagery/samples/9",
+      "file": "assets/img/photo-3.webp",
+      "claim": {
+        "w": 1000,
+        "h": 765,
+        "aspect": 1.31
+      },
+      "measured": {
+        "width": 1000,
+        "height": 765,
+        "aspect": 1.307,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-3.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.10",
+      "pointer": "/imagery/samples/10",
+      "inputPointer": "/imagery/samples/10",
+      "file": "assets/img/photo-20.webp",
+      "claim": {
+        "w": 1000,
+        "h": 648,
+        "aspect": 1.54
+      },
+      "measured": {
+        "width": 1000,
+        "height": 648,
+        "aspect": 1.543,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-20.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.11",
+      "pointer": "/imagery/samples/11",
+      "inputPointer": "/imagery/samples/11",
+      "file": "assets/img/photo-24.webp",
+      "claim": {
+        "w": 1023,
+        "h": 574,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 1023,
+        "height": 574,
+        "aspect": 1.782,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-24.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.12",
+      "pointer": "/imagery/samples/12",
+      "inputPointer": "/imagery/samples/12",
+      "file": "assets/img/photo-22.webp",
+      "claim": {
+        "w": 1022,
+        "h": 574,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 1022,
+        "height": 574,
+        "aspect": 1.78,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-22.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.13",
+      "pointer": "/imagery/samples/13",
+      "inputPointer": "/imagery/samples/13",
+      "file": "assets/backgrounds/bg-1.png",
+      "claim": {
+        "w": 1440,
+        "h": 847,
+        "aspect": 1.7
+      },
+      "measured": {
+        "width": 2880,
+        "height": 1694,
+        "aspect": 1.7,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/backgrounds/bg-1.png: w 1440 vs 2880, h 847 vs 1694"
+    },
+    {
+      "id": "sample.14",
+      "pointer": "/imagery/samples/14",
+      "inputPointer": "/imagery/samples/14",
+      "file": "assets/backgrounds/bg-2.png",
+      "claim": {
+        "w": 1260,
+        "h": 525,
+        "aspect": 2.4
+      },
+      "measured": {
+        "width": 2520,
+        "height": 1050,
+        "aspect": 2.4,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/backgrounds/bg-2.png: w 1260 vs 2520, h 525 vs 1050"
+    },
+    {
+      "id": "sample.15",
+      "pointer": "/imagery/samples/15",
+      "inputPointer": "/imagery/samples/15",
+      "file": "assets/backgrounds/sec-1.png",
+      "claim": {
+        "w": 2880,
+        "h": 1694,
+        "aspect": 1.7
+      },
+      "measured": {
+        "width": 2880,
+        "height": 1694,
+        "aspect": 1.7,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/backgrounds/sec-1.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.16",
+      "pointer": "/imagery/samples/16",
+      "inputPointer": "/imagery/samples/16",
+      "file": "assets/backgrounds/sec-2.png",
+      "claim": {
+        "w": 1440,
+        "h": 653,
+        "aspect": 2.205
+      },
+      "measured": {
+        "width": 2880,
+        "height": 1306,
+        "aspect": 2.205,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/backgrounds/sec-2.png: w 1440 vs 2880, h 653 vs 1306"
+    },
+    {
+      "id": "sample.17",
+      "pointer": "/imagery/samples/17",
+      "inputPointer": "/imagery/samples/17",
+      "file": "assets/backgrounds/sec-3.png",
+      "claim": {
+        "w": 1440,
+        "h": 858,
+        "aspect": 1.678
+      },
+      "measured": {
+        "width": 2880,
+        "height": 1716,
+        "aspect": 1.678,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/backgrounds/sec-3.png: w 1440 vs 2880, h 858 vs 1716"
+    },
+    {
+      "id": "sample.18",
+      "pointer": "/imagery/samples/18",
+      "inputPointer": "/imagery/samples/18",
+      "file": "assets/backgrounds/vid-1-frame.png",
+      "claim": {
+        "w": 2880,
+        "h": 1694,
+        "aspect": 1.7
+      },
+      "measured": {
+        "width": 2880,
+        "height": 1694,
+        "aspect": 1.7,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/backgrounds/vid-1-frame.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.19",
+      "pointer": "/imagery/samples/19",
+      "inputPointer": "/imagery/samples/19",
+      "file": "assets/backgrounds/vid-1-poster.webp",
+      "claim": {
+        "w": 480,
+        "h": 270,
+        "aspect": 1.778
+      },
+      "measured": {
+        "width": 480,
+        "height": 270,
+        "aspect": 1.778,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/backgrounds/vid-1-poster.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.20",
+      "pointer": "/imagery/samples/20",
+      "inputPointer": "/imagery/samples/20",
+      "file": "assets/decorw/dw-0-0.png",
+      "claim": {
+        "w": 297,
+        "h": 56,
+        "aspect": 5.304
+      },
+      "measured": {
+        "width": 594,
+        "height": 112,
+        "aspect": 5.304,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-0-0.png: w 297 vs 594, h 56 vs 112"
+    },
+    {
+      "id": "sample.21",
+      "pointer": "/imagery/samples/21",
+      "inputPointer": "/imagery/samples/21",
+      "file": "assets/decorw/dw-0-2.png",
+      "claim": {
+        "w": 41,
+        "h": 41,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 79,
+        "height": 79,
+        "aspect": 1,
+        "scaleW": 1.927,
+        "scaleH": 1.927
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-0-2.png: w 41 vs 79, h 41 vs 79"
+    },
+    {
+      "id": "sample.22",
+      "pointer": "/imagery/samples/22",
+      "inputPointer": "/imagery/samples/22",
+      "file": "assets/decorw/dw-0-4.png",
+      "claim": {
+        "w": 492,
+        "h": 422,
+        "aspect": 1.166
+      },
+      "measured": {
+        "width": 986,
+        "height": 844,
+        "aspect": 1.168,
+        "scaleW": 2.004,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-0-4.png: w 492 vs 986, h 422 vs 844"
+    },
+    {
+      "id": "sample.23",
+      "pointer": "/imagery/samples/23",
+      "inputPointer": "/imagery/samples/23",
+      "file": "assets/decorw/dw-0-5.png",
+      "claim": {
+        "w": 53,
+        "h": 64,
+        "aspect": 0.828
+      },
+      "measured": {
+        "width": 106,
+        "height": 128,
+        "aspect": 0.828,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-0-5.png: w 53 vs 106, h 64 vs 128"
+    },
+    {
+      "id": "sample.24",
+      "pointer": "/imagery/samples/24",
+      "inputPointer": "/imagery/samples/24",
+      "file": "assets/decorw/dw-0-6.png",
+      "claim": {
+        "w": 39,
+        "h": 64,
+        "aspect": 0.609
+      },
+      "measured": {
+        "width": 78,
+        "height": 128,
+        "aspect": 0.609,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-0-6.png: w 39 vs 78, h 64 vs 128"
+    },
+    {
+      "id": "sample.25",
+      "pointer": "/imagery/samples/25",
+      "inputPointer": "/imagery/samples/25",
+      "file": "assets/decorw/dw-0-7.svg",
+      "claim": {
+        "w": 1872,
+        "h": 1203,
+        "aspect": 1.556
+      },
+      "measured": {
+        "width": 2074,
+        "height": 1333,
+        "aspect": 1.556,
+        "scaleW": 1.108,
+        "scaleH": 1.108
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-0-7.svg: w 1872 vs 2074, h 1203 vs 1333"
+    },
+    {
+      "id": "sample.26",
+      "pointer": "/imagery/samples/26",
+      "inputPointer": "/imagery/samples/26",
+      "file": "assets/decorw/dw-0-8.svg",
+      "claim": {
+        "w": 1440,
+        "h": 778,
+        "aspect": 1.851
+      },
+      "measured": {
+        "width": 1440,
+        "height": 819,
+        "aspect": 1.758,
+        "scaleW": 1,
+        "scaleH": 1.053
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-0-8.svg: h 778 vs 819, aspect 1.851 vs 1.758"
+    },
+    {
+      "id": "sample.27",
+      "pointer": "/imagery/samples/27",
+      "inputPointer": "/imagery/samples/27",
+      "file": "assets/elements/dc-01.png",
+      "claim": {
+        "w": 2472,
+        "h": 978,
+        "aspect": 2.528
+      },
+      "measured": {
+        "width": 2472,
+        "height": 978,
+        "aspect": 2.528,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/elements/dc-01.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.28",
+      "pointer": "/imagery/samples/28",
+      "inputPointer": "/imagery/samples/28",
+      "file": "assets/elements/dc-02.png",
+      "claim": {
+        "w": 2610,
+        "h": 2610,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 2610,
+        "height": 2610,
+        "aspect": 1,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/elements/dc-02.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.29",
+      "pointer": "/imagery/samples/29",
+      "inputPointer": "/imagery/samples/29",
+      "file": "assets/elements/dc-03.svg",
+      "claim": {
+        "w": 24,
+        "h": 24,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 24,
+        "height": 24,
+        "aspect": 1,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/elements/dc-03.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.30",
+      "pointer": "/imagery/samples/30",
+      "inputPointer": "/imagery/samples/30",
+      "file": "assets/elements/dc-04.png",
+      "claim": {
+        "w": 1236,
+        "h": 488,
+        "aspect": 2.533
+      },
+      "measured": {
+        "width": 1236,
+        "height": 488,
+        "aspect": 2.533,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/elements/dc-04.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.31",
+      "pointer": "/imagery/samples/31",
+      "inputPointer": "/imagery/samples/31",
+      "file": "assets/elements/dc-05.webp",
+      "claim": {
+        "w": 800,
+        "h": 1405,
+        "aspect": 0.569
+      },
+      "measured": {
+        "width": 800,
+        "height": 1405,
+        "aspect": 0.569,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/elements/dc-05.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.32",
+      "pointer": "/imagery/samples/32",
+      "inputPointer": "/imagery/samples/32",
+      "file": "assets/elements/dc-06.webp",
+      "claim": {
+        "w": 1600,
+        "h": 1008,
+        "aspect": 1.587
+      },
+      "measured": {
+        "width": 1600,
+        "height": 1008,
+        "aspect": 1.587,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/elements/dc-06.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.55",
+      "pointer": "/imagery/samples/55",
+      "inputPointer": "/imagery/samples/55",
+      "file": "assets/img/photo-13.webp",
+      "claim": {
+        "w": 1933,
+        "h": 440,
+        "aspect": 4.393
+      },
+      "measured": {
+        "width": 3000,
+        "height": 683,
+        "aspect": 4.392,
+        "scaleW": 1.552,
+        "scaleH": 1.552
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-13.webp: w 1933 vs 3000, h 440 vs 683"
+    },
+    {
+      "id": "sample.56",
+      "pointer": "/imagery/samples/56",
+      "inputPointer": "/imagery/samples/56",
+      "file": "assets/img/photo-14.webp",
+      "claim": {
+        "w": 1600,
+        "h": 457,
+        "aspect": 3.501
+      },
+      "measured": {
+        "width": 3200,
+        "height": 914,
+        "aspect": 3.501,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-14.webp: w 1600 vs 3200, h 457 vs 914"
+    },
+    {
+      "id": "sample.57",
+      "pointer": "/imagery/samples/57",
+      "inputPointer": "/imagery/samples/57",
+      "file": "assets/img/photo-2.webp",
+      "claim": {
+        "w": 504,
+        "h": 385,
+        "aspect": 1.309
+      },
+      "measured": {
+        "width": 1000,
+        "height": 765,
+        "aspect": 1.307,
+        "scaleW": 1.984,
+        "scaleH": 1.987
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-2.webp: w 504 vs 1000, h 385 vs 765"
+    },
+    {
+      "id": "sample.58",
+      "pointer": "/imagery/samples/58",
+      "inputPointer": "/imagery/samples/58",
+      "file": "assets/img/photo-21.webp",
+      "claim": {
+        "w": 552,
+        "h": 488,
+        "aspect": 1.131
+      },
+      "measured": {
+        "width": 1104,
+        "height": 976,
+        "aspect": 1.131,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-21.webp: w 552 vs 1104, h 488 vs 976"
+    },
+    {
+      "id": "sample.59",
+      "pointer": "/imagery/samples/59",
+      "inputPointer": "/imagery/samples/59",
+      "file": "assets/img/photo-23.webp",
+      "claim": {
+        "w": 1022,
+        "h": 574,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 1022,
+        "height": 574,
+        "aspect": 1.78,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-23.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.60",
+      "pointer": "/imagery/samples/60",
+      "inputPointer": "/imagery/samples/60",
+      "file": "assets/img/photo-7.webp",
+      "claim": {
+        "w": 760,
+        "h": 456,
+        "aspect": 1.667
+      },
+      "measured": {
+        "width": 760,
+        "height": 456,
+        "aspect": 1.667,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-7.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.61",
+      "pointer": "/imagery/samples/61",
+      "inputPointer": "/imagery/samples/61",
+      "file": "assets/img/photo-8.webp",
+      "claim": {
+        "w": 200,
+        "h": 222,
+        "aspect": 0.901
+      },
+      "measured": {
+        "width": 400,
+        "height": 445,
+        "aspect": 0.899,
+        "scaleW": 2,
+        "scaleH": 2.005
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-8.webp: w 200 vs 400, h 222 vs 445"
+    },
+    {
+      "id": "sample.62",
+      "pointer": "/imagery/samples/62",
+      "inputPointer": "/imagery/samples/62",
+      "file": "assets/img/photo-9.jpg",
+      "claim": {
+        "w": 200,
+        "h": 222,
+        "aspect": 0.901
+      },
+      "measured": {
+        "width": 400,
+        "height": 445,
+        "aspect": 0.899,
+        "scaleW": 2,
+        "scaleH": 2.005
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-9.jpg: w 200 vs 400, h 222 vs 445"
+    },
+    {
+      "id": "sample.81",
+      "pointer": "/imagery/samples/81",
+      "inputPointer": "/imagery/samples/81",
+      "file": "assets/logow-2.svg",
+      "claim": {
+        "w": 126,
+        "h": 36,
+        "aspect": 3.5
+      },
+      "measured": {
+        "width": 500,
+        "height": 143,
+        "aspect": 3.497,
+        "scaleW": 3.968,
+        "scaleH": 3.972
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-2.svg: w 126 vs 500, h 36 vs 143"
+    },
+    {
+      "id": "sample.87",
+      "pointer": "/imagery/samples/87",
+      "inputPointer": "/imagery/samples/87",
+      "file": "assets/logow-32.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-32.png: w 48 vs 96, h 48 vs 96"
+    },
+    {
+      "id": "sample.88",
+      "pointer": "/imagery/samples/88",
+      "inputPointer": "/imagery/samples/88",
+      "file": "assets/logow-34.webp",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-34.webp: w 48 vs 96, h 48 vs 96"
+    },
+    {
+      "id": "sample.89",
+      "pointer": "/imagery/samples/89",
+      "inputPointer": "/imagery/samples/89",
+      "file": "assets/logow-36.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-36.png: w 48 vs 96, h 48 vs 96"
+    },
+    {
+      "id": "sample.90",
+      "pointer": "/imagery/samples/90",
+      "inputPointer": "/imagery/samples/90",
+      "file": "assets/logow-38.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-38.png: w 48 vs 96, h 48 vs 96"
+    },
+    {
+      "id": "sample.91",
+      "pointer": "/imagery/samples/91",
+      "inputPointer": "/imagery/samples/91",
+      "file": "assets/logow-4.svg",
+      "claim": {
+        "w": 85,
+        "h": 96,
+        "aspect": 0.885
+      },
+      "measured": {
+        "width": 89,
+        "height": 101,
+        "aspect": 0.881,
+        "scaleW": 1.047,
+        "scaleH": 1.052
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-4.svg: w 85 vs 89, h 96 vs 101"
+    },
+    {
+      "id": "sample.92",
+      "pointer": "/imagery/samples/92",
+      "inputPointer": "/imagery/samples/92",
+      "file": "assets/logow-40.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-40.png: w 48 vs 96, h 48 vs 96"
+    },
+    {
+      "id": "sample.93",
+      "pointer": "/imagery/samples/93",
+      "inputPointer": "/imagery/samples/93",
+      "file": "assets/logow-42.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-42.png: w 48 vs 96, h 48 vs 96"
+    },
+    {
+      "id": "sample.94",
+      "pointer": "/imagery/samples/94",
+      "inputPointer": "/imagery/samples/94",
+      "file": "assets/logow-44.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-44.png: w 48 vs 96, h 48 vs 96"
+    },
+    {
+      "id": "sample.95",
+      "pointer": "/imagery/samples/95",
+      "inputPointer": "/imagery/samples/95",
+      "file": "assets/logow-46.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-46.png: w 48 vs 96, h 48 vs 96"
+    },
+    {
+      "id": "sample.96",
+      "pointer": "/imagery/samples/96",
+      "inputPointer": "/imagery/samples/96",
+      "file": "assets/logow-50.webp",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-50.webp: w 48 vs 96, h 48 vs 96"
+    },
+    {
+      "id": "sample.97",
+      "pointer": "/imagery/samples/97",
+      "inputPointer": "/imagery/samples/97",
+      "file": "assets/logow-52.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-52.png: w 48 vs 96, h 48 vs 96"
+    },
+    {
+      "id": "sample.101",
+      "pointer": "/imagery/samples/101",
+      "inputPointer": "/imagery/samples/101",
+      "file": "assets/logow-shot-1.png",
+      "claim": {
+        "w": 126,
+        "h": 36,
+        "aspect": 3.5
+      },
+      "measured": {
+        "width": 252,
+        "height": 72,
+        "aspect": 3.5,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-1.png: w 126 vs 252, h 36 vs 72"
+    },
+    {
+      "id": "sample.104",
+      "pointer": "/imagery/samples/104",
+      "inputPointer": "/imagery/samples/104",
+      "file": "assets/logow-shot-3.png",
+      "claim": {
+        "w": 85,
+        "h": 96,
+        "aspect": 0.885
+      },
+      "measured": {
+        "width": 168,
+        "height": 192,
+        "aspect": 0.875,
+        "scaleW": 1.976,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-3.png: w 85 vs 168, h 96 vs 192"
+    },
+    {
+      "id": "sample.105",
+      "pointer": "/imagery/samples/105",
+      "inputPointer": "/imagery/samples/105",
+      "file": "assets/logow-shot-31.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-31.png: w 48 vs 96, h 48 vs 96"
+    },
+    {
+      "id": "sample.106",
+      "pointer": "/imagery/samples/106",
+      "inputPointer": "/imagery/samples/106",
+      "file": "assets/logow-shot-33.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-33.png: w 48 vs 96, h 48 vs 96"
+    },
+    {
+      "id": "sample.107",
+      "pointer": "/imagery/samples/107",
+      "inputPointer": "/imagery/samples/107",
+      "file": "assets/logow-shot-35.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 98,
+        "height": 98,
+        "aspect": 1,
+        "scaleW": 2.042,
+        "scaleH": 2.042
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-35.png: w 48 vs 98, h 48 vs 98"
+    },
+    {
+      "id": "sample.108",
+      "pointer": "/imagery/samples/108",
+      "inputPointer": "/imagery/samples/108",
+      "file": "assets/logow-shot-37.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 100,
+        "height": 98,
+        "aspect": 1.02,
+        "scaleW": 2.083,
+        "scaleH": 2.042
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-37.png: w 48 vs 100, h 48 vs 98, aspect 1 vs 1.02"
+    },
+    {
+      "id": "sample.109",
+      "pointer": "/imagery/samples/109",
+      "inputPointer": "/imagery/samples/109",
+      "file": "assets/logow-shot-39.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-39.png: w 48 vs 96, h 48 vs 96"
+    },
+    {
+      "id": "sample.110",
+      "pointer": "/imagery/samples/110",
+      "inputPointer": "/imagery/samples/110",
+      "file": "assets/logow-shot-41.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 100,
+        "height": 100,
+        "aspect": 1,
+        "scaleW": 2.083,
+        "scaleH": 2.083
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-41.png: w 48 vs 100, h 48 vs 100"
+    },
+    {
+      "id": "sample.111",
+      "pointer": "/imagery/samples/111",
+      "inputPointer": "/imagery/samples/111",
+      "file": "assets/logow-shot-43.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 100,
+        "height": 100,
+        "aspect": 1,
+        "scaleW": 2.083,
+        "scaleH": 2.083
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-43.png: w 48 vs 100, h 48 vs 100"
+    },
+    {
+      "id": "sample.112",
+      "pointer": "/imagery/samples/112",
+      "inputPointer": "/imagery/samples/112",
+      "file": "assets/logow-shot-45.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 100,
+        "height": 100,
+        "aspect": 1,
+        "scaleW": 2.083,
+        "scaleH": 2.083
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-45.png: w 48 vs 100, h 48 vs 100"
+    },
+    {
+      "id": "sample.113",
+      "pointer": "/imagery/samples/113",
+      "inputPointer": "/imagery/samples/113",
+      "file": "assets/logow-shot-47.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-47.png: w 48 vs 96, h 48 vs 96"
+    },
+    {
+      "id": "sample.114",
+      "pointer": "/imagery/samples/114",
+      "inputPointer": "/imagery/samples/114",
+      "file": "assets/logow-shot-49.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-49.png: w 48 vs 96, h 48 vs 96"
+    },
+    {
+      "id": "sample.115",
+      "pointer": "/imagery/samples/115",
+      "inputPointer": "/imagery/samples/115",
+      "file": "assets/logow-shot-51.png",
+      "claim": {
+        "w": 48,
+        "h": 48,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 102,
+        "height": 102,
+        "aspect": 1,
+        "scaleW": 2.125,
+        "scaleH": 2.125
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-51.png: w 48 vs 102, h 48 vs 102"
+    },
+    {
+      "id": "sample.118",
+      "pointer": "/imagery/samples/118",
+      "inputPointer": "/imagery/samples/118",
+      "file": "assets/backgrounds/bg-1-src.webp",
+      "claim": {
+        "w": 1440,
+        "h": 810,
+        "aspect": 1.778
+      },
+      "measured": {
+        "width": 1440,
+        "height": 810,
+        "aspect": 1.778,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/backgrounds/bg-1-src.webp: the claimed size matches the file"
+    },
+    {
+      "id": "logoTone.monoLight",
+      "pointer": "/logos/variants/monoLight",
+      "inputPointer": "/brand/logos/monoLight",
+      "file": "assets/logo-light.svg",
+      "claim": {
+        "tone": "light"
+      },
+      "measured": {
+        "meanLuminance": 0.752,
+        "approx": true
+      },
+      "pass": true,
+      "tolerance": {
+        "minLuminance": 0.6
+      },
+      "why": "monoLight assets/logo-light.svg: mean luminance of the opaque pixels 0.752 (light needs >= 0.6)"
+    },
+    {
+      "id": "decorAspect.shape-w3-dw3",
+      "pointer": "/decor/elements/0/box",
+      "inputPointer": "/assets/elements/0/box",
+      "file": "assets/decorw/dw-0-1.svg",
+      "claim": {
+        "box": {
+          "x": 1806,
+          "y": 96,
+          "w": 18,
+          "h": 420
+        }
+      },
+      "measured": {
+        "boxAspect": 0.0429,
+        "viewBoxAspect": 0.0417,
+        "off": 0.0286
+      },
+      "pass": true,
+      "tolerance": {
+        "aspect": 0.05
+      },
+      "why": "box 0.043 vs viewBox 0.042: 2.9 % off (tolerance 5 %)"
+    },
+    {
+      "id": "decorColours.shape-w3-dw3",
+      "pointer": "/decor/elements/0/file",
+      "inputPointer": "/assets/elements/0/file",
+      "file": "assets/decorw/dw-0-1.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": [
+          {
+            "hex": "#02090A",
+            "nearest": "#02090A",
+            "distance": 0
+          }
+        ]
+      },
+      "pass": true,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/decorw/dw-0-1.svg: every painted colour is a brand colour"
+    },
+    {
+      "id": "backgroundSurface.heroVideo",
+      "pointer": "/backgrounds/variants/heroVideo/surface",
+      "inputPointer": "/backgrounds/variants/heroVideo/surface",
+      "file": "assets/backgrounds/bg-1-src.webp",
+      "claim": {
+        "surface": "hero",
+        "bg": "#071716"
+      },
+      "measured": {},
+      "pass": null,
+      "tolerance": {
+        "share": 0.2,
+        "rgbDistance": 40
+      },
+      "why": "assets/backgrounds/bg-1-src.webp: format not decoded (.webp; only PNG and JPEG are read)"
+    },
+    {
+      "id": "backgroundSurface.bleedPhoto",
+      "pointer": "/backgrounds/variants/bleedPhoto/surface",
+      "inputPointer": "/backgrounds/variants/bleedPhoto/surface",
+      "file": "assets/img/photo-1.webp",
+      "claim": {
+        "surface": "black",
+        "bg": "#000000"
+      },
+      "measured": {},
+      "pass": null,
+      "tolerance": {
+        "share": 0.2,
+        "rgbDistance": 40
+      },
+      "why": "assets/img/photo-1.webp: format not decoded (.webp; only PNG and JPEG are read)"
+    }
+  ],
+  "capabilities": [
+    {
+      "key": "device:shape-w3-dw3",
+      "term": "E2:decor",
+      "from": [
+        "/decor/elements/0"
+      ],
+      "files": [
+        "assets/decorw/dw-0-1.svg"
+      ],
+      "given": {
+        "type": "shape",
+        "typeTerm": "E2:decor",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "often",
+        "allowedOn": [
+          "section",
+          "quote"
+        ],
+        "surfaces": [
+          "paper"
+        ],
+        "colorable": false
+      },
+      "measured": {
+        "box": {
+          "x": 94.06,
+          "y": 8.89,
+          "w": 0.94,
+          "h": 38.89
+        },
+        "opacity": 1,
+        "width": 24,
+        "height": 576,
+        "geometry": {
+          "frame": "canvas",
+          "shapes": 1,
+          "areaShare": 1,
+          "angles": [],
+          "approx": false,
+          "bbox": {
+            "x": 94.08,
+            "y": 8.89,
+            "w": 0.91,
+            "h": 38.89
+          },
+          "canvasShare": 0.0036,
+          "polygons": [
+            [
+              [
+                94.08,
+                8.89
+              ],
+              [
+                94.99,
+                8.89
+              ],
+              [
+                94.99,
+                47.78
+              ],
+              [
+                94.08,
+                47.78
+              ]
+            ]
+          ]
+        }
+      },
+      "status": "given",
+      "why": "decor element shape-w3-dw3: decor type shape"
+    },
+    {
+      "key": "image:photo-people",
+      "term": "E2:picture",
+      "from": [
+        "/imagery/samples/0",
+        "/imagery/samples/13",
+        "/imagery/samples/18",
+        "/imagery/samples/19",
+        "/imagery/samples/61",
+        "/imagery/samples/62",
+        "/imagery/samples/118",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/img/photo-1.webp",
+        "assets/backgrounds/bg-1.png",
+        "assets/backgrounds/vid-1-frame.png",
+        "assets/backgrounds/vid-1-poster.webp",
+        "assets/img/photo-8.webp",
+        "assets/img/photo-9.jpg",
+        "assets/backgrounds/bg-1-src.webp"
+      ],
+      "given": {
+        "treatments": [
+          "none"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#041E18",
+          "opacity": 0.6,
+          "gradient": true,
+          "direction": "none",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "16:9",
+          "focus": "faces"
+        },
+        "tags": [
+          "background",
+          "bg:full",
+          "has-text",
+          "hero",
+          "in-use",
+          "inventory",
+          "kind:claude-vision",
+          "kind:sol-vision",
+          "layer:behind",
+          "people",
+          "photo",
+          "place",
+          "pos:full-bleed",
+          "role:background",
+          "role:photo",
+          "section-shot",
+          "section:sec0",
+          "size:100x100",
+          "size:100x96",
+          "unused",
+          "variant:heroVideo"
+        ]
+      },
+      "measured": {
+        "count": 7,
+        "aspects": [
+          0.9,
+          1.7,
+          1.78
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind photo-people"
+    },
+    {
+      "key": "image:photo-product",
+      "term": "E2:picture",
+      "from": [
+        "/imagery/samples/1",
+        "/imagery/samples/9",
+        "/imagery/samples/15",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/img/photo-16.webp",
+        "assets/img/photo-3.webp",
+        "assets/backgrounds/sec-1.png"
+      ],
+      "given": {
+        "treatments": [
+          "none"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#041E18",
+          "opacity": 0.6,
+          "gradient": true,
+          "direction": "none",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "16:9",
+          "focus": "faces"
+        },
+        "tags": [
+          "background",
+          "bg:full",
+          "inventory",
+          "kind:claude-vision",
+          "layer:behind",
+          "place",
+          "pos:full-bleed",
+          "product",
+          "role:background",
+          "role:photo",
+          "section-shot",
+          "size:100x96"
+        ]
+      },
+      "measured": {
+        "count": 3,
+        "aspects": [
+          1.2,
+          1.31,
+          1.7
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind photo-product"
+    },
+    {
+      "key": "image:product-ui",
+      "term": "E2:picture",
+      "from": [
+        "/imagery/samples/2",
+        "/imagery/samples/3",
+        "/imagery/samples/4",
+        "/imagery/samples/5",
+        "/imagery/samples/7",
+        "/imagery/samples/8",
+        "/imagery/samples/10",
+        "/imagery/samples/11",
+        "/imagery/samples/12",
+        "/imagery/samples/20",
+        "/imagery/samples/31",
+        "/imagery/samples/57",
+        "/imagery/samples/58",
+        "/imagery/samples/59",
+        "/imagery/samples/60",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/img/photo-10.webp",
+        "assets/img/photo-11.webp",
+        "assets/img/photo-12.webp",
+        "assets/img/photo-17.webp",
+        "assets/img/photo-19.webp",
+        "assets/img/photo-18.webp",
+        "assets/img/photo-20.webp",
+        "assets/img/photo-24.webp",
+        "assets/img/photo-22.webp",
+        "assets/decorw/dw-0-0.png",
+        "assets/elements/dc-05.webp",
+        "assets/img/photo-2.webp",
+        "assets/img/photo-21.webp",
+        "assets/img/photo-23.webp",
+        "assets/img/photo-7.webp"
+      ],
+      "given": {
+        "treatments": [
+          "none"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#041E18",
+          "opacity": 0.6,
+          "gradient": true,
+          "direction": "none",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "16:9",
+          "focus": "faces"
+        },
+        "tags": [
+          "bg:accent",
+          "bg:partial",
+          "decor-art",
+          "decor-candidate",
+          "decor-type:illustration",
+          "has-text",
+          "inventory",
+          "kind:claude-vision",
+          "kind:sol-vision",
+          "photo",
+          "pos:bottom-left",
+          "pos:bottom-right",
+          "product",
+          "role:decoration",
+          "role:photo",
+          "role:ui",
+          "size:17x44",
+          "size:21x7",
+          "unused"
+        ]
+      },
+      "measured": {
+        "count": 15,
+        "aspects": [
+          0.57,
+          1,
+          1.13,
+          1.31,
+          1.54,
+          1.67,
+          1.78,
+          2.31,
+          5.3
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind product-ui"
+    },
+    {
+      "key": "image:illustration",
+      "term": "E2:illustration",
+      "from": [
+        "/imagery/samples/6",
+        "/imagery/samples/32",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/img/photo-15.webp",
+        "assets/elements/dc-06.webp"
+      ],
+      "given": {
+        "treatments": [
+          "none"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#041E18",
+          "opacity": 0.6,
+          "gradient": true,
+          "direction": "none",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "16:9",
+          "focus": "faces"
+        },
+        "tags": [
+          "bg:partial",
+          "decor-art",
+          "decor-type:illustration",
+          "inventory",
+          "kind:claude-vision",
+          "pos:center-right",
+          "role:decoration",
+          "role:photo",
+          "size:50x60"
+        ]
+      },
+      "measured": {
+        "count": 2,
+        "aspects": [
+          1.04,
+          1.59
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind illustration"
+    },
+    {
+      "key": "image:abstract",
+      "term": "E2:background-art",
+      "from": [
+        "/imagery/samples/14",
+        "/imagery/samples/16",
+        "/imagery/samples/17",
+        "/imagery/samples/21",
+        "/imagery/samples/22",
+        "/imagery/samples/25",
+        "/imagery/samples/26",
+        "/imagery/samples/27",
+        "/imagery/samples/28",
+        "/imagery/samples/30",
+        "/imagery/samples/55",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/backgrounds/bg-2.png",
+        "assets/backgrounds/sec-2.png",
+        "assets/backgrounds/sec-3.png",
+        "assets/decorw/dw-0-2.png",
+        "assets/decorw/dw-0-4.png",
+        "assets/decorw/dw-0-7.svg",
+        "assets/decorw/dw-0-8.svg",
+        "assets/elements/dc-01.png",
+        "assets/elements/dc-02.png",
+        "assets/elements/dc-04.png",
+        "assets/img/photo-13.webp"
+      ],
+      "given": {
+        "treatments": [
+          "none"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#041E18",
+          "opacity": 0.6,
+          "gradient": true,
+          "direction": "none",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "16:9",
+          "focus": "faces"
+        },
+        "tags": [
+          "background",
+          "bg:accent",
+          "bg:full",
+          "bg:partial",
+          "decor-art",
+          "decor-candidate",
+          "decor-type:shape",
+          "inventory",
+          "kind:claude-vision",
+          "kind:sol-vision",
+          "layer:behind",
+          "photo",
+          "pos:bottom-right",
+          "pos:center",
+          "pos:center-left",
+          "pos:center-right",
+          "pos:full-bleed",
+          "role:background",
+          "role:decoration",
+          "role:photo",
+          "section-shot",
+          "section:sec2",
+          "section:sec6",
+          "size:100x100",
+          "size:100x43",
+          "size:34x49",
+          "size:3x5",
+          "size:43x24",
+          "size:43x88",
+          "size:50x28",
+          "size:75x49",
+          "size:82x80",
+          "size:91x100",
+          "unused"
+        ]
+      },
+      "measured": {
+        "count": 11,
+        "aspects": [
+          1,
+          1.17,
+          1.56,
+          1.68,
+          1.76,
+          2.21,
+          2.4,
+          2.53,
+          4.39
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind abstract"
+    },
+    {
+      "key": "mask:none",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/none"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect"
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.none"
+    },
+    {
+      "key": "mask:square",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/square"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": 0
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.square"
+    },
+    {
+      "key": "mask:top-rounded",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/top-rounded"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": {
+          "tl": 4,
+          "tr": 4,
+          "br": 0,
+          "bl": 0
+        }
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.top-rounded"
+    },
+    {
+      "key": "mask:rounded",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/rounded"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": 8
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.rounded"
+    },
+    {
+      "key": "mask:rounded-2",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/rounded-2"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": 12
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.rounded-2"
+    },
+    {
+      "key": "mask:top-rounded-2",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/top-rounded-2"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": {
+          "tl": 12,
+          "tr": 12,
+          "br": 0,
+          "bl": 0
+        }
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.top-rounded-2"
+    },
+    {
+      "key": "mask:rounded-3",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/rounded-3"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": 5
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.rounded-3"
+    },
+    {
+      "key": "mask:one-side",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/one-side"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": {
+          "tl": 0,
+          "tr": 16,
+          "br": 16,
+          "bl": 0
+        }
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.one-side"
+    },
+    {
+      "key": "mask:rounded-4",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/rounded-4"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": {
+          "tl": 12,
+          "tr": 0,
+          "br": 8,
+          "bl": 0
+        }
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.rounded-4"
+    },
+    {
+      "key": "colour-field:black",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/0",
+        "/backgrounds/variants/black",
+        "/backgrounds/variants/bleedPhoto"
+      ],
+      "files": [
+        "assets/img/photo-1.webp"
+      ],
+      "given": {
+        "kind": "surface",
+        "tone": "dark",
+        "bg": "#000000",
+        "text": "#FFFFFF",
+        "backgrounds": [
+          {
+            "id": "black",
+            "type": "solid",
+            "term": "E4:solid"
+          },
+          {
+            "id": "bleedPhoto",
+            "type": "image",
+            "term": "E4:image-fill"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0,
+        "contrastText": 21,
+        "contrastHeading": 21,
+        "contrastAccent": 9.82
+      },
+      "status": "given",
+      "why": "surfaces[0] (black)"
+    },
+    {
+      "key": "colour-field:ink",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/1",
+        "/backgrounds/variants/ink"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "dark",
+        "bg": "#02090A",
+        "text": "#FFFFFF",
+        "backgrounds": [
+          {
+            "id": "ink",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.0023,
+        "contrastText": 20.08,
+        "contrastHeading": 20.08,
+        "contrastAccent": 9.39
+      },
+      "status": "given",
+      "why": "surfaces[1] (ink)"
+    },
+    {
+      "key": "colour-field:paper",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/2",
+        "/backgrounds/variants/paper"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "light",
+        "bg": "#FFFFFF",
+        "text": "#000000",
+        "backgrounds": [
+          {
+            "id": "paper",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 1,
+        "contrastText": 21,
+        "contrastHeading": 21,
+        "contrastAccent": 3.88
+      },
+      "status": "given",
+      "why": "surfaces[2] (paper)"
+    },
+    {
+      "key": "colour-field:dark",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/3",
+        "/backgrounds/variants/dark"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "dark",
+        "bg": "#041E18",
+        "text": "#FFFFFF",
+        "backgrounds": [
+          {
+            "id": "dark",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.0102,
+        "contrastText": 17.44,
+        "contrastHeading": 17.44,
+        "contrastAccent": 4.5
+      },
+      "status": "given",
+      "why": "surfaces[3] (dark)"
+    },
+    {
+      "key": "colour-field:dark2",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/4",
+        "/backgrounds/variants/dark2"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "dark",
+        "bg": "#000A1E",
+        "text": "#FFFFFF",
+        "backgrounds": [
+          {
+            "id": "dark2",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.0031,
+        "contrastText": 19.77,
+        "contrastHeading": 19.77,
+        "contrastAccent": 5.1
+      },
+      "status": "given",
+      "why": "surfaces[4] (dark2)"
+    },
+    {
+      "key": "colour-field:hero",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/5",
+        "/backgrounds/variants/heroVideo"
+      ],
+      "files": [
+        "assets/backgrounds/bg-1-src.webp"
+      ],
+      "given": {
+        "kind": "surface",
+        "tone": "dark",
+        "bg": "#071716",
+        "text": "#FFFFFF",
+        "backgrounds": [
+          {
+            "id": "heroVideo",
+            "type": "image",
+            "term": "E4:image-fill"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.0072,
+        "contrastText": 18.37,
+        "contrastHeading": 18.37,
+        "contrastAccent": 18.37
+      },
+      "status": "given",
+      "why": "surfaces[5] (hero)"
+    },
+    {
+      "key": "type-ladder",
+      "term": null,
+      "from": [
+        "/typography/roles/display/size",
+        "/typography/roles/h1/size",
+        "/typography/roles/h2/size",
+        "/typography/roles/h3/size",
+        "/typography/roles/body/size",
+        "/typography/roles/bodySmall/size",
+        "/typography/roles/caption/size",
+        "/typography/alignment"
+      ],
+      "files": [],
+      "given": {
+        "faces": {
+          "h1": "Shopify-Inter",
+          "h2": "Shopify-Inter",
+          "h3": "Shopify-Inter",
+          "h1Accent": "Shopify-Inter",
+          "body": "Shopify-Inter",
+          "bodyLarge": "Shopify-Inter",
+          "bodySmall": "Shopify-Inter",
+          "caption": "Shopify-Inter",
+          "label": "Shopify-Inter",
+          "stat": "Shopify-Inter",
+          "statLabel": "Shopify-Inter",
+          "quote": "Shopify-Inter",
+          "button": "Shopify-Inter",
+          "link": "Shopify-Inter",
+          "cardTitle": "Shopify-Inter",
+          "display": "Shopify-Inter",
+          "eyebrow": "Shopify-Inter",
+          "meta": "Shopify-Inter",
+          "personName": "Shopify-Inter",
+          "personRole": "Shopify-Inter",
+          "tableHead": "Shopify-Inter"
+        },
+        "alignment": {
+          "title": "left",
+          "body": "left",
+          "sectionTitle": "left"
+        }
+      },
+      "measured": {
+        "sizes": {
+          "display": 97.92,
+          "h1": 81.09,
+          "h2": 61.2,
+          "h3": 45.9,
+          "body": 27.54,
+          "bodySmall": 19.89,
+          "caption": 19.89
+        },
+        "steps": [
+          {
+            "from": "display",
+            "to": "h1",
+            "ratio": 1.208
+          },
+          {
+            "from": "h1",
+            "to": "h2",
+            "ratio": 1.325
+          },
+          {
+            "from": "h2",
+            "to": "h3",
+            "ratio": 1.333
+          },
+          {
+            "from": "h3",
+            "to": "body",
+            "ratio": 1.667
+          },
+          {
+            "from": "body",
+            "to": "bodySmall",
+            "ratio": 1.385
+          },
+          {
+            "from": "bodySmall",
+            "to": "caption",
+            "ratio": 1
+          }
+        ],
+        "titleToBody": 2.944,
+        "displayToBody": 3.556
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; typography.roles sizes (display > h1 > h2 > h3 > body > bodySmall > caption)"
+    },
+    {
+      "key": "weight-contrast",
+      "term": "E4:weight-run",
+      "from": [
+        "/typography/faces/heading/weights",
+        "/typography/faces/heading/files",
+        "/typography/faces/body/weights",
+        "/typography/faces/body/files"
+      ],
+      "files": [],
+      "given": {
+        "faces": [
+          "heading",
+          "body"
+        ]
+      },
+      "measured": {
+        "spread": 800,
+        "ranges": [
+          {
+            "face": "heading",
+            "min": 100,
+            "max": 900
+          },
+          {
+            "face": "body",
+            "min": 100,
+            "max": 900
+          }
+        ]
+      },
+      "status": "given",
+      "why": "a face offers weights >= 300 apart"
+    },
+    {
+      "key": "logo:full",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/full"
+      ],
+      "files": [
+        "assets/logo-dark.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 500,
+        "height": 143,
+        "aspect": 3.497,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100
+        },
+        "meanLuminance": 0.144,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.full"
+    },
+    {
+      "key": "logo:monoLight",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/monoLight"
+      ],
+      "files": [
+        "assets/logo-light.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 500,
+        "height": 143,
+        "aspect": 3.497,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100
+        },
+        "meanLuminance": 0.752,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.monoLight"
+    },
+    {
+      "key": "logo:icon",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/icon"
+      ],
+      "files": [
+        "assets/logo-6.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 89,
+        "height": 101,
+        "aspect": 0.881,
+        "opaqueBbox": {
+          "x": 0.71,
+          "y": 0.62,
+          "w": 98.58,
+          "h": 98.75
+        },
+        "meanLuminance": 0.46,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.icon"
+    },
+    {
+      "key": "component:card",
+      "term": "E2:card",
+      "from": [
+        "/components/cards"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "cards"
+        ],
+        "style": "flat",
+        "styleTerm": "E4:flat",
+        "recipes": [
+          {
+            "id": "workflow-automation-cards",
+            "kind": "feature",
+            "term": "E3:items"
+          },
+          {
+            "id": "storefront-preview-cards",
+            "kind": "feature",
+            "term": "E3:items"
+          },
+          {
+            "id": "customer-stories",
+            "kind": "case_study",
+            "term": "E3:items"
+          },
+          {
+            "id": "enterprise-support-columns",
+            "kind": "feature",
+            "term": "E3:items"
+          },
+          {
+            "id": "stat-band",
+            "kind": "stat",
+            "term": "E3:kpis"
+          }
+        ]
+      },
+      "measured": {
+        "recipes": 5
+      },
+      "status": "given",
+      "why": "components: cards"
+    },
+    {
+      "key": "component:chip",
+      "term": "E2:chip",
+      "from": [
+        "/components/chip"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "chip"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: chip"
+    },
+    {
+      "key": "component:button",
+      "term": "E2:button",
+      "from": [
+        "/components/button",
+        "/components/buttonSecondary",
+        "/components/buttonOutline"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "button",
+          "buttonSecondary",
+          "buttonOutline"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: button, buttonSecondary, buttonOutline"
+    },
+    {
+      "key": "component:avatar",
+      "term": "E2:avatar",
+      "from": [
+        "/components/avatar"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "avatar"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: avatar"
+    },
+    {
+      "key": "component:tabs",
+      "term": "E2:tabs",
+      "from": [
+        "/components/tabs"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "tabs"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: tabs"
+    },
+    {
+      "key": "component:logos",
+      "term": "E3:logos",
+      "from": [
+        "/components/logoWall"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "logoWall"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: logoWall"
+    },
+    {
+      "key": "component:icon",
+      "term": "E2:icon",
+      "from": [
+        "/components/icons"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "icons"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: icons"
+    },
+    {
+      "key": "composition",
+      "term": null,
+      "from": [
+        "/composition"
+      ],
+      "files": [],
+      "given": {
+        "density": "balanced",
+        "titleEverySlide": true,
+        "sectionDividers": true
+      },
+      "measured": {
+        "minWhitespacePct": 30,
+        "maxElementsPerSlide": 6,
+        "maxAccentsPerSlide": 1
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; composition (density, whitespace, limits) as given"
+    },
+    {
+      "key": "motion",
+      "term": null,
+      "from": [
+        "/motion"
+      ],
+      "files": [],
+      "given": {
+        "transition": "fade",
+        "build": "none",
+        "easing": "ease-out"
+      },
+      "measured": {
+        "duration": 300,
+        "stagger": 80
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; motion as given"
+    }
+  ],
   "provenance": {
     "/id": {
       "source": "given",
@@ -20737,9 +23636,923 @@
       "source": "derived",
       "from": "BR-ASSET",
       "signal": "assets/"
+    },
+    "/claims/0": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/0 + assets/img/photo-1.webp"
+    },
+    "/claims/1": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/1 + assets/img/photo-16.webp"
+    },
+    "/claims/2": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/2 + assets/img/photo-10.webp"
+    },
+    "/claims/3": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/3 + assets/img/photo-11.webp"
+    },
+    "/claims/4": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/4 + assets/img/photo-12.webp"
+    },
+    "/claims/5": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/5 + assets/img/photo-17.webp"
+    },
+    "/claims/6": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/6 + assets/img/photo-15.webp"
+    },
+    "/claims/7": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/7 + assets/img/photo-19.webp"
+    },
+    "/claims/8": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/8 + assets/img/photo-18.webp"
+    },
+    "/claims/9": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/9 + assets/img/photo-3.webp"
+    },
+    "/claims/10": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/10 + assets/img/photo-20.webp"
+    },
+    "/claims/11": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/11 + assets/img/photo-24.webp"
+    },
+    "/claims/12": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/12 + assets/img/photo-22.webp"
+    },
+    "/claims/13": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/13 + assets/backgrounds/bg-1.png"
+    },
+    "/claims/14": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/14 + assets/backgrounds/bg-2.png"
+    },
+    "/claims/15": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/15 + assets/backgrounds/sec-1.png"
+    },
+    "/claims/16": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/16 + assets/backgrounds/sec-2.png"
+    },
+    "/claims/17": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/17 + assets/backgrounds/sec-3.png"
+    },
+    "/claims/18": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/18 + assets/backgrounds/vid-1-frame.png"
+    },
+    "/claims/19": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/19 + assets/backgrounds/vid-1-poster.webp"
+    },
+    "/claims/20": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/20 + assets/decorw/dw-0-0.png"
+    },
+    "/claims/21": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/21 + assets/decorw/dw-0-2.png"
+    },
+    "/claims/22": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/22 + assets/decorw/dw-0-4.png"
+    },
+    "/claims/23": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/23 + assets/decorw/dw-0-5.png"
+    },
+    "/claims/24": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/24 + assets/decorw/dw-0-6.png"
+    },
+    "/claims/25": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/25 + assets/decorw/dw-0-7.svg"
+    },
+    "/claims/26": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/26 + assets/decorw/dw-0-8.svg"
+    },
+    "/claims/27": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/27 + assets/elements/dc-01.png"
+    },
+    "/claims/28": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/28 + assets/elements/dc-02.png"
+    },
+    "/claims/29": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/29 + assets/elements/dc-03.svg"
+    },
+    "/claims/30": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/30 + assets/elements/dc-04.png"
+    },
+    "/claims/31": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/31 + assets/elements/dc-05.webp"
+    },
+    "/claims/32": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/32 + assets/elements/dc-06.webp"
+    },
+    "/claims/33": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/55 + assets/img/photo-13.webp"
+    },
+    "/claims/34": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/56 + assets/img/photo-14.webp"
+    },
+    "/claims/35": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/57 + assets/img/photo-2.webp"
+    },
+    "/claims/36": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/58 + assets/img/photo-21.webp"
+    },
+    "/claims/37": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/59 + assets/img/photo-23.webp"
+    },
+    "/claims/38": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/60 + assets/img/photo-7.webp"
+    },
+    "/claims/39": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/61 + assets/img/photo-8.webp"
+    },
+    "/claims/40": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/62 + assets/img/photo-9.jpg"
+    },
+    "/claims/41": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/81 + assets/logow-2.svg"
+    },
+    "/claims/42": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/87 + assets/logow-32.png"
+    },
+    "/claims/43": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/88 + assets/logow-34.webp"
+    },
+    "/claims/44": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/89 + assets/logow-36.png"
+    },
+    "/claims/45": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/90 + assets/logow-38.png"
+    },
+    "/claims/46": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/91 + assets/logow-4.svg"
+    },
+    "/claims/47": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/92 + assets/logow-40.png"
+    },
+    "/claims/48": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/93 + assets/logow-42.png"
+    },
+    "/claims/49": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/94 + assets/logow-44.png"
+    },
+    "/claims/50": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/95 + assets/logow-46.png"
+    },
+    "/claims/51": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/96 + assets/logow-50.webp"
+    },
+    "/claims/52": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/97 + assets/logow-52.png"
+    },
+    "/claims/53": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/101 + assets/logow-shot-1.png"
+    },
+    "/claims/54": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/104 + assets/logow-shot-3.png"
+    },
+    "/claims/55": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/105 + assets/logow-shot-31.png"
+    },
+    "/claims/56": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/106 + assets/logow-shot-33.png"
+    },
+    "/claims/57": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/107 + assets/logow-shot-35.png"
+    },
+    "/claims/58": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/108 + assets/logow-shot-37.png"
+    },
+    "/claims/59": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/109 + assets/logow-shot-39.png"
+    },
+    "/claims/60": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/110 + assets/logow-shot-41.png"
+    },
+    "/claims/61": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/111 + assets/logow-shot-43.png"
+    },
+    "/claims/62": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/112 + assets/logow-shot-45.png"
+    },
+    "/claims/63": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/113 + assets/logow-shot-47.png"
+    },
+    "/claims/64": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/114 + assets/logow-shot-49.png"
+    },
+    "/claims/65": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/115 + assets/logow-shot-51.png"
+    },
+    "/claims/66": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/118 + assets/backgrounds/bg-1-src.webp"
+    },
+    "/claims/67": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/logos/variants/monoLight + assets/logo-light.svg"
+    },
+    "/claims/68": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/0/box + assets/decorw/dw-0-1.svg"
+    },
+    "/claims/69": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/0/file + assets/decorw/dw-0-1.svg"
+    },
+    "/claims/70": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/backgrounds/variants/heroVideo/surface + assets/backgrounds/bg-1-src.webp"
+    },
+    "/claims/71": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/backgrounds/variants/bleedPhoto/surface + assets/img/photo-1.webp"
+    },
+    "/capabilities/0": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/0"
+    },
+    "/capabilities/1": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/0 + /imagery/samples/13 + /imagery/samples/18 + /imagery/samples/19 + /imagery/samples/61 + /imagery/samples/62 + /imagery/samples/118 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/2": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/1 + /imagery/samples/9 + /imagery/samples/15 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/3": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/2 + /imagery/samples/3 + /imagery/samples/4 + /imagery/samples/5 + /imagery/samples/7 + /imagery/samples/8 + /imagery/samples/10 + /imagery/samples/11 + /imagery/samples/12 + /imagery/samples/20 + /imagery/samples/31 + /imagery/samples/57 + /imagery/samples/58 + /imagery/samples/59 + /imagery/samples/60 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/4": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/6 + /imagery/samples/32 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/5": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/14 + /imagery/samples/16 + /imagery/samples/17 + /imagery/samples/21 + /imagery/samples/22 + /imagery/samples/25 + /imagery/samples/26 + /imagery/samples/27 + /imagery/samples/28 + /imagery/samples/30 + /imagery/samples/55 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/6": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/none"
+    },
+    "/capabilities/7": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/square"
+    },
+    "/capabilities/8": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/top-rounded"
+    },
+    "/capabilities/9": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/rounded"
+    },
+    "/capabilities/10": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/rounded-2"
+    },
+    "/capabilities/11": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/top-rounded-2"
+    },
+    "/capabilities/12": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/rounded-3"
+    },
+    "/capabilities/13": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/one-side"
+    },
+    "/capabilities/14": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/rounded-4"
+    },
+    "/capabilities/15": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/0 + /backgrounds/variants/black + /backgrounds/variants/bleedPhoto"
+    },
+    "/capabilities/16": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/1 + /backgrounds/variants/ink"
+    },
+    "/capabilities/17": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/2 + /backgrounds/variants/paper"
+    },
+    "/capabilities/18": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/3 + /backgrounds/variants/dark"
+    },
+    "/capabilities/19": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/4 + /backgrounds/variants/dark2"
+    },
+    "/capabilities/20": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/5 + /backgrounds/variants/heroVideo"
+    },
+    "/capabilities/21": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/roles/display/size + /typography/roles/h1/size + /typography/roles/h2/size + /typography/roles/h3/size + /typography/roles/body/size + /typography/roles/bodySmall/size + /typography/roles/caption/size + /typography/alignment"
+    },
+    "/capabilities/22": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/faces/heading/weights + /typography/faces/heading/files + /typography/faces/body/weights + /typography/faces/body/files"
+    },
+    "/capabilities/23": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/full"
+    },
+    "/capabilities/24": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/monoLight"
+    },
+    "/capabilities/25": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/icon"
+    },
+    "/capabilities/26": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/cards"
+    },
+    "/capabilities/27": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/chip"
+    },
+    "/capabilities/28": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/button + /components/buttonSecondary + /components/buttonOutline"
+    },
+    "/capabilities/29": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/avatar"
+    },
+    "/capabilities/30": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/tabs"
+    },
+    "/capabilities/31": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/logoWall"
+    },
+    "/capabilities/32": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/icons"
+    },
+    "/capabilities/33": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/composition"
+    },
+    "/capabilities/34": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/motion"
     }
   },
-  "questions": [],
+  "questions": [
+    {
+      "id": "claim.sample.13",
+      "pointer": "/imagery/samples/13",
+      "question": "The brand JSON's claim at /imagery/samples/13 does not match assets/backgrounds/bg-1.png: assets/backgrounds/bg-1.png: w 1440 vs 2880, h 847 vs 1694. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.14",
+      "pointer": "/imagery/samples/14",
+      "question": "The brand JSON's claim at /imagery/samples/14 does not match assets/backgrounds/bg-2.png: assets/backgrounds/bg-2.png: w 1260 vs 2520, h 525 vs 1050. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.16",
+      "pointer": "/imagery/samples/16",
+      "question": "The brand JSON's claim at /imagery/samples/16 does not match assets/backgrounds/sec-2.png: assets/backgrounds/sec-2.png: w 1440 vs 2880, h 653 vs 1306. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.17",
+      "pointer": "/imagery/samples/17",
+      "question": "The brand JSON's claim at /imagery/samples/17 does not match assets/backgrounds/sec-3.png: assets/backgrounds/sec-3.png: w 1440 vs 2880, h 858 vs 1716. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.20",
+      "pointer": "/imagery/samples/20",
+      "question": "The brand JSON's claim at /imagery/samples/20 does not match assets/decorw/dw-0-0.png: assets/decorw/dw-0-0.png: w 297 vs 594, h 56 vs 112. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.21",
+      "pointer": "/imagery/samples/21",
+      "question": "The brand JSON's claim at /imagery/samples/21 does not match assets/decorw/dw-0-2.png: assets/decorw/dw-0-2.png: w 41 vs 79, h 41 vs 79. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.22",
+      "pointer": "/imagery/samples/22",
+      "question": "The brand JSON's claim at /imagery/samples/22 does not match assets/decorw/dw-0-4.png: assets/decorw/dw-0-4.png: w 492 vs 986, h 422 vs 844. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.23",
+      "pointer": "/imagery/samples/23",
+      "question": "The brand JSON's claim at /imagery/samples/23 does not match assets/decorw/dw-0-5.png: assets/decorw/dw-0-5.png: w 53 vs 106, h 64 vs 128. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.24",
+      "pointer": "/imagery/samples/24",
+      "question": "The brand JSON's claim at /imagery/samples/24 does not match assets/decorw/dw-0-6.png: assets/decorw/dw-0-6.png: w 39 vs 78, h 64 vs 128. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.25",
+      "pointer": "/imagery/samples/25",
+      "question": "The brand JSON's claim at /imagery/samples/25 does not match assets/decorw/dw-0-7.svg: assets/decorw/dw-0-7.svg: w 1872 vs 2074, h 1203 vs 1333. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.26",
+      "pointer": "/imagery/samples/26",
+      "question": "The brand JSON's claim at /imagery/samples/26 does not match assets/decorw/dw-0-8.svg: assets/decorw/dw-0-8.svg: h 778 vs 819, aspect 1.851 vs 1.758. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.55",
+      "pointer": "/imagery/samples/55",
+      "question": "The brand JSON's claim at /imagery/samples/55 does not match assets/img/photo-13.webp: assets/img/photo-13.webp: w 1933 vs 3000, h 440 vs 683. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.56",
+      "pointer": "/imagery/samples/56",
+      "question": "The brand JSON's claim at /imagery/samples/56 does not match assets/img/photo-14.webp: assets/img/photo-14.webp: w 1600 vs 3200, h 457 vs 914. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.57",
+      "pointer": "/imagery/samples/57",
+      "question": "The brand JSON's claim at /imagery/samples/57 does not match assets/img/photo-2.webp: assets/img/photo-2.webp: w 504 vs 1000, h 385 vs 765. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.58",
+      "pointer": "/imagery/samples/58",
+      "question": "The brand JSON's claim at /imagery/samples/58 does not match assets/img/photo-21.webp: assets/img/photo-21.webp: w 552 vs 1104, h 488 vs 976. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.61",
+      "pointer": "/imagery/samples/61",
+      "question": "The brand JSON's claim at /imagery/samples/61 does not match assets/img/photo-8.webp: assets/img/photo-8.webp: w 200 vs 400, h 222 vs 445. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.62",
+      "pointer": "/imagery/samples/62",
+      "question": "The brand JSON's claim at /imagery/samples/62 does not match assets/img/photo-9.jpg: assets/img/photo-9.jpg: w 200 vs 400, h 222 vs 445. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.81",
+      "pointer": "/imagery/samples/81",
+      "question": "The brand JSON's claim at /imagery/samples/81 does not match assets/logow-2.svg: assets/logow-2.svg: w 126 vs 500, h 36 vs 143. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.87",
+      "pointer": "/imagery/samples/87",
+      "question": "The brand JSON's claim at /imagery/samples/87 does not match assets/logow-32.png: assets/logow-32.png: w 48 vs 96, h 48 vs 96. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.88",
+      "pointer": "/imagery/samples/88",
+      "question": "The brand JSON's claim at /imagery/samples/88 does not match assets/logow-34.webp: assets/logow-34.webp: w 48 vs 96, h 48 vs 96. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.89",
+      "pointer": "/imagery/samples/89",
+      "question": "The brand JSON's claim at /imagery/samples/89 does not match assets/logow-36.png: assets/logow-36.png: w 48 vs 96, h 48 vs 96. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.90",
+      "pointer": "/imagery/samples/90",
+      "question": "The brand JSON's claim at /imagery/samples/90 does not match assets/logow-38.png: assets/logow-38.png: w 48 vs 96, h 48 vs 96. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.91",
+      "pointer": "/imagery/samples/91",
+      "question": "The brand JSON's claim at /imagery/samples/91 does not match assets/logow-4.svg: assets/logow-4.svg: w 85 vs 89, h 96 vs 101. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.92",
+      "pointer": "/imagery/samples/92",
+      "question": "The brand JSON's claim at /imagery/samples/92 does not match assets/logow-40.png: assets/logow-40.png: w 48 vs 96, h 48 vs 96. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.93",
+      "pointer": "/imagery/samples/93",
+      "question": "The brand JSON's claim at /imagery/samples/93 does not match assets/logow-42.png: assets/logow-42.png: w 48 vs 96, h 48 vs 96. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.94",
+      "pointer": "/imagery/samples/94",
+      "question": "The brand JSON's claim at /imagery/samples/94 does not match assets/logow-44.png: assets/logow-44.png: w 48 vs 96, h 48 vs 96. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.95",
+      "pointer": "/imagery/samples/95",
+      "question": "The brand JSON's claim at /imagery/samples/95 does not match assets/logow-46.png: assets/logow-46.png: w 48 vs 96, h 48 vs 96. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.96",
+      "pointer": "/imagery/samples/96",
+      "question": "The brand JSON's claim at /imagery/samples/96 does not match assets/logow-50.webp: assets/logow-50.webp: w 48 vs 96, h 48 vs 96. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.97",
+      "pointer": "/imagery/samples/97",
+      "question": "The brand JSON's claim at /imagery/samples/97 does not match assets/logow-52.png: assets/logow-52.png: w 48 vs 96, h 48 vs 96. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.101",
+      "pointer": "/imagery/samples/101",
+      "question": "The brand JSON's claim at /imagery/samples/101 does not match assets/logow-shot-1.png: assets/logow-shot-1.png: w 126 vs 252, h 36 vs 72. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.104",
+      "pointer": "/imagery/samples/104",
+      "question": "The brand JSON's claim at /imagery/samples/104 does not match assets/logow-shot-3.png: assets/logow-shot-3.png: w 85 vs 168, h 96 vs 192. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.105",
+      "pointer": "/imagery/samples/105",
+      "question": "The brand JSON's claim at /imagery/samples/105 does not match assets/logow-shot-31.png: assets/logow-shot-31.png: w 48 vs 96, h 48 vs 96. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.106",
+      "pointer": "/imagery/samples/106",
+      "question": "The brand JSON's claim at /imagery/samples/106 does not match assets/logow-shot-33.png: assets/logow-shot-33.png: w 48 vs 96, h 48 vs 96. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.107",
+      "pointer": "/imagery/samples/107",
+      "question": "The brand JSON's claim at /imagery/samples/107 does not match assets/logow-shot-35.png: assets/logow-shot-35.png: w 48 vs 98, h 48 vs 98. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.108",
+      "pointer": "/imagery/samples/108",
+      "question": "The brand JSON's claim at /imagery/samples/108 does not match assets/logow-shot-37.png: assets/logow-shot-37.png: w 48 vs 100, h 48 vs 98, aspect 1 vs 1.02. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.109",
+      "pointer": "/imagery/samples/109",
+      "question": "The brand JSON's claim at /imagery/samples/109 does not match assets/logow-shot-39.png: assets/logow-shot-39.png: w 48 vs 96, h 48 vs 96. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.110",
+      "pointer": "/imagery/samples/110",
+      "question": "The brand JSON's claim at /imagery/samples/110 does not match assets/logow-shot-41.png: assets/logow-shot-41.png: w 48 vs 100, h 48 vs 100. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.111",
+      "pointer": "/imagery/samples/111",
+      "question": "The brand JSON's claim at /imagery/samples/111 does not match assets/logow-shot-43.png: assets/logow-shot-43.png: w 48 vs 100, h 48 vs 100. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.112",
+      "pointer": "/imagery/samples/112",
+      "question": "The brand JSON's claim at /imagery/samples/112 does not match assets/logow-shot-45.png: assets/logow-shot-45.png: w 48 vs 100, h 48 vs 100. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.113",
+      "pointer": "/imagery/samples/113",
+      "question": "The brand JSON's claim at /imagery/samples/113 does not match assets/logow-shot-47.png: assets/logow-shot-47.png: w 48 vs 96, h 48 vs 96. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.114",
+      "pointer": "/imagery/samples/114",
+      "question": "The brand JSON's claim at /imagery/samples/114 does not match assets/logow-shot-49.png: assets/logow-shot-49.png: w 48 vs 96, h 48 vs 96. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.115",
+      "pointer": "/imagery/samples/115",
+      "question": "The brand JSON's claim at /imagery/samples/115 does not match assets/logow-shot-51.png: assets/logow-shot-51.png: w 48 vs 102, h 48 vs 102. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    }
+  ],
   "warnings": [
     {
       "pointer": "/icons/library",

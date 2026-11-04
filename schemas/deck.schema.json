@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://presentations.ai/pb/schemas/deck.v1.5.json",
+  "$id": "https://presentations.ai/pb/schemas/deck.v1.6.json",
   "title": "Deck v1",
   "description": "THE document. Every element is an absolute box on the 1920x1080 canvas with fully resolved styling (literal colours, px sizes) and, for text, the lines the fitter computed. It is what the editor edits, the HTML renderer paints, the PDF/PPTX writers read, and what is saved. Nothing in here needs the Mood or Layout to render - they are kept as references so 'switch mood' / 'swap layout' can re-compose from `source`.",
   "type": "object",
@@ -30,7 +30,7 @@
         "properties": {
           "id": { "type": "string" },
           "layoutId": { "type": "string" }, "kind": { "type": "string" }, "surfaceId": { "type": "string" },
-          "source": { "type": "object", "description": "where the slide's composition comes from (v1.5)", "properties": { "catalogue": { "type": "string", "description": "the Rich Slide Catalogue slide whose layout was used, e.g. L1-1 (pb build --catalogue, docs/PLAN-catalogue.md C3)" } } },
+          "source": { "type": "object", "description": "where the slide's composition comes from (v1.5; v1.6 adds the template binding)", "properties": { "catalogue": { "type": "string", "description": "the Rich Slide Catalogue slide whose layout was used, e.g. L1-1 (pb build --catalogue, docs/PLAN-catalogue.md C3)" }, "template": { "type": "string", "description": "v1.6, proposal PR-6: the authored template the slide was bound to (packages/templates data/authored.json id)" }, "score": { "type": "number", "description": "v1.6: the binding score (needs met - optional needs unmet)" }, "backgroundWhy": { "type": "string", "description": "v1.6: why the binding set the slide background" }, "binding": { "type": "array", "description": "v1.6: one row per template element - its role, the need it carries, the brand signal that filled it (a capability key / JSON pointer) and whether it was bound or left out", "items": { "type": "object", "required": ["element", "role", "status"], "properties": { "element": { "type": "string" }, "role": { "type": "string" }, "need": { "type": "string" }, "signal": { "type": "string" }, "status": { "type": "string", "description": "bound | left out" }, "why": { "type": "string" }, "deckElement": { "type": "string" } } } } } },
           "contentSlideId": { "type": "string" },
           "background": {
             "type": "object", "required": ["type"],
@@ -98,13 +98,15 @@
         "locked": { "type": "boolean" }, "hidden": { "type": "boolean", "description": "editor: left out of the painted deck, kept in the document" }, "name": { "type": "string" },
         "source": {
           "type": "object",
-          "description": "an element bound from content: where it comes from in the content slide - a text's words, a chart / table / image / flow node's block (the editor writes edits back there)",
-          "required": ["path"],
+          "description": "an element bound from content: where it comes from in the content slide - a text's words, a chart / table / image / flow node's block (the editor writes edits back there); v1.6: an element a template binding drew names its template element and the brand signal that filled it (`template`, `signal`; then `path` only when it also shows content)",
+          "anyOf": [{ "required": ["path"] }, { "required": ["template"] }],
           "additionalProperties": false,
           "properties": {
             "path": { "type": "string", "description": "JSON pointer into the content slide of the (first) string shown, e.g. /title, /blocks/0/items/2/body" },
             "paths": { "type": "array", "items": { "type": "string" }, "description": "every content string shown, in reading order, when more than one" },
-            "join": { "type": "string", "description": "how `paths` are joined: absent = one paragraph each; 'line' = one paragraph, a line break between; else that separator inside one paragraph" }
+            "join": { "type": "string", "description": "how `paths` are joined: absent = one paragraph each; 'line' = one paragraph, a line break between; else that separator inside one paragraph" },
+            "template": { "type": "string", "description": "v1.6, proposal PR-6: the template element this element was bound from" },
+            "signal": { "type": "string", "description": "v1.6: the brand signal (capability key, JSON pointer) that filled it" }
           }
         },
         "style": { "$ref": "#/$defs/style" },
@@ -120,7 +122,7 @@
             "autofit": { "type": "boolean", "description": "editor: re-run the fitter after edits (default true)" }
           }
         },
-        "image": { "type": "object", "required": ["asset"], "properties": { "asset": { "type": "string" }, "fit": { "enum": ["cover", "contain", "fill"] }, "crop": { "type": "object", "properties": { "x": { "type": "number" }, "y": { "type": "number" }, "w": { "type": "number" }, "h": { "type": "number" } } }, "mask": { "type": "string" }, "alt": { "type": "string" }, "tint": { "$ref": "#/$defs/color" }, "tile": { "type": "boolean", "description": "repeat the asset across the frame instead of fitting it" }, "scale": { "type": "number", "description": "tile only: multiplier of the asset's own pixel size" }, "animated": { "type": "string", "description": "asset id of an animated version of `asset` (same framing): used by the HTML renderer with the animated option (present mode); PDF / PNG / PPTX use `asset`" } } },
+        "image": { "type": "object", "required": ["asset"], "properties": { "asset": { "type": "string" }, "fit": { "enum": ["cover", "contain", "fill"] }, "crop": { "type": "object", "properties": { "x": { "type": "number" }, "y": { "type": "number" }, "w": { "type": "number" }, "h": { "type": "number" } } }, "mask": { "type": "string" }, "alt": { "type": "string" }, "tint": { "$ref": "#/$defs/color" }, "tile": { "type": "boolean", "description": "repeat the asset across the frame instead of fitting it" }, "scale": { "type": "number", "description": "tile only: multiplier of the asset's own pixel size" }, "animated": { "type": "string", "description": "asset id of an animated version of `asset` (same framing): used by the HTML renderer with the animated option (present mode); PDF / PNG / PPTX use `asset`" }, "clip": { "type": "array", "minItems": 3, "items": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "number" } }, "description": "v1.6: a polygon the image is clipped to, points as fractions 0..1 of the element frame (the brand's photo area; HTML clip-path, PDF / PNG inherit it)" }, "blend": { "type": "string", "description": "v1.6: how the image mixes with what is under it - a CSS mix-blend-mode keyword the brand gives for its overlay (multiply ...); HTML mix-blend-mode" } } },
         "shape": { "type": "object", "required": ["kind"], "properties": { "kind": { "enum": ["rect", "ellipse", "line", "polygon", "path"] }, "points": { "type": "array", "items": { "type": "array", "items": { "type": "number" } } }, "path": { "type": "string" } } },
         "lineProps": { "type": "object", "properties": { "x2": { "type": "number" }, "y2": { "type": "number" }, "arrowStart": { "type": "boolean" }, "arrowEnd": { "type": "boolean" } } },
         "chart": {

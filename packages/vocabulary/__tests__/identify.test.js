@@ -100,6 +100,10 @@ describe('confusable pairs: the deciding test separates them', () => {
       'E3:timeline/E3:process',
       'E3:compare/E3:items',
       'E3:kpis/E3:items',
+      // V1: the connector rule (process.connector), one pair per deciding predicate
+      'E3:process/E3:items',
+      'E3:process/E3:items',
+      'E3:process/E3:items',
     ];
     expect(pairs.map((p) => p.pair.join('/'))).toEqual(want);
   });

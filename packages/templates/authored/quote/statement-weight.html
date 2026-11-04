@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="la">
+  <head>
+    <meta charset="utf-8" />
+    <title>Statement: a large quote with weight contrast (light and dark)</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #ffffff;
+      }
+      .slide {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #f0f0f0;
+        color: #2b2b2b;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .slide > * {
+        position: absolute;
+        margin: 0;
+      }
+      .k {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .t {
+        font-weight: 700;
+        line-height: 1.05;
+      }
+      .lg {
+        width: 208px;
+        height: 52px;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAA8CAYAAABYfzddAAAAqElEQVR42u3dQQqAIBBAURVPOQeca+pWaCmE2XsnsOSji4ZKAQAAAAAAAAAAYE+NiHH6IjOz2ip4al4BCBgQMCBgEDAgYEDAgIBBwICAAQHDf/XbHugL33bDjnU2wAkMrtCAgAEBg4ABAQMCBgQMAgYEDAgYBAwIGBAwIGAQMHCu6wb6/QgNJzAgYEDAgIBBwICAAQGDgAEBAwIGBAwAAAAAAAAAAPCeCYTOCkmo3g3iAAAAAElFTkSuQmCC)
+          left center/contain no-repeat;
+      }
+      .lg.large {
+        width: 420px;
+        height: 105px;
+      }
+      .inner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide"
+      data-template="statement-weight"
+      data-category="quote-slide"
+      data-basis="Statement ranges (anatomy F2 / F3 / decisions): 1-3 sizes (statement slides), the quote 64 px = 5.9 % H (statement titles 5.9-6.7 % H) with a keyword run set heavier (weight contrast, not colour), quote : attribution 2.3, the quote over 80 % of the width from a 160 px indent, the group in the middle band; the slide title and its label as a working-slide header at the top margin (title 44 px = 4.1 % H, working titles 3.7-4.4 % H, 4.0-4.4 % H from the top)."
+    >
+      <div class="k" style="left: 80px; top: 96px; width: 1600px; color: #5a5a5a">Ultricies vitae</div>
+      <div class="t" style="left: 80px; top: 130px; width: 1600px; font-size: 44px; color: #2b2b2b">
+        Etiam porta sem malesuada
+      </div>
+      <p
+        data-role="title"
+        data-need="weight-contrast"
+        data-need-optional
+        style="
+          left: 160px;
+          top: 330px;
+          width: 1600px;
+          font-size: 64px;
+          line-height: 1.2;
+          font-weight: 300;
+          color: #2b2b2b;
+        "
+      >
+        “Vivamus <b style="font-weight: 800">magna justo</b>, lacinia eget consectetur sed, convallis at
+        tellus.”
+      </p>
+      <p
+        data-role="attribution"
+        data-need="second-face"
+        data-need-optional
+        style="
+          left: 160px;
+          top: 510px;
+          font-size: 28px;
+          font-family: Georgia, serif;
+          font-style: italic;
+          color: #5a5a5a;
+        "
+      >
+        Nomen Cognomen, auctor
+      </p>
+    </div>
+    <div
+      class="slide"
+      data-template="statement-weight"
+      data-category="quote-slide"
+      data-basis="Statement ranges (anatomy F2 / F3 / decisions): 1-3 sizes (statement slides), the quote 64 px = 5.9 % H (statement titles 5.9-6.7 % H) with a keyword run set heavier (weight contrast, not colour), quote : attribution 2.3, the quote over 80 % of the width from a 160 px indent, the group in the middle band; the slide title and its label as a working-slide header at the top margin (title 44 px = 4.1 % H, working titles 3.7-4.4 % H, 4.0-4.4 % H from the top)."
+      data-option="dark"
+    >
+      <div
+        data-role="background"
+        style="left: 0; top: 0; width: 1920px; height: 1080px; background: #2c2c2c"
+      ></div>
+      <div class="k" style="left: 80px; top: 96px; width: 1600px; color: #c4c4c4">Ultricies vitae</div>
+      <div class="t" style="left: 80px; top: 130px; width: 1600px; font-size: 44px; color: #f2f2f2">
+        Etiam porta sem malesuada
+      </div>
+      <p
+        data-role="title"
+        data-need="weight-contrast"
+        data-need-optional
+        style="
+          left: 160px;
+          top: 330px;
+          width: 1600px;
+          font-size: 64px;
+          line-height: 1.2;
+          font-weight: 300;
+          color: #f2f2f2;
+        "
+      >
+        “Vivamus <b style="font-weight: 800">magna justo</b>, lacinia eget consectetur sed, convallis at
+        tellus.”
+      </p>
+      <p
+        data-role="attribution"
+        data-need="second-face"
+        data-need-optional
+        style="
+          left: 160px;
+          top: 510px;
+          font-size: 28px;
+          font-family: Georgia, serif;
+          font-style: italic;
+          color: #c4c4c4;
+        "
+      >
+        Nomen Cognomen, auctor
+      </p>
+    </div>
+  </body>
+</html>

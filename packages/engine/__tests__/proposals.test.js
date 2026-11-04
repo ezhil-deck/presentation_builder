@@ -58,9 +58,9 @@ const el = (slide, id) => slide.elements.find((e) => e.id === id);
 
 describe('proposals option', () => {
   it('normalizes all / lists / objects; unknown names (incl. the approved PR-1..3, PR-F, PR-C′) are ignored by the engine, rejected by proposalKey', () => {
-    const none = { titleClearOfDecor: false };
-    const all = { titleClearOfDecor: true };
-    const only4 = { titleClearOfDecor: true };
+    const none = { titleClearOfDecor: false, templateBinding: false };
+    const all = { titleClearOfDecor: true, templateBinding: true };
+    const only4 = { titleClearOfDecor: true, templateBinding: false };
     expect(normalizeProposals('all')).toEqual(all);
     expect(normalizeProposals(true)).toEqual(all);
     expect(normalizeProposals(['pr4'])).toEqual(only4);
@@ -80,6 +80,9 @@ describe('proposals option', () => {
     expect(proposalKey('fitUp')).toBeNull();
     expect(proposalKey('titleClearOfDecor')).toBe('titleClearOfDecor');
     expect(proposalKey('PR-4')).toBe('titleClearOfDecor');
+    expect(proposalKey('pr6')).toBe('templateBinding');
+    expect(proposalKey('PR-6')).toBe('templateBinding');
+    expect(normalizeProposals('pr6')).toEqual({ titleClearOfDecor: false, templateBinding: true });
     expect(proposalKey('prf')).toBeNull();
     expect(proposalKey('PR-F')).toBeNull();
     expect(proposalKey('prc')).toBeNull();

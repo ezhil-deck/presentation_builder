@@ -3201,6 +3201,6716 @@
     "dpi": 150
   },
   "unreferencedAssets": [],
+  "claims": [
+    {
+      "id": "sample.0",
+      "pointer": "/imagery/samples/0",
+      "inputPointer": "/imagery/samples/0",
+      "file": "assets/img/photo-20.png",
+      "claim": {
+        "w": 3840,
+        "h": 2160,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 3840,
+        "height": 2160,
+        "aspect": 1.778,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-20.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.1",
+      "pointer": "/imagery/samples/1",
+      "inputPointer": "/imagery/samples/1",
+      "file": "assets/img/photo-2.png",
+      "claim": {
+        "w": 2145,
+        "h": 1714,
+        "aspect": 1.25
+      },
+      "measured": {
+        "width": 2145,
+        "height": 1714,
+        "aspect": 1.251,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-2.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.2",
+      "pointer": "/imagery/samples/2",
+      "inputPointer": "/imagery/samples/2",
+      "file": "assets/img/photo-10.png",
+      "claim": {
+        "w": 954,
+        "h": 1302,
+        "aspect": 0.73
+      },
+      "measured": {
+        "width": 954,
+        "height": 1302,
+        "aspect": 0.733,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-10.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.3",
+      "pointer": "/imagery/samples/3",
+      "inputPointer": "/imagery/samples/3",
+      "file": "assets/img/photo-4.png",
+      "claim": {
+        "w": 1188,
+        "h": 1000,
+        "aspect": 1.19
+      },
+      "measured": {
+        "width": 1188,
+        "height": 1000,
+        "aspect": 1.188,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-4.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.4",
+      "pointer": "/imagery/samples/4",
+      "inputPointer": "/imagery/samples/4",
+      "file": "assets/img/photo-5.png",
+      "claim": {
+        "w": 863,
+        "h": 1000,
+        "aspect": 0.86
+      },
+      "measured": {
+        "width": 863,
+        "height": 1000,
+        "aspect": 0.863,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-5.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.5",
+      "pointer": "/imagery/samples/5",
+      "inputPointer": "/imagery/samples/5",
+      "file": "assets/img/photo-6.png",
+      "claim": {
+        "w": 1266,
+        "h": 620,
+        "aspect": 2.04
+      },
+      "measured": {
+        "width": 1266,
+        "height": 620,
+        "aspect": 2.042,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-6.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.6",
+      "pointer": "/imagery/samples/6",
+      "inputPointer": "/imagery/samples/6",
+      "file": "assets/img/photo-11.png",
+      "claim": {
+        "w": 636,
+        "h": 868,
+        "aspect": 0.73
+      },
+      "measured": {
+        "width": 636,
+        "height": 868,
+        "aspect": 0.733,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-11.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.7",
+      "pointer": "/imagery/samples/7",
+      "inputPointer": "/imagery/samples/7",
+      "file": "assets/img/photo-12.png",
+      "claim": {
+        "w": 636,
+        "h": 868,
+        "aspect": 0.73
+      },
+      "measured": {
+        "width": 636,
+        "height": 868,
+        "aspect": 0.733,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-12.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.8",
+      "pointer": "/imagery/samples/8",
+      "inputPointer": "/imagery/samples/8",
+      "file": "assets/img/photo-3.png",
+      "claim": {
+        "w": 800,
+        "h": 686,
+        "aspect": 1.17
+      },
+      "measured": {
+        "width": 800,
+        "height": 686,
+        "aspect": 1.166,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-3.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.9",
+      "pointer": "/imagery/samples/9",
+      "inputPointer": "/imagery/samples/9",
+      "file": "assets/img/photo-18.png",
+      "claim": {
+        "w": 720,
+        "h": 607,
+        "aspect": 1.19
+      },
+      "measured": {
+        "width": 720,
+        "height": 607,
+        "aspect": 1.186,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-18.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.10",
+      "pointer": "/imagery/samples/10",
+      "inputPointer": "/imagery/samples/10",
+      "file": "assets/img/photo-7.png",
+      "claim": {
+        "w": 373,
+        "h": 426,
+        "aspect": 0.88
+      },
+      "measured": {
+        "width": 373,
+        "height": 426,
+        "aspect": 0.876,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-7.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.11",
+      "pointer": "/imagery/samples/11",
+      "inputPointer": "/imagery/samples/11",
+      "file": "assets/backgrounds/bg-1-src.png",
+      "claim": {
+        "w": 1344,
+        "h": 718,
+        "aspect": 1.872
+      },
+      "measured": {
+        "width": 1032,
+        "height": 774,
+        "aspect": 1.333,
+        "scaleW": 0.768,
+        "scaleH": 1.078
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/backgrounds/bg-1-src.png: w 1344 vs 1032, h 718 vs 774, aspect 1.872 vs 1.333"
+    },
+    {
+      "id": "sample.12",
+      "pointer": "/imagery/samples/12",
+      "inputPointer": "/imagery/samples/12",
+      "file": "assets/backgrounds/bg-1.png",
+      "claim": {
+        "w": 1344,
+        "h": 718,
+        "aspect": 1.872
+      },
+      "measured": {
+        "width": 2688,
+        "height": 1436,
+        "aspect": 1.872,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/backgrounds/bg-1.png: w 1344 vs 2688, h 718 vs 1436"
+    },
+    {
+      "id": "sample.13",
+      "pointer": "/imagery/samples/13",
+      "inputPointer": "/imagery/samples/13",
+      "file": "assets/backgrounds/sec-1-src.png",
+      "claim": {
+        "w": 1032,
+        "h": 774,
+        "aspect": 1.333
+      },
+      "measured": {
+        "width": 1032,
+        "height": 774,
+        "aspect": 1.333,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/backgrounds/sec-1-src.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.14",
+      "pointer": "/imagery/samples/14",
+      "inputPointer": "/imagery/samples/14",
+      "file": "assets/backgrounds/sec-1.png",
+      "claim": {
+        "w": 2880,
+        "h": 1660,
+        "aspect": 1.735
+      },
+      "measured": {
+        "width": 2880,
+        "height": 1660,
+        "aspect": 1.735,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/backgrounds/sec-1.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.15",
+      "pointer": "/imagery/samples/15",
+      "inputPointer": "/imagery/samples/15",
+      "file": "assets/decorw/dw-0-1.svg",
+      "claim": {
+        "w": 672,
+        "h": 590,
+        "aspect": 1.139
+      },
+      "measured": {
+        "width": 672,
+        "height": 590,
+        "aspect": 1.139,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-0-1.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.16",
+      "pointer": "/imagery/samples/16",
+      "inputPointer": "/imagery/samples/16",
+      "file": "assets/decorw/dw-0-3.svg",
+      "claim": {
+        "w": 129,
+        "h": 129,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 129,
+        "height": 129,
+        "aspect": 1,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-0-3.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.17",
+      "pointer": "/imagery/samples/17",
+      "inputPointer": "/imagery/samples/17",
+      "file": "assets/decorw/dw-0-4.svg",
+      "claim": {
+        "w": 318,
+        "h": 434,
+        "aspect": 0.733
+      },
+      "measured": {
+        "width": 318,
+        "height": 434,
+        "aspect": 0.733,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-0-4.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.18",
+      "pointer": "/imagery/samples/18",
+      "inputPointer": "/imagery/samples/18",
+      "file": "assets/decorw/dw-0-5.svg",
+      "claim": {
+        "w": 1440,
+        "h": 68,
+        "aspect": 21.176
+      },
+      "measured": {
+        "width": 767,
+        "height": 36,
+        "aspect": 21.306,
+        "scaleW": 0.533,
+        "scaleH": 0.529
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-0-5.svg: w 1440 vs 767, h 68 vs 36"
+    },
+    {
+      "id": "sample.19",
+      "pointer": "/imagery/samples/19",
+      "inputPointer": "/imagery/samples/19",
+      "file": "assets/decorw/dw-1-0.png",
+      "claim": {
+        "w": 38,
+        "h": 81,
+        "aspect": 0.469
+      },
+      "measured": {
+        "width": 76,
+        "height": 162,
+        "aspect": 0.469,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-1-0.png: w 38 vs 76, h 81 vs 162"
+    },
+    {
+      "id": "sample.20",
+      "pointer": "/imagery/samples/20",
+      "inputPointer": "/imagery/samples/20",
+      "file": "assets/decorw/dw-2-1.svg",
+      "claim": {
+        "w": 1440,
+        "h": 676,
+        "aspect": 2.13
+      },
+      "measured": {
+        "width": 2560,
+        "height": 1500,
+        "aspect": 1.707,
+        "scaleW": 1.778,
+        "scaleH": 2.219
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-2-1.svg: w 1440 vs 2560, h 676 vs 1500, aspect 2.13 vs 1.707"
+    },
+    {
+      "id": "sample.21",
+      "pointer": "/imagery/samples/21",
+      "inputPointer": "/imagery/samples/21",
+      "file": "assets/decorw/dw-2-2.svg",
+      "claim": {
+        "w": 408,
+        "h": 408,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 570,
+        "height": 570,
+        "aspect": 1,
+        "scaleW": 1.397,
+        "scaleH": 1.397
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-2-2.svg: w 408 vs 570, h 408 vs 570"
+    },
+    {
+      "id": "sample.22",
+      "pointer": "/imagery/samples/22",
+      "inputPointer": "/imagery/samples/22",
+      "file": "assets/decorw/dw-2-3.svg",
+      "claim": {
+        "w": 275,
+        "h": 330,
+        "aspect": 0.833
+      },
+      "measured": {
+        "width": 275,
+        "height": 330,
+        "aspect": 0.833,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-2-3.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.23",
+      "pointer": "/imagery/samples/23",
+      "inputPointer": "/imagery/samples/23",
+      "file": "assets/decorw/dw-2-4.svg",
+      "claim": {
+        "w": 275,
+        "h": 330,
+        "aspect": 0.833
+      },
+      "measured": {
+        "width": 275,
+        "height": 330,
+        "aspect": 0.833,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-2-4.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.24",
+      "pointer": "/imagery/samples/24",
+      "inputPointer": "/imagery/samples/24",
+      "file": "assets/decorw/dw-2-5.svg",
+      "claim": {
+        "w": 275,
+        "h": 330,
+        "aspect": 0.833
+      },
+      "measured": {
+        "width": 275,
+        "height": 330,
+        "aspect": 0.833,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-2-5.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.25",
+      "pointer": "/imagery/samples/25",
+      "inputPointer": "/imagery/samples/25",
+      "file": "assets/decorw/dw-2-6.svg",
+      "claim": {
+        "w": 275,
+        "h": 330,
+        "aspect": 0.833
+      },
+      "measured": {
+        "width": 275,
+        "height": 330,
+        "aspect": 0.833,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-2-6.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.26",
+      "pointer": "/imagery/samples/26",
+      "inputPointer": "/imagery/samples/26",
+      "file": "assets/decorw/dw-2-7.svg",
+      "claim": {
+        "w": 356,
+        "h": 407,
+        "aspect": 0.875
+      },
+      "measured": {
+        "width": 373,
+        "height": 426,
+        "aspect": 0.876,
+        "scaleW": 1.048,
+        "scaleH": 1.047
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-2-7.svg: w 356 vs 373, h 407 vs 426"
+    },
+    {
+      "id": "sample.27",
+      "pointer": "/imagery/samples/27",
+      "inputPointer": "/imagery/samples/27",
+      "file": "assets/elements/dc-01.svg",
+      "claim": {
+        "w": 104,
+        "h": 105,
+        "aspect": 0.99
+      },
+      "measured": {
+        "width": 104,
+        "height": 105,
+        "aspect": 0.99,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/elements/dc-01.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.28",
+      "pointer": "/imagery/samples/28",
+      "inputPointer": "/imagery/samples/28",
+      "file": "assets/elements/dc-02.svg",
+      "claim": {
+        "w": 767,
+        "h": 36,
+        "aspect": 21.306
+      },
+      "measured": {
+        "width": 767,
+        "height": 36,
+        "aspect": 21.306,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/elements/dc-02.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.29",
+      "pointer": "/imagery/samples/29",
+      "inputPointer": "/imagery/samples/29",
+      "file": "assets/elements/dc-03.svg",
+      "claim": {
+        "w": 1447,
+        "h": 52,
+        "aspect": 27.827
+      },
+      "measured": {
+        "width": 1447,
+        "height": 52,
+        "aspect": 27.827,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/elements/dc-03.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.30",
+      "pointer": "/imagery/samples/30",
+      "inputPointer": "/imagery/samples/30",
+      "file": "assets/elements/dc-04.svg",
+      "claim": {
+        "w": 318,
+        "h": 434,
+        "aspect": 0.733
+      },
+      "measured": {
+        "width": 318,
+        "height": 434,
+        "aspect": 0.733,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/elements/dc-04.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.31",
+      "pointer": "/imagery/samples/31",
+      "inputPointer": "/imagery/samples/31",
+      "file": "assets/elements/dc-05.svg",
+      "claim": {
+        "w": 133,
+        "h": 133,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 133,
+        "height": 133,
+        "aspect": 1,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/elements/dc-05.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.32",
+      "pointer": "/imagery/samples/32",
+      "inputPointer": "/imagery/samples/32",
+      "file": "assets/elements/dc-08.svg",
+      "claim": {
+        "w": 138,
+        "h": 48,
+        "aspect": 2.875
+      },
+      "measured": {
+        "width": 138,
+        "height": 48,
+        "aspect": 2.875,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/elements/dc-08.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.37",
+      "pointer": "/imagery/samples/37",
+      "inputPointer": "/imagery/samples/37",
+      "file": "assets/img/photo-1.png",
+      "claim": {
+        "w": 387,
+        "h": 290,
+        "aspect": 1.334
+      },
+      "measured": {
+        "width": 1032,
+        "height": 774,
+        "aspect": 1.333,
+        "scaleW": 2.667,
+        "scaleH": 2.669
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-1.png: w 387 vs 1032, h 290 vs 774"
+    },
+    {
+      "id": "sample.38",
+      "pointer": "/imagery/samples/38",
+      "inputPointer": "/imagery/samples/38",
+      "file": "assets/img/photo-13.png",
+      "claim": {
+        "w": 1440,
+        "h": 1848,
+        "aspect": 0.779
+      },
+      "measured": {
+        "width": 628,
+        "height": 806,
+        "aspect": 0.779,
+        "scaleW": 0.436,
+        "scaleH": 0.436
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-13.png: w 1440 vs 628, h 1848 vs 806"
+    },
+    {
+      "id": "sample.39",
+      "pointer": "/imagery/samples/39",
+      "inputPointer": "/imagery/samples/39",
+      "file": "assets/img/photo-14.png",
+      "claim": {
+        "w": 1440,
+        "h": 1848,
+        "aspect": 0.779
+      },
+      "measured": {
+        "width": 628,
+        "height": 806,
+        "aspect": 0.779,
+        "scaleW": 0.436,
+        "scaleH": 0.436
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-14.png: w 1440 vs 628, h 1848 vs 806"
+    },
+    {
+      "id": "sample.40",
+      "pointer": "/imagery/samples/40",
+      "inputPointer": "/imagery/samples/40",
+      "file": "assets/img/photo-15.png",
+      "claim": {
+        "w": 1440,
+        "h": 1848,
+        "aspect": 0.779
+      },
+      "measured": {
+        "width": 628,
+        "height": 806,
+        "aspect": 0.779,
+        "scaleW": 0.436,
+        "scaleH": 0.436
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-15.png: w 1440 vs 628, h 1848 vs 806"
+    },
+    {
+      "id": "sample.41",
+      "pointer": "/imagery/samples/41",
+      "inputPointer": "/imagery/samples/41",
+      "file": "assets/img/photo-16.png",
+      "claim": {
+        "w": 1440,
+        "h": 1848,
+        "aspect": 0.779
+      },
+      "measured": {
+        "width": 628,
+        "height": 806,
+        "aspect": 0.779,
+        "scaleW": 0.436,
+        "scaleH": 0.436
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-16.png: w 1440 vs 628, h 1848 vs 806"
+    },
+    {
+      "id": "sample.42",
+      "pointer": "/imagery/samples/42",
+      "inputPointer": "/imagery/samples/42",
+      "file": "assets/img/photo-17.png",
+      "claim": {
+        "w": 1440,
+        "h": 1842,
+        "aspect": 0.782
+      },
+      "measured": {
+        "width": 630,
+        "height": 806,
+        "aspect": 0.782,
+        "scaleW": 0.438,
+        "scaleH": 0.438
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-17.png: w 1440 vs 630, h 1842 vs 806"
+    },
+    {
+      "id": "sample.43",
+      "pointer": "/imagery/samples/43",
+      "inputPointer": "/imagery/samples/43",
+      "file": "assets/img/photo-19.png",
+      "claim": {
+        "w": 1440,
+        "h": 1182,
+        "aspect": 1.218
+      },
+      "measured": {
+        "width": 659,
+        "height": 541,
+        "aspect": 1.218,
+        "scaleW": 0.458,
+        "scaleH": 0.458
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-19.png: w 1440 vs 659, h 1182 vs 541"
+    },
+    {
+      "id": "sample.44",
+      "pointer": "/imagery/samples/44",
+      "inputPointer": "/imagery/samples/44",
+      "file": "assets/img/photo-8.png",
+      "claim": {
+        "w": 186,
+        "h": 213,
+        "aspect": 0.873
+      },
+      "measured": {
+        "width": 373,
+        "height": 426,
+        "aspect": 0.876,
+        "scaleW": 2.005,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-8.png: w 186 vs 373, h 213 vs 426"
+    },
+    {
+      "id": "sample.45",
+      "pointer": "/imagery/samples/45",
+      "inputPointer": "/imagery/samples/45",
+      "file": "assets/img/photo-9.png",
+      "claim": {
+        "w": 186,
+        "h": 213,
+        "aspect": 0.873
+      },
+      "measured": {
+        "width": 373,
+        "height": 426,
+        "aspect": 0.876,
+        "scaleW": 2.005,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-9.png: w 186 vs 373, h 213 vs 426"
+    },
+    {
+      "id": "sample.78",
+      "pointer": "/imagery/samples/78",
+      "inputPointer": "/imagery/samples/78",
+      "file": "assets/logow-2.svg",
+      "claim": {
+        "w": 154,
+        "h": 32,
+        "aspect": 4.813
+      },
+      "measured": {
+        "width": 192,
+        "height": 40,
+        "aspect": 4.8,
+        "scaleW": 1.247,
+        "scaleH": 1.25
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-2.svg: w 154 vs 192, h 32 vs 40"
+    },
+    {
+      "id": "sample.79",
+      "pointer": "/imagery/samples/79",
+      "inputPointer": "/imagery/samples/79",
+      "file": "assets/logow-4.png",
+      "claim": {
+        "w": 318,
+        "h": 434,
+        "aspect": 0.733
+      },
+      "measured": {
+        "width": 440,
+        "height": 600,
+        "aspect": 0.733,
+        "scaleW": 1.384,
+        "scaleH": 1.382
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-4.png: w 318 vs 440, h 434 vs 600"
+    },
+    {
+      "id": "sample.80",
+      "pointer": "/imagery/samples/80",
+      "inputPointer": "/imagery/samples/80",
+      "file": "assets/logow-shot-1.png",
+      "claim": {
+        "w": 154,
+        "h": 32,
+        "aspect": 4.813
+      },
+      "measured": {
+        "width": 308,
+        "height": 64,
+        "aspect": 4.813,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-1.png: w 154 vs 308, h 32 vs 64"
+    },
+    {
+      "id": "logoTone.monoLight",
+      "pointer": "/logos/variants/monoLight",
+      "inputPointer": "/brand/logos/monoLight",
+      "file": "assets/logo-light.svg",
+      "claim": {
+        "tone": "light"
+      },
+      "measured": {
+        "meanLuminance": 0.672,
+        "approx": true
+      },
+      "pass": true,
+      "tolerance": {
+        "minLuminance": 0.6
+      },
+      "why": "monoLight assets/logo-light.svg: mean luminance of the opaque pixels 0.672 (light needs >= 0.6)"
+    },
+    {
+      "id": "decorColours.illustration-family",
+      "pointer": "/decor/elements/0/file",
+      "inputPointer": "/assets/elements/0/file",
+      "file": "assets/elements/family-1.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": 0
+      },
+      "pass": null,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/elements/family-1.svg: paints no plain colour this reader can see"
+    },
+    {
+      "id": "decorColours.illustration-family-1",
+      "pointer": "/decor/elements/1/file",
+      "inputPointer": "/assets/elements/1/file",
+      "file": "assets/decorw/dw-0-2.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": [
+          {
+            "hex": "#FFCAE7",
+            "nearest": "#FFCAE7",
+            "distance": 0
+          },
+          {
+            "hex": "#00A4FF",
+            "nearest": "#00A4FF",
+            "distance": 0
+          },
+          {
+            "hex": "#141313",
+            "nearest": "#2D2C2B",
+            "distance": 42.7
+          }
+        ]
+      },
+      "pass": false,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/decorw/dw-0-2.svg paints #141313 (nearest brand colour #2D2C2B, 42.7): not a brand colour"
+    },
+    {
+      "id": "decorColours.illustration-family-2",
+      "pointer": "/decor/elements/2/file",
+      "inputPointer": "/assets/elements/2/file",
+      "file": "assets/elements/dc-06.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": [
+          {
+            "hex": "#01A652",
+            "nearest": "#01A753",
+            "distance": 1.4
+          },
+          {
+            "hex": "#9E65C6",
+            "nearest": "#9E65C6",
+            "distance": 0
+          },
+          {
+            "hex": "#141313",
+            "nearest": "#2D2C2B",
+            "distance": 42.7
+          }
+        ]
+      },
+      "pass": false,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/elements/dc-06.svg paints #141313 (nearest brand colour #2D2C2B, 42.7): not a brand colour"
+    },
+    {
+      "id": "decorColours.illustration-family-3",
+      "pointer": "/decor/elements/3/file",
+      "inputPointer": "/assets/elements/3/file",
+      "file": "assets/elements/dc-07.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": [
+          {
+            "hex": "#FFCE00",
+            "nearest": "#FFCE00",
+            "distance": 0
+          },
+          {
+            "hex": "#FF7300",
+            "nearest": "#FF7E1D",
+            "distance": 31
+          },
+          {
+            "hex": "#141313",
+            "nearest": "#2D2C2B",
+            "distance": 42.7
+          }
+        ]
+      },
+      "pass": false,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/elements/dc-07.svg paints #FF7300 (nearest brand colour #FF7E1D, 31), #141313 (nearest brand colour #2D2C2B, 42.7): not a brand colour"
+    },
+    {
+      "id": "decorAspect.shape-w3-dw10",
+      "pointer": "/decor/elements/4/box",
+      "inputPointer": "/assets/elements/4/box",
+      "file": "assets/decorw/dw-0-0.svg",
+      "claim": {
+        "box": {
+          "x": 960,
+          "y": 1041,
+          "w": 960,
+          "h": 39
+        }
+      },
+      "measured": {
+        "boxAspect": 24.6154,
+        "viewBoxAspect": 27.8269,
+        "off": 0.1154
+      },
+      "pass": false,
+      "tolerance": {
+        "aspect": 0.05
+      },
+      "why": "box 24.615 vs viewBox 27.827: 11.5 % off (tolerance 5 %)"
+    },
+    {
+      "id": "decorColours.shape-w3-dw10",
+      "pointer": "/decor/elements/4/file",
+      "inputPointer": "/assets/elements/4/file",
+      "file": "assets/decorw/dw-0-0.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": [
+          {
+            "hex": "#FFCE00",
+            "nearest": "#FFCE00",
+            "distance": 0
+          }
+        ]
+      },
+      "pass": true,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/decorw/dw-0-0.svg: every painted colour is a brand colour"
+    },
+    {
+      "id": "mask.blob",
+      "pointer": "/imagery/masks/options/blob",
+      "inputPointer": "/masks/options/blob",
+      "file": "assets/masks/mask-1.svg",
+      "claim": {
+        "type": "svg"
+      },
+      "measured": {
+        "shapes": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "minPaths": 1
+      },
+      "why": "assets/masks/mask-1.svg: 1 painted shape(s)"
+    }
+  ],
+  "capabilities": [
+    {
+      "key": "device:illustration-family",
+      "term": "E2:illustration",
+      "from": [
+        "/decor/elements/0"
+      ],
+      "files": [
+        "assets/elements/family-1.svg"
+      ],
+      "given": {
+        "type": "illustration",
+        "typeTerm": "E2:illustration",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "often",
+        "allowedOn": [
+          "title",
+          "closing"
+        ],
+        "placement": "full-bleed",
+        "colorable": false
+      },
+      "measured": {
+        "opacity": 1,
+        "width": 1920,
+        "height": 1080,
+        "geometry": {
+          "frame": "element",
+          "shapes": 0,
+          "areaShare": 0,
+          "angles": [],
+          "approx": true,
+          "polygons": [],
+          "notes": [
+            "an embedded <image> is not measured"
+          ]
+        }
+      },
+      "status": "given",
+      "why": "decor element illustration-family: decor type illustration"
+    },
+    {
+      "key": "device:illustration-family-1",
+      "term": "E2:illustration",
+      "from": [
+        "/decor/elements/1"
+      ],
+      "files": [
+        "assets/decorw/dw-0-2.svg"
+      ],
+      "given": {
+        "type": "illustration",
+        "typeTerm": "E2:illustration",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "rare",
+        "allowedOn": [],
+        "placement": "center",
+        "colorable": false
+      },
+      "measured": {
+        "opacity": 1,
+        "width": 133,
+        "height": 133,
+        "geometry": {
+          "frame": "element",
+          "shapes": 5,
+          "areaShare": 0.8116,
+          "angles": [
+            31,
+            69.5
+          ],
+          "approx": true,
+          "bbox": {
+            "x": 1.13,
+            "y": 1.13,
+            "w": 98.87,
+            "h": 98.87
+          },
+          "polygons": [
+            [
+              [
+                8.15,
+                75.76
+              ],
+              [
+                3.88,
+                66.74
+              ],
+              [
+                1.56,
+                57.34
+              ],
+              [
+                1.13,
+                47.84
+              ],
+              [
+                2.51,
+                38.49
+              ],
+              [
+                5.64,
+                29.57
+              ],
+              [
+                10.46,
+                21.36
+              ],
+              [
+                16.89,
+                14.13
+              ],
+              [
+                24.87,
+                8.15
+              ],
+              [
+                24.87,
+                8.15
+              ],
+              [
+                33.89,
+                3.88
+              ],
+              [
+                43.29,
+                1.56
+              ],
+              [
+                52.8,
+                1.13
+              ],
+              [
+                62.14,
+                2.51
+              ],
+              [
+                71.06,
+                5.64
+              ],
+              [
+                79.27,
+                10.46
+              ],
+              [
+                86.5,
+                16.89
+              ],
+              [
+                92.48,
+                24.87
+              ],
+              [
+                92.48,
+                24.87
+              ],
+              [
+                96.75,
+                33.89
+              ],
+              [
+                99.07,
+                43.29
+              ],
+              [
+                99.51,
+                52.8
+              ],
+              [
+                98.12,
+                62.14
+              ],
+              [
+                94.99,
+                71.06
+              ],
+              [
+                90.17,
+                79.27
+              ],
+              [
+                83.74,
+                86.5
+              ],
+              [
+                75.76,
+                92.48
+              ],
+              [
+                75.76,
+                92.48
+              ],
+              [
+                66.74,
+                96.75
+              ],
+              [
+                57.34,
+                99.07
+              ],
+              [
+                47.84,
+                99.51
+              ],
+              [
+                38.49,
+                98.12
+              ],
+              [
+                29.57,
+                94.99
+              ],
+              [
+                21.36,
+                90.17
+              ],
+              [
+                14.13,
+                83.74
+              ],
+              [
+                8.15,
+                75.76
+              ]
+            ],
+            [
+              [
+                100,
+                77.85
+              ],
+              [
+                63.28,
+                100
+              ],
+              [
+                11.51,
+                100
+              ],
+              [
+                10.98,
+                98.6
+              ],
+              [
+                10.6,
+                97.03
+              ],
+              [
+                10.4,
+                95.45
+              ],
+              [
+                10.39,
+                93.86
+              ],
+              [
+                10.57,
+                92.29
+              ],
+              [
+                10.92,
+                90.75
+              ],
+              [
+                11.45,
+                89.26
+              ],
+              [
+                11.14,
+                88.9
+              ],
+              [
+                10.83,
+                88.52
+              ],
+              [
+                10.53,
+                88.14
+              ],
+              [
+                10.24,
+                87.75
+              ],
+              [
+                9.96,
+                87.35
+              ],
+              [
+                9.68,
+                86.94
+              ],
+              [
+                9.41,
+                86.52
+              ],
+              [
+                9.15,
+                86.1
+              ],
+              [
+                7.21,
+                82.01
+              ],
+              [
+                6.16,
+                77.74
+              ],
+              [
+                5.96,
+                73.42
+              ],
+              [
+                6.59,
+                69.18
+              ],
+              [
+                8.01,
+                65.13
+              ],
+              [
+                10.2,
+                61.4
+              ],
+              [
+                13.12,
+                58.11
+              ],
+              [
+                16.75,
+                55.4
+              ],
+              [
+                16.89,
+                55.31
+              ],
+              [
+                17.03,
+                55.23
+              ],
+              [
+                17.17,
+                55.15
+              ],
+              [
+                17.31,
+                55.06
+              ],
+              [
+                17.46,
+                54.98
+              ],
+              [
+                17.6,
+                54.91
+              ],
+              [
+                17.74,
+                54.83
+              ],
+              [
+                17.89,
+                54.75
+              ],
+              [
+                17.59,
+                50.04
+              ],
+              [
+                17.98,
+                45.37
+              ],
+              [
+                19.02,
+                40.81
+              ],
+              [
+                20.69,
+                36.44
+              ],
+              [
+                22.99,
+                32.33
+              ],
+              [
+                25.89,
+                28.55
+              ],
+              [
+                29.37,
+                25.19
+              ],
+              [
+                33.42,
+                22.31
+              ],
+              [
+                37.85,
+                20.07
+              ],
+              [
+                42.45,
+                18.56
+              ],
+              [
+                47.14,
+                17.76
+              ],
+              [
+                51.85,
+                17.64
+              ],
+              [
+                56.5,
+                18.19
+              ],
+              [
+                61.02,
+                19.4
+              ],
+              [
+                65.33,
+                21.24
+              ],
+              [
+                69.36,
+                23.7
+              ],
+              [
+                69.49,
+                23.61
+              ],
+              [
+                69.63,
+                23.51
+              ],
+              [
+                69.77,
+                23.42
+              ],
+              [
+                69.9,
+                23.34
+              ],
+              [
+                70.04,
+                23.25
+              ],
+              [
+                70.18,
+                23.16
+              ],
+              [
+                70.32,
+                23.07
+              ],
+              [
+                70.46,
+                22.99
+              ],
+              [
+                74.56,
+                21.05
+              ],
+              [
+                78.82,
+                19.99
+              ],
+              [
+                83.14,
+                19.8
+              ],
+              [
+                87.39,
+                20.43
+              ],
+              [
+                91.44,
+                21.85
+              ],
+              [
+                95.17,
+                24.04
+              ],
+              [
+                98.45,
+                26.96
+              ],
+              [
+                100,
+                29.03
+              ]
+            ],
+            [
+              [
+                47.06,
+                57.07
+              ],
+              [
+                47.27,
+                56.85
+              ],
+              [
+                47.52,
+                56.67
+              ],
+              [
+                47.79,
+                56.55
+              ],
+              [
+                48.08,
+                56.48
+              ],
+              [
+                48.38,
+                56.47
+              ],
+              [
+                48.67,
+                56.51
+              ],
+              [
+                48.96,
+                56.62
+              ],
+              [
+                49.23,
+                56.78
+              ],
+              [
+                49.51,
+                56.98
+              ],
+              [
+                49.8,
+                57.16
+              ],
+              [
+                50.11,
+                57.31
+              ],
+              [
+                50.43,
+                57.44
+              ],
+              [
+                50.75,
+                57.55
+              ],
+              [
+                51.08,
+                57.63
+              ],
+              [
+                51.42,
+                57.69
+              ],
+              [
+                51.76,
+                57.72
+              ],
+              [
+                52.11,
+                57.72
+              ],
+              [
+                52.45,
+                57.7
+              ],
+              [
+                52.79,
+                57.66
+              ],
+              [
+                53.12,
+                57.59
+              ],
+              [
+                53.45,
+                57.49
+              ],
+              [
+                53.77,
+                57.37
+              ],
+              [
+                54.09,
+                57.23
+              ],
+              [
+                54.39,
+                57.06
+              ],
+              [
+                54.68,
+                56.87
+              ],
+              [
+                54.95,
+                56.66
+              ],
+              [
+                55.2,
+                56.44
+              ],
+              [
+                55.44,
+                56.19
+              ],
+              [
+                55.66,
+                55.93
+              ],
+              [
+                55.86,
+                55.65
+              ],
+              [
+                56.03,
+                55.35
+              ],
+              [
+                56.19,
+                55.05
+              ],
+              [
+                56.32,
+                54.73
+              ],
+              [
+                56.43,
+                54.4
+              ],
+              [
+                56.51,
+                54.07
+              ],
+              [
+                56.57,
+                53.73
+              ],
+              [
+                56.6,
+                53.39
+              ],
+              [
+                56.61,
+                53.05
+              ],
+              [
+                56.59,
+                52.71
+              ],
+              [
+                56.54,
+                52.37
+              ],
+              [
+                56.52,
+                52.05
+              ],
+              [
+                56.56,
+                51.75
+              ],
+              [
+                56.66,
+                51.47
+              ],
+              [
+                56.81,
+                51.21
+              ],
+              [
+                57,
+                50.99
+              ],
+              [
+                57.24,
+                50.81
+              ],
+              [
+                57.51,
+                50.67
+              ],
+              [
+                57.81,
+                50.59
+              ],
+              [
+                58.13,
+                50.57
+              ],
+              [
+                58.43,
+                50.61
+              ],
+              [
+                58.71,
+                50.7
+              ],
+              [
+                58.97,
+                50.85
+              ],
+              [
+                59.19,
+                51.05
+              ],
+              [
+                59.37,
+                51.28
+              ],
+              [
+                59.51,
+                51.55
+              ],
+              [
+                59.59,
+                51.86
+              ],
+              [
+                59.67,
+                52.43
+              ],
+              [
+                59.7,
+                53
+              ],
+              [
+                59.69,
+                53.57
+              ],
+              [
+                59.63,
+                54.14
+              ],
+              [
+                59.54,
+                54.71
+              ],
+              [
+                59.4,
+                55.26
+              ],
+              [
+                59.22,
+                55.81
+              ],
+              [
+                59,
+                56.34
+              ],
+              [
+                58.74,
+                56.85
+              ],
+              [
+                58.44,
+                57.34
+              ],
+              [
+                58.11,
+                57.81
+              ],
+              [
+                57.74,
+                58.25
+              ],
+              [
+                57.35,
+                58.66
+              ],
+              [
+                56.92,
+                59.04
+              ],
+              [
+                56.47,
+                59.39
+              ],
+              [
+                55.98,
+                59.71
+              ],
+              [
+                55.48,
+                59.99
+              ],
+              [
+                54.96,
+                60.23
+              ],
+              [
+                54.42,
+                60.43
+              ],
+              [
+                53.87,
+                60.59
+              ],
+              [
+                53.31,
+                60.7
+              ],
+              [
+                52.75,
+                60.78
+              ],
+              [
+                52.17,
+                60.81
+              ],
+              [
+                51.6,
+                60.8
+              ],
+              [
+                51.02,
+                60.75
+              ],
+              [
+                50.46,
+                60.66
+              ],
+              [
+                49.9,
+                60.52
+              ],
+              [
+                49.36,
+                60.34
+              ],
+              [
+                48.83,
+                60.12
+              ],
+              [
+                48.32,
+                59.87
+              ],
+              [
+                47.82,
+                59.57
+              ],
+              [
+                47.35,
+                59.24
+              ],
+              [
+                47.12,
+                59.03
+              ],
+              [
+                46.95,
+                58.78
+              ],
+              [
+                46.83,
+                58.51
+              ],
+              [
+                46.76,
+                58.22
+              ],
+              [
+                46.75,
+                57.92
+              ],
+              [
+                46.79,
+                57.63
+              ],
+              [
+                46.9,
+                57.34
+              ]
+            ],
+            [
+              [
+                49.04,
+                43.95
+              ],
+              [
+                49.26,
+                43.72
+              ],
+              [
+                49.5,
+                43.54
+              ],
+              [
+                49.78,
+                43.42
+              ],
+              [
+                50.06,
+                43.35
+              ],
+              [
+                50.36,
+                43.34
+              ],
+              [
+                50.66,
+                43.39
+              ],
+              [
+                50.94,
+                43.49
+              ],
+              [
+                51.21,
+                43.66
+              ],
+              [
+                51.61,
+                43.94
+              ],
+              [
+                52.04,
+                44.19
+              ],
+              [
+                52.48,
+                44.42
+              ],
+              [
+                52.93,
+                44.6
+              ],
+              [
+                53.4,
+                44.75
+              ],
+              [
+                53.87,
+                44.87
+              ],
+              [
+                54.36,
+                44.95
+              ],
+              [
+                54.85,
+                45
+              ],
+              [
+                55.35,
+                45.01
+              ],
+              [
+                55.84,
+                44.98
+              ],
+              [
+                56.33,
+                44.91
+              ],
+              [
+                56.81,
+                44.81
+              ],
+              [
+                57.28,
+                44.68
+              ],
+              [
+                57.74,
+                44.51
+              ],
+              [
+                58.19,
+                44.3
+              ],
+              [
+                58.63,
+                44.06
+              ],
+              [
+                59.04,
+                43.79
+              ],
+              [
+                59.43,
+                43.49
+              ],
+              [
+                59.8,
+                43.16
+              ],
+              [
+                60.14,
+                42.81
+              ],
+              [
+                60.45,
+                42.43
+              ],
+              [
+                60.74,
+                42.03
+              ],
+              [
+                60.99,
+                41.6
+              ],
+              [
+                61.22,
+                41.16
+              ],
+              [
+                61.4,
+                40.7
+              ],
+              [
+                61.56,
+                40.24
+              ],
+              [
+                61.68,
+                39.76
+              ],
+              [
+                61.76,
+                39.27
+              ],
+              [
+                61.81,
+                38.79
+              ],
+              [
+                61.82,
+                38.29
+              ],
+              [
+                61.79,
+                37.8
+              ],
+              [
+                61.73,
+                37.31
+              ],
+              [
+                61.71,
+                37
+              ],
+              [
+                61.75,
+                36.7
+              ],
+              [
+                61.84,
+                36.41
+              ],
+              [
+                61.99,
+                36.16
+              ],
+              [
+                62.19,
+                35.93
+              ],
+              [
+                62.42,
+                35.75
+              ],
+              [
+                62.69,
+                35.61
+              ],
+              [
+                62.99,
+                35.53
+              ],
+              [
+                63.31,
+                35.51
+              ],
+              [
+                63.61,
+                35.55
+              ],
+              [
+                63.89,
+                35.65
+              ],
+              [
+                64.15,
+                35.79
+              ],
+              [
+                64.37,
+                35.99
+              ],
+              [
+                64.56,
+                36.22
+              ],
+              [
+                64.69,
+                36.49
+              ],
+              [
+                64.78,
+                36.8
+              ],
+              [
+                64.87,
+                37.52
+              ],
+              [
+                64.91,
+                38.24
+              ],
+              [
+                64.89,
+                38.96
+              ],
+              [
+                64.83,
+                39.68
+              ],
+              [
+                64.7,
+                40.39
+              ],
+              [
+                64.53,
+                41.09
+              ],
+              [
+                64.3,
+                41.78
+              ],
+              [
+                64.02,
+                42.45
+              ],
+              [
+                63.7,
+                43.1
+              ],
+              [
+                63.32,
+                43.72
+              ],
+              [
+                62.9,
+                44.31
+              ],
+              [
+                62.44,
+                44.87
+              ],
+              [
+                61.94,
+                45.39
+              ],
+              [
+                61.41,
+                45.87
+              ],
+              [
+                60.83,
+                46.31
+              ],
+              [
+                60.22,
+                46.71
+              ],
+              [
+                59.59,
+                47.06
+              ],
+              [
+                58.93,
+                47.36
+              ],
+              [
+                58.25,
+                47.61
+              ],
+              [
+                57.56,
+                47.81
+              ],
+              [
+                56.85,
+                47.96
+              ],
+              [
+                56.14,
+                48.06
+              ],
+              [
+                55.41,
+                48.1
+              ],
+              [
+                54.69,
+                48.09
+              ],
+              [
+                53.96,
+                48.02
+              ],
+              [
+                53.25,
+                47.9
+              ],
+              [
+                52.55,
+                47.73
+              ],
+              [
+                51.86,
+                47.5
+              ],
+              [
+                51.19,
+                47.23
+              ],
+              [
+                50.55,
+                46.91
+              ],
+              [
+                49.93,
+                46.53
+              ],
+              [
+                49.33,
+                46.11
+              ],
+              [
+                49.1,
+                45.9
+              ],
+              [
+                48.93,
+                45.65
+              ],
+              [
+                48.81,
+                45.38
+              ],
+              [
+                48.74,
+                45.09
+              ],
+              [
+                48.73,
+                44.79
+              ],
+              [
+                48.77,
+                44.5
+              ],
+              [
+                48.88,
+                44.21
+              ]
+            ],
+            [
+              [
+                31.32,
+                54.64
+              ],
+              [
+                31.54,
+                54.41
+              ],
+              [
+                31.78,
+                54.23
+              ],
+              [
+                32.06,
+                54.11
+              ],
+              [
+                32.35,
+                54.04
+              ],
+              [
+                32.64,
+                54.03
+              ],
+              [
+                32.94,
+                54.08
+              ],
+              [
+                33.22,
+                54.18
+              ],
+              [
+                33.49,
+                54.35
+              ],
+              [
+                33.89,
+                54.63
+              ],
+              [
+                34.32,
+                54.88
+              ],
+              [
+                34.76,
+                55.11
+              ],
+              [
+                35.21,
+                55.29
+              ],
+              [
+                35.68,
+                55.44
+              ],
+              [
+                36.16,
+                55.56
+              ],
+              [
+                36.64,
+                55.64
+              ],
+              [
+                37.14,
+                55.69
+              ],
+              [
+                37.63,
+                55.7
+              ],
+              [
+                38.12,
+                55.67
+              ],
+              [
+                38.61,
+                55.6
+              ],
+              [
+                39.09,
+                55.5
+              ],
+              [
+                39.56,
+                55.37
+              ],
+              [
+                40.03,
+                55.2
+              ],
+              [
+                40.47,
+                54.99
+              ],
+              [
+                40.91,
+                54.75
+              ],
+              [
+                41.32,
+                54.48
+              ],
+              [
+                41.71,
+                54.18
+              ],
+              [
+                42.08,
+                53.85
+              ],
+              [
+                42.42,
+                53.5
+              ],
+              [
+                42.73,
+                53.12
+              ],
+              [
+                43.02,
+                52.72
+              ],
+              [
+                43.27,
+                52.29
+              ],
+              [
+                43.5,
+                51.85
+              ],
+              [
+                43.69,
+                51.39
+              ],
+              [
+                43.84,
+                50.93
+              ],
+              [
+                43.96,
+                50.45
+              ],
+              [
+                44.04,
+                49.96
+              ],
+              [
+                44.09,
+                49.48
+              ],
+              [
+                44.1,
+                48.98
+              ],
+              [
+                44.07,
+                48.49
+              ],
+              [
+                44.01,
+                48
+              ],
+              [
+                43.99,
+                47.69
+              ],
+              [
+                44.03,
+                47.39
+              ],
+              [
+                44.13,
+                47.1
+              ],
+              [
+                44.27,
+                46.85
+              ],
+              [
+                44.47,
+                46.62
+              ],
+              [
+                44.7,
+                46.44
+              ],
+              [
+                44.97,
+                46.3
+              ],
+              [
+                45.28,
+                46.22
+              ],
+              [
+                45.59,
+                46.2
+              ],
+              [
+                45.89,
+                46.24
+              ],
+              [
+                46.17,
+                46.34
+              ],
+              [
+                46.43,
+                46.48
+              ],
+              [
+                46.65,
+                46.68
+              ],
+              [
+                46.84,
+                46.91
+              ],
+              [
+                46.97,
+                47.19
+              ],
+              [
+                47.06,
+                47.49
+              ],
+              [
+                47.15,
+                48.21
+              ],
+              [
+                47.19,
+                48.93
+              ],
+              [
+                47.18,
+                49.65
+              ],
+              [
+                47.11,
+                50.37
+              ],
+              [
+                46.99,
+                51.08
+              ],
+              [
+                46.81,
+                51.78
+              ],
+              [
+                46.58,
+                52.47
+              ],
+              [
+                46.31,
+                53.14
+              ],
+              [
+                45.98,
+                53.79
+              ],
+              [
+                45.6,
+                54.41
+              ],
+              [
+                45.19,
+                55
+              ],
+              [
+                44.73,
+                55.56
+              ],
+              [
+                44.22,
+                56.08
+              ],
+              [
+                43.69,
+                56.56
+              ],
+              [
+                43.11,
+                57
+              ],
+              [
+                42.5,
+                57.4
+              ],
+              [
+                41.87,
+                57.75
+              ],
+              [
+                41.21,
+                58.05
+              ],
+              [
+                40.53,
+                58.3
+              ],
+              [
+                39.84,
+                58.5
+              ],
+              [
+                39.13,
+                58.65
+              ],
+              [
+                38.42,
+                58.75
+              ],
+              [
+                37.7,
+                58.79
+              ],
+              [
+                36.97,
+                58.78
+              ],
+              [
+                36.24,
+                58.71
+              ],
+              [
+                35.53,
+                58.59
+              ],
+              [
+                34.83,
+                58.42
+              ],
+              [
+                34.14,
+                58.19
+              ],
+              [
+                33.48,
+                57.92
+              ],
+              [
+                32.83,
+                57.6
+              ],
+              [
+                32.21,
+                57.22
+              ],
+              [
+                31.61,
+                56.8
+              ],
+              [
+                31.39,
+                56.59
+              ],
+              [
+                31.21,
+                56.34
+              ],
+              [
+                31.09,
+                56.07
+              ],
+              [
+                31.02,
+                55.78
+              ],
+              [
+                31.01,
+                55.48
+              ],
+              [
+                31.05,
+                55.19
+              ],
+              [
+                31.16,
+                54.9
+              ]
+            ]
+          ],
+          "notes": [
+            "a clip-path other than one rect is not applied"
+          ]
+        }
+      },
+      "status": "given",
+      "why": "decor element illustration-family-1: decor type illustration"
+    },
+    {
+      "key": "device:illustration-family-2",
+      "term": "E2:illustration",
+      "from": [
+        "/decor/elements/2"
+      ],
+      "files": [
+        "assets/elements/dc-06.svg"
+      ],
+      "given": {
+        "type": "illustration",
+        "typeTerm": "E2:illustration",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "rare",
+        "allowedOn": [],
+        "placement": "center",
+        "colorable": false
+      },
+      "measured": {
+        "opacity": 1,
+        "width": 129,
+        "height": 129,
+        "geometry": {
+          "frame": "element",
+          "shapes": 5,
+          "areaShare": 0.8362,
+          "angles": [
+            3.5,
+            86.5
+          ],
+          "approx": true,
+          "bbox": {
+            "x": 0,
+            "y": 0.65,
+            "w": 99.32,
+            "h": 99.35
+          },
+          "polygons": [
+            [
+              [
+                5.18,
+                29.3
+              ],
+              [
+                10.26,
+                20.69
+              ],
+              [
+                16.75,
+                13.49
+              ],
+              [
+                24.4,
+                7.78
+              ],
+              [
+                32.93,
+                3.68
+              ],
+              [
+                42.09,
+                1.27
+              ],
+              [
+                51.61,
+                0.65
+              ],
+              [
+                61.22,
+                1.92
+              ],
+              [
+                70.67,
+                5.18
+              ],
+              [
+                70.67,
+                5.18
+              ],
+              [
+                79.28,
+                10.26
+              ],
+              [
+                86.49,
+                16.75
+              ],
+              [
+                92.19,
+                24.4
+              ],
+              [
+                96.3,
+                32.93
+              ],
+              [
+                98.71,
+                42.09
+              ],
+              [
+                99.32,
+                51.61
+              ],
+              [
+                98.05,
+                61.22
+              ],
+              [
+                94.79,
+                70.67
+              ],
+              [
+                94.79,
+                70.67
+              ],
+              [
+                89.71,
+                79.28
+              ],
+              [
+                83.22,
+                86.49
+              ],
+              [
+                75.58,
+                92.19
+              ],
+              [
+                67.04,
+                96.3
+              ],
+              [
+                57.89,
+                98.71
+              ],
+              [
+                48.37,
+                99.32
+              ],
+              [
+                38.75,
+                98.05
+              ],
+              [
+                29.3,
+                94.79
+              ],
+              [
+                29.3,
+                94.79
+              ],
+              [
+                20.69,
+                89.71
+              ],
+              [
+                13.49,
+                83.22
+              ],
+              [
+                7.78,
+                75.58
+              ],
+              [
+                3.68,
+                67.04
+              ],
+              [
+                1.27,
+                57.89
+              ],
+              [
+                0.65,
+                48.37
+              ],
+              [
+                1.92,
+                38.75
+              ],
+              [
+                5.18,
+                29.3
+              ]
+            ],
+            [
+              [
+                58.7,
+                25.18
+              ],
+              [
+                1.16,
+                21.73
+              ],
+              [
+                0,
+                21.77
+              ],
+              [
+                0,
+                100
+              ],
+              [
+                71.91,
+                100
+              ],
+              [
+                75.28,
+                43.89
+              ],
+              [
+                75.14,
+                40.31
+              ],
+              [
+                74.31,
+                36.94
+              ],
+              [
+                72.86,
+                33.84
+              ],
+              [
+                70.86,
+                31.1
+              ],
+              [
+                68.38,
+                28.79
+              ],
+              [
+                65.48,
+                26.98
+              ],
+              [
+                62.23,
+                25.76
+              ]
+            ],
+            [
+              [
+                33.65,
+                43.38
+              ],
+              [
+                33.9,
+                43.31
+              ],
+              [
+                34.16,
+                43.3
+              ],
+              [
+                34.42,
+                43.33
+              ],
+              [
+                34.66,
+                43.41
+              ],
+              [
+                34.88,
+                43.54
+              ],
+              [
+                35.07,
+                43.71
+              ],
+              [
+                35.23,
+                43.91
+              ],
+              [
+                35.35,
+                44.15
+              ],
+              [
+                36.11,
+                45.91
+              ],
+              [
+                37.04,
+                47.57
+              ],
+              [
+                38.11,
+                49.13
+              ],
+              [
+                39.33,
+                50.57
+              ],
+              [
+                40.68,
+                51.89
+              ],
+              [
+                42.15,
+                53.07
+              ],
+              [
+                43.75,
+                54.11
+              ],
+              [
+                45.44,
+                55
+              ],
+              [
+                47.22,
+                55.71
+              ],
+              [
+                49.04,
+                56.25
+              ],
+              [
+                50.9,
+                56.6
+              ],
+              [
+                52.78,
+                56.78
+              ],
+              [
+                54.66,
+                56.77
+              ],
+              [
+                56.55,
+                56.58
+              ],
+              [
+                58.41,
+                56.2
+              ],
+              [
+                60.24,
+                55.64
+              ],
+              [
+                60.5,
+                55.58
+              ],
+              [
+                60.76,
+                55.57
+              ],
+              [
+                61.01,
+                55.6
+              ],
+              [
+                61.25,
+                55.69
+              ],
+              [
+                61.47,
+                55.82
+              ],
+              [
+                61.66,
+                55.99
+              ],
+              [
+                61.82,
+                56.2
+              ],
+              [
+                61.93,
+                56.44
+              ],
+              [
+                62,
+                56.7
+              ],
+              [
+                62.01,
+                56.96
+              ],
+              [
+                61.97,
+                57.21
+              ],
+              [
+                61.88,
+                57.45
+              ],
+              [
+                61.75,
+                57.67
+              ],
+              [
+                61.58,
+                57.86
+              ],
+              [
+                61.38,
+                58.02
+              ],
+              [
+                61.13,
+                58.13
+              ],
+              [
+                59.06,
+                58.77
+              ],
+              [
+                56.94,
+                59.19
+              ],
+              [
+                54.8,
+                59.41
+              ],
+              [
+                52.66,
+                59.42
+              ],
+              [
+                50.53,
+                59.22
+              ],
+              [
+                48.42,
+                58.82
+              ],
+              [
+                46.35,
+                58.21
+              ],
+              [
+                44.33,
+                57.4
+              ],
+              [
+                42.41,
+                56.39
+              ],
+              [
+                40.6,
+                55.21
+              ],
+              [
+                38.93,
+                53.87
+              ],
+              [
+                37.39,
+                52.37
+              ],
+              [
+                36.01,
+                50.73
+              ],
+              [
+                34.79,
+                48.96
+              ],
+              [
+                33.74,
+                47.08
+              ],
+              [
+                32.88,
+                45.09
+              ],
+              [
+                32.81,
+                44.83
+              ],
+              [
+                32.79,
+                44.57
+              ],
+              [
+                32.83,
+                44.31
+              ],
+              [
+                32.91,
+                44.07
+              ],
+              [
+                33.03,
+                43.85
+              ],
+              [
+                33.2,
+                43.66
+              ],
+              [
+                33.41,
+                43.5
+              ]
+            ],
+            [
+              [
+                40.9,
+                37.5
+              ],
+              [
+                41.47,
+                37.37
+              ],
+              [
+                42.04,
+                37.3
+              ],
+              [
+                42.61,
+                37.27
+              ],
+              [
+                43.19,
+                37.29
+              ],
+              [
+                43.75,
+                37.36
+              ],
+              [
+                44.31,
+                37.49
+              ],
+              [
+                44.86,
+                37.66
+              ],
+              [
+                45.4,
+                37.88
+              ],
+              [
+                45.92,
+                38.14
+              ],
+              [
+                46.4,
+                38.45
+              ],
+              [
+                46.86,
+                38.8
+              ],
+              [
+                47.28,
+                39.18
+              ],
+              [
+                47.67,
+                39.6
+              ],
+              [
+                48.02,
+                40.06
+              ],
+              [
+                48.34,
+                40.54
+              ],
+              [
+                48.6,
+                41.06
+              ],
+              [
+                48.83,
+                41.59
+              ],
+              [
+                49,
+                42.14
+              ],
+              [
+                49.13,
+                42.7
+              ],
+              [
+                49.21,
+                43.27
+              ],
+              [
+                49.23,
+                43.84
+              ],
+              [
+                49.21,
+                44.41
+              ],
+              [
+                49.14,
+                44.98
+              ],
+              [
+                49.01,
+                45.55
+              ],
+              [
+                48.92,
+                45.8
+              ],
+              [
+                48.78,
+                46.02
+              ],
+              [
+                48.61,
+                46.21
+              ],
+              [
+                48.4,
+                46.36
+              ],
+              [
+                48.17,
+                46.46
+              ],
+              [
+                47.92,
+                46.52
+              ],
+              [
+                47.66,
+                46.53
+              ],
+              [
+                47.4,
+                46.49
+              ],
+              [
+                47.15,
+                46.4
+              ],
+              [
+                46.93,
+                46.26
+              ],
+              [
+                46.74,
+                46.08
+              ],
+              [
+                46.59,
+                45.88
+              ],
+              [
+                46.49,
+                45.65
+              ],
+              [
+                46.42,
+                45.4
+              ],
+              [
+                46.41,
+                45.14
+              ],
+              [
+                46.46,
+                44.87
+              ],
+              [
+                46.53,
+                44.54
+              ],
+              [
+                46.57,
+                44.19
+              ],
+              [
+                46.59,
+                43.85
+              ],
+              [
+                46.57,
+                43.51
+              ],
+              [
+                46.52,
+                43.17
+              ],
+              [
+                46.45,
+                42.83
+              ],
+              [
+                46.34,
+                42.5
+              ],
+              [
+                46.21,
+                42.18
+              ],
+              [
+                46.05,
+                41.88
+              ],
+              [
+                45.86,
+                41.59
+              ],
+              [
+                45.65,
+                41.31
+              ],
+              [
+                45.42,
+                41.06
+              ],
+              [
+                45.17,
+                40.83
+              ],
+              [
+                44.89,
+                40.62
+              ],
+              [
+                44.6,
+                40.44
+              ],
+              [
+                44.29,
+                40.28
+              ],
+              [
+                43.97,
+                40.15
+              ],
+              [
+                43.64,
+                40.04
+              ],
+              [
+                43.31,
+                39.97
+              ],
+              [
+                42.97,
+                39.93
+              ],
+              [
+                42.62,
+                39.91
+              ],
+              [
+                42.28,
+                39.93
+              ],
+              [
+                41.94,
+                39.98
+              ],
+              [
+                41.6,
+                40.05
+              ],
+              [
+                41.27,
+                40.16
+              ],
+              [
+                40.95,
+                40.29
+              ],
+              [
+                40.65,
+                40.45
+              ],
+              [
+                40.36,
+                40.64
+              ],
+              [
+                40.09,
+                40.85
+              ],
+              [
+                39.83,
+                41.08
+              ],
+              [
+                39.6,
+                41.34
+              ],
+              [
+                39.39,
+                41.61
+              ],
+              [
+                39.22,
+                41.82
+              ],
+              [
+                39.01,
+                41.98
+              ],
+              [
+                38.78,
+                42.09
+              ],
+              [
+                38.54,
+                42.16
+              ],
+              [
+                38.29,
+                42.18
+              ],
+              [
+                38.03,
+                42.15
+              ],
+              [
+                37.78,
+                42.08
+              ],
+              [
+                37.55,
+                41.95
+              ],
+              [
+                37.35,
+                41.77
+              ],
+              [
+                37.19,
+                41.57
+              ],
+              [
+                37.07,
+                41.34
+              ],
+              [
+                37,
+                41.09
+              ],
+              [
+                36.98,
+                40.84
+              ],
+              [
+                37.01,
+                40.59
+              ],
+              [
+                37.09,
+                40.34
+              ],
+              [
+                37.22,
+                40.11
+              ],
+              [
+                37.57,
+                39.64
+              ],
+              [
+                37.96,
+                39.22
+              ],
+              [
+                38.38,
+                38.83
+              ],
+              [
+                38.83,
+                38.48
+              ],
+              [
+                39.31,
+                38.17
+              ],
+              [
+                39.82,
+                37.9
+              ],
+              [
+                40.35,
+                37.68
+              ]
+            ],
+            [
+              [
+                54,
+                43.54
+              ],
+              [
+                54.57,
+                43.41
+              ],
+              [
+                55.14,
+                43.33
+              ],
+              [
+                55.71,
+                43.3
+              ],
+              [
+                56.29,
+                43.32
+              ],
+              [
+                56.86,
+                43.39
+              ],
+              [
+                57.42,
+                43.52
+              ],
+              [
+                57.97,
+                43.69
+              ],
+              [
+                58.51,
+                43.91
+              ],
+              [
+                59.03,
+                44.17
+              ],
+              [
+                59.51,
+                44.48
+              ],
+              [
+                59.97,
+                44.83
+              ],
+              [
+                60.4,
+                45.22
+              ],
+              [
+                60.78,
+                45.64
+              ],
+              [
+                61.14,
+                46.1
+              ],
+              [
+                61.45,
+                46.58
+              ],
+              [
+                61.72,
+                47.1
+              ],
+              [
+                61.94,
+                47.63
+              ],
+              [
+                62.11,
+                48.18
+              ],
+              [
+                62.24,
+                48.75
+              ],
+              [
+                62.31,
+                49.32
+              ],
+              [
+                62.34,
+                49.89
+              ],
+              [
+                62.31,
+                50.46
+              ],
+              [
+                62.23,
+                51.04
+              ],
+              [
+                62.11,
+                51.6
+              ],
+              [
+                62.01,
+                51.85
+              ],
+              [
+                61.87,
+                52.07
+              ],
+              [
+                61.7,
+                52.26
+              ],
+              [
+                61.49,
+                52.41
+              ],
+              [
+                61.26,
+                52.51
+              ],
+              [
+                61.01,
+                52.57
+              ],
+              [
+                60.75,
+                52.58
+              ],
+              [
+                60.49,
+                52.54
+              ],
+              [
+                60.24,
+                52.44
+              ],
+              [
+                60.02,
+                52.3
+              ],
+              [
+                59.83,
+                52.13
+              ],
+              [
+                59.68,
+                51.92
+              ],
+              [
+                59.58,
+                51.69
+              ],
+              [
+                59.52,
+                51.44
+              ],
+              [
+                59.51,
+                51.18
+              ],
+              [
+                59.55,
+                50.91
+              ],
+              [
+                59.63,
+                50.57
+              ],
+              [
+                59.67,
+                50.23
+              ],
+              [
+                59.69,
+                49.89
+              ],
+              [
+                59.67,
+                49.55
+              ],
+              [
+                59.63,
+                49.2
+              ],
+              [
+                59.56,
+                48.87
+              ],
+              [
+                59.45,
+                48.54
+              ],
+              [
+                59.32,
+                48.22
+              ],
+              [
+                59.16,
+                47.91
+              ],
+              [
+                58.97,
+                47.62
+              ],
+              [
+                58.76,
+                47.35
+              ],
+              [
+                58.53,
+                47.09
+              ],
+              [
+                58.27,
+                46.86
+              ],
+              [
+                58,
+                46.65
+              ],
+              [
+                57.71,
+                46.47
+              ],
+              [
+                57.4,
+                46.31
+              ],
+              [
+                57.08,
+                46.18
+              ],
+              [
+                56.75,
+                46.08
+              ],
+              [
+                56.41,
+                46
+              ],
+              [
+                56.07,
+                45.96
+              ],
+              [
+                55.73,
+                45.95
+              ],
+              [
+                55.38,
+                45.96
+              ],
+              [
+                55.04,
+                46.01
+              ],
+              [
+                54.7,
+                46.09
+              ],
+              [
+                54.37,
+                46.19
+              ],
+              [
+                54.05,
+                46.33
+              ],
+              [
+                53.75,
+                46.49
+              ],
+              [
+                53.46,
+                46.68
+              ],
+              [
+                53.19,
+                46.89
+              ],
+              [
+                52.94,
+                47.12
+              ],
+              [
+                52.71,
+                47.38
+              ],
+              [
+                52.5,
+                47.66
+              ],
+              [
+                52.33,
+                47.86
+              ],
+              [
+                52.12,
+                48.02
+              ],
+              [
+                51.89,
+                48.14
+              ],
+              [
+                51.65,
+                48.21
+              ],
+              [
+                51.4,
+                48.23
+              ],
+              [
+                51.14,
+                48.21
+              ],
+              [
+                50.9,
+                48.13
+              ],
+              [
+                50.66,
+                48
+              ],
+              [
+                50.46,
+                47.83
+              ],
+              [
+                50.29,
+                47.62
+              ],
+              [
+                50.18,
+                47.4
+              ],
+              [
+                50.11,
+                47.15
+              ],
+              [
+                50.09,
+                46.9
+              ],
+              [
+                50.11,
+                46.64
+              ],
+              [
+                50.19,
+                46.4
+              ],
+              [
+                50.32,
+                46.16
+              ],
+              [
+                50.67,
+                45.7
+              ],
+              [
+                51.05,
+                45.27
+              ],
+              [
+                51.47,
+                44.88
+              ],
+              [
+                51.93,
+                44.52
+              ],
+              [
+                52.41,
+                44.21
+              ],
+              [
+                52.92,
+                43.94
+              ],
+              [
+                53.45,
+                43.72
+              ]
+            ]
+          ],
+          "notes": [
+            "a clip-path other than one rect is not applied"
+          ]
+        }
+      },
+      "status": "given",
+      "why": "decor element illustration-family-2: decor type illustration"
+    },
+    {
+      "key": "device:illustration-family-3",
+      "term": "E2:illustration",
+      "from": [
+        "/decor/elements/3"
+      ],
+      "files": [
+        "assets/elements/dc-07.svg"
+      ],
+      "given": {
+        "type": "illustration",
+        "typeTerm": "E2:illustration",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "rare",
+        "allowedOn": [],
+        "placement": "center",
+        "colorable": false
+      },
+      "measured": {
+        "opacity": 1,
+        "width": 114,
+        "height": 112,
+        "geometry": {
+          "frame": "element",
+          "shapes": 5,
+          "areaShare": 0.8809,
+          "angles": [
+            6.5,
+            14.5,
+            30.5,
+            59,
+            60.5,
+            75.5
+          ],
+          "approx": true,
+          "bbox": {
+            "x": 0,
+            "y": 0,
+            "w": 100,
+            "h": 100
+          },
+          "polygons": [
+            [
+              [
+                5.04,
+                29.74
+              ],
+              [
+                9.98,
+                20.92
+              ],
+              [
+                16.35,
+                13.5
+              ],
+              [
+                23.9,
+                7.57
+              ],
+              [
+                32.36,
+                3.26
+              ],
+              [
+                41.46,
+                0.65
+              ],
+              [
+                49.16,
+                0
+              ],
+              [
+                52.26,
+                0
+              ],
+              [
+                60.58,
+                0.97
+              ],
+              [
+                70.07,
+                4.1
+              ],
+              [
+                70.07,
+                4.1
+              ],
+              [
+                78.75,
+                9.1
+              ],
+              [
+                86.05,
+                15.55
+              ],
+              [
+                91.86,
+                23.2
+              ],
+              [
+                96.1,
+                31.78
+              ],
+              [
+                98.65,
+                41.03
+              ],
+              [
+                99.41,
+                50.67
+              ],
+              [
+                98.3,
+                60.45
+              ],
+              [
+                95.19,
+                70.09
+              ],
+              [
+                95.19,
+                70.09
+              ],
+              [
+                90.25,
+                78.91
+              ],
+              [
+                83.88,
+                86.34
+              ],
+              [
+                76.33,
+                92.26
+              ],
+              [
+                67.88,
+                96.58
+              ],
+              [
+                58.77,
+                99.19
+              ],
+              [
+                49.27,
+                99.98
+              ],
+              [
+                39.65,
+                98.87
+              ],
+              [
+                30.16,
+                95.73
+              ],
+              [
+                30.16,
+                95.73
+              ],
+              [
+                21.48,
+                90.74
+              ],
+              [
+                14.18,
+                84.28
+              ],
+              [
+                8.37,
+                76.63
+              ],
+              [
+                4.13,
+                68.05
+              ],
+              [
+                1.58,
+                58.81
+              ],
+              [
+                0.82,
+                49.16
+              ],
+              [
+                1.94,
+                39.39
+              ],
+              [
+                5.04,
+                29.74
+              ]
+            ],
+            [
+              [
+                57.77,
+                27.04
+              ],
+              [
+                24.44,
+                35.71
+              ],
+              [
+                23.3,
+                36.06
+              ],
+              [
+                22.21,
+                36.53
+              ],
+              [
+                21.17,
+                37.1
+              ],
+              [
+                20.2,
+                37.77
+              ],
+              [
+                19.29,
+                38.54
+              ],
+              [
+                18.46,
+                39.39
+              ],
+              [
+                17.71,
+                40.32
+              ],
+              [
+                17.05,
+                41.33
+              ],
+              [
+                0,
+                70.46
+              ],
+              [
+                0,
+                88.11
+              ],
+              [
+                2.98,
+                100
+              ],
+              [
+                100,
+                100
+              ],
+              [
+                100,
+                49.37
+              ],
+              [
+                99.98,
+                49.33
+              ],
+              [
+                99.61,
+                48.85
+              ],
+              [
+                99.22,
+                48.4
+              ],
+              [
+                98.81,
+                47.96
+              ],
+              [
+                98.38,
+                47.55
+              ],
+              [
+                97.93,
+                47.16
+              ],
+              [
+                97.46,
+                46.79
+              ],
+              [
+                96.97,
+                46.44
+              ],
+              [
+                96.47,
+                46.12
+              ],
+              [
+                66.91,
+                28.36
+              ],
+              [
+                65.86,
+                27.8
+              ],
+              [
+                64.76,
+                27.34
+              ],
+              [
+                63.63,
+                27
+              ],
+              [
+                62.48,
+                26.78
+              ],
+              [
+                61.3,
+                26.66
+              ],
+              [
+                60.12,
+                26.67
+              ],
+              [
+                58.94,
+                26.79
+              ],
+              [
+                57.77,
+                27.04
+              ]
+            ],
+            [
+              [
+                58.95,
+                47.04
+              ],
+              [
+                59.17,
+                47.22
+              ],
+              [
+                59.34,
+                47.42
+              ],
+              [
+                59.47,
+                47.65
+              ],
+              [
+                59.56,
+                47.91
+              ],
+              [
+                59.59,
+                48.17
+              ],
+              [
+                59.58,
+                48.44
+              ],
+              [
+                59.51,
+                48.7
+              ],
+              [
+                59.39,
+                48.96
+              ],
+              [
+                59.05,
+                49.47
+              ],
+              [
+                58.67,
+                49.94
+              ],
+              [
+                58.27,
+                50.39
+              ],
+              [
+                57.83,
+                50.81
+              ],
+              [
+                57.36,
+                51.18
+              ],
+              [
+                56.87,
+                51.53
+              ],
+              [
+                56.35,
+                51.83
+              ],
+              [
+                55.8,
+                52.1
+              ],
+              [
+                55.24,
+                52.32
+              ],
+              [
+                54.67,
+                52.5
+              ],
+              [
+                54.08,
+                52.63
+              ],
+              [
+                53.49,
+                52.72
+              ],
+              [
+                52.89,
+                52.76
+              ],
+              [
+                52.3,
+                52.76
+              ],
+              [
+                51.7,
+                52.71
+              ],
+              [
+                51.1,
+                52.61
+              ],
+              [
+                50.52,
+                52.47
+              ],
+              [
+                49.94,
+                52.28
+              ],
+              [
+                49.39,
+                52.05
+              ],
+              [
+                48.86,
+                51.78
+              ],
+              [
+                48.34,
+                51.47
+              ],
+              [
+                47.85,
+                51.12
+              ],
+              [
+                47.39,
+                50.73
+              ],
+              [
+                46.96,
+                50.31
+              ],
+              [
+                46.56,
+                49.85
+              ],
+              [
+                46.19,
+                49.37
+              ],
+              [
+                45.87,
+                48.86
+              ],
+              [
+                45.58,
+                48.33
+              ],
+              [
+                45.33,
+                47.78
+              ],
+              [
+                45.13,
+                47.21
+              ],
+              [
+                44.96,
+                46.62
+              ],
+              [
+                44.85,
+                46.02
+              ],
+              [
+                44.83,
+                45.74
+              ],
+              [
+                44.87,
+                45.47
+              ],
+              [
+                44.96,
+                45.21
+              ],
+              [
+                45.09,
+                44.98
+              ],
+              [
+                45.26,
+                44.78
+              ],
+              [
+                45.47,
+                44.62
+              ],
+              [
+                45.71,
+                44.5
+              ],
+              [
+                45.98,
+                44.42
+              ],
+              [
+                46.26,
+                44.4
+              ],
+              [
+                46.52,
+                44.44
+              ],
+              [
+                46.77,
+                44.53
+              ],
+              [
+                47,
+                44.67
+              ],
+              [
+                47.2,
+                44.84
+              ],
+              [
+                47.36,
+                45.05
+              ],
+              [
+                47.48,
+                45.3
+              ],
+              [
+                47.55,
+                45.57
+              ],
+              [
+                47.63,
+                45.96
+              ],
+              [
+                47.73,
+                46.35
+              ],
+              [
+                47.87,
+                46.72
+              ],
+              [
+                48.03,
+                47.08
+              ],
+              [
+                48.22,
+                47.43
+              ],
+              [
+                48.43,
+                47.76
+              ],
+              [
+                48.67,
+                48.08
+              ],
+              [
+                48.93,
+                48.38
+              ],
+              [
+                49.21,
+                48.65
+              ],
+              [
+                49.52,
+                48.91
+              ],
+              [
+                49.84,
+                49.14
+              ],
+              [
+                50.17,
+                49.34
+              ],
+              [
+                50.52,
+                49.52
+              ],
+              [
+                50.88,
+                49.67
+              ],
+              [
+                51.26,
+                49.79
+              ],
+              [
+                51.64,
+                49.88
+              ],
+              [
+                52.03,
+                49.95
+              ],
+              [
+                52.42,
+                49.98
+              ],
+              [
+                52.81,
+                49.98
+              ],
+              [
+                53.2,
+                49.95
+              ],
+              [
+                53.59,
+                49.9
+              ],
+              [
+                53.97,
+                49.81
+              ],
+              [
+                54.35,
+                49.69
+              ],
+              [
+                54.72,
+                49.55
+              ],
+              [
+                55.07,
+                49.37
+              ],
+              [
+                55.41,
+                49.17
+              ],
+              [
+                55.74,
+                48.95
+              ],
+              [
+                56.04,
+                48.7
+              ],
+              [
+                56.33,
+                48.43
+              ],
+              [
+                56.6,
+                48.14
+              ],
+              [
+                56.84,
+                47.83
+              ],
+              [
+                57.06,
+                47.49
+              ],
+              [
+                57.23,
+                47.27
+              ],
+              [
+                57.43,
+                47.09
+              ],
+              [
+                57.66,
+                46.96
+              ],
+              [
+                57.91,
+                46.87
+              ],
+              [
+                58.17,
+                46.84
+              ],
+              [
+                58.44,
+                46.85
+              ],
+              [
+                58.7,
+                46.92
+              ]
+            ],
+            [
+              [
+                76.94,
+                50.67
+              ],
+              [
+                77.16,
+                50.85
+              ],
+              [
+                77.34,
+                51.05
+              ],
+              [
+                77.46,
+                51.29
+              ],
+              [
+                77.55,
+                51.54
+              ],
+              [
+                77.58,
+                51.81
+              ],
+              [
+                77.56,
+                52.08
+              ],
+              [
+                77.49,
+                52.34
+              ],
+              [
+                77.37,
+                52.59
+              ],
+              [
+                77.03,
+                53.09
+              ],
+              [
+                76.65,
+                53.56
+              ],
+              [
+                76.25,
+                54
+              ],
+              [
+                75.81,
+                54.41
+              ],
+              [
+                75.34,
+                54.79
+              ],
+              [
+                74.85,
+                55.12
+              ],
+              [
+                74.33,
+                55.42
+              ],
+              [
+                73.79,
+                55.68
+              ],
+              [
+                73.23,
+                55.9
+              ],
+              [
+                72.66,
+                56.08
+              ],
+              [
+                72.08,
+                56.21
+              ],
+              [
+                71.5,
+                56.29
+              ],
+              [
+                70.9,
+                56.33
+              ],
+              [
+                70.31,
+                56.33
+              ],
+              [
+                69.72,
+                56.28
+              ],
+              [
+                69.13,
+                56.18
+              ],
+              [
+                68.54,
+                56.04
+              ],
+              [
+                67.98,
+                55.86
+              ],
+              [
+                67.43,
+                55.63
+              ],
+              [
+                66.9,
+                55.37
+              ],
+              [
+                66.39,
+                55.06
+              ],
+              [
+                65.9,
+                54.72
+              ],
+              [
+                65.44,
+                54.33
+              ],
+              [
+                65.01,
+                53.92
+              ],
+              [
+                64.61,
+                53.47
+              ],
+              [
+                64.24,
+                52.99
+              ],
+              [
+                63.91,
+                52.49
+              ],
+              [
+                63.63,
+                51.96
+              ],
+              [
+                63.38,
+                51.41
+              ],
+              [
+                63.17,
+                50.85
+              ],
+              [
+                63,
+                50.27
+              ],
+              [
+                62.88,
+                49.68
+              ],
+              [
+                62.86,
+                49.39
+              ],
+              [
+                62.89,
+                49.12
+              ],
+              [
+                62.98,
+                48.87
+              ],
+              [
+                63.11,
+                48.64
+              ],
+              [
+                63.28,
+                48.43
+              ],
+              [
+                63.49,
+                48.27
+              ],
+              [
+                63.73,
+                48.14
+              ],
+              [
+                63.99,
+                48.07
+              ],
+              [
+                64.27,
+                48.05
+              ],
+              [
+                64.54,
+                48.08
+              ],
+              [
+                64.79,
+                48.17
+              ],
+              [
+                65.02,
+                48.3
+              ],
+              [
+                65.22,
+                48.47
+              ],
+              [
+                65.38,
+                48.68
+              ],
+              [
+                65.5,
+                48.93
+              ],
+              [
+                65.58,
+                49.2
+              ],
+              [
+                65.66,
+                49.59
+              ],
+              [
+                65.77,
+                49.97
+              ],
+              [
+                65.9,
+                50.34
+              ],
+              [
+                66.07,
+                50.69
+              ],
+              [
+                66.25,
+                51.04
+              ],
+              [
+                66.47,
+                51.37
+              ],
+              [
+                66.71,
+                51.68
+              ],
+              [
+                66.97,
+                51.97
+              ],
+              [
+                67.25,
+                52.25
+              ],
+              [
+                67.55,
+                52.5
+              ],
+              [
+                67.87,
+                52.72
+              ],
+              [
+                68.21,
+                52.92
+              ],
+              [
+                68.55,
+                53.1
+              ],
+              [
+                68.91,
+                53.24
+              ],
+              [
+                69.28,
+                53.36
+              ],
+              [
+                69.66,
+                53.46
+              ],
+              [
+                70.05,
+                53.52
+              ],
+              [
+                70.44,
+                53.55
+              ],
+              [
+                70.83,
+                53.55
+              ],
+              [
+                71.21,
+                53.53
+              ],
+              [
+                71.6,
+                53.47
+              ],
+              [
+                71.98,
+                53.39
+              ],
+              [
+                72.35,
+                53.27
+              ],
+              [
+                72.72,
+                53.13
+              ],
+              [
+                73.07,
+                52.96
+              ],
+              [
+                73.41,
+                52.76
+              ],
+              [
+                73.73,
+                52.54
+              ],
+              [
+                74.04,
+                52.3
+              ],
+              [
+                74.32,
+                52.03
+              ],
+              [
+                74.59,
+                51.74
+              ],
+              [
+                74.83,
+                51.43
+              ],
+              [
+                75.05,
+                51.11
+              ],
+              [
+                75.22,
+                50.88
+              ],
+              [
+                75.43,
+                50.71
+              ],
+              [
+                75.66,
+                50.58
+              ],
+              [
+                75.91,
+                50.49
+              ],
+              [
+                76.17,
+                50.46
+              ],
+              [
+                76.44,
+                50.48
+              ],
+              [
+                76.7,
+                50.55
+              ]
+            ],
+            [
+              [
+                89.11,
+                58.55
+              ],
+              [
+                89.23,
+                58.8
+              ],
+              [
+                89.3,
+                59.07
+              ],
+              [
+                89.31,
+                59.34
+              ],
+              [
+                89.27,
+                59.6
+              ],
+              [
+                89.18,
+                59.85
+              ],
+              [
+                89.05,
+                60.08
+              ],
+              [
+                88.87,
+                60.29
+              ],
+              [
+                88.65,
+                60.46
+              ],
+              [
+                85.11,
+                62.42
+              ],
+              [
+                81.44,
+                64.03
+              ],
+              [
+                77.65,
+                65.28
+              ],
+              [
+                73.77,
+                66.17
+              ],
+              [
+                69.82,
+                66.69
+              ],
+              [
+                65.84,
+                66.83
+              ],
+              [
+                61.85,
+                66.61
+              ],
+              [
+                57.87,
+                66
+              ],
+              [
+                53.96,
+                65.01
+              ],
+              [
+                50.19,
+                63.67
+              ],
+              [
+                46.57,
+                61.99
+              ],
+              [
+                43.12,
+                59.98
+              ],
+              [
+                39.88,
+                57.65
+              ],
+              [
+                36.85,
+                55.03
+              ],
+              [
+                34.07,
+                52.11
+              ],
+              [
+                31.55,
+                48.93
+              ],
+              [
+                31.41,
+                48.69
+              ],
+              [
+                31.32,
+                48.43
+              ],
+              [
+                31.29,
+                48.16
+              ],
+              [
+                31.31,
+                47.9
+              ],
+              [
+                31.37,
+                47.64
+              ],
+              [
+                31.48,
+                47.39
+              ],
+              [
+                31.64,
+                47.18
+              ],
+              [
+                31.85,
+                46.99
+              ],
+              [
+                32.09,
+                46.84
+              ],
+              [
+                32.35,
+                46.76
+              ],
+              [
+                32.61,
+                46.72
+              ],
+              [
+                32.87,
+                46.74
+              ],
+              [
+                33.12,
+                46.8
+              ],
+              [
+                33.36,
+                46.92
+              ],
+              [
+                33.58,
+                47.08
+              ],
+              [
+                33.76,
+                47.29
+              ],
+              [
+                36.12,
+                50.27
+              ],
+              [
+                38.73,
+                53
+              ],
+              [
+                41.56,
+                55.46
+              ],
+              [
+                44.6,
+                57.63
+              ],
+              [
+                47.83,
+                59.52
+              ],
+              [
+                51.21,
+                61.09
+              ],
+              [
+                54.75,
+                62.35
+              ],
+              [
+                58.41,
+                63.27
+              ],
+              [
+                62.13,
+                63.84
+              ],
+              [
+                65.87,
+                64.05
+              ],
+              [
+                69.6,
+                63.91
+              ],
+              [
+                73.29,
+                63.43
+              ],
+              [
+                76.93,
+                62.6
+              ],
+              [
+                80.48,
+                61.43
+              ],
+              [
+                83.92,
+                59.92
+              ],
+              [
+                87.23,
+                58.08
+              ],
+              [
+                87.48,
+                57.96
+              ],
+              [
+                87.74,
+                57.9
+              ],
+              [
+                88.01,
+                57.88
+              ],
+              [
+                88.27,
+                57.92
+              ],
+              [
+                88.52,
+                58.01
+              ],
+              [
+                88.74,
+                58.14
+              ],
+              [
+                88.95,
+                58.32
+              ]
+            ]
+          ],
+          "notes": [
+            "a clip-path other than one rect is not applied"
+          ]
+        }
+      },
+      "status": "given",
+      "why": "decor element illustration-family-3: decor type illustration"
+    },
+    {
+      "key": "device:shape-w3-dw10",
+      "term": "E2:decor",
+      "from": [
+        "/decor/elements/4"
+      ],
+      "files": [
+        "assets/decorw/dw-0-0.svg"
+      ],
+      "given": {
+        "type": "shape",
+        "typeTerm": "E2:decor",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "often",
+        "allowedOn": [
+          "section",
+          "closing",
+          "quote",
+          "stat"
+        ],
+        "surfaces": [
+          "cream",
+          "white",
+          "blue",
+          "dark"
+        ],
+        "colorable": false
+      },
+      "measured": {
+        "box": {
+          "x": 50,
+          "y": 96.39,
+          "w": 50,
+          "h": 3.61
+        },
+        "opacity": 1,
+        "width": 1447,
+        "height": 52,
+        "geometry": {
+          "frame": "canvas",
+          "shapes": 1,
+          "areaShare": 1,
+          "angles": [],
+          "approx": false,
+          "bbox": {
+            "x": 50,
+            "y": 96.6,
+            "w": 50,
+            "h": 3.19
+          },
+          "canvasShare": 0.0181,
+          "polygons": [
+            [
+              [
+                50,
+                96.6
+              ],
+              [
+                100,
+                96.6
+              ],
+              [
+                100,
+                99.79
+              ],
+              [
+                50,
+                99.79
+              ]
+            ]
+          ]
+        }
+      },
+      "status": "given",
+      "why": "decor element shape-w3-dw10: decor type shape"
+    },
+    {
+      "key": "image:photo-people",
+      "term": "E2:picture",
+      "from": [
+        "/imagery/samples/4",
+        "/imagery/samples/8",
+        "/imagery/samples/26",
+        "/imagery/samples/44",
+        "/imagery/samples/45",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/img/photo-5.png",
+        "assets/img/photo-3.png",
+        "assets/decorw/dw-2-7.svg",
+        "assets/img/photo-8.png",
+        "assets/img/photo-9.png"
+      ],
+      "given": {
+        "treatments": [
+          "none"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#000000",
+          "opacity": 0.54,
+          "gradient": true,
+          "direction": "bottom",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "16:9",
+          "focus": "faces"
+        },
+        "tags": [
+          "bg:partial",
+          "decor-art",
+          "decor-type:illustration",
+          "inventory",
+          "kind:claude-vision",
+          "people",
+          "photo",
+          "portrait",
+          "role:decoration",
+          "role:photo",
+          "size:25x45",
+          "team",
+          "unused"
+        ]
+      },
+      "measured": {
+        "count": 5,
+        "aspects": [
+          0.86,
+          0.88,
+          1.17
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind photo-people"
+    },
+    {
+      "key": "image:photo-product",
+      "term": "E2:picture",
+      "from": [
+        "/imagery/samples/10",
+        "/imagery/samples/11",
+        "/imagery/samples/12",
+        "/imagery/samples/13",
+        "/imagery/samples/14",
+        "/imagery/samples/37",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/img/photo-7.png",
+        "assets/backgrounds/bg-1-src.png",
+        "assets/backgrounds/bg-1.png",
+        "assets/backgrounds/sec-1-src.png",
+        "assets/backgrounds/sec-1.png",
+        "assets/img/photo-1.png"
+      ],
+      "given": {
+        "treatments": [
+          "none"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#000000",
+          "opacity": 0.54,
+          "gradient": true,
+          "direction": "bottom",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "16:9",
+          "focus": "faces"
+        },
+        "tags": [
+          "background",
+          "bg:full",
+          "card",
+          "inventory",
+          "kind:claude-vision",
+          "layer:behind",
+          "photo",
+          "pos:full-bleed",
+          "role:background",
+          "role:photo",
+          "section-shot",
+          "section:sec7",
+          "size:90x87",
+          "size:93x93",
+          "source",
+          "unused"
+        ]
+      },
+      "measured": {
+        "count": 6,
+        "aspects": [
+          0.88,
+          1.33,
+          1.73,
+          1.87
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind photo-product"
+    },
+    {
+      "key": "image:product-ui",
+      "term": "E2:picture",
+      "from": [
+        "/imagery/samples/5",
+        "/imagery/samples/9",
+        "/imagery/samples/15",
+        "/imagery/samples/33",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/img/photo-6.png",
+        "assets/img/photo-18.png",
+        "assets/decorw/dw-0-1.svg",
+        "assets/elements/el-01.svg"
+      ],
+      "given": {
+        "treatments": [
+          "none"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#000000",
+          "opacity": 0.54,
+          "gradient": true,
+          "direction": "bottom",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "16:9",
+          "focus": "faces"
+        },
+        "tags": [
+          "bg:partial",
+          "card",
+          "decor-art",
+          "decor-candidate",
+          "decor-type:illustration",
+          "has-text",
+          "inventory",
+          "kind:claude-vision",
+          "pos:center-left",
+          "product",
+          "role:decoration",
+          "role:photo",
+          "role:ui",
+          "size:47x62"
+        ]
+      },
+      "measured": {
+        "count": 4,
+        "aspects": [
+          1.14,
+          1.19,
+          2.04
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind product-ui"
+    },
+    {
+      "key": "image:illustration",
+      "term": "E2:illustration",
+      "from": [
+        "/imagery/samples/0",
+        "/imagery/samples/1",
+        "/imagery/samples/2",
+        "/imagery/samples/3",
+        "/imagery/samples/6",
+        "/imagery/samples/7",
+        "/imagery/samples/16",
+        "/imagery/samples/17",
+        "/imagery/samples/21",
+        "/imagery/samples/22",
+        "/imagery/samples/23",
+        "/imagery/samples/24",
+        "/imagery/samples/25",
+        "/imagery/samples/30",
+        "/imagery/samples/31",
+        "/imagery/samples/81",
+        "/imagery/samples/82",
+        "/imagery/samples/83",
+        "/imagery/samples/84",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/img/photo-20.png",
+        "assets/img/photo-2.png",
+        "assets/img/photo-10.png",
+        "assets/img/photo-4.png",
+        "assets/img/photo-11.png",
+        "assets/img/photo-12.png",
+        "assets/decorw/dw-0-3.svg",
+        "assets/decorw/dw-0-4.svg",
+        "assets/decorw/dw-2-2.svg",
+        "assets/decorw/dw-2-3.svg",
+        "assets/decorw/dw-2-4.svg",
+        "assets/decorw/dw-2-5.svg",
+        "assets/decorw/dw-2-6.svg",
+        "assets/elements/dc-04.svg",
+        "assets/elements/dc-05.svg",
+        "assets/elements/family-1.svg",
+        "assets/decorw/dw-0-2.svg",
+        "assets/elements/dc-06.svg",
+        "assets/elements/dc-07.svg"
+      ],
+      "given": {
+        "treatments": [
+          "none"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#000000",
+          "opacity": 0.54,
+          "gradient": true,
+          "direction": "bottom",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "16:9",
+          "focus": "faces"
+        },
+        "tags": [
+          "bg:accent",
+          "bg:partial",
+          "bg:unmeasured",
+          "card",
+          "decor-art",
+          "decor-candidate",
+          "decor-type:illustration",
+          "element",
+          "element:illustration-family",
+          "element:illustration-family-1",
+          "element:illustration-family-2",
+          "element:illustration-family-3",
+          "has-text",
+          "hero",
+          "in-use",
+          "inventory",
+          "kind:claude-vision",
+          "kind:sol-vision",
+          "place",
+          "portrait",
+          "pos:bottom-left",
+          "pos:center",
+          "pos:top-left",
+          "pos:top-right",
+          "product",
+          "role:decoration",
+          "role:photo",
+          "size:19x37",
+          "size:22x55",
+          "size:28x0",
+          "size:8x25",
+          "size:9x29",
+          "size:9x30",
+          "texture",
+          "wide"
+        ]
+      },
+      "measured": {
+        "count": 19,
+        "aspects": [
+          0.73,
+          0.83,
+          1,
+          1.02,
+          1.19,
+          1.25,
+          1.78
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind illustration"
+    },
+    {
+      "key": "image:abstract",
+      "term": "E2:background-art",
+      "from": [
+        "/imagery/samples/18",
+        "/imagery/samples/20",
+        "/imagery/samples/28",
+        "/imagery/samples/29",
+        "/imagery/samples/43",
+        "/imagery/samples/85",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/decorw/dw-0-5.svg",
+        "assets/decorw/dw-2-1.svg",
+        "assets/elements/dc-02.svg",
+        "assets/elements/dc-03.svg",
+        "assets/img/photo-19.png",
+        "assets/decorw/dw-0-0.svg"
+      ],
+      "given": {
+        "treatments": [
+          "none"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#000000",
+          "opacity": 0.54,
+          "gradient": true,
+          "direction": "bottom",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "16:9",
+          "focus": "faces"
+        },
+        "tags": [
+          "bg:full",
+          "bg:strip",
+          "decor-art",
+          "decor-type:illustration",
+          "decor-type:rule",
+          "dropped",
+          "element",
+          "element:shape-w3-dw10",
+          "in-use",
+          "inventory",
+          "kind:claude-vision",
+          "kind:sol-vision",
+          "layer:behind",
+          "photo",
+          "pos:full-bleed",
+          "pos:top-center",
+          "role:decoration",
+          "role:photo",
+          "size:100x100",
+          "size:100x24",
+          "size:100x42"
+        ]
+      },
+      "measured": {
+        "count": 6,
+        "aspects": [
+          1.22,
+          1.71,
+          21.31,
+          27.83
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind abstract"
+    },
+    {
+      "key": "mask:none",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/none"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect"
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.none"
+    },
+    {
+      "key": "mask:rounded",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/rounded"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": 9
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.rounded"
+    },
+    {
+      "key": "mask:rounded-2",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/rounded-2"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": 12
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.rounded-2"
+    },
+    {
+      "key": "mask:square",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/square"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": 0
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.square"
+    },
+    {
+      "key": "mask:rounded-3",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/rounded-3"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": 16
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.rounded-3"
+    },
+    {
+      "key": "mask:blob",
+      "term": "E4:svg",
+      "from": [
+        "/imagery/masks/options/blob"
+      ],
+      "files": [
+        "assets/masks/mask-1.svg"
+      ],
+      "given": {
+        "type": "svg"
+      },
+      "measured": {
+        "areaShare": 0.963,
+        "shapes": 1,
+        "approx": true
+      },
+      "status": "given",
+      "why": "imagery.masks.options.blob"
+    },
+    {
+      "key": "colour-field:yellow",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/0",
+        "/backgrounds/variants/yellow"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "light",
+        "bg": "#FFCE00",
+        "text": "#2D2C2B",
+        "backgrounds": [
+          {
+            "id": "yellow",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.654,
+        "contrastText": 9.35,
+        "contrastHeading": 9.35,
+        "contrastAccent": 3.56
+      },
+      "status": "given",
+      "why": "surfaces[0] (yellow)"
+    },
+    {
+      "key": "colour-field:cream",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/1",
+        "/backgrounds/variants/cream"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "light",
+        "bg": "#F9F4F2",
+        "text": "#2D2C2B",
+        "backgrounds": [
+          {
+            "id": "cream",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.9125,
+        "contrastText": 12.78,
+        "contrastHeading": 12.78,
+        "contrastAccent": 4.87
+      },
+      "status": "given",
+      "why": "surfaces[1] (cream)"
+    },
+    {
+      "key": "colour-field:white",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/2",
+        "/backgrounds/variants/white"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "light",
+        "bg": "#FFFFFF",
+        "text": "#2D2C2B",
+        "backgrounds": [
+          {
+            "id": "white",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 1,
+        "contrastText": 13.94,
+        "contrastHeading": 13.94,
+        "contrastAccent": 5.31
+      },
+      "status": "given",
+      "why": "surfaces[2] (white)"
+    },
+    {
+      "key": "colour-field:blue",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/3",
+        "/backgrounds/variants/blue"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "dark",
+        "bg": "#0061EF",
+        "text": "#FFFFFF",
+        "backgrounds": [
+          {
+            "id": "blue",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.1478,
+        "contrastText": 5.31,
+        "contrastHeading": 5.31,
+        "contrastAccent": 3.56
+      },
+      "status": "given",
+      "why": "surfaces[3] (blue)"
+    },
+    {
+      "key": "colour-field:dark",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/4",
+        "/backgrounds/variants/dark"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "dark",
+        "bg": "#2D2C2B",
+        "text": "#FFFFFF",
+        "backgrounds": [
+          {
+            "id": "dark",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.0253,
+        "contrastText": 13.94,
+        "contrastHeading": 13.94,
+        "contrastAccent": 13.94
+      },
+      "status": "given",
+      "why": "surfaces[4] (dark)"
+    },
+    {
+      "key": "type-ladder",
+      "term": null,
+      "from": [
+        "/typography/roles/display/size",
+        "/typography/roles/h1/size",
+        "/typography/roles/h2/size",
+        "/typography/roles/h3/size",
+        "/typography/roles/body/size",
+        "/typography/roles/bodySmall/size",
+        "/typography/roles/caption/size",
+        "/typography/alignment"
+      ],
+      "files": [],
+      "given": {
+        "faces": {
+          "display": "Headspace Apercu",
+          "h1": "Headspace Apercu",
+          "h2": "Headspace Apercu",
+          "h3": "Headspace Apercu",
+          "body": "Headspace Apercu",
+          "bodyLarge": "Headspace Apercu",
+          "bodySmall": "Headspace Apercu",
+          "caption": "Headspace Apercu",
+          "eyebrow": "Headspace Apercu",
+          "label": "Headspace Apercu",
+          "stat": "Headspace Apercu",
+          "statLabel": "Headspace Apercu",
+          "quote": "Headspace Apercu",
+          "button": "Headspace Apercu",
+          "link": "Headspace Apercu",
+          "cardTitle": "Headspace Apercu",
+          "personName": "Headspace Apercu",
+          "personRole": "Headspace Apercu",
+          "meta": "Headspace Apercu",
+          "tableHead": "Headspace Apercu"
+        },
+        "alignment": {
+          "title": "left",
+          "body": "left",
+          "sectionTitle": "left"
+        }
+      },
+      "measured": {
+        "sizes": {
+          "display": 91.8,
+          "h1": 73.44,
+          "h2": 61.2,
+          "h3": 45.9,
+          "body": 27.54,
+          "bodySmall": 24.48,
+          "caption": 21.42
+        },
+        "steps": [
+          {
+            "from": "display",
+            "to": "h1",
+            "ratio": 1.25
+          },
+          {
+            "from": "h1",
+            "to": "h2",
+            "ratio": 1.2
+          },
+          {
+            "from": "h2",
+            "to": "h3",
+            "ratio": 1.333
+          },
+          {
+            "from": "h3",
+            "to": "body",
+            "ratio": 1.667
+          },
+          {
+            "from": "body",
+            "to": "bodySmall",
+            "ratio": 1.125
+          },
+          {
+            "from": "bodySmall",
+            "to": "caption",
+            "ratio": 1.143
+          }
+        ],
+        "titleToBody": 2.667,
+        "displayToBody": 3.333
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; typography.roles sizes (display > h1 > h2 > h3 > body > bodySmall > caption)"
+    },
+    {
+      "key": "weight-contrast",
+      "term": "E4:weight-run",
+      "from": [
+        "/typography/faces/heading/weights",
+        "/typography/faces/heading/files",
+        "/typography/faces/body/weights",
+        "/typography/faces/body/files"
+      ],
+      "files": [],
+      "given": {
+        "faces": [
+          "heading",
+          "body"
+        ]
+      },
+      "measured": {
+        "spread": 500,
+        "ranges": [
+          {
+            "face": "heading",
+            "min": 200,
+            "max": 700
+          },
+          {
+            "face": "body",
+            "min": 200,
+            "max": 700
+          }
+        ]
+      },
+      "status": "given",
+      "why": "a face offers weights >= 300 apart"
+    },
+    {
+      "key": "logo:full",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/full"
+      ],
+      "files": [
+        "assets/logo-1.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 192,
+        "height": 40,
+        "aspect": 4.8,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 0,
+          "w": 99.37,
+          "h": 100
+        },
+        "meanLuminance": 0.207,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.full"
+    },
+    {
+      "key": "logo:monoLight",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/monoLight"
+      ],
+      "files": [
+        "assets/logo-light.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 192,
+        "height": 40,
+        "aspect": 4.8,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 0,
+          "w": 99.37,
+          "h": 100
+        },
+        "meanLuminance": 0.672,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.monoLight"
+    },
+    {
+      "key": "component:card",
+      "term": "E2:card",
+      "from": [
+        "/components/cards"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "cards"
+        ],
+        "style": "outlined",
+        "styleTerm": "E4:outlined",
+        "recipes": [
+          {
+            "id": "stress-tiles",
+            "kind": "feature",
+            "term": "E3:items"
+          },
+          {
+            "id": "case-study-slider",
+            "kind": "case_study",
+            "term": "E3:items"
+          },
+          {
+            "id": "trending-photo-cards",
+            "kind": "feature",
+            "term": "E3:items"
+          },
+          {
+            "id": "team-profiles",
+            "kind": "team",
+            "term": "E3:people"
+          },
+          {
+            "id": "impact-stats",
+            "kind": "stat",
+            "term": "E3:kpis"
+          },
+          {
+            "id": "self-care-articles",
+            "kind": "blog",
+            "term": "E3:items"
+          }
+        ]
+      },
+      "measured": {
+        "recipes": 6
+      },
+      "status": "given",
+      "why": "components: cards"
+    },
+    {
+      "key": "component:chip",
+      "term": "E2:chip",
+      "from": [
+        "/components/chip"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "chip"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: chip"
+    },
+    {
+      "key": "component:button",
+      "term": "E2:button",
+      "from": [
+        "/components/button",
+        "/components/buttonSecondary",
+        "/components/buttonOutline",
+        "/components/ctaChevron"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "button",
+          "buttonSecondary",
+          "buttonOutline",
+          "ctaChevron"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: button, buttonSecondary, buttonOutline, ctaChevron"
+    },
+    {
+      "key": "component:avatar",
+      "term": "E2:avatar",
+      "from": [
+        "/components/avatar"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "avatar"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: avatar"
+    },
+    {
+      "key": "component:logos",
+      "term": "E3:logos",
+      "from": [
+        "/components/logoWall"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "logoWall"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: logoWall"
+    },
+    {
+      "key": "component:icon",
+      "term": "E2:icon",
+      "from": [
+        "/components/icons"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "icons"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: icons"
+    },
+    {
+      "key": "angle",
+      "term": null,
+      "from": [
+        "/decor/elements/1",
+        "/decor/elements/2",
+        "/decor/elements/3"
+      ],
+      "files": [
+        "assets/decorw/dw-0-2.svg",
+        "assets/elements/dc-06.svg",
+        "assets/elements/dc-07.svg"
+      ],
+      "given": {
+        "byAngle": {
+          "31": [
+            "illustration-family-1"
+          ],
+          "59": [
+            "illustration-family-3"
+          ],
+          "3.5": [
+            "illustration-family-2"
+          ],
+          "6.5": [
+            "illustration-family-3"
+          ],
+          "14.5": [
+            "illustration-family-3"
+          ],
+          "30.5": [
+            "illustration-family-3"
+          ],
+          "60.5": [
+            "illustration-family-3"
+          ],
+          "69.5": [
+            "illustration-family-1"
+          ],
+          "75.5": [
+            "illustration-family-3"
+          ],
+          "86.5": [
+            "illustration-family-2"
+          ]
+        }
+      },
+      "measured": {
+        "angles": [
+          3.5,
+          6.5,
+          14.5,
+          30.5,
+          31,
+          59,
+          60.5,
+          69.5,
+          75.5,
+          86.5
+        ],
+        "count": 10
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; straight painted edges at 3.5, 6.5, 14.5, 30.5, 31, 59, 60.5, 69.5, 75.5, 86.5 degrees from horizontal in illustration-family-1, illustration-family-2, illustration-family-3"
+    },
+    {
+      "key": "composition",
+      "term": null,
+      "from": [
+        "/composition"
+      ],
+      "files": [],
+      "given": {
+        "density": "balanced",
+        "titleEverySlide": true,
+        "sectionDividers": true
+      },
+      "measured": {
+        "minWhitespacePct": 30,
+        "maxElementsPerSlide": 6,
+        "maxAccentsPerSlide": 1
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; composition (density, whitespace, limits) as given"
+    },
+    {
+      "key": "motion",
+      "term": null,
+      "from": [
+        "/motion"
+      ],
+      "files": [],
+      "given": {
+        "transition": "fade",
+        "build": "none",
+        "easing": "ease-out"
+      },
+      "measured": {
+        "duration": 300,
+        "stagger": 80
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; motion as given"
+    }
+  ],
   "provenance": {
     "/id": {
       "source": "given",
@@ -18209,9 +24919,652 @@
       "source": "derived",
       "from": "BR-ASSET",
       "signal": "assets/"
+    },
+    "/claims/0": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/0 + assets/img/photo-20.png"
+    },
+    "/claims/1": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/1 + assets/img/photo-2.png"
+    },
+    "/claims/2": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/2 + assets/img/photo-10.png"
+    },
+    "/claims/3": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/3 + assets/img/photo-4.png"
+    },
+    "/claims/4": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/4 + assets/img/photo-5.png"
+    },
+    "/claims/5": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/5 + assets/img/photo-6.png"
+    },
+    "/claims/6": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/6 + assets/img/photo-11.png"
+    },
+    "/claims/7": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/7 + assets/img/photo-12.png"
+    },
+    "/claims/8": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/8 + assets/img/photo-3.png"
+    },
+    "/claims/9": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/9 + assets/img/photo-18.png"
+    },
+    "/claims/10": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/10 + assets/img/photo-7.png"
+    },
+    "/claims/11": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/11 + assets/backgrounds/bg-1-src.png"
+    },
+    "/claims/12": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/12 + assets/backgrounds/bg-1.png"
+    },
+    "/claims/13": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/13 + assets/backgrounds/sec-1-src.png"
+    },
+    "/claims/14": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/14 + assets/backgrounds/sec-1.png"
+    },
+    "/claims/15": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/15 + assets/decorw/dw-0-1.svg"
+    },
+    "/claims/16": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/16 + assets/decorw/dw-0-3.svg"
+    },
+    "/claims/17": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/17 + assets/decorw/dw-0-4.svg"
+    },
+    "/claims/18": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/18 + assets/decorw/dw-0-5.svg"
+    },
+    "/claims/19": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/19 + assets/decorw/dw-1-0.png"
+    },
+    "/claims/20": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/20 + assets/decorw/dw-2-1.svg"
+    },
+    "/claims/21": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/21 + assets/decorw/dw-2-2.svg"
+    },
+    "/claims/22": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/22 + assets/decorw/dw-2-3.svg"
+    },
+    "/claims/23": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/23 + assets/decorw/dw-2-4.svg"
+    },
+    "/claims/24": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/24 + assets/decorw/dw-2-5.svg"
+    },
+    "/claims/25": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/25 + assets/decorw/dw-2-6.svg"
+    },
+    "/claims/26": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/26 + assets/decorw/dw-2-7.svg"
+    },
+    "/claims/27": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/27 + assets/elements/dc-01.svg"
+    },
+    "/claims/28": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/28 + assets/elements/dc-02.svg"
+    },
+    "/claims/29": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/29 + assets/elements/dc-03.svg"
+    },
+    "/claims/30": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/30 + assets/elements/dc-04.svg"
+    },
+    "/claims/31": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/31 + assets/elements/dc-05.svg"
+    },
+    "/claims/32": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/32 + assets/elements/dc-08.svg"
+    },
+    "/claims/33": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/37 + assets/img/photo-1.png"
+    },
+    "/claims/34": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/38 + assets/img/photo-13.png"
+    },
+    "/claims/35": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/39 + assets/img/photo-14.png"
+    },
+    "/claims/36": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/40 + assets/img/photo-15.png"
+    },
+    "/claims/37": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/41 + assets/img/photo-16.png"
+    },
+    "/claims/38": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/42 + assets/img/photo-17.png"
+    },
+    "/claims/39": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/43 + assets/img/photo-19.png"
+    },
+    "/claims/40": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/44 + assets/img/photo-8.png"
+    },
+    "/claims/41": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/45 + assets/img/photo-9.png"
+    },
+    "/claims/42": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/78 + assets/logow-2.svg"
+    },
+    "/claims/43": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/79 + assets/logow-4.png"
+    },
+    "/claims/44": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/80 + assets/logow-shot-1.png"
+    },
+    "/claims/45": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/logos/variants/monoLight + assets/logo-light.svg"
+    },
+    "/claims/46": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/0/file + assets/elements/family-1.svg"
+    },
+    "/claims/47": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/1/file + assets/decorw/dw-0-2.svg"
+    },
+    "/claims/48": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/2/file + assets/elements/dc-06.svg"
+    },
+    "/claims/49": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/3/file + assets/elements/dc-07.svg"
+    },
+    "/claims/50": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/4/box + assets/decorw/dw-0-0.svg"
+    },
+    "/claims/51": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/4/file + assets/decorw/dw-0-0.svg"
+    },
+    "/claims/52": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/masks/options/blob + assets/masks/mask-1.svg"
+    },
+    "/capabilities/0": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/0"
+    },
+    "/capabilities/1": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/1"
+    },
+    "/capabilities/2": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/2"
+    },
+    "/capabilities/3": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/3"
+    },
+    "/capabilities/4": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/4"
+    },
+    "/capabilities/5": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/4 + /imagery/samples/8 + /imagery/samples/26 + /imagery/samples/44 + /imagery/samples/45 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/6": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/10 + /imagery/samples/11 + /imagery/samples/12 + /imagery/samples/13 + /imagery/samples/14 + /imagery/samples/37 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/7": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/5 + /imagery/samples/9 + /imagery/samples/15 + /imagery/samples/33 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/8": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/0 + /imagery/samples/1 + /imagery/samples/2 + /imagery/samples/3 + /imagery/samples/6 + /imagery/samples/7 + /imagery/samples/16 + /imagery/samples/17 + /imagery/samples/21 + /imagery/samples/22 + /imagery/samples/23 + /imagery/samples/24 + /imagery/samples/25 + /imagery/samples/30 + /imagery/samples/31 + /imagery/samples/81 + /imagery/samples/82 + /imagery/samples/83 + /imagery/samples/84 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/9": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/18 + /imagery/samples/20 + /imagery/samples/28 + /imagery/samples/29 + /imagery/samples/43 + /imagery/samples/85 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/10": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/none"
+    },
+    "/capabilities/11": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/rounded"
+    },
+    "/capabilities/12": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/rounded-2"
+    },
+    "/capabilities/13": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/square"
+    },
+    "/capabilities/14": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/rounded-3"
+    },
+    "/capabilities/15": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/blob"
+    },
+    "/capabilities/16": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/0 + /backgrounds/variants/yellow"
+    },
+    "/capabilities/17": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/1 + /backgrounds/variants/cream"
+    },
+    "/capabilities/18": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/2 + /backgrounds/variants/white"
+    },
+    "/capabilities/19": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/3 + /backgrounds/variants/blue"
+    },
+    "/capabilities/20": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/4 + /backgrounds/variants/dark"
+    },
+    "/capabilities/21": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/roles/display/size + /typography/roles/h1/size + /typography/roles/h2/size + /typography/roles/h3/size + /typography/roles/body/size + /typography/roles/bodySmall/size + /typography/roles/caption/size + /typography/alignment"
+    },
+    "/capabilities/22": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/faces/heading/weights + /typography/faces/heading/files + /typography/faces/body/weights + /typography/faces/body/files"
+    },
+    "/capabilities/23": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/full"
+    },
+    "/capabilities/24": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/monoLight"
+    },
+    "/capabilities/25": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/cards"
+    },
+    "/capabilities/26": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/chip"
+    },
+    "/capabilities/27": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/button + /components/buttonSecondary + /components/buttonOutline + /components/ctaChevron"
+    },
+    "/capabilities/28": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/avatar"
+    },
+    "/capabilities/29": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/logoWall"
+    },
+    "/capabilities/30": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/icons"
+    },
+    "/capabilities/31": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/1 + /decor/elements/2 + /decor/elements/3"
+    },
+    "/capabilities/32": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/composition"
+    },
+    "/capabilities/33": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/motion"
     }
   },
-  "questions": [],
+  "questions": [
+    {
+      "id": "claim.sample.11",
+      "pointer": "/imagery/samples/11",
+      "question": "The brand JSON's claim at /imagery/samples/11 does not match assets/backgrounds/bg-1-src.png: assets/backgrounds/bg-1-src.png: w 1344 vs 1032, h 718 vs 774, aspect 1.872 vs 1.333. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.12",
+      "pointer": "/imagery/samples/12",
+      "question": "The brand JSON's claim at /imagery/samples/12 does not match assets/backgrounds/bg-1.png: assets/backgrounds/bg-1.png: w 1344 vs 2688, h 718 vs 1436. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.18",
+      "pointer": "/imagery/samples/18",
+      "question": "The brand JSON's claim at /imagery/samples/18 does not match assets/decorw/dw-0-5.svg: assets/decorw/dw-0-5.svg: w 1440 vs 767, h 68 vs 36. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.19",
+      "pointer": "/imagery/samples/19",
+      "question": "The brand JSON's claim at /imagery/samples/19 does not match assets/decorw/dw-1-0.png: assets/decorw/dw-1-0.png: w 38 vs 76, h 81 vs 162. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.20",
+      "pointer": "/imagery/samples/20",
+      "question": "The brand JSON's claim at /imagery/samples/20 does not match assets/decorw/dw-2-1.svg: assets/decorw/dw-2-1.svg: w 1440 vs 2560, h 676 vs 1500, aspect 2.13 vs 1.707. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.21",
+      "pointer": "/imagery/samples/21",
+      "question": "The brand JSON's claim at /imagery/samples/21 does not match assets/decorw/dw-2-2.svg: assets/decorw/dw-2-2.svg: w 408 vs 570, h 408 vs 570. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.26",
+      "pointer": "/imagery/samples/26",
+      "question": "The brand JSON's claim at /imagery/samples/26 does not match assets/decorw/dw-2-7.svg: assets/decorw/dw-2-7.svg: w 356 vs 373, h 407 vs 426. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.37",
+      "pointer": "/imagery/samples/37",
+      "question": "The brand JSON's claim at /imagery/samples/37 does not match assets/img/photo-1.png: assets/img/photo-1.png: w 387 vs 1032, h 290 vs 774. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.38",
+      "pointer": "/imagery/samples/38",
+      "question": "The brand JSON's claim at /imagery/samples/38 does not match assets/img/photo-13.png: assets/img/photo-13.png: w 1440 vs 628, h 1848 vs 806. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.39",
+      "pointer": "/imagery/samples/39",
+      "question": "The brand JSON's claim at /imagery/samples/39 does not match assets/img/photo-14.png: assets/img/photo-14.png: w 1440 vs 628, h 1848 vs 806. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.40",
+      "pointer": "/imagery/samples/40",
+      "question": "The brand JSON's claim at /imagery/samples/40 does not match assets/img/photo-15.png: assets/img/photo-15.png: w 1440 vs 628, h 1848 vs 806. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.41",
+      "pointer": "/imagery/samples/41",
+      "question": "The brand JSON's claim at /imagery/samples/41 does not match assets/img/photo-16.png: assets/img/photo-16.png: w 1440 vs 628, h 1848 vs 806. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.42",
+      "pointer": "/imagery/samples/42",
+      "question": "The brand JSON's claim at /imagery/samples/42 does not match assets/img/photo-17.png: assets/img/photo-17.png: w 1440 vs 630, h 1842 vs 806. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.43",
+      "pointer": "/imagery/samples/43",
+      "question": "The brand JSON's claim at /imagery/samples/43 does not match assets/img/photo-19.png: assets/img/photo-19.png: w 1440 vs 659, h 1182 vs 541. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.44",
+      "pointer": "/imagery/samples/44",
+      "question": "The brand JSON's claim at /imagery/samples/44 does not match assets/img/photo-8.png: assets/img/photo-8.png: w 186 vs 373, h 213 vs 426. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.45",
+      "pointer": "/imagery/samples/45",
+      "question": "The brand JSON's claim at /imagery/samples/45 does not match assets/img/photo-9.png: assets/img/photo-9.png: w 186 vs 373, h 213 vs 426. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.78",
+      "pointer": "/imagery/samples/78",
+      "question": "The brand JSON's claim at /imagery/samples/78 does not match assets/logow-2.svg: assets/logow-2.svg: w 154 vs 192, h 32 vs 40. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.79",
+      "pointer": "/imagery/samples/79",
+      "question": "The brand JSON's claim at /imagery/samples/79 does not match assets/logow-4.png: assets/logow-4.png: w 318 vs 440, h 434 vs 600. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.80",
+      "pointer": "/imagery/samples/80",
+      "question": "The brand JSON's claim at /imagery/samples/80 does not match assets/logow-shot-1.png: assets/logow-shot-1.png: w 154 vs 308, h 32 vs 64. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.decorColours.illustration-family-1",
+      "pointer": "/assets/elements/1/file",
+      "question": "The brand JSON's claim at /assets/elements/1/file does not match assets/decorw/dw-0-2.svg: assets/decorw/dw-0-2.svg paints #141313 (nearest brand colour #2D2C2B, 42.7): not a brand colour. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.decorColours.illustration-family-2",
+      "pointer": "/assets/elements/2/file",
+      "question": "The brand JSON's claim at /assets/elements/2/file does not match assets/elements/dc-06.svg: assets/elements/dc-06.svg paints #141313 (nearest brand colour #2D2C2B, 42.7): not a brand colour. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.decorColours.illustration-family-3",
+      "pointer": "/assets/elements/3/file",
+      "question": "The brand JSON's claim at /assets/elements/3/file does not match assets/elements/dc-07.svg: assets/elements/dc-07.svg paints #FF7300 (nearest brand colour #FF7E1D, 31), #141313 (nearest brand colour #2D2C2B, 42.7): not a brand colour. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.decorAspect.shape-w3-dw10",
+      "pointer": "/assets/elements/4/box",
+      "question": "The brand JSON's claim at /assets/elements/4/box does not match assets/decorw/dw-0-0.svg: box 24.615 vs viewBox 27.827: 11.5 % off (tolerance 5 %). Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    }
+  ],
   "warnings": [
     {
       "pointer": "/icons/library",

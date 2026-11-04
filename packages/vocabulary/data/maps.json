@@ -6,7 +6,8 @@
     "content": "schemas/content.schema.json",
     "mood": "schemas/mood.schema.json",
     "brand": "schemas/brand-spec.schema.json",
-    "input": "schemas/input/brand-presentation-spec.schema.json"
+    "input": "schemas/input/brand-presentation-spec.schema.json",
+    "template": "schemas/template.schema.json"
   },
   "sources": {
     "deck.element.type": {
@@ -1580,6 +1581,698 @@
         }
       },
       "note": "where a gradient is used: on text it is a colour run; as a glow it is decor; on a border a frame; as an overlay a blend"
+    },
+    "template.element.role": {
+      "system": "template",
+      "at": ["template:#/$defs/role"],
+      "values": {
+        "big-number": {
+          "namespace": "E2",
+          "term": "big-number"
+        },
+        "label": {
+          "namespace": "E2",
+          "term": "label"
+        },
+        "bullet": {
+          "namespace": "E2",
+          "term": "bullet"
+        },
+        "heading": {
+          "namespace": "E2",
+          "term": "heading"
+        },
+        "body": {
+          "namespace": "E2",
+          "term": "body"
+        },
+        "description": {
+          "namespace": "E2",
+          "term": "description"
+        },
+        "paragraph": {
+          "namespace": "E2",
+          "term": "paragraph"
+        },
+        "legal": {
+          "namespace": "E2",
+          "term": "legal"
+        },
+        "source": {
+          "namespace": "E2",
+          "term": "source"
+        },
+        "page-number": {
+          "namespace": "E2",
+          "term": "page-number"
+        },
+        "footer-text": {
+          "namespace": "E2",
+          "term": "footer-text"
+        },
+        "date": {
+          "namespace": "E2",
+          "term": "date"
+        },
+        "placeholder": {
+          "namespace": "E2",
+          "term": "placeholder"
+        },
+        "contact": {
+          "namespace": "E2",
+          "term": "contact"
+        },
+        "authors": {
+          "namespace": "E2",
+          "term": "authors"
+        },
+        "quote-mark": {
+          "namespace": "E2",
+          "term": "quote-mark"
+        },
+        "attribution": {
+          "namespace": "E2",
+          "term": "attribution"
+        },
+        "caption": {
+          "namespace": "E2",
+          "term": "caption"
+        },
+        "decor-word": {
+          "namespace": "E2",
+          "term": "decor-word"
+        },
+        "title": {
+          "namespace": "E2",
+          "term": "title"
+        },
+        "subtitle": {
+          "namespace": "E2",
+          "term": "subtitle"
+        },
+        "eyebrow": {
+          "namespace": "E2",
+          "term": "eyebrow"
+        },
+        "unknown": {
+          "namespace": "E2",
+          "term": "unknown"
+        },
+        "device": {
+          "namespace": "E2",
+          "term": "device"
+        },
+        "background": {
+          "namespace": "E2",
+          "term": "background"
+        },
+        "background-art": {
+          "namespace": "E2",
+          "term": "background-art"
+        },
+        "brand-logo": {
+          "namespace": "E2",
+          "term": "brand-logo"
+        },
+        "partner-logo": {
+          "namespace": "E2",
+          "term": "partner-logo"
+        },
+        "logo-item": {
+          "namespace": "E2",
+          "term": "logo-item"
+        },
+        "chart-exhibit": {
+          "namespace": "E2",
+          "term": "chart-exhibit"
+        },
+        "diagram": {
+          "namespace": "E2",
+          "term": "diagram"
+        },
+        "illustration": {
+          "namespace": "E2",
+          "term": "illustration"
+        },
+        "table-exhibit": {
+          "namespace": "E2",
+          "term": "table-exhibit"
+        },
+        "watermark": {
+          "namespace": "E2",
+          "term": "watermark"
+        },
+        "cutout": {
+          "namespace": "E2",
+          "term": "cutout"
+        },
+        "hero-image": {
+          "namespace": "E2",
+          "term": "hero-image"
+        },
+        "avatar": {
+          "namespace": "E2",
+          "term": "avatar"
+        },
+        "picture": {
+          "namespace": "E2",
+          "term": "picture"
+        },
+        "icon": {
+          "namespace": "E2",
+          "term": "icon"
+        },
+        "sticker": {
+          "namespace": "E2",
+          "term": "sticker"
+        },
+        "badge": {
+          "namespace": "E2",
+          "term": "badge"
+        },
+        "chip": {
+          "namespace": "E2",
+          "term": "chip"
+        },
+        "button": {
+          "namespace": "E2",
+          "term": "button"
+        },
+        "callout": {
+          "namespace": "E2",
+          "term": "callout"
+        },
+        "pager": {
+          "namespace": "E2",
+          "term": "pager"
+        },
+        "tabs": {
+          "namespace": "E2",
+          "term": "tabs"
+        },
+        "marker": {
+          "namespace": "E2",
+          "term": "marker"
+        },
+        "connector": {
+          "namespace": "E2",
+          "term": "connector"
+        },
+        "divider": {
+          "namespace": "E2",
+          "term": "divider"
+        },
+        "rule": {
+          "namespace": "E2",
+          "term": "rule"
+        },
+        "frame": {
+          "namespace": "E2",
+          "term": "frame"
+        },
+        "cut-shape": {
+          "namespace": "E2",
+          "term": "cut-shape"
+        },
+        "band": {
+          "namespace": "E2",
+          "term": "band"
+        },
+        "panel": {
+          "namespace": "E2",
+          "term": "panel"
+        },
+        "card": {
+          "namespace": "E2",
+          "term": "card"
+        },
+        "decor": {
+          "namespace": "E2",
+          "term": "decor"
+        }
+      },
+      "note": "the element role IS the E2 term (the enum is the vocabulary)"
+    },
+    "template.category": {
+      "system": "template",
+      "at": ["template:#/$defs/category"],
+      "values": {
+        "cover-slide": {
+          "namespace": "E3",
+          "term": "cover-slide"
+        },
+        "agenda-slide": {
+          "namespace": "E3",
+          "term": "agenda-slide"
+        },
+        "cta-slide": {
+          "namespace": "E3",
+          "term": "cta-slide"
+        },
+        "legal-slide": {
+          "namespace": "E3",
+          "term": "legal-slide"
+        },
+        "back-cover-slide": {
+          "namespace": "E3",
+          "term": "back-cover-slide"
+        },
+        "quote-slide": {
+          "namespace": "E3",
+          "term": "quote-slide"
+        },
+        "section-slide": {
+          "namespace": "E3",
+          "term": "section-slide"
+        },
+        "kpi-slide": {
+          "namespace": "E3",
+          "term": "kpi-slide"
+        },
+        "chart-slide": {
+          "namespace": "E3",
+          "term": "chart-slide"
+        },
+        "table-slide": {
+          "namespace": "E3",
+          "term": "table-slide"
+        },
+        "text-slide": {
+          "namespace": "E3",
+          "term": "text-slide"
+        },
+        "cards-slide": {
+          "namespace": "E3",
+          "term": "cards-slide"
+        },
+        "team-slide": {
+          "namespace": "E3",
+          "term": "team-slide"
+        },
+        "image-text-slide": {
+          "namespace": "E3",
+          "term": "image-text-slide"
+        },
+        "blank-slide": {
+          "namespace": "E3",
+          "term": "blank-slide"
+        },
+        "bullets-slide": {
+          "namespace": "E3",
+          "term": "bullets-slide"
+        },
+        "two-column-slide": {
+          "namespace": "E3",
+          "term": "two-column-slide"
+        },
+        "comparison-slide": {
+          "namespace": "E3",
+          "term": "comparison-slide"
+        },
+        "diagram-slide": {
+          "namespace": "E3",
+          "term": "diagram-slide"
+        },
+        "timeline-slide": {
+          "namespace": "E3",
+          "term": "timeline-slide"
+        },
+        "steps-slide": {
+          "namespace": "E3",
+          "term": "steps-slide"
+        },
+        "logos-slide": {
+          "namespace": "E3",
+          "term": "logos-slide"
+        },
+        "image-slide": {
+          "namespace": "E3",
+          "term": "image-slide"
+        },
+        "unknown": {
+          "namespace": "E2",
+          "term": "unknown"
+        }
+      },
+      "note": "the category IS the E3 slide kind; unknown = no kind rule held (the vocabulary unknown)"
+    },
+    "template.element.primitive": {
+      "system": "template",
+      "at": ["template:#/$defs/primitive"],
+      "values": {
+        "line": {
+          "namespace": "E1",
+          "term": "line"
+        },
+        "text": {
+          "namespace": "E1",
+          "term": "text"
+        },
+        "image": {
+          "namespace": "E1",
+          "term": "image"
+        },
+        "shape": {
+          "namespace": "E1",
+          "term": "shape"
+        },
+        "chart": {
+          "namespace": "E1",
+          "term": "chart"
+        },
+        "table": {
+          "namespace": "E1",
+          "term": "table"
+        },
+        "group": {
+          "namespace": "E1",
+          "term": "group"
+        }
+      }
+    },
+    "template.element.treatment": {
+      "system": "template",
+      "at": ["template:#/$defs/treatment", "template:#/$defs/imageTreatment", "template:#/$defs/mask"],
+      "values": {
+        "device-frame": {
+          "namespace": "E4",
+          "term": "device-frame"
+        },
+        "transparent": {
+          "namespace": "E4",
+          "term": "transparent"
+        },
+        "clipped": {
+          "namespace": "E4",
+          "term": "clipped"
+        },
+        "collage": {
+          "namespace": "E4",
+          "term": "collage"
+        },
+        "background-image": {
+          "namespace": "E4",
+          "term": "background-image"
+        },
+        "full": {
+          "namespace": "E4",
+          "term": "full"
+        },
+        "side": {
+          "namespace": "E4",
+          "term": "side"
+        },
+        "rect": {
+          "namespace": "E4",
+          "term": "rect"
+        },
+        "ellipse": {
+          "namespace": "E4",
+          "term": "ellipse"
+        },
+        "polygon": {
+          "namespace": "E4",
+          "term": "polygon"
+        },
+        "svg": {
+          "namespace": "E4",
+          "term": "svg"
+        },
+        "text-mask": {
+          "namespace": "E4",
+          "term": "text-mask"
+        },
+        "glass": {
+          "namespace": "E4",
+          "term": "glass"
+        },
+        "accent": {
+          "namespace": "E4",
+          "term": "accent"
+        },
+        "elevated": {
+          "namespace": "E4",
+          "term": "elevated"
+        },
+        "outlined": {
+          "namespace": "E4",
+          "term": "outlined"
+        },
+        "filled": {
+          "namespace": "E4",
+          "term": "filled"
+        },
+        "flat": {
+          "namespace": "E4",
+          "term": "flat"
+        },
+        "none": {
+          "namespace": "E4",
+          "term": "none"
+        },
+        "solid": {
+          "namespace": "E4",
+          "term": "solid"
+        },
+        "linear-gradient": {
+          "namespace": "E4",
+          "term": "linear-gradient"
+        },
+        "radial-gradient": {
+          "namespace": "E4",
+          "term": "radial-gradient"
+        },
+        "conic-gradient": {
+          "namespace": "E4",
+          "term": "conic-gradient"
+        },
+        "mesh-gradient": {
+          "namespace": "E4",
+          "term": "mesh-gradient"
+        },
+        "gradient": {
+          "namespace": "E4",
+          "term": "gradient"
+        },
+        "pattern": {
+          "namespace": "E4",
+          "term": "pattern"
+        },
+        "texture": {
+          "namespace": "E4",
+          "term": "texture"
+        },
+        "image-fill": {
+          "namespace": "E4",
+          "term": "image-fill"
+        },
+        "video": {
+          "namespace": "E4",
+          "term": "video"
+        },
+        "face-run": {
+          "namespace": "E4",
+          "term": "face-run"
+        },
+        "weight-run": {
+          "namespace": "E4",
+          "term": "weight-run"
+        },
+        "colour-run": {
+          "namespace": "E4",
+          "term": "colour-run"
+        },
+        "angle": {
+          "namespace": "E4",
+          "term": "angle"
+        },
+        "behind": {
+          "namespace": "E4",
+          "term": "behind"
+        },
+        "front": {
+          "namespace": "E4",
+          "term": "front"
+        },
+        "bleed": {
+          "namespace": "E4",
+          "term": "bleed"
+        },
+        "blend": {
+          "namespace": "E4",
+          "term": "blend"
+        },
+        "case": {
+          "namespace": "E4",
+          "term": "case"
+        }
+      },
+      "note": "an element treatment, an image treatment and a mask are E4 terms"
+    },
+    "template.element.structure": {
+      "system": "template",
+      "at": ["template:#/$defs/structure"],
+      "values": {
+        "cell": {
+          "namespace": "E3",
+          "term": "cell"
+        },
+        "table-block": {
+          "namespace": "E3",
+          "term": "table-block"
+        },
+        "kpis": {
+          "namespace": "E3",
+          "term": "kpis"
+        },
+        "chart-block": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "paragraph-block": {
+          "namespace": "E3",
+          "term": "paragraph-block"
+        },
+        "points": {
+          "namespace": "E3",
+          "term": "points"
+        },
+        "quotes": {
+          "namespace": "E3",
+          "term": "quotes"
+        },
+        "people": {
+          "namespace": "E3",
+          "term": "people"
+        },
+        "logos": {
+          "namespace": "E3",
+          "term": "logos"
+        },
+        "image-block": {
+          "namespace": "E3",
+          "term": "image-block"
+        },
+        "timeline": {
+          "namespace": "E3",
+          "term": "timeline"
+        },
+        "process": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "subpoints": {
+          "namespace": "E3",
+          "term": "subpoints"
+        },
+        "compare": {
+          "namespace": "E3",
+          "term": "compare"
+        },
+        "items": {
+          "namespace": "E3",
+          "term": "items"
+        },
+        "header": {
+          "namespace": "E3",
+          "term": "header"
+        },
+        "item": {
+          "namespace": "E3",
+          "term": "item"
+        },
+        "grid": {
+          "namespace": "E3",
+          "term": "grid"
+        },
+        "column": {
+          "namespace": "E3",
+          "term": "column"
+        },
+        "band-zone": {
+          "namespace": "E3",
+          "term": "band-zone"
+        },
+        "stack": {
+          "namespace": "E3",
+          "term": "stack"
+        },
+        "gap-group": {
+          "namespace": "E3",
+          "term": "gap-group"
+        },
+        "zone": {
+          "namespace": "E3",
+          "term": "zone"
+        }
+      }
+    },
+    "template.device.layer": {
+      "system": "template",
+      "at": ["template:#/properties/intent/properties/device/anyOf/1/properties/layer"],
+      "values": {
+        "behind": {
+          "namespace": "E4",
+          "term": "behind"
+        },
+        "front": {
+          "namespace": "E4",
+          "term": "front"
+        }
+      }
+    },
+    "template.emphasis.carrier": {
+      "system": "template",
+      "at": ["template:#/properties/intent/properties/emphasis/properties/carrier"],
+      "values": {
+        "weight-run": {
+          "namespace": "E4",
+          "term": "weight-run"
+        },
+        "colour-field": {
+          "namespace": "E2",
+          "term": "panel"
+        },
+        "numeral": {
+          "namespace": "E2",
+          "term": "big-number"
+        }
+      },
+      "excludedValues": {
+        "size": "a measured size ratio (title : body >= 3.5), not a thing on the slide"
+      },
+      "note": "what carries a template emphasis: a run (E4), a panel holding text (E2), a big number (E2)"
+    },
+    "template.mark.part": {
+      "system": "template",
+      "at": ["template:#/$defs/element/properties/mark/properties/part"],
+      "values": {
+        "k": {
+          "namespace": "E2",
+          "term": "eyebrow"
+        },
+        "t": {
+          "namespace": "E2",
+          "term": "title"
+        },
+        "r": {
+          "namespace": "E2",
+          "term": "rule"
+        },
+        "src": {
+          "namespace": "E2",
+          "term": "source"
+        },
+        "ft": {
+          "namespace": "E2",
+          "term": "footer-text"
+        },
+        "lg": {
+          "namespace": "E2",
+          "term": "brand-logo"
+        }
+      },
+      "note": "the catalogue header part classes, as maps.catalogue.header"
     }
   },
   "keys": {
@@ -1864,7 +2557,15 @@
     "input:#/properties/locale/properties/currencyPosition": "export / locale / motion / page settings",
     "input:#/properties/motion/properties/transition": "export / locale / motion / page settings",
     "input:#/properties/motion/properties/build": "export / locale / motion / page settings",
-    "input:#/properties/layout/properties/aspect": "export / locale / motion / page settings"
+    "input:#/properties/layout/properties/aspect": "export / locale / motion / page settings",
+    "template:#/properties/schema/const": "the schema id (a version string)",
+    "template:#/properties/source/properties/kind": "where a record comes from (catalogue / authored): provenance, not a thing",
+    "template:#/properties/provenance/properties/source": "where a record comes from (catalogue / authored): provenance, not a thing",
+    "template:#/properties/zones/properties/split": "a measured relation of the text and visual zones (anatomy measurements.md), not a thing",
+    "template:#/properties/balance/properties/diagonal/anyOf/1/properties/side": "a measured balance (which diagonal carries the weight), not a thing",
+    "template:#/properties/options/items/properties/kind": "a variant of one composition (mirrored, dark ...), not a thing on the slide",
+    "template:#/$defs/side": "a slide side (margins open, bleed), not a thing",
+    "brand:#/properties/capabilities/items/properties/status": "a capability record status (given / offered): it names no element"
   },
   "catalogue": {
     "note": "The architect's map (V0 task): the catalogue marks (data-type, data-f, header classes) -> the term the vocabulary must identify. `none` = no block (the title container). A list accepts any of its terms (roadmap: timeline with year / period labels, process with step / phase labels; corrected by the coordinator 2026-11-04, as is point -> label).",

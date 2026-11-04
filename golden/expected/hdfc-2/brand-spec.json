@@ -2422,6 +2422,2183 @@
       "size": 69169
     }
   ],
+  "claims": [
+    {
+      "id": "photoArea.title",
+      "pointer": "/brandLayouts/0/composition/photoArea",
+      "inputPointer": "/layouts/0/composition/photoArea",
+      "file": "assets/elements/cover-bands.svg",
+      "claim": {
+        "photoArea": [
+          [
+            0,
+            0
+          ],
+          [
+            1061,
+            0
+          ],
+          [
+            741,
+            1080
+          ],
+          [
+            0,
+            1080
+          ]
+        ],
+        "device": "coverBands"
+      },
+      "measured": {
+        "vertexInsidePx": 0,
+        "vertexInsidePctW": 0,
+        "nearestEdge": [
+          [
+            1061,
+            0
+          ],
+          [
+            741,
+            1080
+          ]
+        ],
+        "edgeMaxDistancePx": 69.9,
+        "edgeMaxDistancePctW": 3.64,
+        "edgeMeanDistancePx": 2.93,
+        "edgeWithinShare": 0.969
+      },
+      "pass": false,
+      "tolerance": {
+        "vertexInsidePx": 19.2,
+        "edgeDistancePx": 38.4
+      },
+      "why": "photoArea vs assets/elements/cover-bands.svg (device coverBands): the edge nearest the device runs up to 3.64 % W from a painted edge (tolerance 2 %; 96.9 % of its length within)"
+    },
+    {
+      "id": "logoBox.title",
+      "pointer": "/brandLayouts/0/composition/logo",
+      "inputPointer": "/layouts/0/composition/logo",
+      "file": "assets/backgrounds/cover-art.jpg",
+      "claim": {
+        "variant": "monoLight",
+        "box": {
+          "x": 1233,
+          "y": 78,
+          "w": 608,
+          "h": 118
+        },
+        "background": "cover"
+      },
+      "measured": {
+        "variantExists": true,
+        "borderColour": "#0A4C8A",
+        "lockup": {
+          "x": 1233,
+          "y": 78,
+          "w": 609,
+          "h": 119
+        },
+        "fill": 1,
+        "beyondMargin": false
+      },
+      "pass": true,
+      "tolerance": {
+        "diff": 48,
+        "fill": 0.5,
+        "marginPx": 38.4
+      },
+      "why": "logo box vs assets/backgrounds/cover-art.jpg: the lockup (pixels unlike the ground colour #0A4C8A) fills 100 % of the box and stays within it"
+    },
+    {
+      "id": "sample.0",
+      "pointer": "/imagery/samples/0",
+      "inputPointer": "/imagery/samples/0",
+      "file": "assets/images/cover-businessman-chart.jpeg",
+      "claim": {
+        "w": 1246,
+        "h": 831,
+        "aspect": 1.5
+      },
+      "measured": {
+        "width": 1246,
+        "height": 831,
+        "aspect": 1.499,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/images/cover-businessman-chart.jpeg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.1",
+      "pointer": "/imagery/samples/1",
+      "inputPointer": "/imagery/samples/1",
+      "file": "assets/images/toc-laptop-desk.jpeg",
+      "claim": {
+        "w": 1175,
+        "h": 783,
+        "aspect": 1.5
+      },
+      "measured": {
+        "width": 1175,
+        "height": 783,
+        "aspect": 1.501,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/images/toc-laptop-desk.jpeg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.2",
+      "pointer": "/imagery/samples/2",
+      "inputPointer": "/imagery/samples/2",
+      "file": "assets/images/imagery-globe-tablet.jpeg",
+      "claim": {
+        "w": 321,
+        "h": 209,
+        "aspect": 1.54
+      },
+      "measured": {
+        "width": 321,
+        "height": 209,
+        "aspect": 1.536,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/images/imagery-globe-tablet.jpeg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.3",
+      "pointer": "/imagery/samples/3",
+      "inputPointer": "/imagery/samples/3",
+      "file": "assets/images/imagery-hand-chart.jpeg",
+      "claim": {
+        "w": 511,
+        "h": 213,
+        "aspect": 2.4
+      },
+      "measured": {
+        "width": 511,
+        "height": 213,
+        "aspect": 2.399,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/images/imagery-hand-chart.jpeg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.4",
+      "pointer": "/imagery/samples/4",
+      "inputPointer": "/imagery/samples/4",
+      "file": "assets/images/imagery-isometric-growth.jpeg",
+      "claim": {
+        "w": 276,
+        "h": 245,
+        "aspect": 1.13
+      },
+      "measured": {
+        "width": 276,
+        "height": 245,
+        "aspect": 1.127,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/images/imagery-isometric-growth.jpeg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.5",
+      "pointer": "/imagery/samples/5",
+      "inputPointer": "/imagery/samples/5",
+      "file": "assets/images/imagery-hologram-team.jpeg",
+      "claim": {
+        "w": 288,
+        "h": 216,
+        "aspect": 1.33
+      },
+      "measured": {
+        "width": 288,
+        "height": 216,
+        "aspect": 1.333,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/images/imagery-hologram-team.jpeg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.6",
+      "pointer": "/imagery/samples/6",
+      "inputPointer": "/imagery/samples/6",
+      "file": "assets/images/imagery-young-investors.jpeg",
+      "claim": {
+        "w": 494,
+        "h": 272,
+        "aspect": 1.82
+      },
+      "measured": {
+        "width": 494,
+        "height": 272,
+        "aspect": 1.816,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/images/imagery-young-investors.jpeg: the claimed size matches the file"
+    },
+    {
+      "id": "logoTone.monoDark",
+      "pointer": "/logos/variants/monoDark",
+      "inputPointer": "/brand/logos/monoDark",
+      "file": "assets/logos/hdfcsec-logo-bw.png",
+      "claim": {
+        "tone": "dark"
+      },
+      "measured": {
+        "meanLuminance": 0.669
+      },
+      "pass": false,
+      "tolerance": {
+        "maxLuminance": 0.4
+      },
+      "why": "monoDark assets/logos/hdfcsec-logo-bw.png: mean luminance of the opaque pixels 0.669 (dark needs <= 0.4)"
+    },
+    {
+      "id": "logoTone.monoLight",
+      "pointer": "/logos/variants/monoLight",
+      "inputPointer": "/brand/logos/monoLight",
+      "file": "assets/logos/hdfcsec-logo-reverse.png",
+      "claim": {
+        "tone": "light"
+      },
+      "measured": {
+        "meanLuminance": 0.427
+      },
+      "pass": false,
+      "tolerance": {
+        "minLuminance": 0.6
+      },
+      "why": "monoLight assets/logos/hdfcsec-logo-reverse.png: mean luminance of the opaque pixels 0.427 (light needs >= 0.6)"
+    },
+    {
+      "id": "decorAspect.headerStrip",
+      "pointer": "/decor/elements/0/box",
+      "inputPointer": "/assets/elements/0/box",
+      "file": "assets/elements/header-strip.svg",
+      "claim": {
+        "box": {
+          "x": 0,
+          "y": 0,
+          "w": 1920,
+          "h": 175
+        }
+      },
+      "measured": {
+        "boxAspect": 10.9714,
+        "viewBoxAspect": 11.0029,
+        "off": 0.0029
+      },
+      "pass": true,
+      "tolerance": {
+        "aspect": 0.05
+      },
+      "why": "box 10.971 vs viewBox 11.003: 0.3 % off (tolerance 5 %)"
+    },
+    {
+      "id": "decorColours.headerStrip",
+      "pointer": "/decor/elements/0/file",
+      "inputPointer": "/assets/elements/0/file",
+      "file": "assets/elements/header-strip.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": [
+          {
+            "hex": "#004B8D",
+            "nearest": "#004B8D",
+            "distance": 0
+          },
+          {
+            "hex": "#ED1C24",
+            "nearest": "#ED1C24",
+            "distance": 0
+          }
+        ]
+      },
+      "pass": true,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/elements/header-strip.svg: every painted colour is a brand colour"
+    },
+    {
+      "id": "decorAspect.headerBand",
+      "pointer": "/decor/elements/1/box",
+      "inputPointer": "/assets/elements/1/box",
+      "file": "assets/elements/header-band.svg",
+      "claim": {
+        "box": {
+          "x": 0,
+          "y": 0,
+          "w": 1282,
+          "h": 175
+        }
+      },
+      "measured": {
+        "boxAspect": 7.3257,
+        "viewBoxAspect": 7.345,
+        "off": 0.0026
+      },
+      "pass": true,
+      "tolerance": {
+        "aspect": 0.05
+      },
+      "why": "box 7.326 vs viewBox 7.345: 0.3 % off (tolerance 5 %)"
+    },
+    {
+      "id": "decorColours.headerBand",
+      "pointer": "/decor/elements/1/file",
+      "inputPointer": "/assets/elements/1/file",
+      "file": "assets/elements/header-band.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": [
+          {
+            "hex": "#004B8D",
+            "nearest": "#004B8D",
+            "distance": 0
+          },
+          {
+            "hex": "#ED1C24",
+            "nearest": "#ED1C24",
+            "distance": 0
+          }
+        ]
+      },
+      "pass": true,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/elements/header-band.svg: every painted colour is a brand colour"
+    },
+    {
+      "id": "decorAspect.coverBands",
+      "pointer": "/decor/elements/5/box",
+      "inputPointer": "/assets/elements/5/box",
+      "file": "assets/elements/cover-bands.svg",
+      "claim": {
+        "box": {
+          "x": 0,
+          "y": 0,
+          "w": 1920,
+          "h": 1080
+        }
+      },
+      "measured": {
+        "boxAspect": 1.7778,
+        "viewBoxAspect": 1.7778,
+        "off": 0
+      },
+      "pass": true,
+      "tolerance": {
+        "aspect": 0.05
+      },
+      "why": "box 1.778 vs viewBox 1.778: 0 % off (tolerance 5 %)"
+    },
+    {
+      "id": "decorColours.coverBands",
+      "pointer": "/decor/elements/5/file",
+      "inputPointer": "/assets/elements/5/file",
+      "file": "assets/elements/cover-bands.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": [
+          {
+            "hex": "#ED1C24",
+            "nearest": "#ED1C24",
+            "distance": 0
+          },
+          {
+            "hex": "#FFFFFF",
+            "nearest": "#FFFFFF",
+            "distance": 0
+          }
+        ]
+      },
+      "pass": true,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/elements/cover-bands.svg: every painted colour is a brand colour"
+    },
+    {
+      "id": "decorAspect.coverTint",
+      "pointer": "/decor/elements/6/box",
+      "inputPointer": "/assets/elements/6/box",
+      "file": "assets/elements/cover-tint.svg",
+      "claim": {
+        "box": {
+          "x": 0,
+          "y": 0,
+          "w": 1920,
+          "h": 1080
+        }
+      },
+      "measured": {
+        "boxAspect": 1.7778,
+        "viewBoxAspect": 1.7778,
+        "off": 0
+      },
+      "pass": true,
+      "tolerance": {
+        "aspect": 0.05
+      },
+      "why": "box 1.778 vs viewBox 1.778: 0 % off (tolerance 5 %)"
+    },
+    {
+      "id": "decorColours.coverTint",
+      "pointer": "/decor/elements/6/file",
+      "inputPointer": "/assets/elements/6/file",
+      "file": "assets/elements/cover-tint.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": [
+          {
+            "hex": "#ED1C24",
+            "nearest": "#ED1C24",
+            "distance": 0
+          }
+        ]
+      },
+      "pass": true,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/elements/cover-tint.svg: every painted colour is a brand colour"
+    },
+    {
+      "id": "decorAspect.titleSlash",
+      "pointer": "/decor/elements/7/box",
+      "inputPointer": "/assets/elements/7/box",
+      "file": "assets/elements/title-slash.svg",
+      "claim": {
+        "box": {
+          "x": 236,
+          "y": 37,
+          "w": 34,
+          "h": 103
+        }
+      },
+      "measured": {
+        "boxAspect": 0.3301,
+        "viewBoxAspect": 0.3324,
+        "off": 0.0068
+      },
+      "pass": true,
+      "tolerance": {
+        "aspect": 0.05
+      },
+      "why": "box 0.33 vs viewBox 0.332: 0.7 % off (tolerance 5 %)"
+    },
+    {
+      "id": "decorColours.titleSlash",
+      "pointer": "/decor/elements/7/file",
+      "inputPointer": "/assets/elements/7/file",
+      "file": "assets/elements/title-slash.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": [
+          {
+            "hex": "#ED1C24",
+            "nearest": "#ED1C24",
+            "distance": 0
+          }
+        ]
+      },
+      "pass": true,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/elements/title-slash.svg: every painted colour is a brand colour"
+    },
+    {
+      "id": "backgroundSurface.cover",
+      "pointer": "/backgrounds/variants/cover/surface",
+      "inputPointer": "/backgrounds/variants/cover/surface",
+      "file": "assets/backgrounds/cover-art.jpg",
+      "claim": {
+        "surface": "blue",
+        "bg": "#004B8D"
+      },
+      "measured": {
+        "share": 0.519
+      },
+      "pass": true,
+      "tolerance": {
+        "share": 0.2,
+        "rgbDistance": 40
+      },
+      "why": "51.9 % of assets/backgrounds/cover-art.jpg lies within RGB 40 of blue bg #004B8D (needs 20 %)"
+    },
+    {
+      "id": "backgroundSurface.starfield",
+      "pointer": "/backgrounds/variants/starfield/surface",
+      "inputPointer": "/backgrounds/variants/starfield/surface",
+      "file": "assets/backgrounds/starfield-blue.jpg",
+      "claim": {
+        "surface": "deep",
+        "bg": "#002354"
+      },
+      "measured": {
+        "share": 0.565
+      },
+      "pass": true,
+      "tolerance": {
+        "share": 0.2,
+        "rgbDistance": 40
+      },
+      "why": "56.5 % of assets/backgrounds/starfield-blue.jpg lies within RGB 40 of deep bg #002354 (needs 20 %)"
+    },
+    {
+      "id": "backgroundSurface.hero",
+      "pointer": "/backgrounds/variants/hero/surface",
+      "inputPointer": "/backgrounds/variants/hero/surface",
+      "file": "assets/images/cover-businessman-chart.jpeg",
+      "claim": {
+        "surface": "blue",
+        "bg": "#004B8D"
+      },
+      "measured": {},
+      "pass": null,
+      "tolerance": {
+        "share": 0.2,
+        "rgbDistance": 40
+      },
+      "why": "the variant gives an overlay: the surface colour comes from the overlay, not the image"
+    },
+    {
+      "id": "mask.slant",
+      "pointer": "/imagery/masks/options/slant",
+      "inputPointer": "/masks/options/slant",
+      "file": null,
+      "claim": {
+        "type": "polygon",
+        "points": "33.3,0 100,0 100,100 0,100"
+      },
+      "measured": {
+        "points": 4
+      },
+      "pass": true,
+      "tolerance": {
+        "minPoints": 3,
+        "range": [
+          0,
+          100
+        ]
+      },
+      "why": "4 points"
+    }
+  ],
+  "capabilities": [
+    {
+      "key": "device:headerStrip",
+      "term": "E2:device",
+      "from": [
+        "/decor/elements/0"
+      ],
+      "files": [
+        "assets/elements/header-strip.svg"
+      ],
+      "given": {
+        "type": "frame",
+        "typeTerm": "E2:frame",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "always",
+        "allowedOn": [
+          "content",
+          "twoColumn",
+          "cards",
+          "stat",
+          "chart",
+          "imageText",
+          "agenda",
+          "quote"
+        ],
+        "surfaces": [
+          "white"
+        ],
+        "colorable": false
+      },
+      "measured": {
+        "box": {
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 16.2
+        },
+        "opacity": 1,
+        "width": 1920,
+        "height": 175,
+        "geometry": {
+          "frame": "canvas",
+          "shapes": 2,
+          "areaShare": 0.6492,
+          "angles": [
+            73.5
+          ],
+          "approx": true,
+          "bbox": {
+            "x": 0,
+            "y": 0,
+            "w": 66.76,
+            "h": 16.2
+          },
+          "canvasShare": 0.1052,
+          "polygons": [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                16.2
+              ],
+              [
+                61.37,
+                16.2
+              ],
+              [
+                64.06,
+                0
+              ]
+            ],
+            [
+              [
+                64.57,
+                0
+              ],
+              [
+                61.88,
+                16.2
+              ],
+              [
+                64.06,
+                16.2
+              ],
+              [
+                66.76,
+                0
+              ]
+            ]
+          ],
+          "notes": [
+            "an embedded <image> is not measured"
+          ]
+        }
+      },
+      "status": "given",
+      "why": "decor element headerStrip: frequency always on content, twoColumn, cards, stat, chart, imageText, agenda, quote"
+    },
+    {
+      "key": "device:headerBand",
+      "term": "E2:decor",
+      "from": [
+        "/decor/elements/1"
+      ],
+      "files": [
+        "assets/elements/header-band.svg"
+      ],
+      "given": {
+        "type": "shape",
+        "typeTerm": "E2:decor",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "always",
+        "allowedOn": [],
+        "colorable": false
+      },
+      "measured": {
+        "box": {
+          "x": 0,
+          "y": 0,
+          "w": 66.77,
+          "h": 16.2
+        },
+        "opacity": 1,
+        "width": 1282,
+        "height": 175,
+        "geometry": {
+          "frame": "canvas",
+          "shapes": 2,
+          "areaShare": 0.9724,
+          "angles": [
+            73.5
+          ],
+          "approx": false,
+          "bbox": {
+            "x": 0,
+            "y": 0,
+            "w": 66.77,
+            "h": 16.2
+          },
+          "canvasShare": 0.1052,
+          "polygons": [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                16.2
+              ],
+              [
+                61.38,
+                16.2
+              ],
+              [
+                64.08,
+                0
+              ]
+            ],
+            [
+              [
+                64.58,
+                0
+              ],
+              [
+                61.89,
+                16.2
+              ],
+              [
+                64.08,
+                16.2
+              ],
+              [
+                66.77,
+                0
+              ]
+            ]
+          ]
+        }
+      },
+      "status": "given",
+      "why": "decor element headerBand: decor type shape"
+    },
+    {
+      "key": "device:leadRule",
+      "term": "E2:device",
+      "from": [
+        "/decor/elements/2"
+      ],
+      "files": [],
+      "given": {
+        "type": "rule",
+        "typeTerm": "E2:rule",
+        "layer": "front",
+        "layerTerm": "E4:front",
+        "frequency": "always",
+        "allowedOn": [
+          "content",
+          "twoColumn",
+          "cards",
+          "stat",
+          "chart",
+          "imageText",
+          "agenda",
+          "quote"
+        ],
+        "placement": "under-title",
+        "colorable": false,
+        "draw": {
+          "thickness": 2,
+          "length": 91,
+          "color": "#ED1C24"
+        }
+      },
+      "measured": {
+        "opacity": 1
+      },
+      "status": "given",
+      "why": "decor element leadRule: frequency always on content, twoColumn, cards, stat, chart, imageText, agenda, quote"
+    },
+    {
+      "key": "device:coverRule",
+      "term": "E2:device",
+      "from": [
+        "/decor/elements/3"
+      ],
+      "files": [],
+      "given": {
+        "type": "rule",
+        "typeTerm": "E2:rule",
+        "layer": "front",
+        "layerTerm": "E4:front",
+        "frequency": "always",
+        "allowedOn": [
+          "title"
+        ],
+        "placement": "under-title",
+        "colorable": false,
+        "draw": {
+          "thickness": 5,
+          "length": 80,
+          "color": "#ED1C24",
+          "align": "right"
+        }
+      },
+      "measured": {
+        "opacity": 1
+      },
+      "status": "given",
+      "why": "decor element coverRule: frequency always on title"
+    },
+    {
+      "key": "device:footerRule",
+      "term": "E2:decor",
+      "from": [
+        "/decor/elements/4"
+      ],
+      "files": [],
+      "given": {
+        "type": "shape",
+        "typeTerm": "E2:decor",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "always",
+        "allowedOn": [],
+        "colorable": true,
+        "draw": {
+          "color": "#231F20",
+          "solid": true
+        }
+      },
+      "measured": {
+        "box": {
+          "x": 4.43,
+          "y": 92.41,
+          "w": 91.15,
+          "h": 0.09
+        },
+        "opacity": 1
+      },
+      "status": "given",
+      "why": "decor element footerRule: decor type shape"
+    },
+    {
+      "key": "device:coverBands",
+      "term": "E2:device",
+      "from": [
+        "/decor/elements/5",
+        "/brandLayouts/0/composition/device"
+      ],
+      "files": [
+        "assets/elements/cover-bands.svg"
+      ],
+      "given": {
+        "type": "shape",
+        "typeTerm": "E2:decor",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "always",
+        "allowedOn": [
+          "section"
+        ],
+        "surfaces": [
+          "blue"
+        ],
+        "colorable": false,
+        "namedBy": [
+          "title"
+        ]
+      },
+      "measured": {
+        "box": {
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100
+        },
+        "opacity": 1,
+        "width": 1920,
+        "height": 1080,
+        "geometry": {
+          "frame": "canvas",
+          "shapes": 2,
+          "areaShare": 0.1053,
+          "angles": [
+            73.5
+          ],
+          "approx": false,
+          "bbox": {
+            "x": 23.3,
+            "y": 0,
+            "w": 31.95,
+            "h": 93.53
+          },
+          "canvasShare": 0.1053,
+          "polygons": [
+            [
+              [
+                44.65,
+                0
+              ],
+              [
+                29.06,
+                93.53
+              ],
+              [
+                39.67,
+                93.53
+              ],
+              [
+                55.25,
+                0
+              ]
+            ],
+            [
+              [
+                28.84,
+                56.63
+              ],
+              [
+                23.3,
+                89.87
+              ],
+              [
+                25.23,
+                89.87
+              ],
+              [
+                30.77,
+                56.63
+              ]
+            ]
+          ]
+        }
+      },
+      "status": "given",
+      "why": "decor element coverBands: named as the device of layout title (composition.device)"
+    },
+    {
+      "key": "device:coverTint",
+      "term": "E2:decor",
+      "from": [
+        "/decor/elements/6"
+      ],
+      "files": [
+        "assets/elements/cover-tint.svg"
+      ],
+      "given": {
+        "type": "shape",
+        "typeTerm": "E2:decor",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "always",
+        "allowedOn": [],
+        "colorable": false
+      },
+      "measured": {
+        "box": {
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100
+        },
+        "opacity": 1,
+        "width": 1920,
+        "height": 1080,
+        "geometry": {
+          "frame": "canvas",
+          "shapes": 1,
+          "areaShare": 0.0162,
+          "angles": [
+            73.5
+          ],
+          "approx": false,
+          "bbox": {
+            "x": 31.21,
+            "y": 0,
+            "w": 12.12,
+            "h": 54.91
+          },
+          "canvasShare": 0.0162,
+          "polygons": [
+            [
+              [
+                40.36,
+                0
+              ],
+              [
+                43.33,
+                0
+              ],
+              [
+                34.18,
+                54.91
+              ],
+              [
+                31.21,
+                54.91
+              ]
+            ]
+          ]
+        }
+      },
+      "status": "given",
+      "why": "decor element coverTint: decor type shape"
+    },
+    {
+      "key": "device:titleSlash",
+      "term": "E2:sticker",
+      "from": [
+        "/decor/elements/7"
+      ],
+      "files": [
+        "assets/elements/title-slash.svg"
+      ],
+      "given": {
+        "type": "sticker",
+        "typeTerm": "E2:sticker",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "always",
+        "allowedOn": [],
+        "colorable": false
+      },
+      "measured": {
+        "box": {
+          "x": 12.29,
+          "y": 3.43,
+          "w": 1.77,
+          "h": 9.54
+        },
+        "opacity": 1,
+        "width": 34,
+        "height": 103,
+        "geometry": {
+          "frame": "canvas",
+          "shapes": 1,
+          "areaShare": 0.1068,
+          "angles": [
+            73.5
+          ],
+          "approx": false,
+          "bbox": {
+            "x": 12.29,
+            "y": 3.46,
+            "w": 1.77,
+            "h": 9.47
+          },
+          "canvasShare": 0.0002,
+          "polygons": [
+            [
+              [
+                13.87,
+                3.46
+              ],
+              [
+                12.29,
+                12.93
+              ],
+              [
+                12.48,
+                12.93
+              ],
+              [
+                14.06,
+                3.46
+              ]
+            ]
+          ]
+        }
+      },
+      "status": "given",
+      "why": "decor element titleSlash: decor type sticker"
+    },
+    {
+      "key": "photo-area",
+      "term": "E3:zone",
+      "from": [
+        "/brandLayouts/0/composition/photoArea"
+      ],
+      "files": [],
+      "given": {
+        "layouts": [
+          {
+            "id": "title",
+            "polygon": [
+              [
+                0,
+                0
+              ],
+              [
+                55.26,
+                0
+              ],
+              [
+                38.59,
+                100
+              ],
+              [
+                0,
+                100
+              ]
+            ],
+            "areaShare": 0.4693,
+            "device": "coverBands"
+          }
+        ]
+      },
+      "measured": {
+        "layouts": 1
+      },
+      "status": "given",
+      "why": "brandLayouts[].composition.photoArea: where the photo shows, under the device"
+    },
+    {
+      "key": "overlay:coverTint",
+      "term": "E4:blend",
+      "from": [
+        "/brandLayouts/0/composition/overlays/0",
+        "/decor/elements/6"
+      ],
+      "files": [
+        "assets/elements/cover-tint.svg"
+      ],
+      "given": {
+        "blend": "multiply",
+        "layouts": [
+          {
+            "id": "title"
+          }
+        ]
+      },
+      "measured": {
+        "box": {
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100
+        },
+        "opacity": 1,
+        "layouts": 1
+      },
+      "status": "given",
+      "why": "brandLayouts[].composition.overlays: coverTint is drawn over the photo only"
+    },
+    {
+      "key": "text-zone",
+      "term": "E3:zone",
+      "from": [
+        "/brandLayouts/0/titleAlign",
+        "/brandLayouts/0/textPosition",
+        "/brandLayouts/0/textMaxWidth"
+      ],
+      "files": [],
+      "given": {
+        "layouts": [
+          {
+            "id": "title",
+            "titleAlign": "right",
+            "textPosition": "bottom",
+            "maxWidthPct": 42
+          }
+        ]
+      },
+      "measured": {
+        "layouts": 1
+      },
+      "status": "given",
+      "why": "the text zone of a layout with a composition (titleAlign / textPosition / textAnchor / textMaxWidth)"
+    },
+    {
+      "key": "image:photo-people",
+      "term": "E2:picture",
+      "from": [
+        "/imagery/samples/0",
+        "/imagery/samples/5",
+        "/imagery/samples/6",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/images/cover-businessman-chart.jpeg",
+        "assets/images/imagery-hologram-team.jpeg",
+        "assets/images/imagery-young-investors.jpeg"
+      ],
+      "given": {
+        "treatments": [
+          "none",
+          "desaturated"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#004B8D",
+          "opacity": 0.7,
+          "gradient": true,
+          "direction": "left",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "3:2",
+          "focus": "center"
+        },
+        "tags": [
+          "bleed",
+          "card",
+          "hero",
+          "wide"
+        ]
+      },
+      "measured": {
+        "count": 3,
+        "aspects": [
+          1.33,
+          1.5,
+          1.82
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind photo-people"
+    },
+    {
+      "key": "image:photo-product",
+      "term": "E2:picture",
+      "from": [
+        "/imagery/samples/1",
+        "/imagery/samples/2",
+        "/imagery/samples/3",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/images/toc-laptop-desk.jpeg",
+        "assets/images/imagery-globe-tablet.jpeg",
+        "assets/images/imagery-hand-chart.jpeg"
+      ],
+      "given": {
+        "treatments": [
+          "none",
+          "desaturated"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#004B8D",
+          "opacity": 0.7,
+          "gradient": true,
+          "direction": "left",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "3:2",
+          "focus": "center"
+        },
+        "tags": [
+          "card",
+          "section:features",
+          "wide"
+        ]
+      },
+      "measured": {
+        "count": 3,
+        "aspects": [
+          1.5,
+          1.54,
+          2.4
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind photo-product"
+    },
+    {
+      "key": "image:illustration",
+      "term": "E2:illustration",
+      "from": [
+        "/imagery/samples/4",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/images/imagery-isometric-growth.jpeg"
+      ],
+      "given": {
+        "treatments": [
+          "none",
+          "desaturated"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#004B8D",
+          "opacity": 0.7,
+          "gradient": true,
+          "direction": "left",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "3:2",
+          "focus": "center"
+        },
+        "tags": [
+          "card",
+          "square"
+        ]
+      },
+      "measured": {
+        "count": 1,
+        "aspects": [
+          1.13
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind illustration"
+    },
+    {
+      "key": "mask:rect",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/rect"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect"
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.rect"
+    },
+    {
+      "key": "mask:slant",
+      "term": "E4:polygon",
+      "from": [
+        "/imagery/masks/options/slant"
+      ],
+      "files": [],
+      "given": {
+        "type": "polygon"
+      },
+      "measured": {
+        "polygon": [
+          [
+            33.3,
+            0
+          ],
+          [
+            100,
+            0
+          ],
+          [
+            100,
+            100
+          ],
+          [
+            0,
+            100
+          ]
+        ],
+        "areaShare": 0.8335
+      },
+      "status": "given",
+      "why": "imagery.masks.options.slant"
+    },
+    {
+      "key": "colour-field:white",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/0"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "light",
+        "bg": "#FFFFFF",
+        "text": "#2D2E2D"
+      },
+      "measured": {
+        "bgLuminance": 1,
+        "contrastText": 13.63,
+        "contrastHeading": 8.78,
+        "contrastAccent": 4.55
+      },
+      "status": "given",
+      "why": "surfaces[0] (white)"
+    },
+    {
+      "key": "colour-field:blue",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/1",
+        "/backgrounds/variants/cover",
+        "/backgrounds/variants/sectionBands",
+        "/backgrounds/variants/blue",
+        "/backgrounds/variants/hero"
+      ],
+      "files": [
+        "assets/backgrounds/cover-art.jpg",
+        "assets/images/cover-businessman-chart.jpeg"
+      ],
+      "given": {
+        "kind": "surface",
+        "tone": "dark",
+        "bg": "#004B8D",
+        "text": "#FFFFFF",
+        "backgrounds": [
+          {
+            "id": "cover",
+            "type": "image",
+            "term": "E4:image-fill"
+          },
+          {
+            "id": "sectionBands",
+            "type": "solid",
+            "term": "E4:solid"
+          },
+          {
+            "id": "blue",
+            "type": "solid",
+            "term": "E4:solid"
+          },
+          {
+            "id": "hero",
+            "type": "image",
+            "term": "E4:image-fill"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.0696,
+        "contrastText": 8.78,
+        "contrastHeading": 8.78,
+        "contrastAccent": 4.98
+      },
+      "status": "given",
+      "why": "surfaces[1] (blue)"
+    },
+    {
+      "key": "colour-field:deep",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/2",
+        "/backgrounds/variants/starfield"
+      ],
+      "files": [
+        "assets/backgrounds/starfield-blue.jpg"
+      ],
+      "given": {
+        "kind": "surface",
+        "tone": "dark",
+        "bg": "#002354",
+        "text": "#FFFFFF",
+        "backgrounds": [
+          {
+            "id": "starfield",
+            "type": "image",
+            "term": "E4:image-fill"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.0184,
+        "contrastText": 15.35,
+        "contrastHeading": 8.7,
+        "contrastAccent": 8.7
+      },
+      "status": "given",
+      "why": "surfaces[2] (deep)"
+    },
+    {
+      "key": "type-ladder",
+      "term": null,
+      "from": [
+        "/typography/roles/display/size",
+        "/typography/roles/h1/size",
+        "/typography/roles/h2/size",
+        "/typography/roles/h3/size",
+        "/typography/roles/body/size",
+        "/typography/roles/bodySmall/size",
+        "/typography/roles/caption/size",
+        "/typography/alignment"
+      ],
+      "files": [],
+      "given": {
+        "faces": {
+          "display": "Roboto",
+          "h1": "Montserrat",
+          "h2": "Montserrat",
+          "h3": "Roboto",
+          "bodyLarge": "Roboto",
+          "body": "Montserrat",
+          "bodySmall": "Montserrat",
+          "caption": "Montserrat",
+          "footnote": "Montserrat",
+          "label": "Lato",
+          "eyebrow": "Roboto",
+          "stat": "Montserrat",
+          "factValue": "Montserrat",
+          "quote": "Roboto",
+          "button": "Montserrat",
+          "tagline": "PT Serif",
+          "closingTitle": "Roboto",
+          "disclaimer": "Roboto",
+          "disclaimerHead": "Roboto"
+        },
+        "alignment": {
+          "title": "left",
+          "body": "left"
+        }
+      },
+      "measured": {
+        "sizes": {
+          "display": 82,
+          "h1": 68,
+          "h2": 36,
+          "h3": 27,
+          "body": 27,
+          "bodySmall": 23,
+          "caption": 20
+        },
+        "steps": [
+          {
+            "from": "display",
+            "to": "h1",
+            "ratio": 1.206
+          },
+          {
+            "from": "h1",
+            "to": "h2",
+            "ratio": 1.889
+          },
+          {
+            "from": "h2",
+            "to": "h3",
+            "ratio": 1.333
+          },
+          {
+            "from": "h3",
+            "to": "body",
+            "ratio": 1
+          },
+          {
+            "from": "body",
+            "to": "bodySmall",
+            "ratio": 1.174
+          },
+          {
+            "from": "bodySmall",
+            "to": "caption",
+            "ratio": 1.15
+          }
+        ],
+        "titleToBody": 2.519,
+        "displayToBody": 3.037
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; typography.roles sizes (display > h1 > h2 > h3 > body > bodySmall > caption)"
+    },
+    {
+      "key": "second-face",
+      "term": "E4:face-run",
+      "from": [
+        "/typography/faces/page/family",
+        "/typography/faces/heading/family",
+        "/typography/faces/body/family",
+        "/typography/faces/data/family",
+        "/typography/faces/tagline/family"
+      ],
+      "files": [],
+      "given": {
+        "families": {
+          "Lato": [
+            "label"
+          ],
+          "Montserrat": [
+            "h1",
+            "h2",
+            "body",
+            "bodySmall",
+            "caption",
+            "footnote",
+            "stat",
+            "factValue",
+            "button"
+          ],
+          "PT Serif": [
+            "tagline"
+          ],
+          "Roboto": [
+            "display",
+            "h3",
+            "bodyLarge",
+            "eyebrow",
+            "quote",
+            "closingTitle",
+            "disclaimer",
+            "disclaimerHead"
+          ]
+        }
+      },
+      "measured": {
+        "families": 4
+      },
+      "status": "given",
+      "why": "the roles are set in 4 face families"
+    },
+    {
+      "key": "weight-contrast",
+      "term": "E4:weight-run",
+      "from": [
+        "/typography/faces/heading/weights",
+        "/typography/faces/heading/files",
+        "/typography/faces/body/weights",
+        "/typography/faces/body/files",
+        "/typography/faces/data/weights",
+        "/typography/faces/data/files",
+        "/typography/faces/page/weights",
+        "/typography/faces/page/files"
+      ],
+      "files": [],
+      "given": {
+        "faces": [
+          "heading",
+          "body",
+          "data",
+          "page"
+        ]
+      },
+      "measured": {
+        "spread": 800,
+        "ranges": [
+          {
+            "face": "heading",
+            "min": 100,
+            "max": 900
+          },
+          {
+            "face": "body",
+            "min": 100,
+            "max": 900
+          },
+          {
+            "face": "data",
+            "min": 400,
+            "max": 700
+          },
+          {
+            "face": "page",
+            "min": 100,
+            "max": 900
+          }
+        ]
+      },
+      "status": "given",
+      "why": "a face offers weights >= 300 apart"
+    },
+    {
+      "key": "logo:full",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/full"
+      ],
+      "files": [
+        "assets/logos/hdfcsec-logo-full.png"
+      ],
+      "given": {},
+      "measured": {
+        "width": 2506,
+        "height": 492,
+        "aspect": 5.093,
+        "opaqueBbox": {
+          "x": 0.16,
+          "y": 0.81,
+          "w": 99.68,
+          "h": 98.37
+        },
+        "meanLuminance": 0.335
+      },
+      "status": "given",
+      "why": "logos.variants.full"
+    },
+    {
+      "key": "logo:wordmark",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/wordmark"
+      ],
+      "files": [
+        "assets/logos/hdfcsec-logotype.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 652,
+        "height": 174,
+        "aspect": 3.747,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 97.67
+        },
+        "meanLuminance": 0.349,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.wordmark"
+    },
+    {
+      "key": "logo:icon",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/icon"
+      ],
+      "files": [
+        "assets/logos/hdfcsec-mark.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 107,
+        "height": 107,
+        "aspect": 1,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 0,
+          "w": 99.37,
+          "h": 100
+        },
+        "meanLuminance": 0.495
+      },
+      "status": "given",
+      "why": "logos.variants.icon"
+    },
+    {
+      "key": "logo:monoDark",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/monoDark"
+      ],
+      "files": [
+        "assets/logos/hdfcsec-logo-bw.png"
+      ],
+      "given": {},
+      "measured": {
+        "width": 1843,
+        "height": 438,
+        "aspect": 4.208,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100
+        },
+        "meanLuminance": 0.669
+      },
+      "status": "given",
+      "why": "logos.variants.monoDark"
+    },
+    {
+      "key": "logo:monoLight",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/monoLight",
+        "/brandLayouts/0/composition/logo"
+      ],
+      "files": [
+        "assets/logos/hdfcsec-logo-reverse.png"
+      ],
+      "given": {
+        "placements": [
+          {
+            "layout": "title",
+            "box": {
+              "x": 64.22,
+              "y": 7.22,
+              "w": 31.67,
+              "h": 10.93
+            }
+          }
+        ]
+      },
+      "measured": {
+        "width": 1809,
+        "height": 361,
+        "aspect": 5.011,
+        "opaqueBbox": {
+          "x": 0.28,
+          "y": 1.39,
+          "w": 99.5,
+          "h": 97.51
+        },
+        "meanLuminance": 0.427
+      },
+      "status": "given",
+      "why": "logos.variants.monoLight"
+    },
+    {
+      "key": "logo:reverse",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/reverse"
+      ],
+      "files": [
+        "assets/logos/hdfcsec-logo-reverse.png"
+      ],
+      "given": {},
+      "measured": {
+        "width": 1809,
+        "height": 361,
+        "aspect": 5.011,
+        "opaqueBbox": {
+          "x": 0.28,
+          "y": 1.39,
+          "w": 99.5,
+          "h": 97.51
+        },
+        "meanLuminance": 0.427
+      },
+      "status": "given",
+      "why": "logos.variants.reverse"
+    },
+    {
+      "key": "component:card",
+      "term": "E2:card",
+      "from": [
+        "/components/cards"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "cards"
+        ],
+        "style": "outlined",
+        "styleTerm": "E4:outlined",
+        "recipes": [
+          {
+            "id": "hs-product-tile",
+            "kind": "feature",
+            "term": "E3:items"
+          },
+          {
+            "id": "hs-feature",
+            "kind": "feature",
+            "term": "E3:items"
+          },
+          {
+            "id": "hs-fact",
+            "kind": "stat",
+            "term": "E3:kpis"
+          },
+          {
+            "id": "hs-disclaimer-box",
+            "kind": "other",
+            "term": "unknown"
+          }
+        ]
+      },
+      "measured": {
+        "recipes": 4
+      },
+      "status": "given",
+      "why": "components: cards"
+    },
+    {
+      "key": "component:chip",
+      "term": "E2:chip",
+      "from": [
+        "/components/chip"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "chip"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: chip"
+    },
+    {
+      "key": "component:callout",
+      "term": "E2:callout",
+      "from": [
+        "/components/callout"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "callout"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: callout"
+    },
+    {
+      "key": "component:quotes",
+      "term": "E3:quotes",
+      "from": [
+        "/components/quote"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "quote"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: quote"
+    },
+    {
+      "key": "component:divider",
+      "term": "E2:divider",
+      "from": [
+        "/components/divider"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "divider"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: divider"
+    },
+    {
+      "key": "component:process",
+      "term": "E3:process",
+      "from": [
+        "/components/steps"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "steps"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: steps"
+    },
+    {
+      "key": "component:timeline",
+      "term": "E3:timeline",
+      "from": [
+        "/components/timeline"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "timeline"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: timeline"
+    },
+    {
+      "key": "component:button",
+      "term": "E2:button",
+      "from": [
+        "/components/button",
+        "/components/buttonSecondary"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "button",
+          "buttonSecondary"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: button, buttonSecondary"
+    },
+    {
+      "key": "component:pager",
+      "term": "E2:pager",
+      "from": [
+        "/components/pager"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "pager"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: pager"
+    },
+    {
+      "key": "component:badge",
+      "term": "E2:badge",
+      "from": [
+        "/components/badge"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "badge"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: badge"
+    },
+    {
+      "key": "component:people",
+      "term": "E3:people",
+      "from": [
+        "/components/team"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "team"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: team"
+    },
+    {
+      "key": "component:icon",
+      "term": "E2:icon",
+      "from": [
+        "/components/icons"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "icons"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: icons"
+    },
+    {
+      "key": "angle",
+      "term": null,
+      "from": [
+        "/decor/elements/0",
+        "/decor/elements/1",
+        "/decor/elements/5",
+        "/decor/elements/6",
+        "/decor/elements/7"
+      ],
+      "files": [
+        "assets/elements/header-strip.svg",
+        "assets/elements/header-band.svg",
+        "assets/elements/cover-bands.svg",
+        "assets/elements/cover-tint.svg",
+        "assets/elements/title-slash.svg"
+      ],
+      "given": {
+        "byAngle": {
+          "73.5": [
+            "headerStrip",
+            "headerBand",
+            "coverBands",
+            "coverTint",
+            "titleSlash"
+          ]
+        }
+      },
+      "measured": {
+        "angles": [
+          73.5
+        ],
+        "count": 1
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; straight painted edges at 73.5 degrees from horizontal in headerStrip, headerBand, coverBands, coverTint, titleSlash"
+    },
+    {
+      "key": "composition",
+      "term": null,
+      "from": [
+        "/composition"
+      ],
+      "files": [],
+      "given": {
+        "density": "balanced",
+        "titleEverySlide": true,
+        "sectionDividers": true
+      },
+      "measured": {
+        "minWhitespacePct": 30,
+        "maxElementsPerSlide": 6,
+        "maxAccentsPerSlide": 1
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; composition (density, whitespace, limits) as given"
+    },
+    {
+      "key": "motion",
+      "term": null,
+      "from": [
+        "/motion"
+      ],
+      "files": [],
+      "given": {
+        "transition": "fade",
+        "build": "none",
+        "easing": "ease-out"
+      },
+      "measured": {
+        "duration": 300,
+        "stagger": 80
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; motion as given"
+    }
+  ],
   "provenance": {
     "/id": {
       "source": "given",
@@ -11121,6 +13298,346 @@
       "source": "derived",
       "from": "BR-ASSET",
       "signal": "assets/"
+    },
+    "/claims/0": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/brandLayouts/0/composition/photoArea + assets/elements/cover-bands.svg"
+    },
+    "/claims/1": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/brandLayouts/0/composition/logo + assets/backgrounds/cover-art.jpg"
+    },
+    "/claims/2": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/0 + assets/images/cover-businessman-chart.jpeg"
+    },
+    "/claims/3": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/1 + assets/images/toc-laptop-desk.jpeg"
+    },
+    "/claims/4": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/2 + assets/images/imagery-globe-tablet.jpeg"
+    },
+    "/claims/5": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/3 + assets/images/imagery-hand-chart.jpeg"
+    },
+    "/claims/6": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/4 + assets/images/imagery-isometric-growth.jpeg"
+    },
+    "/claims/7": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/5 + assets/images/imagery-hologram-team.jpeg"
+    },
+    "/claims/8": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/6 + assets/images/imagery-young-investors.jpeg"
+    },
+    "/claims/9": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/logos/variants/monoDark + assets/logos/hdfcsec-logo-bw.png"
+    },
+    "/claims/10": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/logos/variants/monoLight + assets/logos/hdfcsec-logo-reverse.png"
+    },
+    "/claims/11": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/0/box + assets/elements/header-strip.svg"
+    },
+    "/claims/12": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/0/file + assets/elements/header-strip.svg"
+    },
+    "/claims/13": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/1/box + assets/elements/header-band.svg"
+    },
+    "/claims/14": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/1/file + assets/elements/header-band.svg"
+    },
+    "/claims/15": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/5/box + assets/elements/cover-bands.svg"
+    },
+    "/claims/16": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/5/file + assets/elements/cover-bands.svg"
+    },
+    "/claims/17": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/6/box + assets/elements/cover-tint.svg"
+    },
+    "/claims/18": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/6/file + assets/elements/cover-tint.svg"
+    },
+    "/claims/19": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/7/box + assets/elements/title-slash.svg"
+    },
+    "/claims/20": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/7/file + assets/elements/title-slash.svg"
+    },
+    "/claims/21": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/backgrounds/variants/cover/surface + assets/backgrounds/cover-art.jpg"
+    },
+    "/claims/22": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/backgrounds/variants/starfield/surface + assets/backgrounds/starfield-blue.jpg"
+    },
+    "/claims/23": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/backgrounds/variants/hero/surface + assets/images/cover-businessman-chart.jpeg"
+    },
+    "/claims/24": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/masks/options/slant"
+    },
+    "/capabilities/0": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/0"
+    },
+    "/capabilities/1": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/1"
+    },
+    "/capabilities/2": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/2"
+    },
+    "/capabilities/3": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/3"
+    },
+    "/capabilities/4": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/4"
+    },
+    "/capabilities/5": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/5 + /brandLayouts/0/composition/device"
+    },
+    "/capabilities/6": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/6"
+    },
+    "/capabilities/7": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/7"
+    },
+    "/capabilities/8": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/brandLayouts/0/composition/photoArea"
+    },
+    "/capabilities/9": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/brandLayouts/0/composition/overlays/0 + /decor/elements/6"
+    },
+    "/capabilities/10": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/brandLayouts/0/titleAlign + /brandLayouts/0/textPosition + /brandLayouts/0/textMaxWidth"
+    },
+    "/capabilities/11": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/0 + /imagery/samples/5 + /imagery/samples/6 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/12": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/1 + /imagery/samples/2 + /imagery/samples/3 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/13": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/4 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/14": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/rect"
+    },
+    "/capabilities/15": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/slant"
+    },
+    "/capabilities/16": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/0"
+    },
+    "/capabilities/17": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/1 + /backgrounds/variants/cover + /backgrounds/variants/sectionBands + /backgrounds/variants/blue + /backgrounds/variants/hero"
+    },
+    "/capabilities/18": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/2 + /backgrounds/variants/starfield"
+    },
+    "/capabilities/19": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/roles/display/size + /typography/roles/h1/size + /typography/roles/h2/size + /typography/roles/h3/size + /typography/roles/body/size + /typography/roles/bodySmall/size + /typography/roles/caption/size + /typography/alignment"
+    },
+    "/capabilities/20": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/faces/page/family + /typography/faces/heading/family + /typography/faces/body/family + /typography/faces/data/family + /typography/faces/tagline/family"
+    },
+    "/capabilities/21": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/faces/heading/weights + /typography/faces/heading/files + /typography/faces/body/weights + /typography/faces/body/files + /typography/faces/data/weights + /typography/faces/data/files + /typography/faces/page/weights + /typography/faces/page/files"
+    },
+    "/capabilities/22": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/full"
+    },
+    "/capabilities/23": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/wordmark"
+    },
+    "/capabilities/24": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/icon"
+    },
+    "/capabilities/25": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/monoDark"
+    },
+    "/capabilities/26": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/monoLight + /brandLayouts/0/composition/logo"
+    },
+    "/capabilities/27": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/reverse"
+    },
+    "/capabilities/28": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/cards"
+    },
+    "/capabilities/29": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/chip"
+    },
+    "/capabilities/30": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/callout"
+    },
+    "/capabilities/31": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/quote"
+    },
+    "/capabilities/32": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/divider"
+    },
+    "/capabilities/33": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/steps"
+    },
+    "/capabilities/34": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/timeline"
+    },
+    "/capabilities/35": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/button + /components/buttonSecondary"
+    },
+    "/capabilities/36": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/pager"
+    },
+    "/capabilities/37": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/badge"
+    },
+    "/capabilities/38": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/team"
+    },
+    "/capabilities/39": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/icons"
+    },
+    "/capabilities/40": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/0 + /decor/elements/1 + /decor/elements/5 + /decor/elements/6 + /decor/elements/7"
+    },
+    "/capabilities/41": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/composition"
+    },
+    "/capabilities/42": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/motion"
     }
   },
   "questions": [
@@ -11143,6 +13660,33 @@
         "BR-METRICS"
       ],
       "severity": "blocking"
+    },
+    {
+      "id": "claim.photoArea.title",
+      "pointer": "/layouts/0/composition/photoArea",
+      "question": "The brand JSON's claim at /layouts/0/composition/photoArea does not match assets/elements/cover-bands.svg: photoArea vs assets/elements/cover-bands.svg (device coverBands): the edge nearest the device runs up to 3.64 % W from a painted edge (tolerance 2 %; 96.9 % of its length within). Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.logoTone.monoDark",
+      "pointer": "/brand/logos/monoDark",
+      "question": "The brand JSON's claim at /brand/logos/monoDark does not match assets/logos/hdfcsec-logo-bw.png: monoDark assets/logos/hdfcsec-logo-bw.png: mean luminance of the opaque pixels 0.669 (dark needs <= 0.4). Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.logoTone.monoLight",
+      "pointer": "/brand/logos/monoLight",
+      "question": "The brand JSON's claim at /brand/logos/monoLight does not match assets/logos/hdfcsec-logo-reverse.png: monoLight assets/logos/hdfcsec-logo-reverse.png: mean luminance of the opaque pixels 0.427 (light needs >= 0.6). Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
     }
   ],
   "warnings": [

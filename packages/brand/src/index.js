@@ -1,9 +1,12 @@
 /**
  * @pb/brand: brand folder -> BrandSpec (schemas/brand-spec.schema.json), by the rules of docs/P1-rules.md §A:
- * BR-READ, BR-NORMALIZE, BR-TONE, BR-FONTFILES, BR-METRICS, BR-ASSET, BR-QUESTIONS.
+ * BR-READ, BR-NORMALIZE, BR-TONE, BR-FONTFILES, BR-METRICS, BR-ASSET, BR-QUESTIONS, BR-CLAIMS, BR-CAPABILITIES.
  */
 import { basename } from 'node:path';
 import { iconSet, inspectAsset, unreferencedAssets } from './assets.js';
+import { deriveCapabilities } from './capabilities.js';
+import { deriveClaims } from './claims.js';
+import { measureContext } from './measure.js';
 import { faceMetrics, resolveFaceFiles } from './fonts.js';
 import { normalize } from './normalize.js';
 import { escapeToken as esc } from './pointer.js';
@@ -29,6 +32,17 @@ export {
 export { brandQuestions, REQUIRED_ROLES, REQUIRED_FACES } from './questions.js';
 export { validateInput, validateBrandSpec, brandSpecViolations, splitInputErrors } from './validate.js';
 export { requiredQuestion } from './read.js';
+export {
+  deriveCapabilities,
+  unverifiedFields,
+  isOffered,
+  familyOf,
+  termOf,
+  FAMILIES,
+  IMAGE_KINDS,
+} from './capabilities.js';
+export { deriveClaims, claimQuestion, brandColours, TOL as CLAIM_TOLERANCES } from './claims.js';
+export { measureContext, inputPointer } from './measure.js';
 
 export const CANVAS = { width: 1920, height: 1080 };
 
@@ -199,6 +213,27 @@ export function readBrand(dir, options = {}) {
   if (errors.length) {
     throw failure(`brand ${read.id}: ${errors.length} input error(s)`, errors, questions);
   }
+
+  // BR-CLAIMS then BR-CAPABILITIES: every file exists now; one measuring context (decoded images stay in it)
+  const measure = measureContext(read.dir);
+  const { claims, questions: claimQuestions } = deriveClaims(data, measure);
+  data.claims = claims;
+  claims.forEach((c, i) => {
+    provenance[`/claims/${i}`] = {
+      source: 'derived',
+      from: 'BR-CLAIMS',
+      signal: c.file ? `${c.pointer} + ${c.file}` : c.pointer,
+    };
+  });
+  questions.push(...claimQuestions);
+  data.capabilities = deriveCapabilities(data, provenance, measure);
+  data.capabilities.forEach((c, i) => {
+    provenance[`/capabilities/${i}`] = {
+      source: 'derived',
+      from: 'BR-CAPABILITIES',
+      signal: c.from.join(' + '),
+    };
+  });
 
   const spec = {
     schema: data.schema,

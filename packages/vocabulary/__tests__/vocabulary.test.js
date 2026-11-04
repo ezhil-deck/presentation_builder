@@ -93,6 +93,7 @@ describe('vocabulary.json', () => {
         'content',
         'deck',
         'layout',
+        'template',
       ]);
       expect(Object.keys(t.examples).sort()).toEqual(['negative', 'positive']);
       for (const nb of t.notBut) expect(Object.keys(nb).sort()).toEqual(['term', 'test']);

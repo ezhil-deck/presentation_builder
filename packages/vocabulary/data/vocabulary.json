@@ -154,7 +154,8 @@
         "brand": ["brand.template.region.kind: line"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.primitive: line"]
       },
       "examples": {
         "positive": "a 1 px hairline under a header",
@@ -191,7 +192,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.primitive: text"]
       },
       "examples": {
         "positive": "a title",
@@ -228,7 +230,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.primitive: image"]
       },
       "examples": {
         "positive": "a photo",
@@ -272,7 +275,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.primitive: shape"]
       },
       "examples": {
         "positive": "a card background",
@@ -309,7 +313,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.primitive: chart"]
       },
       "examples": {
         "positive": "a bar chart element",
@@ -346,7 +351,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.primitive: table"]
       },
       "examples": {
         "positive": "a 3 x 4 table element",
@@ -383,7 +389,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.primitive: group"]
       },
       "examples": {
         "positive": "a logo drawn as 12 paths",
@@ -438,7 +445,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": ["data-f: row"]
+        "catalogue": ["data-f: row"],
+        "template": ["template.element.structure: cell"]
       },
       "examples": {
         "positive": "a table row \"Fintechs | $504B | 22%\"",
@@ -524,7 +532,8 @@
         "brand": ["brand.cardBlock.type: stat", "brand.template.slot.type: stat", "brand.components: number"],
         "content": ["content.cell.type: number"],
         "anatomy": ["role: big-number"],
-        "catalogue": ["data-f: value"]
+        "catalogue": ["data-f: value"],
+        "template": ["template.element.role: big-number", "template.emphasis.carrier: numeral"]
       },
       "examples": {
         "positive": "\"$504B\" at 200 px over 30 px descriptions",
@@ -618,7 +627,8 @@
         "brand": ["brand.cardBlock.type: meta", "brand.cardBlock.type: footer"],
         "content": [],
         "anatomy": ["role: label", "role: partner-label"],
-        "catalogue": ["data-f: point"]
+        "catalogue": ["data-f: point"],
+        "template": ["template.element.role: label"]
       },
       "examples": {
         "positive": "\"2024\" under a bar of a column chart",
@@ -672,7 +682,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": ["data-f: bullet"]
+        "catalogue": ["data-f: bullet"],
+        "template": ["template.element.role: bullet"]
       },
       "examples": {
         "positive": "\"Publish rates, fees and terms\" in a ticked list",
@@ -743,7 +754,8 @@
         "brand": ["brand.cardBlock.type: title"],
         "content": ["content.cell.type: heading"],
         "anatomy": ["role: heading"],
-        "catalogue": ["data-f: heading"]
+        "catalogue": ["data-f: heading"],
+        "template": ["template.element.role: heading"]
       },
       "examples": {
         "positive": "\"Answers, not links\" over its description in a card",
@@ -811,7 +823,8 @@
         "brand": ["brand.template.slot.type: body"],
         "content": ["content.cell.type: text"],
         "anatomy": ["role: body"],
-        "catalogue": ["data-f: body"]
+        "catalogue": ["data-f: body"],
+        "template": ["template.element.role: body"]
       },
       "examples": {
         "positive": "\"Fintech revenue in 2025 passed half a trillion\" under \"$504B\"",
@@ -862,7 +875,8 @@
         "brand": ["brand.cardBlock.type: body"],
         "content": [],
         "anatomy": [],
-        "catalogue": ["data-f: description"]
+        "catalogue": ["data-f: description"],
+        "template": ["template.element.role: description"]
       },
       "examples": {
         "positive": "the two lines under a card heading",
@@ -934,7 +948,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": ["data-f: paragraph"]
+        "catalogue": ["data-f: paragraph"],
+        "template": ["template.element.role: paragraph"]
       },
       "examples": {
         "positive": "a 3-line takeaway beside a chart",
@@ -988,7 +1003,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["role: legal"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: legal"]
       },
       "examples": {
         "positive": "\"Copyright © 2025 Example Co. All rights reserved.\"",
@@ -1042,7 +1058,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["role: source"],
-        "catalogue": ["header: .src"]
+        "catalogue": ["header: .src"],
+        "template": ["template.element.role: source", "template.mark.part: src"]
       },
       "examples": {
         "positive": "\"Source: Global Fintech Report 2026\"",
@@ -1127,7 +1144,8 @@
         "brand": ["mood.footer.items: pageNumber"],
         "content": [],
         "anatomy": ["role: page-number"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: page-number"]
       },
       "examples": {
         "positive": "\"12\" bottom right on every page",
@@ -1175,10 +1193,11 @@
         "brand": ["mood.footer.items: text", "brand.template.slot.type: footer"],
         "content": [],
         "anatomy": ["role: footer"],
-        "catalogue": ["header: .ft"]
+        "catalogue": ["header: .ft"],
+        "template": ["template.element.role: footer-text", "template.mark.part: ft"]
       },
       "examples": {
-        "positive": "\"HEADSPACE 7\" at the bottom left of every slide",
+        "positive": "\"ACME 7\" (a caps brand word + the page number) at the bottom left of every slide",
         "negative": "a subtitle"
       }
     },
@@ -1219,7 +1238,8 @@
         "brand": ["mood.footer.items: date"],
         "content": [],
         "anatomy": ["role: date"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: date"]
       },
       "examples": {
         "positive": "\"January 2024\" under a cover title",
@@ -1259,7 +1279,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["role: placeholder"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: placeholder"]
       },
       "examples": {
         "positive": "\"Click to add title\"",
@@ -1302,7 +1323,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["role: contact"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: contact"]
       },
       "examples": {
         "positive": "\"hello@brand.com\"",
@@ -1351,7 +1373,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["role: authors"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: authors"]
       },
       "examples": {
         "positive": "\"Ana Lima, Ben Okafor, Chen Wei\"",
@@ -1395,7 +1418,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: quote-mark"]
       },
       "examples": {
         "positive": "\"“\" at 200 pt",
@@ -1450,7 +1474,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: attribution"]
       },
       "examples": {
         "positive": "\"— Jane Doe, CEO\" under “We moved faster”",
@@ -1522,7 +1547,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: caption"]
       },
       "examples": {
         "positive": "\"Our Berlin office\" under a photo",
@@ -1569,7 +1595,8 @@
         "brand": ["brand.decor.type: word"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: decor-word"]
       },
       "examples": {
         "positive": "\"GROW\" at 400 pt, 10 % opacity, behind the title",
@@ -1621,7 +1648,8 @@
         "brand": ["brand.template.slot.type: title"],
         "content": ["content.v1.block.type: title"],
         "anatomy": ["role: title"],
-        "catalogue": ["header: .t"]
+        "catalogue": ["header: .t"],
+        "template": ["template.element.role: title", "template.mark.part: t"]
       },
       "examples": {
         "positive": "the 56 px headline of a slide",
@@ -1686,7 +1714,8 @@
         "brand": ["brand.template.slot.type: subtitle"],
         "content": ["content.v1.block.type: subtitle"],
         "anatomy": ["role: subtitle"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: subtitle"]
       },
       "examples": {
         "positive": "\"Key Insights Report\" under a cover title",
@@ -1747,7 +1776,8 @@
         "brand": ["brand.cardBlock.type: eyebrow"],
         "content": ["content.v1.block.type: eyebrow"],
         "anatomy": ["role: eyebrow"],
-        "catalogue": ["header: .k"]
+        "catalogue": ["header: .k"],
+        "template": ["template.element.role: eyebrow", "template.mark.part: k"]
       },
       "examples": {
         "positive": "\"SEARCH TO ANSWERS\" over the title",
@@ -1772,7 +1802,8 @@
         "brand": ["brand.imagery.sample.kind: unknown", "brand.template.slot.type: custom"],
         "content": [],
         "anatomy": ["role: small-text"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: unknown", "template.category: unknown"]
       },
       "examples": {
         "positive": "a 12-word line at 80 % of body size with nothing beside it",
@@ -1829,10 +1860,11 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: device"]
       },
       "examples": {
-        "positive": "hdfc-2 `coverBands` on the cover",
+        "positive": "a cover band element the brand's cover layout names as its `composition.device`",
         "negative": "an unnamed corner dot grid"
       }
     },
@@ -1873,7 +1905,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["role: background"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: background"]
       },
       "examples": {
         "positive": "a full-slide purple rectangle",
@@ -1917,7 +1950,8 @@
         "brand": ["brand.imagery.sample.kind: abstract"],
         "content": [],
         "anatomy": ["role: background-art"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: background-art"]
       },
       "examples": {
         "positive": "a full-bleed photo behind the title",
@@ -2002,7 +2036,8 @@
         ],
         "content": [],
         "anatomy": ["role: logo", "role: footer-mark"],
-        "catalogue": ["header: .lg"]
+        "catalogue": ["header: .lg"],
+        "template": ["template.element.role: brand-logo", "template.mark.part: lg"]
       },
       "examples": {
         "positive": "the wordmark top left of a cover",
@@ -2069,7 +2104,8 @@
         "brand": ["brand.cardBlock.type: logo"],
         "content": [],
         "anatomy": ["role: partner-logo"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: partner-logo"]
       },
       "examples": {
         "positive": "a client logo right of \"Prepared for\"",
@@ -2143,7 +2179,8 @@
         "brand": [],
         "content": ["content.cell.type: logo"],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: logo-item"]
       },
       "examples": {
         "positive": "the fourth of eight client logos in a 4 x 2 grid",
@@ -2204,7 +2241,8 @@
         "brand": ["brand.template.slot.type: chart"],
         "content": [],
         "anatomy": ["role: chart-or-diagram"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: chart-exhibit"]
       },
       "examples": {
         "positive": "a bar chart drawn as 24 paths with \"12%\" labels",
@@ -2254,7 +2292,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["role: chart-or-diagram"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: diagram"]
       },
       "examples": {
         "positive": "a 4-step cycle with node labels",
@@ -2305,7 +2344,8 @@
         "brand": ["brand.decor.type: illustration", "brand.imagery.sample.kind: illustration"],
         "content": [],
         "anatomy": ["role: chart-or-diagram"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: illustration"]
       },
       "examples": {
         "positive": "a line drawing of a city skyline",
@@ -2342,7 +2382,8 @@
         "brand": ["brand.template.slot.type: table"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: table-exhibit"]
       },
       "examples": {
         "positive": "a 3 x 4 table",
@@ -2389,7 +2430,8 @@
         "brand": ["brand.decor.type: watermark"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: watermark"]
       },
       "examples": {
         "positive": "the logo at 8 % opacity across the slide",
@@ -2436,7 +2478,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["role: cutout"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: cutout"]
       },
       "examples": {
         "positive": "a person cut out on the right of a cover",
@@ -2484,7 +2527,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["role: hero-image"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: hero-image"]
       },
       "examples": {
         "positive": "the right-half photo of a cover",
@@ -2531,7 +2575,8 @@
         "brand": ["brand.components: avatar"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: avatar"]
       },
       "examples": {
         "positive": "a 120 px round headshot",
@@ -2581,7 +2626,8 @@
         ],
         "content": ["content.cell.type: image"],
         "anatomy": ["role: footer-mark", "role: picture"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: picture"]
       },
       "examples": {
         "positive": "a card photo",
@@ -2647,7 +2693,8 @@
         ],
         "content": ["content.cell.type: check", "content.cell.type: rating"],
         "anatomy": ["role: footer-mark", "role: icon"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: icon"]
       },
       "examples": {
         "positive": "a 40 px line icon over a card heading",
@@ -2692,7 +2739,8 @@
         "brand": ["brand.decor.type: sticker"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: sticker"]
       },
       "examples": {
         "positive": "a \"NEW!\" star rotated 12 degrees",
@@ -2750,7 +2798,8 @@
         "brand": ["brand.decor.type: badge", "brand.cardBlock.type: badge", "brand.components: badge"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: badge"]
       },
       "examples": {
         "positive": "a \"PRO\" tag on the corner of a pricing card",
@@ -2803,7 +2852,8 @@
         "brand": ["brand.cardBlock.type: tags", "brand.components: chip", "brand.components: tags"],
         "content": ["content.cell.type: chip"],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: chip"]
       },
       "examples": {
         "positive": "a \"Fintech\" tag pill",
@@ -2864,7 +2914,8 @@
         ],
         "content": ["content.v1.block.type: cta"],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: button"]
       },
       "examples": {
         "positive": "\"Get started\" on a filled pill",
@@ -2911,7 +2962,8 @@
         "brand": ["brand.components: callout"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: callout"]
       },
       "examples": {
         "positive": "a speech-bubble note pointing at a chart peak",
@@ -2966,7 +3018,8 @@
         "brand": ["brand.components: pager", "brand.components: progress"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: pager"]
       },
       "examples": {
         "positive": "five dots bottom centre, the third filled",
@@ -3016,7 +3069,8 @@
         "brand": ["brand.components: linkBar", "brand.components: tabs"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: tabs"]
       },
       "examples": {
         "positive": "\"Overview | Pricing | FAQ\" with Pricing underlined",
@@ -3088,7 +3142,8 @@
         ],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: marker"]
       },
       "examples": {
         "positive": "\"01\" over a card heading",
@@ -3140,7 +3195,8 @@
         "brand": ["brand.components: arrow"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: connector"]
       },
       "examples": {
         "positive": "the line through four timeline dots",
@@ -3196,7 +3252,8 @@
         ],
         "content": [],
         "anatomy": ["role: footer-mark", "role: rule"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: divider"]
       },
       "examples": {
         "positive": "a vertical hairline between two text columns",
@@ -3245,7 +3302,8 @@
         "brand": ["brand.decor.type: rule", "brand.layout.divider: rule"],
         "content": [],
         "anatomy": ["role: footer-mark", "role: rule"],
-        "catalogue": ["header: .r"]
+        "catalogue": ["header: .r"],
+        "template": ["template.element.role: rule", "template.mark.part: r"]
       },
       "examples": {
         "positive": "a 150 px accent rule under a title",
@@ -3295,7 +3353,8 @@
         "brand": ["brand.decor.type: frame", "brand.gradient.use: border"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: frame"]
       },
       "examples": {
         "positive": "a 2 px border around a photo",
@@ -3339,7 +3398,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["role: footer-mark", "role: cut-shape"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: cut-shape"]
       },
       "examples": {
         "positive": "a white wedge cut at 10 degrees across a cover",
@@ -3386,7 +3446,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["role: footer-mark", "role: band"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: band"]
       },
       "examples": {
         "positive": "a 12 % H full-width colour strip at the bottom",
@@ -3437,7 +3498,8 @@
         "brand": ["brand.cardBlock.type: panel", "brand.layout.divider: panel"],
         "content": [],
         "anatomy": ["role: footer-mark", "role: panel"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: panel", "template.emphasis.carrier: colour-field"]
       },
       "examples": {
         "positive": "a purple block holding the cover title",
@@ -3485,7 +3547,8 @@
         "brand": ["brand.components: cards", "brand.components: card"],
         "content": [],
         "anatomy": ["role: footer-mark", "role: card"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: card"]
       },
       "examples": {
         "positive": "one of three feature cards",
@@ -3537,7 +3600,8 @@
         "brand": ["brand.decor.type: shape", "brand.gradient.use: glow"],
         "content": [],
         "anatomy": ["role: footer-mark", "role: decor"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.role: decor"]
       },
       "examples": {
         "positive": "a circle bottom right",
@@ -3575,7 +3639,8 @@
         "brand": ["brand.template.region.kind: table"],
         "content": ["content.v2.block.type: table", "content.v1.block.type: table"],
         "anatomy": [],
-        "catalogue": ["data-type: table"]
+        "catalogue": ["data-type: table"],
+        "template": ["template.element.structure: table-block"]
       },
       "examples": {
         "positive": "a 4-column table of figures",
@@ -3617,7 +3682,8 @@
         "brand": ["brand.cardRecipe.kind: stat", "brand.template.region.kind: kpi", "brand.components: kpi"],
         "content": ["content.v2.block.type: kpis", "content.v1.block.type: kpis"],
         "anatomy": [],
-        "catalogue": ["data-type: kpi_block", "data-type: kpi_vb"]
+        "catalogue": ["data-type: kpi_block", "data-type: kpi_vb"],
+        "template": ["template.element.structure: kpis"]
       },
       "examples": {
         "positive": "three tiles \"$504B / Global revenue / ...\"",
@@ -3690,7 +3756,8 @@
           "content.chart.chartType: stackedBar"
         ],
         "anatomy": [],
-        "catalogue": ["data-type: chart"]
+        "catalogue": ["data-type: chart"],
+        "template": ["template.element.structure: chart-block"]
       },
       "examples": {
         "positive": "a column chart with \"2024 / 2025\" labels",
@@ -3728,7 +3795,8 @@
         "brand": ["brand.template.region.kind: paragraph"],
         "content": ["content.v2.block.type: paragraph", "content.v1.block.type: paragraph"],
         "anatomy": [],
-        "catalogue": ["data-type: paragraph"]
+        "catalogue": ["data-type: paragraph"],
+        "template": ["template.element.structure: paragraph-block"]
       },
       "examples": {
         "positive": "a 3-line takeaway",
@@ -3770,7 +3838,8 @@
         "brand": ["brand.cardRecipe.kind: list", "brand.template.region.kind: list"],
         "content": ["content.v2.block.type: points", "content.v1.block.type: list"],
         "anatomy": [],
-        "catalogue": ["data-type: simple_list"]
+        "catalogue": ["data-type: simple_list"],
+        "template": ["template.element.structure: points"]
       },
       "examples": {
         "positive": "four ticked action lines",
@@ -3813,7 +3882,8 @@
         ],
         "content": ["content.v2.block.type: quotes", "content.v1.block.type: quote"],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.structure: quotes"]
       },
       "examples": {
         "positive": "two customer quotes with names",
@@ -3851,7 +3921,8 @@
         "brand": ["brand.cardRecipe.kind: team", "brand.components: team"],
         "content": ["content.v2.block.type: people", "content.v1.block.type: people"],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.structure: people"]
       },
       "examples": {
         "positive": "four team members",
@@ -3889,7 +3960,8 @@
         "brand": ["brand.components: logoWall"],
         "content": ["content.v2.block.type: logos", "content.v1.block.type: logos"],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.structure: logos"]
       },
       "examples": {
         "positive": "eight client logos",
@@ -3927,7 +3999,8 @@
         "brand": ["brand.template.region.kind: image"],
         "content": ["content.v2.block.type: image", "content.v1.block.type: image"],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.structure: image-block"]
       },
       "examples": {
         "positive": "a two-photo collage",
@@ -3983,7 +4056,8 @@
         "brand": ["brand.components: timeline"],
         "content": ["content.v2.block.type: timeline", "content.v1.block.type: timeline"],
         "anatomy": [],
-        "catalogue": ["data-type: roadmap", "data-type: timeline", "data-type: timeline_with_list"]
+        "catalogue": ["data-type: roadmap", "data-type: timeline", "data-type: timeline_with_list"],
+        "template": ["template.element.structure: timeline"]
       },
       "examples": {
         "positive": "\"2024 Listings stall | 2025 Listings return\"",
@@ -3994,7 +4068,7 @@
       "term": "process",
       "namespace": "E3",
       "group": "block",
-      "definition": "Steps in order, each labelled by an ordinal (Step 1, Phase 2, Stage 3) (content/2 `process`).",
+      "definition": "Steps in order: each labelled by an ordinal (Step 1, Phase 2, Stage 3), or joined in sequence by a connector line (content/2 `process`).",
       "identify": [
         {
           "id": "process.ordinals",
@@ -4009,9 +4083,45 @@
             }
           ],
           "why": "its items are labelled by step ordinals"
+        },
+        {
+          "id": "process.connector",
+          "scope": "block",
+          "order": 85,
+          "when": [
+            {
+              "gte": ["minItemFields", 2]
+            },
+            {
+              "any": [
+                [
+                  {
+                    "gte": ["items", 2]
+                  },
+                  {
+                    "gte": [
+                      "connector.crossing",
+                      {
+                        "field": "items"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "gt": ["connector.inner", 0]
+                  }
+                ]
+              ]
+            },
+            {
+              "has": "labelText"
+            }
+          ],
+          "why": "a connector line joins every item (one line crosses each of them) or runs through them in pieces, and the first item carries a label: a sequence. Period labels were already decided as timeline (timeline.periods), ordinals as process (process.ordinals); a sequence with any other label (01, a region) is a process. A frame rule over an unlabelled row (a comparison, a column list) is not a connector: the label is required (V1, the answer key: without it 3 lists and 3 column lists turn process)"
         }
       ],
-      "signal": "labelText matches `ordinal`",
+      "signal": "labelText matches `ordinal`; or connector.crossing = items (or connector.inner > 0) with a label on the first item",
       "notBut": [
         {
           "term": "timeline",
@@ -4019,7 +4129,7 @@
         },
         {
           "term": "items",
-          "test": "items may be numbered 01 / 02 without being steps"
+          "test": "items may be numbered 01 / 02 without being steps; a connector line joining every labelled item makes them a sequence (a numbered row under one rule drawn as a list is not separable by any visible sign: L1-35)"
         }
       ],
       "mapsFrom": {
@@ -4043,7 +4153,8 @@
           "content.process.shape: diverge"
         ],
         "anatomy": [],
-        "catalogue": ["data-type: roadmap"]
+        "catalogue": ["data-type: roadmap"],
+        "template": ["template.element.structure: process"]
       },
       "examples": {
         "positive": "\"Step 1 Structured data | Step 2 Earned trust\"",
@@ -4088,7 +4199,8 @@
         "brand": [],
         "content": ["content.v2.block.type: subpoints"],
         "anatomy": [],
-        "catalogue": ["data-type: list_with_subpoints"]
+        "catalogue": ["data-type: list_with_subpoints"],
+        "template": ["template.element.structure: subpoints"]
       },
       "examples": {
         "positive": "\"Proven in workflows\" with two ruled sub-lines",
@@ -4155,7 +4267,8 @@
         "brand": [],
         "content": ["content.v2.block.type: compare"],
         "anatomy": [],
-        "catalogue": ["data-type: comparison"]
+        "catalogue": ["data-type: comparison"],
+        "template": ["template.element.structure: compare"]
       },
       "examples": {
         "positive": "\"Digitally enhanced | AI-first operations\" either side of a hairline",
@@ -4212,7 +4325,8 @@
         ],
         "content": ["content.v2.block.type: items", "content.v1.block.type: cards"],
         "anatomy": [],
-        "catalogue": ["data-type: list_with_description", "data-type: multi_column_list"]
+        "catalogue": ["data-type: list_with_description", "data-type: multi_column_list"],
+        "template": ["template.element.structure: items"]
       },
       "examples": {
         "positive": "three cards \"Answers, not links / ...\"",
@@ -4253,7 +4367,8 @@
         "brand": ["brand.placement: under-title"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.structure: header"]
       },
       "examples": {
         "positive": "eyebrow + title + rule at the top",
@@ -4295,7 +4410,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.structure: item"]
       },
       "examples": {
         "positive": "a card heading + description",
@@ -4340,7 +4456,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.structure: grid"]
       },
       "examples": {
         "positive": "a 2 x 2 card grid",
@@ -4388,7 +4505,8 @@
         "brand": [],
         "content": ["content.v1.block.type: columns"],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.structure: column"]
       },
       "examples": {
         "positive": "the left text column of a cover",
@@ -4429,7 +4547,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.structure: band-zone"]
       },
       "examples": {
         "positive": "a KPI row across the slide",
@@ -4470,7 +4589,8 @@
         "brand": ["brand.components: accordion"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.structure: stack"]
       },
       "examples": {
         "positive": "a centred title + subtitle + button",
@@ -4508,7 +4628,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.structure: gap-group"]
       },
       "examples": {
         "positive": "title + subtitle + date (a gap group)",
@@ -4565,7 +4686,8 @@
         ],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.structure: zone"]
       },
       "examples": {
         "positive": "the visual zone right of the text",
@@ -4606,7 +4728,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["category: cover"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: cover-slide"]
       },
       "examples": {
         "positive": "page 1",
@@ -4650,7 +4773,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["category: agenda"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: agenda-slide"]
       },
       "examples": {
         "positive": "\"Agenda\" on page 2",
@@ -4721,7 +4845,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["category: closing-contact"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: cta-slide"]
       },
       "examples": {
         "positive": "\"Thank you\" + email on the last page",
@@ -4801,7 +4926,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["category: legal"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: legal-slide"]
       },
       "examples": {
         "positive": "a disclaimer page",
@@ -4845,7 +4971,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["category: back-cover"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: back-cover-slide"]
       },
       "examples": {
         "positive": "a logo on colour as the last page",
@@ -4892,7 +5019,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["category: quote"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: quote-slide"]
       },
       "examples": {
         "positive": "\"“We moved faster” — CEO\"",
@@ -4984,7 +5112,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["category: section-break"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: section-slide"]
       },
       "examples": {
         "positive": "\"02 Market\" on a dark field",
@@ -5028,7 +5157,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["category: kpi"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: kpi-slide"]
       },
       "examples": {
         "positive": "three KPI tiles",
@@ -5083,7 +5213,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["category: chart"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: chart-slide"]
       },
       "examples": {
         "positive": "a bar chart page",
@@ -5124,7 +5255,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["category: table"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: table-slide"]
       },
       "examples": {
         "positive": "a comparison table",
@@ -5192,7 +5324,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["category: text-heavy", "category: text"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: text-slide"]
       },
       "examples": {
         "positive": "a 200-word page",
@@ -5237,7 +5370,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["category: modular-columns"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: cards-slide"]
       },
       "examples": {
         "positive": "three pillar cards",
@@ -5281,7 +5415,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["category: team-or-gallery"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: team-slide"]
       },
       "examples": {
         "positive": "four headshots with names",
@@ -5329,7 +5464,8 @@
         "brand": [],
         "content": [],
         "anatomy": ["category: image-text"],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: image-text-slide"]
       },
       "examples": {
         "positive": "a half-slide photo beside 3 bullets",
@@ -5376,7 +5512,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: blank-slide"]
       },
       "examples": {
         "positive": "an empty page",
@@ -5414,7 +5551,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: bullets-slide"]
       },
       "examples": {
         "positive": "five bullets under a title",
@@ -5452,7 +5590,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: two-column-slide"]
       },
       "examples": {
         "positive": "two text columns",
@@ -5490,7 +5629,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: comparison-slide"]
       },
       "examples": {
         "positive": "before / after columns",
@@ -5528,7 +5668,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: diagram-slide"]
       },
       "examples": {
         "positive": "a 4-step cycle",
@@ -5566,7 +5707,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: timeline-slide"]
       },
       "examples": {
         "positive": "2024 / 2025 / 2026 milestones",
@@ -5604,7 +5746,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: steps-slide"]
       },
       "examples": {
         "positive": "Step 1 / 2 / 3",
@@ -5642,7 +5785,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: logos-slide"]
       },
       "examples": {
         "positive": "eight client logos",
@@ -5686,7 +5830,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.category: image-slide"]
       },
       "examples": {
         "positive": "a full-bleed photo with a caption",
@@ -5724,7 +5869,8 @@
         "brand": [],
         "content": ["content.image.treatment: device"],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: device-frame"]
       },
       "examples": {
         "positive": "a UI screenshot in a phone",
@@ -5766,7 +5912,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: transparent"]
       },
       "examples": {
         "positive": "a person on a transparent PNG",
@@ -5813,7 +5960,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: clipped"]
       },
       "examples": {
         "positive": "a photo in a circle",
@@ -5851,7 +5999,8 @@
         "brand": [],
         "content": ["content.image.treatment: collage"],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: collage"]
       },
       "examples": {
         "positive": "three photos in a mosaic",
@@ -5892,7 +6041,8 @@
         "brand": ["brand.gradient.use: background"],
         "content": ["content.image.treatment: background"],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: background-image"]
       },
       "examples": {
         "positive": "a tinted photo behind the title",
@@ -5930,7 +6080,8 @@
         "brand": [],
         "content": ["content.image.treatment: full"],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: full"]
       },
       "examples": {
         "positive": "a full-bleed photo slide",
@@ -5971,7 +6122,8 @@
         "brand": [],
         "content": ["content.image.treatment: side"],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: side"]
       },
       "examples": {
         "positive": "the right half of a slide",
@@ -6004,7 +6156,8 @@
         "brand": ["brand.mask.type: rect"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: rect"]
       },
       "examples": {
         "positive": "an image clipped to a rect",
@@ -6037,7 +6190,8 @@
         "brand": ["brand.mask.type: ellipse"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: ellipse"]
       },
       "examples": {
         "positive": "an image clipped to a ellipse",
@@ -6070,7 +6224,8 @@
         "brand": ["brand.mask.type: polygon"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: polygon"]
       },
       "examples": {
         "positive": "an image clipped to a polygon",
@@ -6103,7 +6258,8 @@
         "brand": ["brand.mask.type: svg"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: svg"]
       },
       "examples": {
         "positive": "an image clipped to a svg",
@@ -6136,7 +6292,8 @@
         "brand": ["brand.mask.type: text"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: text-mask"]
       },
       "examples": {
         "positive": "an image clipped to a text",
@@ -6177,7 +6334,8 @@
         "brand": ["brand.cardStyle.kind: glass"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: glass"]
       },
       "examples": {
         "positive": "a frosted card on a photo",
@@ -6215,7 +6373,8 @@
         "brand": ["brand.cardStyle.kind: accent"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: accent"]
       },
       "examples": {
         "positive": "a card with a 6 px left bar",
@@ -6253,7 +6412,8 @@
         "brand": ["brand.cardStyle.kind: elevated"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: elevated"]
       },
       "examples": {
         "positive": "a white card with a soft shadow",
@@ -6294,7 +6454,8 @@
         "brand": ["brand.cardStyle.kind: outlined"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: outlined"]
       },
       "examples": {
         "positive": "a hairline-bordered card",
@@ -6332,7 +6493,8 @@
         "brand": ["brand.cardStyle.kind: filled"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: filled"]
       },
       "examples": {
         "positive": "a grey card on white",
@@ -6376,7 +6538,8 @@
         "brand": ["brand.cardStyle.kind: flat"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: flat"]
       },
       "examples": {
         "positive": "a text group on the ground",
@@ -6409,7 +6572,8 @@
         "brand": ["brand.fill.type: none"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: none"]
       },
       "examples": {
         "positive": "a none fill",
@@ -6442,7 +6606,8 @@
         "brand": ["brand.background.type: solid", "brand.fill.type: solid"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: solid"]
       },
       "examples": {
         "positive": "a solid fill",
@@ -6479,7 +6644,8 @@
         ],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: linear-gradient"]
       },
       "examples": {
         "positive": "a linear-gradient fill",
@@ -6516,7 +6682,8 @@
         ],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: radial-gradient"]
       },
       "examples": {
         "positive": "a radial-gradient fill",
@@ -6549,7 +6716,8 @@
         "brand": ["brand.gradient.type: conic"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: conic-gradient"]
       },
       "examples": {
         "positive": "a conic-gradient fill",
@@ -6582,7 +6750,8 @@
         "brand": ["brand.gradient.type: mesh", "brand.background.type: mesh-gradient"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: mesh-gradient"]
       },
       "examples": {
         "positive": "a mesh-gradient fill",
@@ -6619,7 +6788,8 @@
         ],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: gradient"]
       },
       "examples": {
         "positive": "a gradient fill",
@@ -6652,7 +6822,8 @@
         "brand": ["brand.decor.type: pattern", "brand.background.type: pattern"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: pattern"]
       },
       "examples": {
         "positive": "a pattern fill",
@@ -6685,7 +6856,8 @@
         "brand": ["brand.decor.type: texture"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: texture"]
       },
       "examples": {
         "positive": "a texture fill",
@@ -6718,7 +6890,8 @@
         "brand": ["brand.background.type: image"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: image-fill"]
       },
       "examples": {
         "positive": "a image fill",
@@ -6751,7 +6924,8 @@
         "brand": ["brand.background.type: video"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: video"]
       },
       "examples": {
         "positive": "a video fill",
@@ -6789,7 +6963,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: face-run"]
       },
       "examples": {
         "positive": "a serif word in a sans title",
@@ -6827,7 +7002,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: weight-run", "template.emphasis.carrier: weight-run"]
       },
       "examples": {
         "positive": "\"social impact\" in bold in a light title",
@@ -6865,7 +7041,8 @@
         "brand": ["brand.gradient.use: text"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: colour-run"]
       },
       "examples": {
         "positive": "a purple keyword in a black title",
@@ -6898,7 +7075,8 @@
         "brand": [],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: angle"]
       },
       "examples": {
         "positive": "a wedge at 10 degrees",
@@ -6936,7 +7114,8 @@
         "brand": ["mood.decor.layer: behind", "brand.decor.layer: behind", "brand.cardBlock.layer: back"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: behind", "template.device.layer: behind"]
       },
       "examples": {
         "positive": "a decor circle under the title",
@@ -6974,7 +7153,8 @@
         "brand": ["mood.decor.layer: front", "brand.decor.layer: front", "brand.cardBlock.layer: front"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: front", "template.device.layer: front"]
       },
       "examples": {
         "positive": "a sticker over the title",
@@ -7007,7 +7187,8 @@
         "brand": ["brand.placement: full-bleed"],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: bleed"]
       },
       "examples": {
         "positive": "a photo to the right edge",
@@ -7053,7 +7234,8 @@
         ],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: blend"]
       },
       "examples": {
         "positive": "a multiply tint over a photo",
@@ -7113,7 +7295,8 @@
         ],
         "content": [],
         "anatomy": [],
-        "catalogue": []
+        "catalogue": [],
+        "template": ["template.element.treatment: case"]
       },
       "examples": {
         "positive": "an eyebrow in caps",

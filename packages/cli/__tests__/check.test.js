@@ -39,7 +39,7 @@ describe('pb check', () => {
     // the empty brand folder: every asset / logo file is missing, so assets fails too
     expect(fails).toEqual(['questions', 'assets', 'fonts']);
     const lines = checkLines(report);
-    expect(lines[0]).toMatch(/^ {2}fail questions: 2 item\(s\); first: Blocking question/);
+    expect(lines[0]).toMatch(/^ {2}fail questions: \d+ item\(s\); first: Blocking question/); // 2 blocking + V2's optional claim questions
     expect(lines.every((l) => !/ pass /.test(l))).toBe(true);
   });
 

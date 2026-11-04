@@ -19,6 +19,17 @@ export {
   titleBox,
 } from './geometry.js';
 export { MAX_ITEMS, flowCells, mainAside, v2Blocks } from './common.js';
+// the template binding (engine compose/templateBind.js, proposal PR-6) builds its Layout with the kinds' own helpers
+export {
+  createBuilder,
+  estimateLines,
+  footerFor,
+  labelRole,
+  slideKeys,
+  surfaceFromHint,
+  titleRoleFor,
+} from './common.js';
+export { LINES, lineBox, pickRole } from './geometry.js';
 export { SHAPES, SHAPE_RANGES, processShape, shapeFits } from './shapes.js';
 export { iconFile, iconSize } from './icons.js';
 

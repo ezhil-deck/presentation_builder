@@ -3,6 +3,8 @@
  * default (the golden decks are composed with every proposal off). Each proposal names its brand signal; what a
  * proposal changed is recorded per slide (`effects`) for the build report.
  *   PR-4 titleClearOfDecor   cover / section / cta text keeps clear of front-layer brand-boxed decor
+ *   PR-6 templateBinding     cover / section / cta / statement drawn from the authored template the brand fills
+ *                            best (compose/templateBind.js; needs `brandSpec.capabilities`, docs/PLAN-template-library.md V3)
  * Approved by the owner and now rules of every build (docs/P2-spec.md §9): PR-1 fit-up (fitup.js), PR-2 avatar
  * initials and PR-3 logo chips (slots.js), approved 2026-10-31; PR-F fill room and PR-C′ recorded placement, approved
  * 2026-11-03, now rules of every build (docs/P2-spec.md §9 R-FILLROOM, R-PLACE: slots.js fill, place.js, the catalogue
@@ -12,6 +14,7 @@ import { r2 } from '../util/stable.js';
 
 export const PROPOSALS = Object.freeze({
   titleClearOfDecor: 'PR-4',
+  templateBinding: 'PR-6',
 });
 export const PROPOSAL_KEYS = Object.freeze(Object.keys(PROPOSALS));
 

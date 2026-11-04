@@ -61,7 +61,7 @@ describe('the catalogue answer key', () => {
   });
 
   test('the recorded hit rates (stated in docs/vocabulary.md and DECISIONS.md)', () => {
-    expect(`${total('blocks').hit}/${total('blocks').n}`).toBe('2012/2037');
+    expect(`${total('blocks').hit}/${total('blocks').n}`).toBe('2014/2037');
     expect(`${total('fields').hit}/${total('fields').n}`).toBe('10490/10520');
   });
 

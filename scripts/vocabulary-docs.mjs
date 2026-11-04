@@ -39,7 +39,9 @@ export const MISS_REASONS = {
   'heading -> E2:description (description.under-heading)':
     'Follows from the value miss above (a value + heading + body item: the value leads, the heading reads as its description).',
   'roadmap -> E3:items (items.heading-description)':
-    'The roadmap is labelled 01 / 1 / a region / nothing: nothing visible marks a sequence (no period, no step word). The line joining its items is recorded by the geometry (`rules.axis`) only for containers typed roadmap / timeline, so it is not read: it would leak the hidden type. Gap for V1: measure the axis / connector for every container (scripts/catalogue-geometry.mjs), then a connector through the items is the visible sequence sign.',
+    'The roadmap is labelled 01 / 1 / a region / nothing and no line joins its items: nothing visible marks a sequence (no period, no step word, no connector). The connector is measured for every container since V1 (geometry `connector`, scripts/catalogue-geometry.mjs) and decides the roadmaps whose one line crosses every labelled item (process.connector); these nine are drawn as rows (numbered, or unlabelled on L31-12) with a rule between each (7), numbered columns with no line (1) or cards with their own top rules (1), each exactly as the catalogue draws a numbered list (12 list / column-list containers are numbered alike).',
+  'list_with_description -> E3:process (process.connector)':
+    'Four numbered items in a row joined by one line between the numerals and the text: drawn exactly as a roadmap (the connector rule takes it). No visible test separates them.',
   'list_with_description -> E3:compare (compare.two-sides)':
     'Two items side by side with a rule between them and no numbering: drawn exactly as the catalogue draws a comparison. No visible test separates them.',
   'multi_column_list -> E3:compare (compare.two-sides)':
@@ -239,7 +241,7 @@ export function renderVocabularyDoc({ key, blockRoles, anatomyRoles }) {
   p('## The schema map (maps.json)');
   p();
   p(
-    'Every enum value and string const of the five schemas + the input format, by path, maps to one term or the path is',
+    'Every enum value and string const of the five schemas + the input format + the template record (V1), by path, maps to one term or the path is',
   );
   p(
     'excluded with its reason (`__tests__/maps.test.js` collects the paths from the schema files, so a new name without a',

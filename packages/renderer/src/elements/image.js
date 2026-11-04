@@ -15,6 +15,8 @@ import { elementProps } from './common.js';
  * `frame / crop` and offset by `−crop.x/y`.
  * `image.mask`: 'circle' | 'ellipse' -> 50% radius clip; any other mask is ignored and flagged.
  * `image.tint` is ignored and flagged (no CSS filter is invented to approximate it).
+ * `image.clip` (deck v1.6, a polygon in frame fractions: the brand's photo area) -> `clip-path: polygon(...)` on the box,
+ * so PDF / PNG inherit it; `image.blend` (deck v1.6) -> `mix-blend-mode` on the box.
  * `image.tile: true` (a pattern decor): the asset repeats across the frame (CSS background) at its own size × `image.scale`
  * when the deck gives the asset's width / height, else at its intrinsic size (`scale` then flagged as not applied).
  */
@@ -37,6 +39,15 @@ export function ImageElement(el, ctx, origin) {
     if (img.mask) warnings.push(`mask "${img.mask}" ignored`);
     if (typeof st.radius === 'number' && st.radius > 0) box.borderRadius = px(st.radius);
   }
+
+  if (Array.isArray(img.clip) && img.clip.length >= 3) {
+    const pts = img.clip
+      .filter((p) => Array.isArray(p) && p.length === 2 && p.every((v) => typeof v === 'number'))
+      .map(([x, y]) => `${num(x * 100)}% ${num(y * 100)}%`);
+    if (pts.length >= 3) box.clipPath = `polygon(${pts.join(', ')})`;
+    else warnings.push('clip ignored (not a polygon)');
+  }
+  if (typeof img.blend === 'string') box.mixBlendMode = img.blend;
 
   let imgStyle = {
     position: 'absolute',

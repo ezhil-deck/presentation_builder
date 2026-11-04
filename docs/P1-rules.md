@@ -62,6 +62,73 @@ the brand folder; missing → error `{pointer, file}`; read mime, width, height 
 `backgrounds.default` (optional: palette uses surfaces[0] and warns). Questions carry `neededBy` rule ids and `options` when
 the answer is a choice (e.g. which surface is the default).
 
+**BR-CLAIMS** (V2, 2026-11-04; `packages/brand/src/claims.js`, `pixels.js`, `svggeom.js`) a value the JSON claims about one of
+its OWN files is compared with the file, after BR-ASSET (every file exists). Every claim the JSON makes is recorded at
+`claims[] = {id, pointer, inputPointer, file, claim, measured, pass, tolerance, why}`; `pass: null` = not measured (format not
+decoded, nothing to compare with), the reason in `why`. A claim the JSON does not make is not checked (no entry). A failing claim
+is an **optional** question `claim.<id>` on its input pointer (`neededBy: ['BR-CLAIMS']`), never a corrected value; V3 raises it
+to blocking when a template binds to the field. Provenance `/claims/<i>` = `{source: derived, from: BR-CLAIMS, signal: pointer + file}`.
+1. `photoArea.<layout>`: `layouts[].composition.photoArea` vs the painted shapes of the SVG of the decor element named by
+   `composition.device` (mapped through the element's box with its preserveAspectRatio, clipped to its viewBox): every vertex lies
+   outside every painted shape or at most 1 % W inside it, AND the photoArea edge nearest the shapes (least mean distance) lies within
+   2 % W of a painted (not viewport-cut) edge at each of 65 points along it. Measured: deepest vertex, the edge, max / mean distance,
+   the share of the edge within 2 %.
+2. `logoBox.<layout>`: `composition.logo.variant` exists in `brand.logos`, and on the layout's background image
+   (`backgrounds.variants[layout.background].image`; 1920×1080, else mapped by its `imageFit` cover / contain) the box of pixels
+   farther than RGB 48 from the ground colour (median of the ring around the box + 2 % W) inside the box + 2 % W (a row / column
+   counts with 2+ such pixels) fills ≥ 50 % of the claimed box and does not touch the outer edge of box + 2 % W.
+3. `sample.<i>`: `imagery.samples[i].{w, h, aspect}` vs the file's size from its header: w, h within 1 px, aspect within 2 %
+   (measured also `scaleW` / `scaleH` = file px per claimed px, so a 2× file shows as 2).
+4. `logoTone.<variant>`: `monoLight` light = mean WCAG relative luminance of the opaque pixels (alpha ≥ 128) ≥ 0.6;
+   `monoDark` ≤ 0.4. `reverse` (the mark for a coloured ground, may be dark) makes no tone claim; its luminance is measured on
+   `logo:reverse`. PNG / JPEG decoded; SVG point-sampled (160 points on the long side, topmost plain-colour shape per point).
+5. `decorAspect.<id>`: a decor element's `box` aspect vs its SVG viewBox aspect, ≤ 5 % off; a `tile: true` element makes no
+   aspect claim (its box is the tiled area).
+6. `backgroundSurface.<variant>`: a background of `type: image` with a `surface`: ≥ 20 % of the image's opaque pixels within RGB
+   40 of that surface's `bg`. A variant that gives an `overlay` is skipped (the surface colour then comes from the overlay).
+7. `mask.<id>`: a `type: svg` mask's file paints at least one shape (or its inline `path` draws a subpath); a `type: polygon`
+   mask's points parse into 3+ `x,y` pairs within 0-100. A mask naming a missing file stays a BR-ASSET error (D6).
+8. `decorColours.<id>`: every fill / stroke an element's SVG paints (gradient stops included; none / transparent / currentColor
+   not colours) lies within RGB 16 of a brand colour (`colors.*` incl. named, neutrals, chart, gradients; every surface colour);
+   a `colorable: true` element makes no colour claim. Font metrics are BR-METRICS (not repeated here).
+SVG reading (`svggeom.js`, rules only): rect, circle / ellipse (48-gons), polygon, polyline, line, path (M L H V Z absolute +
+relative; C S Q T A flattened, `approx: true`), `<use>`, inherited fill / stroke / fill-rule / color, presentation attributes,
+`style`, simple `<style>` rules, every affine transform, preserveAspectRatio, a one-rect clip-path; an `<image>`, `<text>`, a
+mask, a filter, a pattern fill or another clip path is not modelled (listed in `notes`, `approx: true`). Rasters: PNG (pngjs)
+and JPEG (jpeg-js) only; anything else is `pass: null` "format not decoded". Decoded pixels never enter the BrandSpec.
+
+**BR-CAPABILITIES** (V2, 2026-11-04; `packages/brand/src/capabilities.js`) what the brand can supply, from the BrandSpec alone
+and the files it names, in the vocabulary (`@pb/vocabulary` `termFor`, else `unknown`): `capabilities[] = {key, term, from:
+[BrandSpec pointers], files, given, measured, status, why}`. A capability the JSON cannot give is absent (no entry, no question).
+`status: offered` when an input provenance under any `from` pointer has `inferred: true` and no `verifiedAt`, else `given`.
+Provenance `/capabilities/<i>` = `{source: derived, from: BR-CAPABILITIES, signal: the from pointers}`. Key grammar (shared with
+the template needs, V1): `device:<id>`, `photo-area`, `overlay:<id>`, `text-zone`, `image:<kind>`, `cutout`,
+`colour-field:<surface id>`, `logo:<variant>`, `mask:<id>`, `component:<term>`, `angle`, `second-face`, `weight-contrast`,
+`type-ladder`; plus `composition` and `motion` (as given). `term` is null for a capability that is not an element (type-ladder,
+composition, motion, angle; `why` says "not an element: a brand rule"); `unknown` only for an element the vocabulary cannot name. Families:
+- devices: every `decor.elements[]` → `device:<id>`; term E2 device when a `composition.device` names it or it has `frequency:
+  always` with a non-empty `allowedOn` (the vocabulary's device rule), else its type through `brand.decor.type`; given layer,
+  frequency, allowedOn, surfaces, placement, draw keys of drawn elements; measured box in % of 1920×1080 and, for an SVG file,
+  its painted geometry through the box: shape count, polygons in % (up to 400 vertices), bbox, area share of the box and of the
+  canvas, edge angles (0-90° from horizontal, 0.5 steps, straight edges ≥ 1 % of the frame width), `approx`.
+- photo areas: per `brandLayouts[]` with a `composition`: `photo-area` (E3 zone; polygon in %, area share), `overlay:<id>`
+  (E4 blend when the element blends, else its decor type), `text-zone` (E3 zone; titleAlign / textPosition / textAnchor /
+  textMaxWidth); the composition's logo box goes on `logo:<variant>`.
+- imagery: `image:<kind>` per distinct sample kind among photo-people | photo-product | product-ui | illustration | abstract
+  (count, distinct aspects from the files, tags; treatments, textOverImage and crop as given); `cutout` when samples are tagged
+  cutout / transparent; `mask:<id>` per `imagery.masks.options` (term by the mask type; polygon in %, an SVG's painted share).
+- colour fields: `colour-field:<surface id>` (E2 background) with tone, bg, the WCAG contrast of text / heading / accent and the
+  background variants naming the surface; gradient definitions (policy not none) by the gradient type.
+- type: `type-ladder` (sizes of display h1 h2 h3 body bodySmall caption, each step's ratio, h1 : body, display : body, faces
+  per role, alignment); `second-face` when the roles use 2+ face families (E4 face-run); `weight-contrast` when a face offers
+  weights ≥ 300 apart, its `weights` and its files' weight ranges counted (E4 weight-run).
+- logos: `logo:<variant>` (E2 brand-logo): size, aspect, the opaque box in % of the file and the mean luminance of its opaque
+  pixels (as BR-CLAIMS 4), the composition boxes that place it.
+- components: `component:<term>` per `components.*` key through `brand.components` (keys of one term share it); cards add the
+  style kind and the recipes' kinds; a key the map lacks is `component:<key>`, term unknown.
+- shape: one `angle` capability listing every distinct edge angle across the decor SVGs and the elements per angle (one
+  angle or several is the signal: `measured.count`).
+
 ## B. packages/mood — one module per group, `rule(brandSpec) → { patch, provenance, warnings, questions }`
 
 **MD-PALETTE**

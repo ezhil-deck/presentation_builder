@@ -2478,6 +2478,1576 @@
       "size": 668
     }
   ],
+  "claims": [
+    {
+      "id": "sample.0",
+      "pointer": "/imagery/samples/0",
+      "inputPointer": "/imagery/samples/0",
+      "file": "assets/img/hero-speed-lines.jpg",
+      "claim": {
+        "w": 2400,
+        "h": 1350,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 2400,
+        "height": 1350,
+        "aspect": 1.778,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/hero-speed-lines.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.1",
+      "pointer": "/imagery/samples/1",
+      "inputPointer": "/imagery/samples/1",
+      "file": "assets/img/sole-tread.jpg",
+      "claim": {
+        "w": 1800,
+        "h": 1800,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 1800,
+        "height": 1800,
+        "aspect": 1,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/sole-tread.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.2",
+      "pointer": "/imagery/samples/2",
+      "inputPointer": "/imagery/samples/2",
+      "file": "assets/img/graffiti-shapes.jpg",
+      "claim": {
+        "w": 2000,
+        "h": 1334,
+        "aspect": 1.5
+      },
+      "measured": {
+        "width": 2000,
+        "height": 1334,
+        "aspect": 1.499,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/graffiti-shapes.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.3",
+      "pointer": "/imagery/samples/3",
+      "inputPointer": "/imagery/samples/3",
+      "file": "assets/img/stadium-lights.jpg",
+      "claim": {
+        "w": 2000,
+        "h": 1334,
+        "aspect": 1.5
+      },
+      "measured": {
+        "width": 2000,
+        "height": 1334,
+        "aspect": 1.499,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/stadium-lights.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.4",
+      "pointer": "/imagery/samples/4",
+      "inputPointer": "/imagery/samples/4",
+      "file": "assets/img/halftone-burst.jpg",
+      "claim": {
+        "w": 2400,
+        "h": 1350,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 2400,
+        "height": 1350,
+        "aspect": 1.778,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/halftone-burst.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.5",
+      "pointer": "/imagery/samples/5",
+      "inputPointer": "/imagery/samples/5",
+      "file": "assets/img/track-lanes.jpg",
+      "claim": {
+        "w": 2000,
+        "h": 1334,
+        "aspect": 1.5
+      },
+      "measured": {
+        "width": 2000,
+        "height": 1334,
+        "aspect": 1.499,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/track-lanes.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.6",
+      "pointer": "/imagery/samples/6",
+      "inputPointer": "/imagery/samples/6",
+      "file": "assets/img/tall-banners.jpg",
+      "claim": {
+        "w": 1600,
+        "h": 2000,
+        "aspect": 0.8
+      },
+      "measured": {
+        "width": 1600,
+        "height": 2000,
+        "aspect": 0.8,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/tall-banners.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "logoTone.monoLight",
+      "pointer": "/logos/variants/monoLight",
+      "inputPointer": "/brand/logos/monoLight",
+      "file": "assets/logo-mono-light.svg",
+      "claim": {
+        "tone": "light"
+      },
+      "measured": {
+        "meanLuminance": 0.847,
+        "approx": true
+      },
+      "pass": true,
+      "tolerance": {
+        "minLuminance": 0.6
+      },
+      "why": "monoLight assets/logo-mono-light.svg: mean luminance of the opaque pixels 0.847 (light needs >= 0.6)"
+    },
+    {
+      "id": "logoTone.monoDark",
+      "pointer": "/logos/variants/monoDark",
+      "inputPointer": "/brand/logos/monoDark",
+      "file": "assets/logo-black.svg",
+      "claim": {
+        "tone": "dark"
+      },
+      "measured": {
+        "meanLuminance": 0.003,
+        "approx": true
+      },
+      "pass": true,
+      "tolerance": {
+        "maxLuminance": 0.4
+      },
+      "why": "monoDark assets/logo-black.svg: mean luminance of the opaque pixels 0.003 (dark needs <= 0.4)"
+    },
+    {
+      "id": "decorAspect.cornerCut",
+      "pointer": "/decor/elements/1/box",
+      "inputPointer": "/assets/elements/1/box",
+      "file": "assets/elements/corner-cut.svg",
+      "claim": {
+        "box": {
+          "x": 1720,
+          "y": 0,
+          "w": 200,
+          "h": 200
+        }
+      },
+      "measured": {
+        "boxAspect": 1,
+        "viewBoxAspect": 1,
+        "off": 0
+      },
+      "pass": true,
+      "tolerance": {
+        "aspect": 0.05
+      },
+      "why": "box 1 vs viewBox 1: 0 % off (tolerance 5 %)"
+    },
+    {
+      "id": "decorColours.cornerCut",
+      "pointer": "/decor/elements/1/file",
+      "inputPointer": "/assets/elements/1/file",
+      "file": "assets/elements/corner-cut.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": [
+          {
+            "hex": "#FF2A2A",
+            "nearest": "#FF2A2A",
+            "distance": 0
+          }
+        ]
+      },
+      "pass": true,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/elements/corner-cut.svg: every painted colour is a brand colour"
+    },
+    {
+      "id": "decorAspect.cutRed",
+      "pointer": "/decor/elements/2/box",
+      "inputPointer": "/assets/elements/2/box",
+      "file": "assets/elements/cut-red.svg",
+      "claim": {
+        "box": {
+          "x": 1280,
+          "y": 0,
+          "w": 640,
+          "h": 720
+        }
+      },
+      "measured": {
+        "boxAspect": 0.8889,
+        "viewBoxAspect": 0.8889,
+        "off": 0
+      },
+      "pass": true,
+      "tolerance": {
+        "aspect": 0.05
+      },
+      "why": "box 0.889 vs viewBox 0.889: 0 % off (tolerance 5 %)"
+    },
+    {
+      "id": "decorColours.cutRed",
+      "pointer": "/decor/elements/2/file",
+      "inputPointer": "/assets/elements/2/file",
+      "file": "assets/elements/cut-red.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": [
+          {
+            "hex": "#FF2A2A",
+            "nearest": "#FF2A2A",
+            "distance": 0
+          }
+        ]
+      },
+      "pass": true,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/elements/cut-red.svg: every painted colour is a brand colour"
+    },
+    {
+      "id": "decorAspect.cutBlack",
+      "pointer": "/decor/elements/3/box",
+      "inputPointer": "/assets/elements/3/box",
+      "file": "assets/elements/cut-black.svg",
+      "claim": {
+        "box": {
+          "x": 1280,
+          "y": 0,
+          "w": 640,
+          "h": 720
+        }
+      },
+      "measured": {
+        "boxAspect": 0.8889,
+        "viewBoxAspect": 0.8889,
+        "off": 0
+      },
+      "pass": true,
+      "tolerance": {
+        "aspect": 0.05
+      },
+      "why": "box 0.889 vs viewBox 0.889: 0 % off (tolerance 5 %)"
+    },
+    {
+      "id": "decorColours.cutBlack",
+      "pointer": "/decor/elements/3/file",
+      "inputPointer": "/assets/elements/3/file",
+      "file": "assets/elements/cut-black.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": [
+          {
+            "hex": "#0B0B0B",
+            "nearest": "#0B0B0B",
+            "distance": 0
+          }
+        ]
+      },
+      "pass": true,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/elements/cut-black.svg: every painted colour is a brand colour"
+    },
+    {
+      "id": "decorAspect.halftoneBlack",
+      "pointer": "/decor/elements/4/box",
+      "inputPointer": "/assets/elements/4/box",
+      "file": "assets/elements/halftone-black.svg",
+      "claim": {
+        "box": {
+          "x": 1400,
+          "y": 680,
+          "w": 520,
+          "h": 400
+        }
+      },
+      "measured": {
+        "boxAspect": 1.3,
+        "viewBoxAspect": 1.2308,
+        "off": 0.0562
+      },
+      "pass": false,
+      "tolerance": {
+        "aspect": 0.05
+      },
+      "why": "box 1.3 vs viewBox 1.231: 5.6 % off (tolerance 5 %)"
+    },
+    {
+      "id": "decorColours.halftoneBlack",
+      "pointer": "/decor/elements/4/file",
+      "inputPointer": "/assets/elements/4/file",
+      "file": "assets/elements/halftone-black.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": [
+          {
+            "hex": "#0B0B0B",
+            "nearest": "#0B0B0B",
+            "distance": 0
+          }
+        ]
+      },
+      "pass": true,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/elements/halftone-black.svg: every painted colour is a brand colour"
+    },
+    {
+      "id": "backgroundSurface.speed",
+      "pointer": "/backgrounds/variants/speed/surface",
+      "inputPointer": "/backgrounds/variants/speed/surface",
+      "file": "assets/img/hero-speed-lines.jpg",
+      "claim": {
+        "surface": "black",
+        "bg": "#0B0B0B"
+      },
+      "measured": {},
+      "pass": null,
+      "tolerance": {
+        "share": 0.2,
+        "rgbDistance": 40
+      },
+      "why": "the variant gives an overlay: the surface colour comes from the overlay, not the image"
+    },
+    {
+      "id": "mask.slanted",
+      "pointer": "/imagery/masks/options/slanted",
+      "inputPointer": "/masks/options/slanted",
+      "file": null,
+      "claim": {
+        "type": "polygon",
+        "points": "14,0 100,0 86,100 0,100"
+      },
+      "measured": {
+        "points": 4
+      },
+      "pass": true,
+      "tolerance": {
+        "minPoints": 3,
+        "range": [
+          0,
+          100
+        ]
+      },
+      "why": "4 points"
+    }
+  ],
+  "capabilities": [
+    {
+      "key": "device:titleBar",
+      "term": "E2:device",
+      "from": [
+        "/decor/elements/0"
+      ],
+      "files": [],
+      "given": {
+        "type": "rule",
+        "typeTerm": "E2:rule",
+        "frequency": "always",
+        "allowedOn": [
+          "agenda",
+          "content",
+          "twoColumn",
+          "cards",
+          "chart",
+          "imageText",
+          "stat"
+        ],
+        "placement": "under-title",
+        "draw": {
+          "length": 120,
+          "thickness": 12,
+          "color": "accent"
+        }
+      },
+      "measured": {},
+      "status": "given",
+      "why": "decor element titleBar: frequency always on agenda, content, twoColumn, cards, chart, imageText, stat"
+    },
+    {
+      "key": "device:cornerCut",
+      "term": "E2:device",
+      "from": [
+        "/decor/elements/1"
+      ],
+      "files": [
+        "assets/elements/corner-cut.svg"
+      ],
+      "given": {
+        "type": "shape",
+        "typeTerm": "E2:decor",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "always",
+        "allowedOn": [
+          "agenda",
+          "content",
+          "twoColumn",
+          "cards",
+          "chart",
+          "imageText",
+          "stat"
+        ],
+        "surfaces": [
+          "black"
+        ]
+      },
+      "measured": {
+        "box": {
+          "x": 89.58,
+          "y": 0,
+          "w": 10.42,
+          "h": 18.52
+        },
+        "opacity": 1,
+        "width": 200,
+        "height": 200,
+        "geometry": {
+          "frame": "canvas",
+          "shapes": 2,
+          "areaShare": 0.393,
+          "angles": [
+            45
+          ],
+          "approx": false,
+          "bbox": {
+            "x": 89.79,
+            "y": 0,
+            "w": 10.21,
+            "h": 18.15
+          },
+          "canvasShare": 0.0076,
+          "polygons": [
+            [
+              [
+                91.67,
+                0
+              ],
+              [
+                100,
+                0
+              ],
+              [
+                100,
+                14.81
+              ]
+            ],
+            [
+              [
+                89.79,
+                0
+              ],
+              [
+                90.63,
+                0
+              ],
+              [
+                100,
+                16.67
+              ],
+              [
+                100,
+                18.15
+              ]
+            ]
+          ]
+        }
+      },
+      "status": "given",
+      "why": "decor element cornerCut: frequency always on agenda, content, twoColumn, cards, chart, imageText, stat"
+    },
+    {
+      "key": "device:cutRed",
+      "term": "E2:device",
+      "from": [
+        "/decor/elements/2"
+      ],
+      "files": [
+        "assets/elements/cut-red.svg"
+      ],
+      "given": {
+        "type": "illustration",
+        "typeTerm": "E2:illustration",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "always",
+        "allowedOn": [
+          "section"
+        ],
+        "surfaces": [
+          "black"
+        ]
+      },
+      "measured": {
+        "box": {
+          "x": 66.67,
+          "y": 0,
+          "w": 33.33,
+          "h": 66.67
+        },
+        "opacity": 1,
+        "width": 640,
+        "height": 720,
+        "geometry": {
+          "frame": "canvas",
+          "shapes": 3,
+          "areaShare": 0.2337,
+          "angles": [
+            45
+          ],
+          "approx": true,
+          "bbox": {
+            "x": 66.89,
+            "y": 0,
+            "w": 33.11,
+            "h": 57.28
+          },
+          "canvasShare": 0.0519,
+          "vertices": 7573
+        }
+      },
+      "status": "given",
+      "why": "decor element cutRed: frequency always on section"
+    },
+    {
+      "key": "device:cutBlack",
+      "term": "E2:device",
+      "from": [
+        "/decor/elements/3"
+      ],
+      "files": [
+        "assets/elements/cut-black.svg"
+      ],
+      "given": {
+        "type": "illustration",
+        "typeTerm": "E2:illustration",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "always",
+        "allowedOn": [
+          "title",
+          "closing"
+        ],
+        "surfaces": [
+          "red"
+        ]
+      },
+      "measured": {
+        "box": {
+          "x": 66.67,
+          "y": 0,
+          "w": 33.33,
+          "h": 66.67
+        },
+        "opacity": 1,
+        "width": 640,
+        "height": 720,
+        "geometry": {
+          "frame": "canvas",
+          "shapes": 3,
+          "areaShare": 0.2337,
+          "angles": [
+            45
+          ],
+          "approx": true,
+          "bbox": {
+            "x": 66.89,
+            "y": 0,
+            "w": 33.11,
+            "h": 57.28
+          },
+          "canvasShare": 0.0519,
+          "vertices": 7573
+        }
+      },
+      "status": "given",
+      "why": "decor element cutBlack: frequency always on title, closing"
+    },
+    {
+      "key": "device:halftoneBlack",
+      "term": "E2:device",
+      "from": [
+        "/decor/elements/4"
+      ],
+      "files": [
+        "assets/elements/halftone-black.svg"
+      ],
+      "given": {
+        "type": "pattern",
+        "typeTerm": "E4:pattern",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "always",
+        "allowedOn": [
+          "quote"
+        ],
+        "surfaces": [
+          "red"
+        ]
+      },
+      "measured": {
+        "box": {
+          "x": 72.92,
+          "y": 62.96,
+          "w": 27.08,
+          "h": 37.04
+        },
+        "opacity": 1,
+        "width": 640,
+        "height": 520,
+        "geometry": {
+          "frame": "canvas",
+          "shapes": 1,
+          "areaShare": 0.039,
+          "angles": [],
+          "approx": true,
+          "bbox": {
+            "x": 79.37,
+            "y": 72.27,
+            "w": 19.87,
+            "h": 27.71
+          },
+          "canvasShare": 0.0039,
+          "vertices": 6924
+        }
+      },
+      "status": "given",
+      "why": "decor element halftoneBlack: frequency always on quote"
+    },
+    {
+      "key": "image:abstract",
+      "term": "E2:background-art",
+      "from": [
+        "/imagery/samples/0",
+        "/imagery/samples/1",
+        "/imagery/samples/2",
+        "/imagery/samples/3",
+        "/imagery/samples/4",
+        "/imagery/samples/5",
+        "/imagery/samples/6",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/img/hero-speed-lines.jpg",
+        "assets/img/sole-tread.jpg",
+        "assets/img/graffiti-shapes.jpg",
+        "assets/img/stadium-lights.jpg",
+        "assets/img/halftone-burst.jpg",
+        "assets/img/track-lanes.jpg",
+        "assets/img/tall-banners.jpg"
+      ],
+      "given": {
+        "treatments": [
+          "none",
+          "redDuotone",
+          "blackTint"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#0B0B0B",
+          "opacity": 0.45,
+          "gradient": false,
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "16:9",
+          "focus": "center"
+        },
+        "tags": [
+          "bleed",
+          "card",
+          "dark",
+          "hero",
+          "side",
+          "square",
+          "tall",
+          "texture",
+          "wide"
+        ]
+      },
+      "measured": {
+        "count": 7,
+        "aspects": [
+          0.8,
+          1,
+          1.5,
+          1.78
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind abstract"
+    },
+    {
+      "key": "mask:none",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/none"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect"
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.none"
+    },
+    {
+      "key": "mask:square",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/square"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": 0
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.square"
+    },
+    {
+      "key": "mask:slanted",
+      "term": "E4:polygon",
+      "from": [
+        "/imagery/masks/options/slanted"
+      ],
+      "files": [],
+      "given": {
+        "type": "polygon"
+      },
+      "measured": {
+        "polygon": [
+          [
+            14,
+            0
+          ],
+          [
+            100,
+            0
+          ],
+          [
+            86,
+            100
+          ],
+          [
+            0,
+            100
+          ]
+        ],
+        "areaShare": 0.86
+      },
+      "status": "given",
+      "why": "imagery.masks.options.slanted"
+    },
+    {
+      "key": "colour-field:black",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/0",
+        "/backgrounds/variants/speed"
+      ],
+      "files": [
+        "assets/img/hero-speed-lines.jpg"
+      ],
+      "given": {
+        "kind": "surface",
+        "tone": "dark",
+        "bg": "#0B0B0B",
+        "text": "#EDEDED",
+        "backgrounds": [
+          {
+            "id": "speed",
+            "type": "image",
+            "term": "E4:image-fill"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.0033,
+        "contrastText": 16.81,
+        "contrastHeading": 16.81,
+        "contrastAccent": 5.26
+      },
+      "status": "given",
+      "why": "surfaces[0] (black)"
+    },
+    {
+      "key": "colour-field:red",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/1",
+        "/backgrounds/variants/red"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "light",
+        "bg": "#FF2A2A",
+        "text": "#0B0B0B",
+        "backgrounds": [
+          {
+            "id": "red",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.2308,
+        "contrastText": 5.26,
+        "contrastHeading": 5.26,
+        "contrastAccent": 5.26
+      },
+      "status": "given",
+      "why": "surfaces[1] (red)"
+    },
+    {
+      "key": "type-ladder",
+      "term": null,
+      "from": [
+        "/typography/roles/display/size",
+        "/typography/roles/h1/size",
+        "/typography/roles/h2/size",
+        "/typography/roles/h3/size",
+        "/typography/roles/body/size",
+        "/typography/roles/bodySmall/size",
+        "/typography/roles/caption/size",
+        "/typography/alignment"
+      ],
+      "files": [],
+      "given": {
+        "faces": {
+          "display": "Anton",
+          "displayAccent": "Anton",
+          "h1": "Anton",
+          "h1Accent": "Anton",
+          "stat": "Anton",
+          "quote": "Anton",
+          "h2": "Anton",
+          "h3": "Anton",
+          "bodyLarge": "Archivo",
+          "body": "Archivo",
+          "bodySmall": "Archivo",
+          "caption": "Archivo",
+          "eyebrow": "Archivo",
+          "label": "Archivo",
+          "meta": "Archivo",
+          "footnote": "Archivo",
+          "index": "Anton",
+          "statLabel": "Archivo",
+          "cardQuote": "Anton",
+          "personName": "Archivo",
+          "personRole": "Archivo",
+          "tableHead": "Archivo",
+          "tableCell": "Archivo",
+          "chip": "Archivo",
+          "accordion": "Archivo",
+          "tab": "Archivo",
+          "link": "Archivo",
+          "button": "Archivo"
+        },
+        "alignment": {
+          "title": "left",
+          "body": "left",
+          "sectionTitle": "left"
+        }
+      },
+      "measured": {
+        "sizes": {
+          "display": 156,
+          "h1": 92,
+          "h2": 45.22,
+          "h3": 33.25,
+          "body": 21.28,
+          "bodySmall": 18.62,
+          "caption": 15.96
+        },
+        "steps": [
+          {
+            "from": "display",
+            "to": "h1",
+            "ratio": 1.696
+          },
+          {
+            "from": "h1",
+            "to": "h2",
+            "ratio": 2.034
+          },
+          {
+            "from": "h2",
+            "to": "h3",
+            "ratio": 1.36
+          },
+          {
+            "from": "h3",
+            "to": "body",
+            "ratio": 1.563
+          },
+          {
+            "from": "body",
+            "to": "bodySmall",
+            "ratio": 1.143
+          },
+          {
+            "from": "bodySmall",
+            "to": "caption",
+            "ratio": 1.167
+          }
+        ],
+        "titleToBody": 4.323,
+        "displayToBody": 7.331
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; typography.roles sizes (display > h1 > h2 > h3 > body > bodySmall > caption)"
+    },
+    {
+      "key": "second-face",
+      "term": "E4:face-run",
+      "from": [
+        "/typography/faces/heading/family",
+        "/typography/faces/body/family"
+      ],
+      "files": [],
+      "given": {
+        "families": {
+          "Anton": [
+            "display",
+            "displayAccent",
+            "h1",
+            "h1Accent",
+            "stat",
+            "quote",
+            "h2",
+            "h3",
+            "index",
+            "cardQuote"
+          ],
+          "Archivo": [
+            "bodyLarge",
+            "body",
+            "bodySmall",
+            "caption",
+            "eyebrow",
+            "label",
+            "meta",
+            "footnote",
+            "statLabel",
+            "personName",
+            "personRole",
+            "tableHead",
+            "tableCell",
+            "chip",
+            "accordion",
+            "tab",
+            "link",
+            "button"
+          ]
+        }
+      },
+      "measured": {
+        "families": 2
+      },
+      "status": "given",
+      "why": "the roles are set in 2 face families"
+    },
+    {
+      "key": "weight-contrast",
+      "term": "E4:weight-run",
+      "from": [
+        "/typography/faces/body/weights",
+        "/typography/faces/body/files"
+      ],
+      "files": [],
+      "given": {
+        "faces": [
+          "body"
+        ]
+      },
+      "measured": {
+        "spread": 800,
+        "ranges": [
+          {
+            "face": "body",
+            "min": 100,
+            "max": 900
+          }
+        ]
+      },
+      "status": "given",
+      "why": "a face offers weights >= 300 apart"
+    },
+    {
+      "key": "logo:full",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/full"
+      ],
+      "files": [
+        "assets/logo.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 362,
+        "height": 96,
+        "aspect": 3.771,
+        "opaqueBbox": {
+          "x": 1.25,
+          "y": 7.14,
+          "w": 96.88,
+          "h": 83.33
+        },
+        "meanLuminance": 0.231,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.full"
+    },
+    {
+      "key": "logo:icon",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/icon"
+      ],
+      "files": [
+        "assets/logo-icon.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 96,
+        "height": 96,
+        "aspect": 1,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100
+        },
+        "meanLuminance": 0.069,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.icon"
+    },
+    {
+      "key": "logo:reverse",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/reverse"
+      ],
+      "files": [
+        "assets/logo-black.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 362,
+        "height": 96,
+        "aspect": 3.771,
+        "opaqueBbox": {
+          "x": 1.25,
+          "y": 7.14,
+          "w": 96.88,
+          "h": 83.33
+        },
+        "meanLuminance": 0.003,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.reverse"
+    },
+    {
+      "key": "logo:monoLight",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/monoLight"
+      ],
+      "files": [
+        "assets/logo-mono-light.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 362,
+        "height": 96,
+        "aspect": 3.771,
+        "opaqueBbox": {
+          "x": 1.25,
+          "y": 7.14,
+          "w": 96.88,
+          "h": 83.33
+        },
+        "meanLuminance": 0.847,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.monoLight"
+    },
+    {
+      "key": "logo:monoDark",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/monoDark"
+      ],
+      "files": [
+        "assets/logo-black.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 362,
+        "height": 96,
+        "aspect": 3.771,
+        "opaqueBbox": {
+          "x": 1.25,
+          "y": 7.14,
+          "w": 96.88,
+          "h": 83.33
+        },
+        "meanLuminance": 0.003,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.monoDark"
+    },
+    {
+      "key": "component:card",
+      "term": "E2:card",
+      "from": [
+        "/components/cards"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "cards"
+        ],
+        "style": "flat",
+        "styleTerm": "E4:flat",
+        "recipes": [
+          {
+            "id": "rk-event",
+            "kind": "feature",
+            "term": "E3:items"
+          },
+          {
+            "id": "rk-stat",
+            "kind": "stat",
+            "term": "E3:kpis"
+          },
+          {
+            "id": "rk-drop",
+            "kind": "case_study",
+            "term": "E3:items"
+          },
+          {
+            "id": "rk-strip",
+            "kind": "list",
+            "term": "E3:points"
+          },
+          {
+            "id": "rk-quote",
+            "kind": "testimonial",
+            "term": "E3:quotes"
+          }
+        ]
+      },
+      "measured": {
+        "recipes": 5
+      },
+      "status": "given",
+      "why": "components: cards"
+    },
+    {
+      "key": "component:chip",
+      "term": "E2:chip",
+      "from": [
+        "/components/chip"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "chip"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: chip"
+    },
+    {
+      "key": "component:callout",
+      "term": "E2:callout",
+      "from": [
+        "/components/callout"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "callout"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: callout"
+    },
+    {
+      "key": "component:quotes",
+      "term": "E3:quotes",
+      "from": [
+        "/components/quote"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "quote"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: quote"
+    },
+    {
+      "key": "component:divider",
+      "term": "E2:divider",
+      "from": [
+        "/components/divider"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "divider"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: divider"
+    },
+    {
+      "key": "component:process",
+      "term": "E3:process",
+      "from": [
+        "/components/steps"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "steps"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: steps"
+    },
+    {
+      "key": "component:timeline",
+      "term": "E3:timeline",
+      "from": [
+        "/components/timeline"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "timeline"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: timeline"
+    },
+    {
+      "key": "component:connector",
+      "term": "E2:connector",
+      "from": [
+        "/components/arrow"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "arrow"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: arrow"
+    },
+    {
+      "key": "component:button",
+      "term": "E2:button",
+      "from": [
+        "/components/button",
+        "/components/buttonSecondary"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "button",
+          "buttonSecondary"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: button, buttonSecondary"
+    },
+    {
+      "key": "component:badge",
+      "term": "E2:badge",
+      "from": [
+        "/components/badge"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "badge"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: badge"
+    },
+    {
+      "key": "component:tabs",
+      "term": "E2:tabs",
+      "from": [
+        "/components/tabs"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "tabs"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: tabs"
+    },
+    {
+      "key": "component:stack",
+      "term": "E3:stack",
+      "from": [
+        "/components/accordion"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "accordion"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: accordion"
+    },
+    {
+      "key": "component:pager",
+      "term": "E2:pager",
+      "from": [
+        "/components/pager"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "pager"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: pager"
+    },
+    {
+      "key": "component:avatar",
+      "term": "E2:avatar",
+      "from": [
+        "/components/avatar"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "avatar"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: avatar"
+    },
+    {
+      "key": "component:people",
+      "term": "E3:people",
+      "from": [
+        "/components/team"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "team"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: team"
+    },
+    {
+      "key": "component:icon",
+      "term": "E2:icon",
+      "from": [
+        "/components/icons"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "icons"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: icons"
+    },
+    {
+      "key": "angle",
+      "term": null,
+      "from": [
+        "/decor/elements/1",
+        "/decor/elements/2",
+        "/decor/elements/3"
+      ],
+      "files": [
+        "assets/elements/corner-cut.svg",
+        "assets/elements/cut-red.svg",
+        "assets/elements/cut-black.svg"
+      ],
+      "given": {
+        "byAngle": {
+          "45": [
+            "cornerCut",
+            "cutRed",
+            "cutBlack"
+          ]
+        }
+      },
+      "measured": {
+        "angles": [
+          45
+        ],
+        "count": 1
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; straight painted edges at 45 degrees from horizontal in cornerCut, cutRed, cutBlack"
+    },
+    {
+      "key": "composition",
+      "term": null,
+      "from": [
+        "/composition"
+      ],
+      "files": [],
+      "given": {
+        "density": "balanced",
+        "titleEverySlide": true,
+        "sectionDividers": true
+      },
+      "measured": {
+        "minWhitespacePct": 30,
+        "maxElementsPerSlide": 6,
+        "maxAccentsPerSlide": 2
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; composition (density, whitespace, limits) as given"
+    },
+    {
+      "key": "motion",
+      "term": null,
+      "from": [
+        "/motion"
+      ],
+      "files": [],
+      "given": {
+        "transition": "wipe",
+        "build": "wipe",
+        "easing": "cubic-bezier(.7,0,.2,1)"
+      },
+      "measured": {
+        "duration": 180,
+        "stagger": 40
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; motion as given"
+    }
+  ],
   "provenance": {
     "/id": {
       "source": "given",
@@ -11622,9 +13192,304 @@
       "source": "derived",
       "from": "BR-ASSET",
       "signal": "assets/"
+    },
+    "/claims/0": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/0 + assets/img/hero-speed-lines.jpg"
+    },
+    "/claims/1": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/1 + assets/img/sole-tread.jpg"
+    },
+    "/claims/2": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/2 + assets/img/graffiti-shapes.jpg"
+    },
+    "/claims/3": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/3 + assets/img/stadium-lights.jpg"
+    },
+    "/claims/4": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/4 + assets/img/halftone-burst.jpg"
+    },
+    "/claims/5": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/5 + assets/img/track-lanes.jpg"
+    },
+    "/claims/6": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/6 + assets/img/tall-banners.jpg"
+    },
+    "/claims/7": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/logos/variants/monoLight + assets/logo-mono-light.svg"
+    },
+    "/claims/8": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/logos/variants/monoDark + assets/logo-black.svg"
+    },
+    "/claims/9": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/1/box + assets/elements/corner-cut.svg"
+    },
+    "/claims/10": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/1/file + assets/elements/corner-cut.svg"
+    },
+    "/claims/11": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/2/box + assets/elements/cut-red.svg"
+    },
+    "/claims/12": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/2/file + assets/elements/cut-red.svg"
+    },
+    "/claims/13": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/3/box + assets/elements/cut-black.svg"
+    },
+    "/claims/14": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/3/file + assets/elements/cut-black.svg"
+    },
+    "/claims/15": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/4/box + assets/elements/halftone-black.svg"
+    },
+    "/claims/16": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/4/file + assets/elements/halftone-black.svg"
+    },
+    "/claims/17": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/backgrounds/variants/speed/surface + assets/img/hero-speed-lines.jpg"
+    },
+    "/claims/18": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/masks/options/slanted"
+    },
+    "/capabilities/0": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/0"
+    },
+    "/capabilities/1": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/1"
+    },
+    "/capabilities/2": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/2"
+    },
+    "/capabilities/3": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/3"
+    },
+    "/capabilities/4": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/4"
+    },
+    "/capabilities/5": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/0 + /imagery/samples/1 + /imagery/samples/2 + /imagery/samples/3 + /imagery/samples/4 + /imagery/samples/5 + /imagery/samples/6 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/6": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/none"
+    },
+    "/capabilities/7": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/square"
+    },
+    "/capabilities/8": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/slanted"
+    },
+    "/capabilities/9": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/0 + /backgrounds/variants/speed"
+    },
+    "/capabilities/10": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/1 + /backgrounds/variants/red"
+    },
+    "/capabilities/11": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/roles/display/size + /typography/roles/h1/size + /typography/roles/h2/size + /typography/roles/h3/size + /typography/roles/body/size + /typography/roles/bodySmall/size + /typography/roles/caption/size + /typography/alignment"
+    },
+    "/capabilities/12": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/faces/heading/family + /typography/faces/body/family"
+    },
+    "/capabilities/13": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/faces/body/weights + /typography/faces/body/files"
+    },
+    "/capabilities/14": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/full"
+    },
+    "/capabilities/15": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/icon"
+    },
+    "/capabilities/16": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/reverse"
+    },
+    "/capabilities/17": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/monoLight"
+    },
+    "/capabilities/18": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/monoDark"
+    },
+    "/capabilities/19": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/cards"
+    },
+    "/capabilities/20": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/chip"
+    },
+    "/capabilities/21": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/callout"
+    },
+    "/capabilities/22": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/quote"
+    },
+    "/capabilities/23": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/divider"
+    },
+    "/capabilities/24": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/steps"
+    },
+    "/capabilities/25": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/timeline"
+    },
+    "/capabilities/26": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/arrow"
+    },
+    "/capabilities/27": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/button + /components/buttonSecondary"
+    },
+    "/capabilities/28": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/badge"
+    },
+    "/capabilities/29": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/tabs"
+    },
+    "/capabilities/30": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/accordion"
+    },
+    "/capabilities/31": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/pager"
+    },
+    "/capabilities/32": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/avatar"
+    },
+    "/capabilities/33": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/team"
+    },
+    "/capabilities/34": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/icons"
+    },
+    "/capabilities/35": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/1 + /decor/elements/2 + /decor/elements/3"
+    },
+    "/capabilities/36": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/composition"
+    },
+    "/capabilities/37": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/motion"
     }
   },
-  "questions": [],
+  "questions": [
+    {
+      "id": "claim.decorAspect.halftoneBlack",
+      "pointer": "/assets/elements/4/box",
+      "question": "The brand JSON's claim at /assets/elements/4/box does not match assets/elements/halftone-black.svg: box 1.3 vs viewBox 1.231: 5.6 % off (tolerance 5 %). Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    }
+  ],
   "warnings": [
     {
       "pointer": "/typography/sizeUnits",

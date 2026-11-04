@@ -24,7 +24,9 @@
     "catalogue:index": "node scripts/catalogue-index.mjs && prettier --write --ignore-path .gitignore golden/catalogue/index.json",
     "catalogue:geometry": "caffeinate -d -u -i node scripts/catalogue-geometry.mjs && prettier --write --ignore-path .gitignore golden/catalogue/geometry.json",
     "catalogue:layouts": "node scripts/catalogue-layouts.mjs && prettier --write --ignore-path .gitignore packages/layouts/data/catalogue-layouts.json",
-    "vocabulary:docs": "node scripts/vocabulary-docs.mjs && prettier --write --ignore-path .gitignore packages/vocabulary/__tests__/fixtures/answer-key.json"
+    "vocabulary:docs": "node scripts/vocabulary-docs.mjs && prettier --write --ignore-path .gitignore packages/vocabulary/__tests__/fixtures/answer-key.json",
+    "templates:catalogue": "caffeinate -d -u -i node scripts/catalogue-records.mjs",
+    "templates:authored": "caffeinate -d -u -i node scripts/template-records.mjs"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",

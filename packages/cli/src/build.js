@@ -323,6 +323,63 @@ export function proposalsReport(proposals, { deck, before, beforeFile } = {}) {
 }
 
 /**
+ * `index.html` in a build folder built with PR-6 (template binding): one row per cover / section / cta / quote slide -
+ * the template bound (or none and the nearest, from the slide's `template` info warning), its score, the needs met /
+ * unmet with their signals, the template elements left out - with links to compare.png / sheet.png.
+ */
+export function bindingIndex(outDir, { title, deck, before }) {
+  const link = (f) => (existsSync(join(outDir, f)) ? `<a href="${escapeHtml(f)}">${escapeHtml(f)}</a>` : '—');
+  const KINDS = new Set(['cover', 'section', 'cta', 'quote']);
+  const changed = new Set(before ? changedSlides(before, deck) : []);
+  const rows = deck.slides
+    .map((s, i) => ({ s, n: i + 1 }))
+    .filter(({ s }) => KINDS.has(s.kind))
+    .map(({ s, n }) => {
+      const b = s.source?.binding;
+      if (!s.source?.template) {
+        const w = (s.warnings ?? []).find((x) => x.check === 'template');
+        return (
+          `<tr class="none"><td class="n">${n}</td><td>${escapeHtml(s.kind)}</td><td>—</td><td></td>` +
+          `<td colspan="2">${escapeHtml(w?.message ?? 'no template of the kind')}</td><td>${changed.has(n) ? 'yes' : ''}</td></tr>`
+        );
+      }
+      const bound = b
+        .filter((e) => e.status === 'bound')
+        .map(
+          (e) =>
+            `<li><b>${escapeHtml(e.element)}</b> ${escapeHtml(e.role)}${e.need ? ` <code>${escapeHtml(e.need)}</code>` : ''}: ${escapeHtml(e.signal ?? '')}</li>`,
+        )
+        .join('');
+      const out = b
+        .filter((e) => e.status !== 'bound')
+        .map(
+          (e) =>
+            `<li><b>${escapeHtml(e.element)}</b> ${escapeHtml(e.role)}${e.need ? ` <code>${escapeHtml(e.need)}</code>` : ''}: ${escapeHtml(e.why ?? '')}</li>`,
+        )
+        .join('');
+      return (
+        `<tr><td class="n">${n}</td><td>${escapeHtml(s.kind)}</td><td><b>${escapeHtml(s.source.template)}</b></td>` +
+        `<td>${s.source.score}</td><td><ul>${bound}</ul></td><td><ul>${out}</ul></td><td>${changed.has(n) ? 'yes' : ''}</td></tr>`
+      );
+    })
+    .join('');
+  const html =
+    '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
+    `<title>${escapeHtml(title)}</title><style>` +
+    'body{margin:0;padding:24px;font:14px/1.4 -apple-system,Helvetica,Arial,sans-serif;color:#222;background:#F6F6F8}' +
+    'table{border-collapse:collapse;background:#fff}th,td{padding:6px 10px;border-bottom:1px solid #E2E2E6;text-align:left;vertical-align:top}' +
+    'thead th{font-weight:600;color:#555}td.n{font-variant-numeric:tabular-nums}code{font-size:12px}ul{margin:0;padding-left:16px}' +
+    'tr.none td{color:#777}' +
+    `</style></head><body><h1>${escapeHtml(title)}</h1>` +
+    `<p>PR-6 template binding (docs/P3-proposals.md): every bound element names the brand signal it came from. ` +
+    `Before / after: ${link('compare.png')} · contact sheet: ${link('sheet.png')}</p>` +
+    '<table><thead><tr><th>#</th><th>kind</th><th>template</th><th>score</th><th>bound (signal)</th><th>left out (why)</th><th>changed</th></tr></thead>' +
+    `<tbody>${rows}</tbody></table></body></html>`;
+  writeFileSync(join(outDir, 'index.html'), html);
+  return join(outDir, 'index.html');
+}
+
+/**
  * Proposal review sheet: one row per changed slide, the before PNG (left) and the after PNG (right), each 640 px wide,
  * captioned with the slide index / kind and the proposals that changed it; screenshotted with puppeteer.
  */
@@ -558,6 +615,14 @@ export async function buildFromMood(derived, brandDir, opts = {}) {
       });
       files.push('index.html');
     }
+  }
+  if (proposals?.options?.templateBinding) {
+    const beforeDir = resolve(opts.before ?? join('out', brandSpec.id));
+    const beforeFile = join(beforeDir, 'deck.json');
+    const before =
+      beforeDir !== outDir && existsSync(beforeFile) ? JSON.parse(readFileSync(beforeFile, 'utf8')) : null;
+    bindingIndex(outDir, { title: `${brandSpec.id} — PR-6 template binding`, deck, before });
+    files.push('index.html');
   }
   writeJson(join(outDir, 'report.json'), report);
   files.push('report.json');

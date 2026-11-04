@@ -27,12 +27,13 @@ describe('pb build --proposals', () => {
     expect(parseProposalsFlag(true)).toBe('all');
     expect(parseProposalsFlag('all')).toEqual(['all']);
     expect(parseProposalsFlag('pr4,PR-4')).toEqual(['pr4', 'PR-4']);
+    expect(parseProposalsFlag('pr6')).toEqual(['pr6']);
     // the approved PR-F / PR-C′ (rules since 2026-11-03) and the withdrawn PR-E / PR-A are unknown
     expect(() => parseProposalsFlag('prf,PR-C')).toThrow(
-      /unknown proposal\(s\) prf, PR-C \(use all or pr4; PR-1\.\.3, PR-F and PR-C′ are rules of every build\)/,
+      /unknown proposal\(s\) prf, PR-C \(use all, pr4 or pr6; PR-1\.\.3, PR-F and PR-C′ are rules of every build\)/,
     );
     expect(() => parseProposalsFlag('prc')).toThrow(/unknown proposal\(s\) prc/);
-    expect(() => parseProposalsFlag('pre')).toThrow(/unknown proposal\(s\) pre .*use all or pr4/);
+    expect(() => parseProposalsFlag('pre')).toThrow(/unknown proposal\(s\) pre .*use all, pr4 or pr6/);
     expect(() => parseProposalsFlag('pra')).toThrow(/unknown proposal\(s\) pra/);
     expect(() => parseProposalsFlag('pr4,pr9')).toThrow(/unknown proposal\(s\) pr9/);
     expect(() => parseProposalsFlag('pr1')).toThrow(/unknown proposal\(s\) pr1 .*rules of every build/);
@@ -57,8 +58,8 @@ describe('pb build --proposals', () => {
       before: join(root, 'plain'),
     });
     const p = readJson(root, '_proposals', 'mini', 'report.json').proposals;
-    expect(p.options).toEqual({ titleClearOfDecor: true });
-    expect(Object.keys(p.byProposal)).toEqual(['PR-4']);
+    expect(p.options).toEqual({ titleClearOfDecor: true, templateBinding: true });
+    expect(Object.keys(p.byProposal)).toEqual(['PR-4', 'PR-6']);
     for (const e of Object.values(p.byProposal)) expect(e.count).toBe(e.slides.length);
     expect(Array.isArray(p.byProposal['PR-4'].effects)).toBe(true);
     // every slide that differs from the plain build is one a proposal says it changed, and back

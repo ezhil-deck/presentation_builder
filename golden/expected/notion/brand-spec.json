@@ -1611,6 +1611,1001 @@
       "size": 2767
     }
   ],
+  "claims": [
+    {
+      "id": "sample.0",
+      "pointer": "/imagery/samples/0",
+      "inputPointer": "/imagery/samples/0",
+      "file": "assets/ui-workspace.png",
+      "claim": {
+        "w": 1916,
+        "h": 1198,
+        "aspect": 1.6
+      },
+      "measured": {
+        "width": 1916,
+        "height": 1198,
+        "aspect": 1.599,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/ui-workspace.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.1",
+      "pointer": "/imagery/samples/1",
+      "inputPointer": "/imagery/samples/1",
+      "file": "assets/ui-dashboard.png",
+      "claim": {
+        "w": 1108,
+        "h": 953,
+        "aspect": 1.16
+      },
+      "measured": {
+        "width": 1108,
+        "height": 952,
+        "aspect": 1.164,
+        "scaleW": 1,
+        "scaleH": 0.999
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/ui-dashboard.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.2",
+      "pointer": "/imagery/samples/2",
+      "inputPointer": "/imagery/samples/2",
+      "file": "assets/ui-meetings.png",
+      "claim": {
+        "w": 1108,
+        "h": 798,
+        "aspect": 1.39
+      },
+      "measured": {
+        "width": 1108,
+        "height": 797,
+        "aspect": 1.39,
+        "scaleW": 1,
+        "scaleH": 0.999
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/ui-meetings.png: the claimed size matches the file"
+    },
+    {
+      "id": "sample.3",
+      "pointer": "/imagery/samples/3",
+      "inputPointer": "/imagery/samples/3",
+      "file": "assets/ui-chart.png",
+      "claim": {
+        "w": 1204,
+        "h": 626,
+        "aspect": 1.92
+      },
+      "measured": {
+        "width": 1204,
+        "height": 628,
+        "aspect": 1.917,
+        "scaleW": 1,
+        "scaleH": 1.003
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/ui-chart.png: h 626 vs 628"
+    },
+    {
+      "id": "logoTone.monoDark",
+      "pointer": "/logos/variants/monoDark",
+      "inputPointer": "/brand/logos/monoDark",
+      "file": "assets/logo-lockup.svg",
+      "claim": {
+        "tone": "dark"
+      },
+      "measured": {
+        "meanLuminance": 0.28,
+        "approx": true
+      },
+      "pass": true,
+      "tolerance": {
+        "maxLuminance": 0.4
+      },
+      "why": "monoDark assets/logo-lockup.svg: mean luminance of the opaque pixels 0.28 (dark needs <= 0.4)"
+    },
+    {
+      "id": "logoTone.monoLight",
+      "pointer": "/logos/variants/monoLight",
+      "inputPointer": "/brand/logos/monoLight",
+      "file": "assets/logo-lockup-white.svg",
+      "claim": {
+        "tone": "light"
+      },
+      "measured": {
+        "meanLuminance": 0.659,
+        "approx": true
+      },
+      "pass": true,
+      "tolerance": {
+        "minLuminance": 0.6
+      },
+      "why": "monoLight assets/logo-lockup-white.svg: mean luminance of the opaque pixels 0.659 (light needs >= 0.6)"
+    }
+  ],
+  "capabilities": [
+    {
+      "key": "device:peekTop",
+      "term": "E2:illustration",
+      "from": [
+        "/decor/elements/0"
+      ],
+      "files": [
+        "assets/decor/agentTop.png"
+      ],
+      "given": {
+        "type": "illustration",
+        "typeTerm": "E2:illustration",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "often",
+        "allowedOn": [
+          "title",
+          "closing",
+          "section"
+        ],
+        "colorable": false
+      },
+      "measured": {
+        "box": {
+          "x": 64.58,
+          "y": 76.85,
+          "w": 12.24,
+          "h": 23.15
+        },
+        "width": 480,
+        "height": 510
+      },
+      "status": "given",
+      "why": "decor element peekTop: decor type illustration"
+    },
+    {
+      "key": "device:peekSide",
+      "term": "E2:illustration",
+      "from": [
+        "/decor/elements/1"
+      ],
+      "files": [
+        "assets/decor/personPeekLeft2.png"
+      ],
+      "given": {
+        "type": "illustration",
+        "typeTerm": "E2:illustration",
+        "layer": "behind",
+        "layerTerm": "E4:behind",
+        "frequency": "often",
+        "allowedOn": [
+          "title",
+          "closing",
+          "quote"
+        ],
+        "colorable": false
+      },
+      "measured": {
+        "box": {
+          "x": 87.76,
+          "y": 24.07,
+          "w": 12.24,
+          "h": 23.15
+        },
+        "width": 480,
+        "height": 510
+      },
+      "status": "given",
+      "why": "decor element peekSide: decor type illustration"
+    },
+    {
+      "key": "image:product-ui",
+      "term": "E2:picture",
+      "from": [
+        "/imagery/samples/0",
+        "/imagery/samples/1",
+        "/imagery/samples/2",
+        "/imagery/samples/3",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/ui-workspace.png",
+        "assets/ui-dashboard.png",
+        "assets/ui-meetings.png",
+        "assets/ui-chart.png"
+      ],
+      "given": {
+        "treatments": [
+          "none",
+          "storyRed",
+          "storyBlue",
+          "storyGold"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#000000",
+          "opacity": 0.7,
+          "gradient": true,
+          "direction": "bottom",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "16:9",
+          "focus": "faces"
+        },
+        "tags": [
+          "card",
+          "hero",
+          "side",
+          "square",
+          "wide"
+        ]
+      },
+      "measured": {
+        "count": 4,
+        "aspects": [
+          1.16,
+          1.39,
+          1.6,
+          1.92
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind product-ui"
+    },
+    {
+      "key": "mask:none",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/none"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect"
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.none"
+    },
+    {
+      "key": "mask:rounded",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/rounded"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": "tile"
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.rounded"
+    },
+    {
+      "key": "mask:top",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/top"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": {
+          "tl": 12,
+          "tr": 12,
+          "br": 0,
+          "bl": 0
+        }
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.top"
+    },
+    {
+      "key": "colour-field:page",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/0"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "light",
+        "bg": "#FFFFFF",
+        "text": "#1A1A1A"
+      },
+      "measured": {
+        "bgLuminance": 1,
+        "contrastText": 17.4,
+        "contrastHeading": 19.44,
+        "contrastAccent": 4.57
+      },
+      "status": "given",
+      "why": "surfaces[0] (page)"
+    },
+    {
+      "key": "colour-field:warm",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/1",
+        "/backgrounds/variants/warm"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "light",
+        "bg": "#F6F5F4",
+        "text": "#1A1A1A",
+        "backgrounds": [
+          {
+            "id": "warm",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.9143,
+        "contrastText": 15.98,
+        "contrastHeading": 17.85,
+        "contrastAccent": 4.19
+      },
+      "status": "given",
+      "why": "surfaces[1] (warm)"
+    },
+    {
+      "key": "colour-field:dark",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/2",
+        "/backgrounds/variants/dark"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "dark",
+        "bg": "#191919",
+        "text": "#FFFFFFE6",
+        "backgrounds": [
+          {
+            "id": "dark",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.0097,
+        "contrastText": 17.58,
+        "contrastHeading": 17.58,
+        "contrastAccent": 4.36
+      },
+      "status": "given",
+      "why": "surfaces[2] (dark)"
+    },
+    {
+      "key": "type-ladder",
+      "term": null,
+      "from": [
+        "/typography/roles/display/size",
+        "/typography/roles/h1/size",
+        "/typography/roles/h2/size",
+        "/typography/roles/h3/size",
+        "/typography/roles/body/size",
+        "/typography/roles/bodySmall/size",
+        "/typography/roles/caption/size",
+        "/typography/alignment"
+      ],
+      "files": [],
+      "given": {
+        "faces": {
+          "display": "NotionInter SemiBold",
+          "displayHighlight": "NotionInter SemiBold",
+          "h1": "NotionInter Bold",
+          "h2": "NotionInter Bold",
+          "h3": "NotionInter Bold",
+          "body": "NotionInter",
+          "bodySmall": "NotionInter",
+          "caption": "NotionInter Medium",
+          "eyebrow": "NotionInter",
+          "stat": "NotionInter SemiBold",
+          "quote": "Lyon Text",
+          "button": "NotionInter Medium",
+          "statStrip": "NotionInter Medium",
+          "tableCell": "NotionInter",
+          "tableHead": "NotionInter SemiBold",
+          "tableGroup": "NotionInter"
+        },
+        "alignment": {
+          "title": "left",
+          "body": "left"
+        }
+      },
+      "measured": {
+        "sizes": {
+          "display": 104,
+          "h1": 60,
+          "h2": 29.7,
+          "h3": 21.6,
+          "body": 27,
+          "bodySmall": 21.6,
+          "caption": 18.9
+        },
+        "steps": [
+          {
+            "from": "display",
+            "to": "h1",
+            "ratio": 1.733
+          },
+          {
+            "from": "h1",
+            "to": "h2",
+            "ratio": 2.02
+          },
+          {
+            "from": "h2",
+            "to": "h3",
+            "ratio": 1.375
+          },
+          {
+            "from": "h3",
+            "to": "body",
+            "ratio": 0.8
+          },
+          {
+            "from": "body",
+            "to": "bodySmall",
+            "ratio": 1.25
+          },
+          {
+            "from": "bodySmall",
+            "to": "caption",
+            "ratio": 1.143
+          }
+        ],
+        "titleToBody": 2.222,
+        "displayToBody": 3.852
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; typography.roles sizes (display > h1 > h2 > h3 > body > bodySmall > caption)"
+    },
+    {
+      "key": "second-face",
+      "term": "E4:face-run",
+      "from": [
+        "/typography/faces/display/family",
+        "/typography/faces/heading/family",
+        "/typography/faces/body/family",
+        "/typography/faces/medium/family",
+        "/typography/faces/serif/family"
+      ],
+      "files": [],
+      "given": {
+        "families": {
+          "Lyon Text": [
+            "quote"
+          ],
+          "NotionInter": [
+            "body",
+            "bodySmall",
+            "eyebrow",
+            "tableCell",
+            "tableGroup"
+          ],
+          "NotionInter Bold": [
+            "h1",
+            "h2",
+            "h3"
+          ],
+          "NotionInter Medium": [
+            "caption",
+            "button",
+            "statStrip"
+          ],
+          "NotionInter SemiBold": [
+            "display",
+            "displayHighlight",
+            "stat",
+            "tableHead"
+          ]
+        }
+      },
+      "measured": {
+        "families": 5
+      },
+      "status": "given",
+      "why": "the roles are set in 5 face families"
+    },
+    {
+      "key": "weight-contrast",
+      "term": "E4:weight-run",
+      "from": [
+        "/typography/faces/heading/weights",
+        "/typography/faces/heading/files",
+        "/typography/faces/display/weights",
+        "/typography/faces/display/files",
+        "/typography/faces/body/weights",
+        "/typography/faces/body/files",
+        "/typography/faces/serif/weights",
+        "/typography/faces/serif/files",
+        "/typography/faces/medium/weights",
+        "/typography/faces/medium/files"
+      ],
+      "files": [],
+      "given": {
+        "faces": [
+          "heading",
+          "display",
+          "body",
+          "serif",
+          "medium"
+        ]
+      },
+      "measured": {
+        "spread": 700,
+        "ranges": [
+          {
+            "face": "heading",
+            "min": 0,
+            "max": 700
+          },
+          {
+            "face": "display",
+            "min": 0,
+            "max": 600
+          },
+          {
+            "face": "body",
+            "min": 0,
+            "max": 400
+          },
+          {
+            "face": "serif",
+            "min": 0,
+            "max": 400
+          },
+          {
+            "face": "medium",
+            "min": 0,
+            "max": 500
+          }
+        ]
+      },
+      "status": "given",
+      "why": "a face offers weights >= 300 apart"
+    },
+    {
+      "key": "logo:full",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/full"
+      ],
+      "files": [
+        "assets/logo-lockup.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 105,
+        "height": 30,
+        "aspect": 3.5,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 0,
+          "w": 98.13,
+          "h": 100
+        },
+        "meanLuminance": 0.28,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.full"
+    },
+    {
+      "key": "logo:icon",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/icon"
+      ],
+      "files": [
+        "assets/logo.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 33,
+        "height": 34,
+        "aspect": 0.971,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 100
+        },
+        "meanLuminance": 0.576,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.icon"
+    },
+    {
+      "key": "logo:monoDark",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/monoDark"
+      ],
+      "files": [
+        "assets/logo-lockup.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 105,
+        "height": 30,
+        "aspect": 3.5,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 0,
+          "w": 98.13,
+          "h": 100
+        },
+        "meanLuminance": 0.28,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.monoDark"
+    },
+    {
+      "key": "logo:monoLight",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/monoLight"
+      ],
+      "files": [
+        "assets/logo-lockup-white.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 105,
+        "height": 30,
+        "aspect": 3.5,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 0,
+          "w": 98.13,
+          "h": 100
+        },
+        "meanLuminance": 0.659,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.monoLight"
+    },
+    {
+      "key": "logo:wordmark",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/wordmark"
+      ],
+      "files": [
+        "assets/logo-lockup.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 105,
+        "height": 30,
+        "aspect": 3.5,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 0,
+          "w": 98.13,
+          "h": 100
+        },
+        "meanLuminance": 0.28,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.wordmark"
+    },
+    {
+      "key": "logo:reverse",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/reverse"
+      ],
+      "files": [
+        "assets/logo-lockup-white.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 105,
+        "height": 30,
+        "aspect": 3.5,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 0,
+          "w": 98.13,
+          "h": 100
+        },
+        "meanLuminance": 0.659,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.reverse"
+    },
+    {
+      "key": "component:card",
+      "term": "E2:card",
+      "from": [
+        "/components/cards"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "cards"
+        ],
+        "style": "outlined",
+        "styleTerm": "E4:outlined",
+        "recipes": [
+          {
+            "id": "no-product",
+            "kind": "feature",
+            "term": "E3:items"
+          },
+          {
+            "id": "no-tile",
+            "kind": "feature",
+            "term": "E3:items"
+          },
+          {
+            "id": "no-stat-strip",
+            "kind": "stat",
+            "term": "E3:kpis"
+          }
+        ]
+      },
+      "measured": {
+        "recipes": 3
+      },
+      "status": "given",
+      "why": "components: cards"
+    },
+    {
+      "key": "component:chip",
+      "term": "E2:chip",
+      "from": [
+        "/components/chip"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "chip"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: chip"
+    },
+    {
+      "key": "component:callout",
+      "term": "E2:callout",
+      "from": [
+        "/components/callout"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "callout"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: callout"
+    },
+    {
+      "key": "component:quotes",
+      "term": "E3:quotes",
+      "from": [
+        "/components/quote"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "quote"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: quote"
+    },
+    {
+      "key": "component:divider",
+      "term": "E2:divider",
+      "from": [
+        "/components/divider"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "divider"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: divider"
+    },
+    {
+      "key": "component:process",
+      "term": "E3:process",
+      "from": [
+        "/components/steps"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "steps"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: steps"
+    },
+    {
+      "key": "component:timeline",
+      "term": "E3:timeline",
+      "from": [
+        "/components/timeline"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "timeline"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: timeline"
+    },
+    {
+      "key": "component:connector",
+      "term": "E2:connector",
+      "from": [
+        "/components/arrow"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "arrow"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: arrow"
+    },
+    {
+      "key": "component:button",
+      "term": "E2:button",
+      "from": [
+        "/components/button",
+        "/components/buttonSecondary"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "button",
+          "buttonSecondary"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: button, buttonSecondary"
+    },
+    {
+      "key": "component:avatar",
+      "term": "E2:avatar",
+      "from": [
+        "/components/avatar"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "avatar"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: avatar"
+    },
+    {
+      "key": "component:logos",
+      "term": "E3:logos",
+      "from": [
+        "/components/logoWall"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "logoWall"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: logoWall"
+    },
+    {
+      "key": "component:icon",
+      "term": "E2:icon",
+      "from": [
+        "/components/icons"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "icons"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: icons"
+    },
+    {
+      "key": "composition",
+      "term": null,
+      "from": [
+        "/composition"
+      ],
+      "files": [],
+      "given": {
+        "density": "balanced",
+        "titleEverySlide": true,
+        "sectionDividers": true
+      },
+      "measured": {
+        "minWhitespacePct": 30,
+        "maxElementsPerSlide": 6,
+        "maxAccentsPerSlide": 1
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; composition (density, whitespace, limits) as given"
+    },
+    {
+      "key": "motion",
+      "term": null,
+      "from": [
+        "/motion"
+      ],
+      "files": [],
+      "given": {
+        "transition": "fade",
+        "build": "none",
+        "easing": "ease-out"
+      },
+      "measured": {
+        "duration": 300,
+        "stagger": 80
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; motion as given"
+    }
+  ],
   "provenance": {
     "/id": {
       "source": "given",
@@ -6895,9 +7890,209 @@
       "source": "derived",
       "from": "BR-ASSET",
       "signal": "assets/"
+    },
+    "/claims/0": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/0 + assets/ui-workspace.png"
+    },
+    "/claims/1": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/1 + assets/ui-dashboard.png"
+    },
+    "/claims/2": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/2 + assets/ui-meetings.png"
+    },
+    "/claims/3": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/3 + assets/ui-chart.png"
+    },
+    "/claims/4": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/logos/variants/monoDark + assets/logo-lockup.svg"
+    },
+    "/claims/5": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/logos/variants/monoLight + assets/logo-lockup-white.svg"
+    },
+    "/capabilities/0": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/0"
+    },
+    "/capabilities/1": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/1"
+    },
+    "/capabilities/2": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/0 + /imagery/samples/1 + /imagery/samples/2 + /imagery/samples/3 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/3": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/none"
+    },
+    "/capabilities/4": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/rounded"
+    },
+    "/capabilities/5": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/top"
+    },
+    "/capabilities/6": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/0"
+    },
+    "/capabilities/7": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/1 + /backgrounds/variants/warm"
+    },
+    "/capabilities/8": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/2 + /backgrounds/variants/dark"
+    },
+    "/capabilities/9": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/roles/display/size + /typography/roles/h1/size + /typography/roles/h2/size + /typography/roles/h3/size + /typography/roles/body/size + /typography/roles/bodySmall/size + /typography/roles/caption/size + /typography/alignment"
+    },
+    "/capabilities/10": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/faces/display/family + /typography/faces/heading/family + /typography/faces/body/family + /typography/faces/medium/family + /typography/faces/serif/family"
+    },
+    "/capabilities/11": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/faces/heading/weights + /typography/faces/heading/files + /typography/faces/display/weights + /typography/faces/display/files + /typography/faces/body/weights + /typography/faces/body/files + /typography/faces/serif/weights + /typography/faces/serif/files + /typography/faces/medium/weights + /typography/faces/medium/files"
+    },
+    "/capabilities/12": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/full"
+    },
+    "/capabilities/13": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/icon"
+    },
+    "/capabilities/14": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/monoDark"
+    },
+    "/capabilities/15": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/monoLight"
+    },
+    "/capabilities/16": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/wordmark"
+    },
+    "/capabilities/17": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/reverse"
+    },
+    "/capabilities/18": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/cards"
+    },
+    "/capabilities/19": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/chip"
+    },
+    "/capabilities/20": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/callout"
+    },
+    "/capabilities/21": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/quote"
+    },
+    "/capabilities/22": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/divider"
+    },
+    "/capabilities/23": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/steps"
+    },
+    "/capabilities/24": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/timeline"
+    },
+    "/capabilities/25": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/arrow"
+    },
+    "/capabilities/26": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/button + /components/buttonSecondary"
+    },
+    "/capabilities/27": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/avatar"
+    },
+    "/capabilities/28": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/logoWall"
+    },
+    "/capabilities/29": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/icons"
+    },
+    "/capabilities/30": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/composition"
+    },
+    "/capabilities/31": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/motion"
     }
   },
-  "questions": [],
+  "questions": [
+    {
+      "id": "claim.sample.3",
+      "pointer": "/imagery/samples/3",
+      "question": "The brand JSON's claim at /imagery/samples/3 does not match assets/ui-chart.png: assets/ui-chart.png: h 626 vs 628. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    }
+  ],
   "warnings": [
     {
       "pointer": "/typography/sizeUnits",

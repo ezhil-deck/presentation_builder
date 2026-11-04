@@ -25,7 +25,7 @@ Scripts are in `scripts/` (Python 3 + Pillow; PyMuPDF for PDFs: `pip install pym
 
 1. **Extract (exact first).** Choose the most exact source available:
    - PDF page: `python3 scripts/extract_pdf.py deck.pdf 7 out/x`. Gives text runs with font, pt, colour and box; images with crop, transparency and bleed; vector shapes with fill and angles; and draw order.
-   - HTML slide: `node scripts/extract_html.mjs file.html out/x --selector .slide --index 12`. Gives the same from the browser layout, plus radius, clip-path and shadow.
+   - HTML slide: `node scripts/extract_html.mjs file.html out/x --selector .slide --index 12`. Gives the same from the browser layout, plus radius, clip-path (its polygon's angles and outline as `mask`) and shadow; a border on some sides only is measured as thin lines, an svg counts its `pieces`, an img is read for transparency. Its page function `rawObjects` is shared with the template record scripts (V1: scripts/catalogue-records.mjs, scripts/template-records.mjs; `scripts/records_batch.py` runs the pixel and anatomy passes over many measured slides).
    - Screenshot or image: `python3 scripts/extract_image.py shot.png out/x --crop x0,y0,x1,y1`. Crop off any app chrome. You get colour regions with straight-edge angles, the palette and grid.png (a 5% grid). Add text and logo objects to raw.json by hand, reading positions off the grid, and mark them `"exact": false`.
 2. **Pixel pass.** `python3 scripts/extract_image.py out/x/render.jpg out/x --raw x` adds the background, palette, visual-weight centre, empty space and busyness grid. (Step 1 already did this for screenshots.)
 3. **Anatomy.** `python3 scripts/anatomy.py out/x --page 7 --pages 30`, which writes record.json:

@@ -279,7 +279,8 @@ export function slideSubjects(id, geometry, text, furniture) {
  * items holding a field of that term), minItemFields, labelText (the measured numeral / label of the first item),
  * headText (the first field of the first item, in reading order), listItemShare (items whose last field is made of
  * two text runs or more), itemsInRow (the items' first fields share a row), between (a rule between items), numbered
- * (the first item carries an ordinal).
+ * (the first item carries an ordinal), connector (the line along the container: {lines, crossing, orientation, inner}
+ * or null; measured for every container, so it does not leak the hidden type).
  */
 export function blockSubjects(id, geometry, elements, results, readsBefore) {
   const g = geometry.slides[id];
@@ -326,6 +327,8 @@ export function blockSubjects(id, geometry, elements, results, readsBefore) {
         }),
       between: Boolean(c.rules?.between),
       numbered: Boolean(c.numbered),
+      // V1: the line along the container (scripts/catalogue-geometry.mjs measureConnector, measured whatever its type)
+      connector: c.connector ?? null,
     });
   }
   return blocks;

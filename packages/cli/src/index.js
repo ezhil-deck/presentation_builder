@@ -32,7 +32,7 @@ export { diffDecks, diffMarkdown, diffOutDir, pixelDiff, runDiff } from './diff.
 
 /**
  * `--proposals [list]` → the composeDeck `proposals` option: no value / 'all' → every proposal; else a comma list of
- * the open proposals (pr4 / PR-4 / titleClearOfDecor). An unknown name - including the approved PR-1..3, PR-F and
+ * the open proposals (pr4 / PR-4 / titleClearOfDecor, pr6 / PR-6 / templateBinding). An unknown name - including the approved PR-1..3, PR-F and
  * PR-C′, which are rules of every build - is an error.
  */
 export function parseProposalsFlag(value) {
@@ -46,7 +46,7 @@ export function parseProposalsFlag(value) {
   const bad = names.filter((n) => proposalKey(n) === null);
   if (bad.length) {
     const err = new Error(
-      `--proposals: unknown proposal(s) ${bad.join(', ')} (use all or pr4; PR-1..3, PR-F and PR-C′ are rules of every build)`,
+      `--proposals: unknown proposal(s) ${bad.join(', ')} (use all, pr4 or pr6; PR-1..3, PR-F and PR-C′ are rules of every build)`,
     );
     err.exitCode = EXIT.BROKEN;
     throw err;
@@ -275,7 +275,7 @@ export function buildProgram() {
     .option('--snapshot', 'also write golden/expected/<id>/deck.json')
     .option(
       '--proposals [list]',
-      'open design proposals (docs/P3-proposals.md): all, or pr4 (PR-4 title clear of brand-boxed decor) (default off)',
+      'open design proposals (docs/P3-proposals.md): all, or a list of pr4 (PR-4 title clear of brand-boxed decor), pr6 (PR-6 template binding: cover / section / cta / statement from the authored templates) (default off)',
     )
     .option(
       '--catalogue',

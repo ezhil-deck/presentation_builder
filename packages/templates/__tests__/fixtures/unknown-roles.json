@@ -1,0 +1,13 @@
+{
+  "note": "unknown E2 roles per category over packages/templates/data/catalogue.json (elements answered as an E3 cell excluded): a rise fails the test; lower it when a rule improves",
+  "counts": {
+    "cards-slide": 39,
+    "chart-slide": 51,
+    "cta-slide": 0,
+    "image-text-slide": 1,
+    "kpi-slide": 117,
+    "section-slide": 1,
+    "table-slide": 12,
+    "text-slide": 20
+  }
+}

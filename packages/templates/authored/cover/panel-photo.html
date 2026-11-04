@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="la">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cover: colour panel over a side photo (interlock), and mirrored</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #ffffff;
+      }
+      .slide {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #f0f0f0;
+        color: #2b2b2b;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .slide > * {
+        position: absolute;
+        margin: 0;
+      }
+      .k {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .t {
+        font-weight: 700;
+        line-height: 1.05;
+      }
+      .lg {
+        width: 208px;
+        height: 52px;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAA8CAYAAABYfzddAAAAqElEQVR42u3dQQqAIBBAURVPOQeca+pWaCmE2XsnsOSji4ZKAQAAAAAAAAAAYE+NiHH6IjOz2ip4al4BCBgQMCBgEDAgYEDAgIBBwICAAQHDf/XbHugL33bDjnU2wAkMrtCAgAEBg4ABAQMCBgQMAgYEDAgYBAwIGBAwIGAQMHCu6wb6/QgNJzAgYEDAgIBBwICAAQGDgAEBAwIGBAwAAAAAAAAAAPCeCYTOCkmo3g3iAAAAAElFTkSuQmCC)
+          left center/contain no-repeat;
+      }
+      .lg.large {
+        width: 420px;
+        height: 105px;
+      }
+      .inner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide"
+      data-template="cover-panel-photo"
+      data-category="cover-slide"
+      data-basis="Cover ranges (anatomy F5 / F2 / F3): text over a panel that interlocks with the picture is the commonest cover relation (23 of 55), picture 60 % of the width bleeding three sides (covers 37.8 % of the area and up), title 72 px = 6.7 % H (median 6.68), title : subtitle 2.3, logo 0.72 x the title size in the corner opposite the photo, the panel holding the text group at 4.4 % H inner gap."
+    >
+      <img
+        data-role="hero-image"
+        data-need="image:any"
+        data-treatment="side"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAFoCAIAAACpDbWmAAAESUlEQVR42u3cW07DMBCGUX7kNVTpnrPPtFkFT7ygCsrFJGOf88ylHvxpAqrIuq4vQE2vRgACBgQMCBgEDAgYEDAgYBAwIGBAwCBgQMCAgAEBg4ABAQMCBgQMAgYEDAgYBAwIGBAwIGAQMCBgQMCAgEHAgIABAYOAAQEDfbUkpgA2MCBgQMAgYEDAgIABAYOAAQEDAgYBAwIGBAwIGAQMCBgQMCBgEDAgYEDAIGBAwICAAQGDgAEBAwIGBAwCBgQMCBgEDAgYEDDwSEtiCmADAwIGBAwCBgQMCBgQMAgYEDAgYBAwIGBAwICAQcCAgAEBA++aEQxj3/fnP/hyuZiYgClT7Oefq2cBU6DbL7+mkgVMmW6VLGAGSffhN5WxgCmWrowFTPl0ZSxgyqcr45PzRg71jvYKbWCEYRXbwAy91qxiAVO7BA17hJbuCEfwOG0Dq9dZELAb70QCxl13LgEz3S3XsIDV64w8qyUxBf6WS2UDD+h+vzspAnannRcBu81OLWBAwBaRsyNgN9gEBAwIGMvHHAQMCNjaMQ0BAwK2cMwEAQMCtmpMRsCAgAEBe0o0HwEDAgYE7PnQlBAwCBgQMCBgEDC/528zZiVgQMAgYEDAgIABAYOAAQEDAgYBA/W0JKbA/3PxbGAQMCBgQMCFLctiCGYlYEDAIGBAwICAT8/fZkxJwICAQcB4PjQfAQMCBgTsKdFkBAwI2KoxEwQMAsbCMQ0BAwK2dswBAYOAsXxMQMBusLMjYEDAFpFTCxi32XkF7E47KQIGAWM1OaOAmfF+q1fAGnYuBOyuO5GAcePVe2bNCA6/97fbTbr8MOAkpnCs6/W6bVvRV+7H5xGakiWo1yM0H3sosYqlawNTtQ312sCUXMXSFTAlM5augCmZsXQFTMmMpStguhTVtWTdCph6JetWwBz8C+q3elasgDl1z8zAGzlAwICAAQGDgAEBAwIGBAxjme6NHEX/+xTPm+oNLTYwCBgQMCBgEDAgYEDAgIBBwICAAQGDgAEBAwIGBAzDa0lMgZFMdaVtYBAwIGBAwCBgQMCAgAEBg4ABAQMCBgEDAgYEDAgYBAwIGBAwIGAQMCBgQMAgYEDAgIABAYOAAQEDAgYEDAIGBAwIGAQMCBjorCUxBUYy1ZW2gUHAgIABAYOAAQEDAgYEDAIGBAwIGAQMCBgQMCBgEDAgYEDAgIBBwICAAQGDgAEBAwIGBAwCBgQMCBgQMAgYEDAgYBAwIGCgs5bEFBjJVFfaBgYBAwIGBAwCBgQMCBgQMAgYEDAgYBAwIGBAwICAQcCAgAEBAwIGAQMCBgQMAgYEDAgYEDAIGBAwIGBAwCBgQMCAgEHAgICBzloSU2AkU11pGxgEDAgYEDAIGBAwIGBAwCBgQMCAgEHAgIABAQMCBgEDAgYEDAgYBAwIGBAwCBgQMCBgQMAgYEDAgIABAYOAAQEDAgYBAwIGOnsDH7bX5YuxxSYAAAAASUVORK5CYII="
+        alt=""
+        style="left: 760px; top: 0; width: 1160px; height: 1080px; object-fit: cover"
+      />
+      <div
+        data-role="panel"
+        data-need="colour-field:any"
+        style="left: 80px; top: 230px; width: 860px; height: 640px; background: #474747"
+      ></div>
+      <div class="k" style="left: 160px; top: 330px; width: 700px; color: #cfcfcf">Ultricies vitae</div>
+      <div class="t" style="left: 160px; top: 380px; width: 700px; font-size: 72px; color: #f2f2f2">
+        Aliquam erat volutpat nunc dolor
+      </div>
+      <p
+        data-role="subtitle"
+        style="left: 160px; top: 580px; width: 700px; font-size: 31px; line-height: 1.35; color: #dadada"
+      >
+        Consectetur adipiscing elit sed do eiusmod tempor
+      </p>
+      <span class="lg" data-role="brand-logo" data-need="logo:any" style="left: 80px; top: 96px"></span>
+    </div>
+    <div
+      class="slide"
+      data-template="cover-panel-photo"
+      data-category="cover-slide"
+      data-basis="Cover ranges (anatomy F5 / F2 / F3): text over a panel that interlocks with the picture is the commonest cover relation (23 of 55), picture 60 % of the width bleeding three sides (covers 37.8 % of the area and up), title 72 px = 6.7 % H (median 6.68), title : subtitle 2.3, logo 0.72 x the title size in the corner opposite the photo, the panel holding the text group at 4.4 % H inner gap."
+      data-option="mirrored"
+    >
+      <img
+        data-role="hero-image"
+        data-need="image:any"
+        data-treatment="side"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAFoCAIAAACpDbWmAAAESUlEQVR42u3cW07DMBCGUX7kNVTpnrPPtFkFT7ygCsrFJGOf88ylHvxpAqrIuq4vQE2vRgACBgQMCBgEDAgYEDAgYBAwIGBAwCBgQMCAgAEBg4ABAQMCBgQMAgYEDAgYBAwIGBAwIGAQMCBgQMCAgEHAgIABAYOAAQEDfbUkpgA2MCBgQMAgYEDAgIABAYOAAQEDAgYBAwIGBAwIGAQMCBgQMCBgEDAgYEDAIGBAwICAAQGDgAEBAwIGBAwCBgQMCBgEDAgYEDDwSEtiCmADAwIGBAwCBgQMCBgQMAgYEDAgYBAwIGBAwICAQcCAgAEBA++aEQxj3/fnP/hyuZiYgClT7Oefq2cBU6DbL7+mkgVMmW6VLGAGSffhN5WxgCmWrowFTPl0ZSxgyqcr45PzRg71jvYKbWCEYRXbwAy91qxiAVO7BA17hJbuCEfwOG0Dq9dZELAb70QCxl13LgEz3S3XsIDV64w8qyUxBf6WS2UDD+h+vzspAnannRcBu81OLWBAwBaRsyNgN9gEBAwIGMvHHAQMCNjaMQ0BAwK2cMwEAQMCtmpMRsCAgAEBe0o0HwEDAgYE7PnQlBAwCBgQMCBgEDC/528zZiVgQMAgYEDAgIABAYOAAQEDAgYBA/W0JKbA/3PxbGAQMCBgQMCFLctiCGYlYEDAIGBAwICAT8/fZkxJwICAQcB4PjQfAQMCBgTsKdFkBAwI2KoxEwQMAsbCMQ0BAwK2dswBAYOAsXxMQMBusLMjYEDAFpFTCxi32XkF7E47KQIGAWM1OaOAmfF+q1fAGnYuBOyuO5GAcePVe2bNCA6/97fbTbr8MOAkpnCs6/W6bVvRV+7H5xGakiWo1yM0H3sosYqlawNTtQ312sCUXMXSFTAlM5augCmZsXQFTMmMpStguhTVtWTdCph6JetWwBz8C+q3elasgDl1z8zAGzlAwICAAQGDgAEBAwIGBAxjme6NHEX/+xTPm+oNLTYwCBgQMCBgEDAgYEDAgIBBwICAAQGDgAEBAwIGBAzDa0lMgZFMdaVtYBAwIGBAwCBgQMCAgAEBg4ABAQMCBgEDAgYEDAgYBAwIGBAwIGAQMCBgQMAgYEDAgIABAYOAAQEDAgYEDAIGBAwIGAQMCBjorCUxBUYy1ZW2gUHAgIABAYOAAQEDAgYEDAIGBAwIGAQMCBgQMCBgEDAgYEDAgIBBwICAAQGDgAEBAwIGBAwCBgQMCBgQMAgYEDAgYBAwIGCgs5bEFBjJVFfaBgYBAwIGBAwCBgQMCBgQMAgYEDAgYBAwIGBAwICAQcCAgAEBAwIGAQMCBgQMAgYEDAgYEDAIGBAwIGBAwCBgQMCAgEHAgICBzloSU2AkU11pGxgEDAgYEDAIGBAwIGBAwCBgQMCAgEHAgIABAQMCBgEDAgYEDAgYBAwIGBAwCBgQMCBgQMAgYEDAgIABAYOAAQEDAgYBAwIGOnsDH7bX5YuxxSYAAAAASUVORK5CYII="
+        alt=""
+        style="left: 0px; top: 0; width: 1160px; height: 1080px; object-fit: cover"
+      />
+      <div
+        data-role="panel"
+        data-need="colour-field:any"
+        style="left: 980px; top: 230px; width: 860px; height: 640px; background: #474747"
+      ></div>
+      <div class="k" style="left: 1060px; top: 330px; width: 700px; color: #cfcfcf">Ultricies vitae</div>
+      <div class="t" style="left: 1060px; top: 380px; width: 700px; font-size: 72px; color: #f2f2f2">
+        Aliquam erat volutpat nunc dolor
+      </div>
+      <p
+        data-role="subtitle"
+        style="left: 1060px; top: 580px; width: 700px; font-size: 31px; line-height: 1.35; color: #dadada"
+      >
+        Consectetur adipiscing elit sed do eiusmod tempor
+      </p>
+      <span class="lg" data-role="brand-logo" data-need="logo:any" style="left: 1632px; top: 96px"></span>
+    </div>
+  </body>
+</html>

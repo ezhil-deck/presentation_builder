@@ -2090,6 +2090,1654 @@
       "size": 775214
     }
   ],
+  "claims": [
+    {
+      "id": "sample.0",
+      "pointer": "/imagery/samples/0",
+      "inputPointer": "/imagery/samples/0",
+      "file": "assets/img/photo-10.jpg",
+      "claim": {
+        "w": 2048,
+        "h": 1150,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 2048,
+        "height": 1150,
+        "aspect": 1.781,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-10.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.1",
+      "pointer": "/imagery/samples/1",
+      "inputPointer": "/imagery/samples/1",
+      "file": "assets/img/photo-8.jpg",
+      "claim": {
+        "w": 1920,
+        "h": 1171,
+        "aspect": 1.64
+      },
+      "measured": {
+        "width": 1920,
+        "height": 1171,
+        "aspect": 1.64,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-8.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.2",
+      "pointer": "/imagery/samples/2",
+      "inputPointer": "/imagery/samples/2",
+      "file": "assets/img/photo-4.jpg",
+      "claim": {
+        "w": 1400,
+        "h": 1382,
+        "aspect": 1.01
+      },
+      "measured": {
+        "width": 1400,
+        "height": 1382,
+        "aspect": 1.013,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-4.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.3",
+      "pointer": "/imagery/samples/3",
+      "inputPointer": "/imagery/samples/3",
+      "file": "assets/img/photo-1.jpg",
+      "claim": {
+        "w": 1400,
+        "h": 1321,
+        "aspect": 1.06
+      },
+      "measured": {
+        "width": 1400,
+        "height": 1321,
+        "aspect": 1.06,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-1.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.4",
+      "pointer": "/imagery/samples/4",
+      "inputPointer": "/imagery/samples/4",
+      "file": "assets/img/photo-2.jpg",
+      "claim": {
+        "w": 1400,
+        "h": 1321,
+        "aspect": 1.06
+      },
+      "measured": {
+        "width": 1400,
+        "height": 1321,
+        "aspect": 1.06,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-2.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.5",
+      "pointer": "/imagery/samples/5",
+      "inputPointer": "/imagery/samples/5",
+      "file": "assets/img/photo-3.jpg",
+      "claim": {
+        "w": 1400,
+        "h": 1260,
+        "aspect": 1.11
+      },
+      "measured": {
+        "width": 1400,
+        "height": 1260,
+        "aspect": 1.111,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-3.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.6",
+      "pointer": "/imagery/samples/6",
+      "inputPointer": "/imagery/samples/6",
+      "file": "assets/img/photo-9.jpg",
+      "claim": {
+        "w": 1786,
+        "h": 986,
+        "aspect": 1.81
+      },
+      "measured": {
+        "width": 1786,
+        "height": 986,
+        "aspect": 1.811,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-9.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.7",
+      "pointer": "/imagery/samples/7",
+      "inputPointer": "/imagery/samples/7",
+      "file": "assets/img/photo-11.jpg",
+      "claim": {
+        "w": 1786,
+        "h": 986,
+        "aspect": 1.81
+      },
+      "measured": {
+        "width": 1786,
+        "height": 986,
+        "aspect": 1.811,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-11.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.8",
+      "pointer": "/imagery/samples/8",
+      "inputPointer": "/imagery/samples/8",
+      "file": "assets/img/photo-6.jpg",
+      "claim": {
+        "w": 1400,
+        "h": 1050,
+        "aspect": 1.33
+      },
+      "measured": {
+        "width": 1400,
+        "height": 1050,
+        "aspect": 1.333,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-6.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.9",
+      "pointer": "/imagery/samples/9",
+      "inputPointer": "/imagery/samples/9",
+      "file": "assets/img/photo-7.jpg",
+      "claim": {
+        "w": 1400,
+        "h": 1050,
+        "aspect": 1.33
+      },
+      "measured": {
+        "width": 1400,
+        "height": 1050,
+        "aspect": 1.333,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-7.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.10",
+      "pointer": "/imagery/samples/10",
+      "inputPointer": "/imagery/samples/10",
+      "file": "assets/img/photo-5.webp",
+      "claim": {
+        "w": 1400,
+        "h": 868,
+        "aspect": 1.61
+      },
+      "measured": {
+        "width": 1400,
+        "height": 868,
+        "aspect": 1.613,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-5.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.11",
+      "pointer": "/imagery/samples/11",
+      "inputPointer": "/imagery/samples/11",
+      "file": "assets/img/photo-13.jpg",
+      "claim": {
+        "w": 1024,
+        "h": 576,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 1024,
+        "height": 576,
+        "aspect": 1.778,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-13.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.12",
+      "pointer": "/imagery/samples/12",
+      "inputPointer": "/imagery/samples/12",
+      "file": "assets/img/photo-12.jpg",
+      "claim": {
+        "w": 1024,
+        "h": 565,
+        "aspect": 1.81
+      },
+      "measured": {
+        "width": 1024,
+        "height": 565,
+        "aspect": 1.812,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-12.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.13",
+      "pointer": "/imagery/samples/13",
+      "inputPointer": "/imagery/samples/13",
+      "file": "assets/img/photo-19.jpg",
+      "claim": {
+        "w": 768,
+        "h": 512,
+        "aspect": 1.5
+      },
+      "measured": {
+        "width": 768,
+        "height": 512,
+        "aspect": 1.5,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-19.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.14",
+      "pointer": "/imagery/samples/14",
+      "inputPointer": "/imagery/samples/14",
+      "file": "assets/img/photo-20.jpg",
+      "claim": {
+        "w": 768,
+        "h": 432,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 768,
+        "height": 432,
+        "aspect": 1.778,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-20.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.15",
+      "pointer": "/imagery/samples/15",
+      "inputPointer": "/imagery/samples/15",
+      "file": "assets/img/photo-22.jpg",
+      "claim": {
+        "w": 768,
+        "h": 432,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 768,
+        "height": 432,
+        "aspect": 1.778,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-22.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.16",
+      "pointer": "/imagery/samples/16",
+      "inputPointer": "/imagery/samples/16",
+      "file": "assets/img/photo-23.jpg",
+      "claim": {
+        "w": 768,
+        "h": 432,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 768,
+        "height": 432,
+        "aspect": 1.778,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-23.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.17",
+      "pointer": "/imagery/samples/17",
+      "inputPointer": "/imagery/samples/17",
+      "file": "assets/img/photo-16.jpg",
+      "claim": {
+        "w": 768,
+        "h": 431,
+        "aspect": 1.78
+      },
+      "measured": {
+        "width": 768,
+        "height": 431,
+        "aspect": 1.782,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-16.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.18",
+      "pointer": "/imagery/samples/18",
+      "inputPointer": "/imagery/samples/18",
+      "file": "assets/decorw/dw-0-0.svg",
+      "claim": {
+        "w": 1320,
+        "h": 135,
+        "aspect": 9.778
+      },
+      "measured": {
+        "width": 1270,
+        "height": 130,
+        "aspect": 9.769,
+        "scaleW": 0.962,
+        "scaleH": 0.963
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/decorw/dw-0-0.svg: w 1320 vs 1270, h 135 vs 130"
+    },
+    {
+      "id": "sample.25",
+      "pointer": "/imagery/samples/25",
+      "inputPointer": "/imagery/samples/25",
+      "file": "assets/img/photo-14.webp",
+      "claim": {
+        "w": 735,
+        "h": 339,
+        "aspect": 2.168
+      },
+      "measured": {
+        "width": 735,
+        "height": 339,
+        "aspect": 2.168,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-14.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.26",
+      "pointer": "/imagery/samples/26",
+      "inputPointer": "/imagery/samples/26",
+      "file": "assets/img/photo-15.jpg",
+      "claim": {
+        "w": 768,
+        "h": 424,
+        "aspect": 1.811
+      },
+      "measured": {
+        "width": 768,
+        "height": 424,
+        "aspect": 1.811,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-15.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.27",
+      "pointer": "/imagery/samples/27",
+      "inputPointer": "/imagery/samples/27",
+      "file": "assets/img/photo-17.webp",
+      "claim": {
+        "w": 1024,
+        "h": 576,
+        "aspect": 1.778
+      },
+      "measured": {
+        "width": 1024,
+        "height": 576,
+        "aspect": 1.778,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-17.webp: the claimed size matches the file"
+    },
+    {
+      "id": "sample.28",
+      "pointer": "/imagery/samples/28",
+      "inputPointer": "/imagery/samples/28",
+      "file": "assets/img/photo-18.jpg",
+      "claim": {
+        "w": 1024,
+        "h": 575,
+        "aspect": 1.781
+      },
+      "measured": {
+        "width": 1024,
+        "height": 575,
+        "aspect": 1.781,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-18.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.29",
+      "pointer": "/imagery/samples/29",
+      "inputPointer": "/imagery/samples/29",
+      "file": "assets/img/photo-21.jpg",
+      "claim": {
+        "w": 768,
+        "h": 424,
+        "aspect": 1.811
+      },
+      "measured": {
+        "width": 768,
+        "height": 424,
+        "aspect": 1.811,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-21.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.30",
+      "pointer": "/imagery/samples/30",
+      "inputPointer": "/imagery/samples/30",
+      "file": "assets/img/photo-24.jpg",
+      "claim": {
+        "w": 768,
+        "h": 424,
+        "aspect": 1.811
+      },
+      "measured": {
+        "width": 768,
+        "height": 424,
+        "aspect": 1.811,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/img/photo-24.jpg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.37",
+      "pointer": "/imagery/samples/37",
+      "inputPointer": "/imagery/samples/37",
+      "file": "assets/logow-2.svg",
+      "claim": {
+        "w": 20,
+        "h": 20,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 20,
+        "height": 20,
+        "aspect": 1,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-2.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.38",
+      "pointer": "/imagery/samples/38",
+      "inputPointer": "/imagery/samples/38",
+      "file": "assets/logow-4.jpg",
+      "claim": {
+        "w": 310,
+        "h": 174,
+        "aspect": 1.782
+      },
+      "measured": {
+        "width": 1760,
+        "height": 990,
+        "aspect": 1.778,
+        "scaleW": 5.677,
+        "scaleH": 5.69
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-4.jpg: w 310 vs 1760, h 174 vs 990"
+    },
+    {
+      "id": "sample.39",
+      "pointer": "/imagery/samples/39",
+      "inputPointer": "/imagery/samples/39",
+      "file": "assets/logow-6.jpg",
+      "claim": {
+        "w": 184,
+        "h": 142,
+        "aspect": 1.296
+      },
+      "measured": {
+        "width": 1024,
+        "height": 576,
+        "aspect": 1.778,
+        "scaleW": 5.565,
+        "scaleH": 4.056
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-6.jpg: w 184 vs 1024, h 142 vs 576, aspect 1.296 vs 1.778"
+    },
+    {
+      "id": "sample.40",
+      "pointer": "/imagery/samples/40",
+      "inputPointer": "/imagery/samples/40",
+      "file": "assets/logow-8.svg",
+      "claim": {
+        "w": 134,
+        "h": 22,
+        "aspect": 6.091
+      },
+      "measured": {
+        "width": 134,
+        "height": 22,
+        "aspect": 6.091,
+        "scaleW": 1,
+        "scaleH": 1
+      },
+      "pass": true,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-8.svg: the claimed size matches the file"
+    },
+    {
+      "id": "sample.41",
+      "pointer": "/imagery/samples/41",
+      "inputPointer": "/imagery/samples/41",
+      "file": "assets/logow-shot-1.png",
+      "claim": {
+        "w": 20,
+        "h": 20,
+        "aspect": 1
+      },
+      "measured": {
+        "width": 40,
+        "height": 40,
+        "aspect": 1,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-1.png: w 20 vs 40, h 20 vs 40"
+    },
+    {
+      "id": "sample.42",
+      "pointer": "/imagery/samples/42",
+      "inputPointer": "/imagery/samples/42",
+      "file": "assets/logow-shot-3.png",
+      "claim": {
+        "w": 310,
+        "h": 174,
+        "aspect": 1.782
+      },
+      "measured": {
+        "width": 620,
+        "height": 348,
+        "aspect": 1.782,
+        "scaleW": 2,
+        "scaleH": 2
+      },
+      "pass": false,
+      "tolerance": {
+        "px": 1,
+        "aspect": 0.02
+      },
+      "why": "assets/logow-shot-3.png: w 310 vs 620, h 174 vs 348"
+    },
+    {
+      "id": "logoTone.monoLight",
+      "pointer": "/logos/variants/monoLight",
+      "inputPointer": "/brand/logos/monoLight",
+      "file": "assets/logo-light.svg",
+      "claim": {
+        "tone": "light"
+      },
+      "measured": {
+        "meanLuminance": 1,
+        "approx": true
+      },
+      "pass": true,
+      "tolerance": {
+        "minLuminance": 0.6
+      },
+      "why": "monoLight assets/logo-light.svg: mean luminance of the opaque pixels 1 (light needs >= 0.6)"
+    },
+    {
+      "id": "decorColours.inv-dc-01",
+      "pointer": "/decor/elements/0/file",
+      "inputPointer": "/assets/elements/0/file",
+      "file": "assets/elements/dc-01.svg",
+      "claim": {
+        "colours": "the brand colours"
+      },
+      "measured": {
+        "colours": [
+          {
+            "hex": "#FFFFFF",
+            "nearest": "#FFFFFF",
+            "distance": 0
+          }
+        ]
+      },
+      "pass": true,
+      "tolerance": {
+        "rgbDistance": 16
+      },
+      "why": "assets/elements/dc-01.svg: every painted colour is a brand colour"
+    },
+    {
+      "id": "backgroundSurface.heroPhoto",
+      "pointer": "/backgrounds/variants/heroPhoto/surface",
+      "inputPointer": "/backgrounds/variants/heroPhoto/surface",
+      "file": "assets/img/photo-10.jpg",
+      "claim": {
+        "surface": "hero",
+        "bg": "#5F1B13"
+      },
+      "measured": {},
+      "pass": null,
+      "tolerance": {
+        "share": 0.2,
+        "rgbDistance": 40
+      },
+      "why": "the variant gives an overlay: the surface colour comes from the overlay, not the image"
+    },
+    {
+      "id": "backgroundSurface.bleedPhoto",
+      "pointer": "/backgrounds/variants/bleedPhoto/surface",
+      "inputPointer": "/backgrounds/variants/bleedPhoto/surface",
+      "file": "assets/img/photo-8.jpg",
+      "claim": {
+        "surface": "hero",
+        "bg": "#5F1B13"
+      },
+      "measured": {},
+      "pass": null,
+      "tolerance": {
+        "share": 0.2,
+        "rgbDistance": 40
+      },
+      "why": "the variant gives an overlay: the surface colour comes from the overlay, not the image"
+    }
+  ],
+  "capabilities": [
+    {
+      "key": "device:inv-dc-01",
+      "term": "E2:decor",
+      "from": [
+        "/decor/elements/0"
+      ],
+      "files": [
+        "assets/elements/dc-01.svg"
+      ],
+      "given": {
+        "type": "shape",
+        "typeTerm": "E2:decor",
+        "allowedOn": []
+      },
+      "measured": {
+        "width": 30,
+        "height": 30,
+        "geometry": {
+          "frame": "element",
+          "shapes": 1,
+          "areaShare": 0.056,
+          "angles": [
+            45
+          ],
+          "approx": false,
+          "bbox": {
+            "x": 23.48,
+            "y": 34.26,
+            "w": 53.04,
+            "h": 32.41
+          },
+          "polygons": [
+            [
+              [
+                50,
+                54.88
+              ],
+              [
+                70.62,
+                34.26
+              ],
+              [
+                76.52,
+                40.15
+              ],
+              [
+                50,
+                66.67
+              ],
+              [
+                23.48,
+                40.15
+              ],
+              [
+                29.37,
+                34.26
+              ]
+            ]
+          ]
+        }
+      },
+      "status": "given",
+      "why": "decor element inv-dc-01: decor type shape"
+    },
+    {
+      "key": "image:photo-product",
+      "term": "E2:picture",
+      "from": [
+        "/imagery/samples/0",
+        "/imagery/samples/1",
+        "/imagery/samples/6",
+        "/imagery/samples/7",
+        "/imagery/samples/12",
+        "/imagery/samples/13",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/img/photo-10.jpg",
+        "assets/img/photo-8.jpg",
+        "assets/img/photo-9.jpg",
+        "assets/img/photo-11.jpg",
+        "assets/img/photo-12.jpg",
+        "assets/img/photo-19.jpg"
+      ],
+      "given": {
+        "treatments": [
+          "none"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#000000",
+          "opacity": 0.54,
+          "gradient": true,
+          "direction": "bottom",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "16:9",
+          "focus": "faces"
+        },
+        "tags": [
+          "card",
+          "product",
+          "texture",
+          "wide"
+        ]
+      },
+      "measured": {
+        "count": 6,
+        "aspects": [
+          1.5,
+          1.64,
+          1.78,
+          1.81
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind photo-product"
+    },
+    {
+      "key": "image:product-ui",
+      "term": "E2:picture",
+      "from": [
+        "/imagery/samples/2",
+        "/imagery/samples/3",
+        "/imagery/samples/4",
+        "/imagery/samples/5",
+        "/imagery/samples/8",
+        "/imagery/samples/9",
+        "/imagery/samples/10",
+        "/imagery/samples/18",
+        "/imagery/samples/25",
+        "/imagery/samples/27",
+        "/imagery/samples/28",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/img/photo-4.jpg",
+        "assets/img/photo-1.jpg",
+        "assets/img/photo-2.jpg",
+        "assets/img/photo-3.jpg",
+        "assets/img/photo-6.jpg",
+        "assets/img/photo-7.jpg",
+        "assets/img/photo-5.webp",
+        "assets/decorw/dw-0-0.svg",
+        "assets/img/photo-14.webp",
+        "assets/img/photo-17.webp",
+        "assets/img/photo-18.jpg"
+      ],
+      "given": {
+        "treatments": [
+          "none"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#000000",
+          "opacity": 0.54,
+          "gradient": true,
+          "direction": "bottom",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "16:9",
+          "focus": "faces"
+        },
+        "tags": [
+          "decor-candidate",
+          "has-text",
+          "inventory",
+          "photo",
+          "ui",
+          "unused"
+        ]
+      },
+      "measured": {
+        "count": 11,
+        "aspects": [
+          1.01,
+          1.06,
+          1.11,
+          1.33,
+          1.61,
+          1.78,
+          2.17,
+          9.77
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind product-ui"
+    },
+    {
+      "key": "image:illustration",
+      "term": "E2:illustration",
+      "from": [
+        "/imagery/samples/11",
+        "/imagery/samples/14",
+        "/imagery/samples/15",
+        "/imagery/samples/16",
+        "/imagery/samples/17",
+        "/imagery/treatments",
+        "/imagery/textOverImage",
+        "/imagery/crop"
+      ],
+      "files": [
+        "assets/img/photo-13.jpg",
+        "assets/img/photo-20.jpg",
+        "assets/img/photo-22.jpg",
+        "assets/img/photo-23.jpg",
+        "assets/img/photo-16.jpg"
+      ],
+      "given": {
+        "treatments": [
+          "none"
+        ],
+        "treatmentDefault": "none",
+        "textOverImage": {
+          "overlay": "#000000",
+          "opacity": 0.54,
+          "gradient": true,
+          "direction": "bottom",
+          "minContrast": 4.5
+        },
+        "crop": {
+          "defaultRatio": "16:9",
+          "focus": "faces"
+        },
+        "tags": [
+          "card",
+          "people",
+          "product",
+          "wide"
+        ]
+      },
+      "measured": {
+        "count": 5,
+        "aspects": [
+          1.78
+        ]
+      },
+      "status": "given",
+      "why": "imagery.samples of kind illustration"
+    },
+    {
+      "key": "mask:none",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/none"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect"
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.none"
+    },
+    {
+      "key": "mask:square",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/square"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": 0
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.square"
+    },
+    {
+      "key": "mask:top-rounded",
+      "term": "E4:rect",
+      "from": [
+        "/imagery/masks/options/top-rounded"
+      ],
+      "files": [],
+      "given": {
+        "type": "rect",
+        "radius": {
+          "tl": 3,
+          "tr": 3,
+          "br": 0,
+          "bl": 0
+        }
+      },
+      "measured": {},
+      "status": "given",
+      "why": "imagery.masks.options.top-rounded"
+    },
+    {
+      "key": "colour-field:mist",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/0",
+        "/backgrounds/variants/mist"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "light",
+        "bg": "#F7F2F2",
+        "text": "#321F1F",
+        "backgrounds": [
+          {
+            "id": "mist",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.8969,
+        "contrastText": 14.01,
+        "contrastHeading": 14.01,
+        "contrastAccent": 3.28
+      },
+      "status": "given",
+      "why": "surfaces[0] (mist)"
+    },
+    {
+      "key": "colour-field:white",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/1",
+        "/backgrounds/variants/white"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "light",
+        "bg": "#FFFFFF",
+        "text": "#321F1F",
+        "backgrounds": [
+          {
+            "id": "white",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 1,
+        "contrastText": 15.54,
+        "contrastHeading": 15.54,
+        "contrastAccent": 3.64
+      },
+      "status": "given",
+      "why": "surfaces[1] (white)"
+    },
+    {
+      "key": "colour-field:brand",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/2",
+        "/backgrounds/variants/brand"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "dark",
+        "bg": "#FF3333",
+        "text": "#FFFFFF",
+        "backgrounds": [
+          {
+            "id": "brand",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.2387,
+        "contrastText": 3.64,
+        "contrastHeading": 4.27,
+        "contrastAccent": 4.27
+      },
+      "status": "given",
+      "why": "surfaces[2] (brand)"
+    },
+    {
+      "key": "colour-field:dark",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/3",
+        "/backgrounds/variants/dark"
+      ],
+      "files": [],
+      "given": {
+        "kind": "surface",
+        "tone": "dark",
+        "bg": "#321F1F",
+        "text": "#FFFFFF",
+        "backgrounds": [
+          {
+            "id": "dark",
+            "type": "solid",
+            "term": "E4:solid"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.0176,
+        "contrastText": 15.54,
+        "contrastHeading": 15.54,
+        "contrastAccent": 4.36
+      },
+      "status": "given",
+      "why": "surfaces[3] (dark)"
+    },
+    {
+      "key": "colour-field:hero",
+      "term": "E2:background",
+      "from": [
+        "/surfaces/4",
+        "/backgrounds/variants/heroPhoto",
+        "/backgrounds/variants/bleedPhoto"
+      ],
+      "files": [
+        "assets/img/photo-10.jpg",
+        "assets/img/photo-8.jpg"
+      ],
+      "given": {
+        "kind": "surface",
+        "tone": "dark",
+        "bg": "#5F1B13",
+        "text": "#FFFFFF",
+        "backgrounds": [
+          {
+            "id": "heroPhoto",
+            "type": "image",
+            "term": "E4:image-fill"
+          },
+          {
+            "id": "bleedPhoto",
+            "type": "image",
+            "term": "E4:image-fill"
+          }
+        ]
+      },
+      "measured": {
+        "bgLuminance": 0.0326,
+        "contrastText": 12.71,
+        "contrastHeading": 12.71,
+        "contrastAccent": 12.71
+      },
+      "status": "given",
+      "why": "surfaces[4] (hero)"
+    },
+    {
+      "key": "type-ladder",
+      "term": null,
+      "from": [
+        "/typography/roles/display/size",
+        "/typography/roles/h1/size",
+        "/typography/roles/h2/size",
+        "/typography/roles/h3/size",
+        "/typography/roles/body/size",
+        "/typography/roles/bodySmall/size",
+        "/typography/roles/caption/size",
+        "/typography/alignment"
+      ],
+      "files": [],
+      "given": {
+        "faces": {
+          "display": "Reckless Bold",
+          "h1": "Reckless Bold",
+          "h2": "Reckless Bold",
+          "h3": "Reckless Bold",
+          "body": "Ivar",
+          "bodyLarge": "Ivar",
+          "bodySmall": "Ivar",
+          "caption": "Ivar",
+          "label": "Ivar",
+          "meta": "Ivar",
+          "quote": "Reckless Bold",
+          "button": "Ivar",
+          "link": "Ivar",
+          "cardTitle": "Reckless Bold",
+          "personName": "Ivar",
+          "personRole": "Ivar",
+          "eyebrow": "Ivar",
+          "stat": "Reckless Bold",
+          "statLabel": "Ivar",
+          "tableHead": "Ivar"
+        },
+        "alignment": {
+          "title": "left",
+          "body": "left",
+          "sectionTitle": "left"
+        }
+      },
+      "measured": {
+        "sizes": {
+          "display": 61.2,
+          "h1": 48.96,
+          "h2": 39.78,
+          "h3": 27.54,
+          "body": 21.42,
+          "bodySmall": 18.36,
+          "caption": 18.36
+        },
+        "steps": [
+          {
+            "from": "display",
+            "to": "h1",
+            "ratio": 1.25
+          },
+          {
+            "from": "h1",
+            "to": "h2",
+            "ratio": 1.231
+          },
+          {
+            "from": "h2",
+            "to": "h3",
+            "ratio": 1.444
+          },
+          {
+            "from": "h3",
+            "to": "body",
+            "ratio": 1.286
+          },
+          {
+            "from": "body",
+            "to": "bodySmall",
+            "ratio": 1.167
+          },
+          {
+            "from": "bodySmall",
+            "to": "caption",
+            "ratio": 1
+          }
+        ],
+        "titleToBody": 2.286,
+        "displayToBody": 2.857
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; typography.roles sizes (display > h1 > h2 > h3 > body > bodySmall > caption)"
+    },
+    {
+      "key": "second-face",
+      "term": "E4:face-run",
+      "from": [
+        "/typography/faces/heading/family",
+        "/typography/faces/body/family"
+      ],
+      "files": [],
+      "given": {
+        "families": {
+          "Ivar": [
+            "body",
+            "bodyLarge",
+            "bodySmall",
+            "caption",
+            "label",
+            "meta",
+            "button",
+            "link",
+            "personName",
+            "personRole",
+            "eyebrow",
+            "statLabel",
+            "tableHead"
+          ],
+          "Reckless Bold": [
+            "display",
+            "h1",
+            "h2",
+            "h3",
+            "quote",
+            "cardTitle",
+            "stat"
+          ]
+        }
+      },
+      "measured": {
+        "families": 2
+      },
+      "status": "given",
+      "why": "the roles are set in 2 face families"
+    },
+    {
+      "key": "weight-contrast",
+      "term": "E4:weight-run",
+      "from": [
+        "/typography/faces/heading/weights",
+        "/typography/faces/heading/files"
+      ],
+      "files": [],
+      "given": {
+        "faces": [
+          "heading"
+        ]
+      },
+      "measured": {
+        "spread": 300,
+        "ranges": [
+          {
+            "face": "heading",
+            "min": 500,
+            "max": 800
+          }
+        ]
+      },
+      "status": "given",
+      "why": "a face offers weights >= 300 apart"
+    },
+    {
+      "key": "logo:full",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/full"
+      ],
+      "files": [
+        "assets/logo-v-scrolled.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 275,
+        "height": 42,
+        "aspect": 6.548,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 3.7,
+          "w": 100,
+          "h": 92.59
+        },
+        "meanLuminance": 0.012,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.full"
+    },
+    {
+      "key": "logo:monoLight",
+      "term": "E2:brand-logo",
+      "from": [
+        "/logos/variants/monoLight"
+      ],
+      "files": [
+        "assets/logo-light.svg"
+      ],
+      "given": {},
+      "measured": {
+        "width": 275,
+        "height": 42,
+        "aspect": 6.548,
+        "opaqueBbox": {
+          "x": 0,
+          "y": 3.7,
+          "w": 100,
+          "h": 92.59
+        },
+        "meanLuminance": 1,
+        "approx": true
+      },
+      "status": "given",
+      "why": "logos.variants.monoLight"
+    },
+    {
+      "key": "component:card",
+      "term": "E2:card",
+      "from": [
+        "/components/cards"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "cards"
+        ],
+        "style": "accent",
+        "styleTerm": "E4:accent",
+        "recipes": [
+          {
+            "id": "all-stories",
+            "kind": "blog",
+            "term": "E3:items"
+          },
+          {
+            "id": "company-stories",
+            "kind": "blog",
+            "term": "E3:items"
+          },
+          {
+            "id": "story-digest",
+            "kind": "list",
+            "term": "E3:points"
+          },
+          {
+            "id": "anniversary-promotion",
+            "kind": "other",
+            "term": "unknown"
+          }
+        ]
+      },
+      "measured": {
+        "recipes": 4
+      },
+      "status": "given",
+      "why": "components: cards"
+    },
+    {
+      "key": "component:button",
+      "term": "E2:button",
+      "from": [
+        "/components/button",
+        "/components/buttonSecondary",
+        "/components/buttonOutline",
+        "/components/ctaChevron"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "button",
+          "buttonSecondary",
+          "buttonOutline",
+          "ctaChevron"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: button, buttonSecondary, buttonOutline, ctaChevron"
+    },
+    {
+      "key": "component:avatar",
+      "term": "E2:avatar",
+      "from": [
+        "/components/avatar"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "avatar"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: avatar"
+    },
+    {
+      "key": "component:icon",
+      "term": "E2:icon",
+      "from": [
+        "/components/icons"
+      ],
+      "files": [],
+      "given": {
+        "sources": [
+          "icons"
+        ]
+      },
+      "measured": {},
+      "status": "given",
+      "why": "components: icons"
+    },
+    {
+      "key": "angle",
+      "term": null,
+      "from": [
+        "/decor/elements/0"
+      ],
+      "files": [
+        "assets/elements/dc-01.svg"
+      ],
+      "given": {
+        "byAngle": {
+          "45": [
+            "inv-dc-01"
+          ]
+        }
+      },
+      "measured": {
+        "angles": [
+          45
+        ],
+        "count": 1
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; straight painted edges at 45 degrees from horizontal in inv-dc-01"
+    },
+    {
+      "key": "composition",
+      "term": null,
+      "from": [
+        "/composition"
+      ],
+      "files": [],
+      "given": {
+        "density": "balanced",
+        "titleEverySlide": true,
+        "sectionDividers": true
+      },
+      "measured": {
+        "minWhitespacePct": 30,
+        "maxElementsPerSlide": 6,
+        "maxAccentsPerSlide": 1
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; composition (density, whitespace, limits) as given"
+    },
+    {
+      "key": "motion",
+      "term": null,
+      "from": [
+        "/motion"
+      ],
+      "files": [],
+      "given": {
+        "transition": "fade",
+        "build": "none",
+        "easing": "ease-out"
+      },
+      "measured": {
+        "duration": 300,
+        "stagger": 80
+      },
+      "status": "given",
+      "why": "not an element: a brand rule; motion as given"
+    }
+  ],
   "provenance": {
     "/id": {
       "source": "given",
@@ -11255,9 +12903,350 @@
       "source": "derived",
       "from": "BR-ASSET",
       "signal": "assets/"
+    },
+    "/claims/0": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/0 + assets/img/photo-10.jpg"
+    },
+    "/claims/1": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/1 + assets/img/photo-8.jpg"
+    },
+    "/claims/2": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/2 + assets/img/photo-4.jpg"
+    },
+    "/claims/3": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/3 + assets/img/photo-1.jpg"
+    },
+    "/claims/4": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/4 + assets/img/photo-2.jpg"
+    },
+    "/claims/5": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/5 + assets/img/photo-3.jpg"
+    },
+    "/claims/6": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/6 + assets/img/photo-9.jpg"
+    },
+    "/claims/7": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/7 + assets/img/photo-11.jpg"
+    },
+    "/claims/8": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/8 + assets/img/photo-6.jpg"
+    },
+    "/claims/9": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/9 + assets/img/photo-7.jpg"
+    },
+    "/claims/10": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/10 + assets/img/photo-5.webp"
+    },
+    "/claims/11": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/11 + assets/img/photo-13.jpg"
+    },
+    "/claims/12": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/12 + assets/img/photo-12.jpg"
+    },
+    "/claims/13": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/13 + assets/img/photo-19.jpg"
+    },
+    "/claims/14": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/14 + assets/img/photo-20.jpg"
+    },
+    "/claims/15": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/15 + assets/img/photo-22.jpg"
+    },
+    "/claims/16": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/16 + assets/img/photo-23.jpg"
+    },
+    "/claims/17": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/17 + assets/img/photo-16.jpg"
+    },
+    "/claims/18": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/18 + assets/decorw/dw-0-0.svg"
+    },
+    "/claims/19": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/25 + assets/img/photo-14.webp"
+    },
+    "/claims/20": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/26 + assets/img/photo-15.jpg"
+    },
+    "/claims/21": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/27 + assets/img/photo-17.webp"
+    },
+    "/claims/22": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/28 + assets/img/photo-18.jpg"
+    },
+    "/claims/23": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/29 + assets/img/photo-21.jpg"
+    },
+    "/claims/24": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/30 + assets/img/photo-24.jpg"
+    },
+    "/claims/25": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/37 + assets/logow-2.svg"
+    },
+    "/claims/26": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/38 + assets/logow-4.jpg"
+    },
+    "/claims/27": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/39 + assets/logow-6.jpg"
+    },
+    "/claims/28": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/40 + assets/logow-8.svg"
+    },
+    "/claims/29": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/41 + assets/logow-shot-1.png"
+    },
+    "/claims/30": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/imagery/samples/42 + assets/logow-shot-3.png"
+    },
+    "/claims/31": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/logos/variants/monoLight + assets/logo-light.svg"
+    },
+    "/claims/32": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/decor/elements/0/file + assets/elements/dc-01.svg"
+    },
+    "/claims/33": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/backgrounds/variants/heroPhoto/surface + assets/img/photo-10.jpg"
+    },
+    "/claims/34": {
+      "source": "derived",
+      "from": "BR-CLAIMS",
+      "signal": "/backgrounds/variants/bleedPhoto/surface + assets/img/photo-8.jpg"
+    },
+    "/capabilities/0": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/0"
+    },
+    "/capabilities/1": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/0 + /imagery/samples/1 + /imagery/samples/6 + /imagery/samples/7 + /imagery/samples/12 + /imagery/samples/13 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/2": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/2 + /imagery/samples/3 + /imagery/samples/4 + /imagery/samples/5 + /imagery/samples/8 + /imagery/samples/9 + /imagery/samples/10 + /imagery/samples/18 + /imagery/samples/25 + /imagery/samples/27 + /imagery/samples/28 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/3": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/samples/11 + /imagery/samples/14 + /imagery/samples/15 + /imagery/samples/16 + /imagery/samples/17 + /imagery/treatments + /imagery/textOverImage + /imagery/crop"
+    },
+    "/capabilities/4": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/none"
+    },
+    "/capabilities/5": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/square"
+    },
+    "/capabilities/6": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/imagery/masks/options/top-rounded"
+    },
+    "/capabilities/7": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/0 + /backgrounds/variants/mist"
+    },
+    "/capabilities/8": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/1 + /backgrounds/variants/white"
+    },
+    "/capabilities/9": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/2 + /backgrounds/variants/brand"
+    },
+    "/capabilities/10": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/3 + /backgrounds/variants/dark"
+    },
+    "/capabilities/11": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/surfaces/4 + /backgrounds/variants/heroPhoto + /backgrounds/variants/bleedPhoto"
+    },
+    "/capabilities/12": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/roles/display/size + /typography/roles/h1/size + /typography/roles/h2/size + /typography/roles/h3/size + /typography/roles/body/size + /typography/roles/bodySmall/size + /typography/roles/caption/size + /typography/alignment"
+    },
+    "/capabilities/13": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/faces/heading/family + /typography/faces/body/family"
+    },
+    "/capabilities/14": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/typography/faces/heading/weights + /typography/faces/heading/files"
+    },
+    "/capabilities/15": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/full"
+    },
+    "/capabilities/16": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/logos/variants/monoLight"
+    },
+    "/capabilities/17": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/cards"
+    },
+    "/capabilities/18": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/button + /components/buttonSecondary + /components/buttonOutline + /components/ctaChevron"
+    },
+    "/capabilities/19": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/avatar"
+    },
+    "/capabilities/20": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/components/icons"
+    },
+    "/capabilities/21": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/decor/elements/0"
+    },
+    "/capabilities/22": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/composition"
+    },
+    "/capabilities/23": {
+      "source": "derived",
+      "from": "BR-CAPABILITIES",
+      "signal": "/motion"
     }
   },
-  "questions": [],
+  "questions": [
+    {
+      "id": "claim.sample.18",
+      "pointer": "/imagery/samples/18",
+      "question": "The brand JSON's claim at /imagery/samples/18 does not match assets/decorw/dw-0-0.svg: assets/decorw/dw-0-0.svg: w 1320 vs 1270, h 135 vs 130. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.38",
+      "pointer": "/imagery/samples/38",
+      "question": "The brand JSON's claim at /imagery/samples/38 does not match assets/logow-4.jpg: assets/logow-4.jpg: w 310 vs 1760, h 174 vs 990. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.39",
+      "pointer": "/imagery/samples/39",
+      "question": "The brand JSON's claim at /imagery/samples/39 does not match assets/logow-6.jpg: assets/logow-6.jpg: w 184 vs 1024, h 142 vs 576, aspect 1.296 vs 1.778. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.41",
+      "pointer": "/imagery/samples/41",
+      "question": "The brand JSON's claim at /imagery/samples/41 does not match assets/logow-shot-1.png: assets/logow-shot-1.png: w 20 vs 40, h 20 vs 40. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    },
+    {
+      "id": "claim.sample.42",
+      "pointer": "/imagery/samples/42",
+      "question": "The brand JSON's claim at /imagery/samples/42 does not match assets/logow-shot-3.png: assets/logow-shot-3.png: w 310 vs 620, h 174 vs 348. Correct the value or the file.",
+      "neededBy": [
+        "BR-CLAIMS"
+      ],
+      "severity": "optional"
+    }
+  ],
   "warnings": [
     {
       "pointer": "/icons/library",

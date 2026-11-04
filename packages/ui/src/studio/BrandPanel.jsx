@@ -7,14 +7,27 @@
 // the Fix buttons in sight), with its count either way. Locked while a compose runs. P4.3: the Type section switches
 // the deck's font pair when the brand defines alternatives (Mood type.pairs; a deck-level override), else says the
 // brand defines one pair; the Element group carries the image / chart / table / flow-node editing (ElementPanel.jsx).
-import { useState } from 'react';
+// V2 (BR-CAPABILITIES / BR-CLAIMS): a collapsed Capabilities group under Brand - capability rows by family with a
+// given / offered pill, the claim checks (claimed vs measured) and the unverified (inferred, no verifiedAt) fields.
+import { useEffect, useRef, useState } from 'react';
+import { api } from '../api.js';
 import Pill from '../components/Pill.jsx';
 import { bySeverity } from '../lib/checks.js';
 import { cx } from '../lib/format.js';
 import { FIX_COMMANDS } from './edit.js';
 import ElementPanel from './ElementPanel.jsx';
 import LayoutPicker, { layoutLabel } from './LayoutPicker.jsx';
-import { countSeverities, hasRole, overrideOf, splitItems } from './lib.js';
+import {
+  claimCounts,
+  claimFacts,
+  claimStatus,
+  countSeverities,
+  groupCapabilities,
+  hasRole,
+  overrideOf,
+  splitItems,
+  unverifiedFields,
+} from './lib.js';
 import { GroupHeader, Icon, LogoChip, Row, Toggle } from './ui.jsx';
 
 const hasElement = (els, id) => (els ?? []).some((e) => e.id === id || hasElement(e.children, id));
@@ -143,6 +156,142 @@ function Counts({ items }) {
   );
 }
 
+/**
+ * The brand's capability record (BR-CAPABILITIES), its claim checks (BR-CLAIMS) and its unverified fields, collapsed
+ * by default. The BrandSpec comes from the `brandSpec` prop when given, else it is read once on opening from
+ * /api/brands/<id>/brand-spec (out/<id>/brand-spec.json, the last `pb mood` run).
+ */
+export function CapabilitiesGroup({ brandId, brandSpec: given = null, load = api.file }) {
+  const [open, setOpen] = useState(false);
+  const [state, setState] = useState({ id: null, spec: null, status: 'idle', error: null });
+  const requested = useRef(null); // the brand id whose brand-spec was asked for (once per brand)
+  const spec = given ?? (state.id === brandId ? state.spec : null);
+  useEffect(() => {
+    if (!open || given || !brandId || requested.current === brandId) return;
+    requested.current = brandId;
+    setState({ id: brandId, spec: null, status: 'loading', error: null });
+    Promise.resolve(load(brandId, 'brand-spec'))
+      .then((value) => {
+        if (requested.current === brandId)
+          setState({ id: brandId, spec: value, status: value ? 'ok' : 'missing', error: null });
+      })
+      .catch((err) => {
+        if (requested.current === brandId)
+          setState({ id: brandId, spec: null, status: 'error', error: err.message });
+      });
+  }, [open, given, brandId, load]);
+
+  const caps = spec?.capabilities;
+  const claims = spec?.claims ?? [];
+  const counts = claimCounts(claims);
+  const unverified = spec ? unverifiedFields(spec) : [];
+  const status = given ? 'ok' : state.id === brandId ? state.status : 'idle';
+  return (
+    <section className="border-b border-zinc-200 px-4 pb-3 pt-2" data-testid="capabilities-group">
+      <div className="flex h-8 items-center justify-between">
+        <button
+          type="button"
+          aria-expanded={open}
+          onClick={() => setOpen(!open)}
+          className="flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-500 hover:text-zinc-900"
+        >
+          <Icon name={open ? 'down' : 'right'} className="h-3.5 w-3.5" />
+          Capabilities
+          {caps ? <span className="tabular-nums">({caps.length})</span> : null}
+        </button>
+        {caps ? (
+          <span className="flex gap-1" data-testid="claim-counts">
+            {counts.fail ? <Pill status="fail">{counts.fail}</Pill> : null}
+            {counts.pass ? <Pill status="pass">{counts.pass}</Pill> : null}
+            {counts.skip ? <Pill status="skip">{counts.skip}</Pill> : null}
+          </span>
+        ) : null}
+      </div>
+      {open ? (
+        <div className="mt-1 space-y-3 text-xs">
+          {status === 'loading' ? <p className="text-zinc-400">Reading the brand-spec…</p> : null}
+          {status === 'error' ? <p className="text-red-700">{state.error}</p> : null}
+          {status === 'missing' || (spec && !caps) ? (
+            <p className="text-zinc-500" data-testid="capabilities-missing">
+              No capability record for this brand yet: run <code>pb mood golden/brands/{brandId}</code>.
+            </p>
+          ) : null}
+          {caps
+            ? groupCapabilities(caps).map((g) => (
+                <div key={g.family} data-testid="capability-family" data-family={g.family}>
+                  <div className="mb-0.5 text-[11px] font-medium text-zinc-500">{g.label}</div>
+                  <ul className="space-y-0.5">
+                    {g.items.map((c) => (
+                      <li
+                        key={c.key}
+                        data-testid="capability-row"
+                        title={c.why}
+                        className="flex min-w-0 items-center gap-1.5"
+                      >
+                        <span className="min-w-0 flex-1 truncate font-mono text-[11px] text-zinc-800">
+                          {c.key}
+                        </span>
+                        <span className="shrink-0 truncate font-mono text-[10px] text-zinc-400">
+                          {c.term ?? 'rule'}
+                        </span>
+                        <Pill status={c.status === 'offered' ? 'warn' : 'pass'}>
+                          {c.status === 'offered' ? 'offered' : 'given'}
+                        </Pill>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            : null}
+          {caps ? (
+            <div data-testid="claims-list">
+              <div className="mb-0.5 text-[11px] font-medium text-zinc-500">
+                Claims <span className="tabular-nums">({claims.length})</span>
+              </div>
+              {claims.length ? (
+                <ul className="space-y-1">
+                  {claims.map((c) => (
+                    <li key={c.id} data-testid="claim-row" data-status={claimStatus(c)} title={c.why}>
+                      <div className="flex items-center gap-1.5">
+                        <Pill status={claimStatus(c)} />
+                        <span className="truncate font-mono text-[11px] text-zinc-800">{c.id}</span>
+                      </div>
+                      <div className="truncate text-[11px] text-zinc-500">claimed {claimFacts(c.claim)}</div>
+                      <div className="truncate text-[11px] text-zinc-500">
+                        measured {claimFacts(c.measured)}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-zinc-400">The JSON makes no claim about its files.</p>
+              )}
+            </div>
+          ) : null}
+          {caps ? (
+            <div data-testid="unverified-list">
+              <div className="mb-0.5 text-[11px] font-medium text-zinc-500">
+                Unverified fields <span className="tabular-nums">({unverified.length})</span>
+              </div>
+              {unverified.length ? (
+                <ul className="space-y-0.5 font-mono text-[11px] text-amber-800">
+                  {unverified.map((p) => (
+                    <li key={p} className="truncate">
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-zinc-400">Every inferred field carries the owner&apos;s verifiedAt.</p>
+              )}
+            </div>
+          ) : null}
+        </div>
+      ) : null}
+    </section>
+  );
+}
+
 export default function BrandPanel({
   brand,
   deck,
@@ -169,6 +318,7 @@ export default function BrandPanel({
   onTableCell,
   fontPair = null,
   onFontPair,
+  brandSpec = null,
 }) {
   const [checksOpenOwn, setChecksOpenOwn] = useState(false);
   const checksOpen = checksOpenProp ?? checksOpenOwn;
@@ -341,6 +491,9 @@ export default function BrandPanel({
           </div>
         </section>
       </fieldset>
+
+      {/* BR-CAPABILITIES / BR-CLAIMS: read-only, usable while a compose runs */}
+      <CapabilitiesGroup brandId={brand?.id} brandSpec={brandSpec} />
 
       {/* the Element group stays usable while a compose runs: its content edits queue (useStudio.edit); the
           overrides controls inside it are locked (ElementPanel `busy`) */}

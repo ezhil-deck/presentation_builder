@@ -8,3 +8,5 @@ package-lock.json
 docs/
 content/history/
 golden/catalogue/rich-slide-catalogue.html
+packages/templates/data/
+packages/templates/__fixtures__/authored/records.json

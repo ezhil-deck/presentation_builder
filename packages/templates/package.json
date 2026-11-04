@@ -1,0 +1,20 @@
+{
+  "name": "@pb/templates",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The template records (docs/PLAN-template-library.md §2): anatomy + intent + needs per template, in the vocabulary.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "jest --config ../../jest.config.cjs --rootDir ../.. packages/templates/"
+  },
+  "dependencies": {
+    "@pb/vocabulary": "0.0.0",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "@pb/mood": "0.0.0"
+  }
+}

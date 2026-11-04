@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="la">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cover: a cut-out on the diagonal opposite the logo</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #ffffff;
+      }
+      .slide {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #f0f0f0;
+        color: #2b2b2b;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .slide > * {
+        position: absolute;
+        margin: 0;
+      }
+      .k {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .t {
+        font-weight: 700;
+        line-height: 1.05;
+      }
+      .lg {
+        width: 208px;
+        height: 52px;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAA8CAYAAABYfzddAAAAqElEQVR42u3dQQqAIBBAURVPOQeca+pWaCmE2XsnsOSji4ZKAQAAAAAAAAAAYE+NiHH6IjOz2ip4al4BCBgQMCBgEDAgYEDAgIBBwICAAQHDf/XbHugL33bDjnU2wAkMrtCAgAEBg4ABAQMCBgQMAgYEDAgYBAwIGBAwIGAQMHCu6wb6/QgNJzAgYEDAgIBBwICAAQGDgAEBAwIGBAwAAAAAAAAAAPCeCYTOCkmo3g3iAAAAAElFTkSuQmCC)
+          left center/contain no-repeat;
+      }
+      .lg.large {
+        width: 420px;
+        height: 105px;
+      }
+      .inner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide"
+      data-template="cover-cutout-diagonal"
+      data-category="cover-slide"
+      data-basis="Cover ranges (anatomy decisions: a cut-out on the diagonal opposite the logo; F5): logo top-left (the commonest corner, 35 of 93) at 0.72 x the title size, the cut-out bottom-right breaking the bottom margin (cut-outs may bleed), title 80 px = 7.4 % H (cover 4.44-11.1), title : subtitle 2.3, weight centre kept near the middle (cover 44-55 %), left margin 80 px."
+    >
+      <span class="lg" data-role="brand-logo" data-need="logo:any" style="left: 80px; top: 96px"></span>
+      <img
+        data-role="cutout"
+        data-need="cutout"
+        data-treatment="transparent"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAGQCAYAAAAUdV17AAAFkElEQVR42u3dQY7bMAxAUVsH5mF4YWcdBAFix0Ek8r19F5WoL3mmQLcNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM7bLQFXRcRx9c9mptlDsJgvTiKGYLF8oAQMwWLpSIkXgsWyoRIuBIvlQiVcCJZQLU+4BAuhEi4EC6ESLr4xLIFY+fvihYWD67WFFxZiZR0EC4fUeuCTEAfTJyJeWIiVdRIsHELrhWDh8Fk3BMuhw/oJFg6bdUSwcMisJ4IFCBZeA9YVwcKhsr4IlsOEdRYsAMHCrW+9ESyHB+suWACChVve+iNYgGDhdrcPCBaAYLnVsR+CBSBYbnPsC4IFCBZucfuDYAGCBSBY+NywTwgWIFgAggUgWBX4uYj9QrAAwQIQLADBAgSLG/gBrn1DsADBAhAsAMECBAtAsAAECxAsAMECECxAsAAEC0CwAMECEKySMnO3CvYNwQIEC0CwAAQLECxu4ge49gvBAgQLQLAABGsFfi5inxAsQLAABMvnBvYHwQIEC7e4fUGwAATLbY79ECwAwXKrYx8QLECwcLtbfwQLQLDc8lh3wcLhsd4IFiBYuPWxzoKFw2R9ESyHCusqWACChdeA9USwHDKso2DhsFk/BAuHzrohWA4f1kuwcAitE5OwgcVExGEVhMoLC4fTeiBYOKTWAZ+ENP1EFCovLBxef1+8sPDaEioEixbhEirBQriECsFCuIQKwaJ8uIQKwWLqeIkUgsW0ARMoBIspIyZOAAAAAAAAAAAAAMBb/rXxxPwPOP/jX+ILFsIkZAiWQCFggoVIIV6CJVQIF4IlUoiXYCFUCJdgCRXCxQn+52exwrx4YRk88NrywhIrzJEXFgYMry0vLLEC8yVYhglz5pMQA4RPRC8ssQLzJ1iGBXMoWIYEzKNgGQ4wl4JlKDCfgmUYwJwKliEA8ypYgGC5rcDcCpZNB/MrWDYbcyxYAILlVgLzLFhihbkWLADBcguB+e4ZLLHCnAsWgGC5dcC8e2EBguW2AXMvWACCBQiWZzGYf8ECKBosryuoeQ68sADBAhAsn4PQ9jx4YQGCBSBYgGD5XoeaKp0LLyxAsAAECxAsAMECEKxnfkMI9c+HFxYgWACCBQgWgGABCBYgWACCBSBYgGABCBaAYAGCBSBYAIIFCBaAYAEIFiBYAIIFIFiAYAEIFoBgAYIFIFgAggUIFoBgAYJlCQDBAhAsQLAABAtAsADBAhAsAMECBAtAsAAECxAsAMECECxAsAAEC0CwAMECECwAwQIEC0CwAAQLECwAwQIQLECwAAQLECwAwQIQLECwAAQLQLAAwQIQLADBAgQLQLAABAsQLADBAhAsQLAABAtAsADBAhAsAMECBAtAsAAECxAsAMECECxAsAAECxAsAMECECxAsAAEC0CwAMECECwAwQIEC0CwAAQLECwAwQIQLECwAAQLQLAAwQIQLADBAgQLQLAABAsQLADBAhAsQLAABAsQLADBAhAsQLAABAtAsADBAhAsAMECBAtAsAAECxAsAMECECxAsAAEC0CwAMGaTGbuthNqnw8vLECwAAQLECwAwQIQrFd+Uwi1z4UXFiBYAIIFCJbvdain2nnwwgIEC0CwfBZC23PghQUIltsFzL9gAV5YAILlWQzmXrAALyy3DZh3wQIQLK8saDLnw2aC+RYsAMFyC0HXuR42F8yzYAEIllsJus7xsNlgfgXLpoO5FSxAsNxWYF4FyxCAORUsw4D5FCxDAeZSsAwHmEfBMiSYQ8EyLGD+pmJRPhARh1VAqLywDBGYM8EyTJgvn4T4RESovLAMGeYILyyvLYTKCwvDh3nxwvLaQqgQLOFCqAQL8UKkBEu4ECoES7wQKcFCwASK33oAIjQetEsY8HIAAAAASUVORK5CYII="
+        alt=""
+        style="left: 1160px; top: 260px; width: 600px; height: 820px"
+      />
+      <div class="k" style="left: 80px; top: 370px; width: 940px; color: #5f5f5f">Ultricies vitae</div>
+      <div class="t" style="left: 80px; top: 420px; width: 940px; font-size: 80px">
+        Ut enim ad minim veniam quis
+      </div>
+      <p
+        data-role="subtitle"
+        style="left: 80px; top: 636px; width: 900px; font-size: 35px; line-height: 1.35; color: #4a4a4a"
+      >
+        Quis nostrud exercitation ullamco laboris
+      </p>
+    </div>
+  </body>
+</html>

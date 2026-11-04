@@ -21,7 +21,7 @@ describe('maps.json against the schema files', () => {
   for (const [k, s] of Object.entries(schemas))
     for (const e of collectEnums(s)) collected.push({ key: `${k}:${e.path}`, values: e.values });
 
-  test('the collector finds the enums of all six files', () => {
+  test('the collector finds the enums of all seven files', () => {
     expect(new Set(collected.map((c) => c.key.split(':')[0]))).toEqual(new Set(Object.keys(SCHEMA_FILES)));
     expect(collected.length).toBeGreaterThan(200);
   });

@@ -2,10 +2,10 @@
   "blocks": {
     "list_with_description": {
       "n": 108,
-      "hit": 103,
+      "hit": 102,
       "expect": "E3:items",
       "resolved": {
-        "E3:items": 103
+        "E3:items": 102
       }
     },
     "simple_list": {
@@ -66,11 +66,11 @@
     },
     "roadmap": {
       "n": 54,
-      "hit": 42,
+      "hit": 45,
       "expect": "E3:timeline or E3:process",
       "resolved": {
         "E3:timeline": 19,
-        "E3:process": 23
+        "E3:process": 26
       }
     },
     "timeline": {
@@ -122,15 +122,13 @@
       "L2-6/c1",
       "L24-5/c1"
     ],
+    "list_with_description -> E3:process (process.connector)": ["L1-35/c1"],
     "chart -> E3:points (points.bullets)": ["L7-8/c1"],
     "chart -> -:unknown (none)": ["L8-53/c1", "L11-6/c2"],
     "comparison -> E3:items (items.heading-description)": ["L15-9/c1", "L15-5/c1", "L15-11/c1"],
     "roadmap -> E3:items (items.heading-description)": [
       "L18-3/c1",
       "L18-11/c1",
-      "L18-15/c1",
-      "L18-21/c1",
-      "L18-25/c1",
       "L18-31/c1",
       "L31-4/c1",
       "L31-12/c1",
@@ -330,6 +328,8 @@
         "L18-20/c1",
         "L18-16/c1",
         "L18-24/c1",
+        "L18-15/c1",
+        "L18-21/c1",
         "L18-17/c1",
         "L18-23/c1",
         "L18-32/c1",
@@ -337,6 +337,7 @@
         "L18-34/c1",
         "L18-30/c1",
         "L18-36/c1",
+        "L18-25/c1",
         "L18-27/c1",
         "L18-33/c1",
         "L18-29/c1",

@@ -24,6 +24,7 @@ rules re-run on every edit and warn instead of blocking. Design and roadmap: [do
 | `packages/cli`        | the `pb` command                                                                 |
 | `packages/ui`         | local editor / review web app (webpack + Tailwind, port 8100)                    |
 | `packages/vocabulary` | element vocabulary: terms, rules, schema map (`identify()`, `termFor()`)         |
+| `packages/templates`  | template records: anatomy + intent + needs (`templates()`, `validateTemplate()`) |
 | `golden/brands/`      | golden brand inputs (git-ignored, copied in locally)                             |
 | `schemas/input/`      | the brand input schema                                                           |
 | `docs/`               | design docs                                                                      |

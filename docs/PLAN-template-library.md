@@ -1,6 +1,6 @@
 # The template library with design intent, and the element vocabulary — plan (V0–V6)
 
-Status: **approved 2026-11-04** (owner: "Approve, start V0"; D11–D15 in §8 approved as written). V0 in progress. Owner, 2026-11-04: "what if we have
+Status: **approved 2026-11-04** (owner: "Approve, start V0"; D11–D15 in §8 approved as written). V0, V1 and V2 built and accepted 2026-11-04 ("Accept, start V1+V2", then "Accept, start V3"); V3 in progress as proposal PR-6 (§9). Owner, 2026-11-04: "what if we have
 a list of well designed slide template library; when the input brand details come in, it will not just randomly fill in
 brand things, instead it understands the brand guidelines and it understands the slide template, then it produces the
 visually good result with the brand details" and "we need to build an element / component vocabulary, so that we never
@@ -274,3 +274,88 @@ refined (footer-mark, chart-or-diagram and rule split by a sharper test) and 9,1
 vector line is a rule / divider, not an icon; wording before repetition for legal / source; a band holding text is a
 panel; logo walls are logo items; the furniture signature counts digit runs as one sign); 33 of 1,722 categories change.
 The two analysed covers keep every role (two renames: partner-label -> label, logo -> brand-logo).
+
+**V1 - the template record (2026-11-04, not committed; awaiting the owner's review).** Part A, the geometry item left by V0:
+`scripts/catalogue-geometry.mjs` measures a `connector` for every container (lines along it, items crossed, orientation, inner
+pieces; `rules` untouched); geometry.json regenerated (deep-equal to before once the key is stripped; `measured` date moved),
+catalogue-layouts.json regenerated (all 1,077 records deep-equal; only the geometry hash in `source`); on every roadmap /
+timeline the connector reproduces the old `axis` exactly (a test). The E3 rule `process.connector` (one line crossing every
+item, or inner pieces, plus a label on the first item) lifts the block answer key to **2,014 / 2,037 (98.9 %)**: the rule as
+first written (any line crossing two items) scored 2,009, turning six plain lists into processes, so the stricter one shipped.
+Remaining 23 misses: 9 roadmaps with no line through their items (ruled rows, numbered columns, cards with a top rule each;
+numbering does not separate them from 12 lists numbered the same way), 7 compare / items drawings, 3 charts, 1 list drawn
+exactly like a roadmap (L1-35). Fields and header parts unchanged (99.7 %, 100 %).
+
+Part B: `schemas/template.schema.json` (the record of §2; every role / category / treatment / primitive enum tested against the
+vocabulary, a `template` map source), `packages/templates` (`templates()`, `templatesOf()`, `templateById()`,
+`validateTemplate()`, `needsOf()`), `scripts/catalogue-records.mjs` (one Chrome load, the anatomy pipeline over the rendered
+catalogue: 1 min 27 s for 1,646 slides, byte-identical on a second run) -> `packages/templates/data/catalogue.json` (1,646
+records, 14.3 MB, keyed by catalogue id, plan slides linked to their catalogue-layouts id; no body text). Hand-authored
+convention `docs/TEMPLATES.md` + `scripts/template-records.mjs` (catalogue marks + `data-role` / `data-need` / `data-treatment` /
+`data-template` / `data-option`); five neutral fixture templates in `packages/templates/__fixtures__/authored/` give six records
+(a `dark` option): 14 of 16 authored roles agree with the rules; the two disagreements are recorded as questions, not resolved
+(a slanted band authored `device` reads as `cut-shape`; a button reads as `card`): the identified role stands until the owner
+sets `verifiedAt` (D13). The capability-key grammar shared with V2 lives in `packages/vocabulary/src/capabilities.js`.
+
+Measured on the catalogue: emphasis carrier numeral 933 / colour-field 151 / weight-run 31 / size 5 / none 526; a quiet area
+on every record (busy under the text zone median 12.1, p90 16 on a 0-100 scale); image intent on 17, device on none (the
+catalogue draws no brand device). Roles: 44,978 elements, 98.2 % agreement with the catalogue's marks on marked text
+(20,608 / 20,994); 241 `unknown` roles, all one cause - text smaller than body and longer than six words (captions, chart
+titles, notes), which no E2 term covers since V0 dropped `small-text` (pinned per category; a rise fails). **Weak result,
+listed for the owner:** the vocabulary's slide-kind chain agrees with the catalogue-layouts kind on only 570 / 1,077 plan
+slides (cards -> text 183, chart -> kpi 69, timeline -> text 60, kpi -> text 46, steps -> text 40): the chain was tuned on
+third-party decks, not the catalogue; the catalogue records keep the chain's answer with its why, and the binding (V3 / V4)
+must read the catalogue-layouts kind for plan slides until the chain is re-founded on the catalogue as a second answer key.
+Also changed: `extract_html.mjs` measures more (one-sided borders as lines, svg pieces, img transparency, clip-path angles,
+`::before` / `::after` text, no child text in a parent run) - the two analysed covers were not re-measured with it.
+
+**V2 - the brand capability record and claim checks (2026-11-04, not committed; awaiting the owner's review).** READ rules
+BR-CAPABILITIES and BR-CLAIMS (docs/P1-rules.md §A; `packages/brand/src/{capabilities,claims,svggeom,pixels,measure}.js`;
+schema v1.4 adds `/capabilities` and `/claims`). Capabilities on the 10 golden brands: 24 (the-ken) to 43 (hdfc-2) each, in the
+key grammar, with the term from the vocabulary (a brand rule such as `type-ladder`, `composition`, `motion`, `angle` carries
+`term: null`, never `unknown`); none is `offered`: all 116 `inferred: true` fields carry a `verifiedAt`. Claims (pass / fail /
+skipped): akgmedia 17 / 0 / 0, bosch 20 / 0 / 1, cisco 21 / 18 / 2, hdfc-2 21 / 3 / 1, headspace 29 / 23 / 1, notion 5 / 1 / 0,
+rukko 17 / 1 / 1, shopify 28 / 42 / 2, stripe 17 / 1 / 1, the-ken 28 / 5 / 2; each failure = one optional `claim.*` question on
+the input pointer (blocking only once a template binds to the field, V3). What the claims found (docs/research/
+capabilities-2026-11-04.md): hdfc-2's cover `photoArea` runs on the band's right edge for 93.5 % of its length but the band
+path in cover-bands.svg (and the red band in cover-art.jpg) ends at y 1010, so the polygon's foot is 70-100 px wrong - the
+owner's cover question has a measured answer; its `monoLight` file is the colour lockup on a blue panel (luminance 0.43) and
+its `monoDark` a greyscale lockup on opaque white (0.67): neither is a mono mark; its logo box passes exactly (609 x 119
+measured vs 608 x 118 claimed). 85 imagery sample sizes on five brands are CSS display sizes, 47 exactly 2x the file
+(`scaleW` / `scaleH` recorded). `reverse` makes no tone claim (architect: it is the mark for a coloured ground; rukko's is
+black). Golden snapshots re-taken through the snapshot path (`pb mood --snapshot`, `pb build --snapshot`): deck.json differs
+only in `moodHash`, mood.json only in `brandHash` (the brand hash covers the whole BrandSpec), brand-spec.json only in the
+additions - proven per brand. Studio: a collapsed Capabilities group in the brand panel (keys, terms, status, claims with
+claimed vs measured, unverified fields) read from `out/<id>/brand-spec.json` of the last `pb mood`, not the live derive
+(`studio.js` untouched; a gap). Not decoded: WebP (2 shopify backgrounds skipped).
+
+**V3 - the template binding for cover / section / CTA / statement, proposal PR-6 (2026-11-04, not committed; awaiting
+the owner's review of the sheets `out/_v3/index.html`, before = `out/_v3/_before/<id>` = the golden decks).** Part A: 12
+hand-authored templates + 3 options (`packages/templates/authored/<kind>/`, neutral, AI-authored at authoring time per
+D13, each with `provenance.basis` naming the anatomy range it rests on) measured into `packages/templates/data/authored.json`
+(template schema v1.1: `authoredCategory` from `data-category`, `provenance.basis` from `data-basis`, the need wildcard
+`image:any`; the script errors when a `data-need` reaches no element). 45 / 47 authored roles agree with the rules; 13
+questions left (2 device -> cut-shape: the vocabulary names a device only from a brand or reference signature; 11 category:
+the kind chain reads deck position and header text, which a template has not). Part B: `@pb/templates` `match.js`
+(`candidates`, `pickTemplate`) with the rules settled during the fix round: (1) content fit - a template with no element for a
+field the slide carries (title, label, subtitle, number, action, its one quote, its own picture) is not a candidate, so
+nothing is dropped silently; "left out" is only a template element the brand cannot fill (an avatar, a subtitle the content
+lacks); (2) an `image:<kind>` need is met only by the slide's own image or a brand sample the brand tags `hero` / `cover` /
+`bleed` (a product-ui sample never, unless tagged hero); (3) the brand's own visual for the kind wins - when the kind's
+background hint is an image variant or a brand device is named by / allowed on the kind, a template photo or cut-out must
+be the slide's own image unless the template also binds that device (hdfc-2: device + photo area); (4) score weights: a need
+met by a device / photo-area / text-zone / overlay counts 2, the rest 1. Part C: engine `compose/templateBind.js` behind
+`proposals.templateBinding` (deck schema v1.6: `slide.source.template / score / binding`, element `source.template / signal`,
+`image.clip` polygon + `image.blend`; the HTML renderer draws `clip-path` / `mix-blend-mode`, PDF / PNG inherit; no PPTX
+writer exists yet); the bound photo keeps clear of boxed brand decor and the footer band (inset by the gutter; left out below
+half its height); the background is the surface colour when the template draws the photo + device from parts. Part D: 46 of
+60 cover / section / cta / quote slides bound on the 10 golden brands (the 3-quote slide 25 binds nothing anywhere: the
+statement templates hold one quote; four covers bind nothing because the brand's own cover art wins and no template fits
+their light surface - headspace, notion, rukko, stripe keep today's cover). hdfc-2's cover: the blue surface, the brand photo
+clipped to the photo area, the tint over it, coverBands on top, the logo at the brand's box (608 x 118 at 1233, 78), label /
+title / subtitle right-aligned at the bottom of the 42 % zone, 190-247 px clear of the photo area and the band. Proposal off =
+byte-identical to the golden decks (a test on all 10). Known weaknesses for the owner: the section photo band crops the
+hero's faces on bosch (the sample carries no focal point; `imagery.crop.focus` centre); the `margins` check flags every
+template photo that bleeds by design and the `decor` check flags a device bound by `namedBy` (both checks unchanged, V5);
+the scores are small integers, so most ties fall to template order. Tables and numbers in
+docs/research/v3-binding-2026-11-04.md.

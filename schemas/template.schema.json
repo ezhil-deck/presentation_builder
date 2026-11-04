@@ -1,0 +1,1097 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://presentations.ai/pb/schemas/template.v1.1.json",
+  "title": "Template record v1",
+  "description": "A template = an anatomy record plus intent, written in the vocabulary (docs/PLAN-template-library.md §2, docs/TEMPLATES.md). Every position in % of the slide W / H. The role / category / treatment / primitive enums are the vocabulary terms (packages/vocabulary/data/vocabulary.json; packages/templates/__tests__ holds them equal, maps.json maps each value). A value a measurement cannot give is null and its why is stated (intent.why, element why).",
+  "type": "object",
+  "required": [
+    "schema",
+    "id",
+    "category",
+    "source",
+    "elements",
+    "zones",
+    "margins",
+    "edges",
+    "mainEdge",
+    "rhythm",
+    "hierarchy",
+    "balance",
+    "intent",
+    "needs",
+    "options",
+    "provenance"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "template/1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._~-]*$"
+    },
+    "category": {
+      "$ref": "#/$defs/category"
+    },
+    "categoryWhy": {
+      "type": "string",
+      "description": "the kind-chain rule that decided the category"
+    },
+    "authoredCategory": {
+      "$ref": "#/$defs/category",
+      "description": "v1.1: the slide kind a hand-authored template was written for (data-category on .slide, an intent mark never read by a rule). The binding (V3) reads it as the plan slides' catalogue-layouts kind is read: the kind chain decides from deck position (page 1 = cover), which a template does not have; a different identified `category` is a question (element `slide`)."
+    },
+    "composition": {
+      "type": "boolean",
+      "description": "true: a composition only (no needs: every catalogue record)"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "kind",
+        "ref"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "catalogue",
+            "authored"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "description": "catalogue id or the authored file"
+        },
+        "layout": {
+          "type": "string",
+          "description": "the catalogue-layouts id (plan slides)"
+        },
+        "shapeCode": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "the catalogue shape code (section shapes: t·H12·b), null where it has none"
+        }
+      }
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/element"
+      }
+    },
+    "zones": {
+      "type": "object",
+      "required": [
+        "text",
+        "visual",
+        "split",
+        "textAreaPct",
+        "visualAreaPct"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/box"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "visual": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/box"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "split": {
+          "enum": [
+            "left-right",
+            "right-left",
+            "top-bottom",
+            "bottom-top",
+            "overlap",
+            null
+          ],
+          "description": "how the text and visual zones meet (anatomy measurements.md); null when one is missing"
+        },
+        "textAreaPct": {
+          "type": "number"
+        },
+        "visualAreaPct": {
+          "type": "number"
+        }
+      }
+    },
+    "margins": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "left",
+            "top",
+            "right",
+            "bottom",
+            "open"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "left": {
+              "type": "number"
+            },
+            "top": {
+              "type": "number"
+            },
+            "right": {
+              "type": "number"
+            },
+            "bottom": {
+              "type": "number"
+            },
+            "open": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/side"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "x",
+          "ids"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "x": {
+            "type": "number"
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "mainEdge": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "rhythm": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "steps",
+            "groups",
+            "innerGap"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "steps": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "from",
+                  "to",
+                  "gapPctH",
+                  "gapInTitleSize"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "gapPctH": {
+                    "type": "number"
+                  },
+                  "gapInTitleSize": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "innerGap": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "hierarchy": {
+      "type": "object",
+      "required": [
+        "sizesPctH",
+        "ratios",
+        "titleToBody",
+        "titleWords",
+        "titleLines",
+        "emphasisRuns"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "sizesPctH": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "ratios": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "titleToBody": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "titleWords": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "titleLines": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "emphasisRuns": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "balance": {
+      "type": "object",
+      "required": [
+        "weightCentre",
+        "leftRight",
+        "emptySpace",
+        "diagonal",
+        "busy3x3"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "weightCentre": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "leftRight": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "emptySpace": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "diagonal": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "required": [
+                "tlbr",
+                "trbl",
+                "side"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "tlbr": {
+                  "type": "number"
+                },
+                "trbl": {
+                  "type": "number"
+                },
+                "side": {
+                  "enum": [
+                    "tl-br",
+                    "tr-bl",
+                    "even"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "busy3x3": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "intent": {
+      "type": "object",
+      "required": [
+        "device",
+        "quiet",
+        "image",
+        "emphasis",
+        "furniture",
+        "why"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "device": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "required": [
+                "id",
+                "role",
+                "zone",
+                "angle",
+                "layer",
+                "breaksMargin"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "role": {
+                  "$ref": "#/$defs/role"
+                },
+                "zone": {
+                  "type": "string",
+                  "pattern": "^(top|middle|bottom)-(left|centre|right)$|^full$"
+                },
+                "angle": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "layer": {
+                  "enum": [
+                    "behind",
+                    "front",
+                    null
+                  ]
+                },
+                "breaksMargin": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "quiet": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "required": [
+                "box",
+                "busy",
+                "cells"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "box": {
+                  "$ref": "#/$defs/box"
+                },
+                "busy": {
+                  "type": "number"
+                },
+                "cells": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "r",
+                      "c",
+                      "busy"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "r": {
+                        "type": "integer"
+                      },
+                      "c": {
+                        "type": "integer"
+                      },
+                      "busy": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "image": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "required": [
+                "id",
+                "treatment",
+                "bleed",
+                "mask",
+                "faces"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "treatment": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/imageTreatment"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "bleed": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/side"
+                  }
+                },
+                "mask": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/mask"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "faces": {
+                  "type": "null",
+                  "description": "which way the image faces: no measurement gives it (no model in the pipeline)"
+                }
+              }
+            }
+          ]
+        },
+        "emphasis": {
+          "type": "object",
+          "required": [
+            "carrier",
+            "measurement"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "carrier": {
+              "enum": [
+                "weight-run",
+                "colour-field",
+                "numeral",
+                "size",
+                null
+              ]
+            },
+            "measurement": {
+              "type": "object"
+            }
+          }
+        },
+        "furniture": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "role",
+              "anchor"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "role": {
+                "$ref": "#/$defs/role"
+              },
+              "anchor": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "why": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "the why of each intent field, null ones included"
+        }
+      }
+    },
+    "needs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "role",
+          "optional",
+          "why",
+          "element"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "the capability-key grammar (packages/vocabulary/src/capabilities.js parseCapabilityKey, shared with V2); the pattern is its shape, validateTemplate also checks that component:<term> is an E2 role or E3 structure term",
+            "pattern": "^(photo-area|text-zone|cutout|angle|second-face|weight-contrast|type-ladder|composition|motion|(device|overlay|colour-field|mask|logo):[A-Za-z0-9][A-Za-z0-9._-]*|image:(any|photo-people|photo-product|product-ui|illustration|abstract)|component:[a-z0-9][a-z0-9-]*)$"
+          },
+          "role": {
+            "$ref": "#/$defs/role"
+          },
+          "optional": {
+            "type": "boolean"
+          },
+          "why": {
+            "type": "string"
+          },
+          "element": {
+            "type": "string",
+            "description": "the element that carries the need"
+          }
+        }
+      }
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "ref"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "base",
+              "mirrored",
+              "dark",
+              "image-left",
+              "image-right"
+            ]
+          },
+          "ref": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "element",
+          "authored",
+          "identified",
+          "why"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "element": {
+            "type": "string"
+          },
+          "authored": {
+            "type": "string"
+          },
+          "identified": {
+            "type": "string"
+          },
+          "why": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "source",
+        "measuredAt",
+        "exact",
+        "verifiedAt"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "enum": [
+            "catalogue",
+            "authored"
+          ]
+        },
+        "file": {
+          "type": "string"
+        },
+        "measuredAt": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "exact": {
+          "type": "boolean"
+        },
+        "basis": {
+          "type": "string",
+          "description": "v1.1: the measured range(s) the authored composition is grounded in (data-basis on .slide), one sentence naming the range"
+        },
+        "verifiedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "author": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "box": {
+      "type": "object",
+      "required": [
+        "x",
+        "y",
+        "w",
+        "h"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "w": {
+          "type": "number"
+        },
+        "h": {
+          "type": "number"
+        }
+      },
+      "description": "x / w in % of the slide width, y / h in % of the slide height"
+    },
+    "side": {
+      "enum": [
+        "left",
+        "top",
+        "right",
+        "bottom"
+      ]
+    },
+    "role": {
+      "enum": [
+        "big-number",
+        "label",
+        "bullet",
+        "heading",
+        "body",
+        "description",
+        "paragraph",
+        "legal",
+        "source",
+        "page-number",
+        "footer-text",
+        "date",
+        "placeholder",
+        "contact",
+        "authors",
+        "quote-mark",
+        "attribution",
+        "caption",
+        "decor-word",
+        "title",
+        "subtitle",
+        "eyebrow",
+        "unknown",
+        "device",
+        "background",
+        "background-art",
+        "brand-logo",
+        "partner-logo",
+        "logo-item",
+        "chart-exhibit",
+        "diagram",
+        "illustration",
+        "table-exhibit",
+        "watermark",
+        "cutout",
+        "hero-image",
+        "avatar",
+        "picture",
+        "icon",
+        "sticker",
+        "badge",
+        "chip",
+        "button",
+        "callout",
+        "pager",
+        "tabs",
+        "marker",
+        "connector",
+        "divider",
+        "rule",
+        "frame",
+        "cut-shape",
+        "band",
+        "panel",
+        "card",
+        "decor"
+      ],
+      "description": "an E2 role term (unknown included: no rule decided)"
+    },
+    "category": {
+      "enum": [
+        "cover-slide",
+        "agenda-slide",
+        "cta-slide",
+        "legal-slide",
+        "back-cover-slide",
+        "quote-slide",
+        "section-slide",
+        "kpi-slide",
+        "chart-slide",
+        "table-slide",
+        "text-slide",
+        "cards-slide",
+        "team-slide",
+        "image-text-slide",
+        "blank-slide",
+        "bullets-slide",
+        "two-column-slide",
+        "comparison-slide",
+        "diagram-slide",
+        "timeline-slide",
+        "steps-slide",
+        "logos-slide",
+        "image-slide",
+        "unknown"
+      ],
+      "description": "an E3 slide kind term, or unknown (no kind rule held)"
+    },
+    "primitive": {
+      "enum": [
+        "line",
+        "text",
+        "image",
+        "shape",
+        "chart",
+        "table",
+        "group"
+      ]
+    },
+    "treatment": {
+      "enum": [
+        "device-frame",
+        "transparent",
+        "clipped",
+        "collage",
+        "background-image",
+        "full",
+        "side",
+        "rect",
+        "ellipse",
+        "polygon",
+        "svg",
+        "text-mask",
+        "glass",
+        "accent",
+        "elevated",
+        "outlined",
+        "filled",
+        "flat",
+        "none",
+        "solid",
+        "linear-gradient",
+        "radial-gradient",
+        "conic-gradient",
+        "mesh-gradient",
+        "gradient",
+        "pattern",
+        "texture",
+        "image-fill",
+        "video",
+        "face-run",
+        "weight-run",
+        "colour-run",
+        "angle",
+        "behind",
+        "front",
+        "bleed",
+        "blend",
+        "case"
+      ]
+    },
+    "imageTreatment": {
+      "enum": [
+        "device-frame",
+        "transparent",
+        "clipped",
+        "collage",
+        "background-image",
+        "full",
+        "side"
+      ]
+    },
+    "mask": {
+      "enum": [
+        "rect",
+        "ellipse",
+        "polygon",
+        "svg",
+        "text-mask"
+      ]
+    },
+    "structure": {
+      "enum": [
+        "cell",
+        "table-block",
+        "kpis",
+        "chart-block",
+        "paragraph-block",
+        "points",
+        "quotes",
+        "people",
+        "logos",
+        "image-block",
+        "timeline",
+        "process",
+        "subpoints",
+        "compare",
+        "items",
+        "header",
+        "item",
+        "grid",
+        "column",
+        "band-zone",
+        "stack",
+        "gap-group",
+        "zone"
+      ]
+    },
+    "element": {
+      "type": "object",
+      "required": [
+        "id",
+        "role",
+        "primitive",
+        "box",
+        "z",
+        "why"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "role": {
+          "$ref": "#/$defs/role"
+        },
+        "structure": {
+          "$ref": "#/$defs/structure",
+          "description": "set when the element chain answered an E3 term (a table row: cell); role is then unknown"
+        },
+        "primitive": {
+          "$ref": "#/$defs/primitive"
+        },
+        "box": {
+          "$ref": "#/$defs/box"
+        },
+        "treatment": {
+          "$ref": "#/$defs/treatment"
+        },
+        "text": {
+          "type": "object",
+          "required": [
+            "sizePctH",
+            "weight",
+            "lines",
+            "words",
+            "align",
+            "caps",
+            "leading"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "sizePctH": {
+              "type": "number"
+            },
+            "weight": {
+              "type": "integer"
+            },
+            "lines": {
+              "type": "integer"
+            },
+            "words": {
+              "type": "integer"
+            },
+            "align": {
+              "type": "string"
+            },
+            "caps": {
+              "type": "boolean"
+            },
+            "leading": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          }
+        },
+        "z": {
+          "type": "integer"
+        },
+        "why": {
+          "type": "string",
+          "description": "the vocabulary rule id that decided the role (its why text lives in the vocabulary), or why none did"
+        },
+        "furniture": {
+          "type": "boolean"
+        },
+        "mark": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "c": {
+              "type": "integer"
+            },
+            "f": {
+              "type": "string"
+            },
+            "i": {
+              "type": "integer"
+            },
+            "type": {
+              "type": "string"
+            },
+            "part": {
+              "enum": [
+                "k",
+                "t",
+                "r",
+                "src",
+                "ft",
+                "lg"
+              ]
+            }
+          },
+          "description": "the catalogue convention marks (never read by a rule)"
+        },
+        "authored": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "role": {
+              "type": "string"
+            },
+            "need": {
+              "type": "string"
+            },
+            "needOptional": {
+              "type": "boolean"
+            },
+            "treatment": {
+              "type": "string"
+            }
+          },
+          "description": "the intent marks of a hand-authored template, as written"
+        }
+      }
+    }
+  }
+}

@@ -937,6 +937,139 @@
         "others": [],
         "context": {}
       }
+    },
+    {
+      "pair": ["E3:process", "E3:items"],
+      "deciding": "one connector line joins every item (crossing = items)",
+      "rule": "process.connector",
+      "predicate": "connector.crossing",
+      "a": {
+        "scope": "block",
+        "subject": {
+          "id": "o460",
+          "kind": "block",
+          "fields": 8,
+          "items": 4,
+          "minItemFields": 2,
+          "headText": "Name the gaps",
+          "labelText": "01",
+          "connector": {
+            "lines": 1,
+            "crossing": 4,
+            "orientation": "h",
+            "inner": 0
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "b": {
+        "scope": "block",
+        "subject": {
+          "id": "o461",
+          "kind": "block",
+          "fields": 8,
+          "items": 4,
+          "minItemFields": 2,
+          "headText": "Name the gaps",
+          "labelText": "01",
+          "connector": {
+            "lines": 1,
+            "crossing": 1,
+            "orientation": "h",
+            "inner": 0
+          }
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    {
+      "pair": ["E3:process", "E3:items"],
+      "deciding": "the joined items carry a label (a frame rule over an unlabelled row is not a connector)",
+      "rule": "process.connector",
+      "predicate": "labelText",
+      "a": {
+        "scope": "block",
+        "subject": {
+          "id": "o462",
+          "kind": "block",
+          "fields": 8,
+          "items": 4,
+          "minItemFields": 2,
+          "headText": "Name the gaps",
+          "labelText": "UK and Europe",
+          "connector": {
+            "lines": 1,
+            "crossing": 4,
+            "orientation": "h",
+            "inner": 0
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "b": {
+        "scope": "block",
+        "subject": {
+          "id": "o463",
+          "kind": "block",
+          "fields": 8,
+          "items": 4,
+          "minItemFields": 2,
+          "headText": "Name the gaps",
+          "labelText": null,
+          "connector": {
+            "lines": 1,
+            "crossing": 4,
+            "orientation": "h",
+            "inner": 0
+          }
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    {
+      "pair": ["E3:process", "E3:items"],
+      "deciding": "a connector drawn in pieces inside the items (ticks)",
+      "rule": "process.connector",
+      "predicate": "connector.inner",
+      "a": {
+        "scope": "block",
+        "subject": {
+          "id": "o464",
+          "kind": "block",
+          "fields": 8,
+          "items": 4,
+          "minItemFields": 2,
+          "headText": "Name the gaps",
+          "labelText": "01",
+          "connector": {
+            "lines": 1,
+            "crossing": 0,
+            "orientation": "h",
+            "inner": 3
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "b": {
+        "scope": "block",
+        "subject": {
+          "id": "o465",
+          "kind": "block",
+          "fields": 8,
+          "items": 4,
+          "minItemFields": 2,
+          "headText": "Name the gaps",
+          "labelText": "01",
+          "connector": null
+        },
+        "others": [],
+        "context": {}
+      }
     }
   ],
   "ambiguous": {

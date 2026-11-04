@@ -1,9 +1,9 @@
 {
   "source": {
     "sha256": "210d54f649172aa4fe0fb56cc5eb92055c7ea2597713c41ca23c4fe9b9db0b9f",
-    "geometryMeasured": "2026-11-02",
+    "geometryMeasured": "2026-11-04",
     "generator": "scripts/catalogue-layouts.mjs",
-    "geometryHash": "a38e1b6eeee0b3fb"
+    "geometryHash": "2ad46c9c0634c04e"
   },
   "grid": {
     "columns": 12,

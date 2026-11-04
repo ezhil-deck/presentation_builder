@@ -4,7 +4,8 @@ Status 2026-11-03: **PR-F and PR-C′ approved by the owner ("Approve both") and
 and R-PLACE in `docs/P2-spec.md §9`, tested in `packages/engine/__tests__/rules-approved.test.js`; the golden decks were
 re-snapshotted (engine 0.4.0) and are equal, slide for slide, to the approved `--proposals prf,prc` builds (84 slides
 changed against the C4 default build). `--proposals prf|prc` no longer exists (the flag takes `all` or `pr4`); the
-PR-F / PR-C′ entries and build notes below are kept as the record. Open proposals: PR-4 and PR-5.
+PR-F / PR-C′ entries and build notes below are kept as the record. Open proposals: PR-4, PR-5 and PR-6 (2026-11-04,
+template binding, `--proposals pr6`).
 
 Status 2026-10-31: **PR-1, PR-2, PR-3 approved by the owner ("Approve PR-1..3") and now rules of every build** —
 `docs/P2-spec.md §9` (R-FITUP, R-AVATAR, R-LOGOCHIP), tested in `packages/engine/__tests__/rules-approved.test.js`, golden
@@ -133,6 +134,39 @@ when only the card anchor changed it), and per slide whose decor lands in the ba
 - Both (`prf,prc`) change 7-11 slides per brand (84 in all), overflow 0, the fill as PR-F alone (18 grown, 0 smaller).
 - Sheets `out/_prf`, `out/_prc`, `out/_prfc/<id>/compare.png` (index per set: `out/_prf/index.html` …). hdfc-2 builds exit 2
   (its two blocking font questions, as the default build).
+
+## PR-6 Template binding: cover / section / CTA / statement from the authored templates (2026-11-04, proposal; V3 of docs/PLAN-template-library.md)
+**Seen:** hdfc-2's cover (PLAN-template-library §0): the brand's title layout reserves a blue field (title right, bottom,
+42 % wide) beside a photo area under a slanted band device; the one cover layout puts the title bottom-left through the
+photo, the slash and the band. The Mood carries none of the composition fields; the V2 capability record does.
+**Rule (engine `compose/templateBind.js` behind `composeDeck({ proposals: { templateBinding } })`; matching in
+`@pb/templates` `match.js`):** for every cover / section / cta / quote slide, the authored templates of that kind
+(`packages/templates/authored/<kind>/*.html` -> `data/authored.json`, 12 templates + 3 options) are matched against the
+brand's capability record (`brandSpec.capabilities`) and the slide: each need met names its signal; a required need
+unmet disqualifies, and so does any content field the slide carries that the template has no element for (its title,
+label or quote label, subtitle, section number, action, a second quote, its own picture: nothing is ever left out
+silently; "left out" is kept for template elements the brand cannot fill). An `image:<kind>` need is met only by the
+slide's own image or a sample the brand tags `hero` / `cover` / `bleed` (`product-ui` only `hero`). When the brand
+gives the kind its own visual (the kind's background hint is an image variant, or a brand device is namedBy /
+allowedOn the kind), a template photo or cut-out comes only from the slide's own image unless the template also binds
+that brand device. Score = weighted needs met (device, photo area, text zone, overlay 2; every other need 1) - optional
+needs unmet; ties: used fewer in the deck, then id; a pinned `tpl-<id>` wins among the qualified. The best one is bound: the device at its own geometry (brand box; drawn rules as a line from their
+keys), the photo (the slide's own, else a brand sample of the needed kind, rotated per deck) framed and clipped
+(`image.clip`) to the brand's photo area, the brand's overlay over it (`image.blend`), the text stacked in the brand's
+text zone (else the template's quiet box) in the kind's own roles with the template's gaps scaled by the brand's title
+size and kept clear of the device / photo area / canvas decor polygons the capability measured (a statement's title
+and label as a header at the brand's title zone), the template photo inset one gutter clear of the brand's boxed decor
+on the slide and of the footer (left out and listed when it would keep under half its height), the logo in the brand's
+placement box (else at the template's furniture anchor through placeLogo, at the brand's size for the kind; `none`
+leaves it out). No template binds -> today's layout + an info `template` warning naming the nearest and its unmet needs.
+**Signal:** the capability record (V2) - every bound element records `source: {template, signal}`; the slide records
+`source: {template, score, binding: [{element, role, need, signal | why, status}]}` (deck schema v1.6).
+**What it never does:** invent a device, photo or colour (an element no signal fills is left out and listed), replace
+the slide's own image with a sample, drop the slide's number / action / quotes / picture (content fit), change any
+other kind. Off: every deck byte-identical (packages/engine `templateBind.test.js`).
+**Review:** `pb build golden/brands/<id> --proposals pr6 --png --before <plain build> --out out/_v3/<id>` ->
+`compare.png` + `index.html` (the binding table per slide); the tables and the hdfc-2 cover numbers are in
+docs/research/v3-binding-2026-11-04.md.
 
 ## Withdrawn
 - PR-E (description follows its heading) and PR-A (composer ladder), built 2026-11-03, withdrawn the same day by the
