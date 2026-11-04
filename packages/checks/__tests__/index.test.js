@@ -17,10 +17,11 @@ const IDS = [
   'variety',
   'empty-space',
   'compose',
+  'type-ladder',
 ];
 
 describe('@pb/checks Report v1', () => {
-  it('registers the 14 checks in spec order, each with id / title / signal / run', () => {
+  it('registers the 14 checks in spec order and the type-ladder info report, each with id / title / signal / run', () => {
     expect(CHECKS.map((c) => c.id)).toEqual(IDS);
     for (const c of CHECKS) {
       expect(typeof c.title).toBe('string');
@@ -59,8 +60,8 @@ describe('@pb/checks Report v1', () => {
       else expect(r.reason).toBeUndefined();
     }
     const s = report.summary;
-    expect(s.checks).toBe(14);
-    expect(s.pass + s.warn + s.fail + s.skip).toBe(14);
+    expect(s.checks).toBe(15);
+    expect(s.pass + s.warn + s.fail + s.skip).toBe(15);
     const items = report.results.flatMap((r) => r.items);
     expect(s.items).toEqual({
       fail: items.filter((i) => i.severity === 'fail').length,
@@ -126,7 +127,7 @@ describe('@pb/checks Report v1', () => {
 
   it('runs without inputs: every check skips (questions / schema name what is missing)', () => {
     const report = runChecks();
-    expect(report.summary).toMatchObject({ checks: 14, skip: 14 });
+    expect(report.summary).toMatchObject({ checks: 15, skip: 15 });
     expect(report.brandId).toBeNull();
   });
 

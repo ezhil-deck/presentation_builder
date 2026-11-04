@@ -18,11 +18,16 @@ import * as decor from './checks/decor.js';
 import * as variety from './checks/variety.js';
 import * as emptySpace from './checks/empty-space.js';
 import * as compose from './checks/compose.js';
+import * as placeholder from './checks/placeholder.js';
+import * as typeLadder from './checks/type-ladder.js';
 import { sortItems, sortKeys } from './util.js';
 
 export const REPORT_VERSION = '1.0.0';
 
-/** The 14 checks of P3-spec §A.2, in report order. */
+/**
+ * The 14 checks of P3-spec §A.2, in report order, and the info report `type-ladder` (text sizes per slide and the type
+ * ratios, 2026-11-03; info items only, never a warn).
+ */
 export const CHECKS = Object.freeze([
   schema,
   questions,
@@ -38,7 +43,15 @@ export const CHECKS = Object.freeze([
   variety,
   emptySpace,
   compose,
+  typeLadder,
 ]);
+
+/**
+ * The editor's checks (docs/P4-spec.md §3, P4.2), run after CHECKS when `runChecks` gets `editor: true` (the Studio):
+ * `placeholder` lists the slides still showing the slide-kind picker's placeholder copy. A deck built from Markdown
+ * by the CLI never carries that copy, so its report keeps CHECKS.
+ */
+export const EDITOR_CHECKS = Object.freeze([placeholder]);
 
 /** One check → its result (P3-spec §A.1); a check that throws is a `fail` naming the error (never silent). */
 export function runCheck(check, ctx) {
@@ -88,12 +101,13 @@ export function summaryLine(report) {
 }
 
 /**
- * runChecks({ brandSpec, mood, deck, files? }) → Report v1. `files` = `{ exists(relPath) → boolean }` resolved against
- * the brand folder (see `filesFrom` in ./files.js); without it, file checks are not run.
+ * runChecks({ brandSpec, mood, deck, files?, editor? }) → Report v1. `files` = `{ exists(relPath) → boolean }` resolved
+ * against the brand folder (see `filesFrom` in ./files.js); without it, file checks are not run. `editor` adds
+ * EDITOR_CHECKS (the Studio).
  */
-export function runChecks({ brandSpec, mood, deck, files } = {}) {
+export function runChecks({ brandSpec, mood, deck, files, editor = false } = {}) {
   const ctx = { brandSpec, mood, deck, files };
-  const results = CHECKS.map((c) => runCheck(c, ctx));
+  const results = (editor ? [...CHECKS, ...EDITOR_CHECKS] : CHECKS).map((c) => runCheck(c, ctx));
   return sortKeys({
     kind: 'Report',
     version: REPORT_VERSION,

@@ -193,7 +193,7 @@ jest golden test (packages/cli) compares. `pb render <deck.json> --pdf|--png` re
   only the surface colour. MD-PALETTE records `rhythm` as ids and adds `rhythmBackgrounds {step → variant}`; the engine uses
   the variant's background for that step.
 
-## 9. Approved design rules (owner, 2026-10-31: "Approve PR-1..3" on the before / after sheets)
+## 9. Approved design rules (owner, 2026-10-31: "Approve PR-1..3"; 2026-11-03: "Approve both" for PR-F / PR-C′ - on the before / after sheets)
 The three proposals below left `docs/P3-proposals.md` and are rules of every compose (no option; the golden decks carry
 them; engine version 0.3.0). Each names its brand signal and is tested in `packages/engine/__tests__/rules-approved.test.js`.
 - **R-FITUP (was PR-1)** `compose/fitup.js`: the main text (box roles body / list / quote) of a text / bullets / agenda /
@@ -213,6 +213,40 @@ them; engine version 0.3.0). Each names its brand signal and is tested in `packa
   `components.chip` tokens (fill, radius, padding, font, text colour) hugging the name; without a chip component the name
   is set in `h3`, centred in its cell, with a hairline only when the brand has a divider weight / borderWidth.
   Signal: the brand's chip component / divider.
+
+Approved 2026-11-03 (owner: "Approve both" on the PR-F / PR-C′ sheets `out/_prfc/<id>/compare.png`, 10 golden brands,
+84 slides changed): two more rules of every compose, no option (engine version 0.4.0; the golden decks re-snapshotted,
+equal to the approved proposal builds). Tested in `packages/engine/__tests__/rules-approved.test.js` against
+`__tests__/fixtures/c4-default-flows.json` (the 0.3.0 build they were approved against). Both apply to the catalogue
+layouts (content/2 slides) only; the 68 layouts, fit-up and the Mood are unchanged.
+- **R-FILLROOM (was PR-F)** `compose/slots.js` `pickFill` / `roomTries` / `chooseRoom` / `addsStrain`: the C3.1 fill of
+  a catalogue box (`box.fill`) runs in the room the record gives. *Room:* the step / timeline / card-title-text items'
+  title gives the lines it does not use to the description below it; a text box the parts leave at 0 px while it holds
+  text counts as an overflow. *Relative strain:* a try is rejected only for strain it adds against the same box at its
+  base roles (a text that overflows where its base did not, or steps down further); an element the try does not touch
+  (a timeline year, a marker) never blocks it. *Description first, monotone:* a flow whose items have a heading and a
+  description first computes the base pick (the C3.1 tries without the room, in the same call) and tries every
+  [k, kText] (3 down to 0) that (a) draws text and heading at least as large as the base pick, (b) keeps the heading
+  strictly larger than the text (equal only when the base pair is equal) and (c) keeps heading : text ≤ 2.3 unless it
+  is the base pair; among the tries that fit (no added strain, within the record's share + 10 points) the largest text
+  wins, then the largest heading within 2 : 1, else the smallest ratio; none fits → the base pick, drawn in the room.
+  A text box keeps the three equal steps and a KPI flow its six, the first that fits winning, with the relative strain
+  test. Caps: running text ≤ h2, titles ≤ h1. Recorded in the deck as before: each text's chosen role
+  (`text.font.role`, size in `text.fit`); no before / after record (there is no other build to compare with). Signal:
+  the catalogue record (zone, fill share) and the brand's own role ladder.
+- **R-PLACE (was PR-C′)** layouts `catalogue-defs.js` `VALIGN` / `contentAlign` / `placeTied` / `decorBand`, engine
+  `compose/place.js`, `slots.js` `placeInCells`: a catalogue container takes the record's vertical placement as
+  recorded - `fill` → middle, `top` → top, `middle` → middle, `bottom` → bottom (C3.1 drew fill → top, bottom →
+  middle) - for items without a card in their cells (`flow.valign`; a row stays level; at the bottom the content keeps
+  its top inset), for un-carded text boxes, lists and paragraphs (`align.v`; a text card hugging its text moves with
+  it). *Inside a card the card is the anchor:* an item drawn on a card (its own component card or the Mood's card behind
+  the cell) keeps its content at the card's top padding and the card stays. A steps / timeline flow keeps its whole
+  zone (`flow.place` {valign, lines}), is filled there (R-FILLROOM) and placed afterwards: a box of 1.35 × the measured
+  fitted height at the recorded alignment, its connector / line moved with it - so the placement never changes a size.
+  The band the composition leaves between the title and the content group, when wider than 2 × spacing.lg, is a decor
+  zone (after the zone under the content). Never moves a title, a footer or a chart / table. Signal: the catalogue
+  record of the slide (D1).
+
 Still open as proposals (`--proposals`, off by default): PR-4 title clear of brand-boxed decor (changes 0 slides as
 written: hdfc-2's slash is behind-layer full-canvas decor), PR-5 body column width for text-only slides.
 

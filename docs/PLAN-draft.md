@@ -142,7 +142,7 @@ JSON, re-fit by the same rules, re-painted by the same renderer. What "better th
   blocking questions (faces `data`/`tagline` have no font files on disk). Every brand has one optional question (`logos.heightLarge`).
 - Snapshots in `golden/expected/<id>/` (4.6 MB), deterministic; jest golden test in `packages/cli`. 245 tests, lint clean.
 - Rules spec: `docs/P1-rules.md` (§A brand, §B mood, §C CLI, §D the 13 reconciliation decisions after the first build).
-- Schemas: brand-spec v1.2, mood v1.3, layout v1.2, deck v1.2, content v1.1: enums mirror the input schema; sizes converted to canvas px (D3); E1–E6 after the owner's Mood review (tone from the brand's text colour; dead / unplaced decor; animated + extra element keys kept; icon directory as a set; unreferenced-asset inventory).
+- Schemas: brand-spec v1.3 (2026-11-02: `typography.pairs`), mood v1.4 (`type.pairs`), layout v1.2, deck v1.5 (2026-11-02: a slide's `source.catalogue`, the catalogue layout it was composed on - every content/2 slide by default since C4, `pb build --no-catalogue` for the 68 only, docs/PLAN-catalogue.md C3 / C4; v1.4 `hidden` + `source` for the editor; v1.2 added image.animated), content v2.1 (2026-11-02: a `process` node's `label`, docs/PLAN-catalogue.md D8; v2.0 documents stay valid): enums mirror the input schema; sizes converted to canvas px (D3); E1–E6 after the owner's Mood review (tone from the brand's text colour; dead / unplaced decor; animated + extra element keys kept; icon directory as a set; unreferenced-asset inventory).
 - Known gaps: `typography.scriptFallbacks` not carried into the Mood; `logoWall.logos` files not checked by BR-ASSET; the engine
   stub still accepts the old `kind:'Mood'` fixture; "input key not read" warnings (87 across the set) are noise until the map grows.
 
@@ -153,6 +153,7 @@ JSON, re-fit by the same rules, re-painted by the same renderer. What "better th
 - Spec: `docs/P2-spec.md` (§1–6 contracts, §7 integration decisions F1–F10, §8 post-review fixes G1–G6).
 - Snapshots: `golden/expected/<id>/deck.json` (deterministic). Layout wireframes: `out/_layouts/<id>/<kind>.svg`.
 - Design-quality proposals for the owner: `docs/P3-proposals.md`. PR-1..3 approved 2026-10-31 and now rules (`docs/P2-spec.md §9`);
+  PR-F / PR-C′ approved 2026-11-03 and now rules too (R-FILLROOM, R-PLACE; engine 0.4.0);
   PR-4 rendered behind `--proposals` to `out/_proposals/`; PR-5 open.
 - Known limits: logos/people without files render as names / placeholders; `logo.height.large` unanswered → small logo on
   covers; bold runs measured with the regular face metrics; decor placed only by brand `box` or into layout zones.
@@ -177,7 +178,7 @@ live re-compose on brand / surface / layout change) then **S2 content model v2**
 showcase v2, from the reference catalogue `docs/research/preset-content-catalogue.md`), then P4 editor on that shell.
 **Approved by the owner 2026-10-31 ("Approve S1 + S2")**. Status 2026-11-02: S1 built; S2 complete - grammar v2, 68
 layouts (`docs/S2-layouts.md`), showcase v2 approved as the golden deck (`golden/showcase/showcase.md`, 38 slides; v1 kept as
-`showcase-v1.md`), snapshots re-made. Next: P4 editor on the Studio shell (`docs/PLAN-studio.md` §6).
+`showcase-v1.md`), snapshots re-made. Next: P4 editor on the Studio shell - spec proposed 2026-11-02 in `docs/P4-spec.md` (awaiting approval).
 
 ### P1 task list — Brand → Mood (as planned)
 - P1.1 `brand/read`: load folder, validate against `schemas/input`, resolve asset + font files, hash. Negative tests: missing file, bad colour.

@@ -24,6 +24,9 @@ golden decks are byte-identical.
   kind by `inferKind`) and `match(summary) → score`. `catalogue.forKind(kind)` returns the kind's own layouts (the v1
   default first) then every layout listing the kind in `kinds`. `pick()` on a content/2 slide takes the highest
   score > 0 among `forKind(kind)`, else the default. A pinned layout (`layout:` / Studio override) still wins.
+  Since C4 (2026-11-03, docs/PLAN-catalogue.md §4) the catalogue layouts (`cat-l<plan>-<n>`) are scored first on every
+  content/2 slide and these layouts are the fallback (compose option `catalogue: false` / `pb build --no-catalogue`:
+  these layouts only).
 - Every def has a short `label` and `tags` for the Studio's picker.
 
 ### Layout family table

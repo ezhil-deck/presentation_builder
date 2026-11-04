@@ -81,7 +81,13 @@ export function applyFitUp(mains, ctx) {
   const size = Math.min(...plans.map((p) => p.steps[p.steps.length - 1].size));
   const effects = [];
   for (const { el, font, steps } of plans) {
-    const k = steps.findIndex((s) => s.size === size);
+    // the largest step of this element's ladder at most the shared size (elements in different roles - a catalogue
+    // layout's list and paragraph - climb different ladders: one may have no step at exactly that size)
+    let k = -1;
+    steps.forEach((s, i) => {
+      if (s.size <= size + 1e-9) k = i;
+    });
+    if (k < 0) continue;
     const step = steps[k];
     const before = {
       size: el.text.fit.appliedSize,

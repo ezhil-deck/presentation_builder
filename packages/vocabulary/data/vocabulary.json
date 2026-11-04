@@ -1,0 +1,7124 @@
+{
+  "version": 1,
+  "date": "2026-11-04",
+  "patterns": {
+    "legal": "confidential|proprietary|copyright|©|all rights reserved|strictly prohibited|disclaimer|important notice|without (the )?(prior )?(written )?permission",
+    "partner": "^(commissioned by|prepared for|prepared by|in partnership with|in collaboration with|supported by|sponsored by|in association with|powered by|produced (by|for)|a report (by|for))\\b",
+    "source": "^(source|sources|note|notes|base|n\\s?=|\\*|\\d\\.\\s?source|illustrative)\\b[:.\\s]?",
+    "date": "^((?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\\.?\\s+(\\d{1,2},?\\s+)?\\d{4}|\\d{1,2}\\s+(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\\s+\\d{4}|q[1-4]\\s+\\d{4}|(spring|summer|autumn|fall|winter)\\s+\\d{4}|\\d{4}|\\d{1,2}[/.]\\d{1,2}[/.]\\d{2,4})$",
+    "pagenum": "^(page\\s*)?\\d{1,3}(\\s*/\\s*\\d{1,3})?$",
+    "number": "^(?:(?:over|under|below|above|up by|down by|up to|down to|up|down|more than|less than|about|around|nearly|almost|at least|no\\.)\\s+|[~<>+≈±\\-–−#]\\s?)?(?:[$€£¥₹]\\s?(?:\\d[\\d.,]*(?:/\\d+)?(?:-[a-z]+)?|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|half|one-third|two-thirds|one-quarter|three-quarters)(?:\\s?(?:%|x|×|bn|b|m|mn|k|t|tn|pp|pts|bp|bps|°|s|\\+|billion|million|trillion|thousand|fold|[$€£]))*|(?:\\d[\\d.,]*(?:/\\d+)?(?:-[a-z]+)?|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|half|one-third|two-thirds|one-quarter|three-quarters)(?:\\s?(?:%|x|×|bn|b|m|mn|k|t|tn|pp|pts|bp|bps|°|s|\\+|billion|million|trillion|thousand|fold|[$€£]))+)(?:\\s?(?:to|in|of|vs\\.?|by|down to|up to|–|-|—|/|→)\\s?(?:(?:over|under|below|above|up by|down by|up to|down to|up|down|more than|less than|about|around|nearly|almost|at least|no\\.)\\s+|[~<>+≈±\\-–−#]\\s?)?(?:[$€£¥₹]\\s?)?(?:\\d[\\d.,]*(?:/\\d+)?(?:-[a-z]+)?|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|half|one-third|two-thirds|one-quarter|three-quarters)(?:\\s?(?:%|x|×|bn|b|m|mn|k|t|tn|pp|pts|bp|bps|°|s|\\+|billion|million|trillion|thousand|fold|[$€£]))*)?(?:[\\s-]+\\w+){0,2}$|^(?:(?:over|under|below|above|up by|down by|up to|down to|up|down|more than|less than|about|around|nearly|almost|at least|no\\.)\\s+|[~<>+≈±\\-–−#]\\s?)?(?:[$€£¥₹]\\s?)?(?:\\d[\\d.,]*(?:/\\d+)?(?:-[a-z]+)?|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|half|one-third|two-thirds|one-quarter|three-quarters)(?:\\s+\\w+)?\\s?(?:to|in|of|vs\\.?|by|down to|up to|–|-|—|/|→)\\s?(?:(?:over|under|below|above|up by|down by|up to|down to|up|down|more than|less than|about|around|nearly|almost|at least|no\\.)\\s+|[~<>+≈±\\-–−#]\\s?)?(?:[$€£¥₹]\\s?)?(?:\\d[\\d.,]*(?:/\\d+)?(?:-[a-z]+)?|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|half|one-third|two-thirds|one-quarter|three-quarters)(?:\\s?(?:%|x|×|bn|b|m|mn|k|t|tn|pp|pts|bp|bps|°|s|\\+|billion|million|trillion|thousand|fold|[$€£]))*(?:[\\s-]+\\w+)?$|^(?:(?:over|under|below|above|up by|down by|up to|down to|up|down|more than|less than|about|around|nearly|almost|at least|no\\.)\\s+|[~<>+≈±\\-–−#]\\s?)?(?:[$€£¥₹]\\s?)?(?:\\d[\\d.,]*(?:/\\d+)?(?:-[a-z]+)?|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|half|one-third|two-thirds|one-quarter|three-quarters)(?:\\s+\\w+)?$",
+    "contact": "@[\\w-]+\\.\\w|www\\.|https?://|\\+\\d[\\d\\s()-]{7,}|\\b(contact|get in touch|thank you|thanks|questions\\?)\\b",
+    "agenda": "^(agenda|contents|table of contents|content|in this (report|document|deck)|overview|outline|what('s| is) inside)$",
+    "placeholder": "\\b(lorem ipsum|placeholder|click to (add|edit)|insert (text|logo|image)|xx+|tbd|tk)\\b|^\\w+ logo$",
+    "quote": "^[\"“‘']|[\"”’']$",
+    "quoteGlyph": "^[\"“”‘’'«»„]+$",
+    "quoteEnd": "[\"”»]\\s*$",
+    "closingHeading": "^(contacts?|contact (us|details|information)|thank you|thanks|get in touch|let'?s talk)[\\s:!.]*$",
+    "closingTail": "\\bcontacts[\\s:]*$",
+    "closingWords": "\\b(contact|thank you|get in touch|about (us|the authors))\\b",
+    "legalStart": "^(disclaimer|important notice|legal)",
+    "period": "^((q[1-4]|h[12]|fy)\\s?'?\\d{2,4}|(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\\.?\\s+\\d{4}|(early|mid|late|end of|start of)[\\s-]?\\d{4}|\\d{4}(\\s?[–-]\\s?\\d{2,4})?|(now|today|next|later|then|tomorrow|future|(near|short|mid|medium|long)[\\s-]term)|((phase|stage|step|wave|part)\\s+\\d+\\s*[·:,–-]\\s*)?\\d{4}(\\s?[–-]\\s?\\d{2,4})?)$",
+    "periodStart": "^((q[1-4]|h[12]|fy)\\s?'?\\d{2,4}|(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\\.?\\s+\\d{4}|(early|mid|late|end of|start of)[\\s-]?\\d{4}|\\d{4})\\b",
+    "contrast": "^(from|then|before|old|without|yesterday|past|was)$",
+    "ordinal": "^((step|phase|stage|level|part|move|wave)\\s+\\d+|first|second|third|fourth|fifth)$",
+    "cta": "^(learn more|read more|see more|find out more|get started|start now|contact us|talk to us|book a demo|request a demo|sign up|try (it )?(for )?free|download|buy now|shop now|register|join( us)?|subscribe|apply now|explore)\\b"
+  },
+  "chains": {
+    "element": {
+      "namespace": "E2",
+      "subject": "an object on a slide (anatomy L1 object, catalogue header part or field, deck element)",
+      "doc": "What an object is for on the slide. Block-aware rules (a field of a marked block: catalogue, our own decks) run first, then the text wording rules, then the geometry rules for text, then the rules for marks, images and shapes."
+    },
+    "block": {
+      "namespace": "E3",
+      "subject": "a marked container (catalogue `containers[]`, a content/2 block) with the E2 terms of its fields",
+      "doc": "Which content/2 block type a container is, from its item structure and the roles of its fields.",
+      "none": {
+        "when": [
+          {
+            "eq": ["fields", 0]
+          }
+        ],
+        "why": "holds no field of its own: nothing to identify (the title container)"
+      }
+    },
+    "kind": {
+      "namespace": "E3",
+      "subject": "a whole slide (anatomy slide measurements: page, words, counts of roles ...)",
+      "doc": "Which slide kind a slide is (anatomy categories unified with the layout kinds)."
+    },
+    "structure": {
+      "namespace": "E3",
+      "subject": "a set of elements (a measured group: members, rows, columns, shared edge ...)",
+      "doc": "What a set of elements forms together."
+    },
+    "primitive": {
+      "namespace": "E1",
+      "subject": "a drawn object",
+      "doc": "What is drawn: the deck element type."
+    },
+    "image-treatment": {
+      "namespace": "E4",
+      "subject": "an image as placed on the slide",
+      "doc": "How an image sits on the slide."
+    },
+    "mask": {
+      "namespace": "E4",
+      "subject": "the outline an image or shape is cut to",
+      "doc": "The outline geometry of a clip or a shape."
+    },
+    "card-style": {
+      "namespace": "E4",
+      "subject": "a card or panel fill",
+      "doc": "How a card is finished."
+    },
+    "fill": {
+      "namespace": "E4",
+      "subject": "a paint (a background, a shape fill)",
+      "doc": "What a fill is painted with."
+    },
+    "emphasis": {
+      "namespace": "E4",
+      "subject": "a run inside a text",
+      "doc": "How a run is set apart from the rest of its text."
+    },
+    "angle": {
+      "namespace": "E4",
+      "subject": "a shape",
+      "doc": "Whether a shape is cut on a slant."
+    },
+    "layer": {
+      "namespace": "E4",
+      "subject": "an element that overlaps text",
+      "doc": "Which side of the text an element is drawn on."
+    },
+    "bleed": {
+      "namespace": "E4",
+      "subject": "an element at the slide edge",
+      "doc": "Whether an element runs off the slide."
+    },
+    "blend": {
+      "namespace": "E4",
+      "subject": "an element or gradient with a blend mode",
+      "doc": "Whether an element mixes with what is under it."
+    },
+    "case": {
+      "namespace": "E4",
+      "subject": "a text",
+      "doc": "Whether a text is set in a case transform."
+    }
+  },
+  "terms": [
+    {
+      "term": "line",
+      "namespace": "E1",
+      "definition": "A straight stroke between two points (deck `line`), or a drawn shape so thin it reads as one.",
+      "identify": [
+        {
+          "id": "line.kind",
+          "scope": "primitive",
+          "order": 1,
+          "when": [
+            {
+              "kind": ["line"]
+            }
+          ],
+          "why": "drawn as a line"
+        },
+        {
+          "id": "line.thin-shape",
+          "scope": "primitive",
+          "order": 2,
+          "when": [
+            {
+              "kind": ["shape", "region"]
+            },
+            {
+              "has": "thin"
+            }
+          ],
+          "why": "a shape under 0.8 % H or 0.5 % W thick reads as a line"
+        }
+      ],
+      "signal": "deck element type `line`; a shape under 0.8 % H or 0.5 % W thick",
+      "notBut": [
+        {
+          "term": "shape",
+          "test": "a shape has an area; a line has a length only (thin)"
+        }
+      ],
+      "mapsFrom": {
+        "deck": ["deck.element.type: line", "deck.shape.kind: line"],
+        "layout": ["layout.box.shape.kind: line"],
+        "brand": ["brand.template.region.kind: line"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a 1 px hairline under a header",
+        "negative": "a 40 x 40 px square"
+      }
+    },
+    {
+      "term": "text",
+      "namespace": "E1",
+      "definition": "Glyphs set from a string in a face at a size.",
+      "identify": [
+        {
+          "id": "text.kind",
+          "scope": "primitive",
+          "order": 11,
+          "when": [
+            {
+              "kind": ["text"]
+            }
+          ],
+          "why": "drawn as text"
+        }
+      ],
+      "signal": "deck element type `text`; a text run in a PDF / HTML",
+      "notBut": [
+        {
+          "term": "image",
+          "test": "a word baked into a picture is an image (a logo set as pixels)"
+        }
+      ],
+      "mapsFrom": {
+        "deck": ["deck.element.type: text"],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a title",
+        "negative": "a logo image of a word"
+      }
+    },
+    {
+      "term": "image",
+      "namespace": "E1",
+      "definition": "A raster or vector picture placed from a file.",
+      "identify": [
+        {
+          "id": "image.kind",
+          "scope": "primitive",
+          "order": 12,
+          "when": [
+            {
+              "kind": ["image"]
+            }
+          ],
+          "why": "drawn as image"
+        }
+      ],
+      "signal": "deck element type `image`; an image XObject / <img>",
+      "notBut": [
+        {
+          "term": "shape",
+          "test": "a shape is drawn from geometry, an image comes from a file"
+        }
+      ],
+      "mapsFrom": {
+        "deck": ["deck.element.type: image"],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a photo",
+        "negative": "a filled rectangle"
+      }
+    },
+    {
+      "term": "shape",
+      "namespace": "E1",
+      "definition": "A filled or stroked geometry (rect, ellipse, polygon, path) with an area.",
+      "identify": [
+        {
+          "id": "shape.kind",
+          "scope": "primitive",
+          "order": 13,
+          "when": [
+            {
+              "kind": ["shape", "region"]
+            },
+            {
+              "lacks": "thin"
+            }
+          ],
+          "why": "drawn as shape / region"
+        }
+      ],
+      "signal": "deck element type `shape`; a vector path; a colour region of a screenshot",
+      "notBut": [
+        {
+          "term": "line",
+          "test": "a line is thin (under 0.8 % H / 0.5 % W)"
+        },
+        {
+          "term": "image",
+          "test": "an image comes from a file"
+        }
+      ],
+      "mapsFrom": {
+        "deck": ["deck.element.type: shape"],
+        "layout": ["layout.box.role: shape"],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a card background",
+        "negative": "a hairline"
+      }
+    },
+    {
+      "term": "chart",
+      "namespace": "E1",
+      "definition": "A data chart drawn by the renderer from series (deck `chart`).",
+      "identify": [
+        {
+          "id": "chart.kind",
+          "scope": "primitive",
+          "order": 14,
+          "when": [
+            {
+              "kind": ["chart"]
+            }
+          ],
+          "why": "drawn as chart"
+        }
+      ],
+      "signal": "deck element type `chart`",
+      "notBut": [
+        {
+          "term": "group",
+          "test": "a group of shapes that only looks like a chart is a group until identified as E2 chart"
+        }
+      ],
+      "mapsFrom": {
+        "deck": ["deck.element.type: chart"],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a bar chart element",
+        "negative": "a picture of a chart"
+      }
+    },
+    {
+      "term": "table",
+      "namespace": "E1",
+      "definition": "A grid of cells drawn by the renderer (deck `table`).",
+      "identify": [
+        {
+          "id": "table.kind",
+          "scope": "primitive",
+          "order": 15,
+          "when": [
+            {
+              "kind": ["table"]
+            }
+          ],
+          "why": "drawn as table"
+        }
+      ],
+      "signal": "deck element type `table`",
+      "notBut": [
+        {
+          "term": "group",
+          "test": "a table is cells with a row / column model"
+        }
+      ],
+      "mapsFrom": {
+        "deck": ["deck.element.type: table"],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a 3 x 4 table element",
+        "negative": "three text boxes in a row"
+      }
+    },
+    {
+      "term": "group",
+      "namespace": "E1",
+      "definition": "Several drawn things moved and scaled as one (deck `group`, a PDF vector group).",
+      "identify": [
+        {
+          "id": "group.kind",
+          "scope": "primitive",
+          "order": 16,
+          "when": [
+            {
+              "kind": ["group", "vectorgroup"]
+            }
+          ],
+          "why": "drawn as group / vectorgroup"
+        }
+      ],
+      "signal": "deck element type `group`; a vector group of a PDF",
+      "notBut": [
+        {
+          "term": "shape",
+          "test": "a shape is one geometry"
+        }
+      ],
+      "mapsFrom": {
+        "deck": ["deck.element.type: group"],
+        "layout": ["layout.box.role: group"],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a logo drawn as 12 paths",
+        "negative": "one rectangle"
+      }
+    },
+    {
+      "term": "cell",
+      "namespace": "E3",
+      "group": "composition",
+      "definition": "One box of a table or grid: the crossing of a row and a column. A table row (catalogue field `row`) is identified as its cells.",
+      "identify": [
+        {
+          "id": "cell.row",
+          "scope": "element",
+          "order": 50,
+          "when": [
+            {
+              "has": "inBlock"
+            },
+            {
+              "gte": ["cells", 2]
+            }
+          ],
+          "why": "a field of a block holding two or more cells: a table row"
+        },
+        {
+          "id": "cell.grid",
+          "scope": "structure",
+          "order": 70,
+          "when": [
+            {
+              "has": "row"
+            },
+            {
+              "has": "col"
+            }
+          ],
+          "why": "a member with both a row and a column index"
+        }
+      ],
+      "signal": "a field holding two or more cells (td / th); a member of a grid with a row and a column index",
+      "notBut": [
+        {
+          "term": "item",
+          "test": "an item is one repeated unit of a list block; a cell sits in a row AND a column"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": ["data-f: row"]
+      },
+      "examples": {
+        "positive": "a table row \"Fintechs | $504B | 22%\"",
+        "negative": "a bullet line"
+      }
+    },
+    {
+      "term": "big-number",
+      "namespace": "E2",
+      "definition": "A figure set large: a number pattern (26 %, $4.1bn, 3x, 1 in 6, 659 deals) at 1.5 x the body size or more. The stat / KPI value / number of the other vocabularies.",
+      "identify": [
+        {
+          "id": "big-number.block",
+          "scope": "element",
+          "order": 60,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "has": "inBlock"
+            },
+            {
+              "text": "number"
+            },
+            {
+              "notText": "date"
+            },
+            {
+              "gte": [
+                "sizePctH",
+                {
+                  "ctx": "bodyPctH",
+                  "times": 1.5
+                }
+              ]
+            }
+          ],
+          "why": "a number pattern (not a year / date) at >= 1.5x body in a block (a KPI value)"
+        },
+        {
+          "id": "big-number.size",
+          "scope": "element",
+          "order": 210,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "text": "number"
+            },
+            {
+              "gte": [
+                "sizePctH",
+                {
+                  "ctx": "bodyPctH",
+                  "times": 1.5
+                }
+              ]
+            }
+          ],
+          "why": "a number at >= 1.5x body size"
+        }
+      ],
+      "signal": "text matching `number`, size >= 1.5 x body",
+      "notBut": [
+        {
+          "term": "heading",
+          "test": "a heading is words; a big-number is a number pattern (a figure word like \"Elevenfold\" is a number, \"No findings\" is not)"
+        },
+        {
+          "term": "label",
+          "test": "a label is smaller than body; a big-number is >= 1.5x body"
+        },
+        {
+          "term": "date",
+          "test": "a lone year is a date (wording rules run first)"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: number", "layout.slot.type: number"],
+        "brand": ["brand.cardBlock.type: stat", "brand.template.slot.type: stat", "brand.components: number"],
+        "content": ["content.cell.type: number"],
+        "anatomy": ["role: big-number"],
+        "catalogue": ["data-f: value"]
+      },
+      "examples": {
+        "positive": "\"$504B\" at 200 px over 30 px descriptions",
+        "negative": "\"2 key findings\" at title size (a heading)"
+      }
+    },
+    {
+      "term": "label",
+      "namespace": "E2",
+      "definition": "A short text (6 words or fewer) smaller than body that names the thing beside it: a year on a timeline, a process node label, a KPI label, a chart data label, a partner label (\"Prepared for\").",
+      "identify": [
+        {
+          "id": "label.chart",
+          "scope": "element",
+          "order": 70,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "has": "inBlock"
+            },
+            {
+              "eq": ["itemFields", 1]
+            },
+            {
+              "lte": ["words", 6]
+            },
+            {
+              "gte": ["blockDataLabels", 2]
+            }
+          ],
+          "why": "a short one-field item of a block that also shows two figures or more of its own (data labels, not a 1..n numbering): a chart / diagram label"
+        },
+        {
+          "id": "label.partner",
+          "scope": "element",
+          "order": 150,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "text": "partner"
+            }
+          ],
+          "why": "'prepared for / commissioned by' wording: names the partner mark beside it"
+        },
+        {
+          "id": "label.small",
+          "scope": "element",
+          "order": 340,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "lt": [
+                "sizePctH",
+                {
+                  "ctx": "bodyPctH",
+                  "times": 1
+                }
+              ]
+            },
+            {
+              "lte": ["words", 6]
+            }
+          ],
+          "why": "short and smaller than body"
+        }
+      ],
+      "signal": "words <= 6, size < body; in a block: a one-field item of a block showing >= 2 data labels of its own; partner wording",
+      "notBut": [
+        {
+          "term": "eyebrow",
+          "test": "an eyebrow sits directly above the title on its edge; a label names the thing beside it"
+        },
+        {
+          "term": "caption",
+          "test": "a caption sits under an image; a label names a data point, a node or a partner"
+        },
+        {
+          "term": "bullet",
+          "test": "a bullet is a line of a list that shows no figures of its own; a chart label is an item of a block that shows data labels"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.cardBlock.type: meta", "brand.cardBlock.type: footer"],
+        "content": [],
+        "anatomy": ["role: label", "role: partner-label"],
+        "catalogue": ["data-f: point"]
+      },
+      "examples": {
+        "positive": "\"2024\" under a bar of a column chart",
+        "negative": "a two-line description in a card"
+      }
+    },
+    {
+      "term": "bullet",
+      "namespace": "E2",
+      "definition": "One line of a list: an item of a block that holds a single text (with a marker, an indent or a rule between the lines).",
+      "identify": [
+        {
+          "id": "bullet.list-line",
+          "scope": "element",
+          "order": 80,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "has": "inBlock"
+            },
+            {
+              "eq": ["itemFields", 1]
+            },
+            {
+              "gte": ["blockItems", 1]
+            }
+          ],
+          "why": "the only text of its item in a list block"
+        }
+      ],
+      "signal": "a block field alone in its item, the block holding items",
+      "notBut": [
+        {
+          "term": "description",
+          "test": "a description follows a heading in its item; a bullet is alone in its item"
+        },
+        {
+          "term": "paragraph",
+          "test": "a paragraph is the whole block (no item); a bullet is one item of several"
+        },
+        {
+          "term": "label",
+          "test": "a chart label is an item of a block that shows data labels"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": ["data-f: bullet"]
+      },
+      "examples": {
+        "positive": "\"Publish rates, fees and terms\" in a ticked list",
+        "negative": "the description under a card heading"
+      }
+    },
+    {
+      "term": "heading",
+      "namespace": "E2",
+      "definition": "The leading text of an item (its name, above or left of what it explains), or on a reference a text larger than body that is not the title.",
+      "identify": [
+        {
+          "id": "heading.item",
+          "scope": "element",
+          "order": 90,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "has": "inBlock"
+            },
+            {
+              "leads": true
+            }
+          ],
+          "why": "leads its item: the heaviest of the item's free texts (the first in reading order on equal weight)"
+        },
+        {
+          "id": "heading.larger",
+          "scope": "element",
+          "order": 350,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "gt": [
+                "sizePctH",
+                {
+                  "ctx": "bodyPctH",
+                  "times": 1
+                }
+              ]
+            }
+          ],
+          "why": "larger than body, not the title"
+        }
+      ],
+      "signal": "a block field that leads its item (heaviest weight, then reading order); size > body outside blocks",
+      "notBut": [
+        {
+          "term": "big-number",
+          "test": "a big-number is a number pattern at >= 1.5x body"
+        },
+        {
+          "term": "title",
+          "test": "the title is the largest free text of the slide"
+        },
+        {
+          "term": "eyebrow",
+          "test": "an eyebrow is a short line above the title"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.cardBlock.type: title"],
+        "content": ["content.cell.type: heading"],
+        "anatomy": ["role: heading"],
+        "catalogue": ["data-f: heading"]
+      },
+      "examples": {
+        "positive": "\"Answers, not links\" over its description in a card",
+        "negative": "the description under it"
+      }
+    },
+    {
+      "term": "body",
+      "namespace": "E2",
+      "definition": "Running text at the body size (the size carrying the most words once the largest size is left out); in a KPI item, the text explaining the figure.",
+      "identify": [
+        {
+          "id": "body.kpi",
+          "scope": "element",
+          "order": 95,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "has": "inBlock"
+            },
+            {
+              "sibling": "big-number"
+            }
+          ],
+          "why": "the text of an item that holds a big-number: it explains the figure"
+        },
+        {
+          "id": "body.size",
+          "scope": "element",
+          "order": 330,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "near": [
+                "sizePctH",
+                {
+                  "ctx": "bodyPctH",
+                  "times": 1
+                },
+                0.15
+              ]
+            }
+          ],
+          "why": "at the body size"
+        }
+      ],
+      "signal": "size within 0.15 % H of the body size; a KPI item field after its figure",
+      "notBut": [
+        {
+          "term": "description",
+          "test": "a description follows a heading in an item without a figure; body explains a figure (KPI) or is free running text"
+        },
+        {
+          "term": "paragraph",
+          "test": "a paragraph is a block of its own"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: body", "layout.slot.type: text"],
+        "brand": ["brand.template.slot.type: body"],
+        "content": ["content.cell.type: text"],
+        "anatomy": ["role: body"],
+        "catalogue": ["data-f: body"]
+      },
+      "examples": {
+        "positive": "\"Fintech revenue in 2025 passed half a trillion\" under \"$504B\"",
+        "negative": "a heading"
+      }
+    },
+    {
+      "term": "description",
+      "namespace": "E2",
+      "definition": "Body-size text under (or right of) a heading inside one item: what the heading means.",
+      "identify": [
+        {
+          "id": "description.under-heading",
+          "scope": "element",
+          "order": 96,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "has": "inBlock"
+            },
+            {
+              "siblingBefore": "heading"
+            }
+          ],
+          "why": "reads after the heading of its item"
+        }
+      ],
+      "signal": "a block field read after a field identified as heading in its item",
+      "notBut": [
+        {
+          "term": "body",
+          "test": "body explains a figure; a description explains a heading"
+        },
+        {
+          "term": "paragraph",
+          "test": "a paragraph has no heading sibling in its item"
+        },
+        {
+          "term": "bullet",
+          "test": "a bullet is alone in its item"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.cardBlock.type: body"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": ["data-f: description"]
+      },
+      "examples": {
+        "positive": "the two lines under a card heading",
+        "negative": "a lone paragraph block"
+      }
+    },
+    {
+      "term": "paragraph",
+      "namespace": "E2",
+      "definition": "Running text that is a block of its own (no item), or of 2 lines or more with no heading sibling in its item.",
+      "identify": [
+        {
+          "id": "paragraph.block",
+          "scope": "element",
+          "order": 97,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "has": "inBlock"
+            },
+            {
+              "lacks": "item"
+            },
+            {
+              "eq": ["itemFields", 1]
+            }
+          ],
+          "why": "the block's only run of text, outside any item (one line counts: a one-sentence statement block)"
+        },
+        {
+          "id": "paragraph.lines",
+          "scope": "element",
+          "order": 98,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "has": "inBlock"
+            },
+            {
+              "gte": ["lines", 2]
+            },
+            {
+              "not": {
+                "siblingBefore": "heading"
+              }
+            }
+          ],
+          "why": "running text of 2 lines or more with no heading in its item"
+        }
+      ],
+      "signal": "a block field without an item index; lines >= 2 with no heading in its item",
+      "notBut": [
+        {
+          "term": "description",
+          "test": "a description follows a heading"
+        },
+        {
+          "term": "body",
+          "test": "body is a size; paragraph is a block"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": ["data-f: paragraph"]
+      },
+      "examples": {
+        "positive": "a 3-line takeaway beside a chart",
+        "negative": "a description under a heading"
+      }
+    },
+    {
+      "term": "legal",
+      "namespace": "E2",
+      "definition": "Legal wording (copyright, confidentiality, disclaimer) at body size or smaller.",
+      "identify": [
+        {
+          "id": "legal.wording",
+          "scope": "element",
+          "order": 100,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "text": "legal"
+            },
+            {
+              "lte": [
+                "sizePctH",
+                {
+                  "ctx": "bodyPctH",
+                  "times": 1.05
+                },
+                "pass"
+              ]
+            }
+          ],
+          "why": "legal wording at body size or smaller (wording decides before repetition: a repeated copyright line is still legal)"
+        }
+      ],
+      "signal": "text matching `legal`, size <= 1.05 x body",
+      "notBut": [
+        {
+          "term": "footer-text",
+          "test": "footer text is repeated furniture without legal wording"
+        },
+        {
+          "term": "source",
+          "test": "a source cites data"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": ["role: legal"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"Copyright © 2025 Example Co. All rights reserved.\"",
+        "negative": "\"Confidential\" set as a 40 pt title"
+      }
+    },
+    {
+      "term": "source",
+      "namespace": "E2",
+      "definition": "The line citing where data comes from (\"Source: ...\", \"Note: ...\", \"n = 1,000\").",
+      "identify": [
+        {
+          "id": "source.wording",
+          "scope": "element",
+          "order": 110,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "text": "source"
+            },
+            {
+              "lte": [
+                "sizePctH",
+                {
+                  "ctx": "bodyPctH",
+                  "times": 1
+                },
+                "pass"
+              ]
+            }
+          ],
+          "why": "starts with Source / Note, no larger than body (wording decides before repetition)"
+        }
+      ],
+      "signal": "text matching `source`, size <= body",
+      "notBut": [
+        {
+          "term": "footer-text",
+          "test": "a footer repeats without citing"
+        },
+        {
+          "term": "caption",
+          "test": "a caption describes an image"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": ["role: source"],
+        "catalogue": ["header: .src"]
+      },
+      "examples": {
+        "positive": "\"Source: Global Fintech Report 2026\"",
+        "negative": "\"Sources of growth\" as a heading"
+      }
+    },
+    {
+      "term": "page-number",
+      "namespace": "E2",
+      "definition": "The slide number: digits only (or \"page 3 / 20\"), repeated as furniture or in the top / bottom band, no larger than body.",
+      "identify": [
+        {
+          "id": "page-number.furniture",
+          "scope": "element",
+          "order": 120,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "has": "furniture"
+            },
+            {
+              "text": "pagenum"
+            }
+          ],
+          "why": "digits only, repeated on >= 40 % of the pages at this spot"
+        },
+        {
+          "id": "page-number.band",
+          "scope": "element",
+          "order": 140,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "text": "pagenum"
+            },
+            {
+              "any": [
+                [
+                  {
+                    "gt": ["y0", 88]
+                  }
+                ],
+                [
+                  {
+                    "lt": ["y1", 10]
+                  }
+                ]
+              ]
+            },
+            {
+              "lte": [
+                "sizePctH",
+                {
+                  "ctx": "bodyPctH",
+                  "times": 1
+                },
+                "pass"
+              ]
+            }
+          ],
+          "why": "digits only, in the top / bottom band, not larger than body"
+        }
+      ],
+      "signal": "text matching `pagenum`, furniture or in the top / bottom 10 % band",
+      "notBut": [
+        {
+          "term": "big-number",
+          "test": "a big-number is >= 1.5x body"
+        },
+        {
+          "term": "footer-text",
+          "test": "footer text holds words"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["mood.footer.items: pageNumber"],
+        "content": [],
+        "anatomy": ["role: page-number"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"12\" bottom right on every page",
+        "negative": "\"12%\" at 80 pt"
+      }
+    },
+    {
+      "term": "footer-text",
+      "namespace": "E2",
+      "definition": "Text repeated at the same spot on 40 % or more of a deck's pages (the deck's furniture): brand name, deck title, running head.",
+      "identify": [
+        {
+          "id": "footer-text.furniture",
+          "scope": "element",
+          "order": 130,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "has": "furniture"
+            }
+          ],
+          "why": "repeated on >= 40 % of the deck's pages at this spot"
+        }
+      ],
+      "signal": "furniture (deck signature repeated on >= 40 % of pages; digits count as one sign)",
+      "notBut": [
+        {
+          "term": "page-number",
+          "test": "digits only"
+        },
+        {
+          "term": "legal",
+          "test": "legal wording"
+        },
+        {
+          "term": "source",
+          "test": "source wording"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: footer"],
+        "brand": ["mood.footer.items: text", "brand.template.slot.type: footer"],
+        "content": [],
+        "anatomy": ["role: footer"],
+        "catalogue": ["header: .ft"]
+      },
+      "examples": {
+        "positive": "\"HEADSPACE 7\" at the bottom left of every slide",
+        "negative": "a subtitle"
+      }
+    },
+    {
+      "term": "date",
+      "namespace": "E2",
+      "definition": "A whole-line date (month year, Q1 2024, 7 July 2020, a lone year).",
+      "identify": [
+        {
+          "id": "date.pattern",
+          "scope": "element",
+          "order": 160,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "text": "date"
+            }
+          ],
+          "why": "date pattern"
+        }
+      ],
+      "signal": "text matching `date`",
+      "notBut": [
+        {
+          "term": "label",
+          "test": "a year on a timeline or under a chart bar is a label (block rules run first)"
+        },
+        {
+          "term": "big-number",
+          "test": "a lone year is a date even when large"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["mood.footer.items: date"],
+        "content": [],
+        "anatomy": ["role: date"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"January 2024\" under a cover title",
+        "negative": "\"In 2024 revenue doubled\""
+      }
+    },
+    {
+      "term": "placeholder",
+      "namespace": "E2",
+      "definition": "Template filler left in place (\"Lorem ipsum\", \"Click to add\", \"XX\", \"Partner logo\"). A QA finding.",
+      "identify": [
+        {
+          "id": "placeholder.wording",
+          "scope": "element",
+          "order": 170,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "text": "placeholder"
+            }
+          ],
+          "why": "placeholder wording (QA)"
+        }
+      ],
+      "signal": "text matching `placeholder`",
+      "notBut": [
+        {
+          "term": "body",
+          "test": "real copy"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": ["role: placeholder"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"Click to add title\"",
+        "negative": "\"Add value to every client\""
+      }
+    },
+    {
+      "term": "contact",
+      "namespace": "E2",
+      "definition": "Contact details or a closing line: email, web address, phone, \"thank you\", \"get in touch\" (25 words or fewer).",
+      "identify": [
+        {
+          "id": "contact.wording",
+          "scope": "element",
+          "order": 180,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "text": "contact"
+            },
+            {
+              "lte": ["words", 25]
+            }
+          ],
+          "why": "email / web / phone / thank-you wording"
+        }
+      ],
+      "signal": "text matching `contact`, words <= 25",
+      "notBut": [
+        {
+          "term": "body",
+          "test": "a sentence that mentions a contact centre in running text over 25 words"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": ["role: contact"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"hello@brand.com\"",
+        "negative": "a 40-word paragraph about contact centres"
+      }
+    },
+    {
+      "term": "authors",
+      "namespace": "E2",
+      "definition": "A list of names: 2 or more commas, no digits, at least 70 % of the words capitalised, 60 words or fewer.",
+      "identify": [
+        {
+          "id": "authors.names",
+          "scope": "element",
+          "order": 190,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "gte": ["commas", 2]
+            },
+            {
+              "lacks": "hasDigit"
+            },
+            {
+              "lte": ["words", 60]
+            },
+            {
+              "gte": ["capitalShare", 0.7]
+            }
+          ],
+          "why": "comma-separated capitalised names, no digits"
+        }
+      ],
+      "signal": "commas >= 2, no digit, capitalShare >= 0.7",
+      "notBut": [
+        {
+          "term": "body",
+          "test": "a sentence with commas in lower case"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": ["role: authors"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"Ana Lima, Ben Okafor, Chen Wei\"",
+        "negative": "\"Fast, cheap, and good enough\""
+      }
+    },
+    {
+      "term": "quote-mark",
+      "namespace": "E2",
+      "definition": "A quotation glyph set on its own (a large “ as decoration of a quote).",
+      "identify": [
+        {
+          "id": "quote-mark.glyph",
+          "scope": "element",
+          "order": 195,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "text": "quoteGlyph"
+            }
+          ],
+          "why": "only quote glyphs"
+        }
+      ],
+      "signal": "text of quote glyphs only",
+      "notBut": [
+        {
+          "term": "decor",
+          "test": "a drawn quote shape is decor unless named"
+        },
+        {
+          "term": "body",
+          "test": "a quote with its words"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"“\" at 200 pt",
+        "negative": "\"“Great product”\""
+      }
+    },
+    {
+      "term": "attribution",
+      "namespace": "E2",
+      "definition": "Who said a quote: a line of 15 words or fewer, smaller than the quote, directly under its closing line (\"— Jane Doe, CEO\").",
+      "identify": [
+        {
+          "id": "attribution.under-quote",
+          "scope": "element",
+          "order": 196,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "lte": ["words", 15]
+            },
+            {
+              "belowText": {
+                "pattern": "quoteEnd",
+                "gap": 4,
+                "smaller": true
+              }
+            }
+          ],
+          "why": "directly under the end of a quote (a text closing with a quote mark), smaller than it, 15 words or fewer"
+        }
+      ],
+      "signal": "under a smaller text ending with a closing quote mark (gap <= 4 % H)",
+      "notBut": [
+        {
+          "term": "caption",
+          "test": "a caption describes an image"
+        },
+        {
+          "term": "authors",
+          "test": "authors list names with commas"
+        },
+        {
+          "term": "bullet",
+          "test": "a dash bullet (\"– faster growth\") is not under a quote"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: attribution"],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"— Jane Doe, CEO\" under “We moved faster”",
+        "negative": "\"– faster growth\" in a dash list"
+      }
+    },
+    {
+      "term": "caption",
+      "namespace": "E2",
+      "definition": "A short phrase directly under an image that says what it shows (2 to 30 words, smaller than body, not a figure).",
+      "identify": [
+        {
+          "id": "caption.under-image",
+          "scope": "element",
+          "order": 197,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "lt": [
+                "sizePctH",
+                {
+                  "ctx": "bodyPctH",
+                  "times": 1
+                },
+                "pass"
+              ]
+            },
+            {
+              "gte": ["words", 2]
+            },
+            {
+              "lte": ["words", 30]
+            },
+            {
+              "notText": "number"
+            },
+            {
+              "below": {
+                "kind": ["image"],
+                "minArea": 1.5,
+                "gap": 2,
+                "overlap": 0.5
+              }
+            }
+          ],
+          "why": "a phrase directly under a picture (within 2 % H), smaller than body, not a figure"
+        }
+      ],
+      "signal": "text whose top is within 2 % H under an image of >= 1.5 % of the slide, overlapping it by half its width, smaller than body",
+      "notBut": [
+        {
+          "term": "label",
+          "test": "a label names a data point / node / partner"
+        },
+        {
+          "term": "source",
+          "test": "a source cites data"
+        },
+        {
+          "term": "eyebrow",
+          "test": "an eyebrow sits above the title"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"Our Berlin office\" under a photo",
+        "negative": "a title over a photo"
+      }
+    },
+    {
+      "term": "decor-word",
+      "namespace": "E2",
+      "definition": "A word set as decoration (a giant faded \"2024\", a background word): 3 words or fewer at half opacity or less.",
+      "identify": [
+        {
+          "id": "decor-word.faded",
+          "scope": "element",
+          "order": 98.5,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "lte": ["words", 3]
+            },
+            {
+              "lte": ["opacity", 0.5]
+            }
+          ],
+          "why": "a word or two at half opacity or less: decoration, not copy"
+        }
+      ],
+      "signal": "text, words <= 3, opacity <= 0.5",
+      "notBut": [
+        {
+          "term": "big-number",
+          "test": "a big-number is read as a figure at full strength"
+        },
+        {
+          "term": "watermark",
+          "test": "a watermark is an image / mark"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.decor.type: word"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"GROW\" at 400 pt, 10 % opacity, behind the title",
+        "negative": "the title"
+      }
+    },
+    {
+      "term": "title",
+      "namespace": "E2",
+      "definition": "The largest free text of the slide (the topmost one on a tie).",
+      "identify": [
+        {
+          "id": "title.largest",
+          "scope": "element",
+          "order": 300,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "rank": {
+                "by": "sizePctH",
+                "among": {
+                  "kind": ["text"],
+                  "minWords": 1
+                },
+                "tol": 0.05,
+                "tie": "top"
+              }
+            }
+          ],
+          "why": "largest free text (topmost on a tie)"
+        }
+      ],
+      "signal": "largest size among texts no earlier rule took",
+      "notBut": [
+        {
+          "term": "heading",
+          "test": "a heading leads an item or is a smaller free text"
+        },
+        {
+          "term": "big-number",
+          "test": "a large figure is a big-number"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: title"],
+        "brand": ["brand.template.slot.type: title"],
+        "content": ["content.v1.block.type: title"],
+        "anatomy": ["role: title"],
+        "catalogue": ["header: .t"]
+      },
+      "examples": {
+        "positive": "the 56 px headline of a slide",
+        "negative": "a 200 px KPI value"
+      }
+    },
+    {
+      "term": "subtitle",
+      "namespace": "E2",
+      "definition": "A text directly under the title (gap under 1.6 x the title size), on its edge (or centred alike), smaller than the title, at body size or larger.",
+      "identify": [
+        {
+          "id": "subtitle.under-title",
+          "scope": "element",
+          "order": 310,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "gte": ["words", 1]
+            },
+            {
+              "stacked": {
+                "on": "title",
+                "side": "below",
+                "gapTimesSize": 1.6,
+                "edgeTol": 1.5,
+                "centreTol": 2,
+                "grow": ["subtitle"]
+              }
+            },
+            {
+              "gte": [
+                "sizePctH",
+                {
+                  "ctx": "bodyPctH",
+                  "times": 0.95
+                },
+                "pass"
+              ]
+            }
+          ],
+          "why": "directly under the title, same edge, smaller",
+          "each": "top"
+        }
+      ],
+      "signal": "stacked below the title stack",
+      "notBut": [
+        {
+          "term": "eyebrow",
+          "test": "an eyebrow is above the title"
+        },
+        {
+          "term": "body",
+          "test": "body is not on the title stack"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: subtitle"],
+        "brand": ["brand.template.slot.type: subtitle"],
+        "content": ["content.v1.block.type: subtitle"],
+        "anatomy": ["role: subtitle"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"Key Insights Report\" under a cover title",
+        "negative": "a source line at the bottom"
+      }
+    },
+    {
+      "term": "eyebrow",
+      "namespace": "E2",
+      "definition": "A short line (8 words or fewer) directly above the title, on its edge (the kicker).",
+      "identify": [
+        {
+          "id": "eyebrow.above-title",
+          "scope": "element",
+          "order": 320,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "gte": ["words", 1]
+            },
+            {
+              "stacked": {
+                "on": "title",
+                "side": "above",
+                "gapTimesSize": 1.6,
+                "edgeTol": 1.5,
+                "centreTol": 2
+              }
+            },
+            {
+              "lte": ["words", 8]
+            }
+          ],
+          "why": "short line just above the title, same edge",
+          "each": "top"
+        }
+      ],
+      "signal": "stacked above the title, words <= 8",
+      "notBut": [
+        {
+          "term": "label",
+          "test": "a label names the thing beside it"
+        },
+        {
+          "term": "caption",
+          "test": "a caption is under an image"
+        },
+        {
+          "term": "subtitle",
+          "test": "a subtitle is under the title"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: eyebrow"],
+        "brand": ["brand.cardBlock.type: eyebrow"],
+        "content": ["content.v1.block.type: eyebrow"],
+        "anatomy": ["role: eyebrow"],
+        "catalogue": ["header: .k"]
+      },
+      "examples": {
+        "positive": "\"SEARCH TO ANSWERS\" over the title",
+        "negative": "the date under the title"
+      }
+    },
+    {
+      "term": "unknown",
+      "namespace": "E2",
+      "definition": "What no rule decides. Returned, never a guess; counted, so the vocabulary measures its own gaps. On a reference, the old anatomy role small-text (smaller than body, more than 6 words) is unknown: no test says what it is.",
+      "identify": [],
+      "signal": "no rule of the chain holds",
+      "notBut": [
+        {
+          "term": "label",
+          "test": "a label is 6 words or fewer"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.imagery.sample.kind: unknown", "brand.template.slot.type: custom"],
+        "content": [],
+        "anatomy": ["role: small-text"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a 12-word line at 80 % of body size with nothing beside it",
+        "negative": "a 3-word label"
+      }
+    },
+    {
+      "term": "device",
+      "namespace": "E2",
+      "definition": "The brand's signature element on a slide: named by the brand (`layouts[].composition.device`, or a decor element with `frequency: always` on that slide kind) or the L4 `signature` of a reference record.",
+      "identify": [
+        {
+          "id": "device.named",
+          "scope": "element",
+          "order": 395,
+          "when": [
+            {
+              "not": {
+                "kind": ["text"]
+              }
+            },
+            {
+              "any": [
+                [
+                  {
+                    "has": "named"
+                  }
+                ],
+                [
+                  {
+                    "has": "signature"
+                  }
+                ]
+              ]
+            }
+          ],
+          "why": "the brand names it as its device (or the reference record names it its signature)"
+        }
+      ],
+      "signal": "named: true (brand context) or signature: true (L4)",
+      "notBut": [
+        {
+          "term": "decor",
+          "test": "decor holds no text and is not named by the brand; a device is named"
+        },
+        {
+          "term": "band",
+          "test": "a band is a strip by geometry; a band the brand names is its device"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "hdfc-2 `coverBands` on the cover",
+        "negative": "an unnamed corner dot grid"
+      }
+    },
+    {
+      "term": "background",
+      "namespace": "E2",
+      "definition": "A plain fill covering 90 % of the slide or more: the slide's ground.",
+      "identify": [
+        {
+          "id": "background.fill",
+          "scope": "element",
+          "order": 400,
+          "when": [
+            {
+              "kind": ["shape"]
+            },
+            {
+              "gte": ["areaPct", 90]
+            }
+          ],
+          "why": "covers >= 90 % of the slide"
+        }
+      ],
+      "signal": "a shape with areaPct >= 90",
+      "notBut": [
+        {
+          "term": "background-art",
+          "test": "art is an image / pixel region"
+        },
+        {
+          "term": "panel",
+          "test": "a panel is smaller than the slide"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": ["role: background"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a full-slide purple rectangle",
+        "negative": "a half-slide panel"
+      }
+    },
+    {
+      "term": "background-art",
+      "namespace": "E2",
+      "definition": "An image or pixel region covering 90 % of the slide or more.",
+      "identify": [
+        {
+          "id": "background-art.cover",
+          "scope": "element",
+          "order": 401,
+          "when": [
+            {
+              "kind": ["image", "region"]
+            },
+            {
+              "gte": ["areaPct", 90]
+            }
+          ],
+          "why": "art covering >= 90 % of the slide"
+        }
+      ],
+      "signal": "an image / region with areaPct >= 90",
+      "notBut": [
+        {
+          "term": "hero-image",
+          "test": "a hero image covers 12-90 %"
+        },
+        {
+          "term": "background",
+          "test": "a plain fill"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.imagery.sample.kind: abstract"],
+        "content": [],
+        "anatomy": ["role: background-art"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a full-bleed photo behind the title",
+        "negative": "a half-slide photo"
+      }
+    },
+    {
+      "term": "brand-logo",
+      "namespace": "E2",
+      "definition": "The brand's own mark: a mark whose file is in `brand.logos`; on a reference, a mark repeated as furniture, or a small (< 5 %) wide (aspect >= 1.2) mark in a corner zone with no partner label.",
+      "identify": [
+        {
+          "id": "brand-logo.furniture",
+          "scope": "element",
+          "order": 410,
+          "when": [
+            {
+              "kind": ["image", "vectorgroup"]
+            },
+            {
+              "has": "furniture"
+            },
+            {
+              "lt": ["areaPct", 5]
+            }
+          ],
+          "why": "a small mark repeated on >= 40 % of the deck's pages at this spot"
+        },
+        {
+          "id": "brand-logo.file",
+          "scope": "element",
+          "order": 425,
+          "when": [
+            {
+              "kind": ["image", "vectorgroup"]
+            },
+            {
+              "eq": ["inLogos", true]
+            }
+          ],
+          "why": "its file is one of the brand's logos"
+        },
+        {
+          "id": "brand-logo.corner",
+          "scope": "element",
+          "order": 430,
+          "when": [
+            {
+              "kind": ["image", "vectorgroup"]
+            },
+            {
+              "lt": ["areaPct", 5]
+            },
+            {
+              "has": "inCorner"
+            },
+            {
+              "gte": ["aspect", 1.2]
+            }
+          ],
+          "why": "small wide mark in a corner zone"
+        }
+      ],
+      "signal": "inLogos: true; furniture mark; small wide mark in a corner (top / bottom 22 %, left / right 30 %)",
+      "notBut": [
+        {
+          "term": "partner-logo",
+          "test": "a partner logo sits by a partner label, or its file is not a brand logo"
+        },
+        {
+          "term": "logo-item",
+          "test": "one of 3 or more marks in a grid"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: logo"],
+        "brand": [
+          "mood.footer.items: logo",
+          "brand.imagery.sample.kind: logo",
+          "brand.template.slot.type: logo"
+        ],
+        "content": [],
+        "anatomy": ["role: logo", "role: footer-mark"],
+        "catalogue": ["header: .lg"]
+      },
+      "examples": {
+        "positive": "the wordmark top left of a cover",
+        "negative": "a client logo under \"Prepared for\""
+      }
+    },
+    {
+      "term": "partner-logo",
+      "namespace": "E2",
+      "definition": "Another organisation's mark: under or beside a partner label, or (with brand context) a mark whose file is not in `brand.logos`.",
+      "identify": [
+        {
+          "id": "partner-logo.label",
+          "scope": "element",
+          "order": 420,
+          "when": [
+            {
+              "kind": ["image", "vectorgroup"]
+            },
+            {
+              "lt": ["areaPct", 5]
+            },
+            {
+              "nextTo": {
+                "rule": "label.partner",
+                "below": {
+                  "dy": 8,
+                  "dx": 25
+                },
+                "right": {
+                  "dx": 6,
+                  "dy": 6
+                }
+              }
+            }
+          ],
+          "why": "small mark next to a partner label"
+        },
+        {
+          "id": "partner-logo.not-brand",
+          "scope": "element",
+          "order": 421,
+          "when": [
+            {
+              "kind": ["image", "vectorgroup"]
+            },
+            {
+              "eq": ["inLogos", false]
+            }
+          ],
+          "why": "its file is not one of the brand's logos"
+        }
+      ],
+      "signal": "next to a partner label; inLogos: false",
+      "notBut": [
+        {
+          "term": "brand-logo",
+          "test": "the brand logo has no partner label and its file is a brand logo"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.cardBlock.type: logo"],
+        "content": [],
+        "anatomy": ["role: partner-logo"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a client logo right of \"Prepared for\"",
+        "negative": "the brand wordmark alone in the top-left corner"
+      }
+    },
+    {
+      "term": "logo-item",
+      "namespace": "E2",
+      "definition": "One of 3 or more marks set in a row or grid (a logo wall, client list).",
+      "identify": [
+        {
+          "id": "logo-item.grid",
+          "scope": "element",
+          "order": 428,
+          "when": [
+            {
+              "kind": ["image", "vectorgroup"]
+            },
+            {
+              "lt": ["areaPct", 5]
+            },
+            {
+              "gte": ["areaPct", 0.1]
+            },
+            {
+              "gte": ["aspect", 1.2]
+            },
+            {
+              "lacks": "holdsText"
+            },
+            {
+              "any": [
+                [
+                  {
+                    "kind": ["image"]
+                  }
+                ],
+                [
+                  {
+                    "gte": ["pieces", 3]
+                  }
+                ]
+              ]
+            },
+            {
+              "gte": ["peerMarks", 3]
+            }
+          ],
+          "why": "one of >= 3 similar wide marks in a row / grid (an image, or a drawing of 3 pieces or more, holding no text)"
+        }
+      ],
+      "signal": "a wide mark (aspect >= 1.2, 0.1 - 5 % of the slide; an image or a drawing of >= 3 pieces; holding no text) with peerMarks >= 3 (such marks of similar height sharing its row or column, itself included)",
+      "notBut": [
+        {
+          "term": "brand-logo",
+          "test": "the brand logo stands alone"
+        },
+        {
+          "term": "icon",
+          "test": "icons are square-ish pictograms (aspect under 1.2)"
+        },
+        {
+          "term": "decor",
+          "test": "a chart bar is one drawn piece; a mark is an image or a drawing of 3 pieces or more"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": ["content.cell.type: logo"],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "the fourth of eight client logos in a 4 x 2 grid",
+        "negative": "a lone logo in a corner"
+      }
+    },
+    {
+      "term": "chart-exhibit",
+      "namespace": "E2",
+      "definition": "A data exhibit: a chart element, or a vector group of 8 pieces or more over 4 % of the slide holding 3 number labels or more.",
+      "identify": [
+        {
+          "id": "chart-exhibit.vector",
+          "scope": "element",
+          "order": 440,
+          "when": [
+            {
+              "kind": ["vectorgroup"]
+            },
+            {
+              "gte": ["pieces", 8]
+            },
+            {
+              "gte": ["areaPct", 4]
+            },
+            {
+              "gte": ["numberLabelsInside", 3]
+            }
+          ],
+          "why": "many vector pieces holding >= 3 number labels"
+        },
+        {
+          "id": "chart-exhibit.element",
+          "scope": "element",
+          "order": 445,
+          "when": [
+            {
+              "kind": ["chart"]
+            }
+          ],
+          "why": "a chart element"
+        }
+      ],
+      "signal": "deck chart; vectorgroup pieces >= 8, areaPct >= 4, numberLabelsInside >= 3",
+      "notBut": [
+        {
+          "term": "diagram",
+          "test": "a diagram holds word labels, not number labels"
+        },
+        {
+          "term": "illustration",
+          "test": "an illustration holds no text"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: chart"],
+        "brand": ["brand.template.slot.type: chart"],
+        "content": [],
+        "anatomy": ["role: chart-or-diagram"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a bar chart drawn as 24 paths with \"12%\" labels",
+        "negative": "a process diagram"
+      }
+    },
+    {
+      "term": "diagram",
+      "namespace": "E2",
+      "definition": "A drawn structure of boxes, arrows and word labels: a vector group of 8 pieces or more over 4 % holding 2 texts or more (and fewer than 3 number labels).",
+      "identify": [
+        {
+          "id": "diagram.vector",
+          "scope": "element",
+          "order": 441,
+          "when": [
+            {
+              "kind": ["vectorgroup"]
+            },
+            {
+              "gte": ["pieces", 8]
+            },
+            {
+              "gte": ["areaPct", 4]
+            },
+            {
+              "gte": ["textsInside", 2]
+            }
+          ],
+          "why": "many vector pieces holding word labels"
+        }
+      ],
+      "signal": "vectorgroup pieces >= 8, areaPct >= 4, textsInside >= 2",
+      "notBut": [
+        {
+          "term": "chart-exhibit",
+          "test": "a chart holds number labels"
+        },
+        {
+          "term": "illustration",
+          "test": "an illustration holds no text"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": ["role: chart-or-diagram"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a 4-step cycle with node labels",
+        "negative": "a bar chart"
+      }
+    },
+    {
+      "term": "illustration",
+      "namespace": "E2",
+      "definition": "Drawn art without text: a vector group of 8 pieces or more over 4 % of the slide holding no text.",
+      "identify": [
+        {
+          "id": "illustration.vector",
+          "scope": "element",
+          "order": 442,
+          "when": [
+            {
+              "kind": ["vectorgroup"]
+            },
+            {
+              "gte": ["pieces", 8]
+            },
+            {
+              "gte": ["areaPct", 4]
+            }
+          ],
+          "why": "many vector pieces, no labels inside"
+        }
+      ],
+      "signal": "vectorgroup pieces >= 8, areaPct >= 4, no text inside",
+      "notBut": [
+        {
+          "term": "chart-exhibit",
+          "test": "holds number labels"
+        },
+        {
+          "term": "diagram",
+          "test": "holds word labels"
+        },
+        {
+          "term": "decor",
+          "test": "decor is a plain fill"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.decor.type: illustration", "brand.imagery.sample.kind: illustration"],
+        "content": [],
+        "anatomy": ["role: chart-or-diagram"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a line drawing of a city skyline",
+        "negative": "a labelled flow chart"
+      }
+    },
+    {
+      "term": "table-exhibit",
+      "namespace": "E2",
+      "definition": "A table element: cells in rows and columns.",
+      "identify": [
+        {
+          "id": "table-exhibit.element",
+          "scope": "element",
+          "order": 446,
+          "when": [
+            {
+              "kind": ["table"]
+            }
+          ],
+          "why": "a table element"
+        }
+      ],
+      "signal": "deck table",
+      "notBut": [
+        {
+          "term": "chart-exhibit",
+          "test": "a chart draws data as marks"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: table"],
+        "brand": ["brand.template.slot.type: table"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a 3 x 4 table",
+        "negative": "three cards in a row"
+      }
+    },
+    {
+      "term": "watermark",
+      "namespace": "E2",
+      "definition": "A mark or picture set faint (opacity 0.35 or less) over 5 % of the slide or more, behind the content.",
+      "identify": [
+        {
+          "id": "watermark.faint",
+          "scope": "element",
+          "order": 448,
+          "when": [
+            {
+              "kind": ["image", "vectorgroup"]
+            },
+            {
+              "lte": ["opacity", 0.35]
+            },
+            {
+              "gte": ["areaPct", 5]
+            }
+          ],
+          "why": "faint mark over a large area"
+        }
+      ],
+      "signal": "opacity <= 0.35, areaPct >= 5",
+      "notBut": [
+        {
+          "term": "background-art",
+          "test": "background art is full strength"
+        },
+        {
+          "term": "decor-word",
+          "test": "a decor word is text"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.decor.type: watermark"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "the logo at 8 % opacity across the slide",
+        "negative": "the logo at full strength"
+      }
+    },
+    {
+      "term": "cutout",
+      "namespace": "E2",
+      "definition": "An image of 12 % of the slide or more with transparency: a subject cut out of its background.",
+      "identify": [
+        {
+          "id": "cutout.transparent",
+          "scope": "element",
+          "order": 450,
+          "when": [
+            {
+              "kind": ["image"]
+            },
+            {
+              "gte": ["areaPct", 12]
+            },
+            {
+              "has": "transparent"
+            }
+          ],
+          "why": "image >= 12 % of the slide with transparency"
+        }
+      ],
+      "signal": "image, areaPct >= 12, transparent",
+      "notBut": [
+        {
+          "term": "hero-image",
+          "test": "a hero image is opaque"
+        },
+        {
+          "term": "picture",
+          "test": "a picture is under 12 %"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": ["role: cutout"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a person cut out on the right of a cover",
+        "negative": "a rectangular photo"
+      }
+    },
+    {
+      "term": "hero-image",
+      "namespace": "E2",
+      "definition": "An opaque image covering 12 % of the slide or more (under 90 %).",
+      "identify": [
+        {
+          "id": "hero-image.large",
+          "scope": "element",
+          "order": 451,
+          "when": [
+            {
+              "kind": ["image"]
+            },
+            {
+              "gte": ["areaPct", 12]
+            }
+          ],
+          "why": "image >= 12 % of the slide"
+        }
+      ],
+      "signal": "image, 12 <= areaPct < 90, opaque",
+      "notBut": [
+        {
+          "term": "cutout",
+          "test": "transparent"
+        },
+        {
+          "term": "picture",
+          "test": "under 12 %"
+        },
+        {
+          "term": "background-art",
+          "test": ">= 90 %"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": ["role: hero-image"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "the right-half photo of a cover",
+        "negative": "a team headshot"
+      }
+    },
+    {
+      "term": "avatar",
+      "namespace": "E2",
+      "definition": "A small portrait (under 4 % of the slide), square-ish, cut to an ellipse.",
+      "identify": [
+        {
+          "id": "avatar.round",
+          "scope": "element",
+          "order": 452,
+          "when": [
+            {
+              "kind": ["image"]
+            },
+            {
+              "lt": ["areaPct", 4]
+            },
+            {
+              "eq": ["mask", "ellipse"]
+            }
+          ],
+          "why": "small image cut to a circle"
+        }
+      ],
+      "signal": "image, areaPct < 4, mask ellipse",
+      "notBut": [
+        {
+          "term": "picture",
+          "test": "a picture is not cut to a circle"
+        },
+        {
+          "term": "icon",
+          "test": "an icon is a pictogram"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.components: avatar"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a 120 px round headshot",
+        "negative": "a square product shot"
+      }
+    },
+    {
+      "term": "picture",
+      "namespace": "E2",
+      "definition": "An image of 1.5 % to 12 % of the slide.",
+      "identify": [
+        {
+          "id": "picture.size",
+          "scope": "element",
+          "order": 455,
+          "when": [
+            {
+              "kind": ["image"]
+            },
+            {
+              "gte": ["areaPct", 1.5]
+            }
+          ],
+          "why": "image, 1.5 % of the slide or more"
+        }
+      ],
+      "signal": "image, 1.5 <= areaPct < 12",
+      "notBut": [
+        {
+          "term": "hero-image",
+          "test": ">= 12 %"
+        },
+        {
+          "term": "icon",
+          "test": "< 1.5 %"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: image"],
+        "brand": [
+          "brand.cardBlock.type: image",
+          "brand.imagery.sample.kind: photo-people",
+          "brand.imagery.sample.kind: photo-product",
+          "brand.imagery.sample.kind: product-ui",
+          "brand.template.slot.type: image"
+        ],
+        "content": ["content.cell.type: image"],
+        "anatomy": ["role: footer-mark", "role: picture"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a card photo",
+        "negative": "a 32 px icon"
+      }
+    },
+    {
+      "term": "icon",
+      "namespace": "E2",
+      "definition": "A small pictogram: an image or a vector under 1.5 % of the slide.",
+      "identify": [
+        {
+          "id": "icon.image",
+          "scope": "element",
+          "order": 456,
+          "when": [
+            {
+              "kind": ["image"]
+            }
+          ],
+          "why": "image under 1.5 % of the slide"
+        },
+        {
+          "id": "icon.vector",
+          "scope": "element",
+          "order": 500,
+          "when": [
+            {
+              "kind": ["vectorgroup"]
+            },
+            {
+              "lt": ["areaPct", 1.5]
+            }
+          ],
+          "why": "vector under 1.5 % of the slide"
+        }
+      ],
+      "signal": "image / vectorgroup with areaPct < 1.5",
+      "notBut": [
+        {
+          "term": "picture",
+          "test": ">= 1.5 %"
+        },
+        {
+          "term": "marker",
+          "test": "a marker heads an item"
+        },
+        {
+          "term": "brand-logo",
+          "test": "a logo is a wide mark in a corner"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [
+          "brand.decor.type: actionIcon",
+          "brand.cardBlock.type: icon",
+          "brand.cardBlock.type: rating",
+          "brand.imagery.sample.kind: icon",
+          "brand.components: icons",
+          "brand.components: icon"
+        ],
+        "content": ["content.cell.type: check", "content.cell.type: rating"],
+        "anatomy": ["role: footer-mark", "role: icon"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a 40 px line icon over a card heading",
+        "negative": "a card photo"
+      }
+    },
+    {
+      "term": "sticker",
+      "namespace": "E2",
+      "definition": "A small element (under 6 %) set at a tilt (3 degrees or more): die-cut art stuck on the slide.",
+      "identify": [
+        {
+          "id": "sticker.tilted",
+          "scope": "element",
+          "order": 458,
+          "when": [
+            {
+              "not": {
+                "kind": ["text"]
+              }
+            },
+            {
+              "gte": ["tilt", 3]
+            },
+            {
+              "lt": ["areaPct", 6]
+            }
+          ],
+          "why": "small and tilted"
+        }
+      ],
+      "signal": "tilt >= 3, areaPct < 6",
+      "notBut": [
+        {
+          "term": "badge",
+          "test": "a badge is level (no tilt) and holds a short text on the edge of another element"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.decor.type: sticker"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a \"NEW!\" star rotated 12 degrees",
+        "negative": "a level \"NEW\" pill on a card corner"
+      }
+    },
+    {
+      "term": "badge",
+      "namespace": "E2",
+      "definition": "A small level shape (under 1.5 %) holding 3 words or fewer, set on the edge of another element.",
+      "identify": [
+        {
+          "id": "badge.on-edge",
+          "scope": "element",
+          "order": 459,
+          "when": [
+            {
+              "kind": ["shape", "region"]
+            },
+            {
+              "has": "holdsText"
+            },
+            {
+              "lt": ["areaPct", 1.5]
+            },
+            {
+              "lte": ["heldWords", 3]
+            },
+            {
+              "has": "onEdge"
+            },
+            {
+              "not": {
+                "gte": ["tilt", 3]
+              }
+            }
+          ],
+          "why": "small level shape with a short text on the edge of another element"
+        }
+      ],
+      "signal": "shape, holdsText, areaPct < 1.5, heldWords <= 3, onEdge",
+      "notBut": [
+        {
+          "term": "sticker",
+          "test": "a sticker is tilted"
+        },
+        {
+          "term": "chip",
+          "test": "a chip is a pill in a row / inline, not on an edge"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.decor.type: badge", "brand.cardBlock.type: badge", "brand.components: badge"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a \"PRO\" tag on the corner of a pricing card",
+        "negative": "a tilted sticker"
+      }
+    },
+    {
+      "term": "chip",
+      "namespace": "E2",
+      "definition": "A pill (radius >= half its height) under 1.5 % of the slide holding 3 words or fewer: a tag.",
+      "identify": [
+        {
+          "id": "chip.pill",
+          "scope": "element",
+          "order": 460,
+          "when": [
+            {
+              "kind": ["shape", "region"]
+            },
+            {
+              "has": "holdsText"
+            },
+            {
+              "lt": ["areaPct", 1.5]
+            },
+            {
+              "lte": ["heldWords", 3]
+            },
+            {
+              "has": "pill"
+            }
+          ],
+          "why": "a small pill holding a short label"
+        }
+      ],
+      "signal": "shape, holdsText, pill, heldWords <= 3",
+      "notBut": [
+        {
+          "term": "badge",
+          "test": "a badge sits on the edge of another element"
+        },
+        {
+          "term": "button",
+          "test": "a button says an action"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.cardBlock.type: tags", "brand.components: chip", "brand.components: tags"],
+        "content": ["content.cell.type: chip"],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a \"Fintech\" tag pill",
+        "negative": "a \"Learn more\" button"
+      }
+    },
+    {
+      "term": "button",
+      "namespace": "E2",
+      "definition": "A small shape (under 3 %) holding a call to action of 4 words or fewer (\"Learn more\", \"Get started\").",
+      "identify": [
+        {
+          "id": "button.cta",
+          "scope": "element",
+          "order": 461,
+          "when": [
+            {
+              "kind": ["shape", "region"]
+            },
+            {
+              "has": "holdsText"
+            },
+            {
+              "lt": ["areaPct", 3]
+            },
+            {
+              "lte": ["heldWords", 4]
+            },
+            {
+              "match": ["heldText", "cta"]
+            }
+          ],
+          "why": "a small shape holding call-to-action wording"
+        }
+      ],
+      "signal": "shape, holdsText, heldText matches `cta`",
+      "notBut": [
+        {
+          "term": "chip",
+          "test": "a chip labels, a button acts"
+        },
+        {
+          "term": "card",
+          "test": "a card holds content"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [
+          "brand.cardBlock.type: link",
+          "brand.cardBlock.type: button",
+          "brand.components: button",
+          "brand.components: buttonSecondary",
+          "brand.components: buttonOutline",
+          "brand.components: buttonCta",
+          "brand.components: ctaChevron"
+        ],
+        "content": ["content.v1.block.type: cta"],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"Get started\" on a filled pill",
+        "negative": "\"Fintech\" on a pill"
+      }
+    },
+    {
+      "term": "callout",
+      "namespace": "E2",
+      "definition": "A fill holding text with a pointer (a tail or arrow) aimed at another element.",
+      "identify": [
+        {
+          "id": "callout.pointer",
+          "scope": "element",
+          "order": 462,
+          "when": [
+            {
+              "kind": ["shape", "region"]
+            },
+            {
+              "has": "holdsText"
+            },
+            {
+              "has": "pointer"
+            }
+          ],
+          "why": "a text fill with a pointer"
+        }
+      ],
+      "signal": "shape, holdsText, pointer",
+      "notBut": [
+        {
+          "term": "card",
+          "test": "a card has no pointer"
+        },
+        {
+          "term": "panel",
+          "test": "a panel has no pointer"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.components: callout"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a speech-bubble note pointing at a chart peak",
+        "negative": "a card"
+      }
+    },
+    {
+      "term": "pager",
+      "namespace": "E2",
+      "definition": "A row of 3 or more equal small marks or numbers in the top / bottom band showing where the slide sits in the deck (dots, bars, a track).",
+      "identify": [
+        {
+          "id": "pager.series",
+          "scope": "element",
+          "order": 463,
+          "when": [
+            {
+              "gte": ["series", 3]
+            },
+            {
+              "any": [
+                [
+                  {
+                    "gt": ["y0", 85]
+                  }
+                ],
+                [
+                  {
+                    "lt": ["y1", 15]
+                  }
+                ]
+              ]
+            }
+          ],
+          "why": "one of >= 3 equal small marks in a row at the top / bottom"
+        }
+      ],
+      "signal": "series >= 3 in the top / bottom 15 % band",
+      "notBut": [
+        {
+          "term": "page-number",
+          "test": "a page number is one number"
+        },
+        {
+          "term": "tabs",
+          "test": "tabs are words"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.components: pager", "brand.components: progress"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "five dots bottom centre, the third filled",
+        "negative": "one page number"
+      }
+    },
+    {
+      "term": "tabs",
+      "namespace": "E2",
+      "definition": "A row of 2 or more short texts (3 words or fewer) near the top, one of them marked active.",
+      "identify": [
+        {
+          "id": "tabs.row",
+          "scope": "element",
+          "order": 199,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "gte": ["rowPeers", 2]
+            },
+            {
+              "has": "activePeer"
+            },
+            {
+              "lte": ["words", 3]
+            }
+          ],
+          "why": "one of a row of short texts with one marked active"
+        }
+      ],
+      "signal": "rowPeers >= 2, activePeer",
+      "notBut": [
+        {
+          "term": "pager",
+          "test": "a pager is marks"
+        },
+        {
+          "term": "label",
+          "test": "labels name things, nothing is active"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.components: linkBar", "brand.components: tabs"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"Overview | Pricing | FAQ\" with Pricing underlined",
+        "negative": "three column headings"
+      }
+    },
+    {
+      "term": "marker",
+      "namespace": "E2",
+      "definition": "A small number, dot or icon shape at the head of an item (01, a bullet square, a step circle).",
+      "identify": [
+        {
+          "id": "marker.text",
+          "scope": "element",
+          "order": 75,
+          "when": [
+            {
+              "kind": ["text"]
+            },
+            {
+              "has": "itemHead"
+            },
+            {
+              "lte": ["words", 2]
+            }
+          ],
+          "why": "a short text at the head of an item"
+        },
+        {
+          "id": "marker.shape",
+          "scope": "element",
+          "order": 466,
+          "when": [
+            {
+              "not": {
+                "kind": ["text"]
+              }
+            },
+            {
+              "has": "itemHead"
+            },
+            {
+              "lt": ["areaPct", 1]
+            }
+          ],
+          "why": "a small shape at the head of an item"
+        }
+      ],
+      "signal": "itemHead, small (areaPct < 1) or a short text",
+      "notBut": [
+        {
+          "term": "icon",
+          "test": "an icon is not tied to an item head"
+        },
+        {
+          "term": "connector",
+          "test": "a connector joins markers"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [
+          "brand.steps.marker: circle-number",
+          "brand.steps.marker: square-number",
+          "brand.steps.marker: dot",
+          "brand.steps.marker: icon",
+          "brand.steps.marker: chevron"
+        ],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"01\" over a card heading",
+        "negative": "a lone dot in the background"
+      }
+    },
+    {
+      "term": "connector",
+      "namespace": "E2",
+      "definition": "A thin shape joining 2 or more markers or items of one block (a timeline axis, a step line).",
+      "identify": [
+        {
+          "id": "connector.joins",
+          "scope": "element",
+          "order": 467,
+          "when": [
+            {
+              "not": {
+                "kind": ["text"]
+              }
+            },
+            {
+              "has": "thin"
+            },
+            {
+              "gte": ["length", 2.5]
+            },
+            {
+              "gte": ["joinsItems", 2]
+            }
+          ],
+          "why": "a thin line joining >= 2 items of one block"
+        }
+      ],
+      "signal": "thin, joinsItems >= 2",
+      "notBut": [
+        {
+          "term": "divider",
+          "test": "a divider separates groups, a connector joins items"
+        },
+        {
+          "term": "rule",
+          "test": "a rule touches no item"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.components: arrow"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "the line through four timeline dots",
+        "negative": "a hairline between two columns"
+      }
+    },
+    {
+      "term": "divider",
+      "namespace": "E2",
+      "definition": "A thin shape (< 0.8 % H or 0.5 % W thick, 2.5 % long or more) with content on both sides along its length, at least half as long as the wider side: it separates two groups.",
+      "identify": [
+        {
+          "id": "divider.between",
+          "scope": "element",
+          "order": 470,
+          "when": [
+            {
+              "not": {
+                "kind": ["text"]
+              }
+            },
+            {
+              "has": "thin"
+            },
+            {
+              "gte": ["length", 2.5]
+            },
+            {
+              "eq": ["sidesWithContent", 2]
+            }
+          ],
+          "why": "thin line with content on both sides along its length"
+        }
+      ],
+      "signal": "thin, length >= 2.5, sidesWithContent = 2",
+      "notBut": [
+        {
+          "term": "rule",
+          "test": "a rule has content on one side or none (an accent under a title)"
+        },
+        {
+          "term": "connector",
+          "test": "a connector joins items"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: divider"],
+        "brand": [
+          "brand.cardBlock.type: divider",
+          "brand.gradient.use: divider",
+          "brand.components: divider"
+        ],
+        "content": [],
+        "anatomy": ["role: footer-mark", "role: rule"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a vertical hairline between two text columns",
+        "negative": "a short accent bar under a title"
+      }
+    },
+    {
+      "term": "rule",
+      "namespace": "E2",
+      "definition": "A thin shape (< 0.8 % H or 0.5 % W thick, 2.5 % long or more) that separates nothing: an accent line, a hairline above a footer.",
+      "identify": [
+        {
+          "id": "rule.thin",
+          "scope": "element",
+          "order": 471,
+          "when": [
+            {
+              "not": {
+                "kind": ["text"]
+              }
+            },
+            {
+              "has": "thin"
+            },
+            {
+              "gte": ["length", 2.5]
+            }
+          ],
+          "why": "thin line, 2.5 % of the slide long or more"
+        }
+      ],
+      "signal": "thin, length >= 2.5, sidesWithContent < 2",
+      "notBut": [
+        {
+          "term": "divider",
+          "test": "a divider has content on both sides"
+        },
+        {
+          "term": "band",
+          "test": "a band is thick"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.decor.type: rule", "brand.layout.divider: rule"],
+        "content": [],
+        "anatomy": ["role: footer-mark", "role: rule"],
+        "catalogue": ["header: .r"]
+      },
+      "examples": {
+        "positive": "a 150 px accent rule under a title",
+        "negative": "a column divider"
+      }
+    },
+    {
+      "term": "frame",
+      "namespace": "E2",
+      "definition": "An outline (stroke, no fill) drawn around an image or a group of content.",
+      "identify": [
+        {
+          "id": "frame.outline",
+          "scope": "element",
+          "order": 465,
+          "when": [
+            {
+              "kind": ["shape", "region"]
+            },
+            {
+              "has": "stroke"
+            },
+            {
+              "lacks": "fill"
+            },
+            {
+              "has": "framesContent"
+            }
+          ],
+          "why": "an outline around content"
+        }
+      ],
+      "signal": "shape, stroke, no fill, framesContent",
+      "notBut": [
+        {
+          "term": "card",
+          "test": "a card is filled"
+        },
+        {
+          "term": "decor",
+          "test": "decor encloses nothing"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.decor.type: frame", "brand.gradient.use: border"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a 2 px border around a photo",
+        "negative": "a filled card"
+      }
+    },
+    {
+      "term": "cut-shape",
+      "namespace": "E2",
+      "definition": "A filled shape with a non-axis edge (a slant; its angle is recorded).",
+      "identify": [
+        {
+          "id": "cut-shape.angle",
+          "scope": "element",
+          "order": 480,
+          "when": [
+            {
+              "kind": ["shape", "region"]
+            },
+            {
+              "has": "angles"
+            }
+          ],
+          "why": "filled shape with a non-axis edge"
+        }
+      ],
+      "signal": "shape with angles",
+      "notBut": [
+        {
+          "term": "band",
+          "test": "a band is axis-aligned"
+        },
+        {
+          "term": "panel",
+          "test": "a panel is axis-aligned"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": ["role: footer-mark", "role: cut-shape"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a white wedge cut at 10 degrees across a cover",
+        "negative": "a rectangle"
+      }
+    },
+    {
+      "term": "band",
+      "namespace": "E2",
+      "definition": "A strip spanning a full side (full width up to 30 % H, or full height up to 40 % W) holding no text or only furniture.",
+      "identify": [
+        {
+          "id": "band.strip",
+          "scope": "element",
+          "order": 490,
+          "when": [
+            {
+              "kind": ["shape", "region"]
+            },
+            {
+              "has": "spansSide"
+            },
+            {
+              "lte": ["heldTexts", 0]
+            }
+          ],
+          "why": "full-width / full-height strip holding no text (furniture aside)"
+        }
+      ],
+      "signal": "spansSide, heldTexts = 0",
+      "notBut": [
+        {
+          "term": "panel",
+          "test": "a panel holds text"
+        },
+        {
+          "term": "decor",
+          "test": "decor does not span a side"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": ["role: footer-mark", "role: band"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a 12 % H full-width colour strip at the bottom",
+        "negative": "a full-width strip holding the title (a panel)"
+      }
+    },
+    {
+      "term": "panel",
+      "namespace": "E2",
+      "definition": "A fill holding text, 8 % of the slide or more.",
+      "identify": [
+        {
+          "id": "panel.large",
+          "scope": "element",
+          "order": 495,
+          "when": [
+            {
+              "kind": ["shape", "region"]
+            },
+            {
+              "has": "holdsText"
+            },
+            {
+              "gte": ["areaPct", 8]
+            }
+          ],
+          "why": "large fill holding text"
+        }
+      ],
+      "signal": "shape, holdsText, areaPct >= 8",
+      "notBut": [
+        {
+          "term": "card",
+          "test": "under 8 %"
+        },
+        {
+          "term": "band",
+          "test": "a band holds no text"
+        },
+        {
+          "term": "callout",
+          "test": "a callout has a pointer"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.cardBlock.type: panel", "brand.layout.divider: panel"],
+        "content": [],
+        "anatomy": ["role: footer-mark", "role: panel"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a purple block holding the cover title",
+        "negative": "a small card"
+      }
+    },
+    {
+      "term": "card",
+      "namespace": "E2",
+      "definition": "A fill holding text, under 8 % of the slide.",
+      "identify": [
+        {
+          "id": "card.small",
+          "scope": "element",
+          "order": 496,
+          "when": [
+            {
+              "kind": ["shape", "region"]
+            },
+            {
+              "has": "holdsText"
+            }
+          ],
+          "why": "fill holding text"
+        }
+      ],
+      "signal": "shape, holdsText, areaPct < 8",
+      "notBut": [
+        {
+          "term": "panel",
+          "test": ">= 8 %"
+        },
+        {
+          "term": "chip",
+          "test": "a pill with a tag"
+        },
+        {
+          "term": "button",
+          "test": "an action"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.components: cards", "brand.components: card"],
+        "content": [],
+        "anatomy": ["role: footer-mark", "role: card"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "one of three feature cards",
+        "negative": "a half-slide panel"
+      }
+    },
+    {
+      "term": "decor",
+      "namespace": "E2",
+      "definition": "Everything drawn that holds no text and that no other rule names (a fill, a vector shape).",
+      "identify": [
+        {
+          "id": "decor.fill",
+          "scope": "element",
+          "order": 499,
+          "when": [
+            {
+              "kind": ["shape", "region", "line"]
+            }
+          ],
+          "why": "fill holding no text"
+        },
+        {
+          "id": "decor.vector",
+          "scope": "element",
+          "order": 501,
+          "when": [
+            {
+              "kind": ["vectorgroup"]
+            }
+          ],
+          "why": "vector over 1.5 % of the slide, no other rule"
+        }
+      ],
+      "signal": "a shape / region / line / vector no earlier rule took",
+      "notBut": [
+        {
+          "term": "device",
+          "test": "a device is named by the brand"
+        },
+        {
+          "term": "band",
+          "test": "a band spans a side"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: decor"],
+        "brand": ["brand.decor.type: shape", "brand.gradient.use: glow"],
+        "content": [],
+        "anatomy": ["role: footer-mark", "role: decor"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a circle bottom right",
+        "negative": "a full-width strip"
+      }
+    },
+    {
+      "term": "table-block",
+      "namespace": "E3",
+      "group": "block",
+      "definition": "Rows of cells under a header row (content/2 `table`).",
+      "identify": [
+        {
+          "id": "table-block.cells",
+          "scope": "block",
+          "order": 10,
+          "when": [
+            {
+              "gt": ["termCount.cell", 0]
+            }
+          ],
+          "why": "its fields are rows of cells"
+        }
+      ],
+      "signal": "a field identified as cell",
+      "notBut": [
+        {
+          "term": "compare",
+          "test": "a compare is two items of heading + description"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.slot.type: table"],
+        "brand": ["brand.template.region.kind: table"],
+        "content": ["content.v2.block.type: table", "content.v1.block.type: table"],
+        "anatomy": [],
+        "catalogue": ["data-type: table"]
+      },
+      "examples": {
+        "positive": "a 4-column table of figures",
+        "negative": "three KPI tiles"
+      }
+    },
+    {
+      "term": "kpis",
+      "namespace": "E3",
+      "group": "block",
+      "definition": "Figures with their explanation (content/2 `kpis`): items holding a big-number, with a body, and a heading or not.",
+      "identify": [
+        {
+          "id": "kpis.figures",
+          "scope": "block",
+          "order": 20,
+          "when": [
+            {
+              "gte": ["itemShare.big-number", 0.5]
+            }
+          ],
+          "why": "half of its items or more hold a big-number"
+        }
+      ],
+      "signal": "itemShare.big-number >= 0.5",
+      "notBut": [
+        {
+          "term": "items",
+          "test": "items lead with a heading, not a figure"
+        },
+        {
+          "term": "chart-block",
+          "test": "a chart draws its figures"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: kpis", "layout.slot.type: kpis"],
+        "brand": ["brand.cardRecipe.kind: stat", "brand.template.region.kind: kpi", "brand.components: kpi"],
+        "content": ["content.v2.block.type: kpis", "content.v1.block.type: kpis"],
+        "anatomy": [],
+        "catalogue": ["data-type: kpi_block", "data-type: kpi_vb"]
+      },
+      "examples": {
+        "positive": "three tiles \"$504B / Global revenue / ...\"",
+        "negative": "three cards with headings"
+      }
+    },
+    {
+      "term": "chart-block",
+      "namespace": "E3",
+      "group": "block",
+      "definition": "A data exhibit drawn over its labels (content/2 `chart`).",
+      "identify": [
+        {
+          "id": "chart-block.labels",
+          "scope": "block",
+          "order": 30,
+          "when": [
+            {
+              "eq": ["termShare.label", 1]
+            }
+          ],
+          "why": "every field is a short label over a drawn area"
+        }
+      ],
+      "signal": "termShare.label = 1",
+      "notBut": [
+        {
+          "term": "points",
+          "test": "a list shows no data labels of its own"
+        },
+        {
+          "term": "kpis",
+          "test": "KPIs set their figures as marked fields"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [
+          "deck.chart.chartType: bar",
+          "deck.chart.chartType: column",
+          "deck.chart.chartType: stackedBar",
+          "deck.chart.chartType: line",
+          "deck.chart.chartType: area",
+          "deck.chart.chartType: pie",
+          "deck.chart.chartType: donut",
+          "deck.chart.chartType: scatter",
+          "deck.chart.form: funnel",
+          "deck.chart.form: waterfall",
+          "deck.chart.form: radar",
+          "deck.chart.form: gauge"
+        ],
+        "layout": ["layout.slot.type: chart"],
+        "brand": ["brand.template.region.kind: chart", "brand.gradient.use: chartSeries"],
+        "content": [
+          "content.v2.block.type: chart",
+          "content.v1.block.type: chart",
+          "content.chart.chartType: column",
+          "content.chart.chartType: bar",
+          "content.chart.chartType: line",
+          "content.chart.chartType: area",
+          "content.chart.chartType: pie",
+          "content.chart.chartType: donut",
+          "content.chart.chartType: stacked",
+          "content.chart.chartType: grouped",
+          "content.chart.chartType: stacked%",
+          "content.chart.chartType: funnel",
+          "content.chart.chartType: waterfall",
+          "content.chart.chartType: scatter",
+          "content.chart.chartType: radar",
+          "content.chart.chartType: gauge",
+          "content.chart.chartType: stackedBar"
+        ],
+        "anatomy": [],
+        "catalogue": ["data-type: chart"]
+      },
+      "examples": {
+        "positive": "a column chart with \"2024 / 2025\" labels",
+        "negative": "a bullet list"
+      }
+    },
+    {
+      "term": "paragraph-block",
+      "namespace": "E3",
+      "group": "block",
+      "definition": "One run of running text (content/2 `paragraph`).",
+      "identify": [
+        {
+          "id": "paragraph-block.text",
+          "scope": "block",
+          "order": 40,
+          "when": [
+            {
+              "eq": ["termShare.paragraph", 1]
+            }
+          ],
+          "why": "its one field is a paragraph"
+        }
+      ],
+      "signal": "termShare.paragraph = 1",
+      "notBut": [
+        {
+          "term": "points",
+          "test": "points are several items"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.slot.type: richtext"],
+        "brand": ["brand.template.region.kind: paragraph"],
+        "content": ["content.v2.block.type: paragraph", "content.v1.block.type: paragraph"],
+        "anatomy": [],
+        "catalogue": ["data-type: paragraph"]
+      },
+      "examples": {
+        "positive": "a 3-line takeaway",
+        "negative": "a 4-line list"
+      }
+    },
+    {
+      "term": "points",
+      "namespace": "E3",
+      "group": "block",
+      "definition": "A list of single lines (content/2 `points`).",
+      "identify": [
+        {
+          "id": "points.bullets",
+          "scope": "block",
+          "order": 50,
+          "when": [
+            {
+              "eq": ["termShare.bullet", 1]
+            }
+          ],
+          "why": "every field is a bullet"
+        }
+      ],
+      "signal": "termShare.bullet = 1",
+      "notBut": [
+        {
+          "term": "items",
+          "test": "items have a heading + description each"
+        },
+        {
+          "term": "chart-block",
+          "test": "chart labels belong to a block showing data labels"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: list", "layout.slot.type: list"],
+        "brand": ["brand.cardRecipe.kind: list", "brand.template.region.kind: list"],
+        "content": ["content.v2.block.type: points", "content.v1.block.type: list"],
+        "anatomy": [],
+        "catalogue": ["data-type: simple_list"]
+      },
+      "examples": {
+        "positive": "four ticked action lines",
+        "negative": "three cards"
+      }
+    },
+    {
+      "term": "quotes",
+      "namespace": "E3",
+      "group": "block",
+      "definition": "One or more quotations with attribution (content/2 `quotes`).",
+      "identify": [
+        {
+          "id": "quotes.marks",
+          "scope": "block",
+          "order": 55,
+          "when": [
+            {
+              "gte": ["itemShare.quote", 0.5]
+            }
+          ],
+          "why": "half of its items or more open with a quote mark"
+        }
+      ],
+      "signal": "itemShare.quote >= 0.5",
+      "notBut": [
+        {
+          "term": "paragraph-block",
+          "test": "a paragraph is not quoted"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.box.role: quote", "layout.slot.type: quote"],
+        "brand": [
+          "brand.cardRecipe.kind: testimonial",
+          "brand.template.slot.type: quote",
+          "brand.template.region.kind: quote",
+          "brand.components: quote"
+        ],
+        "content": ["content.v2.block.type: quotes", "content.v1.block.type: quote"],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "two customer quotes with names",
+        "negative": "a paragraph"
+      }
+    },
+    {
+      "term": "people",
+      "namespace": "E3",
+      "group": "block",
+      "definition": "People with portrait, name and role (content/2 `people`).",
+      "identify": [
+        {
+          "id": "people.avatars",
+          "scope": "block",
+          "order": 56,
+          "when": [
+            {
+              "gte": ["itemShare.avatar", 0.5]
+            }
+          ],
+          "why": "half of its items or more hold an avatar"
+        }
+      ],
+      "signal": "itemShare.avatar >= 0.5",
+      "notBut": [
+        {
+          "term": "items",
+          "test": "items hold no portrait"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.slot.type: people"],
+        "brand": ["brand.cardRecipe.kind: team", "brand.components: team"],
+        "content": ["content.v2.block.type: people", "content.v1.block.type: people"],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "four team members",
+        "negative": "four feature cards"
+      }
+    },
+    {
+      "term": "logos",
+      "namespace": "E3",
+      "group": "block",
+      "definition": "A wall of organisation marks (content/2 `logos`).",
+      "identify": [
+        {
+          "id": "logos.marks",
+          "scope": "block",
+          "order": 57,
+          "when": [
+            {
+              "gte": ["termCount.logo-item", 3]
+            }
+          ],
+          "why": "three logo items or more"
+        }
+      ],
+      "signal": "termCount.logo-item >= 3",
+      "notBut": [
+        {
+          "term": "image-block",
+          "test": "one picture"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.slot.type: logos"],
+        "brand": ["brand.components: logoWall"],
+        "content": ["content.v2.block.type: logos", "content.v1.block.type: logos"],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "eight client logos",
+        "negative": "one photo"
+      }
+    },
+    {
+      "term": "image-block",
+      "namespace": "E3",
+      "group": "block",
+      "definition": "One to four images as the content (content/2 `image`).",
+      "identify": [
+        {
+          "id": "image-block.only",
+          "scope": "block",
+          "order": 58,
+          "when": [
+            {
+              "has": "imageOnly"
+            }
+          ],
+          "why": "it holds images only"
+        }
+      ],
+      "signal": "imageOnly",
+      "notBut": [
+        {
+          "term": "people",
+          "test": "portraits with names"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.slot.type: image", "layout.slot.type: images"],
+        "brand": ["brand.template.region.kind: image"],
+        "content": ["content.v2.block.type: image", "content.v1.block.type: image"],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a two-photo collage",
+        "negative": "a team grid"
+      }
+    },
+    {
+      "term": "timeline",
+      "namespace": "E3",
+      "group": "block",
+      "definition": "Items in time order, each labelled by a date or period (content/2 `timeline`).",
+      "identify": [
+        {
+          "id": "timeline.periods",
+          "scope": "block",
+          "order": 60,
+          "when": [
+            {
+              "gte": ["minItemFields", 2]
+            },
+            {
+              "any": [
+                [
+                  {
+                    "match": ["labelText", "period"]
+                  }
+                ],
+                [
+                  {
+                    "match": ["headText", "periodStart"]
+                  }
+                ]
+              ]
+            }
+          ],
+          "why": "its items are labelled by dates / periods (2024, Q1 2026, Feb 2025, Now)"
+        }
+      ],
+      "signal": "labelText matches `period`, or the first heading starts with one",
+      "notBut": [
+        {
+          "term": "process",
+          "test": "process steps are ordinals (Step 1), not dates"
+        },
+        {
+          "term": "items",
+          "test": "items carry no period"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.slot.type: timeline"],
+        "brand": ["brand.components: timeline"],
+        "content": ["content.v2.block.type: timeline", "content.v1.block.type: timeline"],
+        "anatomy": [],
+        "catalogue": ["data-type: roadmap", "data-type: timeline", "data-type: timeline_with_list"]
+      },
+      "examples": {
+        "positive": "\"2024 Listings stall | 2025 Listings return\"",
+        "negative": "\"Step 1 Payments first | Step 2 ...\""
+      }
+    },
+    {
+      "term": "process",
+      "namespace": "E3",
+      "group": "block",
+      "definition": "Steps in order, each labelled by an ordinal (Step 1, Phase 2, Stage 3) (content/2 `process`).",
+      "identify": [
+        {
+          "id": "process.ordinals",
+          "scope": "block",
+          "order": 65,
+          "when": [
+            {
+              "gte": ["minItemFields", 2]
+            },
+            {
+              "match": ["labelText", "ordinal"]
+            }
+          ],
+          "why": "its items are labelled by step ordinals"
+        }
+      ],
+      "signal": "labelText matches `ordinal`",
+      "notBut": [
+        {
+          "term": "timeline",
+          "test": "a timeline is labelled by dates"
+        },
+        {
+          "term": "items",
+          "test": "items may be numbered 01 / 02 without being steps"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.slot.type: steps"],
+        "brand": ["brand.components: steps"],
+        "content": [
+          "content.v2.block.type: process",
+          "content.v1.block.type: steps",
+          "content.process.shape: linear",
+          "content.process.shape: cycle",
+          "content.process.shape: funnel",
+          "content.process.shape: pyramid",
+          "content.process.shape: stack",
+          "content.process.shape: hub",
+          "content.process.shape: ladder",
+          "content.process.shape: quadrant",
+          "content.process.shape: venn",
+          "content.process.shape: tree",
+          "content.process.shape: converge",
+          "content.process.shape: diverge"
+        ],
+        "anatomy": [],
+        "catalogue": ["data-type: roadmap"]
+      },
+      "examples": {
+        "positive": "\"Step 1 Structured data | Step 2 Earned trust\"",
+        "negative": "\"2024 | 2025\""
+      }
+    },
+    {
+      "term": "subpoints",
+      "namespace": "E3",
+      "group": "block",
+      "definition": "Items whose explanation is a list of sub-points (content/2 `subpoints`).",
+      "identify": [
+        {
+          "id": "subpoints.lists",
+          "scope": "block",
+          "order": 70,
+          "when": [
+            {
+              "gte": ["minItemFields", 2]
+            },
+            {
+              "gte": ["listItemShare", 0.5]
+            }
+          ],
+          "why": "half of its items or more explain their heading with two runs or more"
+        }
+      ],
+      "signal": "listItemShare >= 0.5",
+      "notBut": [
+        {
+          "term": "items",
+          "test": "an item explains with one run of text"
+        },
+        {
+          "term": "timeline",
+          "test": "a timeline with lists is labelled by periods first"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": ["content.v2.block.type: subpoints"],
+        "anatomy": [],
+        "catalogue": ["data-type: list_with_subpoints"]
+      },
+      "examples": {
+        "positive": "\"Proven in workflows\" with two ruled sub-lines",
+        "negative": "a heading with one description"
+      }
+    },
+    {
+      "term": "compare",
+      "namespace": "E3",
+      "group": "block",
+      "definition": "Two sides set against each other (content/2 `compare`): two items side by side with a rule between them, or labelled as a contrast (From / Then / Before).",
+      "identify": [
+        {
+          "id": "compare.contrast",
+          "scope": "block",
+          "order": 59,
+          "when": [
+            {
+              "gte": ["minItemFields", 2]
+            },
+            {
+              "eq": ["items", 2]
+            },
+            {
+              "match": ["labelText", "contrast"]
+            }
+          ],
+          "why": "two items, the first labelled as one side of a contrast (From, Then, Before ...)"
+        },
+        {
+          "id": "compare.two-sides",
+          "scope": "block",
+          "order": 80,
+          "when": [
+            {
+              "gte": ["minItemFields", 2]
+            },
+            {
+              "eq": ["items", 2]
+            },
+            {
+              "has": "itemsInRow"
+            },
+            {
+              "has": "between"
+            },
+            {
+              "lacks": "numbered"
+            }
+          ],
+          "why": "exactly two items side by side with a rule between them, not numbered"
+        }
+      ],
+      "signal": "items = 2 side by side with a rule between; a contrast label",
+      "notBut": [
+        {
+          "term": "items",
+          "test": "items are a set: stacked, or without a rule between, or numbered"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": ["content.v2.block.type: compare"],
+        "anatomy": [],
+        "catalogue": ["data-type: comparison"]
+      },
+      "examples": {
+        "positive": "\"Digitally enhanced | AI-first operations\" either side of a hairline",
+        "negative": "two numbered cards"
+      }
+    },
+    {
+      "term": "items",
+      "namespace": "E3",
+      "group": "block",
+      "definition": "Items each with a heading and a description (content/2 `items`, the catalogue list with description and multi-column list).",
+      "identify": [
+        {
+          "id": "items.heading-description",
+          "scope": "block",
+          "order": 90,
+          "when": [
+            {
+              "gte": ["minItemFields", 2]
+            },
+            {
+              "gte": ["items", 1]
+            }
+          ],
+          "why": "every item holds two texts or more (a heading and its description)"
+        }
+      ],
+      "signal": "minItemFields >= 2",
+      "notBut": [
+        {
+          "term": "compare",
+          "test": "two sides with a rule between"
+        },
+        {
+          "term": "subpoints",
+          "test": "sub-point lists"
+        },
+        {
+          "term": "kpis",
+          "test": "figures"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.slot.type: cards"],
+        "brand": [
+          "brand.cardRecipe.kind: feature",
+          "brand.cardRecipe.kind: case_study",
+          "brand.cardRecipe.kind: pricing",
+          "brand.cardRecipe.kind: blog",
+          "brand.cardRecipe.kind: listing",
+          "brand.template.slot.type: cards",
+          "brand.template.region.kind: cards"
+        ],
+        "content": ["content.v2.block.type: items", "content.v1.block.type: cards"],
+        "anatomy": [],
+        "catalogue": ["data-type: list_with_description", "data-type: multi_column_list"]
+      },
+      "examples": {
+        "positive": "three cards \"Answers, not links / ...\"",
+        "negative": "a bullet list"
+      }
+    },
+    {
+      "term": "header",
+      "namespace": "E3",
+      "group": "composition",
+      "definition": "The slide's title stack: the title with its eyebrow, subtitle and rule, at the top.",
+      "identify": [
+        {
+          "id": "header.title-stack",
+          "scope": "structure",
+          "order": 10,
+          "when": [
+            {
+              "gte": ["memberTerms.title", 1]
+            },
+            {
+              "lt": ["y0", 40]
+            }
+          ],
+          "why": "a set holding the title, in the top 40 %"
+        }
+      ],
+      "signal": "memberTerms.title >= 1, y0 < 40",
+      "notBut": [
+        {
+          "term": "zone",
+          "test": "a zone is a region of the slide, not its title stack"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.placement: under-title"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "eyebrow + title + rule at the top",
+        "negative": "a card heading + description"
+      }
+    },
+    {
+      "term": "item",
+      "namespace": "E3",
+      "group": "composition",
+      "definition": "One repeated unit of a block: the fields sharing an item index.",
+      "identify": [
+        {
+          "id": "item.index",
+          "scope": "structure",
+          "order": 20,
+          "when": [
+            {
+              "has": "itemIndex"
+            }
+          ],
+          "why": "members share one item index"
+        }
+      ],
+      "signal": "itemIndex",
+      "notBut": [
+        {
+          "term": "cell",
+          "test": "a cell has a row and a column"
+        },
+        {
+          "term": "gap-group",
+          "test": "a group is by proximity"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a card heading + description",
+        "negative": "a whole block"
+      }
+    },
+    {
+      "term": "grid",
+      "namespace": "E3",
+      "group": "composition",
+      "definition": "Items in 2 rows or more and 2 columns or more.",
+      "identify": [
+        {
+          "id": "grid.rows-cols",
+          "scope": "structure",
+          "order": 30,
+          "when": [
+            {
+              "gte": ["rows", 2]
+            },
+            {
+              "gte": ["cols", 2]
+            }
+          ],
+          "why": ">= 2 rows and >= 2 columns"
+        }
+      ],
+      "signal": "rows >= 2, cols >= 2",
+      "notBut": [
+        {
+          "term": "column",
+          "test": "one column"
+        },
+        {
+          "term": "band-zone",
+          "test": "one row"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a 2 x 2 card grid",
+        "negative": "three cards in a row"
+      }
+    },
+    {
+      "term": "column",
+      "namespace": "E3",
+      "group": "composition",
+      "definition": "Members stacked in one column on a shared left edge.",
+      "identify": [
+        {
+          "id": "column.edge",
+          "scope": "structure",
+          "order": 40,
+          "when": [
+            {
+              "eq": ["cols", 1]
+            },
+            {
+              "gte": ["rows", 2]
+            },
+            {
+              "has": "sharedEdge"
+            }
+          ],
+          "why": "one column on a shared edge"
+        }
+      ],
+      "signal": "cols = 1, rows >= 2, sharedEdge",
+      "notBut": [
+        {
+          "term": "stack",
+          "test": "a stack has no shared edge (centred)"
+        },
+        {
+          "term": "grid",
+          "test": "several columns"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": ["content.v1.block.type: columns"],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "the left text column of a cover",
+        "negative": "a centred stack"
+      }
+    },
+    {
+      "term": "band-zone",
+      "namespace": "E3",
+      "group": "composition",
+      "definition": "A full-width (or full-height) strip of the composition holding one row of content.",
+      "identify": [
+        {
+          "id": "band-zone.row",
+          "scope": "structure",
+          "order": 50,
+          "when": [
+            {
+              "eq": ["rows", 1]
+            },
+            {
+              "has": "spansWidth"
+            }
+          ],
+          "why": "one row across the full width"
+        }
+      ],
+      "signal": "rows = 1, spansWidth",
+      "notBut": [
+        {
+          "term": "grid",
+          "test": "several rows"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a KPI row across the slide",
+        "negative": "a 2 x 2 grid"
+      }
+    },
+    {
+      "term": "stack",
+      "namespace": "E3",
+      "group": "composition",
+      "definition": "Members stacked one above the other without a shared edge (centred or ragged).",
+      "identify": [
+        {
+          "id": "stack.vertical",
+          "scope": "structure",
+          "order": 60,
+          "when": [
+            {
+              "eq": ["cols", 1]
+            },
+            {
+              "gte": ["rows", 2]
+            }
+          ],
+          "why": "one column, no shared edge"
+        }
+      ],
+      "signal": "cols = 1, rows >= 2",
+      "notBut": [
+        {
+          "term": "column",
+          "test": "a column shares an edge"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.components: accordion"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a centred title + subtitle + button",
+        "negative": "a left-aligned column"
+      }
+    },
+    {
+      "term": "gap-group",
+      "namespace": "E3",
+      "group": "composition",
+      "definition": "Members closer to each other than to anything else (a rhythm group: inner gap under 1.6 x the smallest gap).",
+      "identify": [
+        {
+          "id": "gap-group.gap",
+          "scope": "structure",
+          "order": 80,
+          "when": [
+            {
+              "has": "groupedByGap"
+            }
+          ],
+          "why": "set apart by the vertical rhythm"
+        }
+      ],
+      "signal": "groupedByGap",
+      "notBut": [
+        {
+          "term": "item",
+          "test": "an item is by index"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "title + subtitle + date (a gap group)",
+        "negative": "legal at the bottom"
+      }
+    },
+    {
+      "term": "zone",
+      "namespace": "E3",
+      "group": "composition",
+      "definition": "A region of the slide: the text zone, the visual zone, or one of the nine anchor zones (top-left ... bottom-right).",
+      "identify": [
+        {
+          "id": "zone.region",
+          "scope": "structure",
+          "order": 90,
+          "when": [
+            {
+              "has": "zone"
+            }
+          ],
+          "why": "a named region of the slide"
+        }
+      ],
+      "signal": "zone",
+      "notBut": [
+        {
+          "term": "header",
+          "test": "the header is a title stack"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [
+          "brand.placement: top-left",
+          "brand.placement: top-center",
+          "brand.placement: top-right",
+          "brand.placement: center-left",
+          "brand.placement: center",
+          "brand.placement: center-right",
+          "brand.placement: bottom-left",
+          "brand.placement: bottom-center",
+          "brand.placement: bottom-right",
+          "brand.anchor: top-left",
+          "brand.anchor: top-center",
+          "brand.anchor: top-right",
+          "brand.anchor: center-left",
+          "brand.anchor: center",
+          "brand.anchor: center-right",
+          "brand.anchor: bottom-left",
+          "brand.anchor: bottom-center",
+          "brand.anchor: bottom-right"
+        ],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "the visual zone right of the text",
+        "negative": "a card"
+      }
+    },
+    {
+      "term": "cover-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "The first page of a deck.",
+      "identify": [
+        {
+          "id": "cover.first",
+          "scope": "kind",
+          "order": 10,
+          "when": [
+            {
+              "eq": ["page", 1]
+            }
+          ],
+          "why": "first page",
+          "label": {
+            "anatomy": "cover"
+          }
+        }
+      ],
+      "signal": "page = 1",
+      "notBut": [
+        {
+          "term": "section-slide",
+          "test": "a section break is inside the deck"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: cover"],
+        "brand": [],
+        "content": [],
+        "anatomy": ["category: cover"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "page 1",
+        "negative": "page 5"
+      }
+    },
+    {
+      "term": "agenda-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "The contents page: the title says agenda / contents / overview, in the first 6 pages.",
+      "identify": [
+        {
+          "id": "agenda.heading",
+          "scope": "kind",
+          "order": 20,
+          "when": [
+            {
+              "has": "agendaHeading"
+            },
+            {
+              "lte": ["page", 6]
+            }
+          ],
+          "why": "title says agenda / contents, in the first pages",
+          "label": {
+            "anatomy": "agenda"
+          }
+        }
+      ],
+      "signal": "agendaHeading, page <= 6",
+      "notBut": [
+        {
+          "term": "text-slide",
+          "test": "running text"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: agenda"],
+        "brand": [],
+        "content": [],
+        "anatomy": ["category: agenda"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"Agenda\" on page 2",
+        "negative": "\"Agenda\" on page 30"
+      }
+    },
+    {
+      "term": "cta-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "The closing page: a contact / thank-you heading, or contact wording in the last 3 pages without exhibits.",
+      "identify": [
+        {
+          "id": "cta.heading",
+          "scope": "kind",
+          "order": 30,
+          "when": [
+            {
+              "has": "closingHeading"
+            }
+          ],
+          "why": "title says contact / thank you",
+          "label": {
+            "anatomy": "closing-contact"
+          }
+        },
+        {
+          "id": "cta.last-pages",
+          "scope": "kind",
+          "order": 50,
+          "when": [
+            {
+              "lte": ["fromEnd", 2]
+            },
+            {
+              "lacks": "charts"
+            },
+            {
+              "lt": ["numberLabels", 6]
+            },
+            {
+              "lt": ["bigNumbers", 2]
+            },
+            {
+              "has": "closingWords"
+            }
+          ],
+          "why": "last pages, contact / thank-you wording",
+          "label": {
+            "anatomy": "closing-contact"
+          }
+        }
+      ],
+      "signal": "closingHeading; closing wording near the end",
+      "notBut": [
+        {
+          "term": "back-cover-slide",
+          "test": "a back cover has no contact wording"
+        },
+        {
+          "term": "legal-slide",
+          "test": "legal wording outweighs"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: cta"],
+        "brand": [],
+        "content": [],
+        "anatomy": ["category: closing-contact"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"Thank you\" + email on the last page",
+        "negative": "\"Thanks to rising demand...\" in body copy"
+      }
+    },
+    {
+      "term": "legal-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "The legal page: in the last 4 pages, legal words outweigh the rest (over 60), or the page opens with disclaimer wording.",
+      "identify": [
+        {
+          "id": "legal.outweighs",
+          "scope": "kind",
+          "order": 40,
+          "when": [
+            {
+              "lte": ["fromEnd", 3]
+            },
+            {
+              "gt": ["legalWords", 60]
+            },
+            {
+              "gt": [
+                "legalWords",
+                {
+                  "field": "words"
+                }
+              ]
+            }
+          ],
+          "why": "last pages, legal words outweigh the rest",
+          "label": {
+            "anatomy": "legal"
+          }
+        },
+        {
+          "id": "legal.mostly",
+          "scope": "kind",
+          "order": 60,
+          "when": [
+            {
+              "lte": ["fromEnd", 3]
+            },
+            {
+              "any": [
+                [
+                  {
+                    "gt": ["legalWords", 60]
+                  }
+                ],
+                [
+                  {
+                    "has": "legalStart"
+                  }
+                ]
+              ]
+            }
+          ],
+          "why": "last pages, mostly legal wording",
+          "label": {
+            "anatomy": "legal"
+          }
+        }
+      ],
+      "signal": "legalWords",
+      "notBut": [
+        {
+          "term": "back-cover-slide",
+          "test": "few words"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": ["category: legal"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a disclaimer page",
+        "negative": "a closing page with a copyright line"
+      }
+    },
+    {
+      "term": "back-cover-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "The last page with 30 words or fewer.",
+      "identify": [
+        {
+          "id": "back-cover.last",
+          "scope": "kind",
+          "order": 70,
+          "when": [
+            {
+              "eq": ["fromEnd", 0]
+            },
+            {
+              "lte": ["words", 30]
+            }
+          ],
+          "why": "last page, <= 30 words",
+          "label": {
+            "anatomy": "back-cover"
+          }
+        }
+      ],
+      "signal": "fromEnd = 0, words <= 30",
+      "notBut": [
+        {
+          "term": "cta-slide",
+          "test": "contact wording"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": ["category: back-cover"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a logo on colour as the last page",
+        "negative": "a closing contact page"
+      }
+    },
+    {
+      "term": "quote-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "A quotation slide: the text opens or closes with a quote mark, 80 words or fewer, no chart.",
+      "identify": [
+        {
+          "id": "quote.marks",
+          "scope": "kind",
+          "order": 80,
+          "when": [
+            {
+              "has": "quoteText"
+            },
+            {
+              "lte": ["words", 80]
+            },
+            {
+              "lacks": "charts"
+            }
+          ],
+          "why": "text opens or closes with quote marks, <= 80 words",
+          "label": {
+            "anatomy": "quote"
+          }
+        }
+      ],
+      "signal": "quoteText",
+      "notBut": [
+        {
+          "term": "section-slide",
+          "test": "a statement without quote marks"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: quote"],
+        "brand": [],
+        "content": [],
+        "anatomy": ["category: quote"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"“We moved faster” — CEO\"",
+        "negative": "a chart page"
+      }
+    },
+    {
+      "term": "section-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "A section break: 25 words or fewer in 3 texts or fewer, one large text, a colour field / photo / numeral, no exhibit.",
+      "identify": [
+        {
+          "id": "section.break",
+          "scope": "kind",
+          "order": 90,
+          "when": [
+            {
+              "lte": ["words", 25]
+            },
+            {
+              "lacks": "charts"
+            },
+            {
+              "lte": ["bigNumbers", 1]
+            },
+            {
+              "any": [
+                [
+                  {
+                    "has": "hasTitle"
+                  }
+                ],
+                [
+                  {
+                    "gte": ["bigNumbers", 1]
+                  }
+                ]
+              ]
+            },
+            {
+              "lte": ["mainTexts", 3]
+            },
+            {
+              "any": [
+                [
+                  {
+                    "has": "darkBackground"
+                  }
+                ],
+                [
+                  {
+                    "gte": ["fieldPictures", 1]
+                  }
+                ],
+                [
+                  {
+                    "gte": ["bigNumbers", 1]
+                  }
+                ],
+                [
+                  {
+                    "gte": ["titleToBody", 2.2]
+                  }
+                ]
+              ]
+            }
+          ],
+          "why": "<= 25 words in <= 3 texts, one large text, colour field / photo / numeral, no exhibit",
+          "label": {
+            "anatomy": "section-break"
+          }
+        }
+      ],
+      "signal": "few words, one large text, a field",
+      "notBut": [
+        {
+          "term": "cover-slide",
+          "test": "page 1"
+        },
+        {
+          "term": "quote-slide",
+          "test": "quote marks"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: section"],
+        "brand": [],
+        "content": [],
+        "anatomy": ["category: section-break"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"02 Market\" on a dark field",
+        "negative": "a 3-bullet slide"
+      }
+    },
+    {
+      "term": "kpi-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "Two big numbers or more, no chart.",
+      "identify": [
+        {
+          "id": "kpi.numbers",
+          "scope": "kind",
+          "order": 100,
+          "when": [
+            {
+              "gte": ["bigNumbers", 2]
+            },
+            {
+              "lacks": "charts"
+            }
+          ],
+          "why": ">= 2 big numbers, no chart",
+          "label": {
+            "anatomy": "kpi"
+          }
+        }
+      ],
+      "signal": "bigNumbers >= 2",
+      "notBut": [
+        {
+          "term": "chart-slide",
+          "test": "a chart draws the numbers"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: kpi"],
+        "brand": [],
+        "content": [],
+        "anatomy": ["category: kpi"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "three KPI tiles",
+        "negative": "a bar chart"
+      }
+    },
+    {
+      "term": "chart-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "A chart / diagram vector group, or 6 number labels or more over drawn shapes.",
+      "identify": [
+        {
+          "id": "chart.exhibit",
+          "scope": "kind",
+          "order": 110,
+          "when": [
+            {
+              "any": [
+                [
+                  {
+                    "gte": ["charts", 1]
+                  }
+                ],
+                [
+                  {
+                    "gte": ["numberLabels", 6]
+                  },
+                  {
+                    "gte": ["shapes", 3]
+                  }
+                ]
+              ]
+            }
+          ],
+          "why": "a chart / diagram vector group, or >= 6 small number labels over drawn shapes",
+          "label": {
+            "anatomy": "chart"
+          }
+        }
+      ],
+      "signal": "charts >= 1",
+      "notBut": [
+        {
+          "term": "kpi-slide",
+          "test": "figures as text"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: chart"],
+        "brand": [],
+        "content": [],
+        "anatomy": ["category: chart"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a bar chart page",
+        "negative": "a KPI page"
+      }
+    },
+    {
+      "term": "table-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "3 rows or more of 3 short cells or more sharing a baseline.",
+      "identify": [
+        {
+          "id": "table.rows",
+          "scope": "kind",
+          "order": 120,
+          "when": [
+            {
+              "gte": ["tableRows", 3]
+            }
+          ],
+          "why": ">= 3 rows of >= 3 short cells sharing a baseline",
+          "label": {
+            "anatomy": "table"
+          }
+        }
+      ],
+      "signal": "tableRows >= 3",
+      "notBut": [
+        {
+          "term": "cards-slide",
+          "test": "card grids carry longer lines"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: table"],
+        "brand": [],
+        "content": [],
+        "anatomy": ["category: table"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a comparison table",
+        "negative": "three cards"
+      }
+    },
+    {
+      "term": "text-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "Running text: 3 columns or more of long text (over 90 words each), over 160 words, or anything no other rule takes.",
+      "identify": [
+        {
+          "id": "text.columns",
+          "scope": "kind",
+          "order": 130,
+          "when": [
+            {
+              "gte": ["columns", 3]
+            },
+            {
+              "gt": ["wordsPerColumn", 90]
+            }
+          ],
+          "why": "columns of long running text",
+          "label": {
+            "anatomy": "text-heavy"
+          }
+        },
+        {
+          "id": "text.long",
+          "scope": "kind",
+          "order": 175,
+          "when": [
+            {
+              "gt": ["words", 160]
+            }
+          ],
+          "why": "> 160 words",
+          "label": {
+            "anatomy": "text-heavy"
+          }
+        },
+        {
+          "id": "text.rest",
+          "scope": "kind",
+          "order": 190,
+          "when": [],
+          "why": "text content (no other rule)",
+          "label": {
+            "anatomy": "text"
+          }
+        }
+      ],
+      "signal": "words",
+      "notBut": [
+        {
+          "term": "cards-slide",
+          "test": "columns of short blocks"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: text"],
+        "brand": [],
+        "content": [],
+        "anatomy": ["category: text-heavy", "category: text"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a 200-word page",
+        "negative": "a 3-card page"
+      }
+    },
+    {
+      "term": "cards-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "3 columns or more of short text blocks side by side (cards, pillars).",
+      "identify": [
+        {
+          "id": "cards.columns",
+          "scope": "kind",
+          "order": 140,
+          "when": [
+            {
+              "gte": ["columns", 3]
+            }
+          ],
+          "why": ">= 3 columns of text blocks side by side",
+          "label": {
+            "anatomy": "modular-columns"
+          }
+        }
+      ],
+      "signal": "columns >= 3",
+      "notBut": [
+        {
+          "term": "text-slide",
+          "test": "long running columns"
+        },
+        {
+          "term": "table-slide",
+          "test": "short cells on baselines"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: cards"],
+        "brand": [],
+        "content": [],
+        "anatomy": ["category: modular-columns"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "three pillar cards",
+        "negative": "a table"
+      }
+    },
+    {
+      "term": "team-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "3 pictures or more with 150 words or fewer.",
+      "identify": [
+        {
+          "id": "team.pictures",
+          "scope": "kind",
+          "order": 150,
+          "when": [
+            {
+              "gte": ["pictures", 3]
+            },
+            {
+              "lte": ["words", 150]
+            }
+          ],
+          "why": ">= 3 pictures, little text",
+          "label": {
+            "anatomy": "team-or-gallery"
+          }
+        }
+      ],
+      "signal": "pictures >= 3",
+      "notBut": [
+        {
+          "term": "image-text-slide",
+          "test": "one photo"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: team"],
+        "brand": [],
+        "content": [],
+        "anatomy": ["category: team-or-gallery"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "four headshots with names",
+        "negative": "one photo"
+      }
+    },
+    {
+      "term": "image-text-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "A photo with text, 150 words or fewer.",
+      "identify": [
+        {
+          "id": "image-text.photo",
+          "scope": "kind",
+          "order": 160,
+          "when": [
+            {
+              "gte": ["photos", 1]
+            },
+            {
+              "lte": ["words", 150]
+            }
+          ],
+          "why": "photo with text",
+          "label": {
+            "anatomy": "image-text"
+          }
+        }
+      ],
+      "signal": "photos >= 1",
+      "notBut": [
+        {
+          "term": "team-slide",
+          "test": "3 pictures"
+        },
+        {
+          "term": "image-slide",
+          "test": "an image with almost no text"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: image-text"],
+        "brand": [],
+        "content": [],
+        "anatomy": ["category: image-text"],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a half-slide photo beside 3 bullets",
+        "negative": "a text page"
+      }
+    },
+    {
+      "term": "blank-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "A page with no text and no image.",
+      "identify": [
+        {
+          "id": "blank.empty",
+          "scope": "kind",
+          "order": 170,
+          "when": [
+            {
+              "eq": ["words", 0]
+            },
+            {
+              "lte": ["photos", 0]
+            },
+            {
+              "lte": ["pictures", 0]
+            }
+          ],
+          "why": "no text, no picture",
+          "label": {
+            "anatomy": "blank"
+          }
+        }
+      ],
+      "signal": "words = 0",
+      "notBut": [
+        {
+          "term": "back-cover-slide",
+          "test": "a back cover has a mark"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: blank"],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "an empty page",
+        "negative": "a logo page"
+      }
+    },
+    {
+      "term": "bullets-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "A slide whose content is one list of 3 lines or more.",
+      "identify": [
+        {
+          "id": "bullets.list",
+          "scope": "kind",
+          "order": 145,
+          "when": [
+            {
+              "gte": ["bulletLines", 3]
+            }
+          ],
+          "why": "a list of >= 3 bullet lines"
+        }
+      ],
+      "signal": "bulletLines >= 3",
+      "notBut": [
+        {
+          "term": "text-slide",
+          "test": "running text"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: bullets"],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "five bullets under a title",
+        "negative": "a paragraph"
+      }
+    },
+    {
+      "term": "two-column-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "Two text columns side by side.",
+      "identify": [
+        {
+          "id": "two-column.cols",
+          "scope": "kind",
+          "order": 146,
+          "when": [
+            {
+              "eq": ["textColumns", 2]
+            }
+          ],
+          "why": "two text columns"
+        }
+      ],
+      "signal": "textColumns = 2",
+      "notBut": [
+        {
+          "term": "comparison-slide",
+          "test": "two opposed sides with a divider"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: two-column"],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "two text columns",
+        "negative": "three cards"
+      }
+    },
+    {
+      "term": "comparison-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "Two sides set against each other (a compare block).",
+      "identify": [
+        {
+          "id": "comparison.block",
+          "scope": "kind",
+          "order": 147,
+          "when": [
+            {
+              "gte": ["blocks.compare", 1]
+            }
+          ],
+          "why": "holds a compare block"
+        }
+      ],
+      "signal": "blocks.compare >= 1",
+      "notBut": [
+        {
+          "term": "two-column-slide",
+          "test": "parallel columns, not opposed"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: comparison"],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "before / after columns",
+        "negative": "two text columns"
+      }
+    },
+    {
+      "term": "diagram-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "A slide built on a diagram (a process / cycle / tree drawing with word labels).",
+      "identify": [
+        {
+          "id": "diagram.drawing",
+          "scope": "kind",
+          "order": 148,
+          "when": [
+            {
+              "gte": ["diagrams", 1]
+            }
+          ],
+          "why": "holds a diagram"
+        }
+      ],
+      "signal": "diagrams >= 1",
+      "notBut": [
+        {
+          "term": "chart-slide",
+          "test": "number labels"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: diagram"],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a 4-step cycle",
+        "negative": "a bar chart"
+      }
+    },
+    {
+      "term": "timeline-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "A slide built on a timeline block.",
+      "identify": [
+        {
+          "id": "timeline.block",
+          "scope": "kind",
+          "order": 149,
+          "when": [
+            {
+              "gte": ["blocks.timeline", 1]
+            }
+          ],
+          "why": "holds a timeline block"
+        }
+      ],
+      "signal": "blocks.timeline >= 1",
+      "notBut": [
+        {
+          "term": "steps-slide",
+          "test": "ordinals"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: timeline"],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "2024 / 2025 / 2026 milestones",
+        "negative": "Step 1 / 2 / 3"
+      }
+    },
+    {
+      "term": "steps-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "A slide built on a process block (ordinal steps).",
+      "identify": [
+        {
+          "id": "steps.block",
+          "scope": "kind",
+          "order": 151,
+          "when": [
+            {
+              "gte": ["blocks.process", 1]
+            }
+          ],
+          "why": "holds a process block"
+        }
+      ],
+      "signal": "blocks.process >= 1",
+      "notBut": [
+        {
+          "term": "timeline-slide",
+          "test": "dates"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: steps"],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "Step 1 / 2 / 3",
+        "negative": "2024 / 2025"
+      }
+    },
+    {
+      "term": "logos-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "A logo wall: 3 logo items or more.",
+      "identify": [
+        {
+          "id": "logos.wall",
+          "scope": "kind",
+          "order": 152,
+          "when": [
+            {
+              "gte": ["logoItems", 3]
+            }
+          ],
+          "why": ">= 3 logo items"
+        }
+      ],
+      "signal": "logoItems >= 3",
+      "notBut": [
+        {
+          "term": "team-slide",
+          "test": "portraits"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: logos"],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "eight client logos",
+        "negative": "four headshots"
+      }
+    },
+    {
+      "term": "image-slide",
+      "namespace": "E3",
+      "group": "kind",
+      "definition": "A picture slide: a full or near-full image with 10 words or fewer.",
+      "identify": [
+        {
+          "id": "image.full",
+          "scope": "kind",
+          "order": 155,
+          "when": [
+            {
+              "gte": ["photos", 1]
+            },
+            {
+              "lte": ["words", 10]
+            }
+          ],
+          "why": "a photo with <= 10 words",
+          "label": {
+            "anatomy": "image-text"
+          }
+        }
+      ],
+      "signal": "photos >= 1, words <= 10",
+      "notBut": [
+        {
+          "term": "image-text-slide",
+          "test": "a photo with text"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": ["layout.kind: image"],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a full-bleed photo with a caption",
+        "negative": "a photo beside bullets"
+      }
+    },
+    {
+      "term": "device-frame",
+      "namespace": "E4",
+      "group": "image-treatment",
+      "definition": "An image set inside a device mockup (a phone / laptop / browser frame) (content/2 treatment `device`).",
+      "identify": [
+        {
+          "id": "device-frame.image-treatment",
+          "scope": "image-treatment",
+          "order": 1,
+          "when": [
+            {
+              "has": "inDevice"
+            }
+          ],
+          "why": "sits inside a device frame"
+        }
+      ],
+      "signal": "inDevice",
+      "notBut": [
+        {
+          "term": "E2:frame",
+          "test": "an E2 frame is an outline; a device frame is a drawn device"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": ["content.image.treatment: device"],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a UI screenshot in a phone",
+        "negative": "a photo with a border"
+      }
+    },
+    {
+      "term": "transparent",
+      "namespace": "E4",
+      "group": "image-treatment",
+      "definition": "A subject cut out of its background (transparent pixels).",
+      "identify": [
+        {
+          "id": "transparent.image-treatment",
+          "scope": "image-treatment",
+          "order": 2,
+          "when": [
+            {
+              "has": "transparent"
+            }
+          ],
+          "why": "transparent"
+        }
+      ],
+      "signal": "transparent",
+      "notBut": [
+        {
+          "term": "clipped",
+          "test": "a clip cuts by a shape, a cut-out by the subject"
+        },
+        {
+          "term": "E2:hero-image",
+          "test": "a hero image is opaque"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a person on a transparent PNG",
+        "negative": "a rectangular photo"
+      }
+    },
+    {
+      "term": "clipped",
+      "namespace": "E4",
+      "group": "image-treatment",
+      "definition": "An image cut to a non-rectangular outline (ellipse, polygon, svg, text).",
+      "identify": [
+        {
+          "id": "clipped.image-treatment",
+          "scope": "image-treatment",
+          "order": 3,
+          "when": [
+            {
+              "has": "mask"
+            },
+            {
+              "not": {
+                "eq": ["mask", "rect"]
+              }
+            }
+          ],
+          "why": "masked by a non-rectangular shape"
+        }
+      ],
+      "signal": "mask != rect",
+      "notBut": [
+        {
+          "term": "transparent",
+          "test": "transparent pixels"
+        },
+        {
+          "term": "side",
+          "test": "a plain rectangle"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a photo in a circle",
+        "negative": "a rectangular photo"
+      }
+    },
+    {
+      "term": "collage",
+      "namespace": "E4",
+      "group": "image-treatment",
+      "definition": "Two images or more set together in one block.",
+      "identify": [
+        {
+          "id": "collage.image-treatment",
+          "scope": "image-treatment",
+          "order": 4,
+          "when": [
+            {
+              "gte": ["groupImages", 2]
+            }
+          ],
+          "why": "one of >= 2 images in its block"
+        }
+      ],
+      "signal": "groupImages >= 2",
+      "notBut": [
+        {
+          "term": "side",
+          "test": "one image"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": ["content.image.treatment: collage"],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "three photos in a mosaic",
+        "negative": "one photo"
+      }
+    },
+    {
+      "term": "background-image",
+      "namespace": "E4",
+      "group": "image-treatment",
+      "definition": "An image covering 90 % of the slide or more with text over it (content/2 treatment `background`).",
+      "identify": [
+        {
+          "id": "background-image.image-treatment",
+          "scope": "image-treatment",
+          "order": 5,
+          "when": [
+            {
+              "gte": ["areaPct", 90]
+            },
+            {
+              "has": "textOver"
+            }
+          ],
+          "why": "covers the slide, text over it"
+        }
+      ],
+      "signal": "areaPct >= 90, textOver",
+      "notBut": [
+        {
+          "term": "full",
+          "test": "a full image has no text over it"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.gradient.use: background"],
+        "content": ["content.image.treatment: background"],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a tinted photo behind the title",
+        "negative": "a full-bleed photo alone"
+      }
+    },
+    {
+      "term": "full",
+      "namespace": "E4",
+      "group": "image-treatment",
+      "definition": "An image covering 90 % of the slide or more with no text over it (content/2 treatment `full`).",
+      "identify": [
+        {
+          "id": "full.image-treatment",
+          "scope": "image-treatment",
+          "order": 6,
+          "when": [
+            {
+              "gte": ["areaPct", 90]
+            }
+          ],
+          "why": "covers the slide"
+        }
+      ],
+      "signal": "areaPct >= 90",
+      "notBut": [
+        {
+          "term": "background-image",
+          "test": "text over it"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": ["content.image.treatment: full"],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a full-bleed photo slide",
+        "negative": "a half-slide photo"
+      }
+    },
+    {
+      "term": "side",
+      "namespace": "E4",
+      "group": "image-treatment",
+      "definition": "An image of 12 % of the slide or more beside the text, run to at least one slide edge (content/2 treatment `side`).",
+      "identify": [
+        {
+          "id": "side.image-treatment",
+          "scope": "image-treatment",
+          "order": 7,
+          "when": [
+            {
+              "gte": ["areaPct", 12]
+            },
+            {
+              "gte": ["bleedCount", 1]
+            }
+          ],
+          "why": "large, beside the text, bleeds one side or more"
+        }
+      ],
+      "signal": "areaPct >= 12, bleedCount >= 1",
+      "notBut": [
+        {
+          "term": "full",
+          "test": "covers the slide"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": ["content.image.treatment: side"],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "the right half of a slide",
+        "negative": "a card photo"
+      }
+    },
+    {
+      "term": "rect",
+      "namespace": "E4",
+      "group": "mask",
+      "definition": "A rectangular outline (radius under half the short side).",
+      "identify": [
+        {
+          "id": "rect.mask",
+          "scope": "mask",
+          "order": 127,
+          "when": [
+            {
+              "eq": ["outline", "rect"]
+            }
+          ],
+          "why": "rectangular outline"
+        }
+      ],
+      "signal": "outline = rect",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": ["deck.shape.kind: rect"],
+        "layout": ["layout.box.shape.kind: rect"],
+        "brand": ["brand.mask.type: rect"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "an image clipped to a rect",
+        "negative": "an unclipped image"
+      }
+    },
+    {
+      "term": "ellipse",
+      "namespace": "E4",
+      "group": "mask",
+      "definition": "An elliptical outline (a circle when square).",
+      "identify": [
+        {
+          "id": "ellipse.mask",
+          "scope": "mask",
+          "order": 128,
+          "when": [
+            {
+              "eq": ["outline", "ellipse"]
+            }
+          ],
+          "why": "elliptical outline"
+        }
+      ],
+      "signal": "outline = ellipse",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": ["deck.shape.kind: ellipse"],
+        "layout": ["layout.box.shape.kind: ellipse"],
+        "brand": ["brand.mask.type: ellipse"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "an image clipped to a ellipse",
+        "negative": "an unclipped image"
+      }
+    },
+    {
+      "term": "polygon",
+      "namespace": "E4",
+      "group": "mask",
+      "definition": "A straight-edged outline with a non-axis edge (a slant).",
+      "identify": [
+        {
+          "id": "polygon.mask",
+          "scope": "mask",
+          "order": 129,
+          "when": [
+            {
+              "eq": ["outline", "polygon"]
+            }
+          ],
+          "why": "straight edges at an angle"
+        }
+      ],
+      "signal": "outline = polygon",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": ["deck.shape.kind: polygon"],
+        "layout": [],
+        "brand": ["brand.mask.type: polygon"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "an image clipped to a polygon",
+        "negative": "an unclipped image"
+      }
+    },
+    {
+      "term": "svg",
+      "namespace": "E4",
+      "group": "mask",
+      "definition": "A free path outline from a vector file.",
+      "identify": [
+        {
+          "id": "svg.mask",
+          "scope": "mask",
+          "order": 130,
+          "when": [
+            {
+              "eq": ["outline", "svg"]
+            }
+          ],
+          "why": "a free path"
+        }
+      ],
+      "signal": "outline = svg",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": ["deck.shape.kind: path"],
+        "layout": [],
+        "brand": ["brand.mask.type: svg"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "an image clipped to a svg",
+        "negative": "an unclipped image"
+      }
+    },
+    {
+      "term": "text-mask",
+      "namespace": "E4",
+      "group": "mask",
+      "definition": "The glyphs of a text used as the clip.",
+      "identify": [
+        {
+          "id": "text-mask.mask",
+          "scope": "mask",
+          "order": 131,
+          "when": [
+            {
+              "eq": ["outline", "text"]
+            }
+          ],
+          "why": "clipped to glyphs"
+        }
+      ],
+      "signal": "outline = text",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.mask.type: text"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "an image clipped to a text",
+        "negative": "an unclipped image"
+      }
+    },
+    {
+      "term": "glass",
+      "namespace": "E4",
+      "group": "card-style",
+      "definition": "A translucent fill over a blur (frosted).",
+      "identify": [
+        {
+          "id": "glass.card-style",
+          "scope": "card-style",
+          "order": 1,
+          "when": [
+            {
+              "has": "blur"
+            },
+            {
+              "lt": ["fillAlpha", 1]
+            }
+          ],
+          "why": "translucent over a blur"
+        }
+      ],
+      "signal": "blur, fillAlpha < 1",
+      "notBut": [
+        {
+          "term": "filled",
+          "test": "opaque"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.cardStyle.kind: glass"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a frosted card on a photo",
+        "negative": "a solid card"
+      }
+    },
+    {
+      "term": "accent",
+      "namespace": "E4",
+      "group": "card-style",
+      "definition": "A card marked by a coloured bar on one side.",
+      "identify": [
+        {
+          "id": "accent.card-style",
+          "scope": "card-style",
+          "order": 2,
+          "when": [
+            {
+              "has": "accentBar"
+            }
+          ],
+          "why": "a bar on one side"
+        }
+      ],
+      "signal": "accentBar",
+      "notBut": [
+        {
+          "term": "outlined",
+          "test": "a border on all sides"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.cardStyle.kind: accent"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a card with a 6 px left bar",
+        "negative": "a bordered card"
+      }
+    },
+    {
+      "term": "elevated",
+      "namespace": "E4",
+      "group": "card-style",
+      "definition": "A card lifted by a shadow.",
+      "identify": [
+        {
+          "id": "elevated.card-style",
+          "scope": "card-style",
+          "order": 3,
+          "when": [
+            {
+              "has": "shadow"
+            }
+          ],
+          "why": "casts a shadow"
+        }
+      ],
+      "signal": "shadow",
+      "notBut": [
+        {
+          "term": "flat",
+          "test": "no shadow"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.cardStyle.kind: elevated"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a white card with a soft shadow",
+        "negative": "a flat card"
+      }
+    },
+    {
+      "term": "outlined",
+      "namespace": "E4",
+      "group": "card-style",
+      "definition": "A card drawn by its border, its fill the same as the ground.",
+      "identify": [
+        {
+          "id": "outlined.card-style",
+          "scope": "card-style",
+          "order": 4,
+          "when": [
+            {
+              "has": "border"
+            },
+            {
+              "lacks": "fillDiffers"
+            }
+          ],
+          "why": "a border, no fill of its own"
+        }
+      ],
+      "signal": "border, not fillDiffers",
+      "notBut": [
+        {
+          "term": "filled",
+          "test": "a fill of its own"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.cardStyle.kind: outlined"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a hairline-bordered card",
+        "negative": "a grey card"
+      }
+    },
+    {
+      "term": "filled",
+      "namespace": "E4",
+      "group": "card-style",
+      "definition": "A card with a fill of its own (different from the ground).",
+      "identify": [
+        {
+          "id": "filled.card-style",
+          "scope": "card-style",
+          "order": 5,
+          "when": [
+            {
+              "has": "fillDiffers"
+            }
+          ],
+          "why": "a fill of its own"
+        }
+      ],
+      "signal": "fillDiffers",
+      "notBut": [
+        {
+          "term": "flat",
+          "test": "same as the ground"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.cardStyle.kind: filled"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a grey card on white",
+        "negative": "a white card on white"
+      }
+    },
+    {
+      "term": "flat",
+      "namespace": "E4",
+      "group": "card-style",
+      "definition": "A card with no fill, border or shadow of its own: text grouped by space alone.",
+      "identify": [
+        {
+          "id": "flat.card-style",
+          "scope": "card-style",
+          "order": 6,
+          "when": [
+            {
+              "lacks": "fillDiffers"
+            },
+            {
+              "lacks": "border"
+            },
+            {
+              "lacks": "shadow"
+            }
+          ],
+          "why": "nothing marks it but space"
+        }
+      ],
+      "signal": "no fill / border / shadow",
+      "notBut": [
+        {
+          "term": "filled",
+          "test": "a fill"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.cardStyle.kind: flat"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a text group on the ground",
+        "negative": "a grey card"
+      }
+    },
+    {
+      "term": "none",
+      "namespace": "E4",
+      "group": "fill",
+      "definition": "No paint (transparent).",
+      "identify": [
+        {
+          "id": "none.fill",
+          "scope": "fill",
+          "order": 1,
+          "when": [
+            {
+              "eq": ["paint", "none"]
+            }
+          ],
+          "why": "painted as none"
+        }
+      ],
+      "signal": "paint = none",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.fill.type: none"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a none fill",
+        "negative": "another paint"
+      }
+    },
+    {
+      "term": "solid",
+      "namespace": "E4",
+      "group": "fill",
+      "definition": "One colour.",
+      "identify": [
+        {
+          "id": "solid.fill",
+          "scope": "fill",
+          "order": 2,
+          "when": [
+            {
+              "eq": ["paint", "solid"]
+            }
+          ],
+          "why": "painted as solid"
+        }
+      ],
+      "signal": "paint = solid",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": ["deck.background.type: solid"],
+        "layout": [],
+        "brand": ["brand.background.type: solid", "brand.fill.type: solid"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a solid fill",
+        "negative": "another paint"
+      }
+    },
+    {
+      "term": "linear-gradient",
+      "namespace": "E4",
+      "group": "fill",
+      "definition": "A gradient along a line.",
+      "identify": [
+        {
+          "id": "linear-gradient.fill",
+          "scope": "fill",
+          "order": 3,
+          "when": [
+            {
+              "eq": ["paint", "linear"]
+            }
+          ],
+          "why": "painted as linear"
+        }
+      ],
+      "signal": "paint = linear",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": ["deck.gradient.type: linear"],
+        "layout": [],
+        "brand": [
+          "brand.gradient.type: linear",
+          "brand.background.type: linear-gradient",
+          "brand.fill.type: linear-gradient"
+        ],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a linear-gradient fill",
+        "negative": "another paint"
+      }
+    },
+    {
+      "term": "radial-gradient",
+      "namespace": "E4",
+      "group": "fill",
+      "definition": "A gradient out from a point.",
+      "identify": [
+        {
+          "id": "radial-gradient.fill",
+          "scope": "fill",
+          "order": 4,
+          "when": [
+            {
+              "eq": ["paint", "radial"]
+            }
+          ],
+          "why": "painted as radial"
+        }
+      ],
+      "signal": "paint = radial",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": ["deck.gradient.type: radial"],
+        "layout": [],
+        "brand": [
+          "brand.gradient.type: radial",
+          "brand.background.type: radial-gradient",
+          "brand.fill.type: radial-gradient"
+        ],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a radial-gradient fill",
+        "negative": "another paint"
+      }
+    },
+    {
+      "term": "conic-gradient",
+      "namespace": "E4",
+      "group": "fill",
+      "definition": "A gradient around a point.",
+      "identify": [
+        {
+          "id": "conic-gradient.fill",
+          "scope": "fill",
+          "order": 5,
+          "when": [
+            {
+              "eq": ["paint", "conic"]
+            }
+          ],
+          "why": "painted as conic"
+        }
+      ],
+      "signal": "paint = conic",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.gradient.type: conic"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a conic-gradient fill",
+        "negative": "another paint"
+      }
+    },
+    {
+      "term": "mesh-gradient",
+      "namespace": "E4",
+      "group": "fill",
+      "definition": "A gradient over a mesh of points.",
+      "identify": [
+        {
+          "id": "mesh-gradient.fill",
+          "scope": "fill",
+          "order": 6,
+          "when": [
+            {
+              "eq": ["paint", "mesh"]
+            }
+          ],
+          "why": "painted as mesh"
+        }
+      ],
+      "signal": "paint = mesh",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.gradient.type: mesh", "brand.background.type: mesh-gradient"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a mesh-gradient fill",
+        "negative": "another paint"
+      }
+    },
+    {
+      "term": "gradient",
+      "namespace": "E4",
+      "group": "fill",
+      "definition": "Colour stops whose geometry is not given (a gradient of unstated kind).",
+      "identify": [
+        {
+          "id": "gradient.fill",
+          "scope": "fill",
+          "order": 7,
+          "when": [
+            {
+              "eq": ["paint", "gradient"]
+            }
+          ],
+          "why": "painted as gradient"
+        }
+      ],
+      "signal": "paint = gradient",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": ["deck.background.type: gradient"],
+        "layout": [],
+        "brand": [
+          "brand.decor.type: textGradient",
+          "brand.background.type: gradient",
+          "brand.gradient.use: fill"
+        ],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a gradient fill",
+        "negative": "another paint"
+      }
+    },
+    {
+      "term": "pattern",
+      "namespace": "E4",
+      "group": "fill",
+      "definition": "A repeated tile.",
+      "identify": [
+        {
+          "id": "pattern.fill",
+          "scope": "fill",
+          "order": 8,
+          "when": [
+            {
+              "eq": ["paint", "pattern"]
+            }
+          ],
+          "why": "painted as pattern"
+        }
+      ],
+      "signal": "paint = pattern",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.decor.type: pattern", "brand.background.type: pattern"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a pattern fill",
+        "negative": "another paint"
+      }
+    },
+    {
+      "term": "texture",
+      "namespace": "E4",
+      "group": "fill",
+      "definition": "A photographic surface (grain, paper, noise).",
+      "identify": [
+        {
+          "id": "texture.fill",
+          "scope": "fill",
+          "order": 9,
+          "when": [
+            {
+              "eq": ["paint", "texture"]
+            }
+          ],
+          "why": "painted as texture"
+        }
+      ],
+      "signal": "paint = texture",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.decor.type: texture"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a texture fill",
+        "negative": "another paint"
+      }
+    },
+    {
+      "term": "image-fill",
+      "namespace": "E4",
+      "group": "fill",
+      "definition": "A picture used as the paint.",
+      "identify": [
+        {
+          "id": "image-fill.fill",
+          "scope": "fill",
+          "order": 10,
+          "when": [
+            {
+              "eq": ["paint", "image"]
+            }
+          ],
+          "why": "painted as image"
+        }
+      ],
+      "signal": "paint = image",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": ["deck.background.type: image"],
+        "layout": [],
+        "brand": ["brand.background.type: image"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a image fill",
+        "negative": "another paint"
+      }
+    },
+    {
+      "term": "video",
+      "namespace": "E4",
+      "group": "fill",
+      "definition": "A moving picture used as the paint.",
+      "identify": [
+        {
+          "id": "video.fill",
+          "scope": "fill",
+          "order": 11,
+          "when": [
+            {
+              "eq": ["paint", "video"]
+            }
+          ],
+          "why": "painted as video"
+        }
+      ],
+      "signal": "paint = video",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.background.type: video"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a video fill",
+        "negative": "another paint"
+      }
+    },
+    {
+      "term": "face-run",
+      "namespace": "E4",
+      "group": "emphasis",
+      "definition": "A run set in another face than its text.",
+      "identify": [
+        {
+          "id": "face-run.emphasis",
+          "scope": "emphasis",
+          "order": 1,
+          "when": [
+            {
+              "has": "faceDiffers"
+            }
+          ],
+          "why": "another face"
+        }
+      ],
+      "signal": "faceDiffers",
+      "notBut": [
+        {
+          "term": "weight-run",
+          "test": "same face, heavier"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a serif word in a sans title",
+        "negative": "a bold word"
+      }
+    },
+    {
+      "term": "weight-run",
+      "namespace": "E4",
+      "group": "emphasis",
+      "definition": "A run set heavier (or lighter) than its text, same face.",
+      "identify": [
+        {
+          "id": "weight-run.emphasis",
+          "scope": "emphasis",
+          "order": 2,
+          "when": [
+            {
+              "gt": ["weightDelta", 0]
+            }
+          ],
+          "why": "another weight"
+        }
+      ],
+      "signal": "weightDelta > 0",
+      "notBut": [
+        {
+          "term": "colour-run",
+          "test": "same weight, another colour"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "\"social impact\" in bold in a light title",
+        "negative": "a coloured word"
+      }
+    },
+    {
+      "term": "colour-run",
+      "namespace": "E4",
+      "group": "emphasis",
+      "definition": "A run set in another colour than its text.",
+      "identify": [
+        {
+          "id": "colour-run.emphasis",
+          "scope": "emphasis",
+          "order": 3,
+          "when": [
+            {
+              "has": "colourDiffers"
+            }
+          ],
+          "why": "another colour"
+        }
+      ],
+      "signal": "colourDiffers",
+      "notBut": [
+        {
+          "term": "weight-run",
+          "test": "heavier"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.gradient.use: text"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a purple keyword in a black title",
+        "negative": "a bold keyword"
+      }
+    },
+    {
+      "term": "angle",
+      "namespace": "E4",
+      "group": "angle",
+      "definition": "A shape cut on a slant: a non-axis edge (its angle recorded, 0-90 degrees from horizontal).",
+      "identify": [
+        {
+          "id": "angle.angle",
+          "scope": "angle",
+          "order": 1,
+          "when": [
+            {
+              "has": "angles"
+            }
+          ],
+          "why": "a non-axis edge"
+        }
+      ],
+      "signal": "angles",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a wedge at 10 degrees",
+        "negative": "a rectangle"
+      }
+    },
+    {
+      "term": "behind",
+      "namespace": "E4",
+      "group": "layer",
+      "definition": "Drawn under the text it overlaps.",
+      "identify": [
+        {
+          "id": "behind.layer",
+          "scope": "layer",
+          "order": 1,
+          "when": [
+            {
+              "has": "behindText"
+            }
+          ],
+          "why": "under the text it overlaps"
+        }
+      ],
+      "signal": "behindText",
+      "notBut": [
+        {
+          "term": "front",
+          "test": "over the text"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["mood.decor.layer: behind", "brand.decor.layer: behind", "brand.cardBlock.layer: back"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a decor circle under the title",
+        "negative": "a sticker over the title"
+      }
+    },
+    {
+      "term": "front",
+      "namespace": "E4",
+      "group": "layer",
+      "definition": "Drawn over the text it overlaps.",
+      "identify": [
+        {
+          "id": "front.layer",
+          "scope": "layer",
+          "order": 2,
+          "when": [
+            {
+              "has": "overText"
+            }
+          ],
+          "why": "over the text it overlaps"
+        }
+      ],
+      "signal": "overText",
+      "notBut": [
+        {
+          "term": "behind",
+          "test": "under the text"
+        }
+      ],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["mood.decor.layer: front", "brand.decor.layer: front", "brand.cardBlock.layer: front"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a sticker over the title",
+        "negative": "a background photo"
+      }
+    },
+    {
+      "term": "bleed",
+      "namespace": "E4",
+      "group": "bleed",
+      "definition": "Runs off one slide edge or more.",
+      "identify": [
+        {
+          "id": "bleed.bleed",
+          "scope": "bleed",
+          "order": 1,
+          "when": [
+            {
+              "gte": ["bleedCount", 1]
+            }
+          ],
+          "why": "touches / crosses a slide edge"
+        }
+      ],
+      "signal": "bleedCount >= 1",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": ["brand.placement: full-bleed"],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a photo to the right edge",
+        "negative": "an inset photo"
+      }
+    },
+    {
+      "term": "blend",
+      "namespace": "E4",
+      "group": "blend",
+      "definition": "Mixed with what is under it by a blend mode other than normal (multiply, screen, overlay, soft-light ...).",
+      "identify": [
+        {
+          "id": "blend.blend",
+          "scope": "blend",
+          "order": 1,
+          "when": [
+            {
+              "has": "blend"
+            },
+            {
+              "not": {
+                "eq": ["blend", "normal"]
+              }
+            }
+          ],
+          "why": "a blend mode other than normal"
+        }
+      ],
+      "signal": "blend != normal",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": [],
+        "layout": [],
+        "brand": [
+          "brand.blend: normal",
+          "brand.blend: multiply",
+          "brand.blend: screen",
+          "brand.blend: overlay",
+          "brand.blend: soft-light",
+          "brand.blend: plus-lighter",
+          "brand.gradient.use: overlay"
+        ],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "a multiply tint over a photo",
+        "negative": "a normal overlay"
+      }
+    },
+    {
+      "term": "case",
+      "namespace": "E4",
+      "group": "case",
+      "definition": "Text set in a case transform (upper, lower, title, sentence) rather than as typed.",
+      "identify": [
+        {
+          "id": "case.case",
+          "scope": "case",
+          "order": 1,
+          "when": [
+            {
+              "any": [
+                [
+                  {
+                    "has": "caps"
+                  }
+                ],
+                [
+                  {
+                    "has": "caseTransform"
+                  }
+                ]
+              ]
+            }
+          ],
+          "why": "a case transform"
+        }
+      ],
+      "signal": "caps / caseTransform",
+      "notBut": [],
+      "mapsFrom": {
+        "deck": [
+          "deck.text.case: none",
+          "deck.text.case: upper",
+          "deck.text.case: lower",
+          "deck.text.case: title"
+        ],
+        "layout": [],
+        "brand": [
+          "mood.type.case: none",
+          "mood.type.case: sentence",
+          "mood.type.case: upper",
+          "mood.type.case: lower",
+          "mood.type.case: title",
+          "brand.case: none",
+          "brand.case: sentence",
+          "brand.case: upper",
+          "brand.case: lower",
+          "brand.case: title"
+        ],
+        "content": [],
+        "anatomy": [],
+        "catalogue": []
+      },
+      "examples": {
+        "positive": "an eyebrow in caps",
+        "negative": "a title as typed"
+      }
+    }
+  ]
+}

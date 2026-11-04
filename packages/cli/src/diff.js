@@ -328,17 +328,11 @@ export async function diffSheet(rows, outFile, { title = '', browser } = {}) {
     `</style></head><body><h1>${escapeHtml(title)}</h1>${body}</body></html>`;
   const tmp = join(dir, `.pb-diff-${process.pid}.html`);
   writeFileSync(tmp, html);
-  const { default: puppeteer } = await import('puppeteer');
-  const own = !browser;
-  const b = browser ?? (await puppeteer.launch({ headless: true, args: ['--allow-file-access-from-files'] }));
   try {
-    const page = await b.newPage();
-    await page.setViewport({ width, height: 400, deviceScaleFactor: 1 });
-    await page.goto(`file://${tmp}`, { waitUntil: 'networkidle0' });
-    await page.screenshot({ path: resolve(outFile), type: 'png', fullPage: true });
-    await page.close();
+    // lazy: diffDecks stays importable without the build chain (the review UI server imports this module)
+    const { screenshotPage } = await import('./build.js');
+    await screenshotPage(tmp, outFile, { width, height: 400 }, browser);
   } finally {
-    if (own) await b.close();
     rmSync(tmp, { force: true });
   }
   return { file: resolve(outFile), width, rows: rows.length };

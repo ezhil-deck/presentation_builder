@@ -1,6 +1,7 @@
-// docs/P3-proposals.md: the open proposals (PR-4), each behind its own composeDeck `proposals` option, off by default.
-// Positive tests show the effect on the golden Moods (in git); negative tests show that with the option off nothing
-// changes. PR-1..3 were approved on 2026-10-31 and are tested as rules in rules-approved.test.js.
+// docs/P3-proposals.md: the open proposal PR-4, behind its composeDeck `proposals` option, off by default. Positive
+// tests show the effect on the golden Moods (in git); negative tests show that with the option off nothing changes.
+// PR-1..3 (approved 2026-10-31) and PR-F / PR-C′ (approved 2026-11-03) are rules of every build, tested in
+// rules-approved.test.js.
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { catalogue } from '@pb/layouts';
@@ -12,7 +13,7 @@ import {
   proposalKey,
   validateDeck,
 } from '../src/index.js';
-import { ROOT, showcaseMd } from './helpers.js';
+import { ROOT, goldenShowcaseMd, showcaseMd } from './helpers.js';
 
 const readJson = (rel) => JSON.parse(readFileSync(join(ROOT, rel), 'utf8'));
 const BRANDS = [
@@ -41,25 +42,54 @@ const composeFor = ({ mood, brandSpec }, proposals) =>
     engineVersion: '0.0.0',
     ...(proposals === undefined ? {} : { proposals }),
   });
+// the golden showcase (content/2, what `pb build` and the golden decks compose)
+const md2 = goldenShowcaseMd();
+const composeV2 = ({ mood, brandSpec }, proposals) =>
+  composeDeck({
+    content: parseMarkdown(md2, { brandSpec }),
+    mood,
+    brandSpec,
+    catalogue,
+    engineVersion: '0.0.0',
+    ...(proposals === undefined ? {} : { proposals }),
+  });
 const slideOf = (deck, kind) => deck.slides.find((s) => s.kind === kind);
 const el = (slide, id) => slide.elements.find((e) => e.id === id);
 
 describe('proposals option', () => {
-  it('normalizes all / lists / objects; unknown names (incl. the approved PR-1..3) are ignored by the engine, rejected by proposalKey', () => {
+  it('normalizes all / lists / objects; unknown names (incl. the approved PR-1..3, PR-F, PR-C′) are ignored by the engine, rejected by proposalKey', () => {
+    const none = { titleClearOfDecor: false };
     const all = { titleClearOfDecor: true };
+    const only4 = { titleClearOfDecor: true };
     expect(normalizeProposals('all')).toEqual(all);
     expect(normalizeProposals(true)).toEqual(all);
-    expect(normalizeProposals(['pr4'])).toEqual(all);
-    expect(normalizeProposals('PR-4')).toEqual(all);
-    expect(normalizeProposals(['pr1', 'PR-3'])).toEqual({ titleClearOfDecor: false });
-    expect(normalizeProposals({ titleClearOfDecor: true })).toEqual(all);
-    expect(normalizeProposals({ fitUp: true })).toEqual({ titleClearOfDecor: false });
-    expect(normalizeProposals(undefined)).toEqual({ titleClearOfDecor: false });
+    expect(normalizeProposals(['pr4'])).toEqual(only4);
+    expect(normalizeProposals('PR-4')).toEqual(only4);
+    // the approved PR-F / PR-C′ (2026-11-03) are rules now: no option
+    expect(normalizeProposals('prf')).toEqual(none);
+    expect(normalizeProposals('prf,PR-C')).toEqual(none);
+    expect(normalizeProposals({ fillRoom: true, recordedPlacement: true })).toEqual(none);
+    expect(normalizeProposals(['pr4', 'PR-F', 'prc'])).toEqual(only4);
+    expect(normalizeProposals(['pr1', 'PR-3'])).toEqual(none);
+    expect(normalizeProposals({ titleClearOfDecor: true })).toEqual(only4);
+    expect(normalizeProposals({ fitUp: true })).toEqual(none);
+    expect(normalizeProposals(undefined)).toEqual(none);
     expect(proposalKey('pr5')).toBeNull();
     expect(proposalKey('pr1')).toBeNull();
+    expect(proposalKey('prb')).toBeNull();
     expect(proposalKey('fitUp')).toBeNull();
     expect(proposalKey('titleClearOfDecor')).toBe('titleClearOfDecor');
     expect(proposalKey('PR-4')).toBe('titleClearOfDecor');
+    expect(proposalKey('prf')).toBeNull();
+    expect(proposalKey('PR-F')).toBeNull();
+    expect(proposalKey('prc')).toBeNull();
+    expect(proposalKey('PR-C')).toBeNull();
+    expect(proposalKey('fillRoom')).toBeNull();
+    expect(proposalKey('recordedPlacement')).toBeNull();
+    // the withdrawn P-E / P-A (2026-11-03) are no proposals any more
+    expect(proposalKey('pre')).toBeNull();
+    expect(proposalKey('PR-A')).toBeNull();
+    expect(proposalKey('composerLadder')).toBeNull();
   });
 
   it.each(['stripe', 'hdfc-2', 'rukko'])(
@@ -68,13 +98,23 @@ describe('proposals option', () => {
       const g = golden(id);
       const base = composeFor(g);
       expect(base.proposals).toBeUndefined();
-      for (const off of [{}, normalizeProposals(undefined), [], ['pr1', 'pr2', 'pr3']]) {
+      for (const off of [{}, normalizeProposals(undefined), [], ['pr1', 'pr2', 'pr3'], ['prf', 'prc']]) {
         const r = composeFor(g, off);
         expect(r.deck).toEqual(base.deck);
         expect(r.proposals).toBeUndefined();
       }
     },
   );
+
+  it('the approved PR-F / PR-C′ (rules since 2026-11-03) are no option: their names compose the golden showcase as the default', () => {
+    for (const id of ['bosch', 'rukko']) {
+      const g = golden(id);
+      const base = composeV2(g);
+      const named = composeV2(g, ['prf', 'prc']);
+      expect(JSON.stringify(named.deck)).toBe(JSON.stringify(base.deck));
+      expect(named.proposals).toBeUndefined();
+    }
+  });
 
   it('every brand: all proposals on still writes a schema-valid deck', () => {
     for (const id of BRANDS) {

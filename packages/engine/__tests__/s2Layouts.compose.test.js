@@ -15,8 +15,16 @@ const BRANDS = ['stripe', 'akgmedia'].map((id) => ({
   mood: read(id, 'mood.json'),
   brandSpec: read(id, 'brand-spec.json'),
 }));
+// C4: these slides test the 68 layouts (the catalogue's fallback), so the catalogue layouts are opted out
 const compose = (content, b) =>
-  composeDeck({ content, mood: b.mood, brandSpec: b.brandSpec, catalogue, engineVersion: '0.0.0' });
+  composeDeck({
+    content,
+    mood: b.mood,
+    brandSpec: b.brandSpec,
+    catalogue,
+    engineVersion: '0.0.0',
+    options: { catalogue: false },
+  });
 const sampleMd = () => readFileSync(join(ROOT, 'content/samples/all-blocks.md'), 'utf8');
 /** A content/2 deck: a cover first (slide 1 is always a cover), then `slides`. */
 const deckOf = (slides) => ({

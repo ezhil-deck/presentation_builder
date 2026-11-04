@@ -23,6 +23,7 @@ import {
   frontBoxedDecor,
   normalizeProposals,
 } from './proposals.js';
+import { placeAfterFill } from './place.js';
 import { FIT_UP_BOX_ROLES, FIT_UP_KINDS, applyFitUp } from './fitup.js';
 import { MIN_LITERAL_CONTRAST, contrastRatio, resolve } from './resolve.js';
 import { hugTitle, imageBackground, textOnBackground } from './keys.js';
@@ -182,8 +183,13 @@ function textOverImage(elements, ctx) {
 /**
  * `proposals` (docs/P3-proposals.md; default all off): {titleClearOfDecor}, `'all'` or a list ('pr4', 'PR-4', …).
  * With any proposal on, the result also carries `proposals: {options, effects}` (effects: one entry per element a
- * proposal changed, with its slide). The approved rules fit-up (PR-1), avatar initials (PR-2) and logo chips (PR-3)
- * are part of every compose.
+ * proposal changed, with its slide). The approved rules fit-up (PR-1), avatar initials (PR-2), logo chips (PR-3),
+ * fill room (PR-F) and recorded placement (PR-C′) are part of every compose (docs/P2-spec.md §9).
+ * `options.catalogue` (docs/PLAN-catalogue.md C3 / C4; default on, `false` composes with the 68 layouts only): the
+ * catalogue layouts are the first layout source of every content/2 slide in pick() (the deck's use of each catalogue
+ * id is passed as `options.used`, the variety tie-break); a slide composed on one records its catalogue id
+ * (`slide.source.catalogue`), and the result always carries `catalogue: [{slide, index, layoutId, catalogue, key,
+ * slideKey, match: 'family' | 'combination' | 'none'}]` (one entry per slide).
  */
 export function composeDeck({
   content,
@@ -192,6 +198,7 @@ export function composeDeck({
   catalogue,
   engineVersion = '0.0.0',
   proposals: proposalsOpt,
+  options = {},
 } = {}) {
   if (!mood || (mood.schema !== 'mood/1' && mood.kind !== 'Mood')) {
     throw new Error('composeDeck() expects a Mood (schema "mood/1")');
@@ -204,6 +211,10 @@ export function composeDeck({
   }
 
   const warnings = [];
+  const catalogueLog = [];
+  // catalogue id -> slides composed on it so far (pick's variety tie-break, C4)
+  const catalogueUsed = new Map();
+  const catalogueOn = options.catalogue !== false;
   const proposals = normalizeProposals(proposalsOpt);
   const effects = [];
   const frontBoxed = proposals.titleClearOfDecor ? frontBoxedDecor(mood) : null;
@@ -234,6 +245,41 @@ export function composeDeck({
     const layout = pick(requested, summary, mood, catalogue, {
       warn: (c, m, s) => warn(c, m, s),
       layoutId: cslide.layout,
+      options: {
+        catalogue: catalogueOn,
+        used: catalogueUsed,
+      },
+    });
+    // a catalogue layout (C3): the slide records its catalogue id
+    const catDef = layout?.id?.startsWith('cat-') ? catalogue.get(layout.id) : null;
+    if (catDef?.catalogue)
+      catalogueUsed.set(catDef.catalogue, (catalogueUsed.get(catDef.catalogue) ?? 0) + 1);
+    // the catalogue log row (C3 / C4): how the slide matched, one row per slide
+    let slideKey = null;
+    let slideShape = null;
+    try {
+      if (summary.v2 && catalogue.combinationKey) {
+        slideKey = catalogue.combinationKey(summary.blocks);
+        slideShape = catalogue.combinationShape(summary.blocks);
+      }
+    } catch {
+      slideKey = null;
+    }
+    const match = !catDef?.catalogue
+      ? 'none'
+      : catDef.key === slideKey
+        ? 'family'
+        : catalogue.combinationShape(catDef.record.combination) === slideShape
+          ? 'combination'
+          : 'none';
+    catalogueLog.push({
+      slide: slideId,
+      index: i + 1,
+      layoutId: layout?.id ?? null,
+      catalogue: catDef?.catalogue ?? null,
+      key: catDef?.key ?? null,
+      slideKey,
+      match,
     });
 
     const surface = surfaceFor(
@@ -259,7 +305,6 @@ export function composeDeck({
       warn: (c, m, s) => warn(c, m, s),
       surface,
       catalogue,
-      proposals,
       kind,
       note,
       layoutId: layout?.id,
@@ -311,9 +356,12 @@ export function composeDeck({
             });
           }
         }
+        // recorded placement rule (R-PLACE): a steps / timeline flow is placed in its zone after its fill
+        placeAfterFill(binding, els, elements, slideId);
         if (
           FIT_UP_KINDS.has(kind) &&
           FIT_UP_BOX_ROLES.has(binding.box?.role) &&
+          typeof binding.box?.fill !== 'number' &&
           els.length === 1 &&
           els[0].type === 'text'
         ) {
@@ -421,6 +469,7 @@ export function composeDeck({
       elements: ordered.map((o) => o.el),
     };
     if (requested !== kind) slide.requestedKind = requested;
+    if (catDef?.catalogue) slide.source = { catalogue: catDef.catalogue };
     if (cslide.notes) slide.notes = cslide.notes;
     if (mood.motion?.transition) {
       slide.transition = { name: mood.motion.transition };
@@ -456,5 +505,6 @@ export function composeDeck({
   }
   const result = { deck: sorted, warnings: sortKeys(warnings) };
   if (anyProposal(proposals)) result.proposals = { options: proposals, effects };
+  result.catalogue = catalogueLog;
   return result;
 }

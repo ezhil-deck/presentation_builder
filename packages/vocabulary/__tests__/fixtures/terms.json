@@ -1,0 +1,5312 @@
+{
+  "E1": {
+    "text": {
+      "positive": {
+        "scope": "primitive",
+        "subject": {
+          "id": "o1",
+          "kind": "text",
+          "text": "Hello",
+          "sizePctH": 3,
+          "bbox": [5, 5, 20, 8],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "primitive",
+        "subject": {
+          "id": "o2",
+          "kind": "image",
+          "bbox": [5, 5, 20, 20]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "image": {
+      "positive": {
+        "scope": "primitive",
+        "subject": {
+          "id": "o3",
+          "kind": "image",
+          "bbox": [5, 5, 20, 20]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "primitive",
+        "subject": {
+          "id": "o4",
+          "kind": "shape",
+          "bbox": [5, 5, 20, 20]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "shape": {
+      "positive": {
+        "scope": "primitive",
+        "subject": {
+          "id": "o5",
+          "kind": "shape",
+          "bbox": [5, 5, 20, 20]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "primitive",
+        "subject": {
+          "id": "o6",
+          "kind": "shape",
+          "bbox": [5, 5, 60, 5.3]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "line": {
+      "positive": {
+        "scope": "primitive",
+        "subject": {
+          "id": "o7",
+          "kind": "shape",
+          "bbox": [5, 5, 60, 5.3]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "primitive",
+        "subject": {
+          "id": "o8",
+          "kind": "shape",
+          "bbox": [5, 5, 20, 20]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "chart": {
+      "positive": {
+        "scope": "primitive",
+        "subject": {
+          "id": "o9",
+          "kind": "chart",
+          "bbox": [5, 20, 60, 80]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "primitive",
+        "subject": {
+          "id": "o10",
+          "kind": "vectorgroup",
+          "bbox": [5, 20, 60, 80]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "table": {
+      "positive": {
+        "scope": "primitive",
+        "subject": {
+          "id": "o11",
+          "kind": "table",
+          "bbox": [5, 20, 60, 80]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "primitive",
+        "subject": {
+          "id": "o12",
+          "kind": "shape",
+          "bbox": [5, 20, 60, 80]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "group": {
+      "positive": {
+        "scope": "primitive",
+        "subject": {
+          "id": "o13",
+          "kind": "group",
+          "bbox": [5, 20, 60, 80]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "primitive",
+        "subject": {
+          "id": "o14",
+          "kind": "image",
+          "bbox": [5, 20, 60, 80]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    }
+  },
+  "E2": {
+    "title": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o15",
+          "kind": "text",
+          "text": "The main headline of this slide",
+          "sizePctH": 6,
+          "bbox": [5, 30, 60, 40],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o16",
+            "kind": "text",
+            "text": "Some body copy here today",
+            "sizePctH": 2.5,
+            "bbox": [5, 50, 60, 55],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o17",
+          "kind": "text",
+          "text": "Some body copy here today",
+          "sizePctH": 2.5,
+          "bbox": [5, 50, 60, 55],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o18",
+            "kind": "text",
+            "text": "The main headline of this slide",
+            "sizePctH": 6,
+            "bbox": [5, 30, 60, 40],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "subtitle": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o19",
+          "kind": "text",
+          "text": "Key insights report",
+          "sizePctH": 3,
+          "bbox": [5, 42, 30, 45],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o20",
+            "kind": "text",
+            "text": "The main headline of this slide",
+            "sizePctH": 6,
+            "bbox": [5, 30, 60, 40],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o21",
+          "kind": "text",
+          "text": "Key insights report",
+          "sizePctH": 3,
+          "bbox": [40, 80, 70, 83],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o22",
+            "kind": "text",
+            "text": "The main headline of this slide",
+            "sizePctH": 6,
+            "bbox": [5, 30, 60, 40],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "eyebrow": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o23",
+          "kind": "text",
+          "text": "SEARCH TO ANSWERS",
+          "sizePctH": 2,
+          "bbox": [5, 26, 25, 29],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o24",
+            "kind": "text",
+            "text": "The main headline of this slide",
+            "sizePctH": 6,
+            "bbox": [5, 30, 60, 40],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o25",
+          "kind": "text",
+          "text": "SEARCH TO ANSWERS AND MANY MORE WORDS IN ONE LINE HERE",
+          "sizePctH": 2,
+          "bbox": [5, 26, 25, 29],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o26",
+            "kind": "text",
+            "text": "The main headline of this slide",
+            "sizePctH": 6,
+            "bbox": [5, 30, 60, 40],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "heading": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o27",
+          "kind": "text",
+          "text": "Answers, not links",
+          "sizePctH": 4.6,
+          "bbox": [5, 40, 30, 45],
+          "align": "left",
+          "lines": 1,
+          "block": 1,
+          "item": 1,
+          "weight": 600
+        },
+        "others": [
+          {
+            "id": "o28",
+            "kind": "text",
+            "text": "Shoppers now ask a model first.",
+            "sizePctH": 2.8,
+            "bbox": [5, 46, 30, 52],
+            "align": "left",
+            "lines": 1,
+            "block": 1,
+            "item": 1,
+            "weight": 400
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o29",
+          "kind": "text",
+          "text": "Shoppers now ask a model first.",
+          "sizePctH": 2.8,
+          "bbox": [5, 46, 30, 52],
+          "align": "left",
+          "lines": 1,
+          "block": 1,
+          "item": 1,
+          "weight": 400
+        },
+        "others": [
+          {
+            "id": "o30",
+            "kind": "text",
+            "text": "Answers, not links",
+            "sizePctH": 4.6,
+            "bbox": [5, 40, 30, 45],
+            "align": "left",
+            "lines": 1,
+            "block": 1,
+            "item": 1,
+            "weight": 600
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "body": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o31",
+          "kind": "text",
+          "text": "Running text at the body size",
+          "sizePctH": 2.5,
+          "bbox": [5, 50, 60, 55],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o32",
+            "kind": "text",
+            "text": "The main headline of this slide",
+            "sizePctH": 6,
+            "bbox": [5, 30, 60, 40],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o33",
+          "kind": "text",
+          "text": "Running text at a larger size",
+          "sizePctH": 4,
+          "bbox": [5, 50, 60, 55],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o34",
+            "kind": "text",
+            "text": "The main headline of this slide",
+            "sizePctH": 6,
+            "bbox": [5, 30, 60, 40],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "description": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o35",
+          "kind": "text",
+          "text": "Shoppers now ask a model first.",
+          "sizePctH": 2.8,
+          "bbox": [5, 46, 30, 52],
+          "align": "left",
+          "lines": 1,
+          "block": 1,
+          "item": 1,
+          "weight": 400
+        },
+        "others": [
+          {
+            "id": "o36",
+            "kind": "text",
+            "text": "Answers, not links",
+            "sizePctH": 4.6,
+            "bbox": [5, 40, 30, 45],
+            "align": "left",
+            "lines": 1,
+            "block": 1,
+            "item": 1,
+            "weight": 600
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o37",
+          "kind": "text",
+          "text": "Shoppers now ask a model first.",
+          "sizePctH": 2.8,
+          "bbox": [5, 46, 30, 52],
+          "align": "left",
+          "lines": 2,
+          "block": 1,
+          "item": null
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "bullet": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o38",
+          "kind": "text",
+          "text": "Publish rates and terms",
+          "sizePctH": 3,
+          "bbox": [5, 40, 40, 44],
+          "align": "left",
+          "lines": 1,
+          "block": 2,
+          "item": 1
+        },
+        "others": [
+          {
+            "id": "o39",
+            "kind": "text",
+            "text": "Earn licences and ratings",
+            "sizePctH": 3,
+            "bbox": [5, 46, 40, 50],
+            "align": "left",
+            "lines": 1,
+            "block": 2,
+            "item": 2
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o40",
+          "kind": "text",
+          "text": "Publish rates and terms",
+          "sizePctH": 3,
+          "bbox": [5, 40, 40, 44],
+          "align": "left",
+          "lines": 1,
+          "block": 2,
+          "item": 1
+        },
+        "others": [
+          {
+            "id": "o41",
+            "kind": "text",
+            "text": "Earn licences and ratings",
+            "sizePctH": 3,
+            "bbox": [5, 46, 40, 50],
+            "align": "left",
+            "lines": 1,
+            "block": 2,
+            "item": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "paragraph": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o42",
+          "kind": "text",
+          "text": "The window is open, but markets want proof.",
+          "sizePctH": 4,
+          "bbox": [50, 40, 90, 55],
+          "align": "left",
+          "lines": 3,
+          "block": 2,
+          "item": null
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o43",
+          "kind": "text",
+          "text": "The window is open, but markets want proof.",
+          "sizePctH": 4,
+          "bbox": [50, 40, 90, 55],
+          "align": "left",
+          "lines": 1,
+          "block": 2,
+          "item": 1
+        },
+        "others": [
+          {
+            "id": "o44",
+            "kind": "text",
+            "text": "Second line",
+            "sizePctH": 4,
+            "bbox": [50, 60, 90, 64],
+            "align": "left",
+            "lines": 1,
+            "block": 2,
+            "item": 2
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "label": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o45",
+          "kind": "text",
+          "text": "Prepared for",
+          "sizePctH": 2,
+          "bbox": [3, 85, 10, 87],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o46",
+          "kind": "text",
+          "text": "Notes on the method used across the whole study in detail",
+          "sizePctH": 2,
+          "bbox": [3, 50, 40, 52],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o47",
+            "kind": "text",
+            "text": "The main headline of this slide",
+            "sizePctH": 6,
+            "bbox": [5, 30, 60, 40],
+            "align": "left",
+            "lines": 1
+          },
+          {
+            "id": "o48",
+            "kind": "text",
+            "text": "x y z",
+            "sizePctH": 2.5,
+            "bbox": [3, 60, 10, 62],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "big-number": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o49",
+          "kind": "text",
+          "text": "$504B",
+          "sizePctH": 8,
+          "bbox": [5, 40, 30, 50],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o50",
+          "kind": "text",
+          "text": "2 key findings today",
+          "sizePctH": 8,
+          "bbox": [5, 40, 30, 50],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o51",
+            "kind": "text",
+            "text": "The main headline of this slide",
+            "sizePctH": 6,
+            "bbox": [5, 30, 60, 40],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "caption": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o52",
+          "kind": "text",
+          "text": "Our Berlin office at dusk",
+          "sizePctH": 2,
+          "bbox": [10, 61, 40, 63],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o53",
+            "kind": "image",
+            "bbox": [10, 20, 50, 60]
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o54",
+          "kind": "text",
+          "text": "Our Berlin office at dusk",
+          "sizePctH": 2,
+          "bbox": [10, 75, 40, 77],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o55",
+            "kind": "image",
+            "bbox": [10, 20, 50, 60]
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "source": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o56",
+          "kind": "text",
+          "text": "Source: Global Fintech Report 2026",
+          "sizePctH": 1.6,
+          "bbox": [5, 91, 40, 93],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o57",
+          "kind": "text",
+          "text": "Sources of growth in the market",
+          "sizePctH": 5,
+          "bbox": [5, 30, 60, 36],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "legal": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o58",
+          "kind": "text",
+          "text": "Copyright © 2025 Example Co. All rights reserved.",
+          "sizePctH": 1.5,
+          "bbox": [3, 94, 23, 96],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o59",
+          "kind": "text",
+          "text": "Confidential",
+          "sizePctH": 8,
+          "bbox": [5, 30, 60, 40],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "date": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o60",
+          "kind": "text",
+          "text": "January 2024",
+          "sizePctH": 2,
+          "bbox": [5, 58, 12, 61],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o61",
+          "kind": "text",
+          "text": "In 2024 revenue doubled",
+          "sizePctH": 2,
+          "bbox": [5, 58, 30, 61],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "authors": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o62",
+          "kind": "text",
+          "text": "Ana Lima, Ben Okafor, Chen Wei",
+          "sizePctH": 2.6,
+          "bbox": [5, 72, 44, 75],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o63",
+          "kind": "text",
+          "text": "fast, cheap, and good enough",
+          "sizePctH": 2.6,
+          "bbox": [5, 72, 44, 75],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "contact": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o64",
+          "kind": "text",
+          "text": "hello@brand.com",
+          "sizePctH": 2,
+          "bbox": [5, 80, 30, 83],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o65",
+          "kind": "text",
+          "text": "A long paragraph about how contact centres changed the way banks serve their customers over the last twenty years across many countries, regions and markets around the world today and tomorrow",
+          "sizePctH": 2,
+          "bbox": [5, 50, 60, 60],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "page-number": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o66",
+          "kind": "text",
+          "text": "12",
+          "sizePctH": 1.5,
+          "bbox": [95, 95, 97, 97],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o67",
+          "kind": "text",
+          "text": "12",
+          "sizePctH": 1.5,
+          "bbox": [50, 50, 52, 52],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "footer-text": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o68",
+          "kind": "text",
+          "text": "HEADSPACE 7",
+          "sizePctH": 1.9,
+          "bbox": [3, 96, 10, 98],
+          "align": "left",
+          "lines": 1,
+          "furniture": true
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o69",
+          "kind": "text",
+          "text": "HEADSPACE 7",
+          "sizePctH": 1.9,
+          "bbox": [3, 96, 10, 98],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "attribution": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o70",
+          "kind": "text",
+          "text": "— Jane Doe, CEO",
+          "sizePctH": 2,
+          "bbox": [10, 60, 30, 62],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o71",
+            "kind": "text",
+            "text": "“We moved faster than ever”",
+            "sizePctH": 4,
+            "bbox": [10, 50, 60, 58],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o72",
+          "kind": "text",
+          "text": "– faster growth",
+          "sizePctH": 2,
+          "bbox": [10, 60, 30, 62],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o73",
+            "kind": "text",
+            "text": "A plain heading",
+            "sizePctH": 4,
+            "bbox": [10, 50, 60, 58],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "placeholder": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o74",
+          "kind": "text",
+          "text": "Click to add title",
+          "sizePctH": 4,
+          "bbox": [5, 30, 60, 36],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o75",
+          "kind": "text",
+          "text": "Add value to every client",
+          "sizePctH": 4,
+          "bbox": [5, 30, 60, 36],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "decor-word": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o76",
+          "kind": "text",
+          "text": "GROW",
+          "sizePctH": 30,
+          "bbox": [5, 10, 90, 60],
+          "align": "left",
+          "lines": 1,
+          "opacity": 0.1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o77",
+          "kind": "text",
+          "text": "GROW",
+          "sizePctH": 30,
+          "bbox": [5, 10, 90, 60],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "brand-logo": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o78",
+          "kind": "image",
+          "bbox": [4, 7, 20, 12]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o79",
+          "kind": "image",
+          "bbox": [4, 40, 20, 45]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "partner-logo": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o80",
+          "kind": "image",
+          "bbox": [11, 83, 20, 88]
+        },
+        "others": [
+          {
+            "id": "o81",
+            "kind": "text",
+            "text": "Prepared for",
+            "sizePctH": 2,
+            "bbox": [3, 85, 10, 87],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o82",
+          "kind": "image",
+          "bbox": [40, 40, 50, 45]
+        },
+        "others": [
+          {
+            "id": "o83",
+            "kind": "text",
+            "text": "Prepared for",
+            "sizePctH": 2,
+            "bbox": [3, 85, 10, 87],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "logo-item": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o84",
+          "kind": "image",
+          "bbox": [10, 50, 20, 54],
+          "peerMarks": 4
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o85",
+          "kind": "image",
+          "bbox": [10, 50, 20, 54],
+          "peerMarks": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "avatar": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o86",
+          "kind": "image",
+          "bbox": [10, 50, 15, 58],
+          "mask": "ellipse"
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o87",
+          "kind": "image",
+          "bbox": [10, 50, 15, 58]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "icon": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o88",
+          "kind": "image",
+          "bbox": [10, 50, 12, 53]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o89",
+          "kind": "image",
+          "bbox": [10, 50, 30, 70]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "picture": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o90",
+          "kind": "image",
+          "bbox": [10, 50, 20, 70]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o91",
+          "kind": "image",
+          "bbox": [10, 50, 12, 53]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "hero-image": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o92",
+          "kind": "image",
+          "bbox": [50, 0, 100, 100]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o93",
+          "kind": "image",
+          "bbox": [50, 0, 100, 100],
+          "transparent": true
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "cutout": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o94",
+          "kind": "image",
+          "bbox": [66, 40, 98, 98],
+          "transparent": true
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o95",
+          "kind": "image",
+          "bbox": [66, 40, 98, 98]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "background-art": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o96",
+          "kind": "image",
+          "bbox": [0, 0, 100, 100]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o97",
+          "kind": "image",
+          "bbox": [0, 0, 60, 100]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "background": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o98",
+          "kind": "shape",
+          "bbox": [0, 0, 100, 100]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o99",
+          "kind": "shape",
+          "bbox": [0, 0, 50, 100]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "illustration": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o100",
+          "kind": "vectorgroup",
+          "bbox": [50, 20, 90, 80],
+          "pieces": 40
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o101",
+          "kind": "vectorgroup",
+          "bbox": [50, 20, 90, 80],
+          "pieces": 40,
+          "textsInside": 4
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "watermark": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o102",
+          "kind": "image",
+          "bbox": [20, 20, 80, 80],
+          "opacity": 0.08
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o103",
+          "kind": "image",
+          "bbox": [20, 20, 80, 80]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "sticker": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o104",
+          "kind": "shape",
+          "bbox": [80, 10, 88, 18],
+          "tilt": 12
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o105",
+          "kind": "shape",
+          "bbox": [80, 10, 88, 18]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "badge": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o106",
+          "kind": "shape",
+          "bbox": [80, 10, 84, 13],
+          "onEdge": true
+        },
+        "others": [
+          {
+            "id": "o107",
+            "kind": "text",
+            "text": "PRO",
+            "sizePctH": 1.5,
+            "bbox": [80.5, 10.5, 83.5, 12.5],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o108",
+          "kind": "shape",
+          "bbox": [80, 10, 84, 13],
+          "onEdge": true,
+          "tilt": 10
+        },
+        "others": [
+          {
+            "id": "o109",
+            "kind": "text",
+            "text": "PRO",
+            "sizePctH": 1.5,
+            "bbox": [80.5, 10.5, 83.5, 12.5],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "panel": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o110",
+          "kind": "shape",
+          "bbox": [0, 0, 45, 100]
+        },
+        "others": [
+          {
+            "id": "o111",
+            "kind": "text",
+            "text": "Cover title in the panel",
+            "sizePctH": 6,
+            "bbox": [5, 30, 40, 40],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o112",
+          "kind": "shape",
+          "bbox": [5, 30, 20, 40]
+        },
+        "others": [
+          {
+            "id": "o113",
+            "kind": "text",
+            "text": "Card text",
+            "sizePctH": 2,
+            "bbox": [6, 31, 19, 35],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "card": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o114",
+          "kind": "shape",
+          "bbox": [5, 30, 20, 40]
+        },
+        "others": [
+          {
+            "id": "o115",
+            "kind": "text",
+            "text": "Card text",
+            "sizePctH": 2,
+            "bbox": [6, 31, 19, 35],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o116",
+          "kind": "shape",
+          "bbox": [5, 30, 20, 40]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "band": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o117",
+          "kind": "shape",
+          "bbox": [0, 88, 100, 100]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o118",
+          "kind": "shape",
+          "bbox": [0, 88, 100, 100]
+        },
+        "others": [
+          {
+            "id": "o119",
+            "kind": "text",
+            "text": "Strip title text",
+            "sizePctH": 3,
+            "bbox": [5, 90, 50, 95],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "cut-shape": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o120",
+          "kind": "shape",
+          "bbox": [0, 68, 99, 100],
+          "angles": {
+            "10": 101
+          }
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o121",
+          "kind": "shape",
+          "bbox": [0, 68, 99, 100]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "rule": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o122",
+          "kind": "shape",
+          "bbox": [5, 29, 13, 29.2]
+        },
+        "others": [
+          {
+            "id": "o123",
+            "kind": "text",
+            "text": "Long title across the slide here",
+            "sizePctH": 6,
+            "bbox": [5, 20, 80, 28],
+            "align": "left",
+            "lines": 1
+          },
+          {
+            "id": "o124",
+            "kind": "text",
+            "text": "Body",
+            "sizePctH": 2.5,
+            "bbox": [5, 35, 90, 40],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o125",
+          "kind": "shape",
+          "bbox": [5, 29, 13, 29.2],
+          "joinsItems": 3
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "divider": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o126",
+          "kind": "shape",
+          "bbox": [50, 30, 50.2, 80]
+        },
+        "others": [
+          {
+            "id": "o127",
+            "kind": "text",
+            "text": "Left column text block",
+            "sizePctH": 2.5,
+            "bbox": [5, 30, 48, 80],
+            "align": "left",
+            "lines": 1
+          },
+          {
+            "id": "o128",
+            "kind": "text",
+            "text": "Right column text block",
+            "sizePctH": 2.5,
+            "bbox": [52, 30, 95, 80],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o129",
+          "kind": "shape",
+          "bbox": [50, 30, 50.2, 80]
+        },
+        "others": [
+          {
+            "id": "o130",
+            "kind": "text",
+            "text": "Left column text block",
+            "sizePctH": 2.5,
+            "bbox": [5, 30, 48, 80],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "connector": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o131",
+          "kind": "shape",
+          "bbox": [10, 50, 90, 50.2],
+          "joinsItems": 4
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o132",
+          "kind": "shape",
+          "bbox": [10, 50, 90, 50.2]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "marker": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o133",
+          "kind": "shape",
+          "bbox": [10, 40, 11, 42],
+          "itemHead": true
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o134",
+          "kind": "shape",
+          "bbox": [10, 40, 11, 42]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "frame": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o135",
+          "kind": "shape",
+          "bbox": [10, 10, 50, 60],
+          "stroke": true,
+          "framesContent": true
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o136",
+          "kind": "shape",
+          "bbox": [10, 10, 50, 60],
+          "stroke": true,
+          "fill": "#ffffff",
+          "framesContent": true
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "device": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o137",
+          "kind": "shape",
+          "bbox": [0, 0, 30, 100],
+          "named": true
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o138",
+          "kind": "shape",
+          "bbox": [0, 0, 30, 100],
+          "named": false
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "decor": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o139",
+          "kind": "shape",
+          "bbox": [80, 80, 90, 90]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o140",
+          "kind": "shape",
+          "bbox": [80, 80, 90, 90]
+        },
+        "others": [
+          {
+            "id": "o141",
+            "kind": "text",
+            "text": "Card text",
+            "sizePctH": 2,
+            "bbox": [81, 81, 89, 85],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "diagram": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o146",
+          "kind": "vectorgroup",
+          "bbox": [10, 20, 60, 80],
+          "pieces": 24,
+          "textsInside": 4
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o147",
+          "kind": "vectorgroup",
+          "bbox": [10, 20, 60, 80],
+          "pieces": 24,
+          "textsInside": 4,
+          "numberLabelsInside": 4
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "chip": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o150",
+          "kind": "shape",
+          "bbox": [10, 10, 16, 13],
+          "pill": true
+        },
+        "others": [
+          {
+            "id": "o151",
+            "kind": "text",
+            "text": "Fintech",
+            "sizePctH": 1.5,
+            "bbox": [10.5, 10.5, 15.5, 12.5],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o152",
+          "kind": "shape",
+          "bbox": [10, 10, 16, 13]
+        },
+        "others": [
+          {
+            "id": "o153",
+            "kind": "text",
+            "text": "Fintech",
+            "sizePctH": 1.5,
+            "bbox": [10.5, 10.5, 15.5, 12.5],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "callout": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o154",
+          "kind": "shape",
+          "bbox": [60, 20, 80, 30],
+          "pointer": true
+        },
+        "others": [
+          {
+            "id": "o155",
+            "kind": "text",
+            "text": "Peak in March",
+            "sizePctH": 2,
+            "bbox": [61, 21, 79, 25],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o156",
+          "kind": "shape",
+          "bbox": [60, 20, 80, 30]
+        },
+        "others": [
+          {
+            "id": "o157",
+            "kind": "text",
+            "text": "Peak in March",
+            "sizePctH": 2,
+            "bbox": [61, 21, 79, 25],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "quote-mark": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o158",
+          "kind": "text",
+          "text": "“",
+          "sizePctH": 20,
+          "bbox": [5, 10, 12, 30],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o159",
+          "kind": "text",
+          "text": "“Great product”",
+          "sizePctH": 4,
+          "bbox": [5, 10, 50, 20],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "button": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o160",
+          "kind": "shape",
+          "bbox": [10, 80, 20, 85]
+        },
+        "others": [
+          {
+            "id": "o161",
+            "kind": "text",
+            "text": "Get started",
+            "sizePctH": 1.8,
+            "bbox": [10.5, 81, 19.5, 84],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o162",
+          "kind": "shape",
+          "bbox": [10, 80, 20, 85]
+        },
+        "others": [
+          {
+            "id": "o163",
+            "kind": "text",
+            "text": "Fintech",
+            "sizePctH": 1.8,
+            "bbox": [10.5, 81, 19.5, 84],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "pager": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o164",
+          "kind": "shape",
+          "bbox": [48, 95, 49, 96],
+          "series": 5
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o165",
+          "kind": "shape",
+          "bbox": [48, 50, 49, 51],
+          "series": 5
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "tabs": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o166",
+          "kind": "text",
+          "text": "Pricing",
+          "sizePctH": 2,
+          "bbox": [30, 5, 38, 8],
+          "align": "left",
+          "lines": 1,
+          "rowPeers": 3,
+          "activePeer": true
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o167",
+          "kind": "text",
+          "text": "Pricing",
+          "sizePctH": 2,
+          "bbox": [30, 5, 38, 8],
+          "align": "left",
+          "lines": 1,
+          "rowPeers": 3
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "unknown": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o168",
+          "kind": "text",
+          "text": "A twelve word line of small print that sits alone on the slide",
+          "sizePctH": 2,
+          "bbox": [5, 50, 60, 53],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o169",
+            "kind": "text",
+            "text": "Bigger text",
+            "sizePctH": 3,
+            "bbox": [5, 20, 40, 25],
+            "align": "left",
+            "lines": 1
+          },
+          {
+            "id": "o170",
+            "kind": "text",
+            "text": "x",
+            "sizePctH": 3,
+            "bbox": [5, 30, 40, 35],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o171",
+          "kind": "text",
+          "text": "Short label",
+          "sizePctH": 2,
+          "bbox": [5, 50, 60, 53],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o172",
+            "kind": "text",
+            "text": "Bigger text",
+            "sizePctH": 3,
+            "bbox": [5, 20, 40, 25],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "chart-exhibit": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o142",
+          "kind": "vectorgroup",
+          "bbox": [10, 20, 60, 80],
+          "pieces": 24,
+          "numberLabelsInside": 6
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o143",
+          "kind": "vectorgroup",
+          "bbox": [10, 20, 60, 80],
+          "pieces": 24,
+          "textsInside": 4
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "table-exhibit": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o144",
+          "kind": "table",
+          "bbox": [5, 20, 60, 80]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o145",
+          "kind": "chart",
+          "bbox": [5, 20, 60, 80]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    }
+  },
+  "E3": {
+    "cell": {
+      "positive": {
+        "scope": "element",
+        "subject": {
+          "id": "o173",
+          "kind": "text",
+          "text": "Fintechs $504B 22% 659",
+          "sizePctH": 2,
+          "bbox": [3, 45, 65, 62],
+          "align": "left",
+          "lines": 1,
+          "block": 1,
+          "item": 1,
+          "cells": 4
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "negative": {
+        "scope": "element",
+        "subject": {
+          "id": "o174",
+          "kind": "text",
+          "text": "Fintechs",
+          "sizePctH": 2,
+          "bbox": [3, 45, 65, 62],
+          "align": "left",
+          "lines": 1,
+          "block": 1,
+          "item": 1,
+          "cells": 0
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    "kpis": {
+      "positive": {
+        "scope": "block",
+        "subject": {
+          "id": "o177",
+          "kind": "block",
+          "fields": 6,
+          "items": 2,
+          "minItemFields": 3,
+          "termCount": {
+            "big-number": 2,
+            "heading": 2,
+            "body": 2
+          },
+          "itemShare": {
+            "big-number": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "block",
+        "subject": {
+          "id": "o178",
+          "kind": "block",
+          "fields": 4,
+          "items": 2,
+          "minItemFields": 2,
+          "termCount": {
+            "heading": 2,
+            "description": 2
+          },
+          "itemShare": {
+            "heading": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "points": {
+      "positive": {
+        "scope": "block",
+        "subject": {
+          "id": "o183",
+          "kind": "block",
+          "fields": 3,
+          "items": 3,
+          "minItemFields": 1,
+          "termCount": {
+            "bullet": 3
+          },
+          "termShare": {
+            "bullet": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "block",
+        "subject": {
+          "id": "o184",
+          "kind": "block",
+          "fields": 3,
+          "items": 3,
+          "minItemFields": 1,
+          "termCount": {
+            "label": 3
+          },
+          "termShare": {
+            "label": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "quotes": {
+      "positive": {
+        "scope": "block",
+        "subject": {
+          "id": "o185",
+          "kind": "block",
+          "fields": 4,
+          "items": 2,
+          "minItemFields": 2,
+          "itemShare": {
+            "quote": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "block",
+        "subject": {
+          "id": "o186",
+          "kind": "block",
+          "fields": 1,
+          "items": 0,
+          "termShare": {
+            "paragraph": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "people": {
+      "positive": {
+        "scope": "block",
+        "subject": {
+          "id": "o187",
+          "kind": "block",
+          "fields": 8,
+          "items": 4,
+          "minItemFields": 2,
+          "itemShare": {
+            "avatar": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "block",
+        "subject": {
+          "id": "o188",
+          "kind": "block",
+          "fields": 8,
+          "items": 4,
+          "minItemFields": 2,
+          "itemShare": {
+            "avatar": 0
+          }
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "logos": {
+      "positive": {
+        "scope": "block",
+        "subject": {
+          "id": "o189",
+          "kind": "block",
+          "fields": 8,
+          "items": 8,
+          "termCount": {
+            "logo-item": 8
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "block",
+        "subject": {
+          "id": "o190",
+          "kind": "block",
+          "fields": 1,
+          "items": 0,
+          "termCount": {
+            "picture": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "timeline": {
+      "positive": {
+        "scope": "block",
+        "subject": {
+          "id": "o193",
+          "kind": "block",
+          "fields": 4,
+          "items": 2,
+          "minItemFields": 2,
+          "labelText": "2024",
+          "headText": "2024 Listings stall"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "block",
+        "subject": {
+          "id": "o194",
+          "kind": "block",
+          "fields": 4,
+          "items": 2,
+          "minItemFields": 2,
+          "labelText": "Step 1",
+          "headText": "Structured data"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "process": {
+      "positive": {
+        "scope": "block",
+        "subject": {
+          "id": "o195",
+          "kind": "block",
+          "fields": 4,
+          "items": 2,
+          "minItemFields": 2,
+          "labelText": "Step 1",
+          "headText": "Structured data"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "block",
+        "subject": {
+          "id": "o196",
+          "kind": "block",
+          "fields": 4,
+          "items": 2,
+          "minItemFields": 2,
+          "labelText": "01",
+          "headText": "Structured data"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "subpoints": {
+      "positive": {
+        "scope": "block",
+        "subject": {
+          "id": "o197",
+          "kind": "block",
+          "fields": 4,
+          "items": 2,
+          "minItemFields": 2,
+          "listItemShare": 1
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "block",
+        "subject": {
+          "id": "o198",
+          "kind": "block",
+          "fields": 4,
+          "items": 2,
+          "minItemFields": 2,
+          "listItemShare": 0
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "compare": {
+      "positive": {
+        "scope": "block",
+        "subject": {
+          "id": "o199",
+          "kind": "block",
+          "fields": 4,
+          "items": 2,
+          "minItemFields": 2,
+          "itemsInRow": true,
+          "between": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "block",
+        "subject": {
+          "id": "o200",
+          "kind": "block",
+          "fields": 4,
+          "items": 2,
+          "minItemFields": 2,
+          "itemsInRow": false,
+          "between": true
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "items": {
+      "positive": {
+        "scope": "block",
+        "subject": {
+          "id": "o201",
+          "kind": "block",
+          "fields": 6,
+          "items": 3,
+          "minItemFields": 2
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "block",
+        "subject": {
+          "id": "o202",
+          "kind": "block",
+          "fields": 3,
+          "items": 3,
+          "minItemFields": 1
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "header": {
+      "positive": {
+        "scope": "structure",
+        "subject": {
+          "id": "o203",
+          "kind": "structure",
+          "memberTerms": {
+            "title": 1,
+            "eyebrow": 1
+          },
+          "bbox": [5, 7, 70, 28]
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "structure",
+        "subject": {
+          "id": "o204",
+          "kind": "structure",
+          "memberTerms": {
+            "heading": 1
+          },
+          "bbox": [5, 40, 30, 60]
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "item": {
+      "positive": {
+        "scope": "structure",
+        "subject": {
+          "id": "o205",
+          "kind": "structure",
+          "itemIndex": 2,
+          "bbox": [5, 40, 30, 60]
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "structure",
+        "subject": {
+          "id": "o206",
+          "kind": "structure",
+          "bbox": [5, 40, 30, 60]
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "grid": {
+      "positive": {
+        "scope": "structure",
+        "subject": {
+          "id": "o207",
+          "kind": "structure",
+          "rows": 2,
+          "cols": 2,
+          "bbox": [5, 30, 95, 90]
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "structure",
+        "subject": {
+          "id": "o208",
+          "kind": "structure",
+          "rows": 1,
+          "cols": 3,
+          "bbox": [5, 30, 95, 50]
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "column": {
+      "positive": {
+        "scope": "structure",
+        "subject": {
+          "id": "o209",
+          "kind": "structure",
+          "rows": 4,
+          "cols": 1,
+          "sharedEdge": true,
+          "bbox": [5, 30, 40, 90]
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "structure",
+        "subject": {
+          "id": "o210",
+          "kind": "structure",
+          "rows": 4,
+          "cols": 2,
+          "sharedEdge": true,
+          "bbox": [5, 30, 40, 90]
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "stack": {
+      "positive": {
+        "scope": "structure",
+        "subject": {
+          "id": "o213",
+          "kind": "structure",
+          "rows": 3,
+          "cols": 1,
+          "bbox": [30, 30, 70, 70]
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "structure",
+        "subject": {
+          "id": "o214",
+          "kind": "structure",
+          "rows": 1,
+          "cols": 1,
+          "bbox": [30, 30, 70, 70]
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "zone": {
+      "positive": {
+        "scope": "structure",
+        "subject": {
+          "id": "o217",
+          "kind": "structure",
+          "zone": "visual",
+          "bbox": [50, 0, 100, 100]
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "structure",
+        "subject": {
+          "id": "o218",
+          "kind": "structure",
+          "bbox": [50, 0, 100, 100]
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "cover-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o219",
+          "kind": "slide",
+          "page": 1,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o220",
+          "kind": "slide",
+          "page": 2,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "agenda-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o221",
+          "kind": "slide",
+          "page": 2,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "agendaHeading": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o222",
+          "kind": "slide",
+          "page": 12,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "agendaHeading": true
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "cta-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o223",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "closingHeading": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o224",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "closingWords": true
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "legal-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o225",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 1,
+          "words": 40,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 120
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o226",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 10,
+          "words": 40,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 120
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "back-cover-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o227",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 0,
+          "words": 8,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o228",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 0,
+          "words": 80,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "quote-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o229",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 40,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "quoteText": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o230",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 200,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "quoteText": true
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "section-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o231",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 6,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 2,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "darkBackground": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o232",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 6,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 2,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "kpi-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o233",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 3,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o234",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 1,
+          "numberLabels": 0,
+          "bigNumbers": 3,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "chart-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o235",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 1,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o236",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 2,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "table-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o237",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 5,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o238",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 2,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "text-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o239",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 220,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o240",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 1,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "cards-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o241",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 3,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "wordsPerColumn": 30
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o242",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 3,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "wordsPerColumn": 120
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "team-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o243",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 4,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o244",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 300,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 4,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "image-text-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o245",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 1,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o246",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 300,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 1,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "blank-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o247",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 0,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 0,
+          "fieldPictures": 0,
+          "hasTitle": false,
+          "titleToBody": null,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o248",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 0,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 1,
+          "mainTexts": 0,
+          "fieldPictures": 0,
+          "hasTitle": false,
+          "titleToBody": null,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "bullets-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o249",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "bulletLines": 5
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o250",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "bulletLines": 2
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "two-column-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o251",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "textColumns": 2
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o252",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "textColumns": 3
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "comparison-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o253",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "blocks": {
+            "compare": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o254",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "blocks": {
+            "items": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "diagram-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o255",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "diagrams": 1
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o256",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "diagrams": 0
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "timeline-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o257",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "blocks": {
+            "timeline": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o258",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "blocks": {
+            "process": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "steps-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o259",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "blocks": {
+            "process": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o260",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "blocks": {
+            "timeline": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "logos-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o261",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "logoItems": 8
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o262",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 60,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0,
+          "logoItems": 2
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "image-slide": {
+      "positive": {
+        "scope": "kind",
+        "subject": {
+          "id": "o263",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 5,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 1,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "kind",
+        "subject": {
+          "id": "o264",
+          "kind": "slide",
+          "page": 5,
+          "pages": 20,
+          "fromEnd": 15,
+          "words": 5,
+          "charts": 0,
+          "numberLabels": 0,
+          "bigNumbers": 0,
+          "shapes": 0,
+          "tableRows": 0,
+          "columns": 0,
+          "pictures": 0,
+          "photos": 0,
+          "mainTexts": 4,
+          "fieldPictures": 0,
+          "hasTitle": true,
+          "titleToBody": 2,
+          "legalWords": 0
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "image-block": {
+      "positive": {
+        "scope": "block",
+        "subject": {
+          "id": "o191",
+          "kind": "block",
+          "fields": 2,
+          "imageOnly": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "block",
+        "subject": {
+          "id": "o192",
+          "kind": "block",
+          "fields": 2,
+          "items": 2,
+          "minItemFields": 1,
+          "imageOnly": false
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "chart-block": {
+      "positive": {
+        "scope": "block",
+        "subject": {
+          "id": "o179",
+          "kind": "block",
+          "fields": 2,
+          "items": 2,
+          "minItemFields": 1,
+          "termCount": {
+            "label": 2
+          },
+          "termShare": {
+            "label": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "block",
+        "subject": {
+          "id": "o180",
+          "kind": "block",
+          "fields": 2,
+          "items": 2,
+          "minItemFields": 1,
+          "termCount": {
+            "bullet": 2
+          },
+          "termShare": {
+            "bullet": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "table-block": {
+      "positive": {
+        "scope": "block",
+        "subject": {
+          "id": "o175",
+          "kind": "block",
+          "fields": 2,
+          "items": 2,
+          "termCount": {
+            "cell": 2
+          },
+          "termShare": {
+            "cell": 1
+          },
+          "itemShare": {
+            "cell": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "block",
+        "subject": {
+          "id": "o176",
+          "kind": "block",
+          "fields": 4,
+          "items": 2,
+          "termCount": {
+            "heading": 2,
+            "description": 2
+          },
+          "termShare": {
+            "heading": 0.5,
+            "description": 0.5
+          },
+          "itemShare": {
+            "heading": 1,
+            "description": 1
+          },
+          "minItemFields": 2
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "paragraph-block": {
+      "positive": {
+        "scope": "block",
+        "subject": {
+          "id": "o181",
+          "kind": "block",
+          "fields": 1,
+          "items": 0,
+          "termCount": {
+            "paragraph": 1
+          },
+          "termShare": {
+            "paragraph": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "block",
+        "subject": {
+          "id": "o182",
+          "kind": "block",
+          "fields": 3,
+          "items": 3,
+          "minItemFields": 1,
+          "termCount": {
+            "bullet": 3
+          },
+          "termShare": {
+            "bullet": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "band-zone": {
+      "positive": {
+        "scope": "structure",
+        "subject": {
+          "id": "o211",
+          "kind": "structure",
+          "rows": 1,
+          "cols": 4,
+          "spansWidth": true,
+          "bbox": [0, 40, 100, 60]
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "structure",
+        "subject": {
+          "id": "o212",
+          "kind": "structure",
+          "rows": 1,
+          "cols": 4,
+          "bbox": [10, 40, 60, 60]
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "gap-group": {
+      "positive": {
+        "scope": "structure",
+        "subject": {
+          "id": "o215",
+          "kind": "structure",
+          "groupedByGap": true,
+          "bbox": [5, 30, 40, 50]
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "structure",
+        "subject": {
+          "id": "o216",
+          "kind": "structure",
+          "bbox": [5, 30, 40, 50]
+        },
+        "others": [],
+        "context": {}
+      }
+    }
+  },
+  "E4": {
+    "device-frame": {
+      "positive": {
+        "scope": "image-treatment",
+        "subject": {
+          "id": "o265",
+          "kind": "treatment",
+          "inDevice": true,
+          "areaPct": 20
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "image-treatment",
+        "subject": {
+          "id": "o266",
+          "kind": "treatment",
+          "areaPct": 20
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "clipped": {
+      "positive": {
+        "scope": "image-treatment",
+        "subject": {
+          "id": "o269",
+          "kind": "treatment",
+          "mask": "ellipse",
+          "areaPct": 5
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "image-treatment",
+        "subject": {
+          "id": "o270",
+          "kind": "treatment",
+          "mask": "rect",
+          "areaPct": 5
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "collage": {
+      "positive": {
+        "scope": "image-treatment",
+        "subject": {
+          "id": "o271",
+          "kind": "treatment",
+          "groupImages": 3,
+          "areaPct": 10
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "image-treatment",
+        "subject": {
+          "id": "o272",
+          "kind": "treatment",
+          "groupImages": 1,
+          "areaPct": 10
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "full": {
+      "positive": {
+        "scope": "image-treatment",
+        "subject": {
+          "id": "o275",
+          "kind": "treatment",
+          "areaPct": 100
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "image-treatment",
+        "subject": {
+          "id": "o276",
+          "kind": "treatment",
+          "areaPct": 50
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "side": {
+      "positive": {
+        "scope": "image-treatment",
+        "subject": {
+          "id": "o277",
+          "kind": "treatment",
+          "areaPct": 50,
+          "bleed": ["right", "top", "bottom"]
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "image-treatment",
+        "subject": {
+          "id": "o278",
+          "kind": "treatment",
+          "areaPct": 50,
+          "bleed": []
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "rect": {
+      "positive": {
+        "scope": "mask",
+        "subject": {
+          "id": "o279",
+          "kind": "treatment",
+          "outline": "rect"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "mask",
+        "subject": {
+          "id": "o280",
+          "kind": "treatment",
+          "outline": "ellipse"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "ellipse": {
+      "positive": {
+        "scope": "mask",
+        "subject": {
+          "id": "o281",
+          "kind": "treatment",
+          "outline": "ellipse"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "mask",
+        "subject": {
+          "id": "o282",
+          "kind": "treatment",
+          "outline": "rect"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "polygon": {
+      "positive": {
+        "scope": "mask",
+        "subject": {
+          "id": "o283",
+          "kind": "treatment",
+          "outline": "polygon"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "mask",
+        "subject": {
+          "id": "o284",
+          "kind": "treatment",
+          "outline": "rect"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "svg": {
+      "positive": {
+        "scope": "mask",
+        "subject": {
+          "id": "o285",
+          "kind": "treatment",
+          "outline": "svg"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "mask",
+        "subject": {
+          "id": "o286",
+          "kind": "treatment",
+          "outline": "rect"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "glass": {
+      "positive": {
+        "scope": "card-style",
+        "subject": {
+          "id": "o289",
+          "kind": "treatment",
+          "blur": 12,
+          "fillAlpha": 0.4
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "card-style",
+        "subject": {
+          "id": "o290",
+          "kind": "treatment",
+          "fillAlpha": 1,
+          "fillDiffers": true
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "accent": {
+      "positive": {
+        "scope": "card-style",
+        "subject": {
+          "id": "o291",
+          "kind": "treatment",
+          "accentBar": "left"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "card-style",
+        "subject": {
+          "id": "o292",
+          "kind": "treatment",
+          "border": true
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "elevated": {
+      "positive": {
+        "scope": "card-style",
+        "subject": {
+          "id": "o293",
+          "kind": "treatment",
+          "shadow": true,
+          "fillDiffers": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "card-style",
+        "subject": {
+          "id": "o294",
+          "kind": "treatment",
+          "fillDiffers": true
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "outlined": {
+      "positive": {
+        "scope": "card-style",
+        "subject": {
+          "id": "o295",
+          "kind": "treatment",
+          "border": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "card-style",
+        "subject": {
+          "id": "o296",
+          "kind": "treatment",
+          "border": true,
+          "fillDiffers": true
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "filled": {
+      "positive": {
+        "scope": "card-style",
+        "subject": {
+          "id": "o297",
+          "kind": "treatment",
+          "fillDiffers": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "card-style",
+        "subject": {
+          "id": "o298",
+          "kind": "treatment",
+          "border": false
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "flat": {
+      "positive": {
+        "scope": "card-style",
+        "subject": {
+          "id": "o299",
+          "kind": "treatment"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "card-style",
+        "subject": {
+          "id": "o300",
+          "kind": "treatment",
+          "shadow": true
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "face-run": {
+      "positive": {
+        "scope": "emphasis",
+        "subject": {
+          "id": "o301",
+          "kind": "treatment",
+          "faceDiffers": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "emphasis",
+        "subject": {
+          "id": "o302",
+          "kind": "treatment",
+          "weightDelta": 300
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "weight-run": {
+      "positive": {
+        "scope": "emphasis",
+        "subject": {
+          "id": "o303",
+          "kind": "treatment",
+          "weightDelta": 300
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "emphasis",
+        "subject": {
+          "id": "o304",
+          "kind": "treatment",
+          "colourDiffers": true
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "colour-run": {
+      "positive": {
+        "scope": "emphasis",
+        "subject": {
+          "id": "o305",
+          "kind": "treatment",
+          "colourDiffers": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "emphasis",
+        "subject": {
+          "id": "o306",
+          "kind": "treatment",
+          "weightDelta": 0
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "angle": {
+      "positive": {
+        "scope": "angle",
+        "subject": {
+          "id": "o307",
+          "kind": "treatment",
+          "angles": {
+            "10": 50
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "angle",
+        "subject": {
+          "id": "o308",
+          "kind": "treatment"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "behind": {
+      "positive": {
+        "scope": "layer",
+        "subject": {
+          "id": "o309",
+          "kind": "treatment",
+          "behindText": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "layer",
+        "subject": {
+          "id": "o310",
+          "kind": "treatment",
+          "overText": true
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "front": {
+      "positive": {
+        "scope": "layer",
+        "subject": {
+          "id": "o311",
+          "kind": "treatment",
+          "overText": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "layer",
+        "subject": {
+          "id": "o312",
+          "kind": "treatment",
+          "behindText": true
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "bleed": {
+      "positive": {
+        "scope": "bleed",
+        "subject": {
+          "id": "o313",
+          "kind": "treatment",
+          "bleed": ["left"]
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "bleed",
+        "subject": {
+          "id": "o314",
+          "kind": "treatment",
+          "bleed": []
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "blend": {
+      "positive": {
+        "scope": "blend",
+        "subject": {
+          "id": "o315",
+          "kind": "treatment",
+          "blend": "multiply"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "blend",
+        "subject": {
+          "id": "o316",
+          "kind": "treatment",
+          "blend": "normal"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "case": {
+      "positive": {
+        "scope": "case",
+        "subject": {
+          "id": "o317",
+          "kind": "treatment",
+          "caps": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "case",
+        "subject": {
+          "id": "o318",
+          "kind": "treatment"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "none": {
+      "positive": {
+        "scope": "fill",
+        "subject": {
+          "id": "o319",
+          "kind": "treatment",
+          "paint": "none"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "fill",
+        "subject": {
+          "id": "o320",
+          "kind": "treatment",
+          "paint": "solid"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "solid": {
+      "positive": {
+        "scope": "fill",
+        "subject": {
+          "id": "o321",
+          "kind": "treatment",
+          "paint": "solid"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "fill",
+        "subject": {
+          "id": "o322",
+          "kind": "treatment",
+          "paint": "linear"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "linear-gradient": {
+      "positive": {
+        "scope": "fill",
+        "subject": {
+          "id": "o323",
+          "kind": "treatment",
+          "paint": "linear"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "fill",
+        "subject": {
+          "id": "o324",
+          "kind": "treatment",
+          "paint": "solid"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "radial-gradient": {
+      "positive": {
+        "scope": "fill",
+        "subject": {
+          "id": "o325",
+          "kind": "treatment",
+          "paint": "radial"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "fill",
+        "subject": {
+          "id": "o326",
+          "kind": "treatment",
+          "paint": "solid"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "conic-gradient": {
+      "positive": {
+        "scope": "fill",
+        "subject": {
+          "id": "o327",
+          "kind": "treatment",
+          "paint": "conic"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "fill",
+        "subject": {
+          "id": "o328",
+          "kind": "treatment",
+          "paint": "solid"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "mesh-gradient": {
+      "positive": {
+        "scope": "fill",
+        "subject": {
+          "id": "o329",
+          "kind": "treatment",
+          "paint": "mesh"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "fill",
+        "subject": {
+          "id": "o330",
+          "kind": "treatment",
+          "paint": "solid"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "gradient": {
+      "positive": {
+        "scope": "fill",
+        "subject": {
+          "id": "o331",
+          "kind": "treatment",
+          "paint": "gradient"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "fill",
+        "subject": {
+          "id": "o332",
+          "kind": "treatment",
+          "paint": "solid"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "pattern": {
+      "positive": {
+        "scope": "fill",
+        "subject": {
+          "id": "o333",
+          "kind": "treatment",
+          "paint": "pattern"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "fill",
+        "subject": {
+          "id": "o334",
+          "kind": "treatment",
+          "paint": "solid"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "texture": {
+      "positive": {
+        "scope": "fill",
+        "subject": {
+          "id": "o335",
+          "kind": "treatment",
+          "paint": "texture"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "fill",
+        "subject": {
+          "id": "o336",
+          "kind": "treatment",
+          "paint": "solid"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "video": {
+      "positive": {
+        "scope": "fill",
+        "subject": {
+          "id": "o339",
+          "kind": "treatment",
+          "paint": "video"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "fill",
+        "subject": {
+          "id": "o340",
+          "kind": "treatment",
+          "paint": "solid"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "text-mask": {
+      "positive": {
+        "scope": "mask",
+        "subject": {
+          "id": "o287",
+          "kind": "treatment",
+          "outline": "text"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "mask",
+        "subject": {
+          "id": "o288",
+          "kind": "treatment",
+          "outline": "rect"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "image-fill": {
+      "positive": {
+        "scope": "fill",
+        "subject": {
+          "id": "o337",
+          "kind": "treatment",
+          "paint": "image"
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "fill",
+        "subject": {
+          "id": "o338",
+          "kind": "treatment",
+          "paint": "solid"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "background-image": {
+      "positive": {
+        "scope": "image-treatment",
+        "subject": {
+          "id": "o273",
+          "kind": "treatment",
+          "areaPct": 100,
+          "textOver": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "image-treatment",
+        "subject": {
+          "id": "o274",
+          "kind": "treatment",
+          "areaPct": 50,
+          "textOver": true
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    "transparent": {
+      "positive": {
+        "scope": "image-treatment",
+        "subject": {
+          "id": "o267",
+          "kind": "treatment",
+          "transparent": true,
+          "areaPct": 20
+        },
+        "others": [],
+        "context": {}
+      },
+      "negative": {
+        "scope": "image-treatment",
+        "subject": {
+          "id": "o268",
+          "kind": "treatment",
+          "areaPct": 5
+        },
+        "others": [],
+        "context": {}
+      }
+    }
+  }
+}

@@ -105,7 +105,9 @@ export const BLOCKS = Object.freeze({
   }),
   process: Object.freeze({
     nodes: { min: 2, max: 8 },
-    fields: Object.freeze({ heading: f(30), body: f(60, 30) }),
+    // label (content v2.1, D8): a phase label drawn in place of the number marker ("2026", "Now", "Phase 1"), the
+    // plan's heading band 1–20
+    fields: Object.freeze({ heading: f(30), body: f(60, 30), label: f(20) }),
   }),
   timeline: Object.freeze({
     nodes: { min: 2, max: 10 },

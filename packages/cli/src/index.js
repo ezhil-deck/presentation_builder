@@ -16,6 +16,8 @@ export const EXIT = Object.freeze({ OK: 0, BROKEN: 1, QUESTIONS: 2 });
 
 export {
   buildFromMood,
+  catalogueReport,
+  catalogueSlidesIndex,
   changedSlides,
   compareSheet,
   composeContent,
@@ -30,8 +32,8 @@ export { diffDecks, diffMarkdown, diffOutDir, pixelDiff, runDiff } from './diff.
 
 /**
  * `--proposals [list]` → the composeDeck `proposals` option: no value / 'all' → every proposal; else a comma list of
- * the open proposals (pr4 / PR-4 / titleClearOfDecor). An unknown name - including the approved PR-1..3, which are
- * rules of every build - is an error.
+ * the open proposals (pr4 / PR-4 / titleClearOfDecor). An unknown name - including the approved PR-1..3, PR-F and
+ * PR-C′, which are rules of every build - is an error.
  */
 export function parseProposalsFlag(value) {
   if (value === undefined || value === false) return undefined;
@@ -44,7 +46,7 @@ export function parseProposalsFlag(value) {
   const bad = names.filter((n) => proposalKey(n) === null);
   if (bad.length) {
     const err = new Error(
-      `--proposals: unknown proposal(s) ${bad.join(', ')} (use all or pr4; PR-1..3 are rules of every build)`,
+      `--proposals: unknown proposal(s) ${bad.join(', ')} (use all or pr4; PR-1..3, PR-F and PR-C′ are rules of every build)`,
     );
     err.exitCode = EXIT.BROKEN;
     throw err;
@@ -273,11 +275,16 @@ export function buildProgram() {
     .option('--snapshot', 'also write golden/expected/<id>/deck.json')
     .option(
       '--proposals [list]',
-      'open design proposals (docs/P3-proposals.md): all, or a comma list (pr4) (default off)',
+      'open design proposals (docs/P3-proposals.md): all, or pr4 (PR-4 title clear of brand-boxed decor) (default off)',
     )
     .option(
+      '--catalogue',
+      'compose content/2 slides on the catalogue layouts (the default since C4, docs/PLAN-catalogue.md; kept as a no-op)',
+    )
+    .option('--no-catalogue', 'compose with the 68 layouts only (the build before C4, to compare with)')
+    .option(
       '--before <dir>',
-      'with --proposals: the build without proposals to compare with (default out/<id>)',
+      'a build to compare with (compare.png with --png + index.html): any build folder; with --proposals the default is out/<id>',
     )
     .action(async (brandDir, opts) => {
       let built;
@@ -290,13 +297,22 @@ export function buildProgram() {
           err.exitCode = EXIT.BROKEN;
           throw err;
         }
+        if (opts.catalogue === false && opts.snapshot) {
+          const err = new Error(
+            'pb build: --no-catalogue cannot be combined with --snapshot (the golden decks are composed on the catalogue since C4)',
+          );
+          err.exitCode = EXIT.BROKEN;
+          throw err;
+        }
         built = await runBuild(brandDir, {
           out: opts.out,
           content: opts.content,
           pdf: opts.pdf,
           png: opts.png,
           snapshot: opts.snapshot,
-          ...(proposals ? { proposals, before: opts.before } : {}),
+          ...(opts.before ? { before: opts.before } : {}),
+          ...(proposals ? { proposals } : {}),
+          ...(opts.catalogue === false ? { catalogue: false } : {}),
         });
       } catch (err) {
         if (err.exitCode === undefined) throw err;
@@ -322,6 +338,13 @@ export function buildProgram() {
           .join(', ');
         console.log(
           `pb build: proposals ${per}${p.changedSlides ? `; ${p.changedSlides.length} slide(s) differ from ${p.before}` : ''}`,
+        );
+      }
+      if (report.catalogue) {
+        const k = report.catalogue;
+        console.log(
+          `pb build: catalogue ${k.counts.family} exact family, ${k.counts.combination} same combination, ` +
+            `${k.counts.none} none${k.changedSlides ? `; ${k.changedSlides.length} slide(s) differ from ${k.before}` : ''}`,
         );
       }
       if (built.snapshotDir) console.log(`pb build: snapshot ${relative(process.cwd(), built.snapshotDir)}`);

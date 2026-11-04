@@ -1,0 +1,227 @@
+{
+  "schema": "content/2",
+  "title": "P4.3 fixture: showcase slides 9, 16, 22, 23, 33",
+  "slides": [
+    {
+      "id": "s9",
+      "title": "Three reasons teams choose the platform",
+      "blocks": [
+        {
+          "type": "items",
+          "items": [
+            {
+              "heading": "A faster month-end close",
+              "body": "The close takes four days instead of nine, because every entry arrives with its receipt and approval.",
+              "icon": "speed"
+            },
+            {
+              "heading": "Spend under control",
+              "body": "Every request is checked against the policy before money leaves the account.",
+              "icon": "shield"
+            },
+            {
+              "heading": "One view of the business",
+              "body": "Finance, operations and leadership read the same numbers, updated every hour.",
+              "icon": "chart"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s16",
+      "title": "Revenue grew every quarter",
+      "blocks": [
+        {
+          "type": "chart",
+          "chartType": "column",
+          "categories": ["Q1", "Q2", "Q3", "Q4"],
+          "series": [
+            {
+              "name": "Revenue ($M)",
+              "values": [5.1, 5.6, 6, 6.5]
+            }
+          ],
+          "text": {
+            "title": "Recognized revenue by quarter, 2026",
+            "yAxis": "$ millions",
+            "source": "Finance, fourth quarter unaudited"
+          },
+          "highlight": 3
+        }
+      ]
+    },
+    {
+      "id": "s22",
+      "title": "What each plan includes",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Plans at a glance",
+          "header": ["Feature", "Starter", "Growth", "Enterprise"],
+          "rows": [
+            [
+              "Approval workflows",
+              {
+                "type": "check",
+                "value": true
+              },
+              {
+                "type": "check",
+                "value": true
+              },
+              {
+                "type": "check",
+                "value": true
+              }
+            ],
+            [
+              "Expense capture",
+              {
+                "type": "check",
+                "value": true
+              },
+              {
+                "type": "check",
+                "value": true
+              },
+              {
+                "type": "check",
+                "value": true
+              }
+            ],
+            [
+              "Supplier invoices",
+              {
+                "type": "check",
+                "value": false
+              },
+              {
+                "type": "check",
+                "value": true
+              },
+              {
+                "type": "check",
+                "value": true
+              }
+            ],
+            [
+              "Single sign-on and audit exports",
+              {
+                "type": "check",
+                "value": false
+              },
+              {
+                "type": "check",
+                "value": false
+              },
+              {
+                "type": "check",
+                "value": true
+              }
+            ],
+            [
+              "Support",
+              {
+                "type": "rating",
+                "value": 2
+              },
+              {
+                "type": "rating",
+                "value": 4
+              },
+              {
+                "type": "rating",
+                "value": 5
+              }
+            ]
+          ],
+          "highlightColumn": 2,
+          "rowHeader": true
+        }
+      ]
+    },
+    {
+      "id": "s23",
+      "title": "Month-end, before and after",
+      "blocks": [
+        {
+          "type": "compare",
+          "columns": [
+            {
+              "header": "Spreadsheets and email",
+              "label": "Before",
+              "image": "{brand.imagery.samples[0]}",
+              "items": [
+                {
+                  "heading": "Receipts attached at the source",
+                  "body": "Finance spends the first week of each month collecting paperwork.",
+                  "check": false
+                },
+                {
+                  "heading": "Approvals on the phone",
+                  "check": false
+                },
+                {
+                  "heading": "Close in four days",
+                  "check": false
+                }
+              ]
+            },
+            {
+              "header": "One platform for every request",
+              "label": "After",
+              "image": "{brand.imagery.samples[1]}",
+              "items": [
+                {
+                  "heading": "Receipts attached at the source",
+                  "body": "Every expense arrives with its receipt and its approval.",
+                  "check": true
+                },
+                {
+                  "heading": "Approvals on the phone",
+                  "check": true
+                },
+                {
+                  "heading": "Close in four days",
+                  "check": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s33",
+      "title": "A year with our customers",
+      "blocks": [
+        {
+          "type": "image",
+          "items": [
+            {
+              "src": "{brand.imagery.samples[0]}",
+              "alt": "Brand imagery sample",
+              "caption": "Onboarding day"
+            },
+            {
+              "src": "{brand.imagery.samples[1]}",
+              "alt": "Brand imagery sample",
+              "caption": "Month-end review"
+            },
+            {
+              "src": "{brand.imagery.samples[2]}",
+              "alt": "Brand imagery sample",
+              "caption": "Customer summit"
+            },
+            {
+              "src": "{brand.imagery.samples[3]}",
+              "alt": "Brand imagery sample",
+              "caption": "Support team"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

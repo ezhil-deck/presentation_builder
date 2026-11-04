@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import BrandSwitcher from '../src/studio/BrandSwitcher.jsx';
-import LayoutPicker, { clearLayoutCache } from '../src/studio/LayoutPicker.jsx';
+import LayoutPicker, { clearLayoutCache, layoutLabel } from '../src/studio/LayoutPicker.jsx';
 import Studio from '../src/studio/Studio.jsx';
 import { fitScale, navTarget, patchOverrides, zoomScale } from '../src/studio/lib.js';
 import { parseHash, studioHref } from '../src/router.js';
@@ -146,7 +146,7 @@ const selected = () => screen.getAllByTestId('film-thumb').findIndex((t) => t.da
 async function renderStudio(route = {}) {
   render(<Studio route={route} />);
   await waitFor(() => expect(screen.getAllByTestId('film-thumb')).toHaveLength(3));
-  await screen.findByTestId('layout-picker'); // the panel's layouts have loaded (no update after the test)
+  await screen.findByTestId('layout-toggle'); // the panel is up (the layout picker is collapsed: nothing to load)
 }
 
 describe('studio helpers', () => {
@@ -257,6 +257,37 @@ describe('LayoutPicker', () => {
     fireEvent.click(within(others).getByTestId('layout-option'));
     expect(onPick).toHaveBeenLastCalledWith('text');
   });
+
+  it('C4: a slide on a catalogue layout shows its label; picking the default 68 layout pins it', async () => {
+    server = fakeServer();
+    global.fetch = jest.fn(async (url) => {
+      server.calls.push({ url });
+      return reply(200, [
+        { id: 'bullets', kind: 'bullets', default: true, boxes: [] },
+        { id: 'bullets-wide', kind: 'bullets', default: false, boxes: [] },
+      ]);
+    });
+    const onPick = jest.fn();
+    const slide = { layoutId: 'cat-l23-6', source: { catalogue: 'L23-6' } };
+    expect(layoutLabel(slide)).toBe('Catalogue L23-6');
+    expect(layoutLabel({ layoutId: 'bullets' })).toBe('bullets');
+    render(
+      <LayoutPicker
+        kind="bullets"
+        brandId="stripe"
+        currentId={slide.layoutId}
+        currentLabel={layoutLabel(slide)}
+        onPick={onPick}
+      />,
+    );
+    const options = await screen.findAllByTestId('layout-option');
+    expect(screen.getByTestId('layout-current').textContent).toBe('Current: Catalogue L23-6');
+    expect(options.every((o) => o.getAttribute('aria-pressed') === 'false')).toBe(true);
+    fireEvent.click(options[0]);
+    expect(onPick).toHaveBeenLastCalledWith('bullets');
+    fireEvent.click(options[1]);
+    expect(onPick).toHaveBeenLastCalledWith('bullets-wide');
+  });
 });
 
 describe('Studio', () => {
@@ -296,7 +327,6 @@ describe('Studio', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Slide 2' }));
     expect(screen.queryByTestId('deck-grid')).toBeNull();
     expect(selected()).toBe(1);
-    await screen.findByTestId('layout-picker'); // the agenda slide's layouts loaded
   });
 
   it('a surface tile click composes with that override, then stores it (PUT overrides)', async () => {
@@ -393,6 +423,5 @@ describe('Studio', () => {
     expect(within(drawer).getByTestId('checks-summary')).toBeTruthy();
     fireEvent.keyDown(window, { key: 'Escape' });
     expect(screen.queryByTestId('drawer')).toBeNull();
-    await screen.findByTestId('layout-picker'); // notion's layouts loaded
   });
 });

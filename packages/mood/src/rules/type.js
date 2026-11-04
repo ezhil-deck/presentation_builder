@@ -254,6 +254,10 @@ export function rule(brandSpec) {
   }
 
   const type = { faces, roles };
+  // --- font pairs (P4.3): the alternative heading / body pairs the brand defines (BrandSpec typography.pairs), each
+  // naming two of its faces; nothing when the brand defines none (no pair is ever made up)
+  const pairs = fontPairs(typo.pairs, faces, c);
+  if (pairs.length) type.pairs = pairs;
   if (isObj(typo.alignment)) {
     type.align = clone(typo.alignment);
     c.prov(ptr('type', 'align'), [ptr('typography', 'alignment')]);
@@ -276,4 +280,45 @@ export function rule(brandSpec) {
 
   c.res.patch = { type };
   return c.res;
+}
+
+/**
+ * MD-TYPE pairs: BrandSpec `typography.pairs` [{id, label?, heading, body}] -> Mood `type.pairs`: kept when the id is
+ * unique and both faces are faces of the brand (else a warning and the pair is left out). Provenance per pair.
+ */
+export function fontPairs(given, faces, c) {
+  const out = [];
+  if (given === undefined) return out;
+  if (!Array.isArray(given)) {
+    c.warn(ptr('typography', 'pairs'), 'typography.pairs is not a list of pairs: ignored');
+    return out;
+  }
+  given.forEach((p, i) => {
+    const at = ptr('typography', 'pairs', i);
+    if (!isObj(p) || typeof p.id !== 'string' || p.id === '') {
+      c.warn(at, 'font pair without an id: ignored');
+      return;
+    }
+    if (out.some((q) => q.id === p.id)) {
+      c.warn(at, `font pair "${p.id}" is defined twice: the first kept`);
+      return;
+    }
+    const unknown = ['heading', 'body'].filter((k) => typeof p[k] !== 'string' || !has(faces, p[k]));
+    if (unknown.length) {
+      c.warn(
+        at,
+        `font pair "${p.id}": ${unknown.map((k) => `${k} face "${p[k]}"`).join(' and ')} not in typography.faces: ignored`,
+      );
+      return;
+    }
+    const pair = { id: p.id, heading: p.heading, body: p.body };
+    if (typeof p.label === 'string' && p.label) pair.label = p.label;
+    c.prov(
+      ptr('type', 'pairs', out.length),
+      [at],
+      `font pair "${p.id}" as given: heading face "${p.heading}", body face "${p.body}"`,
+    );
+    out.push(pair);
+  });
+  return out;
 }

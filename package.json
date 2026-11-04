@@ -12,6 +12,7 @@
   },
   "scripts": {
     "test": "jest",
+    "test:e2e": "caffeinate -d -u -i npx jest -c jest.e2e.config.cjs",
     "lint": "eslint . --ext .js,.jsx,.cjs --max-warnings 0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -19,7 +20,11 @@
     "dev:ui": "npm run dev -w @pb/ui",
     "serve:ui": "node packages/ui/server.js --port 8100",
     "api:ui": "node packages/ui/server.js --api-only --port 8101",
-    "cli": "node packages/cli/bin/pb.js"
+    "cli": "node packages/cli/bin/pb.js",
+    "catalogue:index": "node scripts/catalogue-index.mjs && prettier --write --ignore-path .gitignore golden/catalogue/index.json",
+    "catalogue:geometry": "caffeinate -d -u -i node scripts/catalogue-geometry.mjs && prettier --write --ignore-path .gitignore golden/catalogue/geometry.json",
+    "catalogue:layouts": "node scripts/catalogue-layouts.mjs && prettier --write --ignore-path .gitignore packages/layouts/data/catalogue-layouts.json",
+    "vocabulary:docs": "node scripts/vocabulary-docs.mjs && prettier --write --ignore-path .gitignore packages/vocabulary/__tests__/fixtures/answer-key.json"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",

@@ -1,0 +1,12 @@
+{
+  "slides": {
+    "s6": {
+      "surface": "dark"
+    }
+  },
+  "elements": {
+    "s6-footer-pageNumber": {
+      "color": "#2E3033"
+    }
+  }
+}

@@ -13,7 +13,14 @@ import {
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { createServer } from '../server/index.js';
-import { applyOverrides, markdownTitle, normalizeOverrides } from '../server/studio.js';
+import {
+  HISTORY_LIMIT,
+  applyOverrides,
+  contentErrors,
+  markdownTitle,
+  normalizeHistory,
+  normalizeOverrides,
+} from '../server/studio.js';
 
 const REPO = resolve(__dirname, '..', '..', '..');
 const STRIPE = join(REPO, 'golden', 'brands', 'stripe');
@@ -75,6 +82,74 @@ describe('studio helpers (no brand input needed)', () => {
       'override for unknown slide "s9" ignored',
       'surface "pink" is not one of this brand\'s surfaces: ignored',
     ]);
+  });
+
+  it('normalizeOverrides carries element overrides (P4.1) and refuses bad ones with 400 (negative)', () => {
+    expect(
+      normalizeOverrides({ slides: {}, elements: { 's4-title': { color: '#ff0000', hidden: false } } }),
+    ).toEqual({ slides: {}, elements: { 's4-title': { color: '#FF0000' } } });
+    expect(normalizeOverrides({ slides: {}, elements: { a: { locked: false } } })).toEqual({ slides: {} });
+    expect(() => normalizeOverrides({ elements: { a: { color: 'red' } } })).toThrow(/#RRGGBB/);
+    expect(() => normalizeOverrides({ elements: { a: { frame: { x: 0 } } } })).toThrow(/frame/);
+    let status;
+    try {
+      normalizeOverrides({ elements: { a: { size: 1 } } });
+    } catch (err) {
+      status = err.status;
+    }
+    expect(status).toBe(400);
+  });
+
+  it('normalizeHistory keeps the last 200 commands (cursor moved with the trim) and refuses bad patches', () => {
+    const cmd = (i) => ({
+      type: 'elements',
+      args: { elements: { a: { hidden: true } } },
+      inverse: {},
+      label: `${i}`,
+    });
+    const h = normalizeHistory({ commands: Array.from({ length: 205 }, (_, i) => cmd(i)), cursor: 203 });
+    expect(h.commands).toHaveLength(HISTORY_LIMIT);
+    expect(h.commands[0].label).toBe('5');
+    expect(h.cursor).toBe(198);
+    expect(normalizeHistory(undefined)).toEqual({ commands: [], cursor: 0 });
+    expect(normalizeHistory({ commands: [cmd(0)], cursor: 9 }).cursor).toBe(1);
+    expect(() => normalizeHistory({ commands: [{ args: {} }] })).toThrow(/type/);
+    expect(() => normalizeHistory({ commands: [{ type: 'x', args: { decks: {} } }] })).toThrow(
+      /unknown patch key/,
+    );
+    expect(() => normalizeHistory({ commands: {} })).toThrow(/array/);
+  });
+
+  it('P4.2: hidden is a slide override (true kept, false dropped); a log may carry content patches', () => {
+    expect(normalizeOverrides({ slides: { s2: { hidden: true }, s3: { hidden: false } } })).toEqual({
+      slides: { s2: { hidden: true } },
+    });
+    expect(() => normalizeOverrides({ slides: { s2: { hidden: 'yes' } } })).toThrow(/boolean/);
+    const cmd = {
+      type: 'moveSlide',
+      args: { content: { order: ['s2', 's1'] } },
+      inverse: { content: { order: ['s1', 's2'], slides: { s3: null } } },
+    };
+    expect(normalizeHistory({ commands: [cmd], cursor: 1 }).commands[0]).toEqual(cmd);
+    expect(() => normalizeHistory({ commands: [{ type: 'x', args: { content: { order: [1] } } }] })).toThrow(
+      /order/,
+    );
+    expect(() => normalizeHistory({ commands: [{ type: 'x', args: { content: { blocks: {} } } }] })).toThrow(
+      /unknown key/,
+    );
+  });
+
+  it('contentErrors: the content schema, plus unique slide ids (negative)', () => {
+    const ok = { schema: 'content/2', slides: [{ id: 's1', title: 'A', blocks: [] }] };
+    expect(contentErrors(ok)).toEqual([]);
+    expect(contentErrors({ schema: 'content/2', slides: [] })[0].pointer).toBe('/slides');
+    expect(contentErrors({ ...ok, slides: [...ok.slides, ...ok.slides] })).toEqual([
+      { pointer: '/slides/1/id', message: 'duplicate slide id "s1"' },
+    ]);
+    expect(contentErrors(null)[0].message).toMatch(/object/);
+    expect(
+      contentErrors({ schema: 'content/2', slides: [{ id: 's1', blocks: [{ type: 'points' }] }] }).length,
+    ).toBeGreaterThan(0);
   });
 
   it('markdownTitle reads the front matter title, else the first heading', () => {
@@ -172,9 +247,16 @@ describeInput('the Studio API on golden/brands/stripe', () => {
 
   it('GET /api/studio/contents: the showcase first, then content/*.md (README skipped)', async () => {
     const { body } = await get('/api/studio/contents');
+    // Markdown decks are imports (P4.2): listed read-only
     expect(body).toEqual([
-      { id: 'showcase', title: 'Showcase deck v2', file: 'golden/showcase/showcase.md' },
-      { id: 'pitch', title: 'Pitch', file: 'content/pitch.md' },
+      {
+        id: 'showcase',
+        title: 'Showcase deck v2',
+        file: 'golden/showcase/showcase.md',
+        source: 'markdown',
+        readOnly: true,
+      },
+      { id: 'pitch', title: 'Pitch', file: 'content/pitch.md', source: 'markdown', readOnly: true },
     ]);
   });
 
@@ -260,6 +342,150 @@ describeInput('the Studio API on golden/brands/stripe', () => {
     await send('PUT', '/api/studio/overrides/showcase/stripe', { slides: {} });
   });
 
+  it('compose applies element overrides after compose: frame (text re-fitted), colour, hidden; checks see the painted deck', async () => {
+    const plain = (await send('POST', '/api/studio/compose', { brandId: 'stripe', contentId: 'showcase' }))
+      .body;
+    const title = plain.deck.slides[3].elements.find((e) => e.slot === 'title' && e.type === 'text');
+    const frame = { ...title.frame, w: 360 };
+    const { status, body } = await send('POST', '/api/studio/compose', {
+      brandId: 'stripe',
+      contentId: 'showcase',
+      overrides: {
+        slides: {},
+        elements: {
+          [title.id]: { frame, color: '#123456' },
+          's2-title': { hidden: true },
+          ghost: { locked: true },
+        },
+      },
+    });
+    expect(status).toBe(200);
+    const t = body.deck.slides[3].elements.find((e) => e.id === title.id);
+    expect(t.frame).toEqual(frame);
+    expect(t.text.lines.length).toBeGreaterThan(title.text.lines.length);
+    expect(t.text.font.color).toBe('#123456');
+    expect(body.overrides.elements[title.id]).toEqual({ frame, color: '#123456' });
+    // hidden: kept in the deck JSON, not seen by the checks
+    expect(body.deck.slides[1].elements.find((e) => e.id === 's2-title').hidden).toBe(true);
+    const contrastItems = body.checks.results.find((r) => r.id === 'contrast').items;
+    expect(contrastItems.some((it) => it.elementId === 's2-title')).toBe(false);
+    expect(body.warnings.some((w) => w.elementId === 'ghost' && /unknown element/.test(w.message))).toBe(
+      true,
+    );
+    expect(body.report.counts.elementOverrides).toBe(3);
+    // an invalid element override -> 400
+    const bad = await send('POST', '/api/studio/compose', {
+      brandId: 'stripe',
+      contentId: 'showcase',
+      overrides: { slides: {}, elements: { [title.id]: { color: 'teal' } } },
+    });
+    expect(bad.status).toBe(400);
+  });
+
+  it('a re-fit that still overflows reports the overflow (warning + the overflow check item with its fix)', async () => {
+    const plain = (await send('POST', '/api/studio/compose', { brandId: 'stripe', contentId: 'showcase' }))
+      .body;
+    const title = plain.deck.slides[3].elements.find((e) => e.slot === 'title' && e.type === 'text');
+    const { body } = await send('POST', '/api/studio/compose', {
+      brandId: 'stripe',
+      contentId: 'showcase',
+      overrides: { slides: {}, elements: { [title.id]: { frame: { ...title.frame, w: 90, h: 24 } } } },
+    });
+    const t = body.deck.slides[3].elements.find((e) => e.id === title.id);
+    expect(t.text.fit.overflow).toBe(true);
+    expect(body.warnings.filter((w) => w.check === 'overflow' && w.elementId === title.id)).toHaveLength(1);
+    const item = body.checks.results
+      .find((r) => r.id === 'overflow')
+      .items.find((it) => it.elementId === title.id);
+    expect(item.fix).toEqual({ command: 'refit' });
+    // the fix for it: drop the frame override
+    const fix = await send('POST', '/api/studio/fix', {
+      brandId: 'stripe',
+      contentId: 'showcase',
+      item,
+      overrides: { slides: {}, elements: { [title.id]: { frame: { ...title.frame, w: 90, h: 24 } } } },
+    });
+    expect(fix.status).toBe(200);
+    expect(fix.body.elements).toEqual({ [title.id]: null });
+  });
+
+  it('POST /api/studio/fix: move-inside / reset as element overrides; bad items -> 400', async () => {
+    const plain = (await send('POST', '/api/studio/compose', { brandId: 'stripe', contentId: 'showcase' }))
+      .body;
+    const title = plain.deck.slides[3].elements.find((e) => e.slot === 'title' && e.type === 'text');
+    const overrides = { slides: {}, elements: { [title.id]: { frame: { ...title.frame, x: 0 } } } };
+    const composed = (
+      await send('POST', '/api/studio/compose', { brandId: 'stripe', contentId: 'showcase', overrides })
+    ).body;
+    const item = composed.checks.results
+      .find((r) => r.id === 'margins')
+      .items.find((it) => it.elementId === title.id);
+    expect(item.fix).toEqual({ command: 'move-inside' });
+    const r = await send('POST', '/api/studio/fix', {
+      brandId: 'stripe',
+      contentId: 'showcase',
+      item,
+      overrides,
+    });
+    expect(r.status).toBe(200);
+    expect(r.body.elements[title.id].frame.x).toBe(138);
+    const reset = await send('POST', '/api/studio/fix', {
+      brandId: 'stripe',
+      contentId: 'showcase',
+      item: { elementId: title.id, fix: { command: 'reset' } },
+      overrides,
+    });
+    expect(reset.body.elements).toEqual({ [title.id]: null });
+    const bad = await send('POST', '/api/studio/fix', {
+      brandId: 'stripe',
+      contentId: 'showcase',
+      item: { elementId: 'ghost', fix: { command: 'reset' } },
+    });
+    expect(bad.status).toBe(400);
+    expect((await send('POST', '/api/studio/fix', { brandId: 'stripe', contentId: 'showcase' })).status).toBe(
+      400,
+    );
+  });
+
+  it('PUT overrides stores element overrides beside the slide overrides (same file, `elements` key)', async () => {
+    const value = { slides: { s5: { surface: 'navy' } }, elements: { 's4-title': { locked: true } } };
+    const put = await send('PUT', '/api/studio/overrides/showcase/stripe', value);
+    expect(put).toEqual({ status: 200, body: value });
+    const file = join(root, 'content', 'overrides', 'showcase.stripe.json');
+    expect(JSON.parse(readFileSync(file, 'utf8'))).toEqual(value);
+    const { body } = await send('POST', '/api/studio/compose', { brandId: 'stripe', contentId: 'showcase' });
+    expect(body.deck.slides[3].elements.find((e) => e.id === 's4-title').locked).toBe(true);
+    await send('PUT', '/api/studio/overrides/showcase/stripe', { slides: {} });
+  });
+
+  it('GET / PUT /api/studio/history/:content/:brand persist the command log to content/history/', async () => {
+    expect(await get('/api/studio/history/showcase/stripe')).toEqual({
+      status: 200,
+      body: { commands: [], cursor: 0 },
+    });
+    const value = {
+      commands: [
+        {
+          type: 'elements',
+          label: 'Move',
+          slideId: 's4',
+          args: { elements: { 's4-title': { locked: true } } },
+          inverse: { elements: { 's4-title': null } },
+        },
+      ],
+      cursor: 1,
+    };
+    const put = await send('PUT', '/api/studio/history/showcase/stripe', value);
+    expect(put).toEqual({ status: 200, body: value });
+    const file = join(root, 'content', 'history', 'showcase.stripe.json');
+    expect(JSON.parse(readFileSync(file, 'utf8'))).toEqual(value);
+    expect((await get('/api/studio/history/showcase/stripe')).body).toEqual(value);
+    expect((await send('PUT', '/api/studio/history/showcase/stripe', { commands: [{}] })).status).toBe(400);
+    expect((await send('PUT', '/api/studio/history/ghost/stripe', value)).status).toBe(404);
+    // content/history is not listed as a deck folder
+    expect((await get('/api/studio/contents')).body.map((c) => c.id)).toEqual(['showcase', 'pitch']);
+  });
+
   it("GET /api/studio/layouts?kind= lists the kind's layouts with their boxes (role + frame); no kind = all", async () => {
     const { body } = await get('/api/studio/layouts?kind=bullets&brandId=stripe');
     // S2.a slice 2: the kind's default first, then its variants (two columns of points, main + aside layouts)
@@ -331,5 +557,161 @@ describeInput('the Studio API on golden/brands/stripe', () => {
       readFileSync(join(root, 'out', 'stripe', 'studio', 'pitch', 'deck.json'), 'utf8'),
     );
     expect(deck.slides[0].kind).toBe('cover');
+  });
+  // ---- P4.2: the content documents (GET / PUT / import), read-only Markdown decks ----
+
+  it('GET /api/studio/content/:id: a Markdown deck is its parse, placeholders as written, read-only', async () => {
+    const { status, body } = await get('/api/studio/content/showcase');
+    expect(status).toBe(200);
+    expect(body).toMatchObject({ schema: 'content/2', source: 'markdown', readOnly: true });
+    expect(body.slides[0].title).toBe('{brand.name}');
+    expect(body.slides).toHaveLength(38);
+    expect((await get('/api/studio/content/ghost')).status).toBe(404);
+    // read-only: a PUT answers 409 and writes nothing
+    const put = await send('PUT', '/api/studio/content/showcase?brandId=stripe', body);
+    expect(put.status).toBe(409);
+    expect(put.body.error).toMatch(/read-only/);
+  });
+
+  it('POST /api/studio/content/import: a Markdown deck as content/<id>.content.json, listed as json, with its overrides', async () => {
+    await send('PUT', '/api/studio/overrides/showcase/stripe', { slides: { s3: { surface: 'navy' } } });
+    const r = await send('POST', '/api/studio/content/import', {
+      from: 'showcase',
+      id: 'review-copy',
+      title: 'Review copy',
+    });
+    expect(r.status).toBe(200);
+    expect(r.body).toMatchObject({
+      id: 'review-copy',
+      title: 'Review copy',
+      file: 'content/review-copy.content.json',
+      source: 'json',
+      readOnly: false,
+    });
+    expect(r.body.content.slides[0].title).toBe('{brand.name}');
+    const file = join(root, 'content', 'review-copy.content.json');
+    expect(JSON.parse(readFileSync(file, 'utf8'))).toEqual(r.body.content);
+    expect(
+      JSON.parse(readFileSync(join(root, 'content', 'overrides', 'review-copy.stripe.json'), 'utf8')),
+    ).toEqual({
+      slides: { s3: { surface: 'navy' } },
+    });
+    const list = (await get('/api/studio/contents')).body;
+    expect(list.at(-1)).toEqual({
+      id: 'review-copy',
+      title: 'Review copy',
+      file: 'content/review-copy.content.json',
+      source: 'json',
+      readOnly: false,
+    });
+    expect((await get('/api/studio/content/review-copy')).body).toMatchObject({
+      source: 'json',
+      readOnly: false,
+    });
+    // the copy composes as the original (same elements; the brand name resolved at compose time)
+    const a = await send('POST', '/api/studio/compose', { brandId: 'stripe', contentId: 'showcase' });
+    const b = await send('POST', '/api/studio/compose', { brandId: 'stripe', contentId: 'review-copy' });
+    expect(b.body.deck.slides.map((x) => x.elements)).toEqual(a.body.deck.slides.map((x) => x.elements));
+    expect(b.body.checks.results.map((x) => x.id)).toContain('placeholder');
+    // a taken id, a bad id, an unknown source
+    expect(
+      (await send('POST', '/api/studio/content/import', { from: 'showcase', id: 'review-copy' })).status,
+    ).toBe(409);
+    expect(
+      (await send('POST', '/api/studio/content/import', { from: 'showcase', id: 'Bad Name' })).status,
+    ).toBe(400);
+    expect((await send('POST', '/api/studio/content/import', { from: 'ghost', id: 'x' })).status).toBe(404);
+  });
+
+  it('PUT /api/studio/content/:id validates (400 with the errors), writes, and answers the deck composed for brandId', async () => {
+    const doc = (await get('/api/studio/content/review-copy')).body;
+    delete doc.source;
+    delete doc.readOnly;
+    doc.slides[3] = { ...doc.slides[3], title: 'A **new** title' };
+    const r = await send('PUT', '/api/studio/content/review-copy?brandId=stripe', doc);
+    expect(r.status).toBe(200);
+    expect(r.body).toMatchObject({ brandId: 'stripe', contentId: 'review-copy', saved: true });
+    const title = r.body.deck.slides[3].elements.find((e) => e.id === 's4-title');
+    expect(title.text.paragraphs[0].runs).toEqual([
+      { text: 'A ' },
+      { text: 'new', bold: true },
+      { text: ' title' },
+    ]);
+    expect(title.source).toEqual({ path: '/title' });
+    expect(Array.isArray(r.body.checks.results)).toBe(true);
+    const stored = JSON.parse(readFileSync(join(root, 'content', 'review-copy.content.json'), 'utf8'));
+    expect(stored.slides[3].title).toBe('A **new** title');
+    // invalid: 400 with the schema errors, nothing written
+    const bad = await send('PUT', '/api/studio/content/review-copy?brandId=stripe', {
+      ...doc,
+      slides: [{ id: 's1', blocks: [{ type: 'points' }] }],
+    });
+    expect(bad.status).toBe(400);
+    expect(bad.body.errors.length).toBeGreaterThan(0);
+    expect(bad.body.errors[0]).toEqual(expect.objectContaining({ pointer: expect.any(String) }));
+    const dup = await send('PUT', '/api/studio/content/review-copy', {
+      ...doc,
+      slides: [doc.slides[0], doc.slides[0]],
+    });
+    expect(dup.status).toBe(400);
+    expect(dup.body.errors).toEqual([{ pointer: '/slides/1/id', message: 'duplicate slide id "s1"' }]);
+    expect(JSON.parse(readFileSync(join(root, 'content', 'review-copy.content.json'), 'utf8'))).toEqual(
+      stored,
+    );
+    // without brandId: written, no deck
+    expect((await send('PUT', '/api/studio/content/review-copy', doc)).body).toEqual({
+      contentId: 'review-copy',
+      saved: true,
+    });
+  });
+
+  it('a JSON document drops a block with an unresolvable placeholder; the sources point at the stored blocks', async () => {
+    const doc = {
+      schema: 'content/2',
+      title: 'Placeholders',
+      slides: [
+        {
+          id: 's1',
+          kind: 'text',
+          title: 'Hello',
+          blocks: [
+            { type: 'image', items: [{ src: '{brand.imagery.samples[99]}' }] },
+            { type: 'paragraph', text: 'Body text' },
+          ],
+        },
+      ],
+    };
+    writeFileSync(join(root, 'content', 'ph.content.json'), JSON.stringify(doc));
+    const r = await send('POST', '/api/studio/compose', { brandId: 'stripe', contentId: 'ph' });
+    expect(r.status).toBe(200);
+    const body = r.body.deck.slides[0].elements.find((e) => e.id === 's1-body');
+    expect(body.source).toEqual({ path: '/blocks/1/text' });
+    expect(r.body.warnings.map((w) => w.message)).toContain(
+      'image block dropped: unresolvable placeholder {brand.imagery.samples[99]}',
+    );
+  });
+
+  it('GET /api/studio/layouts carries the label, tags and default of each layout (the slide-kind picker)', async () => {
+    const { body } = await get('/api/studio/layouts?brandId=stripe');
+    const cycle = body.find((l) => l.id === 'process-cycle');
+    expect(cycle).toMatchObject({ kind: 'steps', label: 'Cycle', default: false });
+    expect(cycle.tags).toContain('process');
+    expect(body.find((l) => l.id === 'steps')).toMatchObject({ default: true, label: 'Steps' });
+  });
+
+  it('an export leaves out the slides hidden in the filmstrip', async () => {
+    await send('PUT', '/api/studio/overrides/review-copy/stripe', {
+      slides: { s2: { hidden: true }, s3: { surface: 'navy' } },
+    });
+    await server.studio.exportDeck({
+      brandId: 'stripe',
+      contentId: 'review-copy',
+      render: async () => ({ files: [] }),
+    });
+    const deck = JSON.parse(
+      readFileSync(join(root, 'out', 'stripe', 'studio', 'review-copy', 'deck.json'), 'utf8'),
+    );
+    expect(deck.slides.map((x) => x.id)).not.toContain('s2');
+    expect(deck.slides).toHaveLength(37);
   });
 });

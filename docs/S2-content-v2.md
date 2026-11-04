@@ -1,8 +1,9 @@
 # S2 — Content v2: the grammar (block types) and its aliases onto today's layouts
 
 Status: S2.a slice 1 (2026-10-31), built from docs/PLAN-studio.md §3.1 / §3.3 / §3.5 and the reference catalogue
-(docs/research/preset-content-catalogue.md §2, §4, §6). Contract: `schemas/content.schema.json` **v2.0**
-(`$id …/content.v2.0.json`). Code: `packages/engine/src/content/` (`parse.js` the Markdown reader, `fences.js` the
+(docs/research/preset-content-catalogue.md §2, §4, §6). Contract: `schemas/content.schema.json` **v2.1**
+(`$id …/content.v2.1.json`; v2.1, 2026-11-02: the `process` node `label`, docs/PLAN-catalogue.md D8 - every v2.0
+document is a valid v2.1 document). Code: `packages/engine/src/content/` (`parse.js` the Markdown reader, `fences.js` the
 fenced blocks, `blocks.js` the vocabulary + ranges, `upgrade.js` content/1 → content/2, `lower.js` the aliases onto
 today's layouts, `schema.js` the content/2 validators). Sample: `content/samples/all-blocks.md` (every block type once).
 
@@ -77,7 +78,7 @@ an error; the fitter still measures.
 | `items` | 2–10 | `heading` (40), `body?` (30–160), `icon?`, `image?`, `label?` (15) | `title?` (40) |
 | `subpoints` | 1–8 | `heading` (40), `lines[]` (≤ 4 lines, 40 each) | |
 | `kpis` | 1–8 | `value` (8), `heading?` (40), `body?` (40–350), `image?`, `trend?` up · down · flat | `nested?` |
-| `process` | 2–8 | `heading` (30), `body?` (30–60), `icon?` | `shape?` linear · cycle · funnel · pyramid · stack · hub · ladder · quadrant · venn · tree · converge · diverge |
+| `process` | 2–8 | `heading` (30), `body?` (30–60), `icon?`, `label?` (1–20, v2.1: a phase label - "2026", "Now", "Phase 1" - drawn in place of the number marker: up to 2 characters in the brand's marker, longer in a label box with no marker shape behind it) | `shape?` linear · cycle · funnel · pyramid · stack · hub · ladder · quadrant · venn · tree · converge · diverge |
 | `timeline` | 2–10 | `when?` (11), `heading` (30), `body?` (20–90), `lines[]?` (40), `icon?` | |
 | `chart` | 1–30 rows | — | `chartType` column · bar · line · area · pie · donut · stacked · grouped · stacked% · funnel · waterfall · scatter · radar · gauge (YAML `type:`), `categories`, `series[{name, values}]`, `text?{title, xAxis, yAxis, legend[], source}`, `highlight?`, `unit?` |
 | `table` | 2–8 rows × 2–8 cols | a cell is a string or `{type: text · heading · number · check · rating · image · logo · chip, text?, value?, src?, alt?}`; bare `true` / `false` = a check cell | `title?`, `subtitle?`, `header[]`, `rows[][]`, `align[]?`, `highlightColumn?`, `rowHeader?` |
@@ -273,7 +274,7 @@ showcase upgraded to content/2 composes to the same slides as the content/1 show
 | `items` | cards | cards {title: heading, text: body} | `items.title`, `items.icon`, `items.image`, `items.label` |
 | `subpoints` | cards | cards {title: heading, text: lines joined by line breaks} | |
 | `kpis` | kpi (one KPI too) | kpis {value, label: heading, trend} | `kpis.body`, `kpis.image`, `kpis.nested` |
-| `process` | steps | steps {title: heading, text: body} | `process.shape` (not linear: "drawn as linear steps"), `process.icon` |
+| `process` | steps | steps {title: heading, text: body, label} | `process.shape` (not linear: "drawn as linear steps"), `process.icon` |
 | `timeline` | timeline | timeline {when, title: heading, text: body + lines} | `timeline.icon` |
 | `chart` | chart | chart: column / bar / line / area / pie / donut / scatter drawn natively; stacked → stackedBar; grouped → column (multi-series columns); stacked% → stackedBar of each category's shares (unit %); funnel / waterfall / radar / gauge → column | `chart.text`; "chart type X rendered as column until its layout exists" |
 | `table` | table | rows of strings: rich cells as their text, check → ✓ / ✗ | `table.title`, `table.subtitle`, `table.highlightColumn`, `table.rowHeader`, `table.image cells` / `table.logo cells` (shown as their alt text) |

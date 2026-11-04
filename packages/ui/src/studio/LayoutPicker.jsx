@@ -2,6 +2,9 @@
 // wireframes (their boxes, built for this brand's Mood by the server), the current one marked; picking one pins it on
 // this slide (an override), picking the kind's default removes the pin. "Other kinds" lists the rest of the catalogue
 // (a pinned layout of another kind binds what it can of the slide's content; the engine reports what it drops).
+// C4: a content/2 slide is composed on a catalogue layout (`cat-l…`) by default; the picker lists the 68 only (C6 adds
+// the catalogue browser), so such a current layout is shown by its label, and picking the kind's default then pins it
+// (unpinned, the engine would pick the catalogue layout again).
 import { useEffect, useState } from 'react';
 import { studioApi } from '../api.js';
 import { cx } from '../lib/format.js';
@@ -71,7 +74,8 @@ function Option({ layout, current, onPick, disabled }) {
 }
 
 const cache = new Map();
-function loadLayouts(kind, brandId) {
+/** The catalogue's layouts for a kind (or all) built for a brand, cached per brand and kind. */
+export function loadLayouts(kind, brandId) {
   const key = `${brandId ?? ''}|${kind ?? '*'}`;
   if (!cache.has(key)) {
     const p = studioApi.layouts({ kind, brandId }).catch((err) => {
@@ -85,7 +89,11 @@ function loadLayouts(kind, brandId) {
 /** Forget the cached layouts (tests; a reconverted brand). */
 export const clearLayoutCache = () => cache.clear();
 
-export default function LayoutPicker({ kind, brandId, currentId, pinned, onPick, disabled }) {
+/** The label of a slide's layout: its catalogue slide (`slide.source.catalogue`, C4) or the layout id. */
+export const layoutLabel = (slide) =>
+  slide?.source?.catalogue ? `Catalogue ${slide.source.catalogue}` : (slide?.layoutId ?? '—');
+
+export default function LayoutPicker({ kind, brandId, currentId, currentLabel, pinned, onPick, disabled }) {
   const [state, setState] = useState({ mine: null, all: null, error: null });
   const [more, setMore] = useState(false);
 
@@ -111,10 +119,12 @@ export default function LayoutPicker({ kind, brandId, currentId, pinned, onPick,
     };
   }, [more, brandId, state.all]);
 
+  const fromCatalogue = typeof currentId === 'string' && currentId.startsWith('cat-');
   const pick = (layout) => {
     if (layout.id === currentId && pinned) return;
-    // the kind's default layout is what the engine picks anyway: no pin
-    onPick(layout.default ? null : layout.id);
+    // the kind's default layout is what the engine picks anyway: no pin - unless the slide is on a catalogue layout,
+    // which the engine would pick again (C4)
+    onPick(layout.default && !fromCatalogue ? null : layout.id);
   };
 
   if (state.error) return <p className="text-xs text-red-700">{state.error}</p>;
@@ -123,6 +133,12 @@ export default function LayoutPicker({ kind, brandId, currentId, pinned, onPick,
   const others = (state.all ?? []).filter((l) => !mineIds.has(l.id));
   return (
     <div data-testid="layout-picker">
+      {fromCatalogue ? (
+        <p className="mb-1 text-xs text-zinc-600" data-testid="layout-current">
+          Current: {currentLabel ?? currentId}
+          {pinned ? <span className="text-blue-700"> · pinned</span> : null}
+        </p>
+      ) : null}
       <div className="flex flex-wrap gap-1">
         {state.mine.map((l) => (
           <Option key={l.id} layout={l} current={l.id === currentId} onPick={pick} disabled={disabled} />

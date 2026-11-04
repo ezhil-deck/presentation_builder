@@ -49,7 +49,7 @@ const NODE_FIELDS = {
   items: { heading: [str, 'title'], body: [str, 'text'], icon: [str], image: [str], label: [str, 'number'] },
   subpoints: { heading: [str, 'title'], lines: [strList] },
   kpis: { value: [str], heading: [str, 'label'], body: [str, 'text'], image: [str], trend: [str] },
-  process: { heading: [str, 'title'], body: [str, 'text'], icon: [str] },
+  process: { heading: [str, 'title'], body: [str, 'text'], icon: [str], label: [str] },
   timeline: { when: [str], heading: [str, 'title'], body: [str, 'text'], lines: [strList], icon: [str] },
   quotes: {
     text: [str, 'quote'],

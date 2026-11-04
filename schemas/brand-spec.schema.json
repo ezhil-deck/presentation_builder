@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://presentations.ai/pb/schemas/brand-spec.v1.2.json",
+  "$id": "https://presentations.ai/pb/schemas/brand-spec.v1.3.json",
   "title": "BrandSpec v1",
   "description": "The normalised brand as the rules consume it. Produced by packages/brand from a Brand Presentation Spec input (schemas/input/). Data stays clean; where every value came from is in the `provenance` sidecar (JSON-pointer -> origin). Values the input does not give are NOT filled in: they are listed in `questions` and the pointer is absent.",
   "type": "object",
@@ -118,7 +118,8 @@
         "limits": { "type": "object", "properties": { "maxWordsPerSlide": { "type": "integer" }, "maxCharsPerLine": { "type": "integer" }, "maxTitleChars": { "type": "integer" }, "minBodySize": { "type": "number", "description": "canvas px (scaled like role sizes, D3)" } } },
         "sizeUnits": { "enum": ["site", "slide"], "description": "as given (D3): slide = sizes as given; site = every size x slideScale; absent (legacy) = sizes <= 40 x slideScale" },
         "slideScale": { "type": "number", "description": "as given (D3)" },
-        "scriptFallbacks": { "type": "object", "additionalProperties": { "type": "string" }, "description": "fallback family per script (cjk, arabic, devanagari, ...), typography level (D2)" }
+        "scriptFallbacks": { "type": "object", "additionalProperties": { "type": "string" }, "description": "fallback family per script (cjk, arabic, devanagari, ...), typography level (D2)" },
+        "pairs": { "type": "array", "description": "alternative heading / body font pairs the brand defines, each naming two keys of typography.faces (the input format has no field for them yet: absent for every brand read today)", "items": { "type": "object", "required": ["id", "heading", "body"], "properties": { "id": { "type": "string" }, "label": { "type": "string" }, "heading": { "type": "string" }, "body": { "type": "string" } } } }
       }
     },
 

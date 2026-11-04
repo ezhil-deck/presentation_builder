@@ -18,6 +18,7 @@ import * as motion from './rules/motion.js';
 import * as voice from './rules/voice.js';
 
 export { toKind, KIND_MAP, KINDS } from './kindMap.js';
+export { applyFontPair, basePair, fontPairList } from './fontPair.js';
 
 export const ENGINE_VERSION = assets.version;
 /** Kept for callers of the P0 stub. */

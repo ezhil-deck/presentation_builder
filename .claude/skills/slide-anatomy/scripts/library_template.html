@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slide Anatomy Library</title>
+<style>
+:root{--bg:#f6f5f2;--panel:#fff;--ink:#1d1d1b;--muted:#6b6a66;--line:#e2e0da;--accent:#3a5bd9;--chip:#efeee9;--warn:#c2410c;--shadow:0 1px 2px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.05)}
+@media (prefers-color-scheme:dark){:root{--bg:#161615;--panel:#1f1f1d;--ink:#ecebe7;--muted:#9b9a95;--line:#34332f;--accent:#8aa2ff;--chip:#2a2a27;--warn:#fb923c;--shadow:none}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
+header{padding:20px 24px 8px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+h1{font-size:20px;margin:0;font-weight:650;letter-spacing:-.01em}
+.sub{color:var(--muted)}
+nav{display:flex;gap:6px;flex-wrap:wrap;padding:8px 24px 14px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}
+nav button{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer;font:inherit}
+nav button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+nav button .n{color:var(--muted);margin-left:5px;font-size:12px}
+nav button.on .n{color:inherit;opacity:.7}
+main{padding:18px 24px 60px}
+.row{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px;margin-bottom:18px}
+@media (max-width:900px){.row{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;box-shadow:var(--shadow);min-width:0}
+.card h3{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+table{border-collapse:collapse;width:100%;font-size:13px}
+td,th{padding:4px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{position:relative;height:6px;background:var(--chip);border-radius:3px;min-width:80px}
+.bar i{position:absolute;top:0;bottom:0;background:var(--accent);opacity:.35;border-radius:3px}
+.bar b{position:absolute;top:-2px;width:2px;height:10px;background:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{background:var(--chip);border-radius:999px;padding:1px 8px;font-size:12px}
+.chip.w{color:var(--warn)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:4px 0 12px}
+select,input{font:inherit;padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.ref{background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;cursor:pointer}
+.ref:hover{outline:2px solid var(--accent)}
+.ref img{width:100%;display:block;aspect-ratio:16/9;object-fit:contain;background:#ddd}
+.ref .cap{padding:6px 8px;font-size:12px;display:flex;justify-content:space-between;gap:6px}
+.dlg{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;z-index:20}
+.dlg.on{display:block}
+.dlg .box{position:absolute;inset:2.5vh 2vw;background:var(--panel);border-radius:12px;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(320px,1fr);overflow:hidden}
+@media (max-width:900px){.dlg .box{grid-template-columns:1fr;overflow:auto}}
+.stage{padding:14px;overflow:auto;border-right:1px solid var(--line)}
+.side{padding:14px 16px;overflow:auto}
+.fig{position:relative}
+.fig img{width:100%;display:block}
+.fig svg{position:absolute;inset:0;width:100%;height:100%}
+.close{float:right;border:0;background:var(--chip);color:var(--ink);border-radius:6px;padding:4px 10px;cursor:pointer}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:13px}
+.kv span:nth-child(odd){color:var(--muted)}
+h4{margin:14px 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;border:1px solid var(--line);vertical-align:-1px;margin-right:3px}
+.doc{display:grid;grid-template-columns:220px minmax(0,1fr);gap:16px}
+@media (max-width:900px){.doc{grid-template-columns:1fr}}
+.doc .list button{display:block;width:100%;text-align:left;border:0;background:none;color:var(--ink);padding:6px 8px;border-radius:6px;cursor:pointer;font:inherit}
+.doc .list button.on{background:var(--chip)}
+.md{max-width:880px}
+.md h1{font-size:22px;margin:4px 0 12px}.md h2{font-size:17px;margin:22px 0 8px}.md h3{font-size:14px;margin:16px 0 6px}
+.md code{background:var(--chip);padding:1px 4px;border-radius:4px;font-size:12.5px}
+.md pre{background:var(--chip);padding:10px;border-radius:8px;overflow:auto}.md pre code{background:none;padding:0}
+.md table{margin:8px 0}
+.legend{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:12px;margin-top:8px}
+.toggles label{margin-right:10px;font-size:13px}
+</style>
+</head>
+<body>
+<header><h1>Slide Anatomy Library</h1><span class="sub" id="stats"></span></header>
+<nav id="nav"></nav>
+<main id="main"></main>
+<div class="dlg" id="dlg"><div class="box"><div class="stage"><div class="toggles"><label><input type="checkbox" id="tBox" checked> boxes</label><label><input type="checkbox" id="tLab" checked> labels</label><label><input type="checkbox" id="tMar" checked> margins + edge</label><label><input type="checkbox" id="tW" checked> weight centre</label></div><div class="fig" id="fig"></div><div class="legend" id="legend"></div></div><div class="side" id="side"></div></div></div>
+<script>
+const DATA = /*DATA*/null;
+const DOCS = /*DOCS*/null;
+const COL = {title:"#e62828",subtitle:"#f07828",eyebrow:"#f0a028",body:"#3c78e6",heading:"#285ac8",label:"#78a0e6","big-number":"#c800a0",date:"#009682",authors:"#00786e",legal:"#787878",source:"#787878","page-number":"#969696",footer:"#969696","footer-mark":"#969696",logo:"#00aa00","partner-logo":"#64c800","partner-label":"#64c800","hero-image":"#9600dc",cutout:"#be3cff",picture:"#9650dc","chart-or-diagram":"#00a0dc",panel:"#ffb400",card:"#ffc83c",band:"#ff9600","cut-shape":"#ff5a00",rule:"#5a5a5a",placeholder:"#ff0000",contact:"#008cc8",hidden:"#ff0000",decor:"#aa8866",icon:"#888",heading2:"#285ac8","small-text":"#9aa","background":"#000","background-art":"#000","footer-text":"#969696","brand-logo":"#00aa00","logo-item":"#3cbe3c","chart-exhibit":"#00a0dc",diagram:"#0082c8",illustration:"#00bedc",divider:"#3c3c3c",caption:"#5a8cc8",attribution:"#00786e","quote-mark":"#c800a0",unknown:"#ff00ff"};
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let OV = {}; try { OV = JSON.parse(localStorage.getItem("anatomy-overrides") || "{}"); } catch (e) {}
+const saveOV = () => { try { localStorage.setItem("anatomy-overrides", JSON.stringify(OV)); } catch (e) {} };
+const catOf = it => OV[it.id] || it.cat;
+const dlg = document.getElementById("dlg"), tBox = document.getElementById("tBox"), tLab = document.getElementById("tLab"), tMar = document.getElementById("tMar"), tW = document.getElementById("tW");
+let current = DATA.cats[0]?.key || "method";
+document.getElementById("stats").textContent = `${DATA.items.length} slides · ${DATA.decks} decks · ${DATA.firms} firms · categories set by rules (why shown per slide)`;
+
+function nav() {
+  const n = document.getElementById("nav");
+  const counts = {}; DATA.items.forEach(i => counts[catOf(i)] = (counts[catOf(i)] || 0) + 1);
+  n.innerHTML = DATA.cats.map(c => `<button data-k="${c.key}" class="${c.key === current ? "on" : ""}">${esc(c.name)}<span class="n">${counts[c.key] || 0}</span></button>`).join("") +
+    `<button data-k="method" class="${current === "method" ? "on" : ""}">Method</button>`;
+  n.querySelectorAll("button").forEach(b => b.onclick = () => { current = b.dataset.k; nav(); render(); });
+}
+
+function rangeRow(name, s) {
+  if (s == null) return "";
+  if (typeof s === "number") return `<tr><td>${esc(name)}</td><td class="num">${s}%</td><td colspan="2"><div class="bar"><i style="left:0;width:${s}%"></i></div></td></tr>`;
+  if (s.n === undefined) return `<tr><td>${esc(name)}</td><td colspan="3"><div class="chips">${Object.entries(s).map(([k, v]) => `<span class="chip">${esc(k)} · ${v}</span>`).join("")}</div></td></tr>`;
+  if (!s.n) return "";
+  return `<tr><td>${esc(name)}</td><td class="num"><b>${s.med}</b></td><td class="num">${s.p10} – ${s.p90}</td><td class="num">n ${s.n}</td></tr>`;
+}
+
+function render() {
+  const m = document.getElementById("main");
+  if (current === "method") return renderDocs(m);
+  const cat = DATA.cats.find(c => c.key === current);
+  const items = DATA.items.filter(i => catOf(i) === current);
+  const firms = [...new Set(items.map(i => i.firm))].sort();
+  const nOv = Object.keys(OV).length;
+  m.innerHTML = `
+  <div class="row">
+    <div class="card"><h3>${esc(cat.name)} · measured ranges (median, p10 – p90)</h3><table>${Object.entries(cat.summary).map(([k, v]) => rangeRow(k, v)).join("")}</table>
+      <p class="sub" style="margin:8px 0 0">Ranges are computed when the library is built (rule categories); hand corrections apply after a rebuild.</p></div>
+    <div class="card"><h3>By firm</h3><table><tr><th>Firm</th><th>n</th><th>Title %H</th><th>Title:body</th><th>Edge %W</th><th>Title top</th><th>Dark</th><th>Empty</th></tr>
+      ${cat.firms.map(f => `<tr><td>${esc(f.firm)}</td><td class="num">${f.n}</td><td class="num">${f.titlePctH ?? ""}</td><td class="num">${f.titleToBody ?? ""}</td><td class="num">${f.edge ?? ""}</td><td class="num">${f.titleTop ?? ""}</td><td class="num">${f.dark}%</td><td class="num">${f.empty ?? ""}</td></tr>`).join("")}</table></div>
+  </div>
+  <div class="tools"><select id="fFirm"><option value="">All firms (${items.length})</option>${firms.map(f => `<option>${esc(f)}</option>`).join("")}</select>
+    <select id="fQa"><option value="">Any QA</option><option value="none">No QA flag</option>${["placeholders","hidden","offEdgeText","lowContrast","tinyText","sizesOver5","titleOver25Words"].map(q => `<option>${q}</option>`).join("")}</select>
+    <input id="fTxt" placeholder="Search text…">
+    <span class="sub">${nOv} hand corrections in this browser</span>
+    ${nOv ? `<button id="exp" class="close" style="float:none">Export overrides.json</button>` : ""}</div>
+  <div class="grid" id="grid"></div>`;
+  const draw = () => {
+    const f = document.getElementById("fFirm").value, q = document.getElementById("fQa").value, t = document.getElementById("fTxt").value.toLowerCase();
+    const list = items.filter(i => (!f || i.firm === f) && (!q || (q === "none" ? !i.qa.length : i.qa.includes(q))) && (!t || i.els.some(e => (e.text || "").toLowerCase().includes(t))));
+    document.getElementById("grid").innerHTML = list.map(i => `<div class="ref" data-id="${esc(i.id)}"><img loading="lazy" src="${esc(i.img)}" alt=""><div class="cap"><span>${esc(i.firm)} · ${esc(i.slug.split("-").pop())} p${i.page}</span><span class="chips">${i.qa.map(x => `<span class="chip w">${esc(x)}</span>`).join("")}</span></div></div>`).join("");
+    document.querySelectorAll(".ref").forEach(r => r.onclick = () => open(DATA.items.find(i => i.id === r.dataset.id)));
+  };
+  ["fFirm", "fQa", "fTxt"].forEach(id => document.getElementById(id).oninput = draw);
+  const ex = document.getElementById("exp");
+  if (ex) ex.onclick = () => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(OV, null, 1)], {type: "application/json"})); a.download = "overrides.json"; a.click(); };
+  draw();
+}
+
+function svgFor(i) {
+  const H = 100 / i.aspect, sy = y => y * H / 100;
+  const tB = tBox.checked, tL = tLab.checked;
+  let s = `<svg viewBox="0 0 100 ${H}" preserveAspectRatio="none">`;
+  if (tB) for (const e of i.els) {
+    if (!e.role || e.role.startsWith("background")) continue;
+    const c = COL[e.role] || "#777", b = e.bbox;
+    s += `<rect x="${b[0]}" y="${sy(b[1])}" width="${b[2] - b[0]}" height="${sy(b[3] - b[1])}" fill="none" stroke="${c}" stroke-width=".25"><title>${esc(e.id + " " + e.role + " · " + (e.why || ""))}</title></rect>`;
+    if (tL) s += `<text x="${b[0] + .2}" y="${sy(b[1]) - .4}" font-size="1.3" fill="${c}" font-family="sans-serif">${esc(e.role)}</text>`;
+  }
+  if (tMar.checked && i.margins) {
+    const m = i.margins, open = m.open || [];
+    if (!open.includes("left")) s += `<line x1="${m.left}" x2="${m.left}" y1="0" y2="${H}" stroke="#00c8ff" stroke-width=".15"/>`;
+    if (!open.includes("right")) s += `<line x1="${100 - m.right}" x2="${100 - m.right}" y1="0" y2="${H}" stroke="#00c8ff" stroke-width=".15"/>`;
+    if (!open.includes("top")) s += `<line x1="0" x2="100" y1="${sy(m.top)}" y2="${sy(m.top)}" stroke="#00c8ff" stroke-width=".15"/>`;
+    if (!open.includes("bottom")) s += `<line x1="0" x2="100" y1="${sy(100 - m.bottom)}" y2="${sy(100 - m.bottom)}" stroke="#00c8ff" stroke-width=".15"/>`;
+    if (i.edge != null) s += `<line x1="${i.edge}" x2="${i.edge}" y1="0" y2="${H}" stroke="#ff0078" stroke-width=".2" stroke-dasharray=".8 .6"/>`;
+  }
+  if (tW.checked && i.weight) s += `<circle cx="${i.weight[0]}" cy="${sy(i.weight[1])}" r="1.2" fill="none" stroke="#ff0078" stroke-width=".3"/><line x1="${i.weight[0] - 2}" x2="${i.weight[0] + 2}" y1="${sy(i.weight[1])}" y2="${sy(i.weight[1])}" stroke="#ff0078" stroke-width=".2"/><line x1="${i.weight[0]}" x2="${i.weight[0]}" y1="${sy(i.weight[1]) - 2}" y2="${sy(i.weight[1]) + 2}" stroke="#ff0078" stroke-width=".2"/>`;
+  return s + "</svg>";
+}
+
+let openItem = null;
+function open(i) {
+  openItem = i;
+  const S = i.scale || {};
+  document.getElementById("fig").innerHTML = `<img src="${esc(i.img)}" alt="">` + svgFor(i);
+  const roles = [...new Set(i.els.map(e => e.role).filter(r => r && !r.startsWith("background")))];
+  document.getElementById("legend").innerHTML = roles.map(r => `<span><span class="sw" style="background:${COL[r] || "#777"}"></span>${esc(r)}</span>`).join("");
+  const kv = (o) => `<div class="kv">${o.filter(x => x[1] !== undefined && x[1] !== null && x[1] !== "").map(([k, v]) => `<span>${esc(k)}</span><span>${v}</span>`).join("")}</div>`;
+  const m = i.margins || {};
+  document.getElementById("side").innerHTML = `<button class="close" id="x">Close</button>
+    <h3 style="margin:0 0 4px">${esc(i.firm)} · ${esc(i.slug)} · page ${i.page} of ${i.pages}</h3>
+    <div class="sub" style="margin-bottom:8px">Category <select id="cat">${DATA.cats.map(c => `<option value="${c.key}" ${c.key === catOf(i) ? "selected" : ""}>${esc(c.name)}</option>`).join("")}</select> · rule: ${esc(i.why)}${OV[i.id] ? " · <b>corrected by hand</b>" : ""}</div>
+    <h4>L2 Composition</h4>${kv([["Background", i.bg ? `<span class="sw" style="background:${i.bg}"></span>${i.bg}${i.dark ? " (dark)" : ""}${i.bgArt ? " + art" : ""}` : null],
+      ["Margins L / T / R / B", `${m.left ?? "–"} / ${m.top ?? "–"} / ${m.right ?? "–"} / ${m.bottom ?? "–"}${(m.open || []).length ? " (open: " + m.open.join(", ") + ")" : ""}`],
+      ["Shared left edges", (i.edges || []).map(e => `${e[0]}% ×${e[1]}`).join(" · ")],
+      ["Zones", i.zones ? `${i.zones.split || "text only"} · text ${i.zones.textAreaPct}% · visual ${i.zones.visualAreaPct}%` : null],
+      ["Angles", i.angles && Object.keys(i.angles).length ? Object.entries(i.angles).map(([a, l]) => `${a}° (${l}% W of edge)`).join(", ") : null],
+      ["Images", (i.images || []).map(im => `${im.role} ${im.areaPct}%${im.bleed.length ? " bleed " + im.bleed.join("/") : ""}${im.transparent ? " cut-out" : ""}${im.breaksMargin ? " · breaks margin" : ""}`).join("<br>")]])}
+    <h4>Vertical rhythm (title column, % H)</h4>${i.steps.length ? `<table>${i.steps.map(s => `<tr><td>${esc(s[0])} → ${esc(s[1])}</td><td class="num">${s[2]}</td><td class="num sub">${s[3]}× title</td></tr>`).join("")}</table><div class="sub" style="margin-top:4px">Groups: ${i.groups.map(g => "[" + g.join(", ") + "]").join("  ")} · inner gap ${i.unit ?? "–"}</div>` : "<span class='sub'>no title column</span>"}
+    <h4>L3 Balance</h4>${kv([["Type sizes (% H)", (S.sizesPctH || []).join(" / ")], ["Adjacent ratios", (S.ratios || []).join(" / ")], ["Title : body", S.titleToBody], ["Title", S.titlePctH ? `${S.titlePctH}% H · ${S.titleWords} words · ${S.titleLines} lines · leading ${S.titleLeading ?? "–"}${S.titleCaps ? " · caps" : ""}` : null],
+      ["Emphasis runs", (S.emphasisRuns || []).join(", ")], ["Faces", (S.faces || []).join(", ")],
+      ["Logos", (i.logos || []).map(l => `${l.role} ${l.corner} · ${l.wPctW}% W × ${l.hPctH}% H · ${l.hToTitleSize ?? "–"}× title size`).join("<br>")],
+      ["Weight centre", i.weight ? `${i.weight[0]}% W, ${i.weight[1]}% H · left:right ${i.lr}` : null], ["Empty space", i.empty != null ? i.empty + "%" : null], ["Words", i.words],
+      ["Palette", (i.palette || []).map(c => `<span class="sw" style="background:${c}"></span>`).join("")]])}
+    <h4>QA</h4>${i.qa.length ? `<div class="chips">${i.qa.map(q => `<span class="chip w">${esc(q)}</span>`).join("")}</div>` : "<span class='sub'>no flags</span>"}
+    <h4>L1 Elements</h4><table><tr><th>id</th><th>role</th><th>text / kind</th><th>size</th><th>colour</th></tr>${i.els.filter(e => e.role && !e.role.startsWith("background")).map(e => `<tr title="${esc(e.why || "")}"><td>${e.id}</td><td><span class="sw" style="background:${COL[e.role] || "#777"}"></span>${esc(e.role)}</td><td>${esc(e.text || e.kind)}${e.font ? `<div class="sub">${esc(e.font)}</div>` : ""}</td><td class="num">${e.sizePctH ?? ""}</td><td>${e.colour ? `<span class="sw" style="background:${e.colour}"></span>` : ""}${e.fill ? `<span class="sw" style="background:${e.fill}"></span>` : ""}${e.contrast ? `<span class="sub">${e.contrast}:1</span>` : ""}</td></tr>`).join("")}</table>
+    <h4>L4 Intent</h4><p class="sub">Signature device, brand signal and notes are written by eye into record.json (SKILL.md step 6).</p>`;
+  document.getElementById("x").onclick = () => dlg.classList.remove("on");
+  document.getElementById("cat").onchange = e => { if (e.target.value === i.cat) delete OV[i.id]; else OV[i.id] = e.target.value; saveOV(); nav(); open(i); };
+  dlg.classList.add("on");
+}
+["tBox", "tLab", "tMar", "tW"].forEach(id => document.getElementById(id).onchange = () => openItem && (document.querySelector("#fig svg").outerHTML = svgFor(openItem)));
+dlg.onclick = e => { if (e.target === dlg) { dlg.classList.remove("on"); render(); } };
+document.addEventListener("keydown", e => { if (e.key === "Escape" && dlg.classList.contains("on")) { dlg.classList.remove("on"); render(); } });
+
+function md(t) {
+  let front = "";
+  const fm = t.match(/^---\n([\s\S]*?)\n---\n/);
+  if (fm) { const d = fm[1].match(/description:\s*(.*)/); front = d ? `<p class="sub">${esc(d[1])}</p>` : ""; t = t.slice(fm[0].length); }
+  const lines = t.split("\n"); let out = front, i = 0;
+  const inl = s => esc(s).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>").replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1");
+  while (i < lines.length) {
+    const l = lines[i];
+    if (l.startsWith("```")) { let c = []; i++; while (i < lines.length && !lines[i].startsWith("```")) c.push(lines[i++]); i++; out += `<pre><code>${esc(c.join("\n"))}</code></pre>`; continue; }
+    const h = l.match(/^(#{1,4})\s+(.*)/); if (h) { out += `<h${h[1].length}>${inl(h[2])}</h${h[1].length}>`; i++; continue; }
+    if (l.startsWith("|")) { let rows = []; while (i < lines.length && lines[i].startsWith("|")) rows.push(lines[i++]); rows = rows.filter(r => !/^\|[\s|:-]+\|$/.test(r));
+      out += "<table>" + rows.map((r, k) => "<tr>" + r.slice(1, -1).split("|").map(c => k ? `<td>${inl(c.trim())}</td>` : `<th>${inl(c.trim())}</th>`).join("") + "</tr>").join("") + "</table>"; continue; }
+    if (/^\s*([-*]|\d+\.)\s/.test(l)) { const ord = /^\s*\d+\./.test(l); let it = []; while (i < lines.length && (/^\s*([-*]|\d+\.)\s/.test(lines[i]) || /^\s{2,}\S/.test(lines[i]))) { if (/^\s*([-*]|\d+\.)\s/.test(lines[i])) it.push(lines[i].replace(/^\s*([-*]|\d+\.)\s/, "")); else it[it.length - 1] += " " + lines[i].trim(); i++; }
+      out += `<${ord ? "ol" : "ul"}>${it.map(x => `<li>${inl(x)}</li>`).join("")}</${ord ? "ol" : "ul"}>`; continue; }
+    if (!l.trim()) { i++; continue; }
+    let p = []; while (i < lines.length && lines[i].trim() && !/^(#|```|\||\s*([-*]|\d+\.)\s)/.test(lines[i])) p.push(lines[i++]);
+    out += `<p>${inl(p.join(" "))}</p>`;
+  }
+  return out;
+}
+let docSel = 0;
+function renderDocs(m) {
+  m.innerHTML = `<div class="doc"><div class="card list">${DOCS.docs.map((d, k) => `<button data-k="${k}" class="${k === docSel ? "on" : ""}">${esc(d.name)}</button>`).join("")}<h4>Scripts</h4>${DOCS.scripts.map(s => `<div class="sub" style="padding:2px 8px">${esc(s)}</div>`).join("")}</div><div class="card md">${md(DOCS.docs[docSel]?.text || "")}</div></div>`;
+  m.querySelectorAll(".list button").forEach(b => b.onclick = () => { docSel = +b.dataset.k; renderDocs(m); });
+}
+nav(); render();
+</script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+{
+  "blocks": {
+    "list_with_description": {
+      "n": 108,
+      "hit": 103,
+      "expect": "E3:items",
+      "resolved": {
+        "E3:items": 103
+      }
+    },
+    "simple_list": {
+      "n": 360,
+      "hit": 360,
+      "expect": "E3:points",
+      "resolved": {
+        "E3:points": 360
+      }
+    },
+    "paragraph": {
+      "n": 394,
+      "hit": 394,
+      "expect": "E3:paragraph-block",
+      "resolved": {
+        "E3:paragraph-block": 394
+      }
+    },
+    "kpi_block": {
+      "n": 420,
+      "hit": 420,
+      "expect": "E3:kpis",
+      "resolved": {
+        "E3:kpis": 420
+      }
+    },
+    "chart": {
+      "n": 312,
+      "hit": 309,
+      "expect": "E3:chart-block",
+      "resolved": {
+        "E3:chart-block": 309
+      }
+    },
+    "list_with_subpoints": {
+      "n": 84,
+      "hit": 84,
+      "expect": "E3:subpoints",
+      "resolved": {
+        "E3:subpoints": 84
+      }
+    },
+    "multi_column_list": {
+      "n": 36,
+      "hit": 34,
+      "expect": "E3:items",
+      "resolved": {
+        "E3:items": 34
+      }
+    },
+    "comparison": {
+      "n": 18,
+      "hit": 15,
+      "expect": "E3:compare",
+      "resolved": {
+        "E3:compare": 15
+      }
+    },
+    "roadmap": {
+      "n": 54,
+      "hit": 42,
+      "expect": "E3:timeline or E3:process",
+      "resolved": {
+        "E3:timeline": 19,
+        "E3:process": 23
+      }
+    },
+    "timeline": {
+      "n": 54,
+      "hit": 54,
+      "expect": "E3:timeline",
+      "resolved": {
+        "E3:timeline": 54
+      }
+    },
+    "table": {
+      "n": 28,
+      "hit": 28,
+      "expect": "E3:table-block",
+      "resolved": {
+        "E3:table-block": 28
+      }
+    },
+    "timeline_with_list": {
+      "n": 12,
+      "hit": 12,
+      "expect": "E3:timeline",
+      "resolved": {
+        "E3:timeline": 12
+      }
+    },
+    "title": {
+      "n": 1,
+      "hit": 1,
+      "expect": "none",
+      "resolved": {
+        "none": 1
+      }
+    },
+    "kpi_vb": {
+      "n": 156,
+      "hit": 156,
+      "expect": "E3:kpis",
+      "resolved": {
+        "E3:kpis": 156
+      }
+    }
+  },
+  "blocksMisses": {
+    "list_with_description -> E3:compare (compare.two-sides)": [
+      "L1-2/c1",
+      "L1-6/c1",
+      "L2-3/c1",
+      "L2-6/c1",
+      "L24-5/c1"
+    ],
+    "chart -> E3:points (points.bullets)": ["L7-8/c1"],
+    "chart -> -:unknown (none)": ["L8-53/c1", "L11-6/c2"],
+    "comparison -> E3:items (items.heading-description)": ["L15-9/c1", "L15-5/c1", "L15-11/c1"],
+    "roadmap -> E3:items (items.heading-description)": [
+      "L18-3/c1",
+      "L18-11/c1",
+      "L18-15/c1",
+      "L18-21/c1",
+      "L18-25/c1",
+      "L18-31/c1",
+      "L31-4/c1",
+      "L31-12/c1",
+      "L31-7/c1",
+      "L31-14/c1",
+      "L31-18/c1",
+      "L31-13/c1"
+    ],
+    "multi_column_list -> E3:compare (compare.two-sides)": ["L28-2/c1", "L28-6/c1"]
+  },
+  "fields": {
+    "heading": {
+      "n": 2619,
+      "hit": 2613,
+      "expect": "E2:heading",
+      "resolved": {
+        "E2:heading": 2613
+      }
+    },
+    "description": {
+      "n": 1185,
+      "hit": 1185,
+      "expect": "E2:description",
+      "resolved": {
+        "E2:description": 1185
+      }
+    },
+    "bullet": {
+      "n": 1014,
+      "hit": 1014,
+      "expect": "E2:bullet",
+      "resolved": {
+        "E2:bullet": 1014
+      }
+    },
+    "paragraph": {
+      "n": 394,
+      "hit": 394,
+      "expect": "E2:paragraph",
+      "resolved": {
+        "E2:paragraph": 394
+      }
+    },
+    "value": {
+      "n": 2043,
+      "hit": 2034,
+      "expect": "E2:big-number",
+      "resolved": {
+        "E2:big-number": 2034
+      }
+    },
+    "body": {
+      "n": 2043,
+      "hit": 2034,
+      "expect": "E2:body",
+      "resolved": {
+        "E2:body": 2034
+      }
+    },
+    "point": {
+      "n": 1093,
+      "hit": 1087,
+      "expect": "E2:label",
+      "resolved": {
+        "E2:label": 1087
+      }
+    },
+    "row": {
+      "n": 129,
+      "hit": 129,
+      "expect": "E3:cell",
+      "resolved": {
+        "E3:cell": 129
+      }
+    }
+  },
+  "fieldsMisses": {
+    "value -> E2:heading (heading.item)": [
+      "L4-96/c1/i3",
+      "L4-95/c1/i3",
+      "L4-134/c1/i2",
+      "L4-128/c1/i5",
+      "L4-140/c1/i5",
+      "L4-142/c1/i1",
+      "L8-35/c2/i3",
+      "L8-105/c2/i3",
+      "L37-59/c1/i1"
+    ],
+    "heading -> E2:description (description.under-heading)": [
+      "L4-96/c1/i3",
+      "L4-95/c1/i3",
+      "L4-134/c1/i2",
+      "L4-140/c1/i5",
+      "L8-35/c2/i3",
+      "L8-105/c2/i3"
+    ],
+    "body -> E2:description (description.under-heading)": [
+      "L4-96/c1/i3",
+      "L4-95/c1/i3",
+      "L4-134/c1/i2",
+      "L4-128/c1/i5",
+      "L4-140/c1/i5",
+      "L4-142/c1/i1",
+      "L8-35/c2/i3",
+      "L8-105/c2/i3",
+      "L37-59/c1/i1"
+    ],
+    "point -> E2:bullet (bullet.list-line)": [
+      "L7-8/c1/i1",
+      "L7-8/c1/i2",
+      "L7-8/c1/i3",
+      "L8-53/c1/i1",
+      "L11-6/c2/i1",
+      "L11-6/c2/i2"
+    ]
+  },
+  "header": {
+    "k": {
+      "n": 1077,
+      "hit": 1077,
+      "expect": "E2:eyebrow",
+      "resolved": {
+        "E2:eyebrow": 1077
+      }
+    },
+    "t": {
+      "n": 1077,
+      "hit": 1077,
+      "expect": "E2:title",
+      "resolved": {
+        "E2:title": 1077
+      }
+    },
+    "r": {
+      "n": 1077,
+      "hit": 1077,
+      "expect": "E2:rule",
+      "resolved": {
+        "E2:rule": 1077
+      }
+    },
+    "src": {
+      "n": 1076,
+      "hit": 1076,
+      "expect": "E2:source",
+      "resolved": {
+        "E2:source": 1076
+      }
+    },
+    "ft": {
+      "n": 1077,
+      "hit": 1077,
+      "expect": "E2:footer-text",
+      "resolved": {
+        "E2:footer-text": 1077
+      }
+    },
+    "lg": {
+      "n": 1077,
+      "hit": 1077,
+      "expect": "E2:brand-logo",
+      "resolved": {
+        "E2:brand-logo": 1077
+      }
+    }
+  },
+  "headerMisses": {},
+  "resolved": {
+    "roadmap": {
+      "E3:timeline": [
+        "L18-1/c1",
+        "L18-7/c1",
+        "L18-2/c1",
+        "L18-9/c1",
+        "L18-10/c1",
+        "L18-6/c1",
+        "L18-22/c1",
+        "L18-18/c1",
+        "L18-13/c1",
+        "L18-19/c1",
+        "L18-26/c1",
+        "L31-1/c1",
+        "L31-2/c1",
+        "L31-5/c1",
+        "L31-3/c1",
+        "L31-6/c1",
+        "L31-10/c1",
+        "L31-11/c1",
+        "L31-17/c1"
+      ],
+      "E3:process": [
+        "L18-8/c1",
+        "L18-4/c1",
+        "L18-5/c1",
+        "L18-12/c1",
+        "L18-14/c1",
+        "L18-20/c1",
+        "L18-16/c1",
+        "L18-24/c1",
+        "L18-17/c1",
+        "L18-23/c1",
+        "L18-32/c1",
+        "L18-28/c1",
+        "L18-34/c1",
+        "L18-30/c1",
+        "L18-36/c1",
+        "L18-27/c1",
+        "L18-33/c1",
+        "L18-29/c1",
+        "L18-35/c1",
+        "L31-8/c1",
+        "L31-9/c1",
+        "L31-16/c1",
+        "L31-15/c1"
+      ]
+    }
+  }
+}

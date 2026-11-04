@@ -212,6 +212,48 @@ describe('renderSlideToHtml', () => {
   });
 });
 
+describe('editor attributes and hidden elements (P4.1)', () => {
+  it('every element root carries data-element-id (and data-slot when the element has one)', () => {
+    const deck = loadDeck();
+    deck.slides[0].elements[0].slot = 'title';
+    const html = renderDeckToHtml(deck, OPTS);
+    for (const s of deck.slides)
+      for (const el of s.elements) expect(html).toContain(`data-element-id="${el.id}"`);
+    expect(elementHtml(html, deck.slides[0].elements[0].id)).toContain('data-slot="title"');
+  });
+
+  it('an element with hidden: true is not painted; the others are', () => {
+    const deck = loadDeck();
+    const [first, second] = deck.slides[0].elements;
+    first.hidden = true;
+    const validate = deckValidator();
+    expect(validate(deck)).toBe(true);
+    const html = renderDeckToHtml(deck, OPTS);
+    expect(html).not.toContain(`data-element-id="${first.id}"`);
+    if (second) expect(html).toContain(`data-element-id="${second.id}"`);
+    // a hidden child of a group is not painted either
+    const group = {
+      id: 'g',
+      type: 'group',
+      frame: { x: 0, y: 0, w: 100, h: 100 },
+      children: [
+        {
+          id: 'g-a',
+          type: 'shape',
+          frame: { x: 0, y: 0, w: 10, h: 10 },
+          shape: { kind: 'rect' },
+          hidden: true,
+        },
+        { id: 'g-b', type: 'shape', frame: { x: 0, y: 0, w: 10, h: 10 }, shape: { kind: 'rect' } },
+      ],
+    };
+    deck.slides[1].elements.push(group);
+    const html2 = renderDeckToHtml(deck, OPTS);
+    expect(html2).not.toContain('data-element-id="g-a"');
+    expect(html2).toContain('data-element-id="g-b"');
+  });
+});
+
 describe('text case', () => {
   it('applies upper / lower / title at render', () => {
     expect(applyCase('hello world', 'upper')).toBe('HELLO WORLD');

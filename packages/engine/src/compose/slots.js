@@ -1,5 +1,6 @@
 /** Bound slots -> deck elements (text fitted, charts / tables laid out, flow items placed). */
 import { parseInline } from '../content/inline.js';
+import { blockFieldSource, getPointer, itemSource, verifiedSource, wholeSource } from '../content/source.js';
 import { chartElement } from '../fit/chart.js';
 import { tableElement } from '../fit/table.js';
 import { ruleWidth } from '../fit/metrics.js';
@@ -128,11 +129,50 @@ function defaultAlign(box, mood) {
   return mood.type?.align?.body ?? 'left';
 }
 
+const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+const r4 = (n) => Math.round(n * 1e4) / 1e4;
+
+/** A content focal point ({x, y} fractions 0–1 of the image) when both coordinates are numbers, else null. */
+export function focalOf(focal) {
+  if (!focal || typeof focal !== 'object') return null;
+  const { x, y } = focal;
+  if (typeof x !== 'number' || typeof y !== 'number' || !Number.isFinite(x) || !Number.isFinite(y))
+    return null;
+  return { x: r4(clamp(x, 0, 1)), y: r4(clamp(y, 0, 1)) };
+}
+
+/**
+ * The crop (fractions 0–1 of the source, the deck's `image.crop`) that shows an image of `size` {width, height}
+ * covering `frame` with the focal point as near the frame's centre as the image allows (docs/P4-spec.md §2 "Images":
+ * the focal point decides which part of a cover image stays in view). null without the image's size.
+ */
+export function focalCrop(focal, size, frame) {
+  const f = focalOf(focal);
+  if (!f || !(size?.width > 0) || !(size?.height > 0) || !(frame?.w > 0) || !(frame?.h > 0)) return null;
+  const ia = size.width / size.height;
+  const fa = frame.w / frame.h;
+  const w = ia > fa ? fa / ia : 1;
+  const h = ia > fa ? 1 : ia / fa;
+  return {
+    x: r4(clamp(f.x - w / 2, 0, 1 - w)),
+    y: r4(clamp(f.y - h / 2, 0, 1 - h)),
+    w: r4(w),
+    h: r4(h),
+  };
+}
+
 function imageEl(id, frame, block, binding, ctx) {
   const image = { asset: ctx.assets.add(block.src), fit: 'cover' };
   if (block.alt) image.alt = block.alt;
   const mask = ctx.mood.decor?.imagery?.mask;
   if (mask) image.mask = mask;
+  // a content focal point (image.focal): kept on the element; with the image's size it crops the cover image
+  const focal = focalOf(block.focal);
+  if (focal) {
+    image.focal = focal;
+    const crop = focalCrop(focal, ctx.assets.info?.(block.src), frame);
+    if (crop) image.crop = crop;
+  }
   const el = { id, type: 'image', frame: rf(frame), z: 30, image };
   if (binding?.box?.role) el.role = binding.box.role;
   if (binding?.slot?.id) el.slot = binding.slot.id;
@@ -551,6 +591,9 @@ const ITEM_COMPONENT = {
   'logo-card': 'card',
 };
 
+/** R-FILLROOM: item layouts whose title gives its unused lines to the description in a catalogue fill box. */
+const ROOM_ITEMS = new Set(['step-number-title-text', 'timeline-when-title-text', 'card-title-text']);
+
 /**
  * Item layouts whose label / heading may give the lines it does not need to the text under it (content/2 rich
  * items: the heading box is sized for two lines).
@@ -589,6 +632,51 @@ export function linesParagraphs(lines, ctx) {
       out.push({ runs: parseInline(child.text ?? ''), level: 1, spaceAfter: gap });
   }
   return out;
+}
+
+/** A component's inner padding in px (tokens.padding / padding.0, else spacing.md). */
+function componentPadding(comp, ctx) {
+  const t = comp?.tokens ?? {};
+  return num(t.padding) ?? num(t['padding.0']) ?? ctx.R.spacing('md') ?? 0;
+}
+
+/**
+ * Items' content placed in their cells (a catalogue layout's recorded placement, C3.1): each item's elements (text at
+ * its fitted height) move down as one, by the room the tallest item's content leaves, so the content sits in the
+ * middle / at the bottom of the cells (at the bottom: as far from it as the content's top is from the cell's top, an
+ * item card's padding) and the items of a row stay level. Mutates the frames.
+ */
+function placeInCells(items, valign) {
+  const bottomOf = (e) =>
+    e.type === 'text' && e.text?.fit && (e.text.valign ?? 'top') === 'top'
+      ? e.frame.y + e.text.fit.height
+      : e.frame.y + e.frame.h;
+  const spans = items
+    .filter((x) => x.els.length)
+    .map((x) => {
+      const top = Math.min(...x.els.map((e) => e.frame.y));
+      return { ...x, top, h: Math.max(...x.els.map(bottomOf)) - top };
+    });
+  if (!spans.length) return;
+  const tallest = Math.max(...spans.map((x) => x.h));
+  for (const x of spans) {
+    // the content's own inset from the cell top (an item card's padding) is kept at the bottom too
+    const inset = Math.max(0, x.top - x.cell.y);
+    const room = x.cell.h - 2 * inset - tallest;
+    const dy = valign === 'bottom' ? room : (x.cell.h - tallest) / 2 - inset;
+    if (!(dy > 0.5)) continue;
+    const end = x.cell.y + x.cell.h;
+    for (const e of x.els) {
+      const y = e.frame.y + dy;
+      // a text box keeps to its cell (at least its fitted text): moved down, it gives up the room below the cell
+      const h =
+        e.type === 'text' && e.text?.fit && y + e.frame.h > end
+          ? Math.max(e.text.fit.height, end - y)
+          : e.frame.h;
+      e.frame = { ...e.frame, y: r2(y), h: r2(h) };
+      if (e.lineProps) e.lineProps = { ...e.lineProps, y2: r2(e.lineProps.y2 + dy) };
+    }
+  }
 }
 
 /** The component background of an item: the card rect (variant flat → none), a top-only border as its own bar. */
@@ -643,7 +731,10 @@ function itemFlowElements(binding, ctx) {
   const gap = ctx.R.spacing(flow.gap ?? 'md');
   const rows = Math.ceil(items.length / n);
   let cells;
-  if (column && (flow.columns ?? 1) > 1) {
+  if (Array.isArray(flow.cells) && flow.cells.length >= items.length) {
+    // the layout's own item cells (a catalogue layout whose items share their space with another block, C3)
+    cells = flow.cells.slice(0, items.length).map((c) => ({ x: c.x, y: c.y, w: c.w, h: c.h }));
+  } else if (column && (flow.columns ?? 1) > 1) {
     // a column flow over several columns (points in two columns): column-major, the column gap = the grid gutter
     const cols = Math.min(flow.columns, items.length);
     const per = Math.ceil(items.length / cols);
@@ -687,13 +778,28 @@ function itemFlowElements(binding, ctx) {
   const base = `${ctx.slideId}-${binding.slot.id}`;
   const component = ITEM_COMPONENT[flow.itemLayout];
   const unbound = new Set();
-  const fields = itemFields(flow.itemLayout, items, ctx);
+  const fields = itemFields(flow.itemLayout, items, ctx, flow);
+  // a catalogue layout's size-band roles for the item's slots (C3.1); none -> the item layout's own roles
+  const roles = flow.itemRoles ? { roles: flow.itemRoles } : {};
+  // a catalogue layout's numeral zone (C3.2, D7): the room and size band of the catalogue's numeral / year
+  if (flow.numeral) roles.numeral = flow.numeral;
+  // a catalogue layout drawing its items on the Mood's card (C3.1): the card component behind each cell, the item
+  // inside its padding; item layouts with their own card component draw it themselves
+  const cardBehind = flow.card && !component ? ctx.mood.components?.card : null;
   const plans = items.map((it, k) => {
-    const full = cells[k];
+    let full = cells[k];
+    const behind = cardBehind ? (componentBackground('card', full, ctx, `${base}-${k}-bg`) ?? []) : [];
+    if (cardBehind) full = inset(full, componentPadding(cardBehind, ctx));
     // a KPI with an image: the image is the cell's background (brand text-over-image rule) or a thumbnail above it
     const kpiImage = block.type === 'kpis' && it.image ? kpiImagePlan(it, full, `${base}-${k}`, ctx) : null;
     const cell = kpiImage?.inner ?? full;
-    let sub = ctx.catalogue.itemLayout(flow.itemLayout, { mood: ctx.mood, w: cell.w, h: cell.h, fields });
+    let sub = ctx.catalogue.itemLayout(flow.itemLayout, {
+      mood: ctx.mood,
+      w: cell.w,
+      h: cell.h,
+      fields,
+      ...roles,
+    });
     // avatar rule (PR-2): a person without a photo takes the avatar size (token, else two lines of the name role); the item
     // sub-layout is rebuilt with it so the name and role follow the avatar
     const photoSlot = sub.slots.find((x) => x.id === 'photo');
@@ -710,13 +816,21 @@ function itemFlowElements(binding, ctx) {
             avatar: { ...avatar, tokens: { ...(avatar.tokens ?? {}), size: a } },
           },
         };
-        sub = ctx.catalogue.itemLayout(flow.itemLayout, { mood, w: cell.w, h: cell.h, fields });
+        sub = ctx.catalogue.itemLayout(flow.itemLayout, { mood, w: cell.w, h: cell.h, fields, ...roles });
       }
     }
     const boxes = new Map(sub.boxes.map((b) => [b.id, b]));
-    const shapes = kpiImage ? [...kpiImage.elements] : [];
+    // a process node's label (D8, content v2.1) in place of its number: a short one (≤ 2 characters) in the number's
+    // marker, a longer one in the label box with no marker shape behind it
+    const stepLabel =
+      flow.itemLayout === 'step-number-title-text' && typeof it.label === 'string' && it.label !== ''
+        ? it.label
+        : null;
+    const longLabel = stepLabel !== null && [...stepLabel].length > 2;
+    const shapes = [...behind, ...(kpiImage ? kpiImage.elements : [])];
     for (const b of sub.boxes) {
       if (!b.shape || b.slot) continue;
+      if (longLabel && b.id === 'marker') continue;
       const f = offset(b.frame, cell);
       const id = `${base}-${k}-${b.id}`;
       const bg = component && b.id === 'bg' ? componentBackground(component, f, ctx, id) : null;
@@ -727,7 +841,11 @@ function itemFlowElements(binding, ctx) {
     const parts = [];
     for (const slot of sub.slots) {
       const b = boxes.get(slot.box);
-      const value = itemValue(slot.id, it, k);
+      let value = itemValue(slot.id, it, k);
+      if (flow.itemLayout === 'step-number-title-text') {
+        if (slot.id === 'number' && stepLabel !== null) value = longLabel ? undefined : stepLabel;
+        if (slot.id === 'label') value = longLabel ? stepLabel : undefined;
+      }
       used.add(slot.id === 'photo' ? (it.photo ? 'photo' : 'image') : slot.id === 'logo' ? 'src' : slot.id);
       const part = { slot, box: b, frame: offset(b.frame, cell), value };
       if (slot.id === 'icon') part.value = iconOf(ctx, it.icon) ?? undefined;
@@ -781,25 +899,40 @@ function itemFlowElements(binding, ctx) {
     // (every content/2 card item layout: a logo / quote / tier card on an accent surface may be lighter than its
     // cardText)
     if (GIVE_BACK.has(flow.itemLayout) && cardFill) onCard = textOn(cardFill, ctx);
-    return { k, cell, shapes, parts, it, onCard, nameRole };
+    if (cardBehind && cardFill) onCard = textOn(cardFill, ctx);
+    // shapes that stay where they are when the item's content is placed in its cell: the card behind it, a KPI image
+    const fixed = new Set([...behind, ...(kpiImage ? kpiImage.elements : [])]);
+    return { k, cell, shapes, parts, it, onCard, cardFill, nameRole, fixed };
   });
 
+  // a catalogue layout's items on the Mood's card (C3.2, D6 puts many on cards): a part keeps its role's own colour
+  // (a KPI value in the brand's stat colour) when it reads on the card's fill, else takes the card's text colour
+  const keepOwn = Boolean(flow.card || flow.itemRoles);
   const text = (part, k, size) => {
     const marker = part.slot.id === 'number' && plansHaveMarker(plans[k]);
     if (part.chip) return chipText(part, `${base}-${k}-${part.slot.id}`, size, ctx);
-    return textElement({
-      id: `${base}-${k}-${part.slot.id}`,
-      frame: part.frame,
-      role: part.slot.role ?? ROLE_BY_BOX[part.box?.role] ?? 'body',
-      box: null,
-      slot: null,
-      paragraphs: part.paragraphs ?? [{ runs: parseInline(part.value) }],
-      align: part.box?.align?.h ?? box.align?.h ?? 'left',
-      valign: part.box?.align?.v ?? 'top',
-      size,
-      color: part.color ?? (marker ? ctx.R.color('bg') : plans[k].onCard ? plans[k].onCard : undefined),
-      ctx,
-    });
+    const make = (color) =>
+      textElement({
+        id: `${base}-${k}-${part.slot.id}`,
+        frame: part.frame,
+        role: part.slot.role ?? ROLE_BY_BOX[part.box?.role] ?? 'body',
+        box: null,
+        slot: null,
+        paragraphs: part.paragraphs ?? [{ runs: parseInline(part.value) }],
+        align: part.box?.align?.h ?? box.align?.h ?? 'left',
+        valign: part.box?.align?.v ?? 'top',
+        size,
+        color,
+        ctx,
+      });
+    const onCard = plans[k].onCard;
+    if (part.color === undefined && !marker && onCard && keepOwn && plans[k].cardFill) {
+      const own = make(undefined);
+      const c = own?.text?.font?.color;
+      const need = (own?.text?.fit?.appliedSize ?? 0) >= 24 ? MIN_LITERAL_CONTRAST : 4.5;
+      if (c && contrastRatio(c, plans[k].cardFill) >= need) return own;
+    }
+    return make(part.color ?? (marker ? ctx.R.color('bg') : onCard ? onCard : undefined));
   };
   // logos without a src: the name takes the logo's room too, centred
   for (const p of plans) {
@@ -811,10 +944,13 @@ function itemFlowElements(binding, ctx) {
       if (name.value !== undefined) name.chip = chipSpec(name, p.cell, ctx);
     }
   }
-  // rich item cards: a label / heading that needs fewer lines than its box gives the rest to the body below it
-  if (GIVE_BACK.has(flow.itemLayout)) {
+  // rich item cards: a label / heading that needs fewer lines than its box gives the rest to the body below it;
+  // fill room rule (R-FILLROOM): in a catalogue box the fill steps (`box.fill`, marked `fillRoom` by pickFill) the
+  // step / timeline / card items' title does too, so the description's text box is the room the parts above it leave
+  const room = box.fillRoom === true && ROOM_ITEMS.has(flow.itemLayout);
+  if (GIVE_BACK.has(flow.itemLayout) || room) {
     for (const p of plans) {
-      for (const key of ['label', 'title', 'heading']) {
+      for (const key of GIVE_BACK.has(flow.itemLayout) ? ['label', 'title', 'heading'] : ['title']) {
         const part = p.parts.find((x) => x.slot.id === key && x.value !== undefined);
         if (!part) continue;
         const el = text(part, p.k);
@@ -853,8 +989,10 @@ function itemFlowElements(binding, ctx) {
   }
   const elements = [];
   let noSrc = 0;
+  const placed = [];
   for (const p of plans) {
     elements.push(...p.shapes);
+    const from = elements.length;
     for (const part of p.parts) {
       const id = `${base}-${p.k}-${part.slot.id}`;
       if (part.slot.type === 'image') {
@@ -916,7 +1054,17 @@ function itemFlowElements(binding, ctx) {
         }
       }
     }
+    // recorded placement rule (R-PLACE): inside a card the card is the anchor - an item drawn on a card (its own
+    // component card or the Mood's card behind the cell) keeps its content at the card's top padding; the card fills
+    // its cell and stays
+    const onCardAnchor = p.shapes.some((x) => /-bg$/.test(x.id ?? ''));
+    if ((flow.valign === 'middle' || flow.valign === 'bottom') && !onCardAnchor) {
+      // the item's content: its text / images and its own marks (a marker), not the card behind it
+      const own = p.shapes.filter((x) => !p.fixed.has(x) && !/-bg(-border-top)?$/.test(x.id));
+      placed.push({ cell: p.cell, els: [...own, ...elements.slice(from)] });
+    }
   }
+  if (placed.length) placeInCells(placed, flow.valign);
   if (noSrc) ctx.warn('logos', `${noSrc} logo item(s) without src: the name is shown as text`, 'info');
   for (const el of elements) {
     el.role ??= box.role ?? block.type;
@@ -1038,22 +1186,42 @@ function cropRatio(mood) {
  * rhythm): item-card {image (with a crop ratio), icon (a name that resolves), label, number (no icon resolves and the
  * brand's steps marker carries a number)}, steps / points {icon}.
  */
-function itemFields(layoutId, items, ctx) {
+function itemFields(layoutId, items, ctx, flow = {}) {
   const icon = items.some((it) => iconOf(ctx, it.icon));
+  // a catalogue layout whose items carry numerals (C3.1): the steps number marker when the brand's marker is a number
+  const numbered =
+    Boolean(flow.numbered) &&
+    !icon &&
+    String(ctx.mood.components?.steps?.tokens?.marker ?? '').includes('number');
   if (layoutId === 'item-card') {
     const marker = String(ctx.mood.components?.steps?.tokens?.marker ?? '');
     return {
       image: items.some((it) => it.image) && Boolean(cropRatio(ctx.mood)),
       icon,
       label: items.some((it) => it.label),
-      number: !icon && marker.includes('number'),
+      // a catalogue layout says whether its items are numbered (`flow.numbered`); the 68 layouts number every card
+      number: !icon && marker.includes('number') && flow.numbered !== false,
     };
   }
-  if (layoutId === 'step-number-title-text' || layoutId === 'point-marker-text') return icon ? { icon } : {};
+  // a process node's label (D8): the step layout's label box
+  if (layoutId === 'step-number-title-text')
+    return icon
+      ? { icon }
+      : items.some((it) => typeof it.label === 'string' && it.label)
+        ? { label: true }
+        : {};
+  if (layoutId === 'point-marker-text') return icon ? { icon } : {};
   // the content/2 item layouts of S2.a slice 3: which optional parts any item of the flow carries
   const any = (k) => items.some((it) => it[k] !== undefined && it[k] !== null && it[k] !== '');
   switch (layoutId) {
     case 'compare-column':
+      return {
+        image: any('image'),
+        label: any('label'),
+        price: any('price'),
+        per: any('per'),
+        ...(numbered ? { number: true } : {}),
+      };
     case 'tier-card':
       return { image: any('image'), label: any('label'), price: any('price'), per: any('per') };
     case 'quote-card':
@@ -1548,7 +1716,340 @@ function bandStyle(ctx) {
 }
 
 /** One binding -> its elements. */
+/**
+ * Bound slot -> deck elements; every text element made from the content names the content field it shows
+ * (`source: {path, paths?, join?}`, content/source.js - the editor writes an inline edit back there, docs/P4-spec.md
+ * §2). The element ids name the part: `<slide>-<slot>` shows the bound blocks, `<slide>-<slot>-<k>-<part>` item k's
+ * part, `<slide>-<slot>-<field>` a block field (a chart's title / source, a table's title); a pointer is kept only when
+ * the text it names is the text the element shows (generated text - step numbers, initials, a gauge value - has none).
+ */
 export function slotElements(binding, ctx) {
+  const out = elementsOf(binding, ctx);
+  if (binding.content && binding.sources) annotateSources(out, binding, ctx);
+  return out;
+}
+
+const elementsOf = (binding, ctx) =>
+  typeof binding.box?.fill === 'number' ? fillUp(binding, ctx) : slotElementsOf(binding, ctx);
+
+/** The roles a catalogue box may step its text up through (C3.1 fill): the brand's ones, by size, up to h1. */
+const FILL_LADDER = Object.freeze(['caption', 'bodySmall', 'body', 'bodyLarge', 'h3', 'h2', 'h1']);
+
+/**
+ * `role` stepped `k` places up the brand's fill ladder, no higher than `cap` (a role off the ladder, or k = 0:
+ * unchanged).
+ */
+export function stepRole(mood, role, k, cap = 'h1') {
+  const roles = mood.type?.roles ?? {};
+  if (!k || !FILL_LADDER.includes(role) || typeof roles[role]?.size !== 'number') return role;
+  // one rung per size (the first role in ladder order names it): a step always grows the text
+  const seen = new Set();
+  const ladder = FILL_LADDER.filter((r) => typeof roles[r]?.size === 'number')
+    .sort((a, b) => roles[a].size - roles[b].size)
+    .filter((r) => (seen.has(roles[r].size) ? false : (seen.add(roles[r].size), true)));
+  const at = (r) => ladder.findIndex((x) => roles[x].size === roles[r].size);
+  const i = at(role);
+  const top = typeof roles[cap]?.size === 'number' ? at(cap) : ladder.length - 1;
+  const j = Math.min(ladder.length - 1, i + k, Math.max(i, top));
+  return j === i ? role : ladder[j];
+}
+
+/** Item slots that hold running text (stepped no higher than h2, the approved fit-up's ceiling). */
+const TEXT_SLOTS = new Set(['text', 'body', 'label']);
+
+/**
+ * The flow's item roles stepped `k` places (running text - TEXT_SLOTS - `kText` places), the hierarchy kept: a title
+ * stays larger than its text.
+ */
+function steppedRoles(mood, itemRoles, k, kText = k) {
+  const out = Object.fromEntries(
+    Object.entries(itemRoles).map(([s, r]) => [
+      s,
+      TEXT_SLOTS.has(s) ? stepRole(mood, r, kText, 'h2') : stepRole(mood, r, k, 'h1'),
+    ]),
+  );
+  const size = (r) => mood.type?.roles?.[r]?.size ?? 0;
+  if (
+    out.title &&
+    out.text &&
+    size(itemRoles.title) > size(itemRoles.text) &&
+    size(out.title) <= size(out.text)
+  )
+    return null;
+  return out;
+}
+
+/** The share of a box's height its painted text / images / marks take (cards behind them left out). */
+function contentShare(els, frame) {
+  const ext = els
+    .filter((e) => !/-bg(-border-top)?$/.test(e.id ?? ''))
+    .map((e) => {
+      if (e.type === 'text' && e.text?.fit) {
+        const h = e.text.fit.height;
+        const free = Math.max(0, e.frame.h - h);
+        const dy = e.text.valign === 'bottom' ? free : e.text.valign === 'middle' ? free / 2 : 0;
+        return [e.frame.y + dy, e.frame.y + dy + h];
+      }
+      return [e.frame.y, e.frame.y + e.frame.h];
+    });
+  if (!ext.length || !(frame.h > 0)) return 0;
+  return (Math.max(...ext.map((x) => x[1])) - Math.min(...ext.map((x) => x[0]))) / frame.h;
+}
+
+/** Any text that overflowed or stepped down from its role. */
+const strained = (els) =>
+  els.some((e) => e.type === 'text' && (e.text?.fit?.overflow || (e.text?.fit?.steps ?? 0) > 0));
+
+/** One text element's strain: overflow (or a collapsed box holding text) and the steps it took down. */
+const strainOf = (e) => ({
+  // R-FILLROOM: a text box the parts above it left no room (0 px) holds no text: that is an overflow, never a hidden box
+  over: Boolean(e.text?.fit?.overflow) || (e.frame.h <= 0 && (e.text?.fit?.height ?? 0) > 0),
+  steps: e.text?.fit?.steps ?? 0,
+});
+
+/**
+ * R-FILLROOM: the strain a trial ADDS to the box as laid out at its base roles (`base`, the same binding without
+ * the fill): a text element that overflows where its base element did not, or is stepped down by more steps than in
+ * the base. An element the trial does not touch (a timeline's year, a marker, a label) keeps its base strain and never
+ * blocks a trial on its own.
+ */
+export function addsStrain(els, base) {
+  const was = new Map(base.filter((e) => e.type === 'text').map((e) => [e.id, strainOf(e)]));
+  return els.some((e) => {
+    if (e.type !== 'text') return false;
+    const now = strainOf(e);
+    const b = was.get(e.id) ?? { over: false, steps: 0 };
+    return (now.over && !b.over) || now.steps > b.steps;
+  });
+}
+
+/** R-FILLROOM: the heading : text size ratio a chosen pair keeps to (the measured item pairs: Pitch 45 / 26 = 1.73). */
+export const ROOM_RATIO = 2;
+/** R-FILLROOM: the largest ratio a pair may reach when none at its text size keeps ROOM_RATIO (Editorial 56 / 26 = 2.15). */
+export const ROOM_RATIO_MAX = 2.3;
+
+/**
+ * R-FILLROOM tries of a flow whose items have a heading and a description, given the base pick for the box (`def`:
+ * {title, text} roles, the C3.1 fill's pick without the room): every [k, kText] (k, kText from 3 down to 0) whose
+ * roles `steppedRoles` allows and that is (a) monotone - text size ≥ the base pick's text size and heading size ≥ its
+ * heading size, so the rule only grows a pair -, (b) heading strictly larger than the text (equal only when the base
+ * pair is equal) and (c) heading : text ≤ ROOM_RATIO_MAX, or the base pair itself. Tries giving the same
+ * roles as an earlier one are left out (they lay out the same).
+ */
+export function roomTries(mood, itemRoles, def = itemRoles) {
+  const size = (r) => mood.type?.roles?.[r]?.size ?? 0;
+  const same = (r) => r.title === def.title && r.text === def.text;
+  const equalDef = size(def.title) === size(def.text);
+  const out = [];
+  const seen = new Set();
+  for (let kText = 3; kText >= 0; kText -= 1) {
+    for (let k = 3; k >= 0; k -= 1) {
+      const r = steppedRoles(mood, itemRoles, k, kText);
+      if (!r || !(size(r.text) > 0)) continue;
+      if (size(r.text) < size(def.text) - 1e-9 || size(r.title) < size(def.title) - 1e-9) continue;
+      if (!(size(r.title) > size(r.text) + 1e-9) && !(equalDef && size(r.title) === size(r.text))) continue;
+      if (size(r.title) / size(r.text) > ROOM_RATIO_MAX + 1e-9 && !same(r)) continue;
+      const key = JSON.stringify(r);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push([k, kText]);
+    }
+  }
+  return out;
+}
+
+/**
+ * R-FILLROOM: the pair chosen among the tries that fit (`passing`: [{roles, …}]): the largest text; at that text size
+ * the largest heading with heading : text ≤ ROOM_RATIO, else the smallest ratio (≤ ROOM_RATIO_MAX, or the base pair
+ * itself, which `roomTries` alone lets past it). null when nothing fits.
+ */
+export function chooseRoom(mood, passing) {
+  if (!passing.length) return null;
+  const size = (r) => mood.type?.roles?.[r]?.size ?? 0;
+  const top = Math.max(...passing.map((p) => size(p.roles.text)));
+  const at = passing.filter((p) => size(p.roles.text) === top);
+  const ratio = (p) => size(p.roles.title) / size(p.roles.text);
+  const within = at.filter((p) => ratio(p) <= ROOM_RATIO + 1e-9);
+  if (within.length) return within.reduce((a, b) => (size(b.roles.title) > size(a.roles.title) ? b : a));
+  return at.reduce((a, b) => (ratio(b) < ratio(a) ? b : a));
+}
+
+/**
+ * Fill (C3.1, catalogue layouts: `box.fill` = the share of its zone the catalogue's text fills): the box's text roles
+ * step up the brand's ladder (FILL_LADDER, at most three steps; running text - a list, an item's text / body / label -
+ * never past h2, the approved fit-up's ceiling; titles and a paragraph never past h1; an item's title stays larger
+ * than its text) - the slot role of a text box, every role of a flow's `itemRoles` - to the largest step whose text
+ * still fits without stepping down and takes at most the catalogue's share + 10 points of the box; no step fits ->
+ * the box as laid out.
+ * The fill room rule (R-FILLROOM, was PR-F, approved 2026-11-03; docs/P2-spec.md §9): the box is marked `fillRoom`
+ * (its items' titles give their unused lines to the description), a try is rejected only for the strain it adds
+ * (`addsStrain`), and a flow with a heading and a description first computes the base pick (`room` false: the C3.1
+ * tries without the room, the first that fits with no strain at all) and takes `chooseRoom` of the `roomTries` that
+ * fit - never smaller than the base pick -, else the base pick drawn in the room.
+ */
+function pickFill(binding, ctx, room = true) {
+  const { box, slot } = binding;
+  const quiet = { ...ctx, warn: () => {} };
+  const plain = { ...binding, box: { ...box, fill: undefined, ...(room ? { fillRoom: true } : {}) } };
+  const roles0 = box.flow?.itemRoles;
+  const pair = Boolean(room && roles0?.title && roles0?.text);
+  // rule (a): the floor - the base pick for the box (the same layout, without the room)
+  const basePick = pair ? pickFill(binding, quiet, false) : null;
+  const tries = roles0
+    ? pair
+      ? roomTries(ctx.mood, roles0, basePick?.roles ?? roles0)
+      : FLOW_TRIES
+    : TEXT_TRIES;
+  const baseEls = room ? slotElementsOf(plain, quiet) : null;
+  const strainedTrial = baseEls ? (els) => addsStrain(els, baseEls) : strained;
+  const passing = [];
+  for (const [k, kText] of tries) {
+    const roles = roles0 ? steppedRoles(ctx.mood, roles0, k, kText) : null;
+    const role = slot.role ? stepRole(ctx.mood, slot.role, k, box.role === 'list' ? 'h2' : 'h1') : slot.role;
+    if ((roles0 && !roles) || (!roles && role === slot.role)) continue;
+    const trial = {
+      ...plain,
+      slot: { ...slot, role },
+      box: { ...plain.box, ...(roles ? { flow: { ...box.flow, itemRoles: roles } } : {}) },
+    };
+    const els = slotElementsOf(trial, quiet);
+    if (els.length && !strainedTrial(els) && contentShare(els, box.frame) <= box.fill + 0.1) {
+      passing.push({ trial, roles, role, k, kText });
+      // the first that fits wins, except a heading / description pair, chosen among every try that fits
+      if (!pair) break;
+    }
+  }
+  const chosen = pair ? chooseRoom(ctx.mood, passing) : (passing[0] ?? null);
+  // nothing fits - the base pick stays (drawn in the room the rule gives)
+  if (pair && !chosen && basePick)
+    return { ...basePick, trial: { ...basePick.trial, box: { ...basePick.trial.box, fillRoom: true } } };
+  return chosen ?? { trial: plain };
+}
+
+function fillUp(binding, ctx) {
+  return slotElementsOf(pickFill(binding, ctx).trial, ctx);
+}
+
+/**
+ * The fill's [title, text] steps (C3.2): a flow's titles / values may step one rung further than its running text
+ * (one rung of running text can be a large jump, body 22 -> h2 36 px, which a card's text does not take while its
+ * title does). A text box steps its one role.
+ */
+const FLOW_TRIES = Object.freeze([
+  [3, 3],
+  [3, 2],
+  [2, 2],
+  [2, 1],
+  [1, 1],
+  [1, 0],
+]);
+const TEXT_TRIES = Object.freeze([
+  [3, 3],
+  [2, 2],
+  [1, 1],
+]);
+
+/**
+ * A chart or a table laid out again in `frame` (P4.3: they resize with their frame, docs/P4-spec.md §9): the lowered
+ * `block` the element was drawn from, bound to a box of that frame in the element's slot - the chart's / table's own
+ * title, subtitle and source stay the elements compose made (they are not laid out again), a table keeps the row
+ * height the compose gave it as its layout's row height. Returns the elements that replace `el` and its drawn parts
+ * (`<id>`, `<id>-value`, `<id>-cell-*`), sources annotated against `content` (the content slide).
+ */
+export function relayoutGraphic(el, frame, { block, content, sources, ctx }) {
+  const bare = { ...block };
+  if (el.type === 'chart' && block.text) {
+    bare.text = { ...block.text };
+    delete bare.text.title;
+    delete bare.text.source;
+  } else if (el.type === 'table') {
+    delete bare.title;
+    delete bare.subtitle;
+  }
+  const map = new Map(sources ?? []);
+  if (map.has(block)) map.set(bare, map.get(block));
+  const rowH = el.type === 'table' ? Math.max(0, ...(el.table?.rowHeights ?? [])) : 0;
+  const box = { id: el.layoutBox, role: el.role, frame, ...(rowH > 0 ? { table: { rowHeight: rowH } } : {}) };
+  const binding = { slot: { id: el.slot }, box, blocks: [bare], content, sources: map };
+  return slotElements(binding, ctx);
+}
+
+const ITEM_PART_RE = /^-(\d+)-([A-Za-z]+)$/;
+const FIELD_PART_RE = /^-(title|subtitle|source|caption|label)$/;
+/** A non-text part of node k of a flow (its card, marker, icon, image…): `-<k>` or `-<k>-<part…>`. */
+const NODE_PART_RE = /^-(\d+)(?:-([A-Za-z]+)[A-Za-z0-9-]*)?$/;
+/** The content node fields an image part of a node shows (first string present wins). */
+const IMAGE_FIELDS = { photo: ['photo', 'image'], logo: ['src', 'logo'], image: ['image', 'photo', 'src'] };
+
+/**
+ * The `source` of a non-text element (P4.3): a chart / table and its drawn parts point at their block
+ * (`/blocks/<i>`), an image at the string that names its file (`/blocks/<i>/items/<k>/src`, a node's `image` /
+ * `photo` / `src`, a compare column's `image`), a node part of a flow at its node (`/blocks/<i>/items/<k>`,
+ * `/blocks/<i>/columns/<c>`), any other part of a flow at the block. Kept only when the pointer names a value of the
+ * content slide. `rest` = the element id after `<slide>-<slot>`.
+ */
+function graphicSource(el, rest, desc, first, content) {
+  const ok = (path) => (path && getPointer(content, path) !== undefined ? { path } : null);
+  const str = (path) => (path && typeof getPointer(content, path) === 'string' ? { path } : null);
+  if (!desc) return null;
+  // an image bound from a field (a `<flow>-photo` slot): the field
+  if (desc.paths) return el.type === 'image' && rest === '' ? str(desc.paths[0]) : null;
+  if (!desc.path) return null;
+  const orig = desc.orig ?? first;
+  const type = orig?.type ?? desc.type;
+  if (type === 'chart' || type === 'table') return ok(desc.path);
+  if (type === 'image') {
+    if (el.type !== 'image') return ok(desc.path);
+    const k = Number(/^-(\d+)$/.exec(rest)?.[1] ?? 0);
+    return Array.isArray(orig.items) ? str(`${desc.path}/items/${k}/src`) : str(`${desc.path}/src`);
+  }
+  const node = NODE_PART_RE.exec(rest);
+  if (node) {
+    const container = type === 'compare' ? 'columns' : 'items';
+    const at = `${desc.path}/${container}/${node[1]}`;
+    const fields = el.type === 'image' ? IMAGE_FIELDS[node[2]] : null;
+    if (fields) {
+      const value = getPointer(content, at);
+      const key = fields.find((f) => typeof value?.[f] === 'string');
+      if (key) return str(`${at}/${key}`);
+    }
+    return ok(at);
+  }
+  return ok(desc.path);
+}
+
+function annotateSources(elements, binding, ctx) {
+  const base = `${ctx.slideId}-${binding.slot.id}`;
+  const first = binding.blocks?.[0];
+  const desc = first ? binding.sources.get(first) : null;
+  const visit = (el) => {
+    if (Array.isArray(el.children)) el.children.forEach(visit);
+    if (el.source || !el.id?.startsWith(base)) return;
+    const rest = el.id.slice(base.length);
+    if (el.type !== 'text') {
+      const source = graphicSource(el, rest, desc, first, binding.content);
+      if (source) el.source = source;
+      return;
+    }
+    if (!el.text) return;
+    let found = null;
+    if (rest === '') {
+      const parts = binding.blocks.map((b) => wholeSource(binding.sources.get(b), b, binding.sources));
+      if (parts.length === 1) found = parts[0];
+      else if (parts.every((p) => p && !p.join)) found = { paths: parts.flatMap((p) => p.paths) };
+    } else if (ITEM_PART_RE.test(rest)) {
+      const [, k, part] = ITEM_PART_RE.exec(rest);
+      found = itemSource(desc, first, Number(k), part);
+    } else if (FIELD_PART_RE.test(rest)) {
+      found = blockFieldSource(desc, first, FIELD_PART_RE.exec(rest)[1]);
+    }
+    const source = verifiedSource(found, el.text.paragraphs, binding.content);
+    if (source) el.source = source;
+  };
+  elements.forEach(visit);
+}
+
+function slotElementsOf(binding, ctx) {
   const { slot, box, blocks } = binding;
   const id = `${ctx.slideId}-${slot.id}`;
   if (!box) {
@@ -1704,18 +2205,63 @@ export function slotElements(binding, ctx) {
     });
     return el ? [el] : [];
   }
+  // a catalogue layout's text container on the Mood's card (C3.1): the card component behind the box, the text inside
+  // its padding in the colour that reads on the card's fill
+  const card = box.card ? ctx.mood.components?.card : null;
+  const pad = card ? componentPadding(card, ctx) : 0;
+  const cardFill = (card ? (componentBackground('card', frame, ctx, `${id}-bg`) ?? []) : []).find(
+    (x) => typeof x.style?.fill === 'string',
+  )?.style.fill;
   const el = textElement({
     id,
-    frame,
+    frame: card ? inset(frame, pad) : frame,
     role: roleFor(binding, ctx),
     box,
     slot,
     paragraphs: paragraphsFor(texts, ctx),
     align: defaultAlign(box, ctx.mood),
     valign: box.align?.v ?? 'top',
+    color: cardFill ? textOn(cardFill, ctx) : undefined,
     ctx,
   });
-  return el ? [el] : [];
+  // the card hugs its text (C3.2: a short list on a tall zone keeps no empty card under it), placed in the box as the
+  // text is (top / middle / bottom); the text is set again in the card's padding at the size it took
+  let cardFrame = frame;
+  let set = el;
+  if (card && el?.text?.fit && el.text.fit.height + 2 * pad + 1 < frame.h) {
+    const h = el.text.fit.height + 2 * pad + 1;
+    const v = box.align?.v ?? 'top';
+    const y = v === 'middle' ? frame.y + (frame.h - h) / 2 : v === 'bottom' ? frame.y + frame.h - h : frame.y;
+    cardFrame = { ...frame, y, h };
+    const again = textElement({
+      id,
+      frame: inset(cardFrame, pad),
+      role: roleFor(binding, ctx),
+      box,
+      slot,
+      paragraphs: paragraphsFor(texts, ctx),
+      align: defaultAlign(box, ctx.mood),
+      valign: 'top',
+      size: el.text.fit.appliedSize,
+      color: cardFill ? textOn(cardFill, ctx) : undefined,
+      ctx,
+    });
+    if (again && !again.text.fit.overflow && again.text.fit.appliedSize === el.text.fit.appliedSize)
+      set = again;
+    else cardFrame = frame;
+  }
+  // a bullet whose brand colour does not read on the card's fill takes the card's text colour
+  if (set && cardFill)
+    for (const p of set.text.paragraphs ?? [])
+      if (p.bullet?.color && contrastRatio(p.bullet.color, cardFill) < MIN_LITERAL_CONTRAST)
+        p.bullet = { ...p.bullet, color: set.text.font.color };
+  const behind = card ? (componentBackground('card', cardFrame, ctx, `${id}-bg`) ?? []) : [];
+  for (const b of behind) {
+    b.role = 'card';
+    b.slot = slot.id;
+    b.layoutBox = box.id;
+  }
+  return set ? [...behind, set] : behind;
 }
 
 /** A layout box with a shape and no slot -> a shape element (token refs resolved); a line runs along the box's long side. */

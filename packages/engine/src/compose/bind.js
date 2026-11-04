@@ -14,8 +14,11 @@
  *   column 2's title, the rest -> column 2 (no subtitle: images -> column 1, the rest -> column 2), with an info.
  * Unbound required slots (schema default: required) and blocks no slot took are warnings.
  * A content/2 slide binds through its aliases onto these blocks (content/lower.js, docs/S2-content-v2.md §5).
+ * Each binding also carries `content` (the slide as given) and `sources` (lowered block -> where it comes from in
+ * `content`, content/source.js), so the text elements made from it can name their content field (`source`, P4.2).
  */
 import { lowerSlide } from '../content/lower.js';
+import { blockFieldSource } from '../content/source.js';
 
 const COL_RE = /^col(\d+)-(title|body)$/;
 const HEADING_RE = /^(.+)-(heading|subheading|caption|label|photo)$/;
@@ -48,7 +51,10 @@ const SLIDE_KEYS = new Set(['title', 'label', 'number', 'subtitle', 'cta']);
 function inferColumns(blocks) {
   const sub = blocks.findIndex((b) => b.type === 'subtitle');
   if (sub >= 0) {
-    return [{ blocks: blocks.slice(0, sub) }, { title: blocks[sub].text, blocks: blocks.slice(sub + 1) }];
+    return [
+      { blocks: blocks.slice(0, sub) },
+      { title: blocks[sub].text, titleBlock: blocks[sub], blocks: blocks.slice(sub + 1) },
+    ];
   }
   const images = blocks.filter((b) => b.type === 'image');
   if (images.length && images.length < blocks.length) {
@@ -61,6 +67,8 @@ export function bindSlots(slide, layout, { warn = () => {} } = {}) {
   // content/2: bind the slide's aliases onto today's blocks; each field no v1 slot shows is one content warning
   const lowered = lowerSlide(slide);
   for (const n of lowered.notes) warn('content', n.message);
+  const content = slide;
+  const { sources } = lowered;
   slide = lowered.slide;
   const pool = slide.blocks ?? [];
   const used = new Set();
@@ -83,7 +91,9 @@ export function bindSlots(slide, layout, { warn = () => {} } = {}) {
 
   const colSlots = (layout.slots ?? []).filter((s) => COL_RE.test(s.id));
   if (colSlots.length) {
-    let columns = take((b) => b.type === 'columns')?.items;
+    const colsBlock = take((b) => b.type === 'columns');
+    const colsDesc = colsBlock ? sources.get(colsBlock) : null;
+    let columns = colsBlock?.items;
     if (!columns) {
       const rest = takeAll((b) => b.type !== 'title' && b.type !== 'columns');
       if (rest.length) {
@@ -98,14 +108,25 @@ export function bindSlots(slide, layout, { warn = () => {} } = {}) {
     const maxN = Math.max(...colSlots.map((s) => Number(COL_RE.exec(s.id)[1])));
     for (const slot of colSlots) {
       const [, n, part] = COL_RE.exec(slot.id);
-      const col = columns[Number(n) - 1];
-      const blocks = !col
-        ? []
-        : part === 'title'
-          ? col.title
-            ? [{ type: 'subtitle', text: col.title }]
-            : []
-          : col.blocks;
+      const c = Number(n) - 1;
+      const col = columns[c];
+      let blocks = [];
+      if (col && part === 'title' && col.title) {
+        const sub = { type: 'subtitle', text: col.title };
+        // the column title: the compare header, a "##" column title, or the subtitle the columns were formed at
+        if (col.titleBlock) sources.set(sub, sources.get(col.titleBlock));
+        else if (colsDesc?.type === 'compare')
+          sources.set(sub, { paths: [`${colsDesc.path}/columns/${c}/header`] });
+        else if (colsDesc?.path) sources.set(sub, { paths: [`${colsDesc.path}/items/${c}/title`] });
+        blocks = [sub];
+      } else if (col && part === 'body') {
+        blocks = col.blocks;
+        // a content/1 "##" column's own blocks
+        if (colsDesc?.type === 'columns')
+          blocks.forEach((blk, j) =>
+            sources.set(blk, { type: blk.type, path: `${colsDesc.path}/items/${c}/blocks/${j}`, orig: blk }),
+          );
+      }
       if (blocks.length) bindings.push({ slot, box: boxes.get(slot.box), blocks });
       else missing(slot);
     }
@@ -158,14 +179,25 @@ export function bindSlots(slide, layout, { warn = () => {} } = {}) {
           head[2] === 'photo'
             ? { type: 'image', src: text, ...(of.attribution ? { alt: of.attribution } : {}) }
             : { type: 'paragraph', text };
+        const src = blockFieldSource(sources.get(of), of, PART_FIELD[head[2]]);
+        if (src) sources.set(block, src);
         bindings.push({ slot, box: boxes.get(slot.box), blocks: [block] });
       } else missing(slot);
       continue;
     }
     const quote = bindings.flatMap((b) => b.blocks).find((b) => b.type === 'quote');
     const text = quote ? [quote.attribution, quote.role].filter(Boolean).join(', ') : '';
-    if (text) bindings.push({ slot, box: boxes.get(slot.box), blocks: [{ type: 'paragraph', text }] });
-    else missing(slot);
+    if (text) {
+      const block = { type: 'paragraph', text };
+      const q = sources.get(quote);
+      if (q?.path) {
+        const at = q.type === 'quotes' ? `${q.path}/items/0` : q.path;
+        const keys = q.type === 'quotes' ? ['name', 'role'] : ['attribution', 'role'];
+        const paths = keys.filter((k, i) => [quote.attribution, quote.role][i]).map((k) => `${at}/${k}`);
+        sources.set(block, { paths, join: ', ' });
+      }
+      bindings.push({ slot, box: boxes.get(slot.box), blocks: [block] });
+    } else missing(slot);
   }
   for (const b of pool) {
     if (used.has(b)) continue;
@@ -177,5 +209,9 @@ export function bindSlots(slide, layout, { warn = () => {} } = {}) {
   // keep the layout's slot order
   const order = new Map((layout.slots ?? []).map((s, k) => [s.id, k]));
   bindings.sort((a, b) => order.get(a.slot.id) - order.get(b.slot.id));
+  for (const b of bindings) {
+    b.content = content;
+    b.sources = sources;
+  }
   return bindings;
 }

@@ -1,5 +1,6 @@
 // `pb build --proposals [all|pr4]` (docs/P3-proposals.md): the flag, and the report's proposals section.
-// PR-1..3 are rules of every build since 2026-10-31 (their effect is in the deck: text.fit.upSteps, avatars, chips).
+// PR-1..3 are rules of every build since 2026-10-31 (their effect is in the deck: text.fit.upSteps, avatars, chips),
+// PR-F fill room and PR-C′ recorded placement since 2026-11-03 (docs/P2-spec.md §9 R-FILLROOM, R-PLACE).
 import { cpSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -21,11 +22,18 @@ describe('pb build --proposals', () => {
   });
   afterEach(() => rmSync(root, { recursive: true, force: true }));
 
-  it('parses the flag: no value / all → all; a list of open proposals; unknown names (and the approved PR-1..3) are an error', () => {
+  it('parses the flag: no value / all → all; a list of open proposals; unknown names (and the approved PR-1..3, PR-F, PR-C′) are an error', () => {
     expect(parseProposalsFlag(undefined)).toBeUndefined();
     expect(parseProposalsFlag(true)).toBe('all');
     expect(parseProposalsFlag('all')).toEqual(['all']);
     expect(parseProposalsFlag('pr4,PR-4')).toEqual(['pr4', 'PR-4']);
+    // the approved PR-F / PR-C′ (rules since 2026-11-03) and the withdrawn PR-E / PR-A are unknown
+    expect(() => parseProposalsFlag('prf,PR-C')).toThrow(
+      /unknown proposal\(s\) prf, PR-C \(use all or pr4; PR-1\.\.3, PR-F and PR-C′ are rules of every build\)/,
+    );
+    expect(() => parseProposalsFlag('prc')).toThrow(/unknown proposal\(s\) prc/);
+    expect(() => parseProposalsFlag('pre')).toThrow(/unknown proposal\(s\) pre .*use all or pr4/);
+    expect(() => parseProposalsFlag('pra')).toThrow(/unknown proposal\(s\) pra/);
     expect(() => parseProposalsFlag('pr4,pr9')).toThrow(/unknown proposal\(s\) pr9/);
     expect(() => parseProposalsFlag('pr1')).toThrow(/unknown proposal\(s\) pr1 .*rules of every build/);
   });
@@ -62,6 +70,7 @@ describe('pb build --proposals', () => {
     await runBuild(brand, { out: join(root, 'only4'), cacheDir: null, proposals: ['pr4'] });
     const only = readJson(root, 'only4', 'report.json').proposals;
     expect(only.byProposal['PR-4']).toMatchObject({ on: true });
+    expect(only.byProposal['PR-F']).toBeUndefined();
 
     // the index lists the folders whose report has a proposals section
     const idx = proposalsIndex(join(root, '_proposals'));

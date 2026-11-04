@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://presentations.ai/pb/schemas/mood.v1.3.json",
+  "$id": "https://presentations.ai/pb/schemas/mood.v1.4.json",
   "title": "Mood v1",
   "description": "Every design decision the engine needs, derived from ONE BrandSpec by the rules in packages/mood. ~10 groups of decisions, all data, all readable and overridable. Deterministic: same BrandSpec + same engine version = identical Mood. `provenance` says which rule produced each decision and from which brand values; a decision with no brand signal is never invented (R: no defaults) - it is absent and the engine's layout must cope or ask.",
   "type": "object",
@@ -64,7 +64,8 @@
         },
         "align": { "type": "object", "properties": { "title": { "enum": ["left", "center", "right"] }, "body": { "enum": ["left", "center", "right"] } } },
         "bullets": { "type": "object", "properties": { "glyph": { "type": "string" }, "color": { "type": "string" }, "indent": { "type": "number" }, "gap": { "type": "number" } } },
-        "limits": { "type": "object", "properties": { "maxCharsPerLine": { "type": "integer" }, "maxTitleChars": { "type": "integer" }, "maxWordsPerSlide": { "type": "integer" }, "minBodySize": { "type": "number" } } }
+        "limits": { "type": "object", "properties": { "maxCharsPerLine": { "type": "integer" }, "maxTitleChars": { "type": "integer" }, "maxWordsPerSlide": { "type": "integer" }, "minBodySize": { "type": "number" } } },
+        "pairs": { "type": "array", "description": "the alternative heading / body font pairs the brand defines (BrandSpec typography.pairs; MD-TYPE): each names two faces of type.faces; absent when the brand defines none. The Studio's deck-level fontPair override swaps the roles' faces to a pair's", "items": { "type": "object", "required": ["id", "heading", "body"], "additionalProperties": false, "properties": { "id": { "type": "string" }, "label": { "type": "string" }, "heading": { "type": "string", "description": "a key of type.faces" }, "body": { "type": "string", "description": "a key of type.faces" } } } }
       }
     },
 

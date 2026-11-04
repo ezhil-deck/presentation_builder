@@ -59,10 +59,14 @@ function blockChars(b) {
 
 const has = (v) => v !== undefined && v !== null && v !== '';
 
+/** Plain characters of a list of strings read as one text (one space between the parts). */
+const joinedLength = (list) => list.reduce((a, s) => a + plainText(s).length, 0) + list.length - 1;
+
 /**
  * One content block as a layout sees it (docs/S2-layouts.md §1): {type, nodes, shape?, ordered?, title?, fields,
  * icons, chars} - `fields` = the node fields any node carries, `icons` = the icon names the nodes ask for, `chars` =
- * the longest text per node field (plain characters; layouts size boxes to it).
+ * the longest text per node field (plain characters; layouts size boxes to it; a list of strings counts as one text,
+ * and a compare column's rows as `rows`: the catalogue's length bands, packages/layouts catalogue-key.js).
  */
 export function describeBlock(b) {
   const nodes =
@@ -77,6 +81,17 @@ export function describeBlock(b) {
     for (const [k, v] of Object.entries(n)) {
       if (has(v)) fields.add(k);
       if (typeof v === 'string') chars[k] = Math.max(chars[k] ?? 0, plainText(v).length);
+      // a list of strings (sub-point / timeline lines, tier features): its length as one text (catalogue bands, C3)
+      else if (Array.isArray(v) && v.length && v.every((x) => typeof x === 'string'))
+        chars[k] = Math.max(chars[k] ?? 0, joinedLength(v));
+    }
+    // compare: a column's rows (features + item headings and bodies) as one text, the catalogue's side description
+    if (b.type === 'compare' && n && typeof n === 'object') {
+      const rows = [
+        ...(n.features ?? []),
+        ...(n.items ?? []).flatMap((it) => [it?.heading, it?.body]),
+      ].filter((x) => typeof x === 'string' && x);
+      if (rows.length) chars.rows = Math.max(chars.rows ?? 0, joinedLength(rows));
     }
     if (typeof n.icon === 'string' && n.icon) icons.push(n.icon);
   }
@@ -87,6 +102,12 @@ export function describeBlock(b) {
   )
     fields.add('check');
   const out = { type: b.type, nodes: nodes.length, fields: [...fields].sort(), icons, chars };
+  // the most sub-lines (a sub-point's / timeline's `lines`) any node carries: each is a line of its own (C3.2)
+  const lineCount = Math.max(
+    0,
+    ...nodes.map((n) => (Array.isArray(n?.lines) ? n.lines.filter((x) => typeof x === 'string').length : 0)),
+  );
+  if (lineCount) out.lineCount = lineCount;
   if (typeof b.shape === 'string') out.shape = b.shape;
   if (b.tiers) out.tiers = true;
   // logos: the explicit rows (distinct `row` values) and the most logos in one row

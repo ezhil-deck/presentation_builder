@@ -19,7 +19,7 @@ const mood = stripeMood();
 const brandSpec = stripeBrandSpec();
 const content = parseMarkdown(showcaseMd(), { brandSpec });
 const compose = () => composeDeck({ content, mood, brandSpec, catalogue, engineVersion: '0.0.0' });
-const { deck, warnings } = compose();
+const { deck, warnings, catalogue: catalogueLog } = compose();
 const assetFile = (id) => deck.assets[id]?.file;
 
 describe('fixture catalogue', () => {
@@ -66,7 +66,9 @@ describe('composeDeck: stripe mood + showcase + the real catalogue (@pb/layouts)
   });
 
   it('is deterministic (byte-identical JSON) and keys are sorted', () => {
-    expect(JSON.stringify(compose())).toBe(JSON.stringify({ deck, warnings }));
+    // C4: the result always carries the catalogue log (one row per slide)
+    expect(JSON.stringify(compose())).toBe(JSON.stringify({ deck, warnings, catalogue: catalogueLog }));
+    expect(catalogueLog).toHaveLength(content.slides.length);
     expect(Object.keys(deck)).toEqual([...Object.keys(deck)].sort());
   });
 

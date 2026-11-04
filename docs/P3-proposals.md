@@ -1,10 +1,17 @@
 # P3 — design-quality proposals (need the owner's approval before they become rules)
 
+Status 2026-11-03: **PR-F and PR-C′ approved by the owner ("Approve both") and now rules of every build** — R-FILLROOM
+and R-PLACE in `docs/P2-spec.md §9`, tested in `packages/engine/__tests__/rules-approved.test.js`; the golden decks were
+re-snapshotted (engine 0.4.0) and are equal, slide for slide, to the approved `--proposals prf,prc` builds (84 slides
+changed against the C4 default build). `--proposals prf|prc` no longer exists (the flag takes `all` or `pr4`); the
+PR-F / PR-C′ entries and build notes below are kept as the record. Open proposals: PR-4 and PR-5.
+
 Status 2026-10-31: **PR-1, PR-2, PR-3 approved by the owner ("Approve PR-1..3") and now rules of every build** —
 `docs/P2-spec.md §9` (R-FITUP, R-AVATAR, R-LOGOCHIP), tested in `packages/engine/__tests__/rules-approved.test.js`, golden
 decks re-snapshotted (engine 0.3.0). PR-4 and PR-5 stay proposals: PR-4 is implemented behind `pb build --proposals`
-(rendered to `out/_proposals/<brand>/`), PR-5 is not implemented. Nothing in a proposal touches the golden snapshots until
-approved. Every proposal names its brand signal (R: no look applied to every brand without one).
+(rendered to `out/_proposals/<brand>/`), PR-5 is not implemented. PR-F and PR-C′ (2026-11-03, from
+docs/research/fill-diagnosis-2026-11-03.md) are implemented behind `pb build --proposals prf|prc` (`out/_prf`, `out/_prc`,
+`out/_prfc`). Nothing in a proposal touches the golden snapshots until approved. Every proposal names its brand signal (R: no look applied to every brand without one).
 
 ## PR-1 Fit-up: short text grows up the brand's own ladder — APPROVED 2026-10-31 → rule R-FITUP (P2-spec §9)
 **Seen:** stripe/rukko/hdfc-2 slides 4, 5, 6, 23 — body at the brand's body size (21–27 px on 1920) fills under a quarter
@@ -42,6 +49,95 @@ info stays. Signal: the brand's own decor box.
 area when the slide has no second element (image/decor zone used), i.e. the block's x = margins.left + (bodyArea.w −
 column.w)/2 only for text-only slides whose brand `alignment.body` is `center`; for `left` brands the column stays left
 and the right zone is offered to decor (unchanged). Signal: `typography.alignment.body`.
+
+## PR-F Fill room (2026-11-03, proposal; docs/research/fill-diagnosis-2026-11-03.md) — APPROVED 2026-11-03 → rule R-FILLROOM (P2-spec §9)
+**Seen:** the fill step (C3.1) leaves item descriptions small: of 80 catalogue item flows with a heading and a
+description, 54 never reach their next rung - 34 because the description's text box is too short at that rung (the
+title box keeps two lines it does not use), others because a timeline's year label already shrunk in the base layout
+blocks every try, or because every try raises the heading with the description (akgmedia h3 30 → h1 79).
+**Rule (engine `slots.js` `pickFill` / `roomTries` / `addsStrain`, layouts `catalogue-defs.js` `placeTied`, compose
+`placeRecorded`):**
+1. *Room.* In a catalogue box the fill steps (`box.fill`), the step / timeline / card-title-text items' title gives the
+   lines it does not need to the description below it (as item-card / compare-column already do), so the description's
+   text box is the cell's room left after the parts; a text box the parts leave at 0 px while it holds text counts as
+   an overflow (the strain test rejects that try). A steps / timeline flow is laid out in the record's whole zone (no
+   placedBox before the fill) and placed after the fill: a box of 1.35 × the content's fitted height at the chosen roles
+   (measured, not estimated), at the record's alignment (C3.1's, or PR-C′'s with that proposal), its connector / line
+   moved with it (PR-C′ alone does the same).
+2. *Relative strain.* A try is rejected only for strain it adds: compared element by element with the same box at its
+   base roles, a text that overflows where its base did not, or is stepped down more steps than its base. An element the
+   try does not touch (a timeline year, a marker, a label) never blocks a try on its own.
+3. *Description first, monotone* (amended 2026-11-03 by the coordinator; `roomTries` / `chooseRoom`). A flow whose
+   item roles have a heading and a description first computes the default build's pick for the box (the same layout,
+   the proposal off). Its tries are every [k, kText] (k, kText from 3 down to 0) whose roles `steppedRoles` allows and:
+   (a) *Monotone:* a try is eligible only if its text size ≥ the default build's text size AND its heading size ≥ the
+   default build's heading size for that box; PR-F only grows a pair, never pulls one down. If no eligible try passes,
+   the default pick stays.
+   (b) The heading is strictly larger than the text in every chosen try (equal sizes never, unless the default pair is
+   already equal).
+   (c) *Soft ratio:* among eligible passing tries (no added strain, within the record's share + 10 points) prefer the
+   largest text; among those, the largest heading with heading : text ≤ 2.0; if none at that text size has ≤ 2.0, the
+   smallest ratio ≤ 2.3 (Editorial's measured 56 / 26 = 2.15 is the largest item pair in the note); above 2.3 only the
+   default pair itself.
+   A text box (list, paragraph) keeps the three equal steps, a KPI flow (value / label / body) today's six, the first
+   that fits winning; both with the relative strain test.
+The caps stay: running text ≤ h2, titles ≤ h1, a title never at or below its text.
+**Signal:** the catalogue record of the slide - its zone, its fill share (`box.fill`) and its alignment (D1) - and the
+brand's own role ladder; no size is invented.
+**Where it applies:** only catalogue boxes with `box.fill` (the content/2 slides the catalogue composes); the 68 layouts,
+fit-up (R-FITUP) and the Mood are unchanged.
+**What it never does:** draw a heading or a description smaller than the default build; add an overflow or a
+step-down to an element; choose a pair over 2.3 : 1 other than the default's own; pass the caps. Recorded per box whose drawing differs from the default build (`effects`: `from` / `to` steps and roles, `room`
+when only the text box changed; `place` for a placed steps / timeline flow).
+**Render (historical, before the approval; the flag is gone):** `pb build golden/brands/<id> --png --proposals prf --before out/<id> --out out/_prf/<id>`.
+
+## PR-C′ Recorded placement (2026-11-03, proposal; replaces the deferred P-C; docs/research/fill-diagnosis-2026-11-03.md) — APPROVED 2026-11-03 → rule R-PLACE (P2-spec §9)
+**Seen:** C3.1 maps the catalogue's placement `fill` → top and `bottom` → middle (`VALIGN`): 1,787 of 2,036 containers
+(88 %) lose the catalogue's own vertical composition.
+**Rule (layouts `catalogue-defs.js` `VALIGN_RECORDED`, `contentAlign(c, {recorded})`, `placeTied`, `decorBand`;
+engine `placeInCells`, `placeRecorded`):** under the proposal a catalogue container takes the record's alignment as
+recorded - `fill` → middle (the catalogue centres such groups), `top` → top, `middle` → middle, `bottom` → bottom - for
+items without a card in their cells (`flow.valign`, placeInCells: a row stays level; at the bottom the content keeps its
+top inset at the bottom too), for un-carded text boxes, lists and paragraphs (`align.v`; a text card hugging its text
+moves with it, the card sized to the text), and for a steps / timeline flow: as with PR-F, it is filled in its whole
+zone (today's tries) and placed afterwards - a box of 1.35 × the measured fitted height at the recorded alignment, its
+connector / line moved with it - so PR-C′ never changes a size. *Inside a card the card is the anchor* (amended
+2026-11-03 by the coordinator): an item drawn on a card (its own component card, or the Mood's card behind each cell)
+keeps its content at the card's top padding - the catalogue aligned such text to a hairline, not to a card - and a
+card that fills its cell does not move; the zone-level placement still applies. The band the composition leaves between the title and the content group, when wider than
+2 × spacing.lg, becomes a decor zone (after the zone under the content), so brand decor without a box can use it and
+nothing else does. The compose passes its proposals into the layout build (`pick` → `def.build({…, proposals})`).
+**Signal:** the catalogue record of the slide (D1: composition from the catalogue) - none of the 10 brand JSONs carries a
+placement signal, which is why P-C stayed deferred.
+**Where it applies:** the catalogue layouts only (content/2 slides); the 68 layouts are unchanged.
+**What it never does:** move a title, a footer or a chart / table; resize text (the fill runs before the placement);
+move content inside a card. Recorded per box whose drawing differs from C3.1's alignment (`from` / `to`; `cardAnchor`
+when only the card anchor changed it), and per slide whose decor lands in the band.
+**Render (historical, before the approval; the flag is gone):** `--proposals prc` → `out/_prc/<id>`; both: `--proposals prf,prc` → `out/_prfc/<id>` (fill first, then place). As rules: a plain `pb build`; the sheet against the C4 default build is `out/_rules-fc/<id>/compare.png` (`--before out/<id>`).
+
+## Build notes PR-F / PR-C′ (2026-11-03, after both amendments; showcase deck, 10 golden brands, before = the default C4 build `out/<id>`)
+- PR-F changes 2-6 slides per brand (32 in all: bosch, cisco, shopify, stripe 2; hdfc-2, headspace, notion, the-ken 3;
+  rukko 6; akgmedia 6); overflow 0. Of the 80 catalogue item flows with a heading and a description, 18 (23 %) draw
+  their description larger and none smaller; no heading is smaller. Examples: bosch 4 bodyLarge 26.6 → h3 31.92 (h1
+  kept); rukko 28 body → h3 with its year label still 14 steps down; akgmedia 6 of 8 (e.g. 4 body 25 → h2 29, h3 kept).
+  Notion: 4 room only (h1 / h2 kept, text box from the title's unused line), 28 h3 / body (21.6 / 27, heading under its
+  text) → h1 / h2 (60 / 29.7, 2.02 : 1 - no heading within 2 : 1 at that text size), 29 h3 / bodySmall (equal, 21.6)
+  → h2 / h2 (equal, 29.7, allowed by (b) because the default pair is equal); 9 / 10 / 12 / 23 / 37 keep h1 / h2. Median
+  heading : text falls on akgmedia (1.43 → 1.03), bosch (2 → 1.83), headspace (2.05 → 1.83), rukko (2.08 → 1.36); pairs
+  over 2.3 : 1 are the default's own (cisco 3.0, akgmedia 2.72, rukko 2.77, shopify 2.65 …). Also stepped by the
+  relative strain test: rukko 15's KPI labels (h3 → h2, body).
+- PR-C′ changes 4-8 slides per brand (57 in all: un-carded KPI / card / list containers centred or at the bottom; on cards
+  the content keeps the card's top padding - bosch / akgmedia / notion … 9 lose C3.1's centring in their cards);
+  overflow 0; no heading or description changes size (steps / timelines filled in their zone, then placed). The decor
+  band is built on 4-8 slides per brand, but no golden brand has decor without a box allowed there, so no decor moves.
+- Both (`prf,prc`) change 7-11 slides per brand (84 in all), overflow 0, the fill as PR-F alone (18 grown, 0 smaller).
+- Sheets `out/_prf`, `out/_prc`, `out/_prfc/<id>/compare.png` (index per set: `out/_prf/index.html` …). hdfc-2 builds exit 2
+  (its two blocking font questions, as the default build).
+
+## Withdrawn
+- PR-E (description follows its heading) and PR-A (composer ladder), built 2026-11-03, withdrawn the same day by the
+  owner after the measurement in docs/research/fill-diagnosis-2026-11-03.md (their code removed; PR-A's size report kept
+  as the info check `type-ladder` of every deck).
 
 Review order suggested (done for PR-1..3): PR-4 next; PR-5 only if the approved fit-up still leaves slides empty (it does: see the build notes).
 

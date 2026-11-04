@@ -7,8 +7,24 @@ export {
   parseMarkdownResult,
   inferKind,
   resolvePlaceholder,
+  resolveContentPlaceholders,
   parseFenceYaml,
 } from './content/parse.js';
+export {
+  pointer,
+  pointerSegments,
+  getPointer,
+  setPointer,
+  sourceUnits,
+  remapSourcePaths,
+} from './content/source.js';
+export {
+  PLACEHOLDER,
+  PLACEHOLDER_TEXTS,
+  isPlaceholderText,
+  nodeSkeleton,
+  slideSkeleton,
+} from './content/placeholders.js';
 export { parseInline, plainText } from './content/inline.js';
 export {
   BLOCKS,
@@ -42,6 +58,26 @@ export { placeLogo, footerElements, logoSize, footerShown } from './compose/logo
 export { bindSlots } from './compose/bind.js';
 export { composeDeck } from './compose/index.js';
 export {
+  ELEMENT_OVERRIDE_KEYS,
+  IMAGE_FITS,
+  MIN_FRAME_SIDE,
+  applyElementOverrides,
+  checkElementOverride,
+  clampFrame,
+  deckElements,
+  findDeckElement,
+  normalizeElementOverrides,
+  paintedDeck,
+} from './compose/overrides.js';
+export {
+  FIX_COMMANDS,
+  colourDistance,
+  fixCommand,
+  moveInside,
+  snapColour,
+  surfaceColours,
+} from './compose/fixes.js';
+export {
   PROPOSALS,
   PROPOSAL_KEYS,
   normalizeProposals,
@@ -49,8 +85,20 @@ export {
   clearOfDecor,
   contentFrame,
 } from './compose/proposals.js';
+export { PLACE_SPARE, placeOffset, shiftDown } from './compose/place.js';
 export { fitUpLadder, fitUpSteps, FIT_UP_KINDS, FIT_UP_BOX_ROLES, FIT_UP_LADDER } from './compose/fitup.js';
-export { initialsOf, avatarSize } from './compose/slots.js';
+export {
+  initialsOf,
+  avatarSize,
+  focalCrop,
+  focalOf,
+  relayoutGraphic,
+  addsStrain,
+  roomTries,
+  chooseRoom,
+  ROOM_RATIO,
+  ROOM_RATIO_MAX,
+} from './compose/slots.js';
 export { validateContent, validateLayout, validateDeck } from './validate.js';
 
 export const CANVAS = Object.freeze({ width: 1920, height: 1080 });

@@ -39,7 +39,9 @@ const OUT_JSON = Object.freeze({
 });
 
 const LOG_LINES = 200;
-const BODY_LIMIT = 1024 * 1024;
+const BODY_LIMIT = 8 * 1024 * 1024; // a content document + a command log of 200 commands (whole slides)
+// an image upload (P4.3): up to 20 MB as base64 in JSON (the Studio answers 413 above 20 MB of image)
+const ASSET_BODY_LIMIT = Math.ceil(((20 * 1024 * 1024) / 3) * 4) + 64 * 1024;
 const BRAND_ID = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
 
 const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
@@ -101,13 +103,13 @@ function sendFile(res, file) {
   createReadStream(file).pipe(res);
 }
 
-function readBody(req) {
+function readBody(req, limit = BODY_LIMIT) {
   return new Promise((ok, fail) => {
     const chunks = [];
     let size = 0;
     req.on('data', (c) => {
       size += c.length;
-      if (size > BODY_LIMIT) {
+      if (size > limit) {
         fail(new HttpError(413, 'request body too large'));
         req.destroy();
         return;
@@ -141,8 +143,11 @@ function reportFacts(report) {
 
 /**
  * The server for one repository layout. Options:
- * - `repoRoot` (required): the folder holding out/, golden/brands/, golden/expected/ and packages/cli/bin/pb.js;
- * - `distDir`: the built UI to serve (default `<repoRoot>/packages/ui/dist`); `apiOnly` serves the API + files only;
+ * - `repoRoot` (required): the folder holding out/, golden/brands/, golden/expected/, golden/showcase/ and content/
+ *   (the data; a sandbox copy in the browser e2e tests, P4.4);
+ * - `codeRoot`: the checkout holding packages/ (the built UI, packages/cli/bin/pb.js, the diff module; default
+ *   `repoRoot`);
+ * - `distDir`: the built UI to serve (default `<codeRoot>/packages/ui/dist`); `apiOnly` serves the API + files only;
  * - `spawn`: child_process.spawn replacement (tests); `loadDiff`: () => Promise<module with diffDecks> (tests);
  * - `nodeBin`: the node executable for builds (default process.execPath);
  * - `studio`: the Studio (server/studio.js) to serve under /api/studio/ (default createStudio for this repo; `cacheDir`
@@ -153,12 +158,14 @@ export function createServer(options = {}) {
   const { repoRoot, apiOnly = false, spawn = nodeSpawn, nodeBin = process.execPath } = options;
   if (!repoRoot) throw new Error('createServer: repoRoot is required');
   const root = resolve(repoRoot);
-  const distDir = resolve(options.distDir ?? join(root, 'packages', 'ui', 'dist'));
+  const codeRoot = resolve(options.codeRoot ?? root);
+  const distDir = resolve(options.distDir ?? join(codeRoot, 'packages', 'ui', 'dist'));
   const outRoot = join(root, 'out');
   const brandsRoot = join(root, 'golden', 'brands');
   const expectedRoot = join(root, 'golden', 'expected');
   const loadDiff =
-    options.loadDiff ?? (() => import(pathToFileURL(join(root, 'packages', 'cli', 'src', 'diff.js')).href));
+    options.loadDiff ??
+    (() => import(pathToFileURL(join(codeRoot, 'packages', 'cli', 'src', 'diff.js')).href));
   const builds = new Map();
   const studio = options.studio ?? createStudio({ root, cacheDir: options.cacheDir, loadDiff });
 
@@ -241,7 +248,10 @@ export function createServer(options = {}) {
     if (!existsSync(join(brandDir(id), `${id}.json`))) {
       throw new HttpError(404, `no brand input golden/brands/${id}/${id}.json`);
     }
-    const args = ['packages/cli/bin/pb.js', 'build', `golden/brands/${id}`];
+    // the CLI of the checkout (relative when the data root is the checkout, as the log line shows it)
+    const cli =
+      codeRoot === root ? 'packages/cli/bin/pb.js' : join(codeRoot, 'packages', 'cli', 'bin', 'pb.js');
+    const args = [cli, 'build', `golden/brands/${id}`];
     if (png) args.push('--png');
     const b = {
       running: true,
@@ -374,7 +384,10 @@ export function createServer(options = {}) {
     serveRootFile(res, distDir, pathname.slice(1));
   }
 
-  /** The Studio API (docs/PLAN-studio.md §2.1): brands, contents, compose, covers, layouts, overrides, diff, export. */
+  /**
+   * The Studio API (docs/PLAN-studio.md §2.1, docs/P4-spec.md §6): brands, contents, content documents (GET / PUT,
+   * import), compose, covers, layouts, overrides, history, fix, diff, export.
+   */
   async function studioRoute(req, res, pathname) {
     const method = req.method;
     const read = method === 'GET' || method === 'HEAD';
@@ -411,6 +424,24 @@ export function createServer(options = {}) {
       only(read);
       return sendJson(res, 200, studio.contents());
     }
+    // the content documents (docs/P4-spec.md §1, §6): import a deck as content/<id>.content.json; read / write one
+    if (what === 'content' && a === 'import' && !b) {
+      only(method === 'POST');
+      const body = await readBody(req);
+      return sendJson(res, 200, studio.importContent({ from: body.from, id: body.id, title: body.title }));
+    }
+    if (what === 'content' && a && !b) {
+      if (read) return sendJson(res, 200, studio.readContent(a));
+      only(method === 'PUT');
+      const body = await readBody(req);
+      return sendJson(res, 200, studio.writeContent(a, body, { brandId: query.get('brandId') || undefined }));
+    }
+    // an uploaded image (P4.3, ED-5): {name, data: base64} -> content/assets/<deck>/<sha>-<name>
+    if (what === 'assets' && a && !b) {
+      only(method === 'POST');
+      const body = await readBody(req, ASSET_BODY_LIMIT);
+      return sendJson(res, 200, studio.uploadAsset(a, { name: body.name, data: body.data }));
+    }
     if (what === 'compose' && !a) {
       only(method === 'POST');
       const body = await readBody(req);
@@ -436,6 +467,25 @@ export function createServer(options = {}) {
       if (read) return sendJson(res, 200, studio.readOverrides(a, b));
       only(method === 'PUT');
       return sendJson(res, 200, studio.writeOverrides(a, b, await readBody(req)));
+    }
+    if (what === 'history' && a && b && parts.length === 3) {
+      if (read) return sendJson(res, 200, studio.readHistory(a, b));
+      only(method === 'PUT');
+      return sendJson(res, 200, studio.writeHistory(a, b, await readBody(req)));
+    }
+    if (what === 'fix' && !a) {
+      only(method === 'POST');
+      const body = await readBody(req);
+      return sendJson(
+        res,
+        200,
+        studio.fix({
+          brandId: body.brandId,
+          contentId: body.contentId,
+          item: body.item,
+          overrides: body.overrides,
+        }),
+      );
     }
     if (what === 'diff' && !a) {
       only(method === 'POST');
@@ -476,7 +526,23 @@ export function createServer(options = {}) {
       if (pathname.startsWith('/files/golden/brands/')) {
         return serveRootFile(res, brandsRoot, pathname.slice('/files/golden/brands/'.length));
       }
+      // an exported deck.html (out/<id>/studio/<deck>/) names a deck's uploaded image from the brand folder
+      // (../../../content/assets/…, the export base): under /files/ that resolves here (P4.4, docs/STUDIO.md)
+      if (pathname.startsWith('/files/content/assets/')) {
+        return serveRootFile(
+          res,
+          join(root, 'content', 'assets'),
+          pathname.slice('/files/content/assets/'.length),
+        );
+      }
       throw new HttpError(404, 'not found');
+    }
+
+    // a deck's uploaded images (content/assets/<deck>/…): the deck names them from the brand folder
+    // (../../../content/assets/…), which the browser resolves to this path
+    if (pathname.startsWith('/content/assets/')) {
+      if (!read) throw new HttpError(405, 'method not allowed');
+      return serveRootFile(res, join(root, 'content', 'assets'), pathname.slice('/content/assets/'.length));
     }
 
     if (pathname === '/api/brands' || pathname === '/api/brands/') {
@@ -541,7 +607,7 @@ export function createServer(options = {}) {
     route(req, res).catch((err) => {
       const status = err instanceof HttpError || err instanceof StudioError ? err.status : 500;
       if (res.headersSent) return res.destroy();
-      sendJson(res, status, { error: err.message });
+      sendJson(res, status, { error: err.message, ...(err.errors ? { errors: err.errors } : {}) });
     });
   });
   server.studio = studio;

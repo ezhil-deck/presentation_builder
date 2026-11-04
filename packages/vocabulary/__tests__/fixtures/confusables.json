@@ -1,0 +1,972 @@
+{
+  "pairs": [
+    {
+      "pair": ["E2:band", "E2:panel"],
+      "deciding": "band.strip holds no text; panel.large holds text",
+      "rule": "band.strip",
+      "predicate": "heldTexts",
+      "a": {
+        "scope": "element",
+        "subject": {
+          "id": "o341",
+          "kind": "shape",
+          "bbox": [0, 0, 100, 20]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "b": {
+        "scope": "element",
+        "subject": {
+          "id": "o342",
+          "kind": "shape",
+          "bbox": [0, 0, 100, 20]
+        },
+        "others": [
+          {
+            "id": "o343",
+            "kind": "text",
+            "text": "A title held in the strip",
+            "sizePctH": 4,
+            "bbox": [5, 5, 60, 12],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    {
+      "pair": ["E2:panel", "E2:card"],
+      "deciding": "areaPct >= 8",
+      "rule": "panel.large",
+      "predicate": "areaPct",
+      "a": {
+        "scope": "element",
+        "subject": {
+          "id": "o344",
+          "kind": "shape",
+          "bbox": [0, 0, 45, 60]
+        },
+        "others": [
+          {
+            "id": "o345",
+            "kind": "text",
+            "text": "Text",
+            "sizePctH": 3,
+            "bbox": [5, 10, 40, 20],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "b": {
+        "scope": "element",
+        "subject": {
+          "id": "o346",
+          "kind": "shape",
+          "bbox": [5, 30, 20, 40]
+        },
+        "others": [
+          {
+            "id": "o347",
+            "kind": "text",
+            "text": "Text",
+            "sizePctH": 2,
+            "bbox": [6, 31, 19, 35],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    {
+      "pair": ["E2:divider", "E2:rule"],
+      "deciding": "sidesWithContent = 2",
+      "rule": "divider.between",
+      "predicate": "sidesWithContent",
+      "a": {
+        "scope": "element",
+        "subject": {
+          "id": "o348",
+          "kind": "shape",
+          "bbox": [50, 30, 50.2, 80]
+        },
+        "others": [
+          {
+            "id": "o349",
+            "kind": "text",
+            "text": "Left column text",
+            "sizePctH": 2.5,
+            "bbox": [5, 30, 48, 80],
+            "align": "left",
+            "lines": 1
+          },
+          {
+            "id": "o350",
+            "kind": "text",
+            "text": "Right column text",
+            "sizePctH": 2.5,
+            "bbox": [52, 30, 95, 80],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "b": {
+        "scope": "element",
+        "subject": {
+          "id": "o351",
+          "kind": "shape",
+          "bbox": [50, 30, 50.2, 80]
+        },
+        "others": [
+          {
+            "id": "o352",
+            "kind": "text",
+            "text": "Left column text",
+            "sizePctH": 2.5,
+            "bbox": [5, 30, 48, 80],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    {
+      "pair": ["E2:connector", "E2:divider"],
+      "deciding": "joinsItems >= 2",
+      "rule": "connector.joins",
+      "predicate": "joinsItems",
+      "a": {
+        "scope": "element",
+        "subject": {
+          "id": "o353",
+          "kind": "shape",
+          "bbox": [50, 30, 50.2, 80],
+          "joinsItems": 3
+        },
+        "others": [
+          {
+            "id": "o354",
+            "kind": "text",
+            "text": "Left column text",
+            "sizePctH": 2.5,
+            "bbox": [5, 30, 48, 80],
+            "align": "left",
+            "lines": 1
+          },
+          {
+            "id": "o355",
+            "kind": "text",
+            "text": "Right column text",
+            "sizePctH": 2.5,
+            "bbox": [52, 30, 95, 80],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "b": {
+        "scope": "element",
+        "subject": {
+          "id": "o356",
+          "kind": "shape",
+          "bbox": [50, 30, 50.2, 80]
+        },
+        "others": [
+          {
+            "id": "o357",
+            "kind": "text",
+            "text": "Left column text",
+            "sizePctH": 2.5,
+            "bbox": [5, 30, 48, 80],
+            "align": "left",
+            "lines": 1
+          },
+          {
+            "id": "o358",
+            "kind": "text",
+            "text": "Right column text",
+            "sizePctH": 2.5,
+            "bbox": [52, 30, 95, 80],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    {
+      "pair": ["E2:partner-logo", "E2:brand-logo"],
+      "deciding": "next to a partner label",
+      "rule": "partner-logo.label",
+      "predicate": "nextTo",
+      "a": {
+        "scope": "element",
+        "subject": {
+          "id": "o359",
+          "kind": "image",
+          "bbox": [11, 83, 20, 88]
+        },
+        "others": [
+          {
+            "id": "o360",
+            "kind": "text",
+            "text": "Prepared for",
+            "sizePctH": 2,
+            "bbox": [3, 85, 10, 87],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "b": {
+        "scope": "element",
+        "subject": {
+          "id": "o361",
+          "kind": "image",
+          "bbox": [11, 83, 20, 88]
+        },
+        "others": [
+          {
+            "id": "o362",
+            "kind": "text",
+            "text": "Annual review",
+            "sizePctH": 2,
+            "bbox": [3, 85, 10, 87],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    {
+      "pair": ["E2:logo-item", "E2:brand-logo"],
+      "deciding": "peerMarks >= 3",
+      "rule": "logo-item.grid",
+      "predicate": "peerMarks",
+      "a": {
+        "scope": "element",
+        "subject": {
+          "id": "o363",
+          "kind": "image",
+          "bbox": [4, 85, 14, 89],
+          "peerMarks": 4
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "b": {
+        "scope": "element",
+        "subject": {
+          "id": "o364",
+          "kind": "image",
+          "bbox": [4, 85, 14, 89],
+          "peerMarks": 1
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    {
+      "pair": ["E2:eyebrow", "E2:label"],
+      "deciding": "stacked above the title",
+      "rule": "eyebrow.above-title",
+      "predicate": "stacked",
+      "a": {
+        "scope": "element",
+        "subject": {
+          "id": "o365",
+          "kind": "text",
+          "text": "SEARCH",
+          "sizePctH": 2,
+          "bbox": [5, 26, 15, 29],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o366",
+            "kind": "text",
+            "text": "The main headline of this slide",
+            "sizePctH": 6,
+            "bbox": [5, 30, 60, 40],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "b": {
+        "scope": "element",
+        "subject": {
+          "id": "o367",
+          "kind": "text",
+          "text": "SEARCH",
+          "sizePctH": 2,
+          "bbox": [70, 60, 80, 63],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o368",
+            "kind": "text",
+            "text": "The main headline of this slide",
+            "sizePctH": 6,
+            "bbox": [5, 30, 60, 40],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    {
+      "pair": ["E2:caption", "E2:label"],
+      "deciding": "directly under an image",
+      "rule": "caption.under-image",
+      "predicate": "below",
+      "a": {
+        "scope": "element",
+        "subject": {
+          "id": "o369",
+          "kind": "text",
+          "text": "Our Berlin office",
+          "sizePctH": 2,
+          "bbox": [10, 61, 40, 63],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o370",
+            "kind": "image",
+            "bbox": [10, 20, 50, 60]
+          },
+          {
+            "id": "o371",
+            "kind": "text",
+            "text": "The main headline of this slide",
+            "sizePctH": 6,
+            "bbox": [5, 30, 60, 40],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "b": {
+        "scope": "element",
+        "subject": {
+          "id": "o372",
+          "kind": "text",
+          "text": "Our Berlin office",
+          "sizePctH": 2,
+          "bbox": [60, 61, 90, 63],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o373",
+            "kind": "image",
+            "bbox": [10, 20, 50, 60]
+          },
+          {
+            "id": "o374",
+            "kind": "text",
+            "text": "The main headline of this slide",
+            "sizePctH": 6,
+            "bbox": [5, 30, 60, 40],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    {
+      "pair": ["E2:big-number", "E2:heading"],
+      "deciding": "a number pattern",
+      "rule": "big-number.size",
+      "predicate": "text",
+      "a": {
+        "scope": "element",
+        "subject": {
+          "id": "o375",
+          "kind": "text",
+          "text": "26%",
+          "sizePctH": 6,
+          "bbox": [5, 50, 20, 58],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o376",
+            "kind": "text",
+            "text": "The main headline of this slide",
+            "sizePctH": 6,
+            "bbox": [5, 30, 60, 40],
+            "align": "left",
+            "lines": 1
+          },
+          {
+            "id": "o377",
+            "kind": "text",
+            "text": "Some body copy here today",
+            "sizePctH": 2.5,
+            "bbox": [5, 70, 60, 75],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "b": {
+        "scope": "element",
+        "subject": {
+          "id": "o378",
+          "kind": "text",
+          "text": "Revenue",
+          "sizePctH": 6,
+          "bbox": [5, 50, 20, 58],
+          "align": "left",
+          "lines": 1
+        },
+        "others": [
+          {
+            "id": "o379",
+            "kind": "text",
+            "text": "The main headline of this slide",
+            "sizePctH": 6,
+            "bbox": [5, 30, 60, 40],
+            "align": "left",
+            "lines": 1
+          },
+          {
+            "id": "o380",
+            "kind": "text",
+            "text": "Some body copy here today",
+            "sizePctH": 2.5,
+            "bbox": [5, 70, 60, 75],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    {
+      "pair": ["E2:description", "E2:paragraph"],
+      "deciding": "a heading before it in its item",
+      "rule": "description.under-heading",
+      "predicate": "siblingBefore",
+      "a": {
+        "scope": "element",
+        "subject": {
+          "id": "o381",
+          "kind": "text",
+          "text": "What the heading means in two lines.",
+          "sizePctH": 2.8,
+          "bbox": [5, 46, 30, 52],
+          "align": "left",
+          "lines": 2,
+          "block": 1,
+          "item": 1
+        },
+        "others": [
+          {
+            "id": "o382",
+            "kind": "text",
+            "text": "Heading",
+            "sizePctH": 4.6,
+            "bbox": [5, 40, 30, 45],
+            "align": "left",
+            "lines": 1,
+            "block": 1,
+            "item": 1,
+            "weight": 600
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "b": {
+        "scope": "element",
+        "subject": {
+          "id": "o383",
+          "kind": "text",
+          "text": "What the heading means in two lines.",
+          "sizePctH": 2.8,
+          "bbox": [5, 46, 30, 52],
+          "align": "left",
+          "lines": 2,
+          "block": 1,
+          "item": null
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    {
+      "pair": ["E2:body", "E2:description"],
+      "deciding": "a big-number in its item",
+      "rule": "body.kpi",
+      "predicate": "sibling",
+      "a": {
+        "scope": "element",
+        "subject": {
+          "id": "o384",
+          "kind": "text",
+          "text": "Revenue passed half a trillion.",
+          "sizePctH": 2.8,
+          "bbox": [5, 52, 30, 56],
+          "align": "left",
+          "lines": 1,
+          "block": 1,
+          "item": 1
+        },
+        "others": [
+          {
+            "id": "o385",
+            "kind": "text",
+            "text": "$504B",
+            "sizePctH": 12,
+            "bbox": [5, 30, 30, 45],
+            "align": "left",
+            "lines": 1,
+            "block": 1,
+            "item": 1,
+            "weight": 700
+          },
+          {
+            "id": "o386",
+            "kind": "text",
+            "text": "Global revenue",
+            "sizePctH": 3,
+            "bbox": [5, 46, 30, 50],
+            "align": "left",
+            "lines": 1,
+            "block": 1,
+            "item": 1,
+            "weight": 600
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "b": {
+        "scope": "element",
+        "subject": {
+          "id": "o387",
+          "kind": "text",
+          "text": "Revenue passed half a trillion.",
+          "sizePctH": 2.8,
+          "bbox": [5, 52, 30, 56],
+          "align": "left",
+          "lines": 1,
+          "block": 1,
+          "item": 1
+        },
+        "others": [
+          {
+            "id": "o388",
+            "kind": "text",
+            "text": "A story",
+            "sizePctH": 6,
+            "bbox": [5, 30, 30, 45],
+            "align": "left",
+            "lines": 1,
+            "block": 1,
+            "item": 1,
+            "weight": 400
+          },
+          {
+            "id": "o389",
+            "kind": "text",
+            "text": "Global revenue",
+            "sizePctH": 3,
+            "bbox": [5, 46, 30, 50],
+            "align": "left",
+            "lines": 1,
+            "block": 1,
+            "item": 1,
+            "weight": 600
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    {
+      "pair": ["E2:device", "E2:decor"],
+      "deciding": "named by the brand",
+      "rule": "device.named",
+      "predicate": "named",
+      "a": {
+        "scope": "element",
+        "subject": {
+          "id": "o390",
+          "kind": "shape",
+          "bbox": [0, 0, 30, 100],
+          "named": true
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "b": {
+        "scope": "element",
+        "subject": {
+          "id": "o391",
+          "kind": "shape",
+          "bbox": [70, 70, 80, 80]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    {
+      "pair": ["E2:sticker", "E2:badge"],
+      "deciding": "tilt >= 3",
+      "rule": "sticker.tilted",
+      "predicate": "tilt",
+      "a": {
+        "scope": "element",
+        "subject": {
+          "id": "o392",
+          "kind": "shape",
+          "bbox": [80, 10, 84, 13],
+          "onEdge": true,
+          "tilt": 12
+        },
+        "others": [
+          {
+            "id": "o393",
+            "kind": "text",
+            "text": "NEW",
+            "sizePctH": 1.5,
+            "bbox": [80.5, 10.5, 83.5, 12.5],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "b": {
+        "scope": "element",
+        "subject": {
+          "id": "o394",
+          "kind": "shape",
+          "bbox": [80, 10, 84, 13],
+          "onEdge": true
+        },
+        "others": [
+          {
+            "id": "o395",
+            "kind": "text",
+            "text": "NEW",
+            "sizePctH": 1.5,
+            "bbox": [80.5, 10.5, 83.5, 12.5],
+            "align": "left",
+            "lines": 1
+          }
+        ],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    {
+      "pair": ["E2:cutout", "E2:hero-image"],
+      "deciding": "transparent",
+      "rule": "cutout.transparent",
+      "predicate": "transparent",
+      "a": {
+        "scope": "element",
+        "subject": {
+          "id": "o396",
+          "kind": "image",
+          "bbox": [66, 40, 98, 98],
+          "transparent": true
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "b": {
+        "scope": "element",
+        "subject": {
+          "id": "o397",
+          "kind": "image",
+          "bbox": [66, 40, 98, 98]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    {
+      "pair": ["E2:hero-image", "E2:picture"],
+      "deciding": "areaPct >= 12",
+      "rule": "hero-image.large",
+      "predicate": "areaPct",
+      "a": {
+        "scope": "element",
+        "subject": {
+          "id": "o398",
+          "kind": "image",
+          "bbox": [50, 20, 95, 80]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      },
+      "b": {
+        "scope": "element",
+        "subject": {
+          "id": "o399",
+          "kind": "image",
+          "bbox": [50, 20, 60, 35]
+        },
+        "others": [],
+        "context": {
+          "aspect": 1.7777777777777777,
+          "bodyPctH": 2.5
+        }
+      }
+    },
+    {
+      "pair": ["E3:timeline", "E3:process"],
+      "deciding": "labelled by periods (dates), not ordinals",
+      "rule": "timeline.periods",
+      "predicate": "match",
+      "a": {
+        "scope": "block",
+        "subject": {
+          "id": "o400",
+          "kind": "block",
+          "fields": 6,
+          "items": 3,
+          "minItemFields": 2,
+          "labelText": "Q1 2026",
+          "headText": "Q1 2026 Audit"
+        },
+        "others": [],
+        "context": {}
+      },
+      "b": {
+        "scope": "block",
+        "subject": {
+          "id": "o401",
+          "kind": "block",
+          "fields": 6,
+          "items": 3,
+          "minItemFields": 2,
+          "labelText": "Phase 1",
+          "headText": "Audit"
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    {
+      "pair": ["E3:compare", "E3:items"],
+      "deciding": "two items side by side with a rule between",
+      "rule": "compare.two-sides",
+      "predicate": "between",
+      "a": {
+        "scope": "block",
+        "subject": {
+          "id": "o402",
+          "kind": "block",
+          "fields": 4,
+          "items": 2,
+          "minItemFields": 2,
+          "itemsInRow": true,
+          "between": true
+        },
+        "others": [],
+        "context": {}
+      },
+      "b": {
+        "scope": "block",
+        "subject": {
+          "id": "o403",
+          "kind": "block",
+          "fields": 4,
+          "items": 2,
+          "minItemFields": 2,
+          "itemsInRow": true,
+          "between": false
+        },
+        "others": [],
+        "context": {}
+      }
+    },
+    {
+      "pair": ["E3:kpis", "E3:items"],
+      "deciding": "items hold a big-number (value + body, or value + heading + body)",
+      "rule": "kpis.figures",
+      "predicate": "itemShare.big-number",
+      "a": {
+        "scope": "block",
+        "subject": {
+          "id": "o404",
+          "kind": "block",
+          "fields": 4,
+          "items": 2,
+          "minItemFields": 2,
+          "termCount": {
+            "big-number": 2,
+            "body": 2
+          },
+          "itemShare": {
+            "big-number": 1,
+            "body": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      },
+      "b": {
+        "scope": "block",
+        "subject": {
+          "id": "o405",
+          "kind": "block",
+          "fields": 4,
+          "items": 2,
+          "minItemFields": 2,
+          "termCount": {
+            "heading": 2,
+            "description": 2
+          },
+          "itemShare": {
+            "heading": 1,
+            "description": 1
+          }
+        },
+        "others": [],
+        "context": {}
+      }
+    }
+  ],
+  "ambiguous": {
+    "note": "built to be ambiguous: a mid-size text on a one-text slide with no body size (nothing to compare with) after the title took the larger one - no rule may guess",
+    "case": {
+      "scope": "element",
+      "subject": {
+        "id": "o406",
+        "kind": "text",
+        "text": "Twelve words of copy at a size between the others on this slide here",
+        "sizePctH": 3,
+        "bbox": [5, 50, 60, 55],
+        "align": "left",
+        "lines": 1
+      },
+      "others": [
+        {
+          "id": "o407",
+          "kind": "text",
+          "text": "The slide title text",
+          "sizePctH": 6,
+          "bbox": [5, 20, 60, 30],
+          "align": "left",
+          "lines": 1
+        }
+      ],
+      "context": {
+        "aspect": 1.7777777777777777,
+        "bodyPctH": null
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@pb/vocabulary",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The element / component vocabulary: one term per thing, one ordered identification rule set per term, and the map from every schema name to its term.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./data/vocabulary.json": "./data/vocabulary.json",
+    "./data/maps.json": "./data/maps.json"
+  },
+  "scripts": {
+    "test": "jest --config ../../jest.config.cjs --rootDir ../.. packages/vocabulary/"
+  }
+}

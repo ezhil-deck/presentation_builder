@@ -1,0 +1,2308 @@
+{
+  "version": 1,
+  "schemas": {
+    "deck": "schemas/deck.schema.json",
+    "layout": "schemas/layout.schema.json",
+    "content": "schemas/content.schema.json",
+    "mood": "schemas/mood.schema.json",
+    "brand": "schemas/brand-spec.schema.json",
+    "input": "schemas/input/brand-presentation-spec.schema.json"
+  },
+  "sources": {
+    "deck.element.type": {
+      "system": "deck",
+      "at": ["deck:#/$defs/element/properties/type"],
+      "values": {
+        "text": {
+          "namespace": "E1",
+          "term": "text"
+        },
+        "image": {
+          "namespace": "E1",
+          "term": "image"
+        },
+        "shape": {
+          "namespace": "E1",
+          "term": "shape"
+        },
+        "line": {
+          "namespace": "E1",
+          "term": "line"
+        },
+        "chart": {
+          "namespace": "E1",
+          "term": "chart"
+        },
+        "table": {
+          "namespace": "E1",
+          "term": "table"
+        },
+        "group": {
+          "namespace": "E1",
+          "term": "group"
+        }
+      }
+    },
+    "deck.shape.kind": {
+      "system": "deck",
+      "at": ["deck:#/$defs/element/properties/shape/properties/kind"],
+      "values": {
+        "rect": {
+          "namespace": "E4",
+          "term": "rect"
+        },
+        "ellipse": {
+          "namespace": "E4",
+          "term": "ellipse"
+        },
+        "line": {
+          "namespace": "E1",
+          "term": "line"
+        },
+        "polygon": {
+          "namespace": "E4",
+          "term": "polygon"
+        },
+        "path": {
+          "namespace": "E4",
+          "term": "svg"
+        }
+      },
+      "note": "a shape kind is the outline geometry it is drawn with (E4 mask outlines); a line kind is the E1 line"
+    },
+    "deck.background.type": {
+      "system": "deck",
+      "at": ["deck:#/properties/slides/items/properties/background/properties/type"],
+      "values": {
+        "solid": {
+          "namespace": "E4",
+          "term": "solid"
+        },
+        "gradient": {
+          "namespace": "E4",
+          "term": "gradient"
+        },
+        "image": {
+          "namespace": "E4",
+          "term": "image-fill"
+        }
+      }
+    },
+    "deck.gradient.type": {
+      "system": "deck",
+      "at": ["deck:#/$defs/gradient/properties/type"],
+      "values": {
+        "linear": {
+          "namespace": "E4",
+          "term": "linear-gradient"
+        },
+        "radial": {
+          "namespace": "E4",
+          "term": "radial-gradient"
+        }
+      }
+    },
+    "deck.chart.chartType": {
+      "system": "deck",
+      "at": ["deck:#/$defs/element/properties/chart/properties/chartType"],
+      "values": {
+        "bar": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "column": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "stackedBar": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "line": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "area": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "pie": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "donut": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "scatter": {
+          "namespace": "E3",
+          "term": "chart-block"
+        }
+      },
+      "note": "chart types are forms of the one E3 term chart (a chart-form facet is not in V0)"
+    },
+    "deck.chart.form": {
+      "system": "deck",
+      "at": ["deck:#/$defs/element/properties/chart/properties/form"],
+      "values": {
+        "funnel": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "waterfall": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "radar": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "gauge": {
+          "namespace": "E3",
+          "term": "chart-block"
+        }
+      },
+      "note": "chart forms are forms of the one E3 term chart"
+    },
+    "deck.text.case": {
+      "system": "deck",
+      "at": ["deck:#/$defs/element/properties/text/properties/font/properties/case"],
+      "values": {
+        "none": {
+          "namespace": "E4",
+          "term": "case"
+        },
+        "upper": {
+          "namespace": "E4",
+          "term": "case"
+        },
+        "lower": {
+          "namespace": "E4",
+          "term": "case"
+        },
+        "title": {
+          "namespace": "E4",
+          "term": "case"
+        }
+      },
+      "note": "every case value (none = as typed) is the one E4 facet case"
+    },
+    "layout.box.role": {
+      "system": "layout",
+      "at": ["layout:#/properties/boxes/items/properties/role"],
+      "values": {
+        "title": {
+          "namespace": "E2",
+          "term": "title"
+        },
+        "subtitle": {
+          "namespace": "E2",
+          "term": "subtitle"
+        },
+        "eyebrow": {
+          "namespace": "E2",
+          "term": "eyebrow"
+        },
+        "body": {
+          "namespace": "E2",
+          "term": "body"
+        },
+        "list": {
+          "namespace": "E3",
+          "term": "points"
+        },
+        "image": {
+          "namespace": "E2",
+          "term": "picture"
+        },
+        "chart": {
+          "namespace": "E2",
+          "term": "chart-exhibit"
+        },
+        "table": {
+          "namespace": "E2",
+          "term": "table-exhibit"
+        },
+        "kpis": {
+          "namespace": "E3",
+          "term": "kpis"
+        },
+        "quote": {
+          "namespace": "E3",
+          "term": "quotes"
+        },
+        "attribution": {
+          "namespace": "E2",
+          "term": "attribution"
+        },
+        "logo": {
+          "namespace": "E2",
+          "term": "brand-logo"
+        },
+        "footer": {
+          "namespace": "E2",
+          "term": "footer-text"
+        },
+        "number": {
+          "namespace": "E2",
+          "term": "big-number"
+        },
+        "shape": {
+          "namespace": "E1",
+          "term": "shape"
+        },
+        "divider": {
+          "namespace": "E2",
+          "term": "divider"
+        },
+        "decor": {
+          "namespace": "E2",
+          "term": "decor"
+        },
+        "group": {
+          "namespace": "E1",
+          "term": "group"
+        }
+      },
+      "note": "a box role that holds a whole block (list, kpis, quote) maps to the E3 block; `shape` is a drawn primitive whose role the layout gives by its id (card background, marker)"
+    },
+    "layout.box.shape.kind": {
+      "system": "layout",
+      "at": ["layout:#/properties/boxes/items/properties/shape/properties/kind"],
+      "values": {
+        "rect": {
+          "namespace": "E4",
+          "term": "rect"
+        },
+        "ellipse": {
+          "namespace": "E4",
+          "term": "ellipse"
+        },
+        "line": {
+          "namespace": "E1",
+          "term": "line"
+        }
+      }
+    },
+    "layout.slot.type": {
+      "system": "layout",
+      "at": ["layout:#/properties/slots/items/properties/type"],
+      "values": {
+        "text": {
+          "namespace": "E2",
+          "term": "body"
+        },
+        "richtext": {
+          "namespace": "E3",
+          "term": "paragraph-block"
+        },
+        "list": {
+          "namespace": "E3",
+          "term": "points"
+        },
+        "cards": {
+          "namespace": "E3",
+          "term": "items"
+        },
+        "image": {
+          "namespace": "E3",
+          "term": "image-block"
+        },
+        "images": {
+          "namespace": "E3",
+          "term": "image-block"
+        },
+        "people": {
+          "namespace": "E3",
+          "term": "people"
+        },
+        "chart": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "table": {
+          "namespace": "E3",
+          "term": "table-block"
+        },
+        "kpis": {
+          "namespace": "E3",
+          "term": "kpis"
+        },
+        "quote": {
+          "namespace": "E3",
+          "term": "quotes"
+        },
+        "steps": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "timeline": {
+          "namespace": "E3",
+          "term": "timeline"
+        },
+        "logos": {
+          "namespace": "E3",
+          "term": "logos"
+        },
+        "number": {
+          "namespace": "E2",
+          "term": "big-number"
+        }
+      }
+    },
+    "layout.kind": {
+      "system": "layout",
+      "at": ["layout:#/$defs/kind"],
+      "values": {
+        "cover": {
+          "namespace": "E3",
+          "term": "cover-slide"
+        },
+        "section": {
+          "namespace": "E3",
+          "term": "section-slide"
+        },
+        "agenda": {
+          "namespace": "E3",
+          "term": "agenda-slide"
+        },
+        "bullets": {
+          "namespace": "E3",
+          "term": "bullets-slide"
+        },
+        "two-column": {
+          "namespace": "E3",
+          "term": "two-column-slide"
+        },
+        "diagram": {
+          "namespace": "E3",
+          "term": "diagram-slide"
+        },
+        "chart": {
+          "namespace": "E3",
+          "term": "chart-slide"
+        },
+        "table": {
+          "namespace": "E3",
+          "term": "table-slide"
+        },
+        "kpi": {
+          "namespace": "E3",
+          "term": "kpi-slide"
+        },
+        "image": {
+          "namespace": "E3",
+          "term": "image-slide"
+        },
+        "image-text": {
+          "namespace": "E3",
+          "term": "image-text-slide"
+        },
+        "quote": {
+          "namespace": "E3",
+          "term": "quote-slide"
+        },
+        "cta": {
+          "namespace": "E3",
+          "term": "cta-slide"
+        },
+        "text": {
+          "namespace": "E3",
+          "term": "text-slide"
+        },
+        "cards": {
+          "namespace": "E3",
+          "term": "cards-slide"
+        },
+        "timeline": {
+          "namespace": "E3",
+          "term": "timeline-slide"
+        },
+        "steps": {
+          "namespace": "E3",
+          "term": "steps-slide"
+        },
+        "logos": {
+          "namespace": "E3",
+          "term": "logos-slide"
+        },
+        "team": {
+          "namespace": "E3",
+          "term": "team-slide"
+        },
+        "comparison": {
+          "namespace": "E3",
+          "term": "comparison-slide"
+        },
+        "blank": {
+          "namespace": "E3",
+          "term": "blank-slide"
+        }
+      }
+    },
+    "content.v2.block.type": {
+      "system": "content",
+      "at": [
+        "content:#/$defs/blockV2/properties/type",
+        "content:#/$defs/points/properties/type/const",
+        "content:#/$defs/items/properties/type/const",
+        "content:#/$defs/subpoints/properties/type/const",
+        "content:#/$defs/kpis/properties/type/const",
+        "content:#/$defs/process/properties/type/const",
+        "content:#/$defs/timeline/properties/type/const",
+        "content:#/$defs/chart/properties/type/const",
+        "content:#/$defs/table/properties/type/const",
+        "content:#/$defs/quotes/properties/type/const",
+        "content:#/$defs/people/properties/type/const",
+        "content:#/$defs/logos/properties/type/const",
+        "content:#/$defs/compare/properties/type/const",
+        "content:#/$defs/paragraph/properties/type/const",
+        "content:#/$defs/image/properties/type/const"
+      ],
+      "values": {
+        "points": {
+          "namespace": "E3",
+          "term": "points"
+        },
+        "items": {
+          "namespace": "E3",
+          "term": "items"
+        },
+        "subpoints": {
+          "namespace": "E3",
+          "term": "subpoints"
+        },
+        "kpis": {
+          "namespace": "E3",
+          "term": "kpis"
+        },
+        "process": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "timeline": {
+          "namespace": "E3",
+          "term": "timeline"
+        },
+        "chart": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "table": {
+          "namespace": "E3",
+          "term": "table-block"
+        },
+        "quotes": {
+          "namespace": "E3",
+          "term": "quotes"
+        },
+        "people": {
+          "namespace": "E3",
+          "term": "people"
+        },
+        "logos": {
+          "namespace": "E3",
+          "term": "logos"
+        },
+        "compare": {
+          "namespace": "E3",
+          "term": "compare"
+        },
+        "paragraph": {
+          "namespace": "E3",
+          "term": "paragraph-block"
+        },
+        "image": {
+          "namespace": "E3",
+          "term": "image-block"
+        }
+      }
+    },
+    "content.v1.block.type": {
+      "system": "content",
+      "at": [
+        "content:#/$defs/blockV1/oneOf/0/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/1/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/2/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/3/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/4/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/5/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/6/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/7/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/8/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/9/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/10/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/11/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/12/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/13/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/14/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/15/properties/type/const",
+        "content:#/$defs/blockV1/oneOf/16/properties/type/const"
+      ],
+      "values": {
+        "title": {
+          "namespace": "E2",
+          "term": "title"
+        },
+        "subtitle": {
+          "namespace": "E2",
+          "term": "subtitle"
+        },
+        "eyebrow": {
+          "namespace": "E2",
+          "term": "eyebrow"
+        },
+        "paragraph": {
+          "namespace": "E3",
+          "term": "paragraph-block"
+        },
+        "list": {
+          "namespace": "E3",
+          "term": "points"
+        },
+        "cards": {
+          "namespace": "E3",
+          "term": "items"
+        },
+        "kpis": {
+          "namespace": "E3",
+          "term": "kpis"
+        },
+        "quote": {
+          "namespace": "E3",
+          "term": "quotes"
+        },
+        "image": {
+          "namespace": "E3",
+          "term": "image-block"
+        },
+        "chart": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "table": {
+          "namespace": "E3",
+          "term": "table-block"
+        },
+        "steps": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "timeline": {
+          "namespace": "E3",
+          "term": "timeline"
+        },
+        "logos": {
+          "namespace": "E3",
+          "term": "logos"
+        },
+        "people": {
+          "namespace": "E3",
+          "term": "people"
+        },
+        "cta": {
+          "namespace": "E2",
+          "term": "button"
+        },
+        "columns": {
+          "namespace": "E3",
+          "term": "column"
+        }
+      }
+    },
+    "content.chart.chartType": {
+      "system": "content",
+      "at": [
+        "content:#/$defs/chart/properties/chartType",
+        "content:#/$defs/blockV1/oneOf/9/properties/chartType"
+      ],
+      "values": {
+        "column": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "bar": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "line": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "area": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "pie": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "donut": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "stacked": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "grouped": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "stacked%": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "funnel": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "waterfall": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "scatter": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "radar": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "gauge": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "stackedBar": {
+          "namespace": "E3",
+          "term": "chart-block"
+        }
+      },
+      "note": "chart types are forms of the one E3 term chart (a chart-form facet is not in V0)"
+    },
+    "content.process.shape": {
+      "system": "content",
+      "at": ["content:#/$defs/process/properties/shape"],
+      "values": {
+        "linear": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "cycle": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "funnel": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "pyramid": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "stack": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "hub": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "ladder": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "quadrant": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "venn": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "tree": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "converge": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "diverge": {
+          "namespace": "E3",
+          "term": "process"
+        }
+      },
+      "note": "process shapes are forms of the one E3 term process (a diagram-form facet is not in V0)"
+    },
+    "content.cell.type": {
+      "system": "content",
+      "at": ["content:#/$defs/cell/anyOf/1/properties/type"],
+      "values": {
+        "text": {
+          "namespace": "E2",
+          "term": "body"
+        },
+        "heading": {
+          "namespace": "E2",
+          "term": "heading"
+        },
+        "number": {
+          "namespace": "E2",
+          "term": "big-number"
+        },
+        "check": {
+          "namespace": "E2",
+          "term": "icon"
+        },
+        "rating": {
+          "namespace": "E2",
+          "term": "icon"
+        },
+        "image": {
+          "namespace": "E2",
+          "term": "picture"
+        },
+        "logo": {
+          "namespace": "E2",
+          "term": "logo-item"
+        },
+        "chip": {
+          "namespace": "E2",
+          "term": "chip"
+        }
+      },
+      "note": "number = the stat / kpi / big-number / number term (one thing in four places, §1.1); a check / rating cell is drawn as icons"
+    },
+    "content.image.treatment": {
+      "system": "content",
+      "at": ["content:#/$defs/image/properties/treatment"],
+      "values": {
+        "side": {
+          "namespace": "E4",
+          "term": "side"
+        },
+        "full": {
+          "namespace": "E4",
+          "term": "full"
+        },
+        "background": {
+          "namespace": "E4",
+          "term": "background-image"
+        },
+        "collage": {
+          "namespace": "E4",
+          "term": "collage"
+        },
+        "device": {
+          "namespace": "E4",
+          "term": "device-frame"
+        }
+      }
+    },
+    "mood.footer.items": {
+      "system": "mood",
+      "at": ["mood:#/properties/footer/properties/items/items"],
+      "values": {
+        "logo": {
+          "namespace": "E2",
+          "term": "brand-logo"
+        },
+        "pageNumber": {
+          "namespace": "E2",
+          "term": "page-number"
+        },
+        "text": {
+          "namespace": "E2",
+          "term": "footer-text"
+        },
+        "date": {
+          "namespace": "E2",
+          "term": "date"
+        }
+      }
+    },
+    "mood.decor.layer": {
+      "system": "mood",
+      "at": ["mood:#/properties/decor/properties/elements/items/properties/layer"],
+      "values": {
+        "behind": {
+          "namespace": "E4",
+          "term": "behind"
+        },
+        "front": {
+          "namespace": "E4",
+          "term": "front"
+        }
+      }
+    },
+    "mood.type.case": {
+      "system": "mood",
+      "at": ["mood:#/properties/type/properties/roles/additionalProperties/properties/case"],
+      "values": {
+        "none": {
+          "namespace": "E4",
+          "term": "case"
+        },
+        "sentence": {
+          "namespace": "E4",
+          "term": "case"
+        },
+        "upper": {
+          "namespace": "E4",
+          "term": "case"
+        },
+        "lower": {
+          "namespace": "E4",
+          "term": "case"
+        },
+        "title": {
+          "namespace": "E4",
+          "term": "case"
+        }
+      }
+    },
+    "brand.decor.type": {
+      "system": "brand",
+      "at": [
+        "brand:#/properties/decor/properties/elements/items/properties/type",
+        "input:#/$defs/designElement/properties/type"
+      ],
+      "values": {
+        "shape": {
+          "namespace": "E2",
+          "term": "decor"
+        },
+        "pattern": {
+          "namespace": "E4",
+          "term": "pattern"
+        },
+        "texture": {
+          "namespace": "E4",
+          "term": "texture"
+        },
+        "illustration": {
+          "namespace": "E2",
+          "term": "illustration"
+        },
+        "rule": {
+          "namespace": "E2",
+          "term": "rule"
+        },
+        "frame": {
+          "namespace": "E2",
+          "term": "frame"
+        },
+        "badge": {
+          "namespace": "E2",
+          "term": "badge"
+        },
+        "sticker": {
+          "namespace": "E2",
+          "term": "sticker"
+        },
+        "watermark": {
+          "namespace": "E2",
+          "term": "watermark"
+        },
+        "textGradient": {
+          "namespace": "E4",
+          "term": "gradient"
+        },
+        "actionIcon": {
+          "namespace": "E2",
+          "term": "icon"
+        },
+        "word": {
+          "namespace": "E2",
+          "term": "decor-word"
+        }
+      },
+      "note": "a decor element type names what the element is (E2) or, for pattern / texture / textGradient, the paint it is (E4)"
+    },
+    "brand.decor.layer": {
+      "system": "brand",
+      "at": [
+        "brand:#/properties/decor/properties/elements/items/properties/layer",
+        "input:#/$defs/designElement/properties/layer"
+      ],
+      "values": {
+        "behind": {
+          "namespace": "E4",
+          "term": "behind"
+        },
+        "front": {
+          "namespace": "E4",
+          "term": "front"
+        }
+      }
+    },
+    "brand.cardBlock.layer": {
+      "system": "brand",
+      "at": ["input:#/$defs/cardBlock/properties/layer"],
+      "values": {
+        "back": {
+          "namespace": "E4",
+          "term": "behind"
+        },
+        "front": {
+          "namespace": "E4",
+          "term": "front"
+        }
+      }
+    },
+    "brand.case": {
+      "system": "brand",
+      "at": [
+        "brand:#/properties/typography/properties/roles/additionalProperties/properties/case",
+        "input:#/$defs/textCase"
+      ],
+      "values": {
+        "none": {
+          "namespace": "E4",
+          "term": "case"
+        },
+        "sentence": {
+          "namespace": "E4",
+          "term": "case"
+        },
+        "upper": {
+          "namespace": "E4",
+          "term": "case"
+        },
+        "lower": {
+          "namespace": "E4",
+          "term": "case"
+        },
+        "title": {
+          "namespace": "E4",
+          "term": "case"
+        }
+      }
+    },
+    "brand.gradient.type": {
+      "system": "brand",
+      "at": ["brand:#/$defs/gradient/properties/type", "input:#/$defs/gradientDef/properties/type"],
+      "values": {
+        "linear": {
+          "namespace": "E4",
+          "term": "linear-gradient"
+        },
+        "radial": {
+          "namespace": "E4",
+          "term": "radial-gradient"
+        },
+        "conic": {
+          "namespace": "E4",
+          "term": "conic-gradient"
+        },
+        "mesh": {
+          "namespace": "E4",
+          "term": "mesh-gradient"
+        }
+      }
+    },
+    "brand.background.type": {
+      "system": "brand",
+      "at": ["brand:#/$defs/background/properties/type", "input:#/$defs/background/properties/type"],
+      "values": {
+        "solid": {
+          "namespace": "E4",
+          "term": "solid"
+        },
+        "linear-gradient": {
+          "namespace": "E4",
+          "term": "linear-gradient"
+        },
+        "radial-gradient": {
+          "namespace": "E4",
+          "term": "radial-gradient"
+        },
+        "mesh-gradient": {
+          "namespace": "E4",
+          "term": "mesh-gradient"
+        },
+        "image": {
+          "namespace": "E4",
+          "term": "image-fill"
+        },
+        "pattern": {
+          "namespace": "E4",
+          "term": "pattern"
+        },
+        "video": {
+          "namespace": "E4",
+          "term": "video"
+        },
+        "gradient": {
+          "namespace": "E4",
+          "term": "gradient"
+        }
+      }
+    },
+    "brand.fill.type": {
+      "system": "brand",
+      "at": ["input:#/$defs/fill/oneOf/1/properties/type"],
+      "values": {
+        "solid": {
+          "namespace": "E4",
+          "term": "solid"
+        },
+        "linear-gradient": {
+          "namespace": "E4",
+          "term": "linear-gradient"
+        },
+        "radial-gradient": {
+          "namespace": "E4",
+          "term": "radial-gradient"
+        },
+        "none": {
+          "namespace": "E4",
+          "term": "none"
+        }
+      }
+    },
+    "brand.placement": {
+      "system": "brand",
+      "at": ["brand:#/$defs/placement", "input:#/$defs/placement"],
+      "values": {
+        "top-left": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "top-center": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "top-right": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "center-left": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "center": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "center-right": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "bottom-left": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "bottom-center": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "bottom-right": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "under-title": {
+          "namespace": "E3",
+          "term": "header"
+        },
+        "full-bleed": {
+          "namespace": "E4",
+          "term": "bleed"
+        }
+      },
+      "note": "the nine anchors are zones of the slide; under-title places a thing in the header stack; full-bleed is the bleed treatment"
+    },
+    "brand.anchor": {
+      "system": "brand",
+      "at": ["brand:#/$defs/anchor"],
+      "values": {
+        "top-left": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "top-center": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "top-right": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "center-left": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "center": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "center-right": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "bottom-left": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "bottom-center": {
+          "namespace": "E3",
+          "term": "zone"
+        },
+        "bottom-right": {
+          "namespace": "E3",
+          "term": "zone"
+        }
+      }
+    },
+    "brand.mask.type": {
+      "system": "brand",
+      "at": ["input:#/$defs/mask/properties/type"],
+      "values": {
+        "rect": {
+          "namespace": "E4",
+          "term": "rect"
+        },
+        "ellipse": {
+          "namespace": "E4",
+          "term": "ellipse"
+        },
+        "polygon": {
+          "namespace": "E4",
+          "term": "polygon"
+        },
+        "svg": {
+          "namespace": "E4",
+          "term": "svg"
+        },
+        "text": {
+          "namespace": "E4",
+          "term": "text-mask"
+        }
+      }
+    },
+    "brand.cardStyle.kind": {
+      "system": "brand",
+      "at": ["input:#/$defs/cardStyle/properties/kind"],
+      "values": {
+        "flat": {
+          "namespace": "E4",
+          "term": "flat"
+        },
+        "outlined": {
+          "namespace": "E4",
+          "term": "outlined"
+        },
+        "elevated": {
+          "namespace": "E4",
+          "term": "elevated"
+        },
+        "filled": {
+          "namespace": "E4",
+          "term": "filled"
+        },
+        "glass": {
+          "namespace": "E4",
+          "term": "glass"
+        },
+        "accent": {
+          "namespace": "E4",
+          "term": "accent"
+        }
+      }
+    },
+    "brand.blend": {
+      "system": "brand",
+      "at": [
+        "input:#/$defs/imageTreatment/properties/tint/properties/blend",
+        "input:#/$defs/designElement/properties/blend",
+        "input:#/$defs/gradientDef/properties/blend"
+      ],
+      "values": {
+        "normal": {
+          "namespace": "E4",
+          "term": "blend"
+        },
+        "multiply": {
+          "namespace": "E4",
+          "term": "blend"
+        },
+        "screen": {
+          "namespace": "E4",
+          "term": "blend"
+        },
+        "overlay": {
+          "namespace": "E4",
+          "term": "blend"
+        },
+        "soft-light": {
+          "namespace": "E4",
+          "term": "blend"
+        },
+        "plus-lighter": {
+          "namespace": "E4",
+          "term": "blend"
+        }
+      },
+      "note": "every blend mode (normal included: the identification test is blend != normal) is the one E4 facet blend"
+    },
+    "brand.cardBlock.type": {
+      "system": "brand",
+      "at": ["input:#/$defs/cardBlock/properties/type"],
+      "values": {
+        "image": {
+          "namespace": "E2",
+          "term": "picture"
+        },
+        "icon": {
+          "namespace": "E2",
+          "term": "icon"
+        },
+        "eyebrow": {
+          "namespace": "E2",
+          "term": "eyebrow"
+        },
+        "title": {
+          "namespace": "E2",
+          "term": "heading"
+        },
+        "body": {
+          "namespace": "E2",
+          "term": "description"
+        },
+        "link": {
+          "namespace": "E2",
+          "term": "button"
+        },
+        "button": {
+          "namespace": "E2",
+          "term": "button"
+        },
+        "badge": {
+          "namespace": "E2",
+          "term": "badge"
+        },
+        "stat": {
+          "namespace": "E2",
+          "term": "big-number"
+        },
+        "logo": {
+          "namespace": "E2",
+          "term": "partner-logo"
+        },
+        "divider": {
+          "namespace": "E2",
+          "term": "divider"
+        },
+        "tags": {
+          "namespace": "E2",
+          "term": "chip"
+        },
+        "meta": {
+          "namespace": "E2",
+          "term": "label"
+        },
+        "footer": {
+          "namespace": "E2",
+          "term": "label"
+        },
+        "panel": {
+          "namespace": "E2",
+          "term": "panel"
+        },
+        "rating": {
+          "namespace": "E2",
+          "term": "icon"
+        }
+      },
+      "note": "a card's title is the heading of its item and its body the description (E2 tests); a card's logo is a client / partner mark; meta and footer lines are labels"
+    },
+    "brand.cardRecipe.kind": {
+      "system": "brand",
+      "at": ["input:#/$defs/cardRecipe/properties/kind"],
+      "values": {
+        "feature": {
+          "namespace": "E3",
+          "term": "items"
+        },
+        "case_study": {
+          "namespace": "E3",
+          "term": "items"
+        },
+        "pricing": {
+          "namespace": "E3",
+          "term": "items"
+        },
+        "blog": {
+          "namespace": "E3",
+          "term": "items"
+        },
+        "stat": {
+          "namespace": "E3",
+          "term": "kpis"
+        },
+        "team": {
+          "namespace": "E3",
+          "term": "people"
+        },
+        "listing": {
+          "namespace": "E3",
+          "term": "items"
+        },
+        "testimonial": {
+          "namespace": "E3",
+          "term": "quotes"
+        },
+        "list": {
+          "namespace": "E3",
+          "term": "points"
+        }
+      },
+      "excludedValues": {
+        "other": "names no kind: the recipe is described by its blocks"
+      }
+    },
+    "brand.imagery.sample.kind": {
+      "system": "brand",
+      "at": ["input:#/properties/imagery/properties/samples/items/properties/kind"],
+      "values": {
+        "photo-people": {
+          "namespace": "E2",
+          "term": "picture"
+        },
+        "photo-product": {
+          "namespace": "E2",
+          "term": "picture"
+        },
+        "product-ui": {
+          "namespace": "E2",
+          "term": "picture"
+        },
+        "illustration": {
+          "namespace": "E2",
+          "term": "illustration"
+        },
+        "abstract": {
+          "namespace": "E2",
+          "term": "background-art"
+        },
+        "logo": {
+          "namespace": "E2",
+          "term": "brand-logo"
+        },
+        "icon": {
+          "namespace": "E2",
+          "term": "icon"
+        },
+        "unknown": {
+          "namespace": "E2",
+          "term": "unknown"
+        }
+      },
+      "note": "a sample kind names what the picture shows; as an element it is a picture (photos and UI shots), an illustration, background art, a logo or an icon"
+    },
+    "brand.template.slot.type": {
+      "system": "brand",
+      "at": ["input:#/properties/layouts/items/properties/template/properties/slots/items/properties/type"],
+      "values": {
+        "title": {
+          "namespace": "E2",
+          "term": "title"
+        },
+        "subtitle": {
+          "namespace": "E2",
+          "term": "subtitle"
+        },
+        "body": {
+          "namespace": "E2",
+          "term": "body"
+        },
+        "image": {
+          "namespace": "E2",
+          "term": "picture"
+        },
+        "chart": {
+          "namespace": "E2",
+          "term": "chart-exhibit"
+        },
+        "logo": {
+          "namespace": "E2",
+          "term": "brand-logo"
+        },
+        "stat": {
+          "namespace": "E2",
+          "term": "big-number"
+        },
+        "cards": {
+          "namespace": "E3",
+          "term": "items"
+        },
+        "table": {
+          "namespace": "E2",
+          "term": "table-exhibit"
+        },
+        "quote": {
+          "namespace": "E3",
+          "term": "quotes"
+        },
+        "footer": {
+          "namespace": "E2",
+          "term": "footer-text"
+        },
+        "custom": {
+          "namespace": "E2",
+          "term": "unknown"
+        }
+      },
+      "note": "custom names no kind: unknown until the slot is identified"
+    },
+    "brand.template.region.kind": {
+      "system": "brand",
+      "at": ["input:#/properties/layouts/items/properties/template/properties/regions/items/properties/kind"],
+      "values": {
+        "table": {
+          "namespace": "E3",
+          "term": "table-block"
+        },
+        "list": {
+          "namespace": "E3",
+          "term": "points"
+        },
+        "paragraph": {
+          "namespace": "E3",
+          "term": "paragraph-block"
+        },
+        "chart": {
+          "namespace": "E3",
+          "term": "chart-block"
+        },
+        "line": {
+          "namespace": "E1",
+          "term": "line"
+        },
+        "kpi": {
+          "namespace": "E3",
+          "term": "kpis"
+        },
+        "cards": {
+          "namespace": "E3",
+          "term": "items"
+        },
+        "quote": {
+          "namespace": "E3",
+          "term": "quotes"
+        },
+        "image": {
+          "namespace": "E3",
+          "term": "image-block"
+        }
+      }
+    },
+    "brand.layout.divider": {
+      "system": "brand",
+      "at": ["input:#/properties/layouts/items/properties/divider"],
+      "values": {
+        "rule": {
+          "namespace": "E2",
+          "term": "rule"
+        },
+        "panel": {
+          "namespace": "E2",
+          "term": "panel"
+        }
+      },
+      "excludedValues": {
+        "none": "the absence of a divider names no thing"
+      }
+    },
+    "brand.steps.marker": {
+      "system": "brand",
+      "at": ["input:#/properties/components/properties/steps/properties/marker"],
+      "values": {
+        "circle-number": {
+          "namespace": "E2",
+          "term": "marker"
+        },
+        "square-number": {
+          "namespace": "E2",
+          "term": "marker"
+        },
+        "dot": {
+          "namespace": "E2",
+          "term": "marker"
+        },
+        "icon": {
+          "namespace": "E2",
+          "term": "marker"
+        },
+        "chevron": {
+          "namespace": "E2",
+          "term": "marker"
+        }
+      },
+      "note": "every steps marker style is the E2 marker (its glyph is a style of it)"
+    },
+    "brand.gradient.use": {
+      "system": "brand",
+      "at": ["input:#/$defs/gradientUse/properties/as"],
+      "values": {
+        "text": {
+          "namespace": "E4",
+          "term": "colour-run"
+        },
+        "background": {
+          "namespace": "E4",
+          "term": "background-image"
+        },
+        "glow": {
+          "namespace": "E2",
+          "term": "decor"
+        },
+        "overlay": {
+          "namespace": "E4",
+          "term": "blend"
+        },
+        "fill": {
+          "namespace": "E4",
+          "term": "gradient"
+        },
+        "border": {
+          "namespace": "E2",
+          "term": "frame"
+        },
+        "divider": {
+          "namespace": "E2",
+          "term": "divider"
+        },
+        "chartSeries": {
+          "namespace": "E3",
+          "term": "chart-block"
+        }
+      },
+      "note": "where a gradient is used: on text it is a colour run; as a glow it is decor; on a border a frame; as an overlay a blend"
+    }
+  },
+  "keys": {
+    "brand.components": {
+      "system": "brand",
+      "at": [
+        "brand:#/properties/components/properties",
+        "input:#/properties/components/properties",
+        "mood:#/properties/components/properties"
+      ],
+      "values": {
+        "cards": {
+          "namespace": "E2",
+          "term": "card"
+        },
+        "card": {
+          "namespace": "E2",
+          "term": "card"
+        },
+        "chip": {
+          "namespace": "E2",
+          "term": "chip"
+        },
+        "callout": {
+          "namespace": "E2",
+          "term": "callout"
+        },
+        "quote": {
+          "namespace": "E3",
+          "term": "quotes"
+        },
+        "divider": {
+          "namespace": "E2",
+          "term": "divider"
+        },
+        "steps": {
+          "namespace": "E3",
+          "term": "process"
+        },
+        "timeline": {
+          "namespace": "E3",
+          "term": "timeline"
+        },
+        "arrow": {
+          "namespace": "E2",
+          "term": "connector"
+        },
+        "button": {
+          "namespace": "E2",
+          "term": "button"
+        },
+        "buttonSecondary": {
+          "namespace": "E2",
+          "term": "button"
+        },
+        "buttonOutline": {
+          "namespace": "E2",
+          "term": "button"
+        },
+        "buttonCta": {
+          "namespace": "E2",
+          "term": "button"
+        },
+        "ctaChevron": {
+          "namespace": "E2",
+          "term": "button"
+        },
+        "avatar": {
+          "namespace": "E2",
+          "term": "avatar"
+        },
+        "logoWall": {
+          "namespace": "E3",
+          "term": "logos"
+        },
+        "icons": {
+          "namespace": "E2",
+          "term": "icon"
+        },
+        "icon": {
+          "namespace": "E2",
+          "term": "icon"
+        },
+        "badge": {
+          "namespace": "E2",
+          "term": "badge"
+        },
+        "pager": {
+          "namespace": "E2",
+          "term": "pager"
+        },
+        "progress": {
+          "namespace": "E2",
+          "term": "pager"
+        },
+        "tags": {
+          "namespace": "E2",
+          "term": "chip"
+        },
+        "linkBar": {
+          "namespace": "E2",
+          "term": "tabs"
+        },
+        "tabs": {
+          "namespace": "E2",
+          "term": "tabs"
+        },
+        "accordion": {
+          "namespace": "E3",
+          "term": "stack"
+        },
+        "team": {
+          "namespace": "E3",
+          "term": "people"
+        },
+        "kpi": {
+          "namespace": "E3",
+          "term": "kpis"
+        },
+        "number": {
+          "namespace": "E2",
+          "term": "big-number"
+        }
+      },
+      "note": "the `components` object's keys name components; a component that styles a whole block (quote, steps, timeline, logoWall, team, kpi) maps to its E3 block"
+    }
+  },
+  "excluded": {
+    "deck:#/properties/schema/const": "the schema id (a version string)",
+    "layout:#/properties/schema/const": "the schema id (a version string)",
+    "content:#/properties/schema": "the schema id (a version string)",
+    "content:#/allOf/0/if/properties/schema/const": "the schema id (a version string)",
+    "mood:#/properties/schema/const": "the schema id (a version string)",
+    "brand:#/properties/schema/const": "the schema id (a version string)",
+    "deck:#/$defs/paragraph/properties/align": "alignment: a parameter of a box, not a kind of thing",
+    "deck:#/$defs/element/properties/text/properties/align": "alignment: a parameter of a box, not a kind of thing",
+    "deck:#/$defs/element/properties/text/properties/valign": "alignment: a parameter of a box, not a kind of thing",
+    "deck:#/$defs/element/properties/table/properties/align/items": "alignment: a parameter of a box, not a kind of thing",
+    "layout:#/properties/boxes/items/properties/align/properties/h": "alignment: a parameter of a box, not a kind of thing",
+    "layout:#/properties/boxes/items/properties/align/properties/v": "alignment: a parameter of a box, not a kind of thing",
+    "content:#/$defs/blockV1/oneOf/10/properties/align/items": "alignment: a parameter of a box, not a kind of thing",
+    "content:#/$defs/table/properties/align/items": "alignment: a parameter of a box, not a kind of thing",
+    "mood:#/properties/type/properties/align/properties/title": "alignment: a parameter of a box, not a kind of thing",
+    "mood:#/properties/type/properties/align/properties/body": "alignment: a parameter of a box, not a kind of thing",
+    "brand:#/$defs/halign": "alignment: a parameter of a box, not a kind of thing",
+    "input:#/$defs/hAlign": "alignment: a parameter of a box, not a kind of thing",
+    "input:#/$defs/vAlign": "alignment: a parameter of a box, not a kind of thing",
+    "input:#/properties/layouts/items/properties/textSide": "alignment: a parameter of a box, not a kind of thing",
+    "input:#/properties/layouts/items/properties/textPosition": "alignment: a parameter of a box, not a kind of thing",
+    "input:#/$defs/designElement/properties/align": "alignment: a parameter of a box, not a kind of thing",
+    "deck:#/properties/slides/items/properties/background/properties/fit": "image fit (cover / contain / fill / tile): how a picture is scaled into its box, a parameter; no test on a reference can tell it without the source file",
+    "deck:#/$defs/element/properties/image/properties/fit": "image fit (cover / contain / fill / tile): how a picture is scaled into its box, a parameter; no test on a reference can tell it without the source file",
+    "brand:#/$defs/background/properties/imageFit": "image fit (cover / contain / fill / tile): how a picture is scaled into its box, a parameter; no test on a reference can tell it without the source file",
+    "input:#/$defs/background/properties/imageFit": "image fit (cover / contain / fill / tile): how a picture is scaled into its box, a parameter; no test on a reference can tell it without the source file",
+    "input:#/$defs/cardBlock/properties/fit": "image fit (cover / contain / fill / tile): how a picture is scaled into its box, a parameter; no test on a reference can tell it without the source file",
+    "deck:#/$defs/warning/properties/severity": "a report severity, not a thing on a slide",
+    "brand:#/properties/rules/items/properties/severity": "a report severity, not a thing on a slide",
+    "brand:#/properties/questions/items/properties/severity": "a report severity, not a thing on a slide",
+    "input:#/properties/rules/items/properties/severity": "a report severity, not a thing on a slide",
+    "layout:#/properties/surface/properties/prefer": "a palette surface slot (which colour set a slide uses), not a thing on the slide",
+    "mood:#/properties/palette/properties/surfaces/items/properties/role": "a palette surface slot (which colour set a slide uses), not a thing on the slide",
+    "input:#/properties/surfaces/items/properties/role": "a palette surface slot (which colour set a slide uses), not a thing on the slide",
+    "mood:#/properties/palette/properties/surfaces/items/properties/tone": "light / dark tone of a surface: a colour property",
+    "brand:#/properties/surfaces/items/properties/tone": "light / dark tone of a surface: a colour property",
+    "layout:#/properties/footer": "a show / hide / size switch, not a kind of thing",
+    "layout:#/properties/logo": "a show / hide / size switch, not a kind of thing",
+    "mood:#/properties/logo/properties/perKind/additionalProperties": "a show / hide / size switch, not a kind of thing",
+    "brand:#/properties/logos/properties/perLayout/additionalProperties": "a show / hide / size switch, not a kind of thing",
+    "input:#/properties/brand/properties/logoRules/properties/perLayout/additionalProperties": "a show / hide / size switch, not a kind of thing",
+    "input:#/properties/layouts/items/properties/logo": "a show / hide / size switch, not a kind of thing",
+    "layout:#/properties/boxes/items/properties/flow/properties/direction": "flow direction (row / column / grid): the direction a box lays out its items, a parameter (the E3 structures column and grid are identified from the measured result)",
+    "content:#/$defs/blockV1/oneOf/6/properties/items/items/properties/trend": "a trend direction of a KPI value (up / down / flat), a data attribute",
+    "content:#/$defs/kpiNode/properties/trend": "a trend direction of a KPI value (up / down / flat), a data attribute",
+    "mood:#/properties/decor/properties/elements/items/properties/frequency": "frequency is how often a thing appears, not a thing",
+    "brand:#/properties/decor/properties/elements/items/properties/frequency": "frequency is how often a thing appears, not a thing",
+    "input:#/$defs/designElement/properties/frequency": "frequency is how often a thing appears, not a thing",
+    "input:#/$defs/gradientUse/properties/frequency": "frequency is how often a thing appears, not a thing",
+    "mood:#/properties/geometry/properties/density": "density / shape language / motion family / chart palette / gradient policy: a style setting of the whole brand",
+    "mood:#/properties/composition/properties/density": "density / shape language / motion family / chart palette / gradient policy: a style setting of the whole brand",
+    "brand:#/properties/composition/properties/density": "density / shape language / motion family / chart palette / gradient policy: a style setting of the whole brand",
+    "input:#/properties/composition/properties/density": "density / shape language / motion family / chart palette / gradient policy: a style setting of the whole brand",
+    "mood:#/properties/shape/properties/language": "density / shape language / motion family / chart palette / gradient policy: a style setting of the whole brand",
+    "mood:#/properties/motion/properties/family": "density / shape language / motion family / chart palette / gradient policy: a style setting of the whole brand",
+    "mood:#/properties/charts/properties/palette": "density / shape language / motion family / chart palette / gradient policy: a style setting of the whole brand",
+    "brand:#/properties/colors/properties/gradients/properties/policy": "density / shape language / motion family / chart palette / gradient policy: a style setting of the whole brand",
+    "input:#/properties/gradients/properties/policy": "density / shape language / motion family / chart palette / gradient policy: a style setting of the whole brand",
+    "mood:#/properties/shape/properties/divider/properties/style": "a divider style (line / none / accent-bar) of the Mood: the style of the E2 divider, not another thing",
+    "brand:#/properties/typography/properties/sizeUnits": "typography settings (units, font formats, styles, sources, auto-fit)",
+    "input:#/properties/typography/properties/sizeUnits": "typography settings (units, font formats, styles, sources, auto-fit)",
+    "brand:#/$defs/fontFile/properties/format": "typography settings (units, font formats, styles, sources, auto-fit)",
+    "brand:#/$defs/fontFile/properties/style": "typography settings (units, font formats, styles, sources, auto-fit)",
+    "input:#/$defs/font/properties/source": "typography settings (units, font formats, styles, sources, auto-fit)",
+    "input:#/$defs/font/properties/files/items/properties/style": "typography settings (units, font formats, styles, sources, auto-fit)",
+    "input:#/$defs/font/properties/style": "typography settings (units, font formats, styles, sources, auto-fit)",
+    "input:#/properties/typography/properties/autoFit": "typography settings (units, font formats, styles, sources, auto-fit)",
+    "input:#/properties/cards/properties/defaults/properties/overflow": "typography settings (units, font formats, styles, sources, auto-fit)",
+    "brand:#/properties/provenance/additionalProperties/properties/source": "provenance of a value (given / derived / answered), metadata",
+    "input:#/properties/meta/properties/source": "provenance of a value (given / derived / answered), metadata",
+    "brand:#/properties/components/properties/icons/properties/style": "icon style / variant names (line, filled, duotone ... white / light / dark): a drawing style of the E2 icon",
+    "brand:#/properties/components/properties/icons/properties/files/items/properties/variants/propertyNames": "icon style / variant names (line, filled, duotone ... white / light / dark): a drawing style of the E2 icon",
+    "input:#/properties/icons/properties/style": "icon style / variant names (line, filled, duotone ... white / light / dark): a drawing style of the E2 icon",
+    "input:#/$defs/iconContainer/properties/style": "icon style / variant names (line, filled, duotone ... white / light / dark): a drawing style of the E2 icon",
+    "input:#/properties/components/properties/pager/properties/position": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/properties/components/properties/pager/properties/arrows/properties/position": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/properties/components/properties/progress/properties/position": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/$defs/cardRecipe/properties/actionPosition": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/$defs/cardStyle/properties/statBand/properties/position": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/properties/charts/properties/dataLabels/properties/position": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/properties/charts/properties/legend/properties/position": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/properties/imagery/properties/textOverImage/properties/direction": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/properties/layouts/items/properties/imageSide": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/$defs/background/properties/overlayDirection": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/$defs/cardBlock/properties/overlayDir": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/$defs/cardBlock/properties/anchor": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/$defs/cardBlock/properties/chevronPos": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/$defs/accentBar/properties/side": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/$defs/imageTreatment/properties/gradientFade/properties/direction": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/$defs/designElement/properties/anchor": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/properties/components/properties/chip/properties/icon/properties/side": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/properties/components/properties/button/properties/icon/anyOf/0/properties/side": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/properties/components/properties/buttonSecondary/properties/icon/anyOf/0/properties/side": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/properties/components/properties/buttonOutline/properties/icon/anyOf/0/properties/side": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/properties/components/properties/buttonCta/properties/icon/anyOf/0/properties/side": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/$defs/cardBlock/properties/icon/anyOf/0/properties/side": "a position parameter of its own component (where a pager / progress bar / legend / label / action sits), not a kind of thing",
+    "input:#/properties/components/properties/quote/properties/markStyle": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/components/properties/divider/properties/style": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/components/properties/steps/properties/lineStyle": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/components/properties/steps/properties/orientation": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/components/properties/arrow/properties/head": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/components/properties/arrow/properties/curve": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/components/properties/pager/properties/style": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/components/properties/avatar/properties/placeholder": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/components/properties/logoWall/properties/arrangement": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/components/properties/logoWall/properties/treatment": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/components/properties/ctaChevron/properties/leadingStyle": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/components/properties/tabs/properties/style": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/$defs/cardBlock/properties/variant": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/$defs/cardStyle/properties/innerRadius": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/$defs/cardStyle/properties/header": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/$defs/iconContainer/properties/container": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/$defs/border/properties/style": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/$defs/border/properties/sides/oneOf/0": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/$defs/border/properties/sides/oneOf/1/items": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/colors/properties/semanticStyle/properties/success": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/colors/properties/semanticStyle/properties/warning": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/colors/properties/semanticStyle/properties/error": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/colors/properties/semanticStyle/properties/info": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/typography/properties/titleEndMark/properties/shape": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/$defs/sectionHeader/properties/pattern": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/$defs/sectionHeader/properties/eyebrowMarker/properties/shape": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/$defs/sectionHeader/properties/eyebrowPill/properties/fade": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/$defs/sectionHeader/properties/twoTone/oneOf/1": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/$defs/gradientDef/properties/shape": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/assets/properties/illustrationStyle/properties/type": "a style variant of a component the vocabulary names elsewhere (its look, not another thing)",
+    "input:#/properties/components/properties/button/properties/icon/anyOf/2/const": "a sentinel (false / \"none\") that switches an icon off",
+    "input:#/properties/components/properties/buttonSecondary/properties/icon/anyOf/2/const": "a sentinel (false / \"none\") that switches an icon off",
+    "input:#/properties/components/properties/buttonOutline/properties/icon/anyOf/2/const": "a sentinel (false / \"none\") that switches an icon off",
+    "input:#/properties/components/properties/buttonCta/properties/icon/anyOf/2/const": "a sentinel (false / \"none\") that switches an icon off",
+    "input:#/$defs/cardBlock/properties/icon/anyOf/2/const": "a sentinel (false / \"none\") that switches an icon off",
+    "input:#/properties/cards/properties/arrangements/items": "an arrangement / layout parameter of cards, a template or a recipe (how blocks are placed), not a thing",
+    "input:#/properties/cards/properties/numberStyle": "an arrangement / layout parameter of cards, a template or a recipe (how blocks are placed), not a thing",
+    "input:#/$defs/cardInternalLayout": "an arrangement / layout parameter of cards, a template or a recipe (how blocks are placed), not a thing",
+    "input:#/$defs/cardRecipe/properties/arrangement": "an arrangement / layout parameter of cards, a template or a recipe (how blocks are placed), not a thing",
+    "input:#/$defs/cardRecipe/properties/action": "an arrangement / layout parameter of cards, a template or a recipe (how blocks are placed), not a thing",
+    "input:#/$defs/cardRecipe/properties/orientation": "an arrangement / layout parameter of cards, a template or a recipe (how blocks are placed), not a thing",
+    "input:#/$defs/cardRecipe/properties/gridLayout": "an arrangement / layout parameter of cards, a template or a recipe (how blocks are placed), not a thing",
+    "input:#/properties/layouts/items/properties/template/properties/split": "an arrangement / layout parameter of cards, a template or a recipe (how blocks are placed), not a thing",
+    "input:#/properties/layouts/items/properties/template/properties/format": "an arrangement / layout parameter of cards, a template or a recipe (how blocks are placed), not a thing",
+    "input:#/properties/charts/properties/gridlines/properties/style": "a chart / table setting (gridline style, legend marker, orientation, label position, separator, border style, check glyph)",
+    "input:#/properties/charts/properties/gridlines/properties/axis": "a chart / table setting (gridline style, legend marker, orientation, label position, separator, border style, check glyph)",
+    "input:#/properties/charts/properties/legend/properties/marker": "a chart / table setting (gridline style, legend marker, orientation, label position, separator, border style, check glyph)",
+    "input:#/properties/charts/properties/bar/properties/orientation": "a chart / table setting (gridline style, legend marker, orientation, label position, separator, border style, check glyph)",
+    "input:#/properties/charts/properties/pie/properties/labels": "a chart / table setting (gridline style, legend marker, orientation, label position, separator, border style, check glyph)",
+    "input:#/properties/charts/properties/kpi/properties/separator": "a chart / table setting (gridline style, legend marker, orientation, label position, separator, border style, check glyph)",
+    "input:#/properties/tables/properties/rows/properties/borderStyle": "a chart / table setting (gridline style, legend marker, orientation, label position, separator, border style, check glyph)",
+    "input:#/properties/tables/properties/checkIcon/properties/glyph": "a chart / table setting (gridline style, legend marker, orientation, label position, separator, border style, check glyph)",
+    "input:#/properties/imagery/properties/crop/properties/focus": "an imagery crop focus, a parameter",
+    "input:#/$defs/logoVariant": "a logo file variant (full / icon / wordmark / mono): which file of the E2 brand-logo",
+    "input:#/properties/rules/items/properties/type": "a check name of the brand rules (minContrast, forbid ...)",
+    "input:#/properties/export/properties/targets/items": "export / locale / motion / page settings",
+    "input:#/properties/export/properties/gradientFallback": "export / locale / motion / page settings",
+    "input:#/properties/locale/properties/currencyPosition": "export / locale / motion / page settings",
+    "input:#/properties/motion/properties/transition": "export / locale / motion / page settings",
+    "input:#/properties/motion/properties/build": "export / locale / motion / page settings",
+    "input:#/properties/layout/properties/aspect": "export / locale / motion / page settings"
+  },
+  "catalogue": {
+    "note": "The architect's map (V0 task): the catalogue marks (data-type, data-f, header classes) -> the term the vocabulary must identify. `none` = no block (the title container). A list accepts any of its terms (roadmap: timeline with year / period labels, process with step / phase labels; corrected by the coordinator 2026-11-04, as is point -> label).",
+    "containerTypes": {
+      "kpi_block": {
+        "namespace": "E3",
+        "term": "kpis"
+      },
+      "kpi_vb": {
+        "namespace": "E3",
+        "term": "kpis"
+      },
+      "paragraph": {
+        "namespace": "E3",
+        "term": "paragraph-block"
+      },
+      "simple_list": {
+        "namespace": "E3",
+        "term": "points"
+      },
+      "list_with_description": {
+        "namespace": "E3",
+        "term": "items"
+      },
+      "list_with_subpoints": {
+        "namespace": "E3",
+        "term": "subpoints"
+      },
+      "roadmap": [
+        {
+          "namespace": "E3",
+          "term": "timeline"
+        },
+        {
+          "namespace": "E3",
+          "term": "process"
+        }
+      ],
+      "timeline": {
+        "namespace": "E3",
+        "term": "timeline"
+      },
+      "timeline_with_list": {
+        "namespace": "E3",
+        "term": "timeline"
+      },
+      "multi_column_list": {
+        "namespace": "E3",
+        "term": "items"
+      },
+      "table": {
+        "namespace": "E3",
+        "term": "table-block"
+      },
+      "comparison": {
+        "namespace": "E3",
+        "term": "compare"
+      },
+      "chart": {
+        "namespace": "E3",
+        "term": "chart-block"
+      },
+      "title": {
+        "none": true
+      }
+    },
+    "fields": {
+      "heading": {
+        "namespace": "E2",
+        "term": "heading"
+      },
+      "description": {
+        "namespace": "E2",
+        "term": "description"
+      },
+      "value": {
+        "namespace": "E2",
+        "term": "big-number"
+      },
+      "body": {
+        "namespace": "E2",
+        "term": "body"
+      },
+      "point": {
+        "namespace": "E2",
+        "term": "label"
+      },
+      "bullet": {
+        "namespace": "E2",
+        "term": "bullet"
+      },
+      "paragraph": {
+        "namespace": "E2",
+        "term": "paragraph"
+      },
+      "row": {
+        "namespace": "E3",
+        "term": "cell"
+      }
+    },
+    "header": {
+      "k": {
+        "namespace": "E2",
+        "term": "eyebrow"
+      },
+      "t": {
+        "namespace": "E2",
+        "term": "title"
+      },
+      "r": {
+        "namespace": "E2",
+        "term": "rule"
+      },
+      "src": {
+        "namespace": "E2",
+        "term": "source"
+      },
+      "ft": {
+        "namespace": "E2",
+        "term": "footer-text"
+      },
+      "lg": {
+        "namespace": "E2",
+        "term": "brand-logo"
+      }
+    }
+  },
+  "anatomy": {
+    "note": "anatomy.py's role names before V0 -> the term that replaces each; a role split by a sharper test lists every term it splits into (`terms`).",
+    "roles": {
+      "title": [
+        {
+          "namespace": "E2",
+          "term": "title"
+        }
+      ],
+      "subtitle": [
+        {
+          "namespace": "E2",
+          "term": "subtitle"
+        }
+      ],
+      "eyebrow": [
+        {
+          "namespace": "E2",
+          "term": "eyebrow"
+        }
+      ],
+      "body": [
+        {
+          "namespace": "E2",
+          "term": "body"
+        }
+      ],
+      "label": [
+        {
+          "namespace": "E2",
+          "term": "label"
+        }
+      ],
+      "heading": [
+        {
+          "namespace": "E2",
+          "term": "heading"
+        }
+      ],
+      "small-text": [
+        {
+          "namespace": "E2",
+          "term": "unknown"
+        }
+      ],
+      "big-number": [
+        {
+          "namespace": "E2",
+          "term": "big-number"
+        }
+      ],
+      "date": [
+        {
+          "namespace": "E2",
+          "term": "date"
+        }
+      ],
+      "authors": [
+        {
+          "namespace": "E2",
+          "term": "authors"
+        }
+      ],
+      "legal": [
+        {
+          "namespace": "E2",
+          "term": "legal"
+        }
+      ],
+      "source": [
+        {
+          "namespace": "E2",
+          "term": "source"
+        }
+      ],
+      "contact": [
+        {
+          "namespace": "E2",
+          "term": "contact"
+        }
+      ],
+      "page-number": [
+        {
+          "namespace": "E2",
+          "term": "page-number"
+        }
+      ],
+      "footer": [
+        {
+          "namespace": "E2",
+          "term": "footer-text"
+        }
+      ],
+      "partner-label": [
+        {
+          "namespace": "E2",
+          "term": "label"
+        }
+      ],
+      "placeholder": [
+        {
+          "namespace": "E2",
+          "term": "placeholder"
+        }
+      ],
+      "logo": [
+        {
+          "namespace": "E2",
+          "term": "brand-logo"
+        }
+      ],
+      "partner-logo": [
+        {
+          "namespace": "E2",
+          "term": "partner-logo"
+        }
+      ],
+      "footer-mark": [
+        {
+          "namespace": "E2",
+          "term": "brand-logo"
+        },
+        {
+          "namespace": "E2",
+          "term": "rule"
+        },
+        {
+          "namespace": "E2",
+          "term": "decor"
+        },
+        {
+          "namespace": "E2",
+          "term": "band"
+        },
+        {
+          "namespace": "E2",
+          "term": "cut-shape"
+        },
+        {
+          "namespace": "E2",
+          "term": "panel"
+        },
+        {
+          "namespace": "E2",
+          "term": "card"
+        },
+        {
+          "namespace": "E2",
+          "term": "divider"
+        },
+        {
+          "namespace": "E2",
+          "term": "icon"
+        },
+        {
+          "namespace": "E2",
+          "term": "picture"
+        }
+      ],
+      "hero-image": [
+        {
+          "namespace": "E2",
+          "term": "hero-image"
+        }
+      ],
+      "cutout": [
+        {
+          "namespace": "E2",
+          "term": "cutout"
+        }
+      ],
+      "picture": [
+        {
+          "namespace": "E2",
+          "term": "picture"
+        }
+      ],
+      "icon": [
+        {
+          "namespace": "E2",
+          "term": "icon"
+        }
+      ],
+      "background": [
+        {
+          "namespace": "E2",
+          "term": "background"
+        }
+      ],
+      "background-art": [
+        {
+          "namespace": "E2",
+          "term": "background-art"
+        }
+      ],
+      "chart-or-diagram": [
+        {
+          "namespace": "E2",
+          "term": "chart-exhibit"
+        },
+        {
+          "namespace": "E2",
+          "term": "diagram"
+        },
+        {
+          "namespace": "E2",
+          "term": "illustration"
+        }
+      ],
+      "rule": [
+        {
+          "namespace": "E2",
+          "term": "rule"
+        },
+        {
+          "namespace": "E2",
+          "term": "divider"
+        }
+      ],
+      "cut-shape": [
+        {
+          "namespace": "E2",
+          "term": "cut-shape"
+        }
+      ],
+      "band": [
+        {
+          "namespace": "E2",
+          "term": "band"
+        }
+      ],
+      "panel": [
+        {
+          "namespace": "E2",
+          "term": "panel"
+        }
+      ],
+      "card": [
+        {
+          "namespace": "E2",
+          "term": "card"
+        }
+      ],
+      "decor": [
+        {
+          "namespace": "E2",
+          "term": "decor"
+        }
+      ]
+    },
+    "categories": {
+      "cover": {
+        "namespace": "E3",
+        "term": "cover-slide"
+      },
+      "agenda": {
+        "namespace": "E3",
+        "term": "agenda-slide"
+      },
+      "closing-contact": {
+        "namespace": "E3",
+        "term": "cta-slide"
+      },
+      "legal": {
+        "namespace": "E3",
+        "term": "legal-slide"
+      },
+      "back-cover": {
+        "namespace": "E3",
+        "term": "back-cover-slide"
+      },
+      "quote": {
+        "namespace": "E3",
+        "term": "quote-slide"
+      },
+      "section-break": {
+        "namespace": "E3",
+        "term": "section-slide"
+      },
+      "kpi": {
+        "namespace": "E3",
+        "term": "kpi-slide"
+      },
+      "chart": {
+        "namespace": "E3",
+        "term": "chart-slide"
+      },
+      "table": {
+        "namespace": "E3",
+        "term": "table-slide"
+      },
+      "modular-columns": {
+        "namespace": "E3",
+        "term": "cards-slide"
+      },
+      "team-or-gallery": {
+        "namespace": "E3",
+        "term": "team-slide"
+      },
+      "image-text": {
+        "namespace": "E3",
+        "term": "image-text-slide"
+      },
+      "text-heavy": {
+        "namespace": "E3",
+        "term": "text-slide"
+      },
+      "text": {
+        "namespace": "E3",
+        "term": "text-slide"
+      }
+    }
+  }
+}

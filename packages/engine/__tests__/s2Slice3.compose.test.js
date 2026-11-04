@@ -19,8 +19,16 @@ const ALL = readdirSync(join(ROOT, 'golden/expected'))
   .filter((id) => existsSync(join(ROOT, 'golden/expected', id, 'mood.json')))
   .sort()
   .map(brand);
+// C4: these slides test the 68 layouts (the catalogue's fallback), so the catalogue layouts are opted out
 const compose = (content, b) =>
-  composeDeck({ content, mood: b.mood, brandSpec: b.brandSpec, catalogue, engineVersion: '0.0.0' });
+  composeDeck({
+    content,
+    mood: b.mood,
+    brandSpec: b.brandSpec,
+    catalogue,
+    engineVersion: '0.0.0',
+    options: { catalogue: false },
+  });
 const deckOf = (slides) => ({
   schema: 'content/2',
   slides: [{ id: 'cover', title: 'Cover', blocks: [] }, ...slides],

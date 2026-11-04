@@ -119,6 +119,13 @@ export function createBuilder(def, ctx) {
     zone(f) {
       if (f.w > 0 && f.h > 0) zones.push(f);
     },
+    /** The box / slot already placed with this id (a layout may refine what a shared helper drew), or undefined. */
+    boxById(id) {
+      return boxes.find((x) => x.id === id);
+    },
+    slotById(id) {
+      return slots.find((x) => x.id === id);
+    },
     /** Title box + its required text slot. */
     title(f, roleName, align = {}) {
       const a = { ...align };

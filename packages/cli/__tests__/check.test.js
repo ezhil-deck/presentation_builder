@@ -33,7 +33,7 @@ describe('pb check', () => {
       kind: 'Report',
       version: '1.0.0',
       brandId: 'hdfc-2',
-      summary: { checks: 14 },
+      summary: { checks: 15 },
     });
     const fails = report.results.filter((x) => x.status === 'fail').map((x) => x.id);
     // the empty brand folder: every asset / logo file is missing, so assets fails too

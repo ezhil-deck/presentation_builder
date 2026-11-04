@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "anatomy-library",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [".claude/skills/slide-anatomy/scripts/serve.mjs", "out/anatomy", "8111"],
+      "port": 8111
+    }
+  ]
+}

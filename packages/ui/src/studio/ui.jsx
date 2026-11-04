@@ -1,5 +1,5 @@
 // Small chrome primitives of the Studio: a neutral zinc ramp, one blue for UI state, 13 px type, 8 px grid. Icons only
-// where universal (chevrons, close, more).
+// where universal (chevrons, close, more, undo / redo).
 import { useEffect, useRef, useState } from 'react';
 import { cx } from '../lib/format.js';
 
@@ -8,6 +8,8 @@ const PATHS = {
   left: 'M10 4L6 8l4 4',
   right: 'M6 4l4 4-4 4',
   close: 'M4 4l8 8M12 4l-8 8',
+  undo: 'M5.5 3.5L3 6l2.5 2.5M3 6h6.5a3.5 3.5 0 010 7H7',
+  redo: 'M10.5 3.5L13 6l-2.5 2.5M13 6H6.5a3.5 3.5 0 000 7H9',
 };
 
 export function Icon({ name, className }) {

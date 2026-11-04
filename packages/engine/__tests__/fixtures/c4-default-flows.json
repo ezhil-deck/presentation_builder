@@ -1,0 +1,1433 @@
+{
+  "note": "The C4 default build (engine 0.3.0: C3.1 fill and placement, before the rules R-FILLROOM / R-PLACE) as the tests compose it (golden/expected Mood + brand spec, the golden showcase): per item flow with a heading and a description (item 0) the roles and px drawn, and the frames the rule tests compare with. Written once on 2026-11-03 with the 0.3.0 code; never regenerated. `overflow`: the texts that overflowed (cisco s15, showcaseV2.test.js SNAPSHOT_OVERFLOW; none on the other brands).",
+  "engineVersion": "0.3.0",
+  "flows": {
+    "akgmedia": [
+      {
+        "index": 2,
+        "el": "s2-cards-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 30,
+        "xpx": 25
+      },
+      {
+        "index": 4,
+        "el": "s4-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 30,
+        "xpx": 25
+      },
+      {
+        "index": 5,
+        "el": "s5-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 30,
+        "xpx": 25
+      },
+      {
+        "index": 6,
+        "el": "s6-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 30,
+        "xpx": 25
+      },
+      {
+        "index": 7,
+        "el": "s7-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 30,
+        "xpx": 25
+      },
+      {
+        "index": 8,
+        "el": "s8-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 30,
+        "xpx": 25
+      },
+      {
+        "index": 9,
+        "el": "s9-cards-0-title",
+        "title": "h3",
+        "text": "bodySmall",
+        "tpx": 30,
+        "xpx": 18
+      },
+      {
+        "index": 10,
+        "el": "s10-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 79,
+        "xpx": 29
+      },
+      {
+        "index": 12,
+        "el": "s12-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 79,
+        "xpx": 29
+      },
+      {
+        "index": 23,
+        "el": "s23-compare-0-title",
+        "title": "h3",
+        "text": "h2",
+        "tpx": 30,
+        "xpx": 29
+      },
+      {
+        "index": 24,
+        "el": "s24-compare-0-title",
+        "title": "h3",
+        "text": "bodySmall",
+        "tpx": 30,
+        "xpx": 18
+      },
+      {
+        "index": 28,
+        "el": "s28-timeline-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 30,
+        "xpx": 25
+      },
+      {
+        "index": 29,
+        "el": "s29-timeline-0-title",
+        "title": "h3",
+        "text": "bodySmall",
+        "tpx": 30,
+        "xpx": 18
+      },
+      {
+        "index": 34,
+        "el": "s34-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 30,
+        "xpx": 25
+      },
+      {
+        "index": 35,
+        "el": "s35-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 30,
+        "xpx": 25
+      },
+      {
+        "index": 36,
+        "el": "s36-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 30,
+        "xpx": 25
+      },
+      {
+        "index": 37,
+        "el": "s37-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 79,
+        "xpx": 29
+      }
+    ],
+    "bosch": [
+      {
+        "index": 2,
+        "el": "s2-cards-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 31.92,
+        "xpx": 21.28
+      },
+      {
+        "index": 4,
+        "el": "s4-steps-0-title",
+        "title": "h1",
+        "text": "bodyLarge",
+        "tpx": 53.2,
+        "xpx": 26.6
+      },
+      {
+        "index": 5,
+        "el": "s5-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 31.92,
+        "xpx": 21.28
+      },
+      {
+        "index": 6,
+        "el": "s6-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 31.92,
+        "xpx": 21.28
+      },
+      {
+        "index": 7,
+        "el": "s7-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 31.92,
+        "xpx": 21.28
+      },
+      {
+        "index": 8,
+        "el": "s8-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 31.92,
+        "xpx": 21.28
+      },
+      {
+        "index": 9,
+        "el": "s9-cards-0-title",
+        "title": "h1",
+        "text": "body",
+        "tpx": 53.2,
+        "xpx": 21.28
+      },
+      {
+        "index": 10,
+        "el": "s10-cards-0-title",
+        "title": "h1",
+        "text": "h3",
+        "tpx": 53.2,
+        "xpx": 31.92
+      },
+      {
+        "index": 12,
+        "el": "s12-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 53.2,
+        "xpx": 42.56
+      },
+      {
+        "index": 23,
+        "el": "s23-compare-0-title",
+        "title": "h1",
+        "text": "bodyLarge",
+        "tpx": 53.2,
+        "xpx": 26.6
+      },
+      {
+        "index": 24,
+        "el": "s24-compare-0-title",
+        "title": "cardTitle",
+        "text": "body",
+        "tpx": 26.6,
+        "xpx": 21.28
+      },
+      {
+        "index": 28,
+        "el": "s28-timeline-0-title",
+        "title": "h2",
+        "text": "bodyLarge",
+        "tpx": 42.56,
+        "xpx": 26.6
+      },
+      {
+        "index": 29,
+        "el": "s29-timeline-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 42.56,
+        "xpx": 21.28
+      },
+      {
+        "index": 34,
+        "el": "s34-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 31.92,
+        "xpx": 21.28
+      },
+      {
+        "index": 35,
+        "el": "s35-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 31.92,
+        "xpx": 21.28
+      },
+      {
+        "index": 36,
+        "el": "s36-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 31.92,
+        "xpx": 21.28
+      },
+      {
+        "index": 37,
+        "el": "s37-cards-0-title",
+        "title": "h1",
+        "text": "h3",
+        "tpx": 53.2,
+        "xpx": 31.92
+      }
+    ],
+    "cisco": [
+      {
+        "index": 2,
+        "el": "s2-cards-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 24.48
+      },
+      {
+        "index": 4,
+        "el": "s4-steps-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 61.2,
+        "xpx": 24.48
+      },
+      {
+        "index": 5,
+        "el": "s5-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 24.48
+      },
+      {
+        "index": 6,
+        "el": "s6-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 24.48
+      },
+      {
+        "index": 7,
+        "el": "s7-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 24.48
+      },
+      {
+        "index": 8,
+        "el": "s8-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 24.48
+      },
+      {
+        "index": 9,
+        "el": "s9-cards-0-title",
+        "title": "h3",
+        "text": "bodySmall",
+        "tpx": 45.9,
+        "xpx": 19.89
+      },
+      {
+        "index": 10,
+        "el": "s10-cards-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 61.2,
+        "xpx": 24.48
+      },
+      {
+        "index": 12,
+        "el": "s12-cards-0-title",
+        "title": "h1",
+        "text": "body",
+        "tpx": 73.44,
+        "xpx": 24.48
+      },
+      {
+        "index": 23,
+        "el": "s23-compare-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 61.2,
+        "xpx": 24.48
+      },
+      {
+        "index": 24,
+        "el": "s24-compare-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 24.48
+      },
+      {
+        "index": 28,
+        "el": "s28-timeline-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 61.2,
+        "xpx": 24.48
+      },
+      {
+        "index": 29,
+        "el": "s29-timeline-0-title",
+        "title": "h3",
+        "text": "bodySmall",
+        "tpx": 39.9,
+        "xpx": 19.89
+      },
+      {
+        "index": 34,
+        "el": "s34-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 24.48
+      },
+      {
+        "index": 35,
+        "el": "s35-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 24.48
+      },
+      {
+        "index": 36,
+        "el": "s36-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 24.48
+      },
+      {
+        "index": 37,
+        "el": "s37-cards-0-title",
+        "title": "h1",
+        "text": "body",
+        "tpx": 73.44,
+        "xpx": 24.48
+      }
+    ],
+    "hdfc-2": [
+      {
+        "index": 2,
+        "el": "s2-cards-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27,
+        "xpx": 27
+      },
+      {
+        "index": 4,
+        "el": "s4-steps-0-title",
+        "title": "bodyLarge",
+        "text": "body",
+        "tpx": 36,
+        "xpx": 27
+      },
+      {
+        "index": 5,
+        "el": "s5-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27,
+        "xpx": 15
+      },
+      {
+        "index": 6,
+        "el": "s6-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27,
+        "xpx": 27
+      },
+      {
+        "index": 7,
+        "el": "s7-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27,
+        "xpx": 27
+      },
+      {
+        "index": 8,
+        "el": "s8-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27,
+        "xpx": 27
+      },
+      {
+        "index": 9,
+        "el": "s9-cards-0-title",
+        "title": "bodyLarge",
+        "text": "bodySmall",
+        "tpx": 36,
+        "xpx": 23
+      },
+      {
+        "index": 10,
+        "el": "s10-cards-0-title",
+        "title": "bodyLarge",
+        "text": "bodyLarge",
+        "tpx": 36,
+        "xpx": 36
+      },
+      {
+        "index": 12,
+        "el": "s12-cards-0-title",
+        "title": "h1",
+        "text": "bodyLarge",
+        "tpx": 68,
+        "xpx": 36
+      },
+      {
+        "index": 23,
+        "el": "s23-compare-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 36,
+        "xpx": 25
+      },
+      {
+        "index": 24,
+        "el": "s24-compare-0-title",
+        "title": "h2",
+        "text": "bodySmall",
+        "tpx": 36,
+        "xpx": 23
+      },
+      {
+        "index": 28,
+        "el": "s28-timeline-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27,
+        "xpx": 27
+      },
+      {
+        "index": 29,
+        "el": "s29-timeline-0-title",
+        "title": "h3",
+        "text": "bodySmall",
+        "tpx": 27,
+        "xpx": 21
+      },
+      {
+        "index": 34,
+        "el": "s34-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27,
+        "xpx": 27
+      },
+      {
+        "index": 35,
+        "el": "s35-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27,
+        "xpx": 27
+      },
+      {
+        "index": 36,
+        "el": "s36-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27,
+        "xpx": 27
+      },
+      {
+        "index": 37,
+        "el": "s37-cards-0-title",
+        "title": "h1",
+        "text": "body",
+        "tpx": 68,
+        "xpx": 27
+      }
+    ],
+    "headspace": [
+      {
+        "index": 2,
+        "el": "s2-cards-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 4,
+        "el": "s4-steps-0-title",
+        "title": "h1",
+        "text": "bodyLarge",
+        "tpx": 73.44,
+        "xpx": 30.6
+      },
+      {
+        "index": 5,
+        "el": "s5-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 6,
+        "el": "s6-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 7,
+        "el": "s7-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 8,
+        "el": "s8-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 9,
+        "el": "s9-cards-0-title",
+        "title": "h1",
+        "text": "body",
+        "tpx": 73.44,
+        "xpx": 27.54
+      },
+      {
+        "index": 10,
+        "el": "s10-cards-0-title",
+        "title": "h1",
+        "text": "h3",
+        "tpx": 73.44,
+        "xpx": 45.9
+      },
+      {
+        "index": 12,
+        "el": "s12-cards-0-title",
+        "title": "h1",
+        "text": "h3",
+        "tpx": 73.44,
+        "xpx": 45.9
+      },
+      {
+        "index": 23,
+        "el": "s23-compare-0-title",
+        "title": "h1",
+        "text": "body",
+        "tpx": 73.44,
+        "xpx": 27.54
+      },
+      {
+        "index": 24,
+        "el": "s24-compare-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 28,
+        "el": "s28-timeline-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 61.2,
+        "xpx": 27.54
+      },
+      {
+        "index": 29,
+        "el": "s29-timeline-0-title",
+        "title": "h3",
+        "text": "bodySmall",
+        "tpx": 45.9,
+        "xpx": 24.48
+      },
+      {
+        "index": 34,
+        "el": "s34-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 35,
+        "el": "s35-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 36,
+        "el": "s36-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 37,
+        "el": "s37-cards-0-title",
+        "title": "h1",
+        "text": "bodyLarge",
+        "tpx": 73.44,
+        "xpx": 30.6
+      }
+    ],
+    "notion": [
+      {
+        "index": 2,
+        "el": "s2-cards-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 21.6,
+        "xpx": 27
+      },
+      {
+        "index": 4,
+        "el": "s4-steps-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 60,
+        "xpx": 29.7
+      },
+      {
+        "index": 5,
+        "el": "s5-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 21.6,
+        "xpx": 27
+      },
+      {
+        "index": 6,
+        "el": "s6-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 21.6,
+        "xpx": 27
+      },
+      {
+        "index": 7,
+        "el": "s7-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 21.6,
+        "xpx": 27
+      },
+      {
+        "index": 8,
+        "el": "s8-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 21.6,
+        "xpx": 27
+      },
+      {
+        "index": 9,
+        "el": "s9-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 60,
+        "xpx": 29.7
+      },
+      {
+        "index": 10,
+        "el": "s10-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 60,
+        "xpx": 29.7
+      },
+      {
+        "index": 12,
+        "el": "s12-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 60,
+        "xpx": 29.7
+      },
+      {
+        "index": 23,
+        "el": "s23-compare-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 60,
+        "xpx": 29.7
+      },
+      {
+        "index": 24,
+        "el": "s24-compare-0-title",
+        "title": "h3",
+        "text": "bodySmall",
+        "tpx": 21.6,
+        "xpx": 21.6
+      },
+      {
+        "index": 28,
+        "el": "s28-timeline-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 60,
+        "xpx": 29.7
+      },
+      {
+        "index": 29,
+        "el": "s29-timeline-0-title",
+        "title": "h3",
+        "text": "bodySmall",
+        "tpx": 21.6,
+        "xpx": 21.6
+      },
+      {
+        "index": 34,
+        "el": "s34-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 21.6,
+        "xpx": 27
+      },
+      {
+        "index": 35,
+        "el": "s35-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 21.6,
+        "xpx": 27
+      },
+      {
+        "index": 36,
+        "el": "s36-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 21.6,
+        "xpx": 27
+      },
+      {
+        "index": 37,
+        "el": "s37-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 60,
+        "xpx": 29.7
+      }
+    ],
+    "rukko": [
+      {
+        "index": 2,
+        "el": "s2-cards-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 33.25,
+        "xpx": 21.28
+      },
+      {
+        "index": 4,
+        "el": "s4-steps-0-title",
+        "title": "h2",
+        "text": "bodyLarge",
+        "tpx": 45.22,
+        "xpx": 26.6
+      },
+      {
+        "index": 5,
+        "el": "s5-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 33.25,
+        "xpx": 21.28
+      },
+      {
+        "index": 6,
+        "el": "s6-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 33.25,
+        "xpx": 21.28
+      },
+      {
+        "index": 7,
+        "el": "s7-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 33.25,
+        "xpx": 21.28
+      },
+      {
+        "index": 8,
+        "el": "s8-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 33.25,
+        "xpx": 21.28
+      },
+      {
+        "index": 9,
+        "el": "s9-cards-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 45.22,
+        "xpx": 21.28
+      },
+      {
+        "index": 10,
+        "el": "s10-cards-0-title",
+        "title": "h1",
+        "text": "h3",
+        "tpx": 92,
+        "xpx": 33.25
+      },
+      {
+        "index": 12,
+        "el": "s12-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 92,
+        "xpx": 45.22
+      },
+      {
+        "index": 23,
+        "el": "s23-compare-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 45.22,
+        "xpx": 21.28
+      },
+      {
+        "index": 24,
+        "el": "s24-compare-0-title",
+        "title": "h3",
+        "text": "bodySmall",
+        "tpx": 33.25,
+        "xpx": 18.62
+      },
+      {
+        "index": 28,
+        "el": "s28-timeline-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 33.25,
+        "xpx": 21.28
+      },
+      {
+        "index": 29,
+        "el": "s29-timeline-0-title",
+        "title": "h3",
+        "text": "bodySmall",
+        "tpx": 33.25,
+        "xpx": 18.62
+      },
+      {
+        "index": 34,
+        "el": "s34-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 33.25,
+        "xpx": 21.28
+      },
+      {
+        "index": 35,
+        "el": "s35-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 33.25,
+        "xpx": 21.28
+      },
+      {
+        "index": 36,
+        "el": "s36-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 33.25,
+        "xpx": 21.28
+      },
+      {
+        "index": 37,
+        "el": "s37-cards-0-title",
+        "title": "h1",
+        "text": "h3",
+        "tpx": 92,
+        "xpx": 33.25
+      }
+    ],
+    "shopify": [
+      {
+        "index": 2,
+        "el": "s2-cards-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 4,
+        "el": "s4-steps-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 61.2,
+        "xpx": 27.54
+      },
+      {
+        "index": 5,
+        "el": "s5-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 6,
+        "el": "s6-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 7,
+        "el": "s7-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 8,
+        "el": "s8-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 9,
+        "el": "s9-cards-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 61.2,
+        "xpx": 27.54
+      },
+      {
+        "index": 10,
+        "el": "s10-cards-0-title",
+        "title": "h1",
+        "text": "bodyLarge",
+        "tpx": 81.09,
+        "xpx": 30.6
+      },
+      {
+        "index": 12,
+        "el": "s12-cards-0-title",
+        "title": "h1",
+        "text": "h3",
+        "tpx": 81.09,
+        "xpx": 45.9
+      },
+      {
+        "index": 23,
+        "el": "s23-compare-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 61.2,
+        "xpx": 27.54
+      },
+      {
+        "index": 24,
+        "el": "s24-compare-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 28,
+        "el": "s28-timeline-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 61.2,
+        "xpx": 27.54
+      },
+      {
+        "index": 29,
+        "el": "s29-timeline-0-title",
+        "title": "h3",
+        "text": "bodySmall",
+        "tpx": 43.9,
+        "xpx": 19.89
+      },
+      {
+        "index": 34,
+        "el": "s34-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 35,
+        "el": "s35-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 36,
+        "el": "s36-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 45.9,
+        "xpx": 27.54
+      },
+      {
+        "index": 37,
+        "el": "s37-cards-0-title",
+        "title": "h1",
+        "text": "bodyLarge",
+        "tpx": 81.09,
+        "xpx": 30.6
+      }
+    ],
+    "stripe": [
+      {
+        "index": 2,
+        "el": "s2-cards-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 22.4,
+        "xpx": 22.4
+      },
+      {
+        "index": 4,
+        "el": "s4-steps-0-title",
+        "title": "h2",
+        "text": "h2",
+        "tpx": 36.4,
+        "xpx": 36.4
+      },
+      {
+        "index": 5,
+        "el": "s5-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 22.4,
+        "xpx": 22.4
+      },
+      {
+        "index": 6,
+        "el": "s6-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 22.4,
+        "xpx": 22.4
+      },
+      {
+        "index": 7,
+        "el": "s7-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 22.4,
+        "xpx": 22.4
+      },
+      {
+        "index": 8,
+        "el": "s8-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 22.4,
+        "xpx": 22.4
+      },
+      {
+        "index": 9,
+        "el": "s9-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 56,
+        "xpx": 36.4
+      },
+      {
+        "index": 10,
+        "el": "s10-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 56,
+        "xpx": 36.4
+      },
+      {
+        "index": 12,
+        "el": "s12-cards-0-title",
+        "title": "h1",
+        "text": "body",
+        "tpx": 56,
+        "xpx": 22.4
+      },
+      {
+        "index": 23,
+        "el": "s23-compare-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 56,
+        "xpx": 36.4
+      },
+      {
+        "index": 24,
+        "el": "s24-compare-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 36.4,
+        "xpx": 22.4
+      },
+      {
+        "index": 28,
+        "el": "s28-timeline-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 56,
+        "xpx": 36.4
+      },
+      {
+        "index": 29,
+        "el": "s29-timeline-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 36.4,
+        "xpx": 22.4
+      },
+      {
+        "index": 34,
+        "el": "s34-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 22.4,
+        "xpx": 22.4
+      },
+      {
+        "index": 35,
+        "el": "s35-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 22.4,
+        "xpx": 22.4
+      },
+      {
+        "index": 36,
+        "el": "s36-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 22.4,
+        "xpx": 22.4
+      },
+      {
+        "index": 37,
+        "el": "s37-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 56,
+        "xpx": 36.4
+      }
+    ],
+    "the-ken": [
+      {
+        "index": 2,
+        "el": "s2-cards-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27.54,
+        "xpx": 21.42
+      },
+      {
+        "index": 4,
+        "el": "s4-steps-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 48.96,
+        "xpx": 39.78
+      },
+      {
+        "index": 5,
+        "el": "s5-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27.54,
+        "xpx": 21.42
+      },
+      {
+        "index": 6,
+        "el": "s6-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27.54,
+        "xpx": 21.42
+      },
+      {
+        "index": 7,
+        "el": "s7-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27.54,
+        "xpx": 21.42
+      },
+      {
+        "index": 8,
+        "el": "s8-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27.54,
+        "xpx": 21.42
+      },
+      {
+        "index": 9,
+        "el": "s9-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 48.96,
+        "xpx": 39.78
+      },
+      {
+        "index": 10,
+        "el": "s10-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 48.96,
+        "xpx": 39.78
+      },
+      {
+        "index": 12,
+        "el": "s12-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 48.96,
+        "xpx": 39.78
+      },
+      {
+        "index": 23,
+        "el": "s23-compare-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 48.96,
+        "xpx": 39.78
+      },
+      {
+        "index": 24,
+        "el": "s24-compare-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27.54,
+        "xpx": 21.42
+      },
+      {
+        "index": 28,
+        "el": "s28-timeline-0-title",
+        "title": "h1",
+        "text": "bodyLarge",
+        "tpx": 48.96,
+        "xpx": 27.54
+      },
+      {
+        "index": 29,
+        "el": "s29-timeline-0-title",
+        "title": "h2",
+        "text": "body",
+        "tpx": 39.78,
+        "xpx": 21.42
+      },
+      {
+        "index": 34,
+        "el": "s34-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27.54,
+        "xpx": 21.42
+      },
+      {
+        "index": 35,
+        "el": "s35-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27.54,
+        "xpx": 21.42
+      },
+      {
+        "index": 36,
+        "el": "s36-steps-0-title",
+        "title": "h3",
+        "text": "body",
+        "tpx": 27.54,
+        "xpx": 21.42
+      },
+      {
+        "index": 37,
+        "el": "s37-cards-0-title",
+        "title": "h1",
+        "text": "h2",
+        "tpx": 48.96,
+        "xpx": 39.78
+      }
+    ]
+  },
+  "frames": {
+    "bosch/s4-steps-0-text": {
+      "h": 119.93,
+      "w": 382,
+      "x": 160,
+      "y": 738.14
+    },
+    "rukko/s9-cards-0-title": {
+      "h": 90.44,
+      "w": 496,
+      "x": 128,
+      "y": 548.77
+    },
+    "rukko/s9-cards-1-title": {
+      "h": 45.22,
+      "w": 496,
+      "x": 712,
+      "y": 548.77
+    },
+    "rukko/s9-cards-2-title": {
+      "h": 90.44,
+      "w": 496,
+      "x": 1296,
+      "y": 548.77
+    },
+    "rukko/s10-cards-0-title": {
+      "h": 172.96,
+      "w": 496,
+      "x": 128,
+      "y": 334
+    },
+    "rukko/s10-cards-1-title": {
+      "h": 86.48,
+      "w": 496,
+      "x": 712,
+      "y": 334
+    },
+    "rukko/s10-cards-2-title": {
+      "h": 172.96,
+      "w": 496,
+      "x": 1296,
+      "y": 334
+    }
+  },
+  "overflow": {
+    "cisco": 1
+  }
+}

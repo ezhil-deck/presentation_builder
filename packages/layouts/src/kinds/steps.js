@@ -14,12 +14,13 @@ export function lineWeight(mood) {
 
 /**
  * The linear steps flow in `area` (also the fallback of every process shape and the process main of an aside layout):
- * direction from components.steps.tokens.orientation, a connector box when tokens.line is true.
+ * direction from components.steps.tokens.orientation (a catalogue layout passes its composition's `direction`), a
+ * connector box when tokens.line is true.
  */
-export function stepsFlow(b, area, n) {
+export function stepsFlow(b, area, n, { direction: dir, maxItems } = {}) {
   const { mood } = b;
   const t = mood.components?.steps?.tokens ?? {};
-  const direction = t.orientation === 'vertical' ? 'column' : 'row';
+  const direction = dir ?? (t.orientation === 'vertical' ? 'column' : 'row');
   if (t.line === true && n > 1) {
     const cells = flowCells(area, n, space(mood, 'md'), direction);
     const m = Math.min(markerSize(mood), cells[0].w, cells[0].h);
@@ -41,6 +42,7 @@ export function stepsFlow(b, area, n) {
     n,
     itemLayout: 'step-number-title-text',
     direction,
+    ...(maxItems ? { maxItems } : {}),
   });
 }
 

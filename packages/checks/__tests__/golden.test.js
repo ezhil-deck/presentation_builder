@@ -27,7 +27,7 @@ describe('checks over the golden decks', () => {
     const report = runChecks(g);
     const fails = report.results.filter((r) => r.status === 'fail').map((r) => r.id);
     expect(fails).toEqual(expectedFails(g));
-    expect(report.summary.checks).toBe(14);
+    expect(report.summary.checks).toBe(15);
     // deterministic
     expect(JSON.stringify(runChecks(golden(id)))).toBe(JSON.stringify(report));
   });

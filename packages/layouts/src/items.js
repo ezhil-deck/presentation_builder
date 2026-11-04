@@ -8,6 +8,12 @@ import { iconSize } from './icons.js';
 
 const num = (v) => (typeof v === 'number' && Number.isFinite(v) ? v : null);
 
+/**
+ * A slot's role: the override a layout passes (`roles`, a catalogue layout's size-band roles, C3.1) when the Mood
+ * defines it, else the item layout's own choice.
+ */
+const roleOr = (mood, want, own) => (want && role(mood, want) ? want : own);
+
 /** Component tokens, or {}. */
 const tokens = (mood, name) => mood?.components?.[name]?.tokens ?? {};
 
@@ -53,11 +59,11 @@ function make(id, w, h, parts) {
 /** Card: background shape, title (components.card.tokens.titleRole, else h3), text (bodyRole, else body). */
 const card = {
   id: 'card-title-text',
-  build({ mood, w, h }) {
+  build({ mood, w, h, roles = {} }) {
     const p = padding(mood, 'card');
     const t = tokens(mood, 'card');
-    const titleRole = pickRole(mood, t.titleRole, 'h3');
-    const bodyRole = pickRole(mood, t.bodyRole, 'body');
+    const titleRole = roleOr(mood, roles.title, pickRole(mood, t.titleRole, 'h3'));
+    const bodyRole = roleOr(mood, roles.text, pickRole(mood, t.bodyRole, 'body'));
     const th = lineBox(mood, titleRole, LINES.heading);
     const g = space(mood, 'sm');
     const ty = p;
@@ -83,16 +89,17 @@ const card = {
 /** KPI: value (stat role) over label (components.kpi.tokens.labelStyle, else statLabel). */
 const kpi = {
   id: 'kpi-value-label',
-  build({ mood, w, h }) {
-    const labelRole = pickRole(mood, tokens(mood, 'kpi').labelStyle, 'statLabel');
-    const vh = lineBox(mood, 'stat', LINES.one);
+  build({ mood, w, h, roles = {} }) {
+    const labelRole = roleOr(mood, roles.label, pickRole(mood, tokens(mood, 'kpi').labelStyle, 'statLabel'));
+    const valueRole = roleOr(mood, roles.value, 'stat');
+    const vh = lineBox(mood, valueRole, LINES.one);
     const g = space(mood, 'sm');
     return make(this.id, w, h, [
       {
         id: 'value',
         role: 'number',
         frame: frame(0, 0, w, vh),
-        slot: { id: 'value', type: 'number', role: 'stat' },
+        slot: { id: 'value', type: 'number', role: valueRole },
       },
       {
         id: 'label',
@@ -109,6 +116,64 @@ export function markerSize(mood) {
   return lineBox(mood, 'h3', LINES.one) + 2 * space(mood, 'sm');
 }
 
+/**
+ * The numeral zone of an item (C3.2, D7: a catalogue layout's `flow.numeral` {role, place, share}, the role already
+ * one of the Mood's): the room the catalogue's numeral / year takes - `above` the fields, `share` of the item's height
+ * (at least one line of the role and the gap under it, at most 60 % of the item), or `beside` them, `share` of its
+ * width (at least the line, at most half). null without a numeral, or with a role the Mood lacks.
+ */
+export function numeralZone(mood, w, h, numeral) {
+  if (!numeral || !role(mood, numeral.role)) return null;
+  const g = space(mood, 'sm');
+  const line = lineBox(mood, numeral.role, LINES.one);
+  const share = typeof numeral.share === 'number' && numeral.share > 0 ? numeral.share : 0;
+  if (numeral.place === 'beside')
+    return {
+      role: numeral.role,
+      place: 'beside',
+      size: Math.min(0.5 * w, Math.max(share * w, line + g)),
+      line,
+    };
+  return { role: numeral.role, place: 'above', size: Math.min(0.6 * h, Math.max(share * h, line + g)), line };
+}
+
+/**
+ * The marker part of an item: the steps marker shape (a square of the marker's role, `m`) and the number centred in
+ * it; in a numeral zone (D7) the number at the zone's role, on the marker shape when the brand has one, else set
+ * left at the top of the zone. `label` (D8, a process node's label) adds a label box over the zone's width at the same
+ * role - the engine shows a short label (≤ 2 characters) in the number box, a longer one in the label box with no
+ * marker shape behind it. Returns {parts, labelW}.
+ */
+function markerParts(mood, x, y, w, h, { zone = null, shape = null, label = false, beside = false } = {}) {
+  const g = space(mood, 'sm');
+  const r = zone ? zone.role : 'h3';
+  const m = Math.min(zone ? zone.line + (shape ? 2 * g : 0) : markerSize(mood), w, zone ? zone.size : h);
+  const side = zone ? zone.place === 'beside' : beside;
+  const parts = [];
+  if (shape) parts.push({ id: 'marker', role: 'shape', frame: frame(x, y, m, m), shape });
+  const plain = zone && !shape;
+  parts.push({
+    id: 'number',
+    role: 'number',
+    frame: plain ? frame(x, y, side ? zone.size - g : w, zone.line) : frame(x, y, m, m),
+    align: plain ? { h: 'left', v: 'top' } : { h: 'center', v: 'middle' },
+    slot: { id: 'number', type: 'number', role: r },
+  });
+  if (label) {
+    // the label box: the zone's width beside the fields, else the item's (beside without a zone: up to 30 % of it)
+    const size = role(mood, r)?.size ?? m;
+    const lw = side ? (zone ? zone.size - g : Math.min(0.3 * w, Math.max(m, 3.5 * size))) : w;
+    parts.push({
+      id: 'label',
+      role: 'eyebrow',
+      frame: frame(x, y, lw, zone ? zone.line : m),
+      align: { h: 'left', v: 'middle' },
+      slot: { id: 'label', type: 'text', role: r },
+    });
+  }
+  return { parts, labelW: label ? parts[parts.length - 1].frame.w : 0 };
+}
+
 /** Marker shape from components.steps.tokens.marker (circle-* → ellipse, square-* → rect, other / none → no shape). */
 function markerShape(marker) {
   if (typeof marker !== 'string') return null;
@@ -120,44 +185,47 @@ function markerShape(marker) {
 /**
  * Step: number marker, title, text. Wide items (vertical step lists: w ≥ 2h) put the marker left of the text;
  * otherwise the marker sits on top. Steps whose icons resolve to the brand set (`fields.icon`, content/2 process)
- * show the icon in the marker's square instead of the number.
+ * show the icon in the marker's square instead of the number. A catalogue layout's numeral zone (`numeral`, C3.2 D7)
+ * gives the number the room and size band of the catalogue's numeral; `fields.label` (D8) adds the label box a
+ * process node's label is drawn in.
  */
 const step = {
   id: 'step-number-title-text',
-  build({ mood, w, h, fields = {} }) {
+  build({ mood, w, h, fields = {}, roles = {}, numeral = null }) {
+    const zone = fields.icon ? null : numeralZone(mood, w, h, numeral);
     const m = Math.min(markerSize(mood), w, h);
     const g = space(mood, 'sm');
-    const th = lineBox(mood, 'h3', LINES.heading);
+    const titleRole = roleOr(mood, roles.title, 'h3');
+    const textRole = roleOr(mood, roles.text, 'body');
+    const th = lineBox(mood, titleRole, LINES.heading);
     const shape = markerShape(tokens(mood, 'steps').marker);
-    const wide = w >= 2 * h;
-    const tx = wide ? m + space(mood, 'md') : 0;
-    const ty = wide ? 0 : m + g;
-    const tw = w - tx;
+    const wide = zone ? zone.place === 'beside' : w >= 2 * h;
     const head = fields.icon
-      ? [{ id: 'icon', role: 'image', frame: frame(0, 0, m, m), slot: { id: 'icon', type: 'image' } }]
-      : [
-          shape ? { id: 'marker', role: 'shape', frame: frame(0, 0, m, m), shape } : null,
-          {
-            id: 'number',
-            role: 'number',
-            frame: frame(0, 0, m, m),
-            align: { h: 'center', v: 'middle' },
-            slot: { id: 'number', type: 'number', role: 'h3' },
-          },
-        ];
+      ? {
+          parts: [
+            { id: 'icon', role: 'image', frame: frame(0, 0, m, m), slot: { id: 'icon', type: 'image' } },
+          ],
+        }
+      : markerParts(mood, 0, 0, w, h, { zone, shape, label: Boolean(fields.label), beside: wide });
+    // the text after the marker: the zone's room, else the marker (a label box beside the text: its width) + the gap
+    let tx = 0;
+    let ty = 0;
+    if (wide) tx = zone ? zone.size : (head.labelW || m) + space(mood, 'md');
+    else ty = zone ? zone.size : m + g;
+    const tw = w - tx;
     return make(this.id, w, h, [
-      ...head,
+      ...head.parts,
       {
         id: 'title',
         role: 'title',
         frame: frame(tx, ty, tw, th),
-        slot: { id: 'title', type: 'text', role: 'h3' },
+        slot: { id: 'title', type: 'text', role: titleRole },
       },
       {
         id: 'text',
         role: 'body',
         frame: frame(tx, ty + th + g, tw, h - ty - th - g),
-        slot: { id: 'text', type: 'richtext', role: 'body' },
+        slot: { id: 'text', type: 'richtext', role: textRole },
       },
     ]);
   },
@@ -227,25 +295,40 @@ const agendaRow = {
   },
 };
 
+/**
+ * Where a timeline item's parts sit (item-local y): the `when` line (eyebrow; in a numeral zone, C3.2 D7, the zone's
+ * role, the zone holding the when and the dot), the dot / brand icon on the line (`dotY`, `dot`), the title (`ty`).
+ */
+export function timelineParts(mood, { h = 0, iconRoom = 0, numeral = null } = {}) {
+  const g = space(mood, 'sm');
+  const hasLine = Boolean(mood?.components?.timeline);
+  const zone = numeralZone(mood, Infinity, h, numeral);
+  const whenRole = zone ? zone.role : 'eyebrow';
+  const wh = lineBox(mood, whenRole, LINES.one);
+  const dot = iconRoom || (hasLine ? 2 * g : 0);
+  const after = dot + (hasLine || iconRoom ? g : 0);
+  // above: the zone's share of the item reaches down to the title; beside: the when keeps its line
+  const ty = Math.max(wh + g + after, zone && zone.place === 'above' ? zone.size : 0);
+  return { whenRole, wh: ty - after - g, dotY: ty - after, dot, ty, hasLine };
+}
+
 /** Timeline: when (eyebrow), a dot on the line (spacing.sm; only with components.timeline), title, text. */
 const timeline = {
   id: 'timeline-when-title-text',
-  build({ mood, w, h, fields = {} }) {
+  build({ mood, w, h, fields = {}, roles = {}, numeral = null }) {
+    const titleRole = roleOr(mood, roles.title, 'h3');
+    const textRole = roleOr(mood, roles.text, 'body');
     const g = space(mood, 'sm');
-    const wh = lineBox(mood, 'eyebrow', LINES.one);
-    const hasLine = Boolean(mood?.components?.timeline);
     // content/2: a brand icon in place of the dot (the icon's room, signal: components.icon tokens)
     const icon = fields.icon ? iconSize(mood, 'h3').room : 0;
-    const dot = icon || (hasLine ? 2 * g : 0);
-    const dotY = wh + g;
-    const ty = dotY + dot + (hasLine || icon ? g : 0);
-    const th = lineBox(mood, 'h3', LINES.heading);
+    const { whenRole, wh, dotY, dot, ty, hasLine } = timelineParts(mood, { h, iconRoom: icon, numeral });
+    const th = lineBox(mood, titleRole, LINES.heading);
     return make(this.id, w, h, [
       {
         id: 'when',
         role: 'eyebrow',
         frame: frame(0, 0, w, wh),
-        slot: { id: 'when', type: 'text', role: 'eyebrow' },
+        slot: { id: 'when', type: 'text', role: whenRole },
       },
       icon
         ? {
@@ -266,22 +349,25 @@ const timeline = {
         id: 'title',
         role: 'title',
         frame: frame(0, ty, w, th),
-        slot: { id: 'title', type: 'text', role: 'h3' },
+        slot: { id: 'title', type: 'text', role: titleRole },
       },
       {
         id: 'text',
         role: 'body',
         frame: frame(0, ty + th + g, w, h - ty - th - g),
-        slot: { id: 'text', type: 'richtext', role: 'body' },
+        slot: { id: 'text', type: 'richtext', role: textRole },
       },
     ]);
   },
 };
 
-/** Where the timeline line runs inside an item (item-local y of the dot centre), for the layout's divider box. */
-export function timelineLineY(mood, iconRoom = 0) {
-  const g = space(mood, 'sm');
-  return lineBox(mood, 'eyebrow', LINES.one) + g + (iconRoom ? iconRoom / 2 : g);
+/**
+ * Where the timeline line runs inside an item (item-local y of the dot centre), for the layout's divider box; a
+ * catalogue layout's numeral zone (`numeral`, the item height `h`) moves it under the zone.
+ */
+export function timelineLineY(mood, iconRoom = 0, { h = 0, numeral = null } = {}) {
+  const p = timelineParts(mood, { h, iconRoom, numeral });
+  return p.dotY + (iconRoom ? iconRoom / 2 : space(mood, 'sm'));
 }
 
 /** Person: avatar (components.avatar.tokens.size, capped to the room), name (h3), role (bodySmall). */
@@ -355,16 +441,17 @@ export function thumbRatio(mood) {
  */
 const itemCard = {
   id: 'item-card',
-  build({ mood, w, h, fields = {} }) {
+  build({ mood, w, h, fields = {}, roles = {}, numeral = null }) {
     const p = padding(mood, 'card');
     const t = tokens(mood, 'card');
-    const titleRole = pickRole(mood, t.titleRole, 'h3');
-    const bodyRole = pickRole(mood, t.bodyRole, 'body');
+    const titleRole = roleOr(mood, roles.title, pickRole(mood, t.titleRole, 'h3'));
+    const bodyRole = roleOr(mood, roles.text, pickRole(mood, t.bodyRole, 'body'));
     const labelRole = pickRole(mood, 'eyebrow', 'caption');
     const g = space(mood, 'sm');
     const iw = w - 2 * p;
     const parts = [{ id: 'bg', role: 'shape', frame: frame(0, 0, w, h), shape: shapeFor(mood, 'card') }];
     let y = p;
+    let x0 = 0;
     const ratio = thumbRatio(mood);
     if (fields.image && ratio) {
       const ih = Math.min(iw / ratio, 0.45 * h);
@@ -385,6 +472,15 @@ const itemCard = {
         slot: { id: 'icon', type: 'image' },
       });
       y += s + g;
+    } else if (fields.number && numeralZone(mood, iw, h - y - p, numeral)) {
+      // the catalogue's numeral room (C3.2 D7): the number at its size band, the fields under / beside it
+      const zone = numeralZone(mood, iw, h - y - p, numeral);
+      parts.push(
+        ...markerParts(mood, p, y, iw, h - y - p, { zone, shape: markerShape(tokens(mood, 'steps').marker) })
+          .parts,
+      );
+      if (zone.place === 'beside') x0 = zone.size;
+      else y += zone.size;
     } else if (fields.number) {
       const m = Math.min(markerSize(mood), iw);
       const shape = markerShape(tokens(mood, 'steps').marker);
@@ -398,12 +494,13 @@ const itemCard = {
       });
       y += m + g;
     }
+    const tw = iw - x0;
     if (fields.label) {
       const lh = lineBox(mood, labelRole, LINES.one);
       parts.push({
         id: 'label',
         role: 'eyebrow',
-        frame: frame(p, y, iw, lh),
+        frame: frame(p + x0, y, tw, lh),
         slot: { id: 'label', type: 'text', role: labelRole },
       });
       y += lh + g;
@@ -412,14 +509,14 @@ const itemCard = {
     parts.push({
       id: 'title',
       role: 'title',
-      frame: frame(p, y, iw, th),
+      frame: frame(p + x0, y, tw, th),
       slot: { id: 'title', type: 'text', role: titleRole },
     });
     y += th + g;
     parts.push({
       id: 'text',
       role: 'body',
-      frame: frame(p, y, iw, h - y - p),
+      frame: frame(p + x0, y, tw, h - y - p),
       slot: { id: 'text', type: 'richtext', role: bodyRole },
     });
     return make(this.id, w, h, parts);
@@ -429,10 +526,11 @@ const itemCard = {
 /** KPI with a body: value (stat), heading (kpi labelStyle, else statLabel), body (bodySmall, else body). */
 const kpiBody = {
   id: 'kpi-value-label-body',
-  build({ mood, w, h }) {
-    const labelRole = pickRole(mood, tokens(mood, 'kpi').labelStyle, 'statLabel');
-    const bodyRole = pickRole(mood, 'bodySmall', 'body');
-    const vh = lineBox(mood, 'stat', LINES.one);
+  build({ mood, w, h, roles = {} }) {
+    const labelRole = roleOr(mood, roles.label, pickRole(mood, tokens(mood, 'kpi').labelStyle, 'statLabel'));
+    const bodyRole = roleOr(mood, roles.body, pickRole(mood, 'bodySmall', 'body'));
+    const valueRole = roleOr(mood, roles.value, 'stat');
+    const vh = lineBox(mood, valueRole, LINES.one);
     const lh = lineBox(mood, labelRole, LINES.label);
     const g = space(mood, 'sm');
     return make(this.id, w, h, [
@@ -440,7 +538,7 @@ const kpiBody = {
         id: 'value',
         role: 'number',
         frame: frame(0, 0, w, vh),
-        slot: { id: 'value', type: 'number', role: 'stat' },
+        slot: { id: 'value', type: 'number', role: valueRole },
       },
       {
         id: 'label',
@@ -512,8 +610,8 @@ const kpiHero = {
  */
 const pointMarker = {
   id: 'point-marker-text',
-  build({ mood, w, h, fields = {} }) {
-    const r = pickRole(mood, 'bullet', 'body');
+  build({ mood, w, h, fields = {}, roles = {} }) {
+    const r = roleOr(mood, roles.text, pickRole(mood, 'bullet', 'body'));
     const line = lineBox(mood, r, LINES.one);
     const m = fields.icon ? Math.max(line, Math.min(iconSize(mood, r).room, 2 * line)) : line;
     const indent = mood?.type?.bullets?.indent;
@@ -542,9 +640,10 @@ const pointMarker = {
  */
 const compareColumn = {
   id: 'compare-column',
-  build({ mood, w, h, fields = {} }) {
+  build({ mood, w, h, fields = {}, roles = {}, numeral = null }) {
     const g = space(mood, 'sm');
-    const headRole = pickRole(mood, 'h2', 'h3');
+    const headRole = roleOr(mood, roles.title, pickRole(mood, 'h2', 'h3'));
+    const textRole = roleOr(mood, roles.text, pickRole(mood, 'bullet', 'body'));
     const labelRole = pickRole(mood, 'eyebrow', 'caption');
     const parts = [];
     let y = 0;
@@ -559,12 +658,38 @@ const compareColumn = {
       });
       y += ih + space(mood, 'md');
     }
+    // a numbered column beside its numeral (C3.2 D7 zone placed beside): the column's text starts after the zone
+    let x0 = 0;
+    const zone = fields.number ? numeralZone(mood, w, h - y, numeral) : null;
+    if (zone) {
+      // the catalogue's numeral room (D7): the number at its size band, the fields under / beside it
+      parts.push(
+        ...markerParts(mood, 0, y, w, h - y, { zone, shape: markerShape(tokens(mood, 'steps').marker) })
+          .parts,
+      );
+      if (zone.place === 'beside') x0 = zone.size;
+      else y += zone.size;
+    } else if (fields.number) {
+      // a numbered column (a catalogue layout whose items carry numerals): the brand's steps marker
+      const m = Math.min(markerSize(mood), w);
+      const shape = markerShape(tokens(mood, 'steps').marker);
+      if (shape) parts.push({ id: 'marker', role: 'shape', frame: frame(0, y, m, m), shape });
+      parts.push({
+        id: 'number',
+        role: 'number',
+        frame: frame(0, y, m, m),
+        align: { h: 'center', v: 'middle' },
+        slot: { id: 'number', type: 'number', role: 'h3' },
+      });
+      y += m + g;
+    }
+    const cw = w - x0;
     if (fields.label) {
       const lh = lineBox(mood, labelRole, LINES.one);
       parts.push({
         id: 'label',
         role: 'eyebrow',
-        frame: frame(0, y, w, lh),
+        frame: frame(x0, y, cw, lh),
         slot: { id: 'label', type: 'text', role: labelRole },
       });
       y += lh + g;
@@ -573,15 +698,15 @@ const compareColumn = {
     parts.push({
       id: 'title',
       role: 'title',
-      frame: frame(0, y, w, hh),
+      frame: frame(x0, y, cw, hh),
       slot: { id: 'title', type: 'text', role: headRole },
     });
     y += hh + g;
     parts.push({
       id: 'text',
       role: 'body',
-      frame: frame(0, y, w, h - y),
-      slot: { id: 'text', type: 'richtext', role: pickRole(mood, 'bullet', 'body') },
+      frame: frame(x0, y, cw, h - y),
+      slot: { id: 'text', type: 'richtext', role: textRole },
     });
     return make(this.id, w, h, parts);
   },

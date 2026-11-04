@@ -19,7 +19,15 @@ import { ROOT, showcaseMd, stripeBrandSpec, stripeMood } from './helpers.js';
 
 const mood = stripeMood();
 const brandSpec = stripeBrandSpec();
-const compose = (content) => composeDeck({ content, mood, brandSpec, catalogue, engineVersion: '0.0.0' });
+const compose = (content, options) =>
+  composeDeck({
+    content,
+    mood,
+    brandSpec,
+    catalogue,
+    engineVersion: '0.0.0',
+    ...(options ? { options } : {}),
+  });
 const sampleMd = () => readFileSync(join(ROOT, 'content/samples/all-blocks.md'), 'utf8');
 
 describe('content/2: content/samples/all-blocks.md on the stripe golden Mood', () => {
@@ -132,13 +140,19 @@ describe('aliases keep content/1 decks unchanged', () => {
 
   it('the showcase upgraded to content/2 composes to the same slides as the content/1 showcase', () => {
     const { content: v2 } = upgradeContent(v1);
-    const { deck: d2, warnings: w2 } = compose(v2);
+    // C4: a content/2 slide takes a catalogue layout by default; the upgrade equivalence holds on the 68 (opted out)
+    const { deck: d2, warnings: w2 } = compose(v2, { catalogue: false });
     expect(validateDeck(d2)).toEqual([]);
     // only the content hash (deck id / source) differs: every slide, element and warning is the same - except the
     // table's row heights: a content/2 table grows its rows to the brand's density row height (S2.b, docs/S2-layouts.md
     // §8), with the same cells, columns and text
     const isTable = (s) => s.elements.some((e) => e.type === 'table');
-    expect(d2.slides.filter((s) => !isTable(s))).toEqual(d1.slides.filter((s) => !isTable(s)));
+    // (and the text sources, P4.2: they point into each document - `/blocks/0/text` in content/1, `/title` in 2)
+    const noSource = (slides) =>
+      JSON.parse(JSON.stringify(slides, (k, v) => (k === 'source' && v?.path ? undefined : v)));
+    expect(noSource(d2.slides.filter((s) => !isTable(s)))).toEqual(
+      noSource(d1.slides.filter((s) => !isTable(s))),
+    );
     const tables = (d) => d.slides.flatMap((s) => s.elements.filter((e) => e.type === 'table'));
     const [t1, t2] = [tables(d1), tables(d2)];
     expect(t2.map((e) => [e.frame, e.table.colWidths, e.table.rows])).toEqual(

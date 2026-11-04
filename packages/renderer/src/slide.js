@@ -8,8 +8,12 @@ import { TableElement } from './elements/table.js';
 import { TextElement } from './elements/text.js';
 import { h } from './util.js';
 
-/** One Deck element -> React element, placed relative to `origin` (slide (0,0) or the parent group's frame). */
+/**
+ * One Deck element -> React element, placed relative to `origin` (slide (0,0) or the parent group's frame). An element
+ * the editor hid (`hidden: true`, kept in the deck JSON) is not painted.
+ */
 export function renderElement(el, ctx, origin = { x: 0, y: 0 }) {
+  if (el.hidden) return null;
   switch (el.type) {
     case 'text':
       return TextElement(el, ctx, origin);

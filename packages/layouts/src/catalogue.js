@@ -2,9 +2,15 @@
  * The layout catalogue (P2-spec §2): one LayoutDef per kind in v1 (each kind's default, first in `forKind`), the alias
  * table (no module of their own), and the S2.a variants (docs/S2-layouts.md): main + aside layouts, the 11 process
  * shapes, the single-KPI hero and points in two columns; S2.b (§8): main + two asides and the agenda with descriptions.
- * LayoutDef = { id, kind, kinds?, version, label, tags, match?(summary) → score, build(ctx) → Layout
+ * LayoutDef = { id, kind, kinds?, version, label, tags, match?(summary, {options}) → score, build(ctx) → Layout
  * (schemas/layout.schema.json) }. `kinds` lists the other slide kinds a layout can take (a main + aside slide is
  * inferred as either block's kind); `match` scores how well a content/2 slide's blocks fit (0 = not at all).
+ *
+ * C3 (docs/PLAN-catalogue.md): the 1,077 catalogue layouts (catalogue-defs.js, `cat-l<plan>-<n>`, read lazily on first
+ * use) come after the 68. They are listed only when asked for - `list({catalogue: true})`, `forKind(kind, {catalogue:
+ * true})` (compose asks for them on every content/2 slide since C4) - so the Studio's picker and every caller that
+ * enumerates the 68 are unchanged; `get(id)` finds them always (a pinned catalogue layout). `nearest(blocks)` names
+ * the catalogue record nearest a slide's blocks (catalogue-key.js nearestKey: the fallback warning, C4).
  */
 import agenda, { agendaRows } from './kinds/agenda.js';
 import bullets, { bulletsColumns } from './kinds/bullets.js';
@@ -35,6 +41,8 @@ import timeline from './kinds/timeline.js';
 import twoColumn from './kinds/two-column.js';
 import { flowCells } from './common.js';
 import { itemLayout } from './items.js';
+import { catalogueDef, catalogueDefs, catalogueMeta } from './catalogue-defs.js';
+import { bandDistance, combinationKey, combinationShape, nearestKey } from './catalogue-key.js';
 
 /** The v1 kinds, in showcase order. */
 export const KINDS = Object.freeze([
@@ -130,23 +138,52 @@ export function resolveKind(kind) {
   return ALIASES[kind] ?? kind;
 }
 
+/** Defs of `list` that take kind `k`: its own first, then those listing `k` in `kinds`. */
+const takes = (list, k) => [
+  ...list.filter((d) => d.kind === k),
+  ...list.filter((d) => d.kind !== k && d.kinds?.includes(k)),
+];
+
 export const catalogue = Object.freeze({
-  /** Every LayoutDef. */
-  list() {
-    return [...DEFS];
+  /** Every LayoutDef: the 68; with `{catalogue: true}` the 1,077 catalogue layouts after them (1,145). */
+  list({ catalogue: withCatalogue = false } = {}) {
+    return withCatalogue ? [...DEFS, ...catalogueDefs()] : [...DEFS];
   },
   /**
    * LayoutDefs that can take a slide of this kind (aliases resolve: diagram → steps …): the kind's own layouts first
-   * (the v1 default at [0]), then the layouts that list the kind in `kinds`; unknown kind → [].
+   * (the v1 default at [0]), then the layouts that list the kind in `kinds`; with `{catalogue: true}` the catalogue
+   * layouts that take the kind after them; unknown kind → [].
    */
-  forKind(kind) {
+  forKind(kind, { catalogue: withCatalogue = false } = {}) {
     const k = resolveKind(kind);
-    return [...DEFS.filter((d) => d.kind === k), ...DEFS.filter((d) => d.kind !== k && d.kinds?.includes(k))];
+    const own = takes(DEFS, k);
+    return withCatalogue ? [...own, ...takes(catalogueDefs(), k)] : own;
   },
-  /** A LayoutDef by id, or undefined. */
+  /** A LayoutDef by id (the 68 or a catalogue layout `cat-l<plan>-<n>`), or undefined. */
   get(id) {
-    return byId.get(id);
+    return byId.get(id) ?? catalogueDef(id);
   },
+  /** The combination key of a content/2 slide's summary blocks (catalogue-key.js; C4 matches on it). */
+  combinationKey,
+  combinationShape,
+  bandDistance,
+  /**
+   * The catalogue layout whose record lies nearest a slide's summary blocks (nearestKey over every record, catalogue
+   * order): `{def, distance: {types, counts, bands}, missing: [block types no record has]}`, or null.
+   */
+  nearest(blocks) {
+    const defs = catalogueDefs();
+    const hit = nearestKey(
+      defs.map((d) => d.record),
+      blocks,
+    );
+    if (!hit) return null;
+    const types = new Set(defs.flatMap((d) => d.record.combination.map((b) => b.type)));
+    const missing = [...new Set((blocks ?? []).map((b) => b.type).filter((t) => !types.has(t)))];
+    return { def: defs.find((d) => d.record === hit.record), distance: hit.distance, missing };
+  },
+  /** The catalogue layouts' measured grid, size-band roles and bands (catalogue-defs.js). */
+  catalogueMeta,
   aliases: ALIASES,
   /** Item sub-layout for one flow cell (P2-spec §7 F6): `itemLayout(id, {mood, w, h})` → {id, boxes, slots}, item-local px. */
   itemLayout,

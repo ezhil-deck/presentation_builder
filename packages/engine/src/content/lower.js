@@ -139,11 +139,16 @@ function lowerBlock(b, note) {
         },
       ];
     case 'process': {
-      // shape and icon: drawn by the S2.a slice 2 layouts (a shape the node count does not fit: pick() warns)
+      // shape and icon: drawn by the S2.a slice 2 layouts (a shape the node count does not fit: pick() warns); a
+      // node's label (content v2.1, D8) is drawn in place of its number marker
       const out = {
         type: 'steps',
         items: (b.items ?? []).map((it) =>
-          set(set(set({}, 'title', it.heading ?? it.title), 'text', it.body ?? it.text), 'icon', it.icon),
+          set(
+            set(set(set({}, 'title', it.heading ?? it.title), 'text', it.body ?? it.text), 'icon', it.icon),
+            'label',
+            it.label,
+          ),
         ),
       };
       if (has(b, 'shape') && b.shape !== 'linear') out.shape = b.shape;
@@ -307,7 +312,9 @@ function lowerBlock(b, note) {
       set(out, 'focal', first.focal);
       set(out, 'caption', first.caption);
       if (items.length > 1)
-        out.items = items.map((it) => set(set(set({}, 'src', it.src), 'alt', it.alt), 'caption', it.caption));
+        out.items = items.map((it) =>
+          set(set(set(set({}, 'src', it.src), 'alt', it.alt), 'caption', it.caption), 'focal', it.focal),
+        );
       return [set(out, 'treatment', b.treatment)];
     }
     default:
@@ -316,25 +323,57 @@ function lowerBlock(b, note) {
 }
 
 /**
- * lowerSlide(slide) -> { slide, changed, notes: [{field, message}], origin: Map(block -> name), background? }.
- * `slide` is v1-shaped (title / eyebrow / number / subtitle / cta blocks from the slide keys, content/2 blocks
- * lowered); `background` = the slide's background image src (the key, or an image block with treatment background);
- * `origin` names the content/2 field or block type a lowered block came from (for "not shown" messages).
+ * The source descriptors of a compare block's lowered columns (content/source.js): each column's price paragraph
+ * (price and per joined by a space) and its list rows (features, then each item's heading with its body as a child).
+ */
+function compareSources(lowered, b, base, sources) {
+  (lowered.items ?? []).forEach((col, c) => {
+    const orig = b.columns?.[c] ?? {};
+    const at = `${base}/columns/${c}`;
+    for (const blk of col.blocks ?? []) {
+      if (blk.type === 'paragraph') {
+        sources.set(blk, {
+          paths: ['price', 'per'].filter((k) => orig[k]).map((k) => `${at}/${k}`),
+          join: ' ',
+        });
+      } else if (blk.type === 'list') {
+        sources.set(blk, { type: 'list', path: at });
+        const nf = orig.features?.length ?? 0;
+        blk.items.forEach((it, j) => {
+          const path = j < nf ? `${at}/features/${j}` : `${at}/items/${j - nf}/heading`;
+          sources.set(it, { path });
+          if (it.children?.[0]) sources.set(it.children[0], { path: `${at}/items/${j - nf}/body` });
+        });
+      }
+    }
+  });
+}
+
+/**
+ * lowerSlide(slide) -> { slide, changed, notes: [{field, message}], origin: Map(block -> name), sources: Map(block ->
+ * descriptor), background? }. `slide` is v1-shaped (title / eyebrow / number / subtitle / cta blocks from the slide
+ * keys, content/2 blocks lowered); `background` = the slide's background image src (the key, or an image block with
+ * treatment background); `origin` names the content/2 field or block type a lowered block came from (for "not shown"
+ * messages); `sources` maps each lowered block to where it comes from in `slide` ({key} for a slide key, else {type,
+ * path: '/blocks/<i>', orig} - content/source.js turns it into the `source` pointers of the deck's text elements).
  * Pure and cheap: inferKind, summarize and bindSlots each lower the slide they are given.
  */
 export function lowerSlide(slide) {
-  if (!slide || typeof slide !== 'object') return { slide, changed: false, notes: [], origin: new Map() };
+  if (!slide || typeof slide !== 'object')
+    return { slide, changed: false, notes: [], origin: new Map(), sources: new Map() };
   const notes = new Map();
   const note = (field, message) => {
     if (!notes.has(field)) notes.set(field, message ?? later(field));
   };
   const origin = new Map();
+  const sources = new Map();
   let changed = false;
   const head = [];
   const keyBlock = (key, type) => {
     if (typeof slide[key] !== 'string' || slide[key] === '') return;
     const b = { type, text: slide[key] };
     origin.set(b, key);
+    sources.set(b, { key });
     head.push(b);
     changed = true;
   };
@@ -346,23 +385,26 @@ export function lowerSlide(slide) {
   let background = typeof slide.background === 'string' && slide.background ? slide.background : undefined;
   if (background) changed = true;
   const blocks = [];
-  for (const b of slide.blocks ?? []) {
+  (slide.blocks ?? []).forEach((b, i) => {
     if (b?.type === 'image' && b.treatment === 'background' && Array.isArray(b.items)) {
       changed = true;
       if (!background && b.items[0]?.src) background = b.items[0].src;
       else note('image.background', 'image with treatment background: the slide shows one background image');
-      continue;
+      return;
     }
     const out = lowerBlock(b, note);
     if (out.length !== 1 || out[0] !== b) changed = true;
     for (const x of out) {
       if (x !== b || V2_ONLY.has(b.type)) origin.set(x, b.type);
+      sources.set(x, { type: b?.type, path: `/blocks/${i}`, orig: b });
+      if (b?.type === 'compare' && x !== b) compareSources(x, b, `/blocks/${i}`, sources);
       blocks.push(x);
     }
-  }
+  });
   if (typeof slide.cta === 'string' && slide.cta !== '') {
     const b = { type: 'cta', text: slide.cta };
     origin.set(b, 'cta');
+    sources.set(b, { key: 'cta' });
     blocks.push(b);
     changed = true;
   }
@@ -372,7 +414,8 @@ export function lowerSlide(slide) {
         changed: true,
         notes: [...notes].map(([field, message]) => ({ field, message })),
         origin,
+        sources,
         ...(background ? { background } : {}),
       }
-    : { slide, changed: false, notes: [], origin };
+    : { slide, changed: false, notes: [], origin, sources };
 }

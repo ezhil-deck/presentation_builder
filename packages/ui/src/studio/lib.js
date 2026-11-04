@@ -1,5 +1,6 @@
 // Pure helpers of the Studio (docs/PLAN-studio.md §2): fit scale, navigation keys, overrides, captions. No rule is
 // computed here: the server composes and checks; these only read what it returned.
+import { matchKey, typingTarget } from './keys.js';
 
 export const CANVAS = Object.freeze({ width: 1920, height: 1080 });
 
@@ -19,39 +20,39 @@ export function zoomScale(zoom, fit) {
 }
 
 /**
- * The slide index a key moves to (null: not a navigation key). ← ↑ PageUp: previous; → ↓ PageDown: next;
- * Home / Cmd(Ctrl)+← ↑: first; End / Cmd(Ctrl)+→ ↓: last.
+ * The slide index a key moves to (null: not a navigation key), by the keyboard map (keys.js, scope `view`): ← ↑
+ * PageUp [: previous; → ↓ PageDown ]: next; Home / ⌘← ↑ PageUp: first; End / ⌘→ ↓ PageDown: last.
  */
 export function navTarget(e, index, total) {
   if (!total) return null;
-  const meta = e.metaKey || e.ctrlKey;
-  const back = ['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key);
-  const fwd = ['ArrowRight', 'ArrowDown', 'PageDown'].includes(e.key);
+  const a = matchKey(e, 'view');
   let n = null;
-  if (e.key === 'Home' || (meta && back)) n = 0;
-  else if (e.key === 'End' || (meta && fwd)) n = total - 1;
-  else if (back) n = index - 1;
-  else if (fwd) n = index + 1;
+  if (a === 'first-slide') n = 0;
+  else if (a === 'last-slide') n = total - 1;
+  else if (a === 'prev-slide') n = index - 1;
+  else if (a === 'next-slide') n = index + 1;
   if (n === null) return null;
   return Math.max(0, Math.min(total - 1, n));
 }
 
-/** True when a key event comes from a field the user is typing in. */
-export function typingTarget(target) {
-  if (!target) return false;
-  if (target.isContentEditable) return true;
-  return Boolean(target.closest?.('input, textarea, select, [contenteditable="true"]'));
-}
+/** True when a key event comes from a field the user is typing in (keys.js). */
+export { typingTarget };
 
 /**
- * The overrides with one slide's entry patched: `null` / `undefined` removes a key, decor / logo `true` is the
- * default (removed), an entry left empty is removed. Never mutates `overrides`.
+ * The overrides with one slide's entry patched: `null` / `undefined` removes a key, decor / logo `true` and hidden
+ * `false` are the default (removed), an entry left empty is removed. Never mutates `overrides`.
  */
 export function patchOverrides(overrides, slideId, patch) {
   const slides = { ...(overrides?.slides ?? {}) };
   const entry = { ...(slides[slideId] ?? {}) };
   for (const [k, v] of Object.entries(patch ?? {})) {
-    if (v === null || v === undefined || ((k === 'decor' || k === 'logo') && v === true)) delete entry[k];
+    if (
+      v === null ||
+      v === undefined ||
+      ((k === 'decor' || k === 'logo') && v === true) ||
+      (k === 'hidden' && v === false)
+    )
+      delete entry[k];
     else entry[k] = v;
   }
   if (Object.keys(entry).length) slides[slideId] = entry;

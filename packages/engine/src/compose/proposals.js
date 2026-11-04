@@ -2,9 +2,11 @@
  * Design-quality proposals (docs/P3-proposals.md), each behind its own `composeDeck({ proposals })` option and off by
  * default (the golden decks are composed with every proposal off). Each proposal names its brand signal; what a
  * proposal changed is recorded per slide (`effects`) for the build report.
- *   PR-4 titleClearOfDecor  cover / section / cta text keeps clear of front-layer brand-boxed decor
- * Approved by the owner on 2026-10-31 and now rules of every build (docs/P2-spec.md §9): PR-1 fit-up (fitup.js),
- * PR-2 avatar initials and PR-3 logo chips (slots.js).
+ *   PR-4 titleClearOfDecor   cover / section / cta text keeps clear of front-layer brand-boxed decor
+ * Approved by the owner and now rules of every build (docs/P2-spec.md §9): PR-1 fit-up (fitup.js), PR-2 avatar
+ * initials and PR-3 logo chips (slots.js), approved 2026-10-31; PR-F fill room and PR-C′ recorded placement, approved
+ * 2026-11-03, now rules of every build (docs/P2-spec.md §9 R-FILLROOM, R-PLACE: slots.js fill, place.js, the catalogue
+ * layouts' recorded alignment in packages/layouts catalogue-defs.js).
  */
 import { r2 } from '../util/stable.js';
 
@@ -34,15 +36,18 @@ export function normalizeProposals(opt) {
   return out;
 }
 
-/** 'pr4' | 'PR-4' | 'titleClearOfDecor' | 'all' → the option key ('all' kept); unknown (incl. approved PR-1..3) → null. */
+/**
+ * 'pr4' | 'PR-4' | a letter id ('prx' | 'PR-X') | an option key | 'all' → the option key ('all' kept); unknown
+ * (incl. the approved PR-1..3, PR-F and PR-C′, rules of every build) → null.
+ */
 export function proposalKey(raw) {
   const s = String(raw).trim();
   if (!s) return null;
   if (s.toLowerCase() === 'all') return 'all';
   if (PROPOSAL_KEYS.includes(s)) return s;
-  const m = /^pr-?(\d)$/i.exec(s);
+  const m = /^pr-?([0-9a-z])$/i.exec(s);
   if (!m) return null;
-  return PROPOSAL_KEYS.find((k) => PROPOSALS[k] === `PR-${m[1]}`) ?? null;
+  return PROPOSAL_KEYS.find((k) => PROPOSALS[k] === `PR-${m[1].toUpperCase()}`) ?? null;
 }
 
 export const anyProposal = (p) => PROPOSAL_KEYS.some((k) => p?.[k]);

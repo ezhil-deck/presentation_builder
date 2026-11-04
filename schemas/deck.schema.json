@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://presentations.ai/pb/schemas/deck.v1.2.json",
+  "$id": "https://presentations.ai/pb/schemas/deck.v1.5.json",
   "title": "Deck v1",
   "description": "THE document. Every element is an absolute box on the 1920x1080 canvas with fully resolved styling (literal colours, px sizes) and, for text, the lines the fitter computed. It is what the editor edits, the HTML renderer paints, the PDF/PPTX writers read, and what is saved. Nothing in here needs the Mood or Layout to render - they are kept as references so 'switch mood' / 'swap layout' can re-compose from `source`.",
   "type": "object",
@@ -30,6 +30,7 @@
         "properties": {
           "id": { "type": "string" },
           "layoutId": { "type": "string" }, "kind": { "type": "string" }, "surfaceId": { "type": "string" },
+          "source": { "type": "object", "description": "where the slide's composition comes from (v1.5)", "properties": { "catalogue": { "type": "string", "description": "the Rich Slide Catalogue slide whose layout was used, e.g. L1-1 (pb build --catalogue, docs/PLAN-catalogue.md C3)" } } },
           "contentSlideId": { "type": "string" },
           "background": {
             "type": "object", "required": ["type"],
@@ -94,7 +95,18 @@
         "frame": { "$ref": "#/$defs/frame" }, "z": { "type": "integer" },
         "role": { "type": "string", "description": "layout box role (title, body, logo, footer, decor, ...)" },
         "slot": { "type": "string" }, "layoutBox": { "type": "string" },
-        "locked": { "type": "boolean" }, "name": { "type": "string" },
+        "locked": { "type": "boolean" }, "hidden": { "type": "boolean", "description": "editor: left out of the painted deck, kept in the document" }, "name": { "type": "string" },
+        "source": {
+          "type": "object",
+          "description": "an element bound from content: where it comes from in the content slide - a text's words, a chart / table / image / flow node's block (the editor writes edits back there)",
+          "required": ["path"],
+          "additionalProperties": false,
+          "properties": {
+            "path": { "type": "string", "description": "JSON pointer into the content slide of the (first) string shown, e.g. /title, /blocks/0/items/2/body" },
+            "paths": { "type": "array", "items": { "type": "string" }, "description": "every content string shown, in reading order, when more than one" },
+            "join": { "type": "string", "description": "how `paths` are joined: absent = one paragraph each; 'line' = one paragraph, a line break between; else that separator inside one paragraph" }
+          }
+        },
         "style": { "$ref": "#/$defs/style" },
         "text": {
           "type": "object",

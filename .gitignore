@@ -7,3 +7,9 @@ dist/
 .cache/
 *.log
 .DS_Store
+
+# the editor's per-user undo log (P4): runtime, never shared
+content/history/
+
+# a killed export run (older writer) could leave its temporary HTML next to the fixtures
+packages/renderer/__fixtures__/.pb-export-*

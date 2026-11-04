@@ -5,6 +5,6 @@ module.exports = {
   testMatch: ['**/__tests__/**/*.test.js?(x)'],
   transform: { '^.+\\.[cm]?jsx?$': 'babel-jest' },
   moduleFileExtensions: ['js', 'jsx', 'cjs', 'mjs', 'json'],
-  testPathIgnorePatterns: ['/node_modules/', '/__fixtures__/'],
+  testPathIgnorePatterns: ['/node_modules/', '/__fixtures__/', '/__e2e__/'],
   collectCoverage: false,
 };

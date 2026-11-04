@@ -66,6 +66,13 @@ export const studioApi = {
   brand: (id) => getJson(`/api/studio/brands/${enc(id)}`),
   reconvert: (id) => postJson(`/api/studio/brands/${enc(id)}/reconvert`, {}),
   contents: () => getJson('/api/studio/contents'),
+  /** A content document (P4.2): the JSON + `source` ('json' | 'markdown') + `readOnly`. */
+  content: (contentId) => getJson(`/api/studio/content/${enc(contentId)}`),
+  /** Write a content document; the answer is the deck composed for `brandId` (as compose). */
+  saveContent: (contentId, brandId, content) =>
+    postJson(`/api/studio/content/${enc(contentId)}?brandId=${enc(brandId)}`, content, 'PUT'),
+  /** Save a deck as content/<id>.content.json (a Markdown deck's copy): the new list entry + its content. */
+  importContent: (from, id, title) => postJson('/api/studio/content/import', { from, id, title }),
   compose: (brandId, contentId, overrides) =>
     postJson('/api/studio/compose', { brandId, contentId, ...(overrides ? { overrides } : {}) }),
   covers: (contentId) => getJson(`/api/studio/covers?contentId=${enc(contentId)}`),
@@ -79,6 +86,13 @@ export const studioApi = {
   overrides: (contentId, brandId) => getJson(`/api/studio/overrides/${enc(contentId)}/${enc(brandId)}`),
   saveOverrides: (contentId, brandId, overrides) =>
     postJson(`/api/studio/overrides/${enc(contentId)}/${enc(brandId)}`, overrides, 'PUT'),
+  /** The element overrides a check item's fix makes ({elements, message}); applied by the client as a command. */
+  fix: (brandId, contentId, item, overrides) =>
+    postJson('/api/studio/fix', { brandId, contentId, item, ...(overrides ? { overrides } : {}) }),
+  /** The editor's command log ({commands, cursor}; null when none is stored). */
+  history: (contentId, brandId) => getJson(`/api/studio/history/${enc(contentId)}/${enc(brandId)}`),
+  saveHistory: (contentId, brandId, history) =>
+    postJson(`/api/studio/history/${enc(contentId)}/${enc(brandId)}`, history, 'PUT'),
   diff: async (brandId, contentId) => {
     try {
       return { status: 200, data: await postJson('/api/studio/diff', { brandId, contentId }), error: null };
@@ -86,6 +100,8 @@ export const studioApi = {
       return { status: err.status ?? 0, data: null, error: err.message };
     }
   },
+  /** Upload an image for a deck (P4.3): {name, data: base64} -> {file, width, height, size, mime}. */
+  uploadAsset: (contentId, name, data) => postJson(`/api/studio/assets/${enc(contentId)}`, { name, data }),
   exportDeck: (brandId, contentId, { pdf = false, png = false } = {}) =>
     postJson('/api/studio/export', { brandId, contentId, pdf, png }),
 };

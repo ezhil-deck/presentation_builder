@@ -1,0 +1,549 @@
+{
+ "source": {
+  "kind": "pdf",
+  "file": "McKinsey/A global view of how consumer behavior is changing amid COVID-19.pdf",
+  "page": 1,
+  "exact": true,
+  "creator": ""
+ },
+ "slide": {
+  "w": 960.0,
+  "h": 540.0,
+  "unit": "pt",
+  "aspect": 1.778
+ },
+ "render": null,
+ "page": 1,
+ "pages": 20,
+ "category": {
+  "name": "cover",
+  "term": "cover-slide",
+  "why": "first page"
+ },
+ "L1_elements": [
+  {
+   "id": "o1",
+   "role": "background",
+   "why": "covers >= 90 % of the slide",
+   "rule": "background.fill",
+   "kind": "shape",
+   "bbox": [
+    0.0,
+    -0.0,
+    100.0,
+    100.0
+   ],
+   "areaPct": 100.0,
+   "fill": "#ffffff",
+   "bleed": [
+    "left",
+    "top",
+    "right",
+    "bottom"
+   ]
+  },
+  {
+   "id": "o2",
+   "role": "background-art",
+   "why": "art covering >= 90 % of the slide",
+   "rule": "background-art.cover",
+   "kind": "image",
+   "bbox": [
+    0.08,
+    -0.0,
+    100.07,
+    100.0
+   ],
+   "areaPct": 99.99,
+   "z": 1,
+   "bleed": [
+    "left",
+    "top",
+    "right",
+    "bottom"
+   ],
+   "transparent": true,
+   "px": [
+    2560,
+    1440
+   ]
+  },
+  {
+   "id": "o3",
+   "role": "brand-logo",
+   "why": "small wide mark in a corner zone",
+   "rule": "brand-logo.corner",
+   "kind": "vectorgroup",
+   "bbox": [
+    4.52,
+    7.02,
+    20.05,
+    15.56
+   ],
+   "areaPct": 1.33,
+   "z": 2
+  },
+  {
+   "id": "o4",
+   "role": "legal",
+   "why": "legal wording at body size or smaller (wording decides before repetition: a repeated copyright line is still legal)",
+   "rule": "legal.wording",
+   "kind": "text",
+   "bbox": [
+    4.53,
+    90.25,
+    33.02,
+    95.46
+   ],
+   "areaPct": 1.48,
+   "z": 4,
+   "text": "CONFIDENTIAL AND PROPRIETARY Any use of this material without specific permission of McKinsey & Company is strictly prohibited",
+   "pt": 8.0,
+   "sizePctH": 1.48,
+   "font": "ArialMT",
+   "colour": "#000000",
+   "lines": 3,
+   "leading": 1.2,
+   "align": "left",
+   "ground": "#ffffff",
+   "contrast": 21.0
+  },
+  {
+   "id": "o5",
+   "role": "date",
+   "why": "date pattern",
+   "rule": "date.pattern",
+   "kind": "text",
+   "bbox": [
+    4.55,
+    65.94,
+    12.41,
+    68.83
+   ],
+   "areaPct": 0.23,
+   "z": 6,
+   "text": "July 7, 2020",
+   "pt": 14.0,
+   "sizePctH": 2.59,
+   "font": "ArialMT",
+   "colour": "#000000",
+   "lines": 1,
+   "align": "left",
+   "ground": "#ffffff",
+   "contrast": 21.0
+  },
+  {
+   "id": "o6",
+   "role": "subtitle",
+   "why": "directly under the title, same edge, smaller",
+   "rule": "subtitle.under-title",
+   "kind": "text",
+   "bbox": [
+    4.53,
+    59.93,
+    24.36,
+    64.07
+   ],
+   "areaPct": 0.82,
+   "z": 7,
+   "text": "Discussion document",
+   "pt": 20.0,
+   "sizePctH": 3.7,
+   "font": "ArialMT",
+   "colour": "#000000",
+   "lines": 1,
+   "align": "left",
+   "ground": "#ffffff",
+   "contrast": 21.0
+  },
+  {
+   "id": "o7",
+   "role": "title",
+   "why": "largest free text (topmost on a tie)",
+   "rule": "title.largest",
+   "kind": "text",
+   "bbox": [
+    4.53,
+    34.27,
+    53.04,
+    57.83
+   ],
+   "areaPct": 11.43,
+   "z": 10,
+   "text": "A global view of how consumer behavior is changing amid COVID-19",
+   "pt": 36.0,
+   "sizePctH": 6.67,
+   "font": "Georgia-Bold",
+   "colour": "#000000",
+   "lines": 3,
+   "leading": 1.2,
+   "align": "left",
+   "ground": "#ffffff",
+   "contrast": 21.0
+  },
+  {
+   "id": "o8",
+   "role": "cutout",
+   "why": "image >= 12 % of the slide with transparency",
+   "rule": "cutout.transparent",
+   "kind": "image",
+   "bbox": [
+    65.99,
+    39.78,
+    98.52,
+    98.04
+   ],
+   "areaPct": 18.95,
+   "z": 13,
+   "transparent": true,
+   "px": [
+    674,
+    679
+   ]
+  },
+  {
+   "id": "o9",
+   "role": "authors",
+   "why": "comma-separated capitalised names, no digits",
+   "rule": "authors.names",
+   "kind": "text",
+   "bbox": [
+    4.55,
+    72.1,
+    43.83,
+    81.22
+   ],
+   "areaPct": 3.58,
+   "z": 17,
+   "text": "Nidhi Arora, Tamara Charm, Anne Grimmelt, Mianne Ortega, Kelsey Robinson, Christina Sexauer, Yvonne Staack, Scott Whitehead, Naomi Yamakawa",
+   "pt": 14.0,
+   "sizePctH": 2.59,
+   "font": "ArialMT",
+   "colour": "#000000",
+   "lines": 3,
+   "leading": 1.2,
+   "align": "left",
+   "ground": "#ffffff",
+   "contrast": 21.0
+  }
+ ],
+ "L2_composition": {
+  "background": "#ffffff",
+  "backgroundArt": true,
+  "darkBackground": false,
+  "margins": {
+   "left": 4.52,
+   "top": 7.02,
+   "right": 46.96,
+   "bottom": 4.54,
+   "open": [
+    "right"
+   ]
+  },
+  "edges": [
+   {
+    "x": 4.53,
+    "ids": [
+     "o3",
+     "o4",
+     "o6",
+     "o7",
+     "o5",
+     "o9"
+    ]
+   }
+  ],
+  "mainEdge": 4.53,
+  "rhythm": {
+   "column": [
+    "o3",
+    "o7",
+    "o6",
+    "o5",
+    "o9",
+    "o4"
+   ],
+   "steps": [
+    {
+     "from": "o3",
+     "fromRole": "logo",
+     "to": "o7",
+     "toRole": "title",
+     "gapPctH": 18.71,
+     "gapInTitleSize": 2.81
+    },
+    {
+     "from": "o7",
+     "fromRole": "title",
+     "to": "o6",
+     "toRole": "subtitle",
+     "gapPctH": 2.1,
+     "gapInTitleSize": 0.31
+    },
+    {
+     "from": "o6",
+     "fromRole": "subtitle",
+     "to": "o5",
+     "toRole": "date",
+     "gapPctH": 1.87,
+     "gapInTitleSize": 0.28
+    },
+    {
+     "from": "o5",
+     "fromRole": "date",
+     "to": "o9",
+     "toRole": "authors",
+     "gapPctH": 3.27,
+     "gapInTitleSize": 0.49
+    },
+    {
+     "from": "o9",
+     "fromRole": "authors",
+     "to": "o4",
+     "toRole": "legal",
+     "gapPctH": 9.03,
+     "gapInTitleSize": 1.35
+    }
+   ],
+   "groups": [
+    [
+     "o3"
+    ],
+    [
+     "o7",
+     "o6",
+     "o5"
+    ],
+    [
+     "o9"
+    ],
+    [
+     "o4"
+    ]
+   ],
+   "innerGap": 1.87
+  },
+  "zones": {
+   "text": [
+    4.5,
+    34.3,
+    53.0,
+    81.2
+   ],
+   "visual": [
+    66.0,
+    39.8,
+    98.5,
+    98.0
+   ],
+   "split": "left-right",
+   "textAreaPct": 22.7,
+   "visualAreaPct": 18.9
+  },
+  "images": [
+   {
+    "id": "o2",
+    "role": "background-art",
+    "bbox": [
+     0.08,
+     -0.0,
+     100.07,
+     100.0
+    ],
+    "areaPct": 99.99,
+    "bleed": [
+     "left",
+     "top",
+     "right",
+     "bottom"
+    ],
+    "transparent": true,
+    "breaksMargin": true
+   },
+   {
+    "id": "o8",
+    "role": "cutout",
+    "bbox": [
+     65.99,
+     39.78,
+     98.52,
+     98.04
+    ],
+    "areaPct": 18.95,
+    "bleed": [],
+    "transparent": true,
+    "breaksMargin": true
+   }
+  ],
+  "angles": {},
+  "fills": {
+   "#ffffff": 100.0
+  },
+  "layers": [
+   "o1:background",
+   "o2:background-art",
+   "o3:logo",
+   "o4:legal",
+   "o5:date",
+   "o6:subtitle",
+   "o7:title",
+   "o8:cutout",
+   "o9:authors"
+  ]
+ },
+ "L3_balance": {
+  "typeScale": {
+   "sizesPctH": [
+    6.7,
+    3.7,
+    2.6,
+    1.5
+   ],
+   "count": 4,
+   "ratios": [
+    1.81,
+    1.42,
+    1.73
+   ],
+   "bodyPctH": 2.59,
+   "titlePctH": 6.67,
+   "titleToBody": 2.58,
+   "titleWords": 12,
+   "titleLines": 3,
+   "titleLeading": 1.2,
+   "faces": [
+    "ArialMT",
+    "Georgia-Bold"
+   ],
+   "emphasisRuns": [],
+   "titleCaps": false
+  },
+  "logos": [
+   {
+    "id": "o3",
+    "role": "logo",
+    "wPctW": 15.53,
+    "hPctH": 8.54,
+    "corner": "top-left",
+    "hToTitleSize": 1.28
+   }
+  ],
+  "weight": {
+   "grid3x3": [
+    [
+     6.7,
+     7.0,
+     8.4
+    ],
+    [
+     13.3,
+     10.4,
+     17.3
+    ],
+    [
+     9.8,
+     8.1,
+     19.0
+    ]
+   ],
+   "centre": [
+    54.4,
+    54.1
+   ],
+   "leftRight": 0.74
+  },
+  "ink": {
+   "share": 23.0,
+   "emptySpace": 77.0,
+   "grid3x3": [
+    [
+     3.1,
+     8.1,
+     14.0
+    ],
+    [
+     19.9,
+     20.1,
+     53.5
+    ],
+    [
+     12.3,
+     17.1,
+     58.8
+    ]
+   ],
+   "centre": [
+    64.5,
+    59.6
+   ],
+   "leftRight": 0.39
+  },
+  "busy3x3": [
+   [
+    5.1,
+    7.8,
+    12.2
+   ],
+   [
+    15.3,
+    13.7,
+    18.7
+   ],
+   [
+    12.6,
+    10.5,
+    17.8
+   ]
+  ],
+  "palette": [
+   {
+    "colour": "#ffffff",
+    "area": 65.1
+   },
+   {
+    "colour": "#0f1520",
+    "area": 8.9
+   },
+   {
+    "colour": "#cbdcea",
+    "area": 8.6
+   },
+   {
+    "colour": "#fefefe",
+    "area": 6.2
+   },
+   {
+    "colour": "#778d9f",
+    "area": 5.8
+   },
+   {
+    "colour": "#f9fafb",
+    "area": 3.9
+   },
+   {
+    "colour": "#feffff",
+    "area": 0.9
+   },
+   {
+    "colour": "#fffffe",
+    "area": 0.6
+   }
+  ],
+  "words": 35
+ },
+ "L4_intent": {
+  "signature": "Bold serif title on a white field; topic art (string-art swirl + cut-out) on the right, not a brand device",
+  "brandSignal": "serif face + one deep navy (logo #11273c); the art changes per report",
+  "notes": "One left edge 4.5% W for logo and all text (edges). Title stack grouped: title / doc type / date at ~2% H inner gaps, authors after 3.3%, legal anchored to the bottom margin (rhythm.groups). Sizes 6.7/3.7/2.6/1.5 % H, ratios 1.8/1.4/1.7. Logo top-left vs cut-out mass bottom-right (weight centre 54/54): a diagonal balance. Cut-out breaks the right and bottom margin; text never does."
+ },
+ "QA": {
+  "placeholders": [],
+  "hidden": [],
+  "offEdgeText": [],
+  "sizesOver5": false,
+  "titleOver25Words": false,
+  "lowContrast": [],
+  "smallestTextPctH": 1.48,
+  "tinyText": []
+ }
+}

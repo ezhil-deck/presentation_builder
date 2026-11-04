@@ -29,6 +29,8 @@ webpack 5, Node 24. `docs/PLAN-draft.md` holds the design and every owner decisi
 - `packages/brand` read + validate input → BrandSpec · `mood` BrandSpec → Mood · `layouts` catalogue (JS modules returning
   Layout instances) · `engine` Content + Mood + layouts → Deck, text fit · `renderer` React, Deck → HTML · `export` PDF
   (puppeteer) + PPTX · `checks` report · `cli` `pb` · `ui` local editor/review app (port 8100).
+- `golden/catalogue/` the owner's Rich Slide Catalogue (1,646 reference slides as one HTML + `index.json` from `npm run catalogue:index`;
+  composition reference for outline matching, `docs/PLAN-catalogue.md`; its colours and faces are never ours).
 - `golden/brands/<id>/` brand inputs (git-ignored) · `golden/showcase/showcase.md` the fixed review deck ·
   `golden/expected/<id>/` snapshots (in git). `out/<id>/` run outputs (git-ignored).
 

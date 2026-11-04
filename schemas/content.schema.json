@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://presentations.ai/pb/schemas/content.v2.0.json",
+  "$id": "https://presentations.ai/pb/schemas/content.v2.1.json",
   "title": "Content v2",
   "description": "What a deck says, independent of any brand or layout. Produced from Markdown (one slide per `# ` heading, an optional YAML `---` fence of slide keys under it, fenced YAML blocks per block type; docs/S2-content-v2.md) or written directly. `content/2` = slide keys + the 14 block types of docs/PLAN-studio.md §3.1; `content/1` documents (P2-spec §1) stay valid and are upgraded by `upgradeContent`. The composer binds blocks to layout slots.",
   "type": "object",
@@ -714,6 +714,10 @@
         },
         "icon": {
           "type": "string"
+        },
+        "label": {
+          "type": "string",
+          "description": "content v2.1: a phase label drawn in place of the number marker (\"2026\", \"Now\", \"Phase 1\"; the plan's heading band 1-20)"
         }
       }
     },

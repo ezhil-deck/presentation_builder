@@ -1,0 +1,698 @@
+{
+ "source": {
+  "kind": "pdf",
+  "file": "Accenture/The economic and social impact of investment in the nbn network Key Insights Report.pdf",
+  "page": 1,
+  "exact": true,
+  "creator": "Microsoft\u00ae PowerPoint\u00ae for Microsoft 365"
+ },
+ "slide": {
+  "w": 960.0,
+  "h": 540.0,
+  "unit": "pt",
+  "aspect": 1.778
+ },
+ "render": null,
+ "page": 1,
+ "pages": 20,
+ "category": {
+  "name": "cover",
+  "term": "cover-slide",
+  "why": "first page"
+ },
+ "L1_elements": [
+  {
+   "id": "o1",
+   "role": "background",
+   "why": "covers >= 90 % of the slide",
+   "rule": "background.fill",
+   "kind": "shape",
+   "bbox": [
+    0.0,
+    -0.0,
+    100.0,
+    100.0
+   ],
+   "areaPct": 100.0,
+   "fill": "#a100ff",
+   "bleed": [
+    "left",
+    "top",
+    "right",
+    "bottom"
+   ]
+  },
+  {
+   "id": "o2",
+   "role": "hidden",
+   "why": "painted over by o3 (an opaque image)",
+   "kind": "image",
+   "bbox": [
+    88.39,
+    92.2,
+    95.69,
+    95.62
+   ],
+   "areaPct": 0.25,
+   "z": 1,
+   "transparent": true,
+   "px": [
+    214,
+    57
+   ]
+  },
+  {
+   "id": "o3",
+   "role": "hero-image",
+   "why": "image >= 12 % of the slide",
+   "rule": "hero-image.large",
+   "kind": "image",
+   "bbox": [
+    42.1,
+    -0.0,
+    100.23,
+    100.0
+   ],
+   "areaPct": 58.13,
+   "z": 2,
+   "bleed": [
+    "top",
+    "right",
+    "bottom"
+   ],
+   "px": [
+    620,
+    600
+   ]
+  },
+  {
+   "id": "o4",
+   "role": "hero-image",
+   "why": "image >= 12 % of the slide",
+   "rule": "hero-image.large",
+   "kind": "image",
+   "bbox": [
+    -0.21,
+    -1.21,
+    61.35,
+    98.29
+   ],
+   "areaPct": 61.25,
+   "z": 3,
+   "bleed": [
+    "left",
+    "top"
+   ],
+   "px": [
+    874,
+    692
+   ]
+  },
+  {
+   "id": "o5",
+   "role": "title",
+   "why": "largest free text (topmost on a tie)",
+   "rule": "title.largest",
+   "kind": "text",
+   "bbox": [
+    4.42,
+    19.13,
+    42.96,
+    53.25
+   ],
+   "areaPct": 13.15,
+   "z": 4,
+   "text": "The economic and social impact of investment in the nbn network",
+   "pt": 40.0,
+   "sizePctH": 7.41,
+   "font": "Graphik-Semibold",
+   "colour": "#ffffff",
+   "lines": 4,
+   "leading": 1.2,
+   "align": "left",
+   "emphasisRuns": [
+    "nbn"
+   ],
+   "ground": "#7837b6",
+   "contrast": 6.95
+  },
+  {
+   "id": "o6",
+   "role": "subtitle",
+   "why": "directly under the title, same edge, smaller",
+   "rule": "subtitle.under-title",
+   "kind": "text",
+   "bbox": [
+    4.42,
+    55.24,
+    20.71,
+    58.2
+   ],
+   "areaPct": 0.48,
+   "z": 11,
+   "text": "Key Insights Report",
+   "pt": 16.0,
+   "sizePctH": 2.96,
+   "font": "Graphik-Bold",
+   "colour": "#dcafff",
+   "lines": 1,
+   "align": "left",
+   "ground": "#7317b4",
+   "contrast": 4.63
+  },
+  {
+   "id": "o7",
+   "role": "date",
+   "why": "date pattern",
+   "rule": "date.pattern",
+   "kind": "text",
+   "bbox": [
+    4.42,
+    58.61,
+    11.77,
+    60.65
+   ],
+   "areaPct": 0.15,
+   "z": 12,
+   "text": "January 2024",
+   "pt": 11.0,
+   "sizePctH": 2.04,
+   "font": "Graphik-Regular",
+   "colour": "#dcafff",
+   "lines": 1,
+   "align": "left",
+   "ground": "#680ca6",
+   "contrast": 5.3
+  },
+  {
+   "id": "o8",
+   "role": "label",
+   "why": "'prepared for / commissioned by' wording: names the partner mark beside it",
+   "rule": "label.partner",
+   "kind": "text",
+   "bbox": [
+    3.5,
+    85.56,
+    10.07,
+    87.52
+   ],
+   "areaPct": 0.13,
+   "z": 13,
+   "text": "Prepared for",
+   "pt": 10.6,
+   "sizePctH": 1.96,
+   "font": "Graphik-Regular",
+   "colour": "#000000",
+   "lines": 1,
+   "align": "left",
+   "ground": "#ffffff",
+   "contrast": 21.0
+  },
+  {
+   "id": "o9",
+   "role": "legal",
+   "why": "legal wording at body size or smaller (wording decides before repetition: a repeated copyright line is still legal)",
+   "rule": "legal.wording",
+   "kind": "text",
+   "bbox": [
+    3.12,
+    94.04,
+    22.64,
+    95.53
+   ],
+   "areaPct": 0.29,
+   "z": 14,
+   "text": "Copyright \u00a9 2023 Accenture. All rights reserved.",
+   "pt": 8.0,
+   "sizePctH": 1.48,
+   "font": "Graphik-Regular",
+   "colour": "#000000",
+   "lines": 1,
+   "align": "left",
+   "ground": "#ffffff",
+   "contrast": 21.0
+  },
+  {
+   "id": "o10",
+   "role": "partner-logo",
+   "why": "small mark next to a partner label",
+   "rule": "partner-logo.label",
+   "kind": "vectorgroup",
+   "bbox": [
+    11.25,
+    82.78,
+    19.85,
+    90.84
+   ],
+   "areaPct": 0.69,
+   "z": 15
+  },
+  {
+   "id": "o11",
+   "role": "placeholder",
+   "why": "placeholder wording (QA)",
+   "rule": "placeholder.wording",
+   "kind": "text",
+   "bbox": [
+    13.54,
+    83.37,
+    17.9,
+    90.7
+   ],
+   "areaPct": 0.32,
+   "z": 17,
+   "text": "Nbn logo",
+   "pt": 18.0,
+   "sizePctH": 3.33,
+   "font": "Graphik-Regular",
+   "colour": "#000000",
+   "lines": 2,
+   "leading": 1.2,
+   "align": "left",
+   "ground": "#ffffff",
+   "contrast": 21.0
+  },
+  {
+   "id": "o12",
+   "role": "cut-shape",
+   "why": "filled shape with a non-axis edge",
+   "rule": "cut-shape.angle",
+   "kind": "shape",
+   "bbox": [
+    -0.14,
+    68.51,
+    99.36,
+    100.0
+   ],
+   "areaPct": 31.33,
+   "z": 18,
+   "fill": "#ffffff",
+   "bleed": [
+    "left",
+    "bottom"
+   ],
+   "angles": {
+    "10.0": 101.1
+   }
+  },
+  {
+   "id": "o13",
+   "role": "partner-logo",
+   "why": "small mark next to a partner label",
+   "rule": "partner-logo.label",
+   "kind": "image",
+   "bbox": [
+    4.42,
+    83.02,
+    21.57,
+    91.07
+   ],
+   "areaPct": 1.38,
+   "z": 19,
+   "transparent": true,
+   "px": [
+    453,
+    120
+   ]
+  },
+  {
+   "id": "o14",
+   "role": "partner-logo",
+   "why": "small mark next to a partner label",
+   "rule": "partner-logo.label",
+   "kind": "image",
+   "bbox": [
+    25.04,
+    83.02,
+    39.76,
+    95.69
+   ],
+   "areaPct": 1.87,
+   "z": 20,
+   "transparent": true,
+   "px": [
+    445,
+    215
+   ]
+  }
+ ],
+ "L2_composition": {
+  "background": "#a100ff",
+  "backgroundArt": false,
+  "darkBackground": true,
+  "margins": {
+   "left": 3.12,
+   "top": 19.13,
+   "right": 57.04,
+   "bottom": 4.31,
+   "open": [
+    "right"
+   ]
+  },
+  "edges": [
+   {
+    "x": 4.42,
+    "ids": [
+     "o5",
+     "o6",
+     "o7",
+     "o13"
+    ]
+   },
+   {
+    "x": 3.31,
+    "ids": [
+     "o9",
+     "o8"
+    ]
+   }
+  ],
+  "mainEdge": 4.42,
+  "rhythm": {
+   "column": [
+    "o5",
+    "o6",
+    "o7",
+    "o13",
+    "o8",
+    "o9"
+   ],
+   "steps": [
+    {
+     "from": "o5",
+     "fromRole": "title",
+     "to": "o6",
+     "toRole": "subtitle",
+     "gapPctH": 1.99,
+     "gapInTitleSize": 0.27
+    },
+    {
+     "from": "o6",
+     "fromRole": "subtitle",
+     "to": "o7",
+     "toRole": "date",
+     "gapPctH": 0.41,
+     "gapInTitleSize": 0.06
+    },
+    {
+     "from": "o7",
+     "fromRole": "date",
+     "to": "o13",
+     "toRole": "partner-logo",
+     "gapPctH": 22.37,
+     "gapInTitleSize": 3.02
+    },
+    {
+     "from": "o13",
+     "fromRole": "partner-logo",
+     "to": "o8",
+     "toRole": "partner-label",
+     "gapPctH": -5.51,
+     "gapInTitleSize": -0.74
+    },
+    {
+     "from": "o8",
+     "fromRole": "partner-label",
+     "to": "o9",
+     "toRole": "legal",
+     "gapPctH": 6.52,
+     "gapInTitleSize": 0.88
+    }
+   ],
+   "groups": [
+    [
+     "o5",
+     "o6",
+     "o7"
+    ],
+    [
+     "o13",
+     "o8"
+    ],
+    [
+     "o9"
+    ]
+   ],
+   "innerGap": 0.41
+  },
+  "zones": {
+   "text": [
+    4.4,
+    19.1,
+    43.0,
+    60.6
+   ],
+   "visual": [
+    -0.2,
+    -1.2,
+    100.2,
+    100.0
+   ],
+   "split": "overlap",
+   "textAreaPct": 16.0,
+   "visualAreaPct": 101.6
+  },
+  "images": [
+   {
+    "id": "o3",
+    "role": "hero-image",
+    "bbox": [
+     42.1,
+     -0.0,
+     100.23,
+     100.0
+    ],
+    "areaPct": 58.13,
+    "bleed": [
+     "top",
+     "right",
+     "bottom"
+    ],
+    "transparent": false,
+    "breaksMargin": true
+   },
+   {
+    "id": "o4",
+    "role": "hero-image",
+    "bbox": [
+     -0.21,
+     -1.21,
+     61.35,
+     98.29
+    ],
+    "areaPct": 61.25,
+    "bleed": [
+     "left",
+     "top"
+    ],
+    "transparent": false,
+    "breaksMargin": true
+   }
+  ],
+  "angles": {
+   "10.0": 101.1
+  },
+  "fills": {
+   "#a100ff": 100.0,
+   "#ffffff": 31.3
+  },
+  "layers": [
+   "o1:background",
+   "o2:hidden",
+   "o3:hero-image",
+   "o4:hero-image",
+   "o5:title",
+   "o6:subtitle",
+   "o7:date",
+   "o8:partner-label",
+   "o9:legal",
+   "o10:partner-logo",
+   "o11:placeholder",
+   "o12:cut-shape",
+   "o13:partner-logo",
+   "o14:partner-logo"
+  ]
+ },
+ "L3_balance": {
+  "typeScale": {
+   "sizesPctH": [
+    7.4,
+    3.3,
+    3.0,
+    2.0,
+    1.5
+   ],
+   "count": 5,
+   "ratios": [
+    2.24,
+    1.1,
+    1.5,
+    1.33
+   ],
+   "bodyPctH": 1.48,
+   "titlePctH": 7.41,
+   "titleToBody": 5.01,
+   "titleWords": 11,
+   "titleLines": 4,
+   "titleLeading": 1.2,
+   "faces": [
+    "Graphik-Bold",
+    "Graphik-Regular",
+    "Graphik-Semibold"
+   ],
+   "emphasisRuns": [
+    "nbn"
+   ],
+   "titleCaps": false
+  },
+  "logos": [
+   {
+    "id": "o10",
+    "role": "partner-logo",
+    "wPctW": 8.6,
+    "hPctH": 8.06,
+    "corner": "bottom-left",
+    "hToTitleSize": 1.09
+   },
+   {
+    "id": "o13",
+    "role": "partner-logo",
+    "wPctW": 17.15,
+    "hPctH": 8.05,
+    "corner": "bottom-left",
+    "hToTitleSize": 1.09
+   },
+   {
+    "id": "o14",
+    "role": "partner-logo",
+    "wPctW": 14.72,
+    "hPctH": 12.67,
+    "corner": "bottom-left",
+    "hToTitleSize": 1.71
+   }
+  ],
+  "weight": {
+   "grid3x3": [
+    [
+     9.2,
+     7.2,
+     12.3
+    ],
+    [
+     10.3,
+     7.6,
+     13.5
+    ],
+    [
+     14.7,
+     12.2,
+     12.9
+    ]
+   ],
+   "centre": [
+    51.7,
+    54.2
+   ],
+   "leftRight": 0.91
+  },
+  "ink": {
+   "share": 82.5,
+   "emptySpace": 17.5,
+   "grid3x3": [
+    [
+     92.6,
+     97.8,
+     98.6
+    ],
+    [
+     89.8,
+     98.4,
+     99.1
+    ],
+    [
+     27.9,
+     55.3,
+     83.3
+    ]
+   ],
+   "centre": [
+    53.5,
+    43.1
+   ],
+   "leftRight": 0.83
+  },
+  "busy3x3": [
+   [
+    6.5,
+    5.8,
+    14.0
+   ],
+   [
+    9.1,
+    6.2,
+    14.5
+   ],
+   [
+    5.0,
+    5.6,
+    12.6
+   ]
+  ],
+  "palette": [
+   {
+    "colour": "#ffffff",
+    "area": 18.4
+   },
+   {
+    "colour": "#7931ac",
+    "area": 15.7
+   },
+   {
+    "colour": "#8db6b4",
+    "area": 14.4
+   },
+   {
+    "colour": "#46544b",
+    "area": 14.2
+   },
+   {
+    "colour": "#858ba2",
+    "area": 14.0
+   },
+   {
+    "colour": "#856987",
+    "area": 9.4
+   },
+   {
+    "colour": "#3a1c4d",
+    "area": 8.1
+   },
+   {
+    "colour": "#d8bb9c",
+    "area": 5.8
+   }
+  ],
+  "words": 20
+ },
+ "L4_intent": {
+  "signature": "Brand colour field cut by straight diagonals at one angle (10 deg, cut-shape angles) interlocking with a full-height photo",
+  "brandSignal": "the brand's purple as a field; keyword run in a heavier weight of the same face (emphasisRuns)",
+  "notes": "Panel over photo (zones.split overlap). Furniture (partner label + logos, copyright) moves to the white wedge below the cut. Title 7.4% H, 4 lines, leading 1.2; subtitle + date grouped 2% under it. QA: a hidden 'Nbn logo' placeholder box under the real logo, and a brand logo painted over by the photo (QA.placeholders / hidden)."
+ },
+ "QA": {
+  "placeholders": [
+   "o11"
+  ],
+  "hidden": [
+   "o2"
+  ],
+  "offEdgeText": [
+   "o11"
+  ],
+  "sizesOver5": false,
+  "titleOver25Words": false,
+  "lowContrast": [],
+  "smallestTextPctH": 1.48,
+  "tinyText": []
+ }
+}

@@ -5,6 +5,7 @@
  */
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve, sep } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { composeDeck, parseMarkdownResult, PROPOSALS } from '@pb/engine';
 import { catalogue } from '@pb/layouts';
 import { renderDeckToHtml } from '@pb/renderer';
@@ -14,7 +15,7 @@ import paths from './paths.cjs';
 import { moodHtml } from './html.js';
 
 export const SHOWCASE = join(paths.REPO_ROOT, 'golden', 'showcase', 'showcase.md');
-export const ENGINE_VERSION = '0.3.0';
+export const ENGINE_VERSION = '0.4.0';
 
 /** The relative URL prefix from `fromDir` to `toDir` ('' when they are the same folder), with forward slashes. */
 export function relBase(fromDir, toDir) {
@@ -95,6 +96,26 @@ const escapeHtml = (s) =>
   String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 
 /**
+ * A full-page PNG of the HTML file `htmlFile` at `width` × `height` (deviceScaleFactor 1), in `browser` or in a Chrome
+ * of its own launched through `@pb/export` `withBrowser` (the cross-process Chrome lock, bounded close).
+ */
+export async function screenshotPage(htmlFile, outFile, { width, height }, browser) {
+  const shoot = async (b) => {
+    const page = await b.newPage();
+    try {
+      await page.setViewport({ width, height, deviceScaleFactor: 1 });
+      await page.goto(pathToFileURL(htmlFile).href, { waitUntil: 'networkidle0', timeout: 30000 });
+      await page.screenshot({ path: resolve(outFile), type: 'png', fullPage: true });
+    } finally {
+      await page.close().catch(() => {});
+    }
+  };
+  if (browser) return shoot(browser);
+  const { withBrowser } = await import('@pb/export');
+  return withBrowser(shoot);
+}
+
+/**
  * F10: a contact sheet of slide PNGs — 4 per row, 480 px wide thumbnails (270 px tall), each captioned with its
  * slide index (+ kind / layout when given) — screenshotted with puppeteer to `outFile`.
  */
@@ -126,17 +147,9 @@ export async function contactSheet(pngFiles, outFile, { captions = [], title = '
     `</style></head><body>${title ? `<h1>${escapeHtml(title)}</h1>` : ''}<main>${cells}</main></body></html>`;
   const tmp = join(dir, `.pb-sheet-${process.pid}.html`);
   writeFileSync(tmp, html);
-  const { default: puppeteer } = await import('puppeteer');
-  const own = !browser;
-  const b = browser ?? (await puppeteer.launch({ headless: true, args: ['--allow-file-access-from-files'] }));
   try {
-    const page = await b.newPage();
-    await page.setViewport({ width, height, deviceScaleFactor: 1 });
-    await page.goto(`file://${tmp}`, { waitUntil: 'networkidle0' });
-    await page.screenshot({ path: resolve(outFile), type: 'png', fullPage: true });
-    await page.close();
+    await screenshotPage(tmp, outFile, { width, height }, browser);
   } finally {
-    if (own) await b.close();
     rmSync(tmp, { force: true });
   }
   return { file: resolve(outFile), width, height };
@@ -153,13 +166,9 @@ export async function renderOutputs(deck, { outDir, baseDir, pdf = false, png = 
   const files = ['deck.html'];
   const result = { files };
   if (!pdf && !png) return result;
-  const { exportPdf, exportPng } = await import('@pb/export');
-  const { default: puppeteer } = await import('puppeteer');
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--allow-file-access-from-files', '--font-render-hinting=none'],
-  });
-  try {
+  const { exportPdf, exportPng, withBrowser } = await import('@pb/export');
+  // one Chrome for the PDF, the PNGs and the sheet, under the cross-process Chrome lock (@pb/export withBrowser)
+  await withBrowser(async (browser) => {
     if (pdf) {
       await exportPdf(html, join(outDir, 'deck.pdf'), { basePath: outDir, browser });
       files.push('deck.pdf');
@@ -183,9 +192,7 @@ export async function renderOutputs(deck, { outDir, baseDir, pdf = false, png = 
       files.push('sheet.png');
       result.pngs = pngs.length;
     }
-  } finally {
-    await browser.close();
-  }
+  });
   return result;
 }
 
@@ -203,6 +210,8 @@ export function composeContent({ brandSpec, mood }, opts = {}) {
     catalogue,
     engineVersion: ENGINE_VERSION,
     ...(opts.proposals ? { proposals: opts.proposals } : {}),
+    // the catalogue layouts are the default (C4); `catalogue: false` composes with the 68 only
+    ...(opts.catalogue === false ? { options: { catalogue: false } } : {}),
   });
   const { deck, warnings } = composed;
   return {
@@ -211,7 +220,69 @@ export function composeContent({ brandSpec, mood }, opts = {}) {
     deck,
     warnings,
     ...(composed.proposals ? { proposals: composed.proposals } : {}),
+    ...(composed.catalogue ? { catalogueLog: composed.catalogue } : {}),
   };
+}
+
+/**
+ * The build report's `catalogue` section (every build since C4, docs/PLAN-catalogue.md): the match counts
+ * (exact family / same combination / none), one row per slide ({slide, index, layoutId, catalogue, key, slideKey,
+ * match}) and, with a `before` deck, the slides drawn differently from it (slide warnings left out: C4's catalogue
+ * note on every fallback slide changes no drawing).
+ */
+export function catalogueReport(log, { deck, before, beforeFile } = {}) {
+  const counts = { family: 0, combination: 0, none: 0 };
+  for (const r of log) counts[r.match] += 1;
+  const out = { counts, slides: log };
+  if (before) {
+    const drawn = (d) => ({
+      ...d,
+      slides: (d?.slides ?? []).map((s) => {
+        const rest = { ...s };
+        delete rest.warnings;
+        return rest;
+      }),
+    });
+    out.before = beforeFile;
+    out.changedSlides = changedSlides(drawn(before), drawn(deck));
+  }
+  return out;
+}
+
+/**
+ * `index.html` in a build folder built with `--before` (C3 / C4): one row per slide - index, kind, the layout and catalogue slide used,
+ * how it matched, the catalogue key and the slide's own key - with links to compare.png / sheet.png.
+ */
+export function catalogueSlidesIndex(outDir, { title, report, deck }) {
+  const link = (f) => (existsSync(join(outDir, f)) ? `<a href="${escapeHtml(f)}">${escapeHtml(f)}</a>` : '—');
+  const changed = new Set(report.changedSlides ?? []);
+  const rows = report.slides
+    .map((r) => {
+      const s = deck.slides[r.index - 1];
+      return (
+        `<tr class="${r.match}"><td class="n">${r.index}</td><td>${escapeHtml(s?.requestedKind ?? s?.kind ?? '')}</td>` +
+        `<td>${escapeHtml(r.layoutId ?? '')}</td><td>${escapeHtml(r.catalogue ?? '—')}</td>` +
+        `<td>${escapeHtml(r.match)}</td><td>${changed.has(r.index) ? 'yes' : ''}</td>` +
+        `<td><code>${escapeHtml(r.key ?? '—')}</code></td><td><code>${escapeHtml(r.slideKey ?? '—')}</code></td></tr>`
+      );
+    })
+    .join('');
+  const c = report.counts;
+  const html =
+    '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
+    `<title>${escapeHtml(title)}</title><style>` +
+    'body{margin:0;padding:24px;font:14px/1.4 -apple-system,Helvetica,Arial,sans-serif;color:#222;background:#F6F6F8}' +
+    'table{border-collapse:collapse;background:#fff}th,td{padding:6px 10px;border-bottom:1px solid #E2E2E6;text-align:left;vertical-align:top}' +
+    'thead th{font-weight:600;color:#555}td.n{font-variant-numeric:tabular-nums}code{font-size:12px}' +
+    'tr.family td:nth-child(5){color:#0A7A3E;font-weight:600}tr.combination td:nth-child(5){color:#8A5A00;font-weight:600}' +
+    `</style></head><body><h1>${escapeHtml(title)}</h1>` +
+    `<p>Catalogue layouts (docs/PLAN-catalogue.md C3): ${c.family} exact family, ${c.combination} same combination, ` +
+    `${c.none} none. Before / after: ${link('compare.png')} · contact sheet: ${link('sheet.png')}` +
+    `${report.before ? ` · before: <code>${escapeHtml(report.before)}</code>` : ''}</p>` +
+    '<table><thead><tr><th>#</th><th>kind</th><th>layout</th><th>catalogue</th><th>match</th><th>changed</th>' +
+    `<th>catalogue key</th><th>slide key</th></tr></thead><tbody>${rows}</tbody></table></body></html>`;
+  writeFileSync(join(outDir, 'index.html'), html);
+  return join(outDir, 'index.html');
 }
 
 /** The 1-based indices of the slides whose JSON differs between two decks (a slide only one deck has counts). */
@@ -226,7 +297,7 @@ export function changedSlides(before, after) {
 
 /**
  * The build report's `proposals` section: the options, the slides that differ from the `before` deck (when given),
- * and per open proposal (PR-4) the slides it changed and what it did.
+ * per open proposal the slides it changed and what it did.
  */
 export function proposalsReport(proposals, { deck, before, beforeFile } = {}) {
   const byProposal = {};
@@ -285,17 +356,9 @@ export async function compareSheet(rows, outFile, { title = '', browser } = {}) 
     `</style></head><body><h1>${escapeHtml(title)}</h1>${body}</body></html>`;
   const tmp = join(dir, `.pb-compare-${process.pid}.html`);
   writeFileSync(tmp, html);
-  const { default: puppeteer } = await import('puppeteer');
-  const own = !browser;
-  const b = browser ?? (await puppeteer.launch({ headless: true, args: ['--allow-file-access-from-files'] }));
   try {
-    const page = await b.newPage();
-    await page.setViewport({ width, height: 400, deviceScaleFactor: 1 });
-    await page.goto(`file://${tmp}`, { waitUntil: 'networkidle0' });
-    await page.screenshot({ path: resolve(outFile), type: 'png', fullPage: true });
-    await page.close();
+    await screenshotPage(tmp, outFile, { width, height: 400 }, browser);
   } finally {
-    if (own) await b.close();
     rmSync(tmp, { force: true });
   }
   return { file: resolve(outFile), width, rows: rows.length };
@@ -355,7 +418,7 @@ export function proposalsIndex(rootDir) {
 export async function buildFromMood(derived, brandDir, opts = {}) {
   const started = opts.started ?? Date.now();
   const { brandSpec, mood } = derived;
-  const { contentFile, parsed, deck, warnings, proposals } = composeContent(derived, opts);
+  const { contentFile, parsed, deck, warnings, proposals, catalogueLog } = composeContent(derived, opts);
 
   const outDir = resolve(opts.out ?? join('out', brandSpec.id));
   mkdirSync(outDir, { recursive: true });
@@ -450,6 +513,50 @@ export async function buildFromMood(derived, brandDir, opts = {}) {
           .join(', ')}: ${rows.length} changed slide(s) (before left, after right)`,
       });
       files.push('compare.png');
+    }
+  }
+  if (catalogueLog) {
+    // always written (C4); with `--before <dir>` (and no proposals, which compare themselves) against that build:
+    // the changed slides, compare.png (with --png) and index.html
+    const beforeDir = opts.before && !proposals ? resolve(opts.before) : null;
+    const beforeFile = beforeDir ? join(beforeDir, 'deck.json') : null;
+    const before =
+      beforeDir && beforeDir !== outDir && existsSync(beforeFile)
+        ? JSON.parse(readFileSync(beforeFile, 'utf8'))
+        : null;
+    report.catalogue = catalogueReport(catalogueLog, {
+      deck,
+      before,
+      beforeFile: before ? relative(paths.REPO_ROOT, beforeFile).split(sep).join('/') : undefined,
+    });
+    if (before && opts.png) {
+      const pad = (n) => `${String(n).padStart(2, '0')}.png`;
+      const rows = report.catalogue.changedSlides
+        .filter(
+          (n) => existsSync(join(beforeDir, 'slides', pad(n))) && existsSync(join(outDir, 'slides', pad(n))),
+        )
+        .map((n) => {
+          const s = deck.slides[n - 1];
+          const r = catalogueLog[n - 1];
+          return {
+            before: join(beforeDir, 'slides', pad(n)),
+            after: join(outDir, 'slides', pad(n)),
+            caption: `${n} · ${s?.requestedKind ?? s?.kind ?? '?'} · ${r?.catalogue ?? r?.layoutId ?? '?'} (${r?.match ?? 'none'}) — ${r?.key ?? r?.slideKey ?? ''}`,
+          };
+        });
+      const c = report.catalogue.counts;
+      await compareSheet(rows, join(outDir, 'compare.png'), {
+        title: `${brandSpec.id} — catalogue layouts: ${c.family} exact family, ${c.combination} same combination, ${c.none} none; ${rows.length} changed slide(s) (before left, after right)`,
+      });
+      files.push('compare.png');
+    }
+    if (beforeDir) {
+      catalogueSlidesIndex(outDir, {
+        title: `${brandSpec.id} — ${deck.title ?? relative(paths.REPO_ROOT, contentFile)} — catalogue layouts`,
+        report: report.catalogue,
+        deck,
+      });
+      files.push('index.html');
     }
   }
   writeJson(join(outDir, 'report.json'), report);

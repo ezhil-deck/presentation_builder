@@ -1,0 +1,20 @@
+{
+  "slides": {
+    "s20": {
+      "surface": "black"
+    },
+    "s25": {
+      "surface": "red"
+    }
+  },
+  "elements": {
+    "s20-chart-title": {
+      "frame": {
+        "x": 96,
+        "y": 298.61,
+        "w": 1728,
+        "h": 34.58
+      }
+    }
+  }
+}

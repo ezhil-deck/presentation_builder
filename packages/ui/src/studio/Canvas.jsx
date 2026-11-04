@@ -1,12 +1,22 @@
 // The canvas (docs/PLAN-studio.md §2): the slide at the largest size that fits (min(w / 1920, h / 1080)) or at 50 /
 // 100 %, centred on a neutral background, a thin caption under it; guides (margins, title zone, check outlines) off by
-// default; one wheel gesture = one slide in fit mode; `G` shows the deck as a 4-up grid instead.
+// default; one wheel gesture = one slide in fit mode; `G` shows the deck as a 4-up grid instead. Overflowing texts are
+// outlined in red; in edit mode (docs/P4-spec.md §2) the edit layer paints the selection, handles and snap guides and
+// a pointer down on the slide goes to the editor; a text being edited inline gets its overlay (InlineEditor.jsx).
+// The caption carries a warn badge when the slide has check findings (a click opens the panel's Checks). P4.3: a
+// table cell edited inline (the inline editor laid over the cell), an image in focal mode (FocalLayer), a selected
+// flow node's outline + reorder handle, and an image file dropped on the slide (edit mode). P4.4: a click on the
+// empty canvas around the slide clears the selection.
 import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Slide } from '@pb/renderer/components';
 import { ScaledSlide, SlideOverlay } from '../components/SlideCanvas.jsx';
-import { overlayBoxes } from '../lib/checks.js';
+import { findElement, overlayBoxes } from '../lib/checks.js';
 import { cx } from '../lib/format.js';
-import { CANVAS, caption, fitScale, zoomScale } from './lib.js';
+import { cellElement, flowNodeOf, imageTarget } from './dataEdit.js';
+import { pickTarget } from './edit.js';
+import EditLayer, { FocalLayer, OverflowOutlines } from './EditLayer.jsx';
+import InlineEditor from './InlineEditor.jsx';
+import { CANVAS, caption, countSeverities, fitScale, zoomScale } from './lib.js';
 
 /** The element's content box size, kept current (fallback before the first layout / in jsdom). */
 export function useSize(ref, fallback = { w: 960, h: 600 }) {
@@ -31,8 +41,8 @@ export function useSize(ref, fallback = { w: 960, h: 600 }) {
   return size;
 }
 
-/** One slide painted at a fixed scale; `children(scale)` paint over it (canvas px). */
-export function FixedSlide({ deck, index, opts, scale, children }) {
+/** One slide painted at a fixed scale; `children(scale)` paint over it (canvas px); `slideProps` go on the box. */
+export function FixedSlide({ deck, index, opts, scale, children, slideProps }) {
   const { width: W, height: H } = deck?.canvas ?? CANVAS;
   return (
     <div style={{ position: 'relative', width: W * scale, height: H * scale, overflow: 'hidden' }}>
@@ -47,6 +57,7 @@ export function FixedSlide({ deck, index, opts, scale, children }) {
           transformOrigin: '0 0',
           '--pb-scale': 1,
         }}
+        {...slideProps}
       >
         <Slide deck={deck} index={index} opts={opts} />
         {typeof children === 'function' ? children(scale) : children}
@@ -137,8 +148,21 @@ export default function Canvas({
   grid = false,
   accent,
   busy = false,
+  editing = false,
+  editor = null,
+  contentSlide = null,
+  onInlineCommit,
+  onInlineCancel,
+  onShowChecks,
   onSelect,
   onStep,
+  focalId = null,
+  onFocalCommit,
+  onFocalDone,
+  onCellCommit,
+  onCellCancel,
+  onNodeMove,
+  onDropFile,
 }) {
   const ref = useRef(null);
   const size = useSize(ref);
@@ -147,6 +171,17 @@ export default function Canvas({
   const captionH = 32;
   const fit = fitScale(size.w, size.h - captionH, { pad: 24, canvas: deck?.canvas ?? CANVAS });
   const scale = zoomScale(zoom, fit);
+  const inlineEl = editing && editor?.inline ? findElement(slide?.elements, editor.inline) : null;
+  const cellTable = editing && editor?.cell ? findElement(slide?.elements, editor.cell.id) : null;
+  const cellEl = cellTable ? cellElement(cellTable, editor.cell.r, editor.cell.c) : null;
+  const focalEl = editing && focalId ? findElement(slide?.elements, focalId) : null;
+  const focalTarget = focalEl && contentSlide ? imageTarget(focalEl, contentSlide) : null;
+  const one = editing && editor?.selected?.length === 1 ? editor.selected[0] : null;
+  const node = one && contentSlide && !inlineEl && !cellEl ? flowNodeOf(one, contentSlide) : null;
+  const [dropping, setDropping] = useState(false);
+  const hasFiles = (e) => Array.from(e.dataTransfer?.types ?? []).includes('Files');
+  const findings = countSeverities(items ?? []);
+  const flagged = findings.fail + findings.warn;
   const boxes = useMemo(() => {
     if (!slide) return [];
     if (hoverItem) return overlayBoxes(slide, [hoverItem]);
@@ -178,6 +213,12 @@ export default function Canvas({
       data-testid="canvas"
       data-busy={busy ? 'true' : 'false'}
       onWheel={onWheel}
+      onMouseDown={(e) => {
+        // edit mode: a click on the empty canvas around the slide clears the selection (P4.4)
+        if (!editing || !editor?.clear || e.button !== 0) return;
+        if (e.target.closest?.('[data-testid="canvas-slide"], button, a, input')) return;
+        editor.clear();
+      }}
       className={cx(
         'relative h-full min-h-0 w-full min-w-0 bg-zinc-100 transition-opacity',
         zoom === 'fit' || grid ? 'overflow-hidden' : 'overflow-auto',
@@ -194,12 +235,103 @@ export default function Canvas({
           )}
           style={zoom === 'fit' ? undefined : { width: 'max-content' }}
         >
-          <div className="shadow-sm shadow-zinc-900/10 ring-1 ring-zinc-200" data-testid="canvas-slide">
-            <FixedSlide deck={deck} index={index} opts={opts} scale={scale}>
+          <div
+            className={cx(
+              'shadow-sm shadow-zinc-900/10 ring-1 ring-zinc-200',
+              editing && 'cursor-default',
+              dropping && 'ring-2 ring-blue-500',
+            )}
+            data-testid="canvas-slide"
+            data-editing={editing ? 'true' : 'false'}
+            onDragOver={(e) => {
+              if (!editing || !onDropFile || !hasFiles(e)) return;
+              e.preventDefault();
+              if (e.dataTransfer) e.dataTransfer.dropEffect = 'copy';
+              setDropping(true);
+            }}
+            onDragLeave={() => setDropping(false)}
+            onDrop={(e) => {
+              if (!editing || !onDropFile) return;
+              const file = e.dataTransfer?.files?.[0];
+              if (!file) return;
+              e.preventDefault();
+              setDropping(false);
+              const id = pickTarget(e.target, null);
+              onDropFile(file, id ? findElement(slide?.elements, id) : null);
+            }}
+          >
+            <FixedSlide
+              deck={deck}
+              index={index}
+              opts={opts}
+              scale={scale}
+              slideProps={
+                editing && editor
+                  ? {
+                      onMouseDown: (e) => editor.onSlideMouseDown(e, scale),
+                      onDoubleClick: (e) => editor.onSlideDoubleClick(e, scale),
+                    }
+                  : undefined
+              }
+            >
               {(s) => (
                 <>
                   {guides ? <Guides geometry={geometry} scale={s} /> : null}
+                  <OverflowOutlines slide={slide} scale={s} />
                   <SlideOverlay boxes={boxes} scale={s} />
+                  {editing && editor ? (
+                    <EditLayer
+                      slide={slide}
+                      selected={inlineEl || cellEl || focalEl ? [] : editor.selected}
+                      group={editor.group}
+                      guides={editor.guides}
+                      tip={editor.tip}
+                      scale={s}
+                      canvas={deck.canvas}
+                      onHandleMouseDown={editor.onHandleMouseDown}
+                      node={focalEl ? null : node}
+                      onNodeMove={onNodeMove}
+                    />
+                  ) : null}
+                  {focalEl && focalTarget ? (
+                    <FocalLayer
+                      key={`${slide.id}:${focalEl.id}`}
+                      el={focalEl}
+                      focal={
+                        focalTarget.focalIn === 'content'
+                          ? focalTarget.focal
+                          : (editor.overrideOf?.(focalEl.id)?.focal ?? null)
+                      }
+                      size={deck.assets?.[focalEl.image?.asset]}
+                      scale={s}
+                      onCommit={(f) => onFocalCommit?.(focalEl, focalTarget, f)}
+                      onDone={() => onFocalDone?.()}
+                    />
+                  ) : null}
+                  {cellEl ? (
+                    <InlineEditor
+                      key={`${slide.id}:${cellEl.id}`}
+                      el={cellEl}
+                      deck={deck}
+                      scale={s}
+                      slide={contentSlide}
+                      navigate
+                      hide={`.slide [data-element-id="${cellTable.id}"] .pb-cell[data-row="${editor.cell.r}"][data-col="${editor.cell.c}"]`}
+                      onCommit={(paragraphs, move) => onCellCommit?.(cellTable, cellEl, paragraphs, move)}
+                      onCancel={() => onCellCancel?.()}
+                    />
+                  ) : null}
+                  {inlineEl ? (
+                    <InlineEditor
+                      key={`${slide.id}:${inlineEl.id}`}
+                      el={inlineEl}
+                      deck={deck}
+                      scale={s}
+                      slide={contentSlide}
+                      onCommit={(paragraphs) => onInlineCommit?.(inlineEl, paragraphs)}
+                      onCancel={() => onInlineCancel?.()}
+                    />
+                  ) : null}
                 </>
               )}
             </FixedSlide>
@@ -210,6 +342,25 @@ export default function Canvas({
           >
             <span>{caption(slide)}</span>
             <span className="tabular-nums text-zinc-400">{Math.round(scale * 100)}%</span>
+            {flagged ? (
+              <button
+                type="button"
+                data-testid="caption-findings"
+                title={`${flagged} check finding${flagged > 1 ? 's' : ''} on this slide: open the Checks`}
+                onClick={() => onShowChecks?.()}
+                className={cx(
+                  'inline-flex h-5 items-center gap-1 rounded px-1.5 text-[11px] font-medium tabular-nums ring-1 ring-inset',
+                  findings.fail
+                    ? 'bg-red-50 text-red-700 ring-red-200'
+                    : 'bg-amber-50 text-amber-700 ring-amber-200',
+                )}
+              >
+                <span
+                  className={cx('h-1.5 w-1.5 rounded-full', findings.fail ? 'bg-red-600' : 'bg-amber-500')}
+                />
+                {flagged} {flagged > 1 ? 'findings' : 'finding'}
+              </button>
+            ) : null}
           </div>
         </div>
       ) : null}

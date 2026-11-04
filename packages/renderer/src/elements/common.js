@@ -3,7 +3,8 @@ import { boxStyle, num } from '../util.js';
 /**
  * Props of an element's outer box: absolute at its frame (relative to `origin`, the parent's frame origin - the
  * slide's (0,0) or a group's frame), `z-index` = `el.z`, `opacity` = `el.style.opacity`, data attributes for the
- * editor / tests, and `data-warning` when the renderer had to flag something.
+ * editor / tests (`data-element-id`, `data-type`, `data-role`, `data-slot`: the editor selects an element by its id),
+ * and `data-warning` when the renderer had to flag something.
  */
 export function elementProps(el, origin, { extraStyle = {}, warning, attrs = {} } = {}) {
   const style = boxStyle(el.frame, origin, extraStyle);
@@ -18,6 +19,7 @@ export function elementProps(el, origin, { extraStyle = {}, warning, attrs = {} 
     ...attrs,
   };
   if (el.role) props['data-role'] = el.role;
+  if (el.slot) props['data-slot'] = el.slot;
   if (warning) props['data-warning'] = warning;
   return props;
 }

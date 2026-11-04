@@ -1,5 +1,6 @@
 // The Studio's top bar (docs/PLAN-studio.md §2): brand switcher, content switcher, slide counter with prev / next,
-// zoom (fit / 50 / 100 %), guides, grid, Export, and the overflow menu (drawers, Reconvert, the review console).
+// zoom (fit / 50 / 100 %), guides, grid, the editor's Edit toggle (E), undo / redo and saved state (docs/P4-spec.md
+// §2, §5), Export, and the overflow menu (drawers, Reconvert, the review console).
 import { cx } from '../lib/format.js';
 import BrandSwitcher from './BrandSwitcher.jsx';
 import { Icon, MenuItem, MenuSeparator, Popover, ToolButton } from './ui.jsx';
@@ -22,6 +23,13 @@ export default function TopBar({
   grid,
   busy,
   exporting,
+  editing = false,
+  canUndo = false,
+  canRedo = false,
+  saveState = 'saved',
+  onEdit,
+  onUndo,
+  onRedo,
   onBrand,
   onContent,
   onStep,
@@ -31,6 +39,7 @@ export default function TopBar({
   onExport,
   onDrawer,
   onReconvert,
+  readOnly = false,
 }) {
   const content = contents?.find((c) => c.id === contentId);
   return (
@@ -51,6 +60,15 @@ export default function TopBar({
             <span className="max-w-[200px] truncate text-zinc-800" data-testid="content-current">
               {content?.title ?? 'Content'}
             </span>
+            {readOnly ? (
+              <span
+                data-testid="content-readonly"
+                title="A Markdown deck: an edit saves a copy under content/"
+                className="rounded bg-zinc-100 px-1 text-[10px] uppercase tracking-wide text-zinc-500"
+              >
+                read-only
+              </span>
+            ) : null}
             <Icon name="down" className="text-zinc-400" />
           </>
         }
@@ -60,7 +78,7 @@ export default function TopBar({
             {(contents ?? []).map((c) => (
               <MenuItem
                 key={c.id}
-                hint={c.file}
+                hint={c.readOnly ? `${c.file} · read-only` : c.file}
                 className={c.id === contentId ? 'bg-blue-50 text-blue-700' : undefined}
                 onClick={() => {
                   close();
@@ -111,6 +129,29 @@ export default function TopBar({
       <ToolButton aria-pressed={grid} active={grid} title="Grid (G)" onClick={() => onGrid(!grid)}>
         Grid
       </ToolButton>
+      <span className="mx-1 h-5 w-px bg-zinc-200" />
+      <ToolButton
+        aria-pressed={editing}
+        active={editing}
+        title="Edit mode (E)"
+        onClick={() => onEdit?.(!editing)}
+        data-testid="edit-toggle"
+      >
+        Edit
+      </ToolButton>
+      <ToolButton aria-label="Undo" title="Undo (⌘Z)" disabled={busy || !canUndo} onClick={onUndo}>
+        <Icon name="undo" />
+      </ToolButton>
+      <ToolButton aria-label="Redo" title="Redo (⇧⌘Z)" disabled={busy || !canRedo} onClick={onRedo}>
+        <Icon name="redo" />
+      </ToolButton>
+      <span
+        data-testid="save-state"
+        data-state={saveState}
+        className={cx('w-[64px] text-xs', saveState === 'error' ? 'text-red-700' : 'text-zinc-400')}
+      >
+        {saveState === 'saving' ? 'Saving…' : saveState === 'error' ? 'Not saved' : 'Saved'}
+      </span>
       <span className="mx-1 h-5 w-px bg-zinc-200" />
       <Popover
         label="Export"

@@ -392,8 +392,12 @@ function usesV2(raw) {
   return false;
 }
 
-/** md -> {content, warnings}. Throws only when the assembled Content fails its schema (a parser bug). */
-export function parseMarkdownResult(md, { brandSpec, schema } = {}) {
+/**
+ * md -> {content, warnings}. Throws only when the assembled Content fails its schema (a parser bug).
+ * `keepPlaceholders: true` leaves `{brand.*}` placeholders as written (a content document independent of the brand,
+ * the Studio's Markdown import: they are resolved at compose time by `resolveContentPlaceholders`).
+ */
+export function parseMarkdownResult(md, { brandSpec, schema, keepPlaceholders = false } = {}) {
   const warnings = [];
   const warn = (slide, message, severity = 'warn') =>
     warnings.push({ check: 'content', severity, message, ...(slide ? { slide } : {}) });
@@ -455,6 +459,7 @@ export function parseMarkdownResult(md, { brandSpec, schema } = {}) {
 
   // placeholders: a block whose placeholder cannot be resolved is dropped (never left as literal braces)
   const resolveBlock = (id, block) => {
+    if (keepPlaceholders) return block;
     const missing = [];
     const value = resolveDeep(block, brandSpec, missing);
     if (missing.length) {
@@ -555,7 +560,7 @@ export function parseMarkdownResult(md, { brandSpec, schema } = {}) {
     if (v2 && r.front) {
       const { keys } = readFront(r.front, (m, s) => warn(id, m, s));
       for (const [k, v] of Object.entries(keys)) {
-        if (typeof v !== 'string') {
+        if (typeof v !== 'string' || keepPlaceholders) {
           frontKeys[k] = v;
           continue;
         }
@@ -616,6 +621,58 @@ export function parseMarkdownResult(md, { brandSpec, schema } = {}) {
     );
   }
   return { content, warnings };
+}
+
+const SLIDE_TEXT_KEYS = ['label', 'title', 'subtitle', 'number', 'background', 'cta', 'notes'];
+
+/**
+ * A content document's `{brand.*}` placeholders resolved for one brand, as the Markdown reader resolves them: a slide
+ * key whose placeholder cannot be resolved is dropped, a block with one is dropped (never left as literal braces),
+ * each with a content warning. Returns {content, warnings, blockIndex: {[slideId]: [original index of each kept
+ * block]}} - `blockIndex` only for slides that lost a block (remapSourcePaths turns the deck's pointers back).
+ */
+export function resolveContentPlaceholders(doc, brandSpec) {
+  const warnings = [];
+  const blockIndex = {};
+  const slides = (doc?.slides ?? []).map((slide, i) => {
+    const id = slide.id ?? `s${i + 1}`;
+    const out = { ...slide };
+    for (const k of SLIDE_TEXT_KEYS) {
+      if (typeof slide[k] !== 'string' || !slide[k].includes('{brand.')) continue;
+      const missing = [];
+      const v = resolveDeep(slide[k], brandSpec, missing);
+      if (missing.length) {
+        delete out[k];
+        warnings.push({
+          check: 'content',
+          severity: 'warn',
+          slide: id,
+          message: `slide key "${k}" dropped: unresolvable placeholder ${[...new Set(missing)].join(', ')}`,
+        });
+      } else out[k] = v;
+    }
+    const kept = [];
+    const blocks = [];
+    (slide.blocks ?? []).forEach((b, j) => {
+      const missing = [];
+      const v = resolveDeep(b, brandSpec, missing);
+      if (missing.length) {
+        warnings.push({
+          check: 'content',
+          severity: 'warn',
+          slide: id,
+          message: `${b?.type} block dropped: unresolvable placeholder ${[...new Set(missing)].join(', ')}`,
+        });
+        return;
+      }
+      kept.push(j);
+      blocks.push(v);
+    });
+    out.blocks = blocks;
+    if (kept.length !== (slide.blocks ?? []).length) blockIndex[id] = kept;
+    return out;
+  });
+  return { content: { ...doc, slides }, warnings, blockIndex };
 }
 
 /**

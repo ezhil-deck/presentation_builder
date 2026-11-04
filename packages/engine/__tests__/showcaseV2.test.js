@@ -21,15 +21,24 @@ const ALL = readdirSync(join(ROOT, 'golden/expected'))
   .sort()
   .map((id) => ({ id, mood: read(id, 'mood.json'), brandSpec: read(id, 'brand-spec.json') }));
 const byId = Object.fromEntries(ALL.map((b) => [b.id, b]));
-const compose = (content, b) =>
-  composeDeck({ content, mood: b.mood, brandSpec: b.brandSpec, catalogue, engineVersion: '0.0.0' });
+const compose = (content, b, options) =>
+  composeDeck({
+    content,
+    mood: b.mood,
+    brandSpec: b.brandSpec,
+    catalogue,
+    engineVersion: '0.0.0',
+    ...(options ? { options } : {}),
+  });
+/** The 68 layouts only (C4's opt-out): the S2 plan below and the 68's own rules. */
+const OFF = { catalogue: false };
 const deckOf = (slides) => ({
   schema: 'content/2',
   slides: [{ id: 'cover', title: 'Cover', blocks: [] }, ...slides],
 });
 const hasTagline = (b) => typeof b.brandSpec.tagline === 'string' && b.brandSpec.tagline !== '';
 
-/** The layout each slide takes (the same on every golden Mood). */
+/** The layout each slide takes on the 68 layouts (`catalogue: false`; the same on every golden Mood). */
 const LAYOUTS = [
   'cover',
   'agenda-rows',
@@ -70,6 +79,42 @@ const LAYOUTS = [
   'cards',
   'cta',
 ];
+
+/**
+ * C4 (docs/PLAN-catalogue.md §3): the layout each slide takes by default (the same on every golden Mood) - the
+ * catalogue first (9 exact families, 6 same combinations), the 68 for the 23 slides no plan draws (cover, section,
+ * cta, agenda, shaped processes, main + aside, KPI hero, quotes, team, logos, image, tiers, a chart of 4, a table of 5).
+ */
+const LAYOUTS_C4 = LAYOUTS.map(
+  (id, i) =>
+    ({
+      3: 'cat-l31-7',
+      8: 'cat-l24-12',
+      9: 'cat-l24-13',
+      10: 'cat-l23-6',
+      11: 'cat-l27-8',
+      13: 'cat-l36-11',
+      14: 'cat-l25-18',
+      16: 'cat-l26-2',
+      17: 'cat-l26-3',
+      18: 'cat-l26-2',
+      19: 'cat-l8-61',
+      22: 'cat-l29-5',
+      27: 'cat-l32-7',
+      28: 'cat-l22-7',
+      36: 'cat-l24-9',
+    })[i] ?? id,
+);
+
+/**
+ * C4: overflow the default (catalogue) compose shows on a snapshot Mood only - golden/expected/<id>/mood.json has no
+ * advance widths (withoutWidths), so the fitter measures every glyph at the face's avgCharWidth; built from the brand
+ * folder (the face's own widths: `pb build`, the golden decks) the showcase has 0 overflow on every brand. Listed so
+ * that any other one fails.
+ */
+const SNAPSHOT_OVERFLOW = {
+  cisco: ['s15 overflow text overflows its 421.33×63.37 frame at 19.89px (role bodySmall, fit.min 19.89)'],
+};
 
 /** Every text of the document with its design range (BLOCKS / SLIDE_FIELDS): [where, text, {minChars?, maxChars}]. */
 function rangedTexts(content) {
@@ -165,17 +210,24 @@ describe.each(ALL.map((b) => [b.id, b]))('showcase v2 on the golden Mood %s', (_
   });
 
   it('composes to a schema-valid deck: 0 overflow, no content / binding / capacity warning', () => {
-    expect(validateDeck(deck)).toEqual([]);
     const msg = (w) => `${w.slide} ${w.check} ${w.message}`;
-    expect(warnings.filter((w) => w.check === 'overflow').map(msg)).toEqual([]);
-    expect(warnings.filter((w) => w.check === 'content').map(msg)).toEqual([]);
-    expect(
-      warnings.filter((w) => ['binding', 'capacity'].includes(w.check) && w.severity !== 'info').map(msg),
-    ).toEqual([]);
+    const off = compose(parsed.content, b, OFF);
+    for (const [r, overflow] of [
+      [{ deck, warnings }, SNAPSHOT_OVERFLOW[_id] ?? []],
+      [off, []],
+    ]) {
+      expect(validateDeck(r.deck)).toEqual([]);
+      expect(r.warnings.filter((w) => w.check === 'overflow').map(msg)).toEqual(overflow);
+      expect(r.warnings.filter((w) => w.check === 'content').map(msg)).toEqual([]);
+      expect(
+        r.warnings.filter((w) => ['binding', 'capacity'].includes(w.check) && w.severity !== 'info').map(msg),
+      ).toEqual([]);
+    }
   });
 
-  it('picks the layout planned for each slide', () => {
-    expect(deck.slides.map((s) => s.layoutId)).toEqual(LAYOUTS);
+  it('picks the layout planned for each slide: the catalogue first (C4), the 68 with the opt-out', () => {
+    expect(deck.slides.map((s) => s.layoutId)).toEqual(LAYOUTS_C4);
+    expect(compose(parsed.content, b, OFF).deck.slides.map((s) => s.layoutId)).toEqual(LAYOUTS);
   });
 });
 
@@ -269,8 +321,9 @@ describe('S2.b engine rules', () => {
       ],
     };
     let checked = 0;
+    // the 68's KPI row (C4: opted out); the catalogue's KPI flow is checked below
     for (const b of ALL) {
-      const els = compose(deckOf([slide]), b).deck.slides[1].elements;
+      const els = compose(deckOf([slide]), b, OFF).deck.slides[1].elements;
       const marks = els.filter((e) => e.id.endsWith('-trend'));
       for (const m of marks) {
         const k = m.id.replace(/-trend$/, '');
@@ -283,6 +336,23 @@ describe('S2.b engine rules', () => {
       }
     }
     expect(checked).toBeGreaterThan(0);
+    // C4: on the catalogue layout (any arrangement: row, column, grid) no mark overlaps another KPI's text
+    const overlaps = (a, c) => a.x < c.x + c.w && c.x < a.x + a.w && a.y < c.y + c.h && c.y < a.y + a.h;
+    let marks = 0;
+    for (const b of ALL) {
+      const s = compose(deckOf([slide]), b).deck.slides[1];
+      expect(s.layoutId.startsWith('cat-')).toBe(true);
+      for (const m of s.elements.filter((e) => e.id.endsWith('-trend'))) {
+        marks += 1;
+        const own = `${m.id.replace(/-trend$/, '')}-`;
+        const hit = s.elements.filter(
+          (e) =>
+            /-kpis-\d+-(value|label|body)$/.test(e.id) && !e.id.startsWith(own) && overlaps(m.frame, e.frame),
+        );
+        expect([m.id, hit.map((e) => e.id)]).toEqual([m.id, []]);
+      }
+    }
+    expect(marks).toBeGreaterThan(0);
   });
 
   it('text on a content/2 card reads on the card fill, also on an accent surface (bosch logo cards)', () => {
